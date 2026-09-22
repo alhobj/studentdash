@@ -18,6 +18,14 @@ SCHEMA = {
     'Grade boundaries': ('Grade', 'Percent'),
 }
 STATUSES = {'graded', 'missing', 'absent', 'exempt', 'pending'}
+OPTIONAL_SCHEMA = {
+    'RevisionAttempts': ('AttemptID', 'StudentID', 'AssessmentID', 'QuestionID', 'Date', 'Score', 'Note'),
+    'Memberships': ('AssessmentID', 'StudentID', 'Level'),
+    'QuestionResults': ('AssessmentID', 'QuestionID', 'StudentID', 'Score', 'Status'),
+    'AssessmentBoundaries': ('AssessmentID', 'Grade', 'Percent'),
+    'Resources': ('ResourceID', 'Topic', 'Title', 'Content'),
+    'ExitTickets': ('TicketID', 'StudentID', 'AssessmentID', 'Date', 'Prompt', 'Response', 'Feedback'),
+}
 
 
 class WorkbookError(ValueError):
@@ -56,7 +64,7 @@ def _required(value, location):
 def read_workbook(path: Path) -> WorkbookData:
     path = Path(path)
     if not path.is_file():
-        raise WorkbookError(f'Workbook not found: {path}. Place it at data/master.xlsx or set STUDENTDASH_WORKBOOK.')
+        raise WorkbookError(f'Workbook not found: {path}. Run python create_example_workbook.py or set STUDENTDASH_WORKBOOK.')
     formulas = cached = None
     try:
         formulas = load_workbook(path, read_only=True, data_only=False)
@@ -80,7 +88,8 @@ def _read(formulas, cached):
     data = WorkbookData()
     tables = {}
     used_formulas = False
-    for name, required in SCHEMA.items():
+    schema = {**SCHEMA, **{k: v for k, v in OPTIONAL_SCHEMA.items() if k in formulas.sheetnames}}
+    for name, required in schema.items():
         source_rows = iter(formulas[name].iter_rows())
         value_rows = iter(cached[name].iter_rows())
         header_cells = next(source_rows)
@@ -182,9 +191,9 @@ def _read(formulas, cached):
         if (status == 'graded') != (score is not None):
             raise WorkbookError(f'{loc}: graded results require a Score; non-graded results require a blank Score.')
         assessment = data.assessments[aid]
-        if maximum != assessment.marks:
+        if maximum != assessment.marks and 'Memberships' not in tables:
             data.warnings.append(f'{loc}: MaxScore {maximum:g} differs from Assessments.Marks {assessment.marks:g}; using Results.MaxScore provisionally.')
-        if data.students[sid].class_name != assessment.subject:
+        if 'Memberships' not in tables and data.students[sid].class_name != assessment.subject:
             data.warnings.append(f'{loc}: student Class differs from assessment Subject; confirm assessment membership.')
         data.results.append(Result(aid, sid, score, maximum, status))
     for n, r in tables['Grade boundaries']:
@@ -206,7 +215,8 @@ def _read(formulas, cached):
         questions = [q for q in data.questions.values() if q.assessment_id == aid]
         if sum(q.marks or 0 for q in questions) != assessment.marks:
             data.warnings.append(f'Assessment {aid}: populated question marks do not match assessment Marks.')
-    data.warnings.append('Question-level results are not linked by IDs. Legacy matrices and Overview are not imported; see README for the inspected discrepancies.')
-    if 'QuestionResults' in formulas.sheetnames:
-        data.warnings.append('QuestionResults exists but is not imported in milestone 1. Question drill-down remains fictional.')
+    from .question_data import read_extensions
+    read_extensions(data, tables)
+    if 'QuestionResults' not in tables:
+        data.warnings.append('QuestionResults is absent. Question drill-down is unavailable unless demonstration examples are enabled.')
     return data

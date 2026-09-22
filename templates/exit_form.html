@@ -1,0 +1,6 @@
+{% extends 'exit_base.html' %}{% from 'exit_questions.html' import questions %}{% block content %}
+<h1>{{ ticket.title }}</h1><p>{{ ticket.subject }} / {{ ticket.topic }} / {{ ticket.subtopic }}</p><p>Answer every question. You can submit once; your first submission is retained.</p>
+{% if error %}<p class="notice error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" class="card editor-form" id="ticket-form"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ ticket.version }}">{{ questions(ticket, values) }}<button type="submit" id="submit-ticket">Submit exit ticket</button></form>
+<script>document.getElementById('ticket-form').addEventListener('submit', () => { const button = document.getElementById('submit-ticket'); button.disabled = true; button.textContent = 'Submitting…'; });</script>
+{% endblock %}

@@ -48,6 +48,34 @@ class GradeBoundary:
     percent: float
 
 
+@dataclass(frozen=True)
+class QuestionResult:
+    assessment_id: str
+    question_id: str
+    student_id: str
+    score: float | None
+    status: str
+
+
+@dataclass(frozen=True)
+class Resource:
+    id: str
+    topic: str
+    title: str
+    content: str
+
+
+@dataclass(frozen=True)
+class ExitTicket:
+    id: str
+    student_id: str
+    assessment_id: str
+    date: str
+    prompt: str
+    response: str
+    feedback: str
+
+
 @dataclass
 class WorkbookData:
     students: dict[str, Student] = field(default_factory=dict)
@@ -56,3 +84,10 @@ class WorkbookData:
     results: list[Result] = field(default_factory=list)
     boundaries: list[GradeBoundary] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    question_results: list[QuestionResult] = field(default_factory=list)
+    memberships: dict[tuple[str, str], str] = field(default_factory=dict)
+    assessment_boundaries: dict[str, list[GradeBoundary]] = field(default_factory=dict)
+    resources: list[Resource] = field(default_factory=list)
+    exit_tickets: list[ExitTicket] = field(default_factory=list)
+    has_question_tables: bool = False
+    revision_attempts: list[dict] = field(default_factory=list)

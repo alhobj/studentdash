@@ -1,0 +1,12 @@
+{% extends 'exit_base.html' %}{% block content %}
+<h1>{{ 'Edit exit ticket' if ticket else 'Create exit ticket' }}</h1>
+{% if error %}<p class="notice error" role="alert">{{ error }}</p>{% endif %}
+{% if ticket and (ticket.submitted or ticket.status == 'published') %}<p class="notice">This definition cannot be edited while published, or after any submission. Unpublish an unused ticket, or create a new ticket for a revised activity.</p>{% endif %}
+<form method="post" action="{{ url_for('exit_tickets.edit_ticket', ticket_id=ticket.id) if ticket else url_for('exit_tickets.import_ticket') }}" class="card editor-form"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">{% if ticket %}<input type="hidden" name="version" value="{{ ticket.version }}">{% endif %}
+<label>Paste the whole JSON block <textarea name="source" rows="20" maxlength="64000" required spellcheck="false" placeholder='{"title":"My exit ticket", "subject":"Chemistry", ...}'>{{ raw }}</textarea></label>
+<p class="muted">Import validates the block and saves a draft. Nothing becomes available to students until you publish. Edit this block to change wording, options, marks or marking rules. Keep the generated question IDs when editing.</p>
+<label>Assign to students or classes <select name="audience" multiple size="8"><option value="all" {% if 'all' in audience %}selected{% endif %}>All current fictional students</option><optgroup label="Classes">{% for class in classes %}<option value="class:{{ class }}" {% if 'class:' + class in audience %}selected{% endif %}>{{ class }}</option>{% endfor %}</optgroup><optgroup label="Individual students">{% for sid, learner in students.items() %}<option value="student:{{ sid }}" {% if 'student:' + sid in audience %}selected{% endif %}>{{ learner.name }} · {{ sid }}</option>{% endfor %}</optgroup></select></label>
+<p class="muted">Select one or more entries (Ctrl/Cmd-click for multiple). Class assignments are resolved to the current students when the draft is saved. The preview lists the exact recipients.</p>
+<button type="submit">{{ 'Save Draft & Preview' if ticket else 'Import & Preview' }}</button></form>
+<p>Supported types: multiple_choice, multiple_select, true_false, number, short_answer and text. Use the reusable prompt and exact schema in <code>docs/EXIT_TICKETS.md</code>.</p>
+{% endblock %}

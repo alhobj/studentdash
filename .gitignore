@@ -11,3 +11,5 @@ data/
 *.csv
 *.zip
 *.bundle
+*.sqlite3
+*.sqlite3-*

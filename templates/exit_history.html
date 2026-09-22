@@ -1,0 +1,6 @@
+{% extends 'exit_base.html' %}{% block content %}
+<p class="notice" role="status"><strong>Submission saved.</strong> Your answers are stored. Refreshing this page will not submit again.</p><h1>{{ result.title }}</h1><p>Submitted {{ result.date }}</p>
+{% if result.pending %}<p class="notice">{{ result.pending }} responses awaiting teacher review. {{ '%g'|format(result.score) }} marks awarded so far; the total is not final.</p>{% else %}<p class="hint"><strong>{{ '%g'|format(result.score) }} / {{ '%g'|format(result.maximum) }} · {{ '%.1f'|format(result.percent) }}%</strong> · Exit-ticket evidence</p>{% endif %}
+{% for row in result.answers %}<section class="card"><h2>{{ loop.index }}. {{ row.question.question }}</h2><p><strong>Your answer:</strong> {{ row.answer }}</p><p><strong>Marks:</strong> {{ '%g'|format(row.score) if row.score is not none else 'Awaiting review' }} / {{ '%g'|format(row.question.marks) }}</p>{% if row.feedback %}<p><strong>Teacher feedback:</strong> {{ row.feedback }}</p>{% endif %}{% if row.correct_answer is defined %}<p><strong>Accepted answer:</strong> {{ row.correct_answer }}</p>{% endif %}</section>{% endfor %}
+{% if not result.allow_answer_review %}<p class="muted">The teacher has not enabled correct-answer review for this ticket.</p>{% endif %}
+{% endblock %}

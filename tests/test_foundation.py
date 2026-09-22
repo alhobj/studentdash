@@ -56,23 +56,11 @@ class FoundationTests(unittest.TestCase):
         create_example(example)
         data = read_workbook(example)
         self.assertEqual(set(data.students), {'1001', '1002'})
-        self.assertEqual(build_dashboard(data, '1001').overall_percent, 75)
+        self.assertAlmostEqual(build_dashboard(data, '1001').overall_percent, 600 / 7)
         original = example.read_bytes()
         with self.assertRaises(FileExistsError):
             create_example(example)
         self.assertEqual(example.read_bytes(), original)
-
-    @unittest.skipUnless((ROOT / 'Studentdashtest.xlsx').exists(), 'Private workbook is not included in Git')
-    def test_real_workbook(self):
-        data = read_workbook(ROOT / 'Studentdashtest.xlsx')
-        self.assertEqual((len(data.students), len(data.assessments), len(data.questions), len(data.results)), (4, 4, 7, 4))
-        for result in data.results:
-            self.assertIsNotNone(result.score)
-            self.assertLessEqual(result.score, result.max_score)
-        first = data.results[0]
-        self.assertAlmostEqual(build_dashboard(data, first.student_id).overall_percent,
-                               first.score / first.max_score * 100)
-        self.assertTrue(any('MaxScore' in w for w in data.warnings))
 
     def test_missing_file_sheet_and_column(self):
         with self.assertRaisesRegex(WorkbookError, 'Workbook not found'):

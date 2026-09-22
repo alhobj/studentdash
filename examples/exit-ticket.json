@@ -1,0 +1,15 @@
+{
+  "title": "Fictional ionic bonding check",
+  "subject": "Chemistry",
+  "topic": "Atomic structure",
+  "subtopic": "Particles",
+  "allow_answer_review": false,
+  "questions": [
+    {"id": "magnesium", "type": "multiple_choice", "question": "Which ion does magnesium usually form?", "options": ["Mg+", "Mg2+", "Mg3+", "Mg-"], "answer": "Mg2+", "marks": 1, "action_verb": "State"},
+    {"id": "ions", "type": "multiple_select", "question": "Select the negatively charged ions.", "options": ["Na+", "Cl-", "O2-", "Mg2+"], "answer": ["Cl-", "O2-"], "marks": 1, "action_verb": "Identify"},
+    {"id": "electron", "type": "true_false", "question": "An electron has a negative charge.", "answer": true, "marks": 1, "action_verb": "State"},
+    {"id": "oxide", "type": "number", "question": "What is the charge of an oxide ion? Enter a number, without units.", "answer": -2, "tolerance": 0, "marks": 1, "action_verb": "State"},
+    {"id": "positive", "type": "short_answer", "question": "Give the term for a positively charged ion.", "accepted_answers": ["cation"], "case_sensitive": false, "marks": 1, "action_verb": "State"},
+    {"id": "explain", "type": "text", "question": "Explain why magnesium oxide has a high melting point.", "marks": 2, "action_verb": "Explain", "manual_marking": true}
+  ]
+}

@@ -1,0 +1,6 @@
+{% extends 'exit_base.html' %}{% block content %}
+<h1>{{ ticket.title }} · {{ sid }}</h1><p><a href="{{ url_for('exit_tickets.ticket_results', ticket_id=ticket.id) }}">Back to results</a></p><p>Submitted {{ response.date }} · {{ response.pending }} responses awaiting review</p>
+{% for row in response.answers %}<section class="card"><h2>{{ loop.index }}. {{ row.question.question }}</h2><p><strong>Student answer:</strong> {{ row.answer }}</p>
+{% if row.automatic %}<p class="tag">Automatically marked: {{ '%g'|format(row.score) }}/{{ '%g'|format(row.question.marks) }}</p>
+{% else %}<p class="tag">{{ 'Reviewed' if row.reviewed else 'Needs manual review' }}</p><form method="post" class="editor-form"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="question_id" value="{{ row.question.id }}"><input type="hidden" name="version" value="{{ row.version }}"><label>Awarded marks (0–{{ '%g'|format(row.question.marks) }}) <input type="number" name="score" min="0" max="{{ row.question.marks }}" step="any" value="{{ row.score if row.score is not none else '' }}" required></label><label>Feedback visible to this student <textarea name="feedback" maxlength="2000" rows="3">{{ row.feedback }}</textarea></label><button type="submit">Save marks & feedback</button></form>{% endif %}</section>{% endfor %}
+{% endblock %}
