@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>student1001 &middot; Learning progress</title><style>
+.editor-form .ticket-question .choice input{width:auto;padding:0;flex-shrink:0}.ticket-question legend{max-width:100%}
+.button-link{display:inline-block;padding:12px 20px;background:#136d67;color:white;border-radius:10px;text-decoration:none}.ticket-question{min-width:0;border:1px solid #dbe5e7;border-radius:12px;padding:20px;margin:10px 0}.ticket-question legend{font-weight:700;padding:0 8px;overflow-wrap:anywhere}.ticket-question .choice{display:flex;align-items:baseline;gap:12px;padding:10px 0}.editor-form .choice input{width:auto;flex-shrink:0}.simulation-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.simulation-grid small{display:block}button:disabled{opacity:.65;cursor:wait}
+.editor-form{display:grid;gap:16px}.editor-form label{display:grid;gap:6px}.editor-form textarea,.editor-form input:not([type=hidden]){width:100%;padding:12px;border:1px solid #516672;border-radius:8px;font:inherit;color:inherit;background:white}.editor-form button{justify-self:start}textarea:focus-visible{outline:3px solid #d58b24;outline-offset:4px}.draft-banner{border:3px solid #bb7b19}
+.filter-form{display:flex;flex-wrap:wrap;gap:16px;align-items:end}.filter-form label{display:grid;gap:6px;max-width:100%}.revision-task{display:flex;align-items:baseline;gap:12px}.revision-task input{width:18px;height:18px;accent-color:#136d67;flex-shrink:0}.revision-task:has(input:checked) strong{text-decoration:line-through}input:focus-visible{outline:3px solid #d58b24;outline-offset:4px}@media print{.no-print,#assessment-filter{display:none!important}details::details-content{content-visibility:visible}details{break-inside:avoid}}
+[hidden]{display:none!important}select{max-width:100%;padding:10px;border:1px solid #516672;border-radius:8px;background:white;color:#172e3a;font:inherit}select:focus-visible{outline:3px solid #d58b24;outline-offset:4px}
+:root{color-scheme:light;--ink:#172e3a;--muted:#516672;--line:#dbe5e7;--paper:#fff;--teal:#136d67;--bg:#f2f6f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1120px;margin:auto;padding:40px 24px 64px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;letter-spacing:-.04em;margin-bottom:14px}h2{font-size:1.25rem;letter-spacing:-.02em}h3{font-size:1rem}a{color:var(--teal);text-underline-offset:3px}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #d58b24;outline-offset:4px}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;font-weight:750;color:var(--teal);margin-bottom:14px}.muted{color:var(--muted)}.topline{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:34px}.tag{display:inline-block;padding:5px 12px;border-radius:20px;background:#dfefea;color:#125f58;font-size:.8rem;font-weight:650}.hero{background:var(--ink);color:#fff;border-radius:22px;padding:32px;margin-bottom:24px}.hero .eyebrow,.hero .muted{color:#c0e4db}.hero p{max-width:720px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}.stat{padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}.stat strong{display:block;font-size:2rem;line-height:1.25;letter-spacing:-.03em}.stat span{font-size:.85rem;color:var(--muted)}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:22px}.notice{background:#fff6e5;border-left:4px solid #bb7b19;padding:16px 20px;border-radius:8px;font-size:.9rem;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.grid>.card{margin-bottom:0}.section{margin-top:34px}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;font-size:.92rem}th{color:var(--muted);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}td,th{padding:14px 10px;border-bottom:1px solid var(--line);vertical-align:top}td:first-child,th:first-child{padding-left:0}progress{width:100%;height:10px;accent-color:var(--teal);border:0;border-radius:10px;overflow:hidden;background:#e2ebeb}progress::-webkit-progress-bar{background:#e2ebeb}progress::-webkit-progress-value{background:var(--teal)}progress::-moz-progress-bar{background:var(--teal)}details{border-top:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:650}summary .muted{float:right;font-weight:400;font-size:.85rem}.question{padding:14px 0;border-bottom:1px solid var(--line)}.question p{margin:4px 0}.question small{color:var(--muted)}.hint{padding:18px;background:#f1f7f5;border-radius:12px}.empty{padding:18px;background:#f5f8f8;border-radius:12px;color:var(--muted)}button{border:0;border-radius:10px;padding:13px 20px;background:var(--teal);color:white;font:inherit;font-weight:650;cursor:pointer}.footer{font-size:.8rem;color:var(--muted);margin-top:32px}code{overflow-wrap:anywhere}ul{padding-left:22px}.error{background:#fff0ee;border-color:#c24434}.preview-list{display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0}.preview-list a{display:block;padding:10px 16px;border:1px solid var(--line);border-radius:10px}nav{display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem}
+@media(max-width:650px){main{padding:24px 16px 40px}.hero,.card{padding:22px}.stats{grid-template-columns:1fr;gap:10px}.stat{display:flex;justify-content:space-between;align-items:center;gap:12px}.stat strong{font-size:1.7rem}.grid{grid-template-columns:1fr}.topline{align-items:flex-start;flex-direction:column}summary .muted{float:none;display:block}td,th{padding:12px 8px}}
+@media print{body{background:white}main{padding:0}.hero{background:white;color:var(--ink);border:1px solid var(--line)}.hero .eyebrow,.hero .muted{color:var(--muted)}.card,.stat{break-inside:avoid}nav{display:none}}
+</style><style>
+html{scroll-behavior:smooth}body{font-size:16px}main{max-width:1180px}
+.card,.stat{box-shadow:0 6px 24px #172e3a05}.card{padding:30px}
+h2{font-size:1.4rem}h3{font-size:1.06rem}.hero{padding:48px}
+.hero h1{font-size:clamp(2.6rem,5vw,4.3rem)}
+summary{min-height:36px}button,select{min-height:44px}
+:focus-visible{outline:3px solid #a75a00;outline-offset:4px}
+@media(max-width:700px){main{padding:20px 16px}.hero,.card{padding:24px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;gap:16px}summary .muted{float:none;display:block}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    :root{--ink:#342b26;--muted:#6b5b50;--teal:#8a4226;--bg:#faf7f0;--line:#e3d9ca;--paper:#fffdf8}
+    main{max-width:880px}h1,h2,h3{font-family:Georgia,serif}h1{letter-spacing:-.035em}
+    .hero{background:transparent;color:var(--ink);padding:28px 0;border-radius:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+    .hero .eyebrow,.hero .muted{color:var(--muted)}.card{border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
+    .grid{grid-template-columns:1fr}.stat{border-radius:0;background:transparent;border:0;border-left:2px solid #a85c38}
+    .tag{background:#eee3d3;color:#75442d}.notice{background:#f1e9da}.question{padding:20px 0}
+    @media print{body{background:white;color:#172e3a}main{margin:0!important;padding:0!important;max-width:none}.topline{position:static!important;width:auto!important;background:white!important;color:#172e3a!important;padding:0!important;display:flex!important}.hero,.card,.stat,.notice,.empty{background:white!important;color:#172e3a!important;box-shadow:none}.hero .muted,.hero .eyebrow,.muted,.stat span,.stat strong,.question small,th,.footer{color:#374957!important}.assessment-view{display:block!important}.assessment-view[hidden]{display:none!important}}</style></head>
+<body><main>
+<div class="topline"><strong>IB / Learning journal</strong><span class="tag">student1001</span></div>
+<header class="hero"><p class="eyebrow">Your learning, in focus</p><h1>Small steps.<br>Visible progress.</h1><p class="muted">Explore your assessments, question feedback and next steps.</p></header>
+<p class="notice">Learning snapshot &middot; Suggested grades are not official final grades. Assessment totals are retained separately from question feedback.</p>
+<p class="no-print"><button type="button" id="print-snapshot" hidden>Print this view</button></p>
+<div class="card" id="assessment-filter" hidden><label for="assessment">Show assessment</label> <select id="assessment"><option value="all">All assessments</option><option value="assessment-A1">Example atomic structure assessment</option><option value="assessment-A2">Example stoichiometry assessment</option><option value="assessment-A3">Example follow-up assessment</option></select></div>
+<section class="assessment-view" data-assessment="all" >
+<div class="stats"><div class="stat"><strong>85.7%</strong><span>Recorded performance</span></div><div class="stat"><strong>2</strong><span>Graded assessments</span></div><div class="stat"><strong>6 / 7</strong><span>Recorded marks</span></div></div>
+<section class="card"><h2>Assessment history</h2><p class="muted">Performance combines earned and possible marks across graded assessments. Each assessment uses its own grade boundaries when configured.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Assessment</th><th scope="col">Marks</th><th scope="col">Performance</th><th scope="col">Suggested grade</th></tr></thead><tbody>
+<tr><td><strong>Example atomic structure assessment</strong><br><small>2026-09-20 &middot; graded</small></td><td>3 / 4</td><td>75.0%</td><td>6 / 7</td></tr><tr><td><strong>Example stoichiometry assessment</strong><br><small>2026-09-21 &middot; graded</small></td><td>3 / 3</td><td>100.0%</td><td>7 / 7</td></tr><tr><td><strong>Example follow-up assessment</strong><br><small>2026-09-22 &middot; pending</small></td><td>- / 2</td><td>Not graded</td><td>-</td></tr></tbody></table></div></section>
+<section class="section"><p class="eyebrow">Question explorer</p><h2>See what contributes to a category</h2>
+<p class="muted">Only graded questions count towards category percentages. Zero is a score; absent, exempt, missing and pending questions are excluded. Category evidence may be incomplete and may differ from assessment totals.</p><div class="grid"><section class="card"><h3>Topics</h3>
+<details><summary>Atomic structure <span class="muted">75% &middot; 2 graded questions</span></summary>
+<p>3 / 4 marks</p>
+<progress max="100" value="75.0" aria-label="Atomic structure performance">75.0%</progress>
+<div class="question"><strong>1 &middot; 2/2</strong><p>State the charge of an electron.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; State</small></div><div class="question"><strong>2 &middot; 1/2</strong><p>Explain why atoms are neutral.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; Explain</small></div></details><details><summary>Stoichiometry <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>3 / 3 marks</p>
+<progress max="100" value="100.0" aria-label="Stoichiometry performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 3/3</strong><p>Explain the meaning of amount of substance.</p><small>Example stoichiometry assessment &middot; Stoichiometry / Amount of substance &middot; Explain</small></div></details></section>
+<section class="card"><h3>Command terms</h3>
+<details><summary>State <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>2 / 2 marks</p>
+<progress max="100" value="100.0" aria-label="State performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 2/2</strong><p>State the charge of an electron.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; State</small></div></details><details><summary>Explain <span class="muted">80% &middot; 2 graded questions</span></summary>
+<p>4 / 5 marks</p>
+<progress max="100" value="80.0" aria-label="Explain performance">80.0%</progress>
+<div class="question"><strong>2 &middot; 1/2</strong><p>Explain why atoms are neutral.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; Explain</small></div><div class="question"><strong>1 &middot; 3/3</strong><p>Explain the meaning of amount of substance.</p><small>Example stoichiometry assessment &middot; Stoichiometry / Amount of substance &middot; Explain</small></div></details></section>
+</div><div class="section"><section class="card"><h3>Subtopics</h3>
+<details><summary>Particles <span class="muted">75% &middot; 2 graded questions</span></summary>
+<p>3 / 4 marks</p>
+<progress max="100" value="75.0" aria-label="Particles performance">75.0%</progress>
+<div class="question"><strong>1 &middot; 2/2</strong><p>State the charge of an electron.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; State</small></div><div class="question"><strong>2 &middot; 1/2</strong><p>Explain why atoms are neutral.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; Explain</small></div></details><details><summary>Amount of substance <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>3 / 3 marks</p>
+<progress max="100" value="100.0" aria-label="Amount of substance performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 3/3</strong><p>Explain the meaning of amount of substance.</p><small>Example stoichiometry assessment &middot; Stoichiometry / Amount of substance &middot; Explain</small></div></details></section>
+</div>
+<section class="card"><h3>Question records</h3><div class="question"><strong>Example atomic structure assessment &middot; 1 &middot; graded</strong><p>State the charge of an electron.</p><small>2/2 &middot; Atomic structure / Particles &middot; State</small></div><div class="question"><strong>Example atomic structure assessment &middot; 2 &middot; graded</strong><p>Explain why atoms are neutral.</p><small>1/2 &middot; Atomic structure / Particles &middot; Explain</small></div><div class="question"><strong>Example stoichiometry assessment &middot; 1 &middot; graded</strong><p>Explain the meaning of amount of substance.</p><small>3/3 &middot; Stoichiometry / Amount of substance &middot; Explain</small></div><div class="question"><strong>Example stoichiometry assessment &middot; 2 &middot; exempt</strong><p>Calculate the amount in 36 g of water.</p><small>-/3 &middot; Stoichiometry / Amount of substance &middot; Calculate</small></div><div class="question"><strong>Example follow-up assessment &middot; 1 &middot; pending</strong><p>Explain how an ion differs from an atom.</p><small>-/2 &middot; Atomic structure / Particles &middot; Explain</small></div></section></section>
+<section class="section"><p class="eyebrow">Next steps</p><h2>Turn feedback into a plan</h2><div class="grid"><section class="card"><h3>Command-term strengths</h3><p>Explain</p><p class="muted">At least two graded questions and 75% of available marks. A learning hint, not a diagnosis.</p></section><section class="card"><h3>Command terms to practise</h3><p>No work-on hint supported yet</p><p class="muted">At least two graded questions and fewer than 50% of available marks.</p></section></div>
+<section class="card section"><h3>Your revision plan</h3><p class="muted">Up to three graded questions with the most marks to recover in this view. Retry each without notes, then check your reasoning with your teacher. These are practice suggestions, not a judgement about a whole topic.</p>
+<article class="question"><label class="revision-task"><input type="checkbox" data-task="bc0af9e8e1d1251c273cf3f4"><strong>Retry Example atomic structure assessment &middot; 2</strong></label><p>Explain why atoms are neutral.</p><small>1/2 marks &middot; Atomic structure</small><details><summary>Revision help: Particles revision card</summary><p>Fictional lesson resource: list the charge and relative mass of protons, neutrons and electrons. Then explain why a neutral atom has no overall charge.</p></details></article><p class="muted no-print checklist-storage">Check off questions after practising. Without browser storage, checks last only while this page is open.</p></section>
+<section class="card section"><h3>Topic resources & practice</h3><article class="question"><h4>Particles revision card</h4><small>Atomic structure</small><p>Fictional lesson resource: list the charge and relative mass of protons, neutrons and electrons. Then explain why a neutral atom has no overall charge.</p></article><article class="question"><h4>Amount of substance practice</h4><small>Stoichiometry</small><p>Fictional lesson resource: practise n = m / M. Write the units at each step and explain what one mole represents.</p></article></section>
+<section class="card"><h3>Exit-ticket history</h3><article class="question"><strong>2026-09-20 &middot; Example atomic structure assessment</strong><p>What would you revisit?</p><p><strong>Your reflection:</strong> I want to practise explaining charge balance.</p><p><strong>Teacher feedback:</strong> Use the particles revision card and write a two-sentence explanation.</p></article></section></section>
+<section class="card"><h2>Revision-attempt history</h2><p class="muted">Compare each attempt with the original marks recorded when the attempt was added. These attempts do not change your assessment totals or grades.</p><p class="empty">No revision attempts recorded for this view.</p></section>
+</section><section class="assessment-view" data-assessment="assessment-A1" hidden>
+<div class="stats"><div class="stat"><strong>75.0%</strong><span>Recorded performance</span></div><div class="stat"><strong>1</strong><span>Graded assessments</span></div><div class="stat"><strong>3 / 4</strong><span>Recorded marks</span></div></div>
+<section class="card"><h2>Assessment history</h2><p class="muted">Performance combines earned and possible marks across graded assessments. Each assessment uses its own grade boundaries when configured.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Assessment</th><th scope="col">Marks</th><th scope="col">Performance</th><th scope="col">Suggested grade</th></tr></thead><tbody>
+<tr><td><strong>Example atomic structure assessment</strong><br><small>2026-09-20 &middot; graded</small></td><td>3 / 4</td><td>75.0%</td><td>6 / 7</td></tr></tbody></table></div></section>
+<section class="section"><p class="eyebrow">Question explorer</p><h2>See what contributes to a category</h2>
+<p class="muted">Only graded questions count towards category percentages. Zero is a score; absent, exempt, missing and pending questions are excluded. Category evidence may be incomplete and may differ from assessment totals.</p><div class="grid"><section class="card"><h3>Topics</h3>
+<details><summary>Atomic structure <span class="muted">75% &middot; 2 graded questions</span></summary>
+<p>3 / 4 marks</p>
+<progress max="100" value="75.0" aria-label="Atomic structure performance">75.0%</progress>
+<div class="question"><strong>1 &middot; 2/2</strong><p>State the charge of an electron.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; State</small></div><div class="question"><strong>2 &middot; 1/2</strong><p>Explain why atoms are neutral.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; Explain</small></div></details></section>
+<section class="card"><h3>Command terms</h3>
+<details><summary>State <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>2 / 2 marks</p>
+<progress max="100" value="100.0" aria-label="State performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 2/2</strong><p>State the charge of an electron.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; State</small></div></details><details><summary>Explain <span class="muted">50% &middot; 1 graded questions</span></summary>
+<p>1 / 2 marks</p>
+<progress max="100" value="50.0" aria-label="Explain performance">50.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>2 &middot; 1/2</strong><p>Explain why atoms are neutral.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; Explain</small></div></details></section>
+</div><div class="section"><section class="card"><h3>Subtopics</h3>
+<details><summary>Particles <span class="muted">75% &middot; 2 graded questions</span></summary>
+<p>3 / 4 marks</p>
+<progress max="100" value="75.0" aria-label="Particles performance">75.0%</progress>
+<div class="question"><strong>1 &middot; 2/2</strong><p>State the charge of an electron.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; State</small></div><div class="question"><strong>2 &middot; 1/2</strong><p>Explain why atoms are neutral.</p><small>Example atomic structure assessment &middot; Atomic structure / Particles &middot; Explain</small></div></details></section>
+</div>
+<section class="card"><h3>Question records</h3><div class="question"><strong>Example atomic structure assessment &middot; 1 &middot; graded</strong><p>State the charge of an electron.</p><small>2/2 &middot; Atomic structure / Particles &middot; State</small></div><div class="question"><strong>Example atomic structure assessment &middot; 2 &middot; graded</strong><p>Explain why atoms are neutral.</p><small>1/2 &middot; Atomic structure / Particles &middot; Explain</small></div></section></section>
+<section class="section"><p class="eyebrow">Next steps</p><h2>Turn feedback into a plan</h2><div class="grid"><section class="card"><h3>Command-term strengths</h3><p>Not enough supporting evidence yet</p><p class="muted">At least two graded questions and 75% of available marks. A learning hint, not a diagnosis.</p></section><section class="card"><h3>Command terms to practise</h3><p>No work-on hint supported yet</p><p class="muted">At least two graded questions and fewer than 50% of available marks.</p></section></div>
+<section class="card section"><h3>Your revision plan</h3><p class="muted">Up to three graded questions with the most marks to recover in this view. Retry each without notes, then check your reasoning with your teacher. These are practice suggestions, not a judgement about a whole topic.</p>
+<article class="question"><label class="revision-task"><input type="checkbox" data-task="bc0af9e8e1d1251c273cf3f4"><strong>Retry Example atomic structure assessment &middot; 2</strong></label><p>Explain why atoms are neutral.</p><small>1/2 marks &middot; Atomic structure</small><details><summary>Revision help: Particles revision card</summary><p>Fictional lesson resource: list the charge and relative mass of protons, neutrons and electrons. Then explain why a neutral atom has no overall charge.</p></details></article><p class="muted no-print checklist-storage">Check off questions after practising. Without browser storage, checks last only while this page is open.</p></section>
+<section class="card section"><h3>Topic resources & practice</h3><article class="question"><h4>Particles revision card</h4><small>Atomic structure</small><p>Fictional lesson resource: list the charge and relative mass of protons, neutrons and electrons. Then explain why a neutral atom has no overall charge.</p></article></section>
+<section class="card"><h3>Exit-ticket history</h3><article class="question"><strong>2026-09-20 &middot; Example atomic structure assessment</strong><p>What would you revisit?</p><p><strong>Your reflection:</strong> I want to practise explaining charge balance.</p><p><strong>Teacher feedback:</strong> Use the particles revision card and write a two-sentence explanation.</p></article></section></section>
+<section class="card"><h2>Revision-attempt history</h2><p class="muted">Compare each attempt with the original marks recorded when the attempt was added. These attempts do not change your assessment totals or grades.</p><p class="empty">No revision attempts recorded for this view.</p></section>
+</section><section class="assessment-view" data-assessment="assessment-A2" hidden>
+<div class="stats"><div class="stat"><strong>100.0%</strong><span>Recorded performance</span></div><div class="stat"><strong>1</strong><span>Graded assessments</span></div><div class="stat"><strong>3 / 3</strong><span>Recorded marks</span></div></div>
+<section class="card"><h2>Assessment history</h2><p class="muted">Performance combines earned and possible marks across graded assessments. Each assessment uses its own grade boundaries when configured.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Assessment</th><th scope="col">Marks</th><th scope="col">Performance</th><th scope="col">Suggested grade</th></tr></thead><tbody>
+<tr><td><strong>Example stoichiometry assessment</strong><br><small>2026-09-21 &middot; graded</small></td><td>3 / 3</td><td>100.0%</td><td>7 / 7</td></tr></tbody></table></div></section>
+<section class="section"><p class="eyebrow">Question explorer</p><h2>See what contributes to a category</h2>
+<p class="muted">Only graded questions count towards category percentages. Zero is a score; absent, exempt, missing and pending questions are excluded. Category evidence may be incomplete and may differ from assessment totals.</p><div class="grid"><section class="card"><h3>Topics</h3>
+<details><summary>Stoichiometry <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>3 / 3 marks</p>
+<progress max="100" value="100.0" aria-label="Stoichiometry performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 3/3</strong><p>Explain the meaning of amount of substance.</p><small>Example stoichiometry assessment &middot; Stoichiometry / Amount of substance &middot; Explain</small></div></details></section>
+<section class="card"><h3>Command terms</h3>
+<details><summary>Explain <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>3 / 3 marks</p>
+<progress max="100" value="100.0" aria-label="Explain performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 3/3</strong><p>Explain the meaning of amount of substance.</p><small>Example stoichiometry assessment &middot; Stoichiometry / Amount of substance &middot; Explain</small></div></details></section>
+</div><div class="section"><section class="card"><h3>Subtopics</h3>
+<details><summary>Amount of substance <span class="muted">100% &middot; 1 graded questions</span></summary>
+<p>3 / 3 marks</p>
+<progress max="100" value="100.0" aria-label="Amount of substance performance">100.0%</progress>
+<p class="muted">Not enough evidence for a strength or work-on judgement: at least two graded questions are needed.</p><div class="question"><strong>1 &middot; 3/3</strong><p>Explain the meaning of amount of substance.</p><small>Example stoichiometry assessment &middot; Stoichiometry / Amount of substance &middot; Explain</small></div></details></section>
+</div>
+<section class="card"><h3>Question records</h3><div class="question"><strong>Example stoichiometry assessment &middot; 1 &middot; graded</strong><p>Explain the meaning of amount of substance.</p><small>3/3 &middot; Stoichiometry / Amount of substance &middot; Explain</small></div><div class="question"><strong>Example stoichiometry assessment &middot; 2 &middot; exempt</strong><p>Calculate the amount in 36 g of water.</p><small>-/3 &middot; Stoichiometry / Amount of substance &middot; Calculate</small></div></section></section>
+<section class="section"><p class="eyebrow">Next steps</p><h2>Turn feedback into a plan</h2><div class="grid"><section class="card"><h3>Command-term strengths</h3><p>Not enough supporting evidence yet</p><p class="muted">At least two graded questions and 75% of available marks. A learning hint, not a diagnosis.</p></section><section class="card"><h3>Command terms to practise</h3><p>No work-on hint supported yet</p><p class="muted">At least two graded questions and fewer than 50% of available marks.</p></section></div>
+<section class="card section"><h3>Your revision plan</h3><p class="muted">Up to three graded questions with the most marks to recover in this view. Retry each without notes, then check your reasoning with your teacher. These are practice suggestions, not a judgement about a whole topic.</p>
+<p class="empty">No graded questions with lost marks in this view. Ungraded work does not create revision tasks.</p><p class="muted no-print checklist-storage">Check off questions after practising. Without browser storage, checks last only while this page is open.</p></section>
+<section class="card section"><h3>Topic resources & practice</h3><article class="question"><h4>Amount of substance practice</h4><small>Stoichiometry</small><p>Fictional lesson resource: practise n = m / M. Write the units at each step and explain what one mole represents.</p></article></section>
+<section class="card"><h3>Exit-ticket history</h3><p class="empty">No exit tickets recorded for this view.</p></section></section>
+<section class="card"><h2>Revision-attempt history</h2><p class="muted">Compare each attempt with the original marks recorded when the attempt was added. These attempts do not change your assessment totals or grades.</p><p class="empty">No revision attempts recorded for this view.</p></section>
+</section><section class="assessment-view" data-assessment="assessment-A3" hidden>
+<div class="stats"><div class="stat"><strong>-</strong><span>Recorded performance</span></div><div class="stat"><strong>0</strong><span>Graded assessments</span></div><div class="stat"><strong>0 / 0</strong><span>Recorded marks</span></div></div>
+<section class="card"><h2>Assessment history</h2><p class="muted">Performance combines earned and possible marks across graded assessments. Each assessment uses its own grade boundaries when configured.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Assessment</th><th scope="col">Marks</th><th scope="col">Performance</th><th scope="col">Suggested grade</th></tr></thead><tbody>
+<tr><td><strong>Example follow-up assessment</strong><br><small>2026-09-22 &middot; pending</small></td><td>- / 2</td><td>Not graded</td><td>-</td></tr></tbody></table></div></section>
+<section class="section"><p class="eyebrow">Question explorer</p><h2>See what contributes to a category</h2>
+<p class="muted">Only graded questions count towards category percentages. Zero is a score; absent, exempt, missing and pending questions are excluded. Category evidence may be incomplete and may differ from assessment totals.</p><div class="grid"><section class="card"><h3>Topics</h3>
+<p class="empty">No graded question evidence yet.</p></section>
+<section class="card"><h3>Command terms</h3>
+<p class="empty">No graded question evidence yet.</p></section>
+</div><div class="section"><section class="card"><h3>Subtopics</h3>
+<p class="empty">No graded question evidence yet.</p></section>
+</div>
+<section class="card"><h3>Question records</h3><div class="question"><strong>Example follow-up assessment &middot; 1 &middot; pending</strong><p>Explain how an ion differs from an atom.</p><small>-/2 &middot; Atomic structure / Particles &middot; Explain</small></div></section></section>
+<section class="section"><p class="eyebrow">Next steps</p><h2>Turn feedback into a plan</h2><div class="grid"><section class="card"><h3>Command-term strengths</h3><p>Not enough supporting evidence yet</p><p class="muted">At least two graded questions and 75% of available marks. A learning hint, not a diagnosis.</p></section><section class="card"><h3>Command terms to practise</h3><p>No work-on hint supported yet</p><p class="muted">At least two graded questions and fewer than 50% of available marks.</p></section></div>
+<section class="card section"><h3>Your revision plan</h3><p class="muted">Up to three graded questions with the most marks to recover in this view. Retry each without notes, then check your reasoning with your teacher. These are practice suggestions, not a judgement about a whole topic.</p>
+<p class="empty">No graded questions with lost marks in this view. Ungraded work does not create revision tasks.</p><p class="muted no-print checklist-storage">Check off questions after practising. Without browser storage, checks last only while this page is open.</p></section>
+<section class="card section"><h3>Topic resources & practice</h3><article class="question"><h4>Particles revision card</h4><small>Atomic structure</small><p>Fictional lesson resource: list the charge and relative mass of protons, neutrons and electrons. Then explain why a neutral atom has no overall charge.</p></article></section>
+<section class="card"><h3>Exit-ticket history</h3><p class="empty">No exit tickets recorded for this view.</p></section></section>
+<section class="card"><h2>Revision-attempt history</h2><p class="muted">Compare each attempt with the original marks recorded when the attempt was added. These attempts do not change your assessment totals or grades.</p><p class="empty">No revision attempts recorded for this view.</p></section>
+</section><footer class="footer">student1001 &middot; Generated 2026-09-22 22:03 UTC &middot; Works offline. The bundled workbook contains fictional learners and results.</footer>
+</main>
+<script type="text/javascript">
+const filter = document.getElementById('assessment-filter');
+const printButton = document.getElementById('print-snapshot');
+printButton.hidden = false;
+printButton.addEventListener('click', () => window.print());
+if (filter) {
+  filter.hidden = false;
+  document.getElementById('assessment').addEventListener('change', event => {
+    document.querySelectorAll('.assessment-view').forEach(section => {
+      section.hidden = section.dataset.assessment !== event.target.value;
+    });
+  });
+}
+let canSave = false;
+try {
+  localStorage.setItem('studentdash:storage-test', '1');
+  localStorage.removeItem('studentdash:storage-test');
+  canSave = true;
+} catch (_) { /* Offline file storage may be unavailable. The checklist still works. */ }
+const checklist = [...document.querySelectorAll('[data-task]')];
+const storageMessage = () => document.querySelectorAll('.checklist-storage').forEach(note => {
+  note.textContent = canSave ? 'Checks are saved in this browser on this device. They are not sent to your teacher and do not change grades.' : 'Checks last while this page is open. Browser storage is unavailable; they are not sent to your teacher.';
+});
+checklist.forEach(box => {
+  const key = 'studentdash:revision:' + box.dataset.task;
+  if (canSave) {
+    try { box.checked = localStorage.getItem(key) === 'done'; } catch (_) { canSave = false; }
+  }
+  box.addEventListener('change', () => {
+    checklist.filter(other => other.dataset.task === box.dataset.task).forEach(other => { other.checked = box.checked; });
+    if (canSave) {
+      try { if (box.checked) localStorage.setItem(key, 'done'); else localStorage.removeItem(key); }
+      catch (_) { canSave = false; storageMessage(); }
+    }
+  });
+});
+storageMessage();
+</script></body></html>

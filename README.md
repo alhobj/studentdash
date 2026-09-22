@@ -12,6 +12,11 @@ teacher review. Use its reusable ChatGPT prompt and `examples/exit-ticket.json`.
 Read the [complete system and classroom-use guide](docs/SYSTEM_GUIDE.md) for the data
 model, feedback workflow, revision history, operating instructions and readiness checklist.
 
+For colleagues, use the [one-page teacher overview](docs/TEACHER_OVERVIEW.md).
+Open the [five-design gallery](examples/layouts/index.html) locally to compare
+student dashboard layouts with identical fictional content. Rebuild these offline
+previews with `python build_layout_previews.py`.
+
 ## Run the fictional demo
 
 Python 3.10 or newer is required. In PowerShell:

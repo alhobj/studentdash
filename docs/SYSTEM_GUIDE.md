@@ -1,5 +1,9 @@
 # Studentdash: system guide and route to classroom use
 
+For a one-page introduction to share with a colleague, read
+[Studentdash for teachers](TEACHER_OVERVIEW.md). Compare five working student
+dashboard designs in the [layout gallery](../examples/layouts/index.html).
+
 ## 1. What the system does
 
 Studentdash turns assessment records into individual learning dashboards. The teacher
