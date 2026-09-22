@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.xlsx
+output/
+.env
+.env.*
+data/
+*.xlsm
+*.xls
+*.csv
+*.zip
+*.bundle

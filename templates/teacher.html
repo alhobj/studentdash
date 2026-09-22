@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teacher workspace · IB progress</title>{% include 'style.html' %}</head>
+<body><main>
+  <div class="topline"><strong>IB / Teacher workspace</strong><span class="tag">Local · private prototype</span></div>
+  <header class="hero"><p class="eyebrow">Assessment & progress</p><h1>A clearer view<br>of learning.</h1><p class="muted">Check your workbook, generate student snapshots and preview the individual pages.</p></header>
+  {% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
+  {% if error %}<div class="notice error" role="alert"><strong>Workbook / generation error</strong><p>{{ error }}</p></div>{% endif %}
+  <section class="card"><h2>Workbook status</h2><p><code>{{ workbook_name }}</code></p>
+  {% if data %}<span class="tag">Loaded · review data-quality notes</span>{% else %}<p>Unable to load workbook. Correct the error above and reload.</p>{% endif %}
+  <p class="muted">Expected default: data/master.xlsx. If absent, the supplied Studentdashtest.xlsx is used. Excel formulas must be recalculated and saved in Excel.</p></section>
+  {% if data %}
+  <div class="stats"><div class="stat"><strong>{{ data.students|length }}</strong><span>Students</span></div><div class="stat"><strong>{{ data.assessments|length }}</strong><span>Assessments</span></div><div class="stat"><strong>{{ data.results|length }}</strong><span>Assessment results</span></div></div>
+  <section class="card"><h2>Generate student dashboards</h2><p>Each file contains one student’s recorded results and separately labelled fictional question examples. Generation replaces existing snapshots.</p><form method="post" action="{{ url_for('generate') }}"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><button type="submit">Generate student dashboards</button></form></section>
+  <section class="card"><h2>Local previews</h2><p class="muted">Teacher-only list. Give each student only their own file. Previews reflect the last generation.</p>{% if names %}<ul class="preview-list">{% for name in names %}<li><a href="{{ url_for('preview', filename=name) }}">{{ name }}</a></li>{% endfor %}</ul>{% else %}<p class="empty">Generate dashboards to see previews here.</p>{% endif %}</section>
+  <section class="card"><h2>Data-quality notes</h2><p class="muted">These notes remain in the teacher workspace. See README.md for the full workbook audit and recommended changes.</p><ul>{% for warning in data.warnings %}<li>{{ warning }}</li>{% endfor %}</ul></section>
+  {% endif %}
+  <footer class="footer">Local foundation only · no exit-ticket submissions or Microsoft integration.</footer>
+</main></body></html>

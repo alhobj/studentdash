@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>{{ student.anonymous_id }} · Learning progress</title>
+  {% include 'style.html' %}
+</head>
+<body><main>
+  <div class="topline"><strong>IB / Learning journal</strong><span class="tag">{{ student.anonymous_id }}</span></div>
+  <header class="hero">
+    <p class="eyebrow">Your learning, in focus</p>
+    <h1>Small steps.<br>Visible progress.</h1>
+    <p class="muted">Explore your recorded assessments and see how question-level feedback will help guide your next steps.</p>
+  </header>
+  <nav aria-label="Page sections"><a href="#history">Assessment history</a><a href="#practice">Question explorer</a><a href="#next">Next steps</a></nav>
+  <div class="notice"><strong>Foundation preview · provisional results.</strong> These totals use the workbook’s saved values. Assessment maximums and SL/HL assignments still need teacher review. Suggested grades are not official final grades.</div>
+  <section class="stats" aria-label="Recorded assessment summary">
+    <div class="stat"><strong>{{ '%.1f%%'|format(student.overall_percent) if student.overall_percent is not none else '—' }}</strong><span>Overall recorded performance</span></div>
+    <div class="stat"><strong>{{ student.graded_count }}</strong><span>Graded assessments</span></div>
+    <div class="stat"><strong>{{ '%g'|format(student.total_score) }} / {{ '%g'|format(student.total_possible) }}</strong><span>Recorded marks</span></div>
+  </section>
+  <section class="card" id="history">
+    <h2>Assessment history</h2>
+    <p class="muted">Overall performance combines earned marks and possible marks across graded assessments.</p>
+    {% if student.history %}
+    <div class="table-wrap"><table>
+      <thead><tr><th scope="col">Assessment</th><th scope="col">Marks</th><th scope="col">Performance</th><th scope="col">Suggested grade</th></tr></thead>
+      <tbody>{% for item in student.history %}<tr>
+        <td><strong>{{ item.name }}</strong><br><span class="muted">{{ item.date }} · {{ item.status }}</span></td>
+        <td>{{ '%g'|format(item.score) if item.score is not none else '—' }} / {{ '%g'|format(item.maximum) }}</td>
+        <td>{% if item.percent is not none %}{{ '%.1f'|format(item.percent) }}%<progress max="100" value="{{ item.percent }}" aria-label="{{ item.name }} performance">{{ '%.1f'|format(item.percent) }}%</progress>{% else %}Not graded{% endif %}</td>
+        <td><strong>{{ item.grade if item.grade is not none else '—' }}</strong>{% if item.grade is not none %} / 7{% endif %}</td>
+      </tr>{% endfor %}</tbody>
+    </table></div>
+    {% else %}<p class="empty">No assessment results recorded yet.</p>{% endif %}
+  </section>
+  {% macro groups(title, items) %}
+  <section class="card"><h3>{{ title }}</h3>
+    {% for category in items %}<details>
+      <summary>{{ category.name }} <span class="muted">{{ '%.0f'|format(category.percent) }}% · {{ category.questions|length }} example questions</span></summary>
+      <p>{{ '%g'|format(category.score) }} / {{ '%g'|format(category.maximum) }} example marks</p>
+      <progress max="100" value="{{ category.percent }}" aria-label="Example {{ category.name }} performance">{{ category.percent }}%</progress>
+      {% for question in category.questions %}<div class="question"><strong>{{ question.number }} · {{ '%g'|format(question.score) }}/{{ '%g'|format(question.marks) }}</strong><p>{{ question.text }}</p><small>{{ question.topic }} / {{ question.subtopic }} · {{ question.verb }}</small></div>{% endfor %}
+    </details>{% endfor %}
+  </section>
+  {% endmacro %}
+  <section class="section" id="practice">
+    <p class="eyebrow">Question explorer</p><h2>See what contributes to a category</h2>
+    {% if student.practice %}
+    <div class="notice"><strong>Fictional practice example — not your results.</strong> Every question and score below is illustrative. None contributes to your assessment totals or grades. Click a category to inspect its questions.</div>
+    <div class="grid">{{ groups('Example topics', student.topics) }}{{ groups('Example command terms', student.verbs) }}</div>
+    <div class="section">{{ groups('Example subtopics', student.subtopics) }}</div>
+    <section class="card"><h3>All example questions</h3>{% for question in student.practice %}<div class="question"><strong>{{ question.number }} · {{ question.verb }} · {{ '%g'|format(question.score) }}/{{ '%g'|format(question.marks) }}</strong><p>{{ question.text }}</p><small>{{ question.topic }} / {{ question.subtopic }}</small></div>{% endfor %}</section>
+    {% else %}<p class="empty">Question-level feedback will appear once question results are linked reliably to student IDs. Examples are disabled in this export.</p>{% endif %}
+  </section>
+  <section class="section" id="next"><p class="eyebrow">Next steps</p><h2>Turn feedback into a plan</h2>
+    {% if student.practice %}<div class="grid">
+      <div class="card"><h3>Example strength</h3><p class="hint">{{ student.strengths|join(', ') or 'Not enough evidence yet' }}</p><p class="muted">Illustrative: at least two practice questions and 75% of available marks.</p></div>
+      <div class="card"><h3>Example area to work on</h3><p class="hint">{{ student.work_on|join(', ') or 'Not enough evidence yet' }}</p><p class="muted">Illustrative: at least two practice questions and fewer than 50% of available marks.</p></div>
+    </div>{% endif %}
+    <div class="grid section"><section class="card"><h3>Exit tickets</h3><p class="empty">No exit-ticket history is connected yet.</p></section><section class="card"><h3>Class resources & quizzes</h3><p class="empty">Your teacher’s resource links will appear here when configured.</p></section></div>
+  </section>
+  <footer class="footer">Private learning snapshot · {{ student.anonymous_id }} · Foundation prototype. This page works offline.</footer>
+</main></body></html>
