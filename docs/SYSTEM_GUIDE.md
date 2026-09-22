@@ -1,7 +1,7 @@
 # Studentdash: system guide and route to classroom use
 
 For a one-page introduction to share with a colleague, read
-[Studentdash for teachers](TEACHER_OVERVIEW.md). Compare five working student
+[Studentdash for teachers](TEACHER_OVERVIEW.md). Compare ten working student
 dashboard designs in the [layout gallery](../examples/layouts/index.html).
 
 ## 1. What the system does
@@ -233,6 +233,11 @@ only explicit rules and keys; written explanations need teacher review. Correct
 answers are hidden by default, and released after submission only when that policy
 was explicitly enabled on the ticket. See `EXIT_TICKETS.md` for the full contract.
 
+Interactive exit tickets now support [audited corrections, linked retakes and
+answer-release policies](FOLLOW_UP.md). These controls preserve original answers;
+retake results stay separate from original topic aggregates. The milestone
+[TODO](../TODO.md) lists suggested next work.
+
 ## 7. Recording and interpreting revision attempts
 
 The feedback editor also offers **Record a revision attempt**. Choose an originally
@@ -398,7 +403,7 @@ with school IT rather than treating the current local server as a ready-made por
 
 Warnings do not prevent a teacher from generating pages; publication is not blocked
 automatically on unresolved summary disagreements. Attempt correction controls,
-publication audit history, course migration tooling and single-click backups are not
+formal-feedback publication audit history, course migration tooling and single-click backups are not
 implemented. The prototype does not calculate official final grades or assess whether
 its simple learning hints are pedagogically valid. These should be addressed according
 to the intended pilot scope before expanding use.

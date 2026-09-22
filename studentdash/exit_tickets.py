@@ -20,7 +20,7 @@ def score_view(ticket, submission, reveal=False):
         awarded = a['teacher_score'] if a['teacher_score'] is not None else a['auto_score']
         row = dict(question=public_question(q), answer=a['value'], score=awarded, feedback=a['feedback'],
                    reviewed=a['teacher_score'] is not None, automatic=a['auto_score'] is not None,
-                   version=a['version'])
+                   version=a['version'], automatic_score=a['auto_score'])
         if reveal:
             if 'answer' in q:
                 row['correct_answer'] = q['answer']
@@ -31,7 +31,7 @@ def score_view(ticket, submission, reveal=False):
     score = sum(row['score'] or 0 for row in rows)
     maximum = sum(q['marks'] for q in ticket['questions'])
     return dict(ticket_id=ticket['id'], title=ticket['title'], topic=ticket['topic'], subtopic=ticket['subtopic'],
-                date=submission['submitted_at'], answers=rows, score=score, maximum=maximum, pending=pending,
+                retake_of=ticket.get('retake_of'), date=submission['submitted_at'], answers=rows, score=score, maximum=maximum, pending=pending,
                 percent=100 * score / maximum if not pending else None, allow_answer_review=bool(reveal))
 
 
@@ -67,7 +67,13 @@ class TicketService:
         submission = self.repo.submission(ticket_id, sid)
         if not submission:
             raise KeyError('Submission not found')
-        return score_view(ticket, submission, bool(ticket['allow_answer_review']))
+        return self.student_result(ticket, submission)
+
+    def student_result(self, ticket, submission):
+        mode = ticket['release_mode']
+        complete = all(a['teacher_score'] is not None or a['auto_score'] is not None for a in submission['answers'])
+        reveal = mode == 'immediate' or (mode == 'marked' and complete) or (mode == 'closed' and ticket['status'] == 'unpublished')
+        return score_view(ticket, submission, reveal)
 
     def student_home(self, sid):
         available, completed = [], []
@@ -76,7 +82,7 @@ class TicketService:
                 continue
             submission = self.repo.submission(ticket['id'], sid)
             if submission:
-                completed.append(score_view(ticket, submission, bool(ticket['allow_answer_review'])))
+                completed.append(self.student_result(ticket, submission))
             elif ticket['status'] == 'published':
                 available.append({k: ticket[k] for k in ('id', 'title', 'subject', 'topic', 'subtopic')})
         return available, completed
@@ -101,7 +107,7 @@ class TicketService:
 def progress_rows(data, sid, completed):
     groups = {}
     for result in completed:
-        if result['pending']:
+        if result['pending'] or result.get('retake_of'):
             continue
         key = result['topic'], result['subtopic']
         group = groups.setdefault(key, dict(topic=key[0], subtopic=key[1], score=0, maximum=0, count=0))

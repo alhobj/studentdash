@@ -1,7 +1,7 @@
 # Student dashboard design options
 
 Open `index.html` in a browser to compare Studio, Editorial, Campus, Night and
-Focus. Each folder contains a standalone `student1001.html` with identical
+Focus, plus Signal, Observatory, Fieldnotes, Bauhaus and Tidal. Each folder contains a standalone `student1001.html` with identical
 fictional content and working assessment filtering, question details, revision
 checklists and printing. No server or internet connection is required.
 
@@ -16,6 +16,6 @@ Rebuild from the project root with:
 ```
 
 The builder creates a fresh fictional fixture and renders the learner once before
-applying five styles. It does not read the configured course workbook or workspace.
+applying ten styles. It does not read the configured course workbook or workspace.
 Generated dates change on rebuild. Browser checklist state may be shared between
 these previews because they represent the same learner and tasks.

@@ -13,9 +13,12 @@ Read the [complete system and classroom-use guide](docs/SYSTEM_GUIDE.md) for the
 model, feedback workflow, revision history, operating instructions and readiness checklist.
 
 For colleagues, use the [one-page teacher overview](docs/TEACHER_OVERVIEW.md).
-Open the [five-design gallery](examples/layouts/index.html) locally to compare
+Open the [ten-design gallery](examples/layouts/index.html) locally to compare
 student dashboard layouts with identical fictional content. Rebuild these offline
 previews with `python build_layout_previews.py`.
+
+Exit tickets also support [audited corrections, linked retakes and answer-release
+controls](docs/FOLLOW_UP.md). See [TODO](TODO.md) for suggested next milestones.
 
 ## Run the fictional demo
 

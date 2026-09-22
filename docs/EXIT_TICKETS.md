@@ -5,6 +5,9 @@ submit as a fictional student, mark automatically where configured, review writt
 answers, and view separate exit-ticket evidence. It does not use an LLM to mark
 responses and does not connect to Microsoft services.
 
+The [follow-up guide](FOLLOW_UP.md) covers audited corrections, linked retakes and
+answer-release controls. Suggested next work is in [TODO](../TODO.md).
+
 ## Launch and try it
 
 From the project directory:
@@ -211,7 +214,7 @@ or the question's expected answer is pedagogically correct.
   for the same assigned students who have not already submitted.
 - One submission per student per ticket is enforced by a database uniqueness constraint
   and a transaction. Retrying a submitted request returns the existing submission;
-  it never replaces stored answers. There are no retakes or reset controls yet.
+  it never replaces stored answers. Retakes use separate linked tickets; there is no reset control.
 - Edit/publication versions reject stale forms. A ticket changed while the form was
   open must be reopened before its first submission.
 
@@ -226,7 +229,7 @@ as zero to produce a provisional total percentage.
 Teachers can award partial marks and a comment explicitly labelled student-visible.
 An unreviewed answer has no teacher score; a reviewed zero is a real zero. Review
 versions prevent one tab from silently overwriting another. Automatically awarded
-marks cannot be overridden in this milestone.
+marks can be overridden with a teacher reason and preserved audit history.
 
 The local student dashboard shows available and completed tickets. Its history contains
 only the current student's answers, scores and teacher feedback. Automatic marks can
@@ -234,7 +237,7 @@ appear immediately, but a final total and progress contribution require all ques
 to be marked. Correct-answer review is disabled by default and only included in the
 post-submission view when explicitly enabled for the ticket.
 
-Progress aggregates fully marked exit tickets by exact topic/subtopic, using earned
+Progress aggregates fully marked original exit tickets by exact topic/subtopic, using earned
 marks divided by available marks. It shows the corresponding graded formal-question
 percentage separately. No combined mastery score, final-grade adjustment or automatic
 replacement of formal assessment records is performed.
@@ -254,6 +257,9 @@ The existing paired SQLite workspace gains these additive tables:
 | `et_questions` | Stable question ID within a ticket, ordering and validated definition, including marking key |
 | `et_assignments` | Explicit ticket/student pairs |
 | `et_submissions` | Submission ID, ticket/student pair, submitted timestamp; unique per ticket/student |
+| `et_release` | Teacher-selected answer-release mode; overrides the import flag |
+| `et_retakes` | Retake-to-parent link and learner; one direct retake per parent/learner |
+| `et_audit` | Teacher-only before/after records, reasons and timestamps |
 | `et_answers` | Submitted value, separate automatic and teacher scores, public feedback, review timestamp and review version |
 
 All values use parameterized SQL. Foreign keys are enabled in the ticket adapter.
@@ -296,14 +302,10 @@ from student routes. All mutation forms use CSRF tokens and workbook/free-text v
 are escaped. These controls exercise the intended boundary inside the simulation;
 they are not a claim that the simulation is a secure student portal.
 
-## Decisions to settle next
+## Next milestones
 
-Decide whether to allow retakes; when correct answers should be released (immediately,
-after marking, or after closure); whether to offer partial multiple-select credit;
-how teacher corrections and automatic-score overrides should be audited; whether
-assignments can change after submissions; and whether each question needs its own
-topic/subtopic. Evidence weighting remains deliberately undecided.
-
-Recommended next milestone: test this local workflow with realistic fictional
-classroom scenarios, then add agreed retake/correction and answer-release policies
-with an audit history. Microsoft integration remains a separate, later milestone.
+Corrections, linked retakes and answer-release controls are implemented; see
+[FOLLOW_UP.md](FOLLOW_UP.md) for their rules and rehearsal steps. Next priorities
+include choosing the student design, comparing original/retake evidence, consistent
+backup/restore and a marking queue. See the ordered [TODO](../TODO.md).
+Microsoft integration remains a separate, later milestone.

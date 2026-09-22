@@ -19,12 +19,17 @@ summary{min-height:36px}button,select{min-height:44px}
 @media(max-width:700px){main{padding:20px 16px}.hero,.card{padding:24px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;gap:16px}summary .muted{float:none;display:block}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-    :root{--ink:#342b26;--muted:#6b5b50;--teal:#8a4226;--bg:#faf7f0;--line:#e3d9ca;--paper:#fffdf8}
-    main{max-width:880px}h1,h2,h3{font-family:Georgia,serif}h1{letter-spacing:-.035em}
-    .hero{background:transparent;color:var(--ink);padding:28px 0;border-radius:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
-    .hero .eyebrow,.hero .muted{color:var(--muted)}.card{border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
-    .grid{grid-template-columns:1fr}.stat{border-radius:0;background:transparent;border:0;border-left:2px solid #a85c38}
-    .tag{background:#eee3d3;color:#75442d}.notice{background:#f1e9da}.question{padding:20px 0}
+    :root{color-scheme:dark;--ink:#eaf5ff;--muted:#b7c9dc;--teal:#8ee8ea;--bg:#091a2c;--line:#36536e;--paper:#122c43}
+    body{background-image:radial-gradient(circle at 80% 0,#183c58 0,transparent 45%),radial-gradient(#456179 .6px,transparent .6px);background-size:auto,28px 28px}
+    main{max-width:1160px}.topline{font-family:Consolas,monospace;letter-spacing:.04em}.tag{background:#193d52;color:#b0f4ed;border:1px solid #517c8c}
+    .hero{position:relative;isolation:isolate;overflow:hidden;background:#102a43;border:1px solid #50758e;border-radius:32px 32px 100px 32px;min-height:360px}
+    .hero:before,.hero:after{content:'';position:absolute;z-index:-1;width:360px;height:360px;border:1px solid #48798c;border-radius:50%;right:-90px;top:-150px;pointer-events:none}
+    .hero:after{width:480px;height:480px;right:-150px;top:-210px}.hero h1{font-family:Georgia,serif;font-weight:400;letter-spacing:-.03em}.hero .eyebrow,.hero .muted{color:#c4edf0}
+    .card{background:linear-gradient(135deg,#17324a,#12293e);border-radius:18px}.stat{background:#10283c;border-top:3px solid #8ee8ea}.stat strong{color:#a4efef;font-family:Consolas,monospace}
+    .notice{background:#263c4c;border-color:#92cfd6}.empty,.hint{background:#203d54;color:#d1e3f2}button{background:#a4efef;color:#10283c}
+    select{background:#10283c;color:#eaf5ff;border-color:#7290a7}progress,progress::-webkit-progress-bar{background:#355570}:focus-visible{outline-color:#f5cc8c}
+    .section>.eyebrow{padding-left:16px;border-left:3px solid #8ee8ea}
+    @media(max-width:700px){.hero{border-bottom-right-radius:56px;min-height:0}}
     @media print{body{background:white;color:#172e3a}main{margin:0!important;padding:0!important;max-width:none;background:white!important;border:0!important}.topline{position:static!important;width:auto!important;background:white!important;color:#172e3a!important;padding:0!important;display:flex!important}.hero,.card,.stat,.notice,.empty{background:white!important;color:#172e3a!important;box-shadow:none!important}.hero:before,.hero:after{display:none}.hero .muted,.hero .eyebrow,.muted,.stat span,.stat strong,.question small,th,.footer{color:#374957!important}.assessment-view{display:block!important}.assessment-view[hidden]{display:none!important}}</style></head>
 <body><main>
 <div class="topline"><strong>IB / Learning journal</strong><span class="tag">student1001</span></div>

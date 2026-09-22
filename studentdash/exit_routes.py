@@ -113,11 +113,27 @@ def register_exit_routes(app, config):
     def ticket_results(ticket_id):
         return render_template('exit_results.html', result=service.results(ticket_id), students=roster().students)
 
+    @bp.route('/exit-tickets/<ticket_id>/controls', methods=['GET', 'POST'])
+    def ticket_controls(ticket_id):
+        if request.method == 'POST':
+            if request.form.get('action') == 'retake':
+                sid = request.form.get('student_id', '')
+                if sid not in roster().students:
+                    raise TicketError('Select a student in the current workbook.')
+                child = repo.create_retake(ticket_id, sid, version(), request.form.get('reason', ''))
+                return redirect(url_for('exit_tickets.preview_ticket', ticket_id=child), code=303)
+            if request.form.get('action') != 'release':
+                raise TicketError('Unsupported control action.')
+            repo.set_release(ticket_id, version(), request.form.get('mode'), request.form.get('reason', ''))
+            return redirect(url_for('exit_tickets.ticket_controls', ticket_id=ticket_id), code=303)
+        return render_template('exit_controls.html', ticket=repo.get(ticket_id), audit=repo.audit(ticket_id),
+                               submissions=repo.submissions(ticket_id))
+
     @bp.route('/exit-tickets/<ticket_id>/review/<sid>', methods=['GET', 'POST'])
     def review_response(ticket_id, sid):
         if request.method == 'POST':
             repo.review(ticket_id, sid, request.form.get('question_id'), request.form.get('score'),
-                        request.form.get('feedback', ''), version())
+                        request.form.get('feedback', ''), version(), request.form.get('reason', ''))
             return redirect(url_for('exit_tickets.review_response', ticket_id=ticket_id, sid=sid), code=303)
         result = service.results(ticket_id)
         response = next((r for r in result['submissions'] if r['student_id'] == sid), None)

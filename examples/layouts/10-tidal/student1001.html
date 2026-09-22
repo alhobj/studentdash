@@ -19,12 +19,16 @@ summary{min-height:36px}button,select{min-height:44px}
 @media(max-width:700px){main{padding:20px 16px}.hero,.card{padding:24px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;gap:16px}summary .muted{float:none;display:block}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-    :root{--ink:#342b26;--muted:#6b5b50;--teal:#8a4226;--bg:#faf7f0;--line:#e3d9ca;--paper:#fffdf8}
-    main{max-width:880px}h1,h2,h3{font-family:Georgia,serif}h1{letter-spacing:-.035em}
-    .hero{background:transparent;color:var(--ink);padding:28px 0;border-radius:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
-    .hero .eyebrow,.hero .muted{color:var(--muted)}.card{border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
-    .grid{grid-template-columns:1fr}.stat{border-radius:0;background:transparent;border:0;border-left:2px solid #a85c38}
-    .tag{background:#eee3d3;color:#75442d}.notice{background:#f1e9da}.question{padding:20px 0}
+    :root{--ink:#173f43;--muted:#4f6d70;--teal:#21676b;--bg:#edf5f2;--line:#c8ded7;--paper:#ffffff}
+    body{background:radial-gradient(ellipse at 0 0,#c9e6df,transparent 60%),#edf5f2}
+    main{max-width:1100px}.topline{padding:12px 18px;border:1px solid #bdd8d0;border-radius:999px;background:#ffffffa0}
+    .hero{background:#174e54;border-radius:64px 16px 64px 16px;position:relative;overflow:hidden;isolation:isolate;padding:52px}
+    .hero:after{content:'';position:absolute;z-index:-1;right:-70px;bottom:-100px;width:350px;height:220px;border:28px solid #36777b;border-radius:50%;transform:rotate(-20deg);pointer-events:none}
+    .hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(2.5rem,5vw,4.5rem)}.hero .eyebrow,.hero .muted{color:#d2efeb}
+    .card{border-radius:28px 8px 28px 8px;box-shadow:0 12px 28px #1c5f4806;padding:32px}.stat{border-radius:24px;background:#e0efea;border:0}.stat:nth-child(2){background:#eee9db}.stat:nth-child(3){background:#dcecf0}
+    .stat strong{font-family:Georgia,serif;font-size:2.8rem;font-weight:400}.tag{background:#d1e8e1;color:#235a52}.notice{background:#f6efdf;border-color:#967339;border-radius:16px}
+    .section{margin-top:44px}.question{padding:22px 0}.section>.eyebrow{letter-spacing:.2em}
+    @media(max-width:700px){.topline{border-radius:20px}.hero{padding:28px;border-radius:36px 8px 36px 8px}.card{padding:24px}.stat strong{font-size:2rem}}
     @media print{body{background:white;color:#172e3a}main{margin:0!important;padding:0!important;max-width:none;background:white!important;border:0!important}.topline{position:static!important;width:auto!important;background:white!important;color:#172e3a!important;padding:0!important;display:flex!important}.hero,.card,.stat,.notice,.empty{background:white!important;color:#172e3a!important;box-shadow:none!important}.hero:before,.hero:after{display:none}.hero .muted,.hero .eyebrow,.muted,.stat span,.stat strong,.question small,th,.footer{color:#374957!important}.assessment-view{display:block!important}.assessment-view[hidden]{display:none!important}}</style></head>
 <body><main>
 <div class="topline"><strong>IB / Learning journal</strong><span class="tag">student1001</span></div>

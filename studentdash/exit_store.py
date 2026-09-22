@@ -8,6 +8,15 @@ from .exit_schema import TicketError, automatic_score, validate_answers
 
 
 SCHEMA = '''
+CREATE TABLE IF NOT EXISTS et_release (
+ ticket_id TEXT PRIMARY KEY REFERENCES et_tickets(id), mode TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS et_retakes (
+ ticket_id TEXT PRIMARY KEY REFERENCES et_tickets(id), parent_id TEXT NOT NULL REFERENCES et_tickets(id),
+ student_id TEXT NOT NULL, UNIQUE(parent_id,student_id));
+CREATE TABLE IF NOT EXISTS et_audit (
+ id INTEGER PRIMARY KEY AUTOINCREMENT, ticket_id TEXT NOT NULL REFERENCES et_tickets(id),
+ created_at TEXT NOT NULL, action TEXT NOT NULL, student_id TEXT, question_id TEXT,
+ before_json TEXT NOT NULL, after_json TEXT NOT NULL, reason TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS et_tickets (
  id TEXT PRIMARY KEY, title TEXT NOT NULL, subject TEXT NOT NULL, topic TEXT NOT NULL,
  subtopic TEXT NOT NULL, created_at TEXT NOT NULL, published_at TEXT,
@@ -49,6 +58,10 @@ class TicketRepository:
             raise KeyError('Ticket not found')
         ticket = dict(row)
         ticket['allow_answer_review'] = bool(ticket['allow_answer_review'])
+        policy = db.execute('SELECT mode FROM et_release WHERE ticket_id=?', (ticket_id,)).fetchone()
+        ticket['release_mode'] = policy[0] if policy else ('immediate' if ticket['allow_answer_review'] else 'hidden')
+        parent = db.execute('SELECT parent_id FROM et_retakes WHERE ticket_id=?', (ticket_id,)).fetchone()
+        ticket['retake_of'] = parent[0] if parent else None
         ticket['questions'] = [json.loads(q['definition']) for q in db.execute(
             'SELECT definition FROM et_questions WHERE ticket_id=? ORDER BY position', (ticket_id,))]
         ticket['assignments'] = [r[0] for r in db.execute(
@@ -70,6 +83,8 @@ class TicketRepository:
                 current = self._ticket(db, ticket_id)
                 if current['version'] != version:
                     raise TicketError('This ticket changed in another tab. Reload before saving.')
+                if current['retake_of']:
+                    raise TicketError('Retake questions and assignment are fixed. Create a new original ticket for different questions.')
                 if current['status'] == 'published' or current['submitted']:
                     raise TicketError('Unpublish before editing. Tickets with submissions are frozen; create a new ticket instead.')
                 db.execute('DELETE FROM et_questions WHERE ticket_id=?', (ticket_id,))
@@ -99,6 +114,7 @@ class TicketRepository:
                 raise TicketError('This ticket is still a draft.')
             db.execute('UPDATE et_tickets SET status=?, published_at=?, version=version+1 WHERE id=?',
                        (status, now() if status == 'published' else ticket['published_at'], ticket_id))
+            self._audit(db, ticket_id, 'publication', ticket['status'], status, 'Local teacher publication control')
 
     def _submission(self, db, ticket_id, sid):
         row = db.execute('SELECT * FROM et_submissions WHERE ticket_id=? AND student_id=?', (ticket_id, sid)).fetchone()
@@ -138,12 +154,12 @@ class TicketRepository:
                               VALUES (?, ?, ?, ?)''', (submission_id, q['id'], json.dumps(value), automatic_score(q, value)))
             return submission_id
 
-    def review(self, ticket_id, sid, qid, score, feedback, version):
+    def review(self, ticket_id, sid, qid, score, feedback, version, reason=''):
         with self.connection(True) as db:
             ticket = self._ticket(db, ticket_id)
             question = next((q for q in ticket['questions'] if q['id'] == qid), None)
-            if not question or not question['manual_marking']:
-                raise TicketError('Only manually marked questions can be reviewed here.')
+            if not question:
+                raise TicketError('Question not found.')
             try:
                 from math import isfinite
                 score = float(score)
@@ -157,8 +173,62 @@ class TicketRepository:
             submission = self._submission(db, ticket_id, sid)
             if not submission:
                 raise KeyError('Submission not found')
+            previous = next(a for a in submission['answers'] if a['question_id'] == qid)
+            if previous['teacher_score'] is not None or not question['manual_marking']:
+                if not reason.strip():
+                    raise TicketError('Explain the correction or automatic-mark override.')
+            if len(reason) > 1000:
+                raise TicketError('Keep the audit reason within 1,000 characters.')
             result = db.execute('''UPDATE et_answers SET teacher_score=?, feedback=?, reviewed_at=?, version=version+1
                                    WHERE submission_id=? AND question_id=? AND version=?''',
                                 (score, feedback.strip(), now(), submission['id'], qid, version))
             if result.rowcount != 1:
                 raise TicketError('This response was reviewed in another tab. Reload before saving.')
+            self._audit(db, ticket_id, 'review', previous,
+                        dict(teacher_score=score, feedback=feedback.strip()), reason.strip(), sid, qid)
+
+    def _audit(self, db, tid, action, before, after, reason, sid=None, qid=None):
+        db.execute('''INSERT INTO et_audit
+            (ticket_id,created_at,action,student_id,question_id,before_json,after_json,reason)
+            VALUES (?,?,?,?,?,?,?,?)''',
+            (tid, now(), action, sid, qid, json.dumps(before), json.dumps(after), reason))
+
+    def audit(self, tid):
+        with self.connection() as db:
+            self._ticket(db, tid)
+            return [dict(r, before=json.loads(r['before_json']), after=json.loads(r['after_json']))
+                    for r in db.execute('SELECT * FROM et_audit WHERE ticket_id=? ORDER BY id DESC', (tid,))]
+
+    def set_release(self, tid, version, mode, reason):
+        if mode not in {'hidden', 'immediate', 'marked', 'closed'}:
+            raise TicketError('Choose a supported answer-release policy.')
+        if not reason.strip() or len(reason) > 1000:
+            raise TicketError('Give an audit reason of 1 to 1,000 characters.')
+        with self.connection(True) as db:
+            ticket = self._ticket(db, tid)
+            if ticket['version'] != version:
+                raise TicketError('This ticket changed. Reload before changing answer release.')
+            db.execute('INSERT OR REPLACE INTO et_release VALUES (?,?)', (tid, mode))
+            db.execute('UPDATE et_tickets SET version=version+1 WHERE id=?', (tid,))
+            self._audit(db, tid, 'answer release', ticket['release_mode'], mode, reason.strip())
+
+    def create_retake(self, tid, sid, version, reason):
+        if not reason.strip() or len(reason) > 1000:
+            raise TicketError('Give an audit reason of 1 to 1,000 characters.')
+        with self.connection(True) as db:
+            ticket = self._ticket(db, tid)
+            if ticket['version'] != version:
+                raise TicketError('This ticket changed. Reload before assigning a retake.')
+            if not self._submission(db, tid, sid):
+                raise TicketError('A retake requires an original submission.')
+            existing = db.execute('SELECT ticket_id FROM et_retakes WHERE parent_id=? AND student_id=?', (tid, sid)).fetchone()
+            if existing:
+                return existing[0]
+            child = uuid4().hex
+            db.execute("INSERT INTO et_tickets VALUES (?,?,?,?,?,?,NULL,'draft',0,1)",
+                       (child, ('Retake: ' + ticket['title'])[:200], ticket['subject'], ticket['topic'], ticket['subtopic'], now()))
+            db.execute('INSERT INTO et_questions SELECT ?,id,position,definition FROM et_questions WHERE ticket_id=?', (child, tid))
+            db.execute('INSERT INTO et_assignments VALUES (?,?)', (child, sid))
+            db.execute('INSERT INTO et_retakes VALUES (?,?,?)', (child, tid, sid))
+            self._audit(db, tid, 'retake created', None, dict(ticket_id=child), reason.strip(), sid)
+            return child
