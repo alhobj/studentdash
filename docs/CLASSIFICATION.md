@@ -1,5 +1,16 @@
 # Question classifications and the first real assessment
 
+This page documents the current IB Chemistry implementation. Its fixed vocabulary,
+SL/HL rules and syllabus syntax are existing limitations, not the generic core
+contract. See [Architecture direction](ARCHITECTURE.md) for the inventory and gradual
+migration toward configurable profiles, categories and curriculum trees.
+
+For the new teacher-facing workflow, use [Enter your first assessment](FIRST_ASSESSMENT.md).
+The question editor exposes the existing tag categories; all are optional. The
+vocabulary now lives in `profiles/ib_chemistry.json` and is copied into new classes.
+The workbook instructions below remain valid for existing imports. Teacher-entered
+curriculum mappings accept reviewed code/label text without official-code validation.
+
 The exam bank contains **legacy syllabus** questions. Its original labels remain
 unchanged. `QuestionSyllabus` keeps LegacyCode separate from CurrentCode, with
 Status `unreviewed`, `current`, `partial` or `out_of_scope`. Review against your

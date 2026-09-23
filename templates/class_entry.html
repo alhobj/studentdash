@@ -1,0 +1,7 @@
+{% extends 'entry_base.html' %}
+{% block body %}<h1>{{ doc.name }}</h1>
+<section class="card"><h2>Assessments</h2><p><a class="button-link" href="{{ url_for('entry.edit', key=doc.id) }}">New assessment</a></p>
+{% for a in doc.assessments %}<article><h3>{{ a.name }}</h3><p>{{ a.date }} · {{ a.questions|length }} questions</p><div class="actions"><a href="{{ url_for('entry.scores', key=doc.id, aid=a.id) }}">Enter / edit scores</a><a href="{{ url_for('entry.edit', key=doc.id, aid=a.id) }}">Edit questions & classifications</a><a href="{{ url_for('index', assessment=a.id, class_key=doc.id) }}">View overview</a></div></article>{% else %}<p>No assessments yet.</p>{% endfor %}</section>
+<section class="card"><h2>Students</h2><p>{{ doc.students|length }} students saved in this class.</p><ul>{% for s in doc.students %}<li>{{ s.name }}{% if s.email %} · {{ s.email }}{% endif %}</li>{% endfor %}</ul>
+<details><summary>Add students</summary><form method="post"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ request.form.get('version', doc.version) }}"><label>New students only <textarea name="roster" rows="5" required>{{ request.form.get('roster', '') }}</textarea></label><p>One name per row, with an optional email column. Existing students keep their saved records. To include new students in an existing assessment, select them in its editor.</p><button>Add students</button></form></details></section>
+{% endblock %}

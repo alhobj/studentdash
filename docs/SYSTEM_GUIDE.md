@@ -1,5 +1,19 @@
 # Studentdash: system guide and route to classroom use
 
+For the current teacher workflow, start with **[Enter your first assessment](FIRST_ASSESSMENT.md)**.
+It covers persistent classes, question editing, classifications, Excel-block paste,
+save/reopen, overview and individual dashboards without workbook preparation.
+
+## Architecture direction
+
+Studentdash is subject-independent and curriculum-independent. IB Chemistry is the
+first implementation and test profile. Existing SL/HL, syllabus and classification
+behavior described below reflects the current implementation, not the generic domain
+model. See [Architecture direction](ARCHITECTURE.md) for the assumption inventory,
+configuration boundary and gradual migration plan. Prioritize usable local IB
+Chemistry assessments; preserve compatibility and refactor only for current features.
+Do not begin building the public/hosted version.
+
 For a one-page introduction to share with a colleague, read
 [Studentdash for teachers](TEACHER_OVERVIEW.md). Compare ten working student
 dashboard designs in the [layout gallery](../examples/layouts/index.html).
@@ -7,7 +21,8 @@ dashboard designs in the [layout gallery](../examples/layouts/index.html).
 ## 1. What the system does
 
 Studentdash turns assessment records into individual learning dashboards. The teacher
-maintains structured Excel data, reviews class and question performance, writes
+enters assessments in the local class screens (or maintains an existing Excel
+workbook), reviews class and question performance, writes
 feedback, and generates a separate HTML snapshot for each learner. Students can read
 their snapshot offline, inspect the questions behind a percentage, review teacher
 feedback, and work through revision tasks.
@@ -47,6 +62,13 @@ flowchart LR
 ```
 
 There are three different kinds of storage:
+
+The table below describes the existing workbook workflow. Teacher-entered classes
+instead use one `.sdclass` source file per class under `data/entered_classes/` by
+default, with a paired `.workspace.sqlite3` file for feedback/retries. Their generated
+pages are separated by class under the output folder. Preserve each source and its
+paired workspace together. The UI handles their identities and locations. If a custom
+workbook location is configured, `entered_classes` lives beside that workbook.
 
 | Location | Purpose | What to preserve |
 |---|---|---|
@@ -148,6 +170,11 @@ start a separate pair for a new course or cohort.
 
 Assessment summaries and question evidence are separate sources. This is intentional:
 incomplete question marking must not silently rewrite an assessment grade.
+
+That rule applies to imported workbook summaries. For assessments created in the
+new class screens, question marks are authoritative: totals are derived on every
+read. Incomplete rows have no final total or grade; an old complete total cannot
+survive a correction. No grade boundaries are assumed for newly entered assessments.
 
 For assessment history, only graded Results count. The overall percentage is total
 earned marks divided by total possible marks across those graded summaries. For
@@ -379,6 +406,9 @@ or digital assessment platform would still be a separate feature.
 
 ### Route B: an online student portal
 
+Deferred reference only: this route is not authorized implementation work or the
+next milestone. The current priority is the local assessment workflow.
+
 Do not expose the current Flask development server to the network. A portal would
 need, at minimum:
 
@@ -446,6 +476,8 @@ workspace automatically; move/rename the paired SQLite file accordingly.
 | `studentdash/excel.py` | Required sheet/column validation, cached formulas, core records |
 | `studentdash/question_data.py` | Membership, question results, boundary overrides, resources, tickets and imported attempts |
 | `studentdash/models.py` | Workbook data records |
+| `studentdash/entry.py`, `studentdash/entry_routes.py` | Persistent teacher-entered classes, assessment/question editing, score validation and adapter to existing reporting |
+| `profiles/ib_chemistry.json` | Existing classification vocabulary as configuration, copied into each new class |
 | `studentdash/analytics.py` | Learner-scoped calculations and student-facing views |
 | `studentdash/overview.py` | Teacher-only class and question summaries |
 | `studentdash/workspace.py` | SQLite draft/publication state and recorded attempts |

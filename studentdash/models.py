@@ -93,3 +93,4 @@ class WorkbookData:
     revision_attempts: list[dict] = field(default_factory=list)
     question_tags: list = field(default_factory=list)
     question_syllabus: dict = field(default_factory=dict)
+    question_authoritative: bool = False

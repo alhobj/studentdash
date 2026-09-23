@@ -65,6 +65,9 @@ def _required(value, location):
 
 def read_workbook(path: Path) -> WorkbookData:
     path = Path(path)
+    if path.suffix == '.sdclass':
+        from .entry import as_workbook
+        return as_workbook(path)
     if not path.is_file():
         raise WorkbookError(f'Workbook not found: {path}. Run python create_example_workbook.py or set STUDENTDASH_WORKBOOK.')
     formulas = cached = None

@@ -106,15 +106,18 @@ class StudentDashboard:
     revision: list[RevisionTask]
     feedback: list[FeedbackView]
     attempts: list[AttemptView]
+    question_authoritative: bool = False
 
 
 def suggested_grade(percent, boundaries):
-    return max(b.grade for b in boundaries if percent >= b.percent)
+    return max((b.grade for b in boundaries if percent >= b.percent), default=None)
 
 
 def categories(questions, attribute):
     grouped = {}
     for question in questions:
+        if not getattr(question, attribute):
+            continue
         grouped.setdefault(getattr(question, attribute), []).append(question)
     result = []
     for name, rows in grouped.items():
@@ -190,5 +193,5 @@ def build_dashboard(data: WorkbookData, student_id: str, include_examples=True, 
         questions, [r for r in data.resources if r.topic in topics], sorted(tickets, key=lambda t: t.date, reverse=True),
         datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), bool(practice),
         [(aid, data.assessments[aid].name) for aid in sorted(own_assessments)], assessment_id or '',
-        revision, feedback, attempts,
+        revision, feedback, attempts, data.question_authoritative,
     )

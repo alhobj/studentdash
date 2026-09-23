@@ -1,5 +1,11 @@
 # Studentdash
 
+Studentdash is being developed as a subject-independent, curriculum-independent
+system. IB Chemistry is the first implementation and test profile. See the
+[architecture direction and migration plan](docs/ARCHITECTURE.md) for current
+assumptions and the configuration-driven target. Local assessment usability comes
+first; public/hosted development is deferred.
+
 A local Python dashboard prototype developed entirely with fictional learners and
 assessment records. Excel is the input; each learner gets a self-contained HTML
 snapshot. A local Flask workspace lets teachers review validation notes, generate
@@ -19,6 +25,13 @@ previews with `python build_layout_previews.py`.
 
 Exit tickets also support [audited corrections, linked retakes and answer-release
 controls](docs/FOLLOW_UP.md). See [TODO](TODO.md) for suggested next milestones.
+
+## Enter your first assessment
+
+For your own class, start `.\.venv\Scripts\python.exe teacher.py` and open
+**http://127.0.0.1:5000/classes**. Follow [Enter your first assessment](docs/FIRST_ASSESSMENT.md)
+for class setup, question classification, spreadsheet score entry and dashboards.
+No workbook preparation or import commands are needed for this workflow.
 
 ## Run the fictional demo
 

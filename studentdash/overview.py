@@ -16,6 +16,7 @@ class LearnerOverview:
     statuses: dict[str, int]
     unrecorded: int
     practice: list[str]
+    result_label: str = ''
 
 
 @dataclass(frozen=True)
@@ -47,9 +48,14 @@ def build_overview(data, assessment_id=None, class_name=None):
         expected = {q.id for (aid, member), level in data.memberships.items() if member == sid
                     and (not assessment_id or aid == assessment_id)
                     for q in data.questions.values() if q.assessment_id == aid and eligible(q, level)}
+        result_label = ''
+        if data.question_authoritative and len(view.history) == 1:
+            result = view.history[0]
+            result_label = (f'{result.score:g}/{result.maximum:g}' if result.status == 'graded' else
+                            'Incomplete' if result.status == 'pending' else result.status.capitalize())
         learners.append(LearnerOverview(sid, student.name, student.class_name, view.overall_percent,
                                        view.graded_count, dict(Counter(r.status for r in rows)),
-                                       len(expected - {r.question_id for r in rows}), view.work_on))
+                                       len(expected - {r.question_id for r in rows}), view.work_on, result_label))
     items = []
     for question in data.questions.values():
         if assessment_id and question.assessment_id != assessment_id:

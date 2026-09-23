@@ -14,14 +14,18 @@ from .overview import build_overview
 from .workspace import Workspace, WorkspaceError
 from .freshness import stale_reasons
 from .exit_routes import register_exit_routes, STUDENT_ENDPOINTS
+from .entry_routes import register_entry_routes
 
 
 def create_app(config=None):
     config = config or Config.from_env()
     app = Flask(__name__, template_folder=str(ROOT / 'templates'), static_folder=None)
     app.secret_key = secrets.token_hex(32)
-    workspace = Workspace(config.workspace)
-    app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE='Strict', MAX_CONTENT_LENGTH=131072)
+    active_config = register_entry_routes(app, config)
+
+    def workspace():
+        return Workspace(active_config().workspace)
+    app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE='Strict', MAX_CONTENT_LENGTH=2097152)
 
     @app.before_request
     def local_host_only():
@@ -58,22 +62,22 @@ def create_app(config=None):
     def status_page(error=None, status=200):
         data = None
         try:
-            data = read_workbook(config.workbook)
+            data = read_workbook(active_config().workbook)
         except WorkbookError as exc:
             error = str(exc)
         session.setdefault('csrf_token', secrets.token_urlsafe(32))
         names = [f'student{sid}.html' for sid in data.students
-                 if (config.output / f'student{sid}.html').is_file()] if data else []
+                 if (active_config().output / f'student{sid}.html').is_file()] if data else []
         message = session.pop('generation_message', None)
         generation = None
         stale = False
         reasons = []
         try:
-            generation = json.loads((config.output / 'generation.json').read_text(encoding='utf-8'))
+            generation = json.loads((active_config().output / 'generation.json').read_text(encoding='utf-8'))
             if not isinstance(generation, dict):
                 generation = None
             elif data:
-                reasons = stale_reasons(config, generation)
+                reasons = stale_reasons(active_config(), generation)
                 stale = bool(reasons)
         except (OSError, ValueError):
             pass
@@ -100,12 +104,12 @@ def create_app(config=None):
             if not needs_refresh:
                 expected = recorded_pages.get(name)
                 try:
-                    needs_refresh = not expected or hashlib.sha256((config.output / name).read_bytes()).hexdigest() != expected
+                    needs_refresh = not expected or hashlib.sha256((active_config().output / name).read_bytes()).hexdigest() != expected
                 except OSError:
                     needs_refresh = True
             if needs_refresh:
                 snapshots_to_refresh.append(name)
-        return render_template('teacher.html', workbook_name=config.workbook.name, data=data,
+        return render_template('teacher.html', managed=active_config().workbook.suffix == '.sdclass', workbook_name=active_config().workbook.name, data=data,
                                error=error, names=names, message=message, warning_groups=groups,
                                generation=generation, stale=stale, learners=learners, items=items,
                                stale_reasons=reasons, snapshots_to_refresh=snapshots_to_refresh,
@@ -113,19 +117,21 @@ def create_app(config=None):
 
     @app.get('/')
     def index():
+        if not request.values.get('class_key', session.get('entered_class')) and not config.workbook.exists():
+            return redirect(url_for('entry.classes'))
         return status_page()
 
     @app.post('/generate')
     def generate():
         try:
-            _, names = generate_dashboards(config, include_examples=request.form.get('include_examples') == 'on')
+            _, names = generate_dashboards(active_config(), include_examples=request.form.get('include_examples') == 'on')
         except (WorkbookError, OSError) as exc:
             return status_page(f'Generation failed: {exc}', 400)
         session['generation_message'] = f'Generated {len(names)} student dashboards successfully.'
         return redirect(url_for('index'), code=303)
 
     def learner_data(sid, aid=None):
-        data = read_workbook(config.workbook)
+        data = read_workbook(active_config().workbook)
         if sid not in data.students:
             abort(404)
         aids = {a for a, s in data.memberships if s == sid}
@@ -147,11 +153,11 @@ def create_app(config=None):
         if aid is not None and aid not in aids:
             abort(404)
         session.setdefault('csrf_token', secrets.token_urlsafe(32))
-        record = workspace.feedback(sid, aid) if aid else None
+        record = workspace().feedback(sid, aid) if aid else None
         questions = [(data.questions[r.question_id], r.score) for r in data.question_results
                      if (r.student_id, r.assessment_id, r.status) == (sid, aid, 'graded')]
         from .analytics import build_dashboard
-        view = build_dashboard(data, sid, False, aid, workspace.export_state())
+        view = build_dashboard(data, sid, False, aid, workspace().export_state())
         return render_template('feedback.html', learner=data.students[sid], data=data, aids=aids, aid=aid,
                                record=record, questions=questions, attempts=view.attempts,
                                today=date.today().isoformat(), message=session.pop('generation_message', None))
@@ -159,7 +165,7 @@ def create_app(config=None):
     @app.post('/feedback/<sid>/<aid>/draft')
     def save_draft(sid, aid):
         learner_data(sid, aid)
-        workspace.save_draft(sid, aid, request.form.get('comment', ''), request.form.get('tasks', ''), form_version())
+        workspace().save_draft(sid, aid, request.form.get('comment', ''), request.form.get('tasks', ''), form_version())
         session['generation_message'] = 'Draft saved. Preview it before publishing. Existing student snapshots are unchanged.'
         return redirect(url_for('feedback_editor', sid=sid, assessment=aid), code=303)
 
@@ -167,8 +173,8 @@ def create_app(config=None):
     def feedback_preview(sid, aid):
         data, _ = learner_data(sid, aid)
         session.setdefault('csrf_token', secrets.token_urlsafe(32))
-        record = workspace.feedback(sid, aid)
-        state = workspace.export_state()
+        record = workspace().feedback(sid, aid)
+        state = workspace().export_state()
         state['feedback'] = [r for r in state['feedback'] if (r['student'], r['assessment']) != (sid, aid)]
         state['feedback'].append(dict(student=sid, assessment=aid, comment=record['comment'], tasks=record['tasks']))
         return render_student(data, sid, False, state, draft_preview=True, draft_record=record,
@@ -180,14 +186,14 @@ def create_app(config=None):
     @app.post('/feedback/<sid>/<aid>/publish')
     def publish_feedback(sid, aid):
         learner_data(sid, aid)
-        workspace.publish(sid, aid, form_version())
+        workspace().publish(sid, aid, form_version())
         session['generation_message'] = 'Feedback published locally. Generate student dashboards to include it in the snapshots.'
         return redirect(url_for('feedback_editor', sid=sid, assessment=aid), code=303)
 
     @app.post('/feedback/<sid>/<aid>/attempts')
     def record_attempt(sid, aid):
         data, _ = learner_data(sid, aid)
-        workspace.add_attempt(data, sid, aid, request.form.get('question', ''), request.form.get('day', ''),
+        workspace().add_attempt(data, sid, aid, request.form.get('question', ''), request.form.get('day', ''),
                               request.form.get('score', ''), request.form.get('note', ''))
         session['generation_message'] = 'Revision attempt recorded. Original marks are unchanged. Regenerate snapshots to show the attempt.'
         return redirect(url_for('feedback_editor', sid=sid, assessment=aid), code=303)
@@ -195,12 +201,12 @@ def create_app(config=None):
     @app.get('/preview/<filename>')
     def preview(filename):
         try:
-            data = read_workbook(config.workbook)
+            data = read_workbook(active_config().workbook)
         except WorkbookError:
             abort(404)
         if filename not in {f'student{sid}.html' for sid in data.students}:
             abort(404)
-        return send_from_directory(config.output, filename)
+        return send_from_directory(active_config().output, filename)
 
     register_exit_routes(app, config)
     return app

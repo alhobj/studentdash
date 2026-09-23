@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Studentdash{% endblock %}</title>{% include 'style.html' %}
+<style>
+main{max-width:1500px} input:not([type=checkbox]):not([type=hidden]),textarea,select{font:inherit;padding:.55rem;border:1px solid #788d99;border-radius:5px;max-width:100%;box-sizing:border-box} textarea{width:100%} label{display:block;margin:.5rem 0} .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin:1rem 0}.error{color:#9b2020}.entry-table th,.entry-table td{vertical-align:top}.entry-table input,.entry-table textarea{width:100%}.entry-table .question-number{min-width:65px}.entry-table .question-text{min-width:200px}.entry-table .maximum{min-width:80px}.entry-table details{min-width:180px}.entry-table select{width:100%}.cell-error{display:block;max-width:190px;color:#9b2020;font-size:.8rem}input[aria-invalid=true]{border:2px solid #a21d26!important;background:#fff0f0}.score-grid th:first-child{position:sticky;left:0;background:#fff;z-index:1;min-width:170px}.score-grid input{width:90px!important}.score-grid th{white-space:nowrap}.score-grid:focus-within{outline:1px solid #788d99}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #267bb2;outline-offset:2px}
+.entry-table input[type=checkbox]{width:auto}
+</style></head><body><main>
+<nav class="actions"><strong>Studentdash</strong><a href="{{ url_for('entry.classes') }}">My classes</a>{% if doc is defined %}<a href="{{ url_for('entry.class_page', key=doc.id) }}">{{ doc.name }}</a>{% endif %}</nav>
+{% if error %}<div class="notice error" role="alert">{{ error }}</div>{% endif %}
+{% block body %}{% endblock %}
+</main>{% block scripts %}{% endblock %}</body></html>

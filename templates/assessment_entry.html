@@ -1,0 +1,17 @@
+{% extends 'entry_base.html' %}
+{% block body %}<h1>{{ 'Edit assessment' if aid else 'New assessment' }}</h1>
+<noscript><p class="notice error">Enable JavaScript to use question editing and spreadsheet score entry.</p></noscript>
+<form method="post" id="assessment-form" data-unsaved="{{ 'true' if error else 'false' }}">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ form_version }}"><input type="hidden" name="payload" id="payload">
+<section class="card"><label>Assessment name <input id="assessment-name" value="{{ item.name }}" required maxlength="200"></label><label>Date <input id="assessment-date" type="date" value="{{ item.date }}" required></label><label>Description (optional) <textarea id="description" rows="2" maxlength="5000">{{ item.description }}</textarea></label>
+<details><summary>Participating students</summary>{% for s in doc.students %}<label><input type="checkbox" class="participant" value="{{ s.id }}" {% if s.id in item.participants %}checked{% endif %}> {{ s.name }}{% if s.email %} · {{ s.email }}{% endif %}</label>{% endfor %}</details></section>
+<section class="card"><h2>Questions</h2><p>Enter labels such as 1, 2, 3a and 3b. Question text and all classifications are optional. Open “Classify” to select tags or record your reviewed curriculum mapping. Mapping labels/codes are saved as entered; they are not checked against an official curriculum.</p>
+<p>Use the arrow buttons to reorder. Questions with recorded scores/statuses cannot be removed until those entries have been cleared to pending.</p>
+<div class="table-wrap"><table class="entry-table"><thead><tr><th>Question</th><th>Max marks</th><th>Question text</th><th>Classification</th><th>Order / remove</th></tr></thead><tbody id="questions"></tbody></table></div>
+<button type="button" id="add-question">Add question</button></section>
+<div class="actions"><button type="submit">Save assessment & enter scores</button><a href="{{ url_for('entry.class_page', key=doc.id) }}">Back to class</a><span id="save-state" role="status"></span></div>
+</form>
+<template id="question-row"><tr><td><input class="question-number" required maxlength="40" aria-label="Question label"></td><td><input class="maximum" type="number" min="0.000001" step="any" required aria-label="Maximum marks"></td><td><textarea class="question-text" rows="3" maxlength="10000" aria-label="Question text"></textarea></td><td><details><summary>Classify <span class="tag-count"></span></summary><label>Curriculum mapping (optional)<input class="curriculum" maxlength="300" placeholder="Reviewed code or topic label"></label><div class="tag-fields"></div><p>Leave unchecked for unknown/unclassified.</p></details></td><td><button type="button" data-action="up" aria-label="Move question up">↑</button><button type="button" data-action="down" aria-label="Move question down">↓</button><button type="button" data-action="remove">Remove</button></td></tr></template>
+{% endblock %}
+{% block scripts %}<script>const initialAssessment = {{ item|tojson }}; const categories = {{ doc.profile.categories|tojson }};
+{% include 'assessment_entry.js' %}</script>{% endblock %}

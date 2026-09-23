@@ -1,18 +1,14 @@
 """Conservative, replaceable classification and question-level diagnostic queries."""
-from dataclasses import dataclass
+from dataclasses import dataclass, InitVar
+from pathlib import Path
+import json
 from html import unescape
 from math import isfinite
 import re
 
-VOCABULARY = {
-    'CommandTerm': 'State|Identify|Outline|Describe|Calculate|Determine|Deduce|Explain|Suggest|Predict|Justify|Compare|Contrast|Discuss|Evaluate|Interpret|Draw|Sketch|Apply|Derive|Estimate|Comment|Formulate|Solve|Distinguish|List|Classify|Write|Label|Show|Annotate|Demonstrate|Construct|Examine|Name|Complete'.split('|'),
-    'Skill': 'Recall knowledge|Chemical reasoning|Quantitative problem solving|Data interpretation|Graphical analysis|Experimental design|Experimental evaluation|Equation/formula writing|Chemical representation|Prediction/deduction|Comparison/classification|Multi-step problem solving'.split('|'),
-    'CognitiveDemand': ['Recall', 'Apply', 'Analyse/Reason', 'Evaluate/Create'],
-    'Context': ['Direct', 'Applied', 'Unfamiliar'],
-    'Representation': 'Written|Calculation|Chemical equation|Structural formula|Lewis structure|Mechanism|Graph|Table|Diagram/model|Spectrum|Experimental data'.split('|'),
-    'QuantitativeSkill': 'Stoichiometry|Algebra|Proportional reasoning|Logarithms|Units/conversions|Significant figures|Graph calculation|Uncertainty'.split('|'),
-    'ExperimentalSkill': 'Procedure|Variables|Measurement|Data processing|Uncertainty|Error|Accuracy/precision|Evaluation|Improvement|Conclusion|Assumptions|Safety'.split('|'),
-}
+DEFAULT_PROFILE = json.loads((Path(__file__).resolve().parent.parent / 'profiles' / 'ib_chemistry.json').read_text(encoding='utf-8'))
+VOCABULARY = DEFAULT_PROFILE['categories']
+
 SOURCES = {'existing': 3, 'teacher': 4, 'rule': 2, 'inferred': 1}
 
 
@@ -24,8 +20,11 @@ class QuestionTag:
     source: str
     confidence: float | None = None
 
-    def __post_init__(self):
-        if self.category not in VOCABULARY or self.tag not in VOCABULARY[self.category]:
+    vocabulary: InitVar[dict | None] = None
+
+    def __post_init__(self, vocabulary):
+        allowed = VOCABULARY if vocabulary is None else vocabulary
+        if self.category not in allowed or self.tag not in allowed[self.category]:
             raise ValueError(f'Unknown classification: {self.category}/{self.tag}')
         if self.source not in SOURCES:
             raise ValueError(f'Unknown tag source: {self.source}')

@@ -13,7 +13,8 @@ def digest(value):
 def fingerprints(config, state=None):
     state = state if state is not None else Workspace(config.workspace).export_state()
     sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html')]
-    sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py')]
+    sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py', 'entry.py', 'classification.py')]
+    sources += [ROOT / 'profiles' / 'ib_chemistry.json']
     templates = b''.join(p.name.encode() + b'\0' + p.read_bytes() for p in sources)
     return {'workbook': digest(config.workbook.read_bytes()),
             'feedback': digest(json.dumps(state['feedback'], sort_keys=True).encode()),
@@ -24,7 +25,7 @@ def fingerprints(config, state=None):
 def stale_reasons(config, manifest, state=None):
     previous = manifest.get('fingerprints', {}) if manifest else {}
     current = fingerprints(config, state)
-    labels = {'workbook': 'The workbook has changed since generation.',
+    labels = {'workbook': 'Saved assessment data has changed since generation.' if config.workbook.suffix == '.sdclass' else 'The workbook has changed since generation.',
               'feedback': 'Published teacher feedback has changed.',
               'attempts': 'Revision-attempt history has changed.',
               'templates': 'Student templates or rendering code have changed.'}

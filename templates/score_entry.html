@@ -1,0 +1,16 @@
+{% extends 'entry_base.html' %}
+{% block body %}<h1>{{ item.name }}</h1><p>{{ doc.name }} · {{ item.date }}</p>{% if item.description %}<p>{{ item.description }}</p>{% endif %}
+{% if request.args.get('saved') and not error %}<p class="notice" role="status">Saved. You can close this page and continue later.</p>{% endif %}
+<div class="actions"><a href="{{ url_for('entry.edit', key=doc.id, aid=item.id) }}">Edit questions & classifications</a><a href="{{ url_for('index', assessment=item.id, class_key=doc.id) }}">View overview</a></div>
+<p>Enter marks, including 0, or A = absent, E = exempt, M = missing, P = pending. Blank means pending. Click a starting cell and paste a rectangular block from Excel, without headings. Use Tab / Shift+Tab across cells, Enter / Shift+Enter down/up, or arrow keys. Decimal points and decimal commas are accepted.</p>
+<p>Totals exclude exempt questions. Any other ungraded question makes the assessment incomplete; no old total or grade is retained.</p>
+<noscript><p class="notice error">Enable JavaScript to enter and paste scores.</p></noscript>
+<form method="post" id="scores-form" data-unsaved="{{ 'true' if error else 'false' }}"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ form_version }}"><input type="hidden" name="payload" id="payload">
+<p id="grid-message" role="alert"></p>
+<div class="table-wrap"><table class="entry-table score-grid" id="score-grid"><thead><tr><th scope="col">Student</th>{% for q in item.questions %}<th scope="col" title="{{ q.text }}">{{ q.number }}<br><small>Max {{ '%g'|format(q.marks) }}</small></th>{% endfor %}<th scope="col">Total / state</th></tr></thead><tbody>
+{% for s in students %}{% set r = loop.index0 %}<tr><th scope="row">{{ s.name }}{% if s.email %}<br><small>{{ s.email }}</small>{% endif %}</th>{% for q in item.questions %}{% set c = loop.index0 %}{% set key = r|string + ':' + c|string %}<td><input type="text" autocomplete="off" spellcheck="false" data-row="{{ r }}" data-col="{{ c }}" data-max="{{ q.marks }}" value="{{ rows[r][c] }}" aria-label="{{ s.name }}, question {{ q.number }}, maximum {{ '%g'|format(q.marks) }}" aria-describedby="error-{{ r }}-{{ c }}" {% if key in cells %}aria-invalid="true"{% endif %}><span class="cell-error" id="error-{{ r }}-{{ c }}">{{ cells.get(key, '') }}</span></td>{% endfor %}<td class="row-total">{{ totals[r] }}</td></tr>{% endfor %}
+</tbody></table></div>
+<div class="actions"><button type="submit">Save scores</button><span id="save-state" role="status">{% if error %}Not saved{% else %}Showing saved scores{% endif %}</span></div></form>
+<form method="post" action="{{ url_for('generate', class_key=doc.id) }}" id="generate-form"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><button>Generate student dashboards</button><p>Uses saved scores. After generation, choose “Open snapshot” beside a student in the overview.</p></form>
+{% endblock %}
+{% block scripts %}<script>{% include 'score_grid.js' %}</script>{% endblock %}

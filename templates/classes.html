@@ -1,0 +1,13 @@
+{% extends 'entry_base.html' %}
+{% block title %}My classes · Studentdash{% endblock %}
+{% block body %}
+<h1>My classes</h1><p>Create your class once, then reuse its roster for each assessment.</p>
+<section class="card"><h2>Open a class</h2>{% for c in classes %}<p><a href="{{ url_for('entry.class_page', key=c.id) }}">{{ c.name }}</a> · {{ c.students|length }} students · {{ c.assessments|length }} assessments</p>{% else %}<p>No classes yet. Create your first class below.</p>{% endfor %}</section>
+<section class="card"><h2>Create a class</h2><form method="post">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<label>Class name <input name="name" required maxlength="200" value="{{ request.form.get('name', '') }}" placeholder="Chemistry 2026"></label>
+<label>Paste student roster <textarea name="roster" rows="9" required placeholder="Student name&#10;Another student">{{ request.form.get('roster', '') }}</textarea></label>
+<p>Copy one name per row from Excel. You may include email addresses in a second column. Do not include a heading row. Names can be repeated; use a distinguishing name or email where needed.</p>
+<button>Create class</button></form></section>
+<details class="card"><summary>Existing workbook / demonstration</summary><p>Your existing workbook and its data remain separate.</p><form method="post" action="{{ url_for('entry.legacy') }}"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><button>Open existing workbook</button></form></details>
+{% endblock %}

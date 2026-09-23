@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Feedback workspace</title>{% include 'style.html' %}</head><body><main>
 <p><a href="{{ url_for('index') }}">Back to teacher workspace</a></p><header class="hero"><p class="eyebrow">Feedback & revision</p><h1>{{ learner.name }}</h1><p>{{ learner.class_name }} &middot; {{ learner.id }}</p></header>
 {% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
-{% if aid %}<form method="get" class="card filter-form"><label>Assessment <select name="assessment">{% for id in aids %}<option value="{{ id }}" {% if id == aid %}selected{% endif %}>{{ data.assessments[id].name }}</option>{% endfor %}</select></label><button type="submit">Open assessment</button></form>
+{% if aid %}<form method="get" class="card filter-form"><input type="hidden" name="class_key" value="{{ request.values.get('class_key', session.get('entered_class', '')) }}"><label>Assessment <select name="assessment">{% for id in aids %}<option value="{{ id }}" {% if id == aid %}selected{% endif %}>{{ data.assessments[id].name }}</option>{% endfor %}</select></label><button type="submit">Open assessment</button></form>
 <section class="card"><h2>Teacher feedback draft</h2><p>Save a comment and one revision task per line. Drafts remain teacher-only. Preview the saved draft before publishing.</p>
 {% if record.published_at %}<p class="tag">Last published {{ record.published_at }}</p>{% endif %}
 {% if record.comment != record.published_comment or record.tasks != record.published_tasks %}<p class="notice">There are unpublished changes.</p>{% endif %}

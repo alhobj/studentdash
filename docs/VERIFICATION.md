@@ -1,4 +1,32 @@
-# Verification of exit tickets and design previews
+# Verification
+
+## Enter one real assessment — 23 September 2026
+
+- Full suite: **103 tests passed, no skips**, including two headless Edge acceptance
+  tests using actual rectangular clipboard paste and keyboard navigation.
+- New coverage includes persistent classes/stable IDs, assessment and question
+  creation/reordering, configured tags, optional classifications, maximum marks,
+  all result statuses, zero/decimal marks, correction, incomplete totals, changing
+  question maxima, concurrent edits, save/reopen, dashboard generation and isolation.
+- Browser checks follow class creation through score entry, save, overview, generation,
+  individual preview and opening the standalone HTML file. They also check invalid
+  scores, malformed/overflowing paste, preserved marks after question reordering,
+  and reopening the class in a fresh browser session. No JavaScript errors occurred.
+- The score-grid screenshot was inspected with fictional data. This is a desktop
+  workflow check, not a complete screen-reader or mobile accessibility audit.
+- Temporary-directory errors were reproduced inside the managed execution sandbox,
+  even with TEMP/TMP pointed into the repository. The same tests passed outside that
+  sandbox with normal permissions. No application permission workaround was needed.
+- Existing workbook and demo data were not modified. Browser verification uses
+  temporary fictional classes, not real learner records.
+
+Run `.\.venv\Scripts\python.exe -B -m unittest discover -s tests` in a normal terminal.
+Browser checks require `requirements-dev.txt` and Edge on Windows (or installed
+Playwright Chromium elsewhere). Without those optional tools, browser checks skip;
+the reported run above included them. `STUDENTDASH_TEST_BROWSER` can select an
+installed Chromium browser channel.
+
+## Previous milestone: exit tickets and design previews
 
 Recorded 23 September 2026. All checks use fictional records.
 

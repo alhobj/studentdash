@@ -1,6 +1,21 @@
 # Suggested next milestones
 
-Development continues with fictional learners only. Ordered by practical value.
+The immediate priority is usability with real IB Chemistry assessment data in the
+local workflow. Automated tests and development fixtures continue to use fictional
+learners. Follow the [architecture direction](docs/ARCHITECTURE.md): preserve current
+behavior, add no new subject assumptions to the core, and migrate incrementally only
+when needed for the current feature.
+
+## Immediate priority: the first real assessment
+
+- [x] Persistent class roster and assessment/question setup through teacher screens.
+- [x] Optional existing classifications and a spreadsheet grid with rectangular Excel paste.
+- [x] Save/reopen, authoritative question totals, overview and isolated dashboard exports.
+- [ ] Teacher walkthrough with the first actual assessment using [the short guide](docs/FIRST_ASSESSMENT.md).
+- [ ] Complete teacher review of selected questions, scored parts and curriculum mappings.
+- [ ] Rehearse the score-matrix import and verify totals against the teacher's records.
+- [ ] Review generated feedback and individual snapshots for the local pilot.
+- [ ] Address blockers found in this workflow before broader product milestones below.
 
 ## Completed in this update
 
@@ -56,8 +71,9 @@ between records or losing sight of work awaiting review.
 - [ ] Agree marking, storage, distribution and retention with the school.
 - [ ] Rehearse individual snapshot delivery through an approved channel.
 - [ ] Confirm calculations with hand-worked examples and representative devices.
-- [ ] For an online portal, design real sign-in, authorization, hosting and operations.
-- [ ] Evaluate Microsoft integration only after the identity and hosting decisions.
+
+Public/hosted implementation, portal sign-in and Microsoft integration are deferred;
+do not begin this work until explicitly requested.
 
 The local role switch remains a simulation. A networked student portal is a separate
 engineering milestone, not a deployment switch for the current development server.
