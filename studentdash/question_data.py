@@ -11,6 +11,34 @@ def eligible(question, level):
 
 
 def read_extensions(data, tables):
+    from .classification import QuestionTag, command_terms, merge_tags, syllabus_hierarchy
+    for q in data.questions.values():
+        data.question_tags.extend(QuestionTag(q.id, 'CommandTerm', term, 'existing')
+                                  for term in command_terms(q.action_verb))
+    for n, row in tables.get('QuestionTags', []):
+        qid = _text(row['QuestionID'])
+        if qid not in data.questions:
+            raise WorkbookError(f'QuestionTags row {n}: unknown QuestionID.')
+        try:
+            data.question_tags.append(QuestionTag(qid, _text(row['Category']), _text(row['Tag']),
+                                                 _text(row['Source']), row['Confidence']))
+        except ValueError as exc:
+            raise WorkbookError(f'QuestionTags row {n}: {exc}') from exc
+    data.question_tags = merge_tags(data.question_tags)
+    for n, row in tables.get('QuestionSyllabus', []):
+        qid = _text(row['QuestionID'])
+        status, code = _text(row['Status']), _text(row['CurrentCode'])
+        if qid not in data.questions or qid in data.question_syllabus:
+            raise WorkbookError(f'QuestionSyllabus row {n}: unknown or duplicate QuestionID.')
+        if status not in {'unreviewed', 'current', 'partial', 'out_of_scope'}:
+            raise WorkbookError(f'QuestionSyllabus row {n}: invalid Status.')
+        if code and (not code.startswith(('S', 'R')) or not syllabus_hierarchy(code)):
+            raise WorkbookError(f'QuestionSyllabus row {n}: invalid current code syntax.')
+        if (status == 'current' and not code) or (status in {'unreviewed', 'out_of_scope'} and code):
+            raise WorkbookError(f'QuestionSyllabus row {n}: code conflicts with review status.')
+        if status != 'unreviewed' and _text(row['Source']) != 'teacher':
+            raise WorkbookError(f'QuestionSyllabus row {n}: mapping requires teacher review.')
+        data.question_syllabus[qid] = row
     data.has_question_tables = 'Memberships' in tables or 'QuestionResults' in tables
     def reference(row, location):
         aid = _id(row['AssessmentID'], location + ' AssessmentID')

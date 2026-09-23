@@ -19,6 +19,8 @@ SCHEMA = {
 }
 STATUSES = {'graded', 'missing', 'absent', 'exempt', 'pending'}
 OPTIONAL_SCHEMA = {
+    'QuestionTags': ('QuestionID', 'Category', 'Tag', 'Source', 'Confidence'),
+    'QuestionSyllabus': ('QuestionID', 'LegacyCode', 'CurrentCode', 'Status', 'Source'),
     'RevisionAttempts': ('AttemptID', 'StudentID', 'AssessmentID', 'QuestionID', 'Date', 'Score', 'Note'),
     'Memberships': ('AssessmentID', 'StudentID', 'Level'),
     'QuestionResults': ('AssessmentID', 'QuestionID', 'StudentID', 'Score', 'Status'),

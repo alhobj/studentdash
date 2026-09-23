@@ -38,3 +38,14 @@ Interactive exit tickets remain a local fictional simulation without real
 authentication. Follow the classroom-use steps in `SYSTEM_GUIDE.md` before
 introducing actual student records. The implemented follow-up rules are documented in `FOLLOW_UP.md`; remaining
 product and pilot work is listed in `TODO.md`.
+# Classification verification — 2026-09-23
+
+- `python -m unittest discover -s tests`: 87 tests passed, including tag validation,
+  precedence, duplicate handling, hierarchy, migration preservation, ambiguous
+  multi-part abstention, combined analytics, student isolation and matrix import.
+- All three source banks inspected before migration: 904 / 1,354 / 1,210 records.
+- All original ZIP members except the three extended sheet registries verified
+  byte-for-byte against the copies; workbook namespace declarations preserved.
+- Legacy codes retained; no automatic current-syllabus mappings. Paper 2/3 part
+  boundaries require review. Cognitive demand/context remain unknown automatically.
+- Artifacts: `output/exam_databases`; workflow: [CLASSIFICATION.md](CLASSIFICATION.md).

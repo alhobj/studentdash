@@ -91,3 +91,5 @@ class WorkbookData:
     exit_tickets: list[ExitTicket] = field(default_factory=list)
     has_question_tables: bool = False
     revision_attempts: list[dict] = field(default_factory=list)
+    question_tags: list = field(default_factory=list)
+    question_syllabus: dict = field(default_factory=dict)

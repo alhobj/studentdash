@@ -83,3 +83,11 @@ ticket/learner. Preserve the workbook and workspace together in backups.
 
 These features cover interactive exit tickets. Formal revision-attempt corrections
 and formal feedback publication audit are separate future work. See [TODO](../TODO.md).
+# Classification milestone
+
+Legacy exam-bank originals are preserved. Classified copies and the report are
+in `output/exam_databases`; rerun `python tools/migrate_exam_databases.py`.
+Review current syllabus relevance and unresolved parent/part mappings before
+using bank questions. See [CLASSIFICATION.md](CLASSIFICATION.md) for the exact
+first-assessment schema and score-matrix workflow. Cognitive demand, context and
+most semantic skills remain teacher-review work; no syllabus crosswalk is guessed.
