@@ -1,5 +1,16 @@
 # Suggested next milestones
 
+## Assessment import delivered
+
+- [x] PDF/DOCX upload, preserved original documents and persistent review drafts.
+- [x] Basic numbered-question extraction with hierarchy, marks, tables and figure references.
+- [x] Profile-driven suggestions, explicit teacher acceptance/overrides and total validation.
+- [x] Finalization into normal assessments and the existing score grid.
+- [ ] Inspect the teacher's real question-bank document before adapting layout extraction.
+
+See [the import workflow and current limits](docs/ASSESSMENT_IMPORT.md). This milestone
+does not add OCR, external AI services, hosting or a curriculum importer.
+
 The immediate priority is usability with real IB Chemistry assessment data in the
 local workflow. Automated tests and development fixtures continue to use fictional
 learners. Follow the [architecture direction](docs/ARCHITECTURE.md): preserve current

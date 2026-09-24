@@ -1,0 +1,7 @@
+{% extends 'entry_base.html' %}
+{% block body %}<h1>Import assessment</h1><p>Upload your test. Review its questions and suggested classifications before creating an assessment.</p>
+<section class="card"><form method="post" enctype="multipart/form-data"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<label>Test document <input type="file" name="document" accept=".pdf,.docx" required></label><p>PDF or DOCX, up to 20 MB. Simple numbered questions with explicit marks work best. Scanned PDFs need transcription; automatic Word numbering, equations and complex layouts need extra review.</p>
+<button type="submit">Upload test & review</button></form></section>
+<p>The original is kept with the draft. Nothing enters score entry until you confirm it. Automatic suggestions use your class profile and local text evidence; the document is not sent to an external AI service.</p>
+<p><a href="{{ url_for('entry.edit', key=doc.id) }}">Create manually</a></p>{% endblock %}

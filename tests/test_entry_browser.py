@@ -49,7 +49,7 @@ class EntryBrowserTests(unittest.TestCase):
         p.get_by_label('Class name', exact=True).fill('Fictional Chemistry class')
         p.get_by_label('Paste student roster').fill('Alice Private\talice@example.invalid\nBob Private\tbob@example.invalid\nCarol Private')
         p.get_by_role('button', name='Create class', exact=True).click()
-        p.get_by_role('link', name='New assessment', exact=True).click()
+        p.get_by_role('link', name='Create manually', exact=True).click()
         p.get_by_label('Assessment name', exact=True).fill('First real-workflow rehearsal')
         p.get_by_label('Description (optional)').fill('Fictional records only')
         for i, maximum in enumerate([2, 3, 1, 2]):

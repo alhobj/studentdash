@@ -29,6 +29,8 @@ def create_app(config=None):
 
     @app.before_request
     def local_host_only():
+        if request.endpoint == 'assessment_import.upload':
+            request.max_content_length = 21 * 1024 * 1024
         # Reject foreign Host headers (including DNS-rebinding requests).
         if request.host.split(':', 1)[0] not in {'127.0.0.1', 'localhost'}:
             abort(400)
@@ -41,6 +43,10 @@ def create_app(config=None):
             token = session.get('csrf_token', '')
             if not token or not secrets.compare_digest(token, request.form.get('csrf_token', '')):
                 abort(400, description='Invalid form token. Reload the teacher page and retry.')
+
+    @app.errorhandler(413)
+    def upload_too_large(error):
+        return render_template('entry_error.html', error='The upload is too large. Use a PDF/DOCX of at most 20 MB or a shorter review form.'), 413
 
     @app.errorhandler(WorkspaceError)
     @app.errorhandler(WorkbookError)

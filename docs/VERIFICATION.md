@@ -1,5 +1,26 @@
 # Verification
 
+## Assessment import - 24 September 2026
+
+- Full suite: **124 tests passed, no skips**, including five headless Edge browser
+  tests (three for import/review and two for the existing score-entry workflow).
+- Import coverage includes PDF/DOCX extraction, parent/letter/roman hierarchy,
+  missing/conflicting marks, duplicates, total mismatch, tables, figure references,
+  classification confidence, multiple tags, teacher overrides/rejections, configured
+  curriculum matching, failed extraction, original-file preservation and finalization.
+- Browser checks cover upload, saved draft reopen, high-confidence acceptance,
+  explicit rejection, manual multi-tag edits, split/combine, add/delete, total-warning
+  resolution, final review confirmation and normal spreadsheet score entry.
+- Student exports exclude the original document and draft metadata; original sources
+  remain restricted to the teacher workflow and their owning class.
+- A review-screen screenshot was inspected. This is a desktop workflow check, not
+  a full accessibility or mobile audit. All examples and fixtures are fictional.
+- The initial suggestion provider uses local configured rules and definition/keyword
+  matching, not an external language model. Curriculum matching needs configured
+  nodes; the bundled profile deliberately does not invent an official curriculum.
+- Actual question-bank layout tuning, OCR and stronger semantic inference await
+  the real example document. See [the import guide](ASSESSMENT_IMPORT.md).
+
 ## Enter one real assessment — 23 September 2026
 
 - Full suite: **103 tests passed, no skips**, including two headless Edge acceptance

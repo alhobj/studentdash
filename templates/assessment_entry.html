@@ -1,5 +1,7 @@
 {% extends 'entry_base.html' %}
 {% block body %}<h1>{{ 'Edit assessment' if aid else 'New assessment' }}</h1>
+{% if not aid %}<p><a class="button-link" href="{{ url_for('assessment_import.upload', key=doc.id) }}">Import assessment</a> &middot; Create manually below</p>{% endif %}
+{% if item.get('import_source') %}<p><a href="{{ url_for('assessment_import.source', key=doc.id, did=item.import_source.draft) }}">Download original test</a></p>{% endif %}
 <noscript><p class="notice error">Enable JavaScript to use question editing and spreadsheet score entry.</p></noscript>
 <form method="post" id="assessment-form" data-unsaved="{{ 'true' if error else 'false' }}">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ form_version }}"><input type="hidden" name="payload" id="payload">

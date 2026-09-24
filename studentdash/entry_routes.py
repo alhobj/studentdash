@@ -7,11 +7,13 @@ from flask import Blueprint, redirect, render_template, request, session, url_fo
 
 from .config import Config
 from .entry import ClassStore, EntryError, assessment, save_assessment, save_scores, score_rows, summary_label
+from .import_routes import register_import_routes
 
 
 def register_entry_routes(app, base_config):
     bp = Blueprint('entry', __name__)
     store = ClassStore(base_config.workbook.parent / 'entered_classes')
+    register_import_routes(app, store)
 
     def active_config():
         key = request.values.get('class_key', session.get('entered_class'))

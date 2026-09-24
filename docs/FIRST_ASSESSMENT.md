@@ -11,7 +11,9 @@ Open **http://127.0.0.1:5000/classes** on the same computer.
 1. **Create a class.** Give it a name. Paste one student name per row from Excel;
    optionally include email addresses in the second column. Leave out column
    headings. Your roster is saved and can be reused for every assessment.
-2. Choose **New assessment**. Enter its name and date, and an optional description.
+2. Choose **Import assessment** to [upload and review your test](ASSESSMENT_IMPORT.md),
+   or **Create manually** to follow the question-entry steps below.
+   For manual creation, enter its name and date, and an optional description.
    All current students are selected; expand **Participating students** to change that.
 3. Enter question labels and maximum marks. Use **Add question**, the arrow buttons
    and **Remove** to arrange questions. Text is optional.

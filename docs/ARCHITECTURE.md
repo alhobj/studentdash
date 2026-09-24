@@ -45,6 +45,15 @@ and validation use that copy. The default remains the existing IB Chemistry prof
 This is not a profile-selection UI or a generic curriculum importer. Curriculum
 mapping is still teacher-entered text, not an implemented CurriculumNode tree.
 
+Assessment-import update: document adapters now produce shared source blocks and a
+structured draft with explicit parent references. A separate suggestion provider
+consumes the class vocabulary, configured definitions/rules and optional curriculum
+nodes with explicit parent IDs. It validates tree references and never generates
+curriculum codes. The initial provider is local evidence matching, not a language
+model. The bundled profile still has no curriculum nodes; a curriculum-management
+UI remains deferred. Draft review and finalization preserve the original upload and
+source metadata while producing the existing assessment format.
+
 This inventory describes the current implementation, not approved patterns for new
 generic features. Links identify the main places to revisit when a feature touches
 the corresponding behavior.

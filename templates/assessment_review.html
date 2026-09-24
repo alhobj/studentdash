@@ -1,0 +1,32 @@
+{% extends 'entry_base.html' %}
+{% block body %}<h1>Review assessment import</h1>
+{% if request.args.get('saved') and not error %}<p class="notice" role="status">Draft saved. Continue reviewing now or reopen it from your class later.</p>{% endif %}
+<p><a href="{{ url_for('assessment_import.source', key=doc.id, did=draft.id) }}">Download original test: {{ draft.source.filename }}</a></p>
+<section class="card"><h2>Extraction summary</h2><p>{{ report.count }} scorable questions · {{ '%g'|format(report.total) }} marks detected/reviewed{% if report.document_total is not none %} · Document total: {{ '%g'|format(report.document_total) }}{% endif %}</p><p>{{ report.number_confident }}/{{ report.count }} question numbers and {{ report.marks_confident }}/{{ report.count }} maximum marks have strong extraction signals.</p><p>{{ report.curriculum_confident }} high-confidence curriculum matches. Other mappings need review.</p>
+{% if report.errors %}<ul class="error">{% for issue in report.errors %}<li>{{ issue }}</li>{% endfor %}</ul>{% endif %}
+{% if report.warnings %}<details open><summary>Check against the original</summary><ul>{% for issue in report.warnings %}<li>{{ issue }}</li>{% endfor %}</ul></details>{% endif %}
+<p>Confidence is a heuristic strength, not a probability of correctness. “Detected” means an explicit signal; “Inferred” means a tentative interpretation. All suggestions are optional.</p>
+{% if not curriculum %}<p class="notice">Needs review: this class has no configured curriculum nodes. No syllabus codes will be invented. Tag suggestions are still available.</p>{% endif %}
+<details><summary>Original extracted content</summary>{% for block in draft.extraction.blocks %}<p><strong>{% if block.page %}Page {{ block.page }}{% else %}{{ block.get('location', '') }}{% endif %}</strong></p><pre style="white-space:pre-wrap">{{ block.text }}</pre>{% for figure in block.figures %}<p>Figure reference: {{ figure }}</p>{% endfor %}{% endfor %}</details></section>
+<noscript><p class="notice error">Enable JavaScript to review and edit the import.</p></noscript>
+<form method="post" id="review-form" data-unsaved="{{ 'true' if error else 'false' }}">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ form_version }}"><input type="hidden" name="payload" id="review-payload">
+<section class="card"><label>Assessment name <input id="review-title" required maxlength="200" value="{{ draft.title }}"></label><label>Date <input id="review-date" type="date" required value="{{ draft.date }}"></label><label>Description (optional)<textarea id="review-description" rows="2">{{ draft.description }}</textarea></label>
+<details><summary>Participating students</summary>{% for s in doc.students %}<label><input type="checkbox" class="review-participant" value="{{ s.id }}" {% if s.id in draft.participants %}checked{% endif %}> {{ s.name }}</label>{% endfor %}</details></section>
+<div class="actions"><button type="button" id="accept-high">Accept all high-confidence suggestions</button><button type="button" id="add-import-question">Add missing question</button><span id="review-state" role="status"></span></div><p>Bulk acceptance selects only explicit, high-confidence suggestions (at least 90%). It does not confirm extracted text, marks, or inferred classifications. Check each question/context individually.</p>
+<div id="review-questions"></div>
+<section class="card"><label>Review note <textarea id="review-note" rows="2" maxlength="2000">{{ draft.warning_note }}</textarea></label><p>Explain any difference from the document total. Also record important extraction corrections if useful.</p><label><input type="checkbox" id="review-ack" {% if draft.review_ack %}checked{% endif %}> I compared the questions, context, figures and marks with the original, checked the warnings, and confirm only the selected classifications.</label>
+<div class="actions"><button name="action" value="save" type="submit">Save draft</button><button name="action" value="finalize" type="submit">Create assessment</button></div><p>Create assessment opens the normal spreadsheet score grid. Unselected classifications remain unknown.</p></section></form>
+<template id="review-question-template"><section class="card import-question" style="margin:1rem 0"><h2 class="question-heading"></h2><p class="extraction-strength"></p><p class="question-warning notice"></p>
+<div class="grid"><label>Question label<input class="import-number" maxlength="40"></label><label>Maximum marks<input class="import-marks" type="number" min="0" step="any"></label><label>Parent context<select class="import-parent"></select></label></div>
+<label><input type="checkbox" class="import-scorable"> Scorable question (uncheck for shared parent context)</label>
+<label>Question text / shared instructions<textarea class="import-text" rows="5" maxlength="20000"></textarea></label>
+<details><summary>Compare extracted source</summary><p class="source-location"></p><pre class="source-text" style="white-space:pre-wrap"></pre><div class="source-figures"></div><div class="source-tables"></div></details>
+<h3>Suggested classifications</h3><div class="import-suggestions"></div><p class="suggestion-note"></p>
+<details class="selected-classifications"><summary>Selected classifications / edit manually</summary><div class="import-tags"></div><div class="import-curriculum"></div></details>
+<label><input type="checkbox" class="question-reviewed"> I checked this question/context and its marks against the original</label>
+<div class="actions"><button type="button" data-action="split">Split question</button><button type="button" data-action="combine">Combine with next</button><button type="button" data-action="up">Move up</button><button type="button" data-action="down">Move down</button><button type="button" data-action="delete">Delete</button></div>
+</section></template>
+{% endblock %}
+{% block scripts %}<script>const importDraft = {{ draft|tojson }}; const importSubmitted = {{ submitted|tojson }}; const importCurriculum = {{ curriculum|tojson }};
+{% include 'assessment_review.js' %}</script>{% endblock %}

@@ -28,6 +28,11 @@ controls](docs/FOLLOW_UP.md). See [TODO](TODO.md) for suggested next milestones.
 
 ## Enter your first assessment
 
+Prefer **Import assessment** to upload a PDF/DOCX test, review its questions and
+classification suggestions, and continue into score entry. **Create manually**
+remains available. See [Import a test document](docs/ASSESSMENT_IMPORT.md) for the
+workflow and supplied fictional examples.
+
 For your own class, start `.\.venv\Scripts\python.exe teacher.py` and open
 **http://127.0.0.1:5000/classes**. Follow [Enter your first assessment](docs/FIRST_ASSESSMENT.md)
 for class setup, question classification, spreadsheet score entry and dashboards.

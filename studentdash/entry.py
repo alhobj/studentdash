@@ -89,13 +89,26 @@ class ClassStore:
             db.execute('INSERT INTO class_document VALUES (1, 1, ?)', (json.dumps(doc),))
         return self.read(doc['id'])
 
-    def save(self, doc, version):
+    def save(self, doc, version, source=None):
         with closing(sqlite3.connect(self.path(doc['id']), timeout=10)) as db, db:
+            if source is not None:
+                db.execute('CREATE TABLE IF NOT EXISTS import_sources (id TEXT PRIMARY KEY, filename TEXT, mime TEXT, content BLOB)')
+                db.execute('INSERT INTO import_sources VALUES (?, ?, ?, ?)', source)
             changed = db.execute('UPDATE class_document SET body=?, version=version+1 WHERE id=1 AND version=?',
                                  (json.dumps({k: v for k, v in doc.items() if k != 'version'}), version))
             if changed.rowcount != 1:
                 raise EntryError('Another tab saved this class. Your changes were not saved. Copy your edits, then reload before retrying.')
         return self.read(doc['id'])
+
+    def source(self, key, source_id):
+        self.read(key)
+        with closing(sqlite3.connect(self.path(key))) as db:
+            if not db.execute("SELECT 1 FROM sqlite_master WHERE name='import_sources'").fetchone():
+                raise EntryError('The original document is unavailable.')
+            row = db.execute('SELECT filename, mime, content FROM import_sources WHERE id=?', (source_id,)).fetchone()
+        if row is None:
+            raise EntryError('The original document is unavailable.')
+        return row
 
     def add_students(self, key, raw, version):
         doc = self.read(key)
@@ -119,6 +132,13 @@ def assessment(doc, aid):
 
 def save_assessment(store, key, aid, payload, version):
     doc = store.read(key)
+    item = prepare_assessment(doc, aid, payload)
+    store.save(doc, version)
+    return item['id']
+
+
+def prepare_assessment(doc, aid, payload):
+    """Validate and place an assessment in a document, without committing it."""
     old = assessment(doc, aid) if aid else None
     if not isinstance(payload, dict):
         raise EntryError('The assessment could not be read. Reload and retry.')
@@ -168,6 +188,9 @@ def save_assessment(store, key, aid, payload, version):
                             text=text(q.get('text', ''), f'Question {number} text', 10000),
                             curriculum=text(q.get('curriculum', ''), f'Question {number} curriculum mapping', 300),
                             tags={c: list(dict.fromkeys(v)) for c, v in tags.items() if v}))
+        # Retain import provenance and hierarchy when the normal editor is used later.
+        if qid in old_questions and 'import_context' in old_questions[qid]:
+            cleaned[-1]['import_context'] = deepcopy(old_questions[qid]['import_context'])
     if not math.isfinite(sum(q['marks'] for q in cleaned)):
         raise EntryError('The assessment maximum is too large. Check the question marks.')
     scores = deepcopy(old['scores']) if old else {}
@@ -186,12 +209,13 @@ def save_assessment(store, key, aid, payload, version):
     item = dict(id=aid or identifier(), name=name, date=day,
                 description=text(payload.get('description', ''), 'Description', 5000),
                 participants=list(dict.fromkeys(participants)), questions=cleaned, scores=scores)
+    if old and 'import_source' in old:
+        item['import_source'] = deepcopy(old['import_source'])
     if old:
         doc['assessments'][doc['assessments'].index(old)] = item
     else:
         doc['assessments'].append(item)
-    store.save(doc, version)
-    return item['id']
+    return item
 
 
 def parse_score(raw, maximum):

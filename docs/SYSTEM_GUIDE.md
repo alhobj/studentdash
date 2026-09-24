@@ -4,6 +4,11 @@ For the current teacher workflow, start with **[Enter your first assessment](FIR
 It covers persistent classes, question editing, classifications, Excel-block paste,
 save/reopen, overview and individual dashboards without workbook preparation.
 
+You can now choose **Import assessment** to upload PDF/DOCX tests, review extracted
+questions and automatic classification suggestions, then create a normal assessment.
+See the short [assessment import guide](ASSESSMENT_IMPORT.md), including its current
+extraction limits and the distinction between local inference and an external AI model.
+
 ## Architecture direction
 
 Studentdash is subject-independent and curriculum-independent. IB Chemistry is the

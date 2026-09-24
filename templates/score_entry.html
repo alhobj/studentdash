@@ -1,5 +1,6 @@
 {% extends 'entry_base.html' %}
 {% block body %}<h1>{{ item.name }}</h1><p>{{ doc.name }} · {{ item.date }}</p>{% if item.description %}<p>{{ item.description }}</p>{% endif %}
+{% if item.get('import_source') %}<p><a href="{{ url_for('assessment_import.source', key=doc.id, did=item.import_source.draft) }}">Download original test</a></p>{% endif %}
 {% if request.args.get('saved') and not error %}<p class="notice" role="status">Saved. You can close this page and continue later.</p>{% endif %}
 <div class="actions"><a href="{{ url_for('entry.edit', key=doc.id, aid=item.id) }}">Edit questions & classifications</a><a href="{{ url_for('index', assessment=item.id, class_key=doc.id) }}">View overview</a></div>
 <p>Enter marks, including 0, or A = absent, E = exempt, M = missing, P = pending. Blank means pending. Click a starting cell and paste a rectangular block from Excel, without headings. Use Tab / Shift+Tab across cells, Enter / Shift+Enter down/up, or arrow keys. Decimal points and decimal commas are accepted.</p>

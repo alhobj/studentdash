@@ -102,5 +102,242 @@
       "Assumptions",
       "Safety"
     ]
+  },
+  "id": "ib-chemistry",
+  "version": 2,
+  "category_options": {
+    "CommandTerm": {
+      "multiple": true
+    },
+    "Skill": {
+      "multiple": true
+    },
+    "CognitiveDemand": {
+      "multiple": true
+    },
+    "Context": {
+      "multiple": true
+    },
+    "Representation": {
+      "multiple": true
+    },
+    "QuantitativeSkill": {
+      "multiple": true
+    },
+    "ExperimentalSkill": {
+      "multiple": true
+    }
+  },
+  "suggestion_rules": [
+    {
+      "category": "Representation",
+      "tag": "Calculation",
+      "pattern": "\\bcalculate\\b",
+      "confidence": 0.95,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Graph",
+      "pattern": "\\b(graph|graphs|plot|plotted)\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Table",
+      "pattern": "\\btable\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Spectrum",
+      "pattern": "\\b(spectrum|spectra)\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Lewis structure",
+      "pattern": "\\blewis (structure|diagram)",
+      "confidence": 0.95,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Structural formula",
+      "pattern": "\\b(structural|displayed|skeletal) formula",
+      "confidence": 0.95,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Chemical equation",
+      "pattern": "\\b(balanced|chemical|ionic) equation",
+      "confidence": 0.95,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Mechanism",
+      "pattern": "\\b(reaction mechanism|mechanism for the reaction)\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Diagram/model",
+      "pattern": "\\b(diagram|apparatus)\\b",
+      "confidence": 0.85,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Experimental data",
+      "pattern": "\\b(experimental (data|results)|results of the experiment)\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "QuantitativeSkill",
+      "tag": "Significant figures",
+      "pattern": "\\bsignificant figures\\b",
+      "confidence": 0.95,
+      "source": "rule"
+    },
+    {
+      "category": "QuantitativeSkill",
+      "tag": "Uncertainty",
+      "pattern": "\\b(calculate|determine|estimate)\\b.{0,70}\\buncertainty\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "QuantitativeSkill",
+      "tag": "Graph calculation",
+      "pattern": "\\b(calculate|determine)\\b.{0,70}\\b(gradient|slope|area under)\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "Skill",
+      "tag": "Equation/formula writing",
+      "pattern": "\\b(write|formulate)\\b.{0,60}\\b(equation|formula)\\b",
+      "confidence": 0.82,
+      "source": "inferred"
+    },
+    {
+      "category": "Skill",
+      "tag": "Quantitative problem solving",
+      "pattern": "\\bcalculate\\b.{0,90}\\b(mass|volume|amount|concentration|enthalpy|energy|temperature|rate|pressure|percentage|yield|pH)\\b",
+      "confidence": 0.82,
+      "source": "inferred"
+    },
+    {
+      "category": "Skill",
+      "tag": "Graphical analysis",
+      "pattern": "\\b(use|using|interpret|analyse|analyze)\\b.{0,60}\\bgraph\\b",
+      "confidence": 0.8,
+      "source": "inferred"
+    },
+    {
+      "category": "ExperimentalSkill",
+      "tag": "Safety",
+      "pattern": "\\b(safety precaution|safety consideration)\\b",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "ExperimentalSkill",
+      "tag": "Variables",
+      "pattern": "\\b(independent|dependent|controlled) variable",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "ExperimentalSkill",
+      "tag": "Error",
+      "pattern": "\\b(systematic|random) error",
+      "confidence": 0.9,
+      "source": "rule"
+    },
+    {
+      "category": "ExperimentalSkill",
+      "tag": "Accuracy/precision",
+      "pattern": "\\b(accuracy|precision)\\b",
+      "confidence": 0.8,
+      "source": "rule"
+    },
+    {
+      "category": "Representation",
+      "tag": "Table",
+      "feature": "table",
+      "confidence": 0.98,
+      "source": "rule"
+    }
+  ],
+  "tag_definitions": {
+    "CognitiveDemand": {
+      "Recall": {
+        "definition": "Retrieve explicitly requested facts or names from memory.",
+        "keywords": [
+          "name the",
+          "state the definition"
+        ]
+      },
+      "Analyse/Reason": {
+        "definition": "Connect evidence to an explanation or compare patterns and relationships.",
+        "keywords": [
+          "explain why",
+          "deduce from",
+          "compare the results"
+        ]
+      },
+      "Evaluate/Create": {
+        "definition": "Judge a method using evidence or propose an improved investigation.",
+        "keywords": [
+          "evaluate the method",
+          "design an experiment",
+          "suggest an improvement"
+        ]
+      }
+    },
+    "Context": {
+      "Applied": {
+        "definition": "Apply taught ideas to a described practical situation.",
+        "keywords": [
+          "industrial process",
+          "in the laboratory"
+        ]
+      },
+      "Unfamiliar": {
+        "definition": "Use supplied information to reason in a context explicitly presented as new.",
+        "keywords": [
+          "using the unfamiliar",
+          "unfamiliar situation"
+        ]
+      }
+    },
+    "Skill": {
+      "Chemical reasoning": {
+        "definition": "Explain a chemical relationship using chemical concepts and evidence.",
+        "keywords": [
+          "explain why",
+          "deduce the structure"
+        ]
+      },
+      "Data interpretation": {
+        "definition": "Draw a conclusion from supplied measurements or results.",
+        "keywords": [
+          "use the data",
+          "using the data",
+          "from the table"
+        ]
+      }
+    }
+  },
+  "curriculum": {
+    "nodes": []
   }
 }
