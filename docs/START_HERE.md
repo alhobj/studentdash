@@ -252,13 +252,16 @@ output locally before distribution.
 ### Include interactive Chemistry practice
 
 Open [Chemistry practice studio](../resources/ib-chemistry/practice.html) in a
-browser. It is a single offline HTML file with three activities:
+browser. It is a single offline HTML file with six activities:
 
 | Activity | What students do | Suggested feedback task |
 |---|---|---|
 | Limiting reactants | Change reactant amounts; compare ratios and leftover amounts | Predict the water yield, then explain why adding excess reactant does not increase it |
 | Dilution | Change concentration, initial volume and dilution factor | Calculate a final concentration and explain why solute amount stays constant |
 | Equilibrium | Calculate Q and compare it with a chosen K | Predict the net reaction direction and justify it using Q and K |
+| Ionic, covalent and metallic bonding | Compare substances and states, then predict conduction | Explain molten NaCl, copper and graphite using mobile charge carriers |
+| The nuclear atom (Structure 1.2) | Count particles in atoms/ions and vary isotope abundance | Compare carbon isotopes and explain a weighted relative atomic mass |
+| Electron configurations | Enter configurations and reveal orbital diagrams | Compare N/O and Fe/Fe2+/Fe3+; explain pairing and electron removal |
 
 1. Try the relevant activity yourself and check its worked example.
 2. In the student's feedback, name the activity and give a specific task from the

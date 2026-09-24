@@ -56,6 +56,56 @@ class ChemistryResourceTests(unittest.TestCase):
         self.assertIn('Correct the numerical inputs', self.page.locator('#eq-feedback').inner_text())
         self.assertTrue(self.page.locator('#eq-marker').is_hidden())
 
+    def test_bonding_conduction_in_different_states(self):
+        for material, state, kind, conducts in [
+            ('salt', 'solid', 'ionic', 'no'), ('salt', 'liquid', 'ionic', 'yes'),
+            ('copper', 'solid', 'metallic', 'yes'), ('copper', 'liquid', 'metallic', 'yes'),
+            ('water', 'liquid', 'covalent', 'no'), ('diamond', 'solid', 'covalent', 'no'),
+            ('graphite', 'solid', 'covalent', 'yes')]:
+            self.page.select_option('#bond-material', material)
+            self.page.select_option('#bond-state', state)
+            self.page.select_option('#bond-type', kind)
+            self.page.select_option('#bond-conduction', conducts)
+            self.page.locator('#bond-check').click()
+            self.assertTrue(self.page.locator('#bond-feedback').inner_text().startswith('Correct.'))
+        self.assertIsNotNone(self.page.locator('#bond-state option[value="liquid"]').get_attribute('disabled'))
+
+    def test_nuclear_counts_ions_and_isotope_mean(self):
+        for index, expected in [(0, [6, 6, 6]), (1, [6, 8, 6]), (2, [11, 12, 10]),
+                                (3, [17, 18, 18]), (4, [12, 12, 10])]:
+            self.page.select_option('#atom-species', str(index))
+            for key, value in zip(['protons', 'neutrons', 'electrons'], expected):
+                self.page.locator('#atom-' + key).fill(str(value))
+            self.page.locator('#atom-check').click()
+            self.assertTrue(self.page.locator('#atom-feedback').inner_text().startswith('Correct.'))
+        self.page.locator('#atom-neutrons').fill('1.5')
+        self.page.locator('#atom-check').click()
+        self.assertIn('whole numbers', self.page.locator('#atom-feedback').inner_text())
+        for percent, expected in [(0, 12), (25, 12.25), (100, 13)]:
+            self.assertEqual(self.page.evaluate('isotopeMean', percent), expected)
+
+    def test_electron_configurations_exceptions_and_orbital_pairing(self):
+        for index, config in [(0, '1s2 2s2 2p3'), (1, '[He] 2s2 2p4'), (2, '[Ne]'),
+                              (3, '[Ar]'), (4, '[Ar] 4s2'), (5, '[Ar] 4s1 3d5'),
+                              (6, '[Ar] 3d10 4s1'), (7, '[Ar] 3d6 4s2'),
+                              (8, '[Ar] 3d6'), (9, '[Ar] 3d5')]:
+            self.page.select_option('#electron-species', str(index))
+            self.page.locator('#electron-answer').fill(config)
+            self.page.locator('#electron-check').click()
+            self.assertTrue(self.page.locator('#electron-feedback').inner_text().startswith('Correct.'))
+            self.page.locator('#electron-reveal').click()
+            self.assertTrue(self.page.locator('#electron-orbitals').is_visible())
+        self.page.select_option('#electron-species', '8')
+        self.page.locator('#electron-answer').fill('[Ar] 3d5 4s1')
+        self.page.locator('#electron-check').click()
+        self.assertIn('Not yet', self.page.locator('#electron-feedback').inner_text())
+        for bad in ['', '[Ne] 2p6', '2p7', '1s2 garbage', '3d0', '1p2']:
+            self.assertIsNone(self.page.evaluate('parseConfiguration', bad))
+        self.assertEqual(self.page.evaluate("parseConfiguration('[He] 2s² 2p^3')"),
+                         {'1s': 2, '2s': 2, '2p': 3})
+        self.assertEqual(self.page.evaluate('orbitalSpins(3,3)'), ['↑', '↑', '↑'])
+        self.assertEqual(self.page.evaluate('orbitalSpins(4,3)'), ['↑↓', '↑', '↑'])
+
     def test_offline_navigation_mobile_and_print(self):
         for width in (320, 390, 1440):
             self.page.set_viewport_size({'width': width, 'height': 900})
