@@ -1,5 +1,9 @@
 # Studentdash: system guide and route to classroom use
 
+**Ready to use the system? Start with [Your next steps: real data and HTML design](START_HERE.md).**
+It walks through setup, your first real class and test, marks, feedback, choosing a
+dashboard design, generating files, backups and sharing.
+
 For the current teacher workflow, start with **[Enter your first assessment](FIRST_ASSESSMENT.md)**.
 It covers persistent classes, question editing, classifications, Excel-block paste,
 save/reopen, overview and individual dashboards without workbook preparation.

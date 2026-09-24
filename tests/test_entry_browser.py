@@ -108,7 +108,7 @@ class EntryBrowserTests(unittest.TestCase):
         alice_row.get_by_role('link', name='Open snapshot', exact=True).click()
         self.assertNotIn('Bob Private', p.content())
         self.assertNotIn('bob@example.invalid', p.content())
-        expect(p.get_by_text('Incomplete', exact=False).first).to_be_visible()
+        expect(p.locator('.assessment-view:not([hidden])').get_by_text('Incomplete', exact=False).first).to_be_visible()
         doc = ClassStore(self.root / 'entered_classes').list()[0]
         sid = doc['students'][0]['id']
         p.goto((self.root / 'output' / ('class-' + doc['id']) / ('student' + sid + '.html')).as_uri())

@@ -12,7 +12,7 @@ def digest(value):
 
 def fingerprints(config, state=None):
     state = state if state is not None else Workspace(config.workspace).export_state()
-    sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html')]
+    sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html', 'student_night.html', 'student_navigation.js')]
     sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py', 'entry.py', 'classification.py')]
     sources += [ROOT / 'profiles' / 'ib_chemistry.json']
     templates = b''.join(p.name.encode() + b'\0' + p.read_bytes() for p in sources)
