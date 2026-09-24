@@ -3,9 +3,11 @@
 <style>
 :root{color-scheme:dark;--bg:#111a2b;--paper:#1c2940;--ink:#e7edf8;--muted:#b2c0d5;--mint:#8ddbc9;--line:#3a4b65}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:36px 24px}h1,h2,h3{line-height:1.25}h1{font-size:2.4rem;margin:8px 0}h2{font-size:1.6rem}h3{font-size:1.1rem}a{color:var(--mint)}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;text-decoration:none}section{scroll-margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;margin:24px 0}.eyebrow{color:var(--mint);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}.muted,small{color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}label{display:block;margin:12px 0}input,select,button{font:inherit;border-radius:8px;padding:10px;max-width:100%}input,select{display:block;width:100%;background:#111a2b;color:var(--ink);border:1px solid #8295ad}button{background:var(--mint);color:#122c2b;border:0;cursor:pointer;font-weight:650;min-height:44px;margin:8px 8px 8px 0}input[type=range]{accent-color:var(--mint);padding:0;min-height:36px}.result{border-left:3px solid var(--mint);padding:16px;background:#203842;border-radius:8px;min-height:90px}.equation{font-size:1.3rem;color:var(--mint)}.bar-row{margin:14px 0}.bar{height:14px;background:#35445e;border-radius:8px;overflow:hidden}.bar span{display:block;height:100%;background:var(--mint)}.bar-row:nth-child(2) .bar span{background:#b4afff}.bar-row:nth-child(3) .bar span{background:#f2c886}.feedback{min-height:32px;color:#f2d39e}details{margin:20px 0;border-top:1px solid var(--line);padding-top:14px}summary{cursor:pointer;min-height:36px}svg{max-width:100%;height:auto}.vessel{display:flex;justify-content:center;margin:18px 0}.challenge{border-top:1px solid var(--line);margin-top:22px;padding-top:12px}.meter{position:relative;height:18px;border-radius:12px;background:linear-gradient(90deg,#8ddbc9,#435571,#b4afff);margin:24px 0 8px}.marker{position:absolute;top:-5px;width:4px;height:28px;background:white;left:50%}.scale{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}:focus-visible{outline:3px solid #ffd18a;outline-offset:4px}footer{color:var(--muted);font-size:.9rem}.error{color:#ffd18a}[hidden]{display:none!important}@media(max-width:700px){main{padding:20px 16px}.grid{grid-template-columns:1fr;gap:12px}section{padding:20px}h1{font-size:1.9rem}nav a{flex:1;text-align:center}}@media print{:root{color-scheme:light;--bg:white;--paper:white;--ink:#172e3a;--muted:#46535e;--mint:#185f56;--line:#bac4cc}nav,button,input[type=range]{display:none}main{padding:0}section{break-before:auto}.grid{display:block}.result,input,select{background:white;color:#172e3a}details::details-content{content-visibility:visible}.bar span{print-color-adjust:exact}.challenge{break-inside:avoid}}
 .particle-model{padding:24px;margin:16px 0;border:1px dashed var(--mint);border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--mint);font-size:1.3rem}.orbitals{display:flex;flex-wrap:wrap;gap:16px;margin:20px 0}.orbital-row{display:flex;align-items:center;gap:4px}.orbital-box{border:1px solid var(--mint);min-width:34px;min-height:40px;text-align:center;padding:4px}#atom-notation{overflow-wrap:anywhere}
+
+.result,code,#addition-chain{overflow-wrap:anywhere}#activity-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}#activity-index a{font-size:.9rem}.back-index{position:fixed;right:16px;bottom:16px;background:#203842;border:1px solid #8ddbc9;border-radius:24px;padding:8px 16px;text-decoration:none;z-index:2}footer{padding-bottom:56px}@media print{.back-index{display:none}#activity-index{display:none}}
 </style></head><body><main>
-<header><p class="eyebrow">IB Chemistry · independent practice</p><h1>Chemistry practice studio</h1><p class="muted">Predict. Change one variable. Explain what happens.</p><p>Six original activities for practising chemistry concepts. All examples use invented values. This is practice, not an official IB assessment; answers are not sent to your teacher or saved.</p></header>
-<nav aria-label="Practice activities"><a href="#stoichiometry">⚖ Limiting reactants</a><a href="#dilution">◉ Dilution</a><a href="#equilibrium">⇌ Equilibrium</a><a href="#bonding">Bonding</a><a href="#nuclear-atom">The nuclear atom</a><a href="#electron-configurations">Electron configurations</a></nav>
+<header><p class="eyebrow">IB Chemistry · independent practice</p><h1>Chemistry practice studio</h1><p class="muted">Predict. Change one variable. Explain what happens.</p><p>Sixteen original activities for practising chemistry concepts. All examples use invented values. This is practice, not an official IB assessment; answers are not sent to your teacher or saved.</p></header>
+<nav id="activity-index" aria-label="Practice activities"><a href="#stoichiometry">⚖ Limiting reactants</a><a href="#dilution">◉ Dilution</a><a href="#equilibrium">⇌ Equilibrium</a><a href="#bonding">Bonding</a><a href="#nuclear-atom">The nuclear atom</a><a href="#electron-configurations">Electron configurations</a><a href="#mole-mass">07 Mass and moles</a><a href="#mole-entities">08 Counting entities</a><a href="#empirical-formula">09 Empirical formulas</a><a href="#gas-pressure">10 Gas pressure</a><a href="#gas-change">11 Changing gas conditions</a><a href="#gas-molar-mass">12 Gas molar mass</a><a href="#bonding-triangle">13 Bonding triangle</a><a href="#alloy-model">14 Alloys</a><a href="#addition-polymer">15 Addition polymers</a><a href="#condensation-polymer">16 Condensation polymers</a></nav>
 <noscript><p class="error">Enable JavaScript for the calculators and answer checks. The instructions and worked examples remain readable below.</p></noscript>
 <section id="stoichiometry"><p class="eyebrow">01 / Mole ratios</p><h2>Which reactant runs out?</h2><p class="equation">2H₂ + O₂ → 2H₂O</p><p>Model a reaction proceeding to completion. Use amounts in moles, not masses. Before changing a slider, predict which reactant is limiting and how much water can form.</p>
 <div class="grid"><div><label for="hydrogen">Initial H₂ / mol <output id="hydrogen-value">4.0</output><input id="hydrogen" type="range" min="0" max="10" step="0.5" value="4"></label><label for="oxygen">Initial O₂ / mol <output id="oxygen-value">3.0</output><input id="oxygen" type="range" min="0" max="10" step="0.5" value="3"></label><button id="stoich-reset" type="button">Reset amounts</button><p>Try increasing only the excess reactant. Does the theoretical yield change?</p><div id="stoich-result" class="result" aria-live="polite"></div></div><div><h3>After reaction / mol</h3><p class="muted">All bars use the same 0–10 mol scale.</p><div class="bar-row">H₂ remaining: <output id="h-left"></output><div class="bar"><span id="h-bar"></span></div></div><div class="bar-row">O₂ remaining: <output id="o-left"></output><div class="bar"><span id="o-bar"></span></div></div><div class="bar-row">H₂O formed: <output id="water"></output><div class="bar"><span id="water-bar"></span></div></div><details><summary>Method and worked example</summary><p>Divide each initial amount by its coefficient: n(H₂)/2 and n(O₂)/1. The smaller value sets the reaction extent. Multiply this by 2 to find n(H₂O).</p><p>With 4.0 mol H₂ and 3.0 mol O₂, the extent is min(2.0, 3.0) = 2.0 mol. H₂ is limiting; 4.0 mol H₂O forms and 1.0 mol O₂ remains. Equal ratios mean neither reactant is in excess.</p></details></div></div>
@@ -55,8 +57,80 @@
 <p><strong>Explain:</strong> Compare the unpaired electrons of N and O, then compare Fe, Fe²⁺ and Fe³⁺. Why can simply filling orbitals for the ion's electron count give a wrong transition-metal configuration?</p>
 </section>
 
-<footer><p>Use your teacher's required significant figures and show units in written answers. Numerical checks accept answers within 1%; they do not assess significant figures or award grades. Resetting/reloading clears activity responses.</p><p>Concept references (internet required): <a href="https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields">OpenStax: reaction yields</a>, <a href="https://openstax.org/books/chemistry-2e/pages/3-3-molarity">molarity and dilution</a>, <a href="https://openstax.org/books/chemistry-atoms-first-2e/pages/13-2-equilibrium-constants">equilibrium constants</a>. Further references: <a href="https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism">atomic structure</a>, <a href="https://openstax.org/books/chemistry-2e/pages/7-2-covalent-bonding">bonding</a>, <a href="https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations">electron configurations</a>. Activities and wording are original; no examination questions or student records are included.</p></footer>
-</main><script>
+<section id="mole-mass" data-new-activity>
+<p class="eyebrow">07 / Mole · mass and amount</p><h2>Same mass, different amount</h2>
+<p>Explore n = m/M. Compare equal masses of different substances by changing the molar mass. M is supplied in g mol⁻¹; it is not the mass of one molecule.</p>
+<div class="numeric-explorer" data-explorer="mole-mass"></div>
+<details><summary>Worked example</summary><p>For 11.0 g CO₂ with M = 44.0 g mol⁻¹, n = 11.0/44.0 = 0.250 mol. Doubling the mass doubles n; doubling M at fixed mass halves n.</p></details>
+</section>
+<section id="mole-entities" data-new-activity>
+<p class="eyebrow">08 / Mole · counting entities</p><h2>Molecules are not atoms</h2>
+<p>Use N = nNₐ, with Nₐ = 6.02214076 × 10²³ mol⁻¹. Set the number of atoms in each molecule to compare molecule count with total atom count. This activity concerns molecular substances; ionic solids are counted using formula units.</p>
+<div class="numeric-explorer" data-explorer="mole-entities"></div>
+<details><summary>Worked example</summary><p>0.500 mol H₂O contains 3.01107038 × 10²³ molecules and three times as many atoms: 9.03321114 × 10²³. There are twice as many hydrogen atoms as oxygen atoms.</p></details>
+</section>
+<section id="empirical-formula" data-new-activity>
+<p class="eyebrow">09 / Mole · empirical formulas</p><h2>Turn masses into an atom ratio</h2>
+<p>Select an invented analysis. Divide each mass by its supplied molar mass, then divide by the smallest amount. If needed, multiply every ratio by the same small integer.</p>
+<label for="empirical-sample">Analysis<select id="empirical-sample"><option value="0">Carbon and hydrogen</option><option value="1">Iron and oxygen</option><option value="2">Carbon, hydrogen and oxygen</option></select></label>
+<div id="empirical-data" class="result"></div>
+<label for="empirical-answer">Simplest whole-number ratio, in the element order shown<input id="empirical-answer" placeholder="For example: 1:2" autocomplete="off"></label>
+<button id="empirical-check" type="button">Check ratio</button><button id="empirical-reveal" type="button">Show mole working</button><p id="empirical-feedback" class="feedback" role="status"></p><div id="empirical-working" class="result" hidden></div>
+<details><summary>Why not use the mass ratio?</summary><p>Atoms of different elements have different masses. Chemical formulas describe numbers of atoms, so compare amounts in moles. A ratio of 1:1.5 becomes 2:3, not 1:2. An empirical formula gives the simplest ratio; it may differ from a molecular formula.</p></details>
+</section>
+<section id="gas-pressure" data-new-activity>
+<p class="eyebrow">10 / Ideal gases · pV = nRT</p><h2>Control a gas sample</h2>
+<p>Predict how pressure changes when you change one variable. Use R = 8.314 kPa dm³ mol⁻¹ K⁻¹, volume in dm³ and T = °C + 273.15. The model assumes negligible particle volume and no intermolecular forces.</p>
+<div class="numeric-explorer" data-explorer="gas-pressure"></div>
+<details><summary>Worked example and model limit</summary><p>For 0.100 mol at 300.0 K in 2.00 dm³, p = 0.100 × 8.314 × 300.0 / 2.00 = 124.71 kPa. At fixed n and T, doubling V halves p. Real gases generally behave more ideally at low pressure and high temperature, away from condensation. The calculator does not model deviations.</p></details>
+</section>
+<section id="gas-change" data-new-activity>
+<p class="eyebrow">11 / Ideal gases · changing conditions</p><h2>Predict the new volume</h2>
+<p>A fixed amount of ideal gas changes pressure and temperature. Use p₁V₁/T₁ = p₂V₂/T₂. Temperatures below are in kelvin; use absolute pressure, not gauge pressure. No gas enters or leaves.</p>
+<div class="numeric-explorer" data-explorer="gas-change"></div>
+<details><summary>Worked example</summary><p>A 2.00 dm³ sample at 100 kPa and 300 K changes to 200 kPa and 450 K. V₂ = 2.00 × (100/200) × (450/300) = 1.50 dm³. Heating and compression act in opposite directions; include both factors.</p></details>
+</section>
+<section id="gas-molar-mass" data-new-activity>
+<p class="eyebrow">12 / Ideal gases · identifying a gas</p><h2>Find molar mass from measurements</h2>
+<p>Find n = pV/RT, then M = m/n. Use the measured mass of gas alone. Inputs are absolute pressure in kPa, volume in dm³, temperature in K and mass in g.</p>
+<div class="numeric-explorer" data-explorer="gas-molar-mass"></div>
+<details><summary>Worked example</summary><p>A 0.880 g gas sample occupies 0.500 dm³ at 100.0 kPa and 300.0 K. n = 50.0/2494.2 = 0.02005 mol, giving M ≈ 43.9 g mol⁻¹. A molar mass alone does not uniquely identify a gas. Measurement uncertainty and deviations from ideal behavior affect the estimate.</p></details>
+</section>
+<section id="bonding-triangle" data-new-activity>
+<p class="eyebrow">13 / Structure 2.4 · bonding continuum</p><h2>Place a pair in the bonding triangle</h2>
+<p>Change two illustrative electronegativities, χA and χB. Plot their mean horizontally and their absolute difference vertically. Treat ionic, covalent and metallic bonding as models along a continuum, not rigid boxes.</p>
+<div class="grid"><div><label for="triangle-a">χA (illustrative scale)<input id="triangle-a" type="range" min="0" max="4" step="0.1" value="1"></label><label for="triangle-b">χB (illustrative scale)<input id="triangle-b" type="range" min="0" max="4" step="0.1" value="3"></label><div id="triangle-result" class="result" aria-live="polite"></div><p>Keep the mean fixed: increase one value while decreasing the other. What changes?</p></div>
+<div><svg viewBox="0 0 460 350" role="img" aria-labelledby="triangle-title"><title id="triangle-title">Qualitative bonding triangle: metallic at lower left, covalent at lower right, ionic at top</title><path d="M50 290L410 290L230 50Z" fill="#253c4a" stroke="#8ddbc9" stroke-width="2"/><text x="230" y="30" text-anchor="middle" fill="#e7edf8">Ionic</text><text x="50" y="316" fill="#e7edf8">Metallic</text><text x="410" y="316" text-anchor="end" fill="#e7edf8">Covalent</text><text x="230" y="344" text-anchor="middle" fill="#b2c0d5">Mean χ: 0 → 4</text><circle id="triangle-dot" cx="230" cy="170" r="7" fill="#f2c886"/><text x="8" y="175" fill="#b2c0d5">Δχ</text></svg><p class="muted">Schematic endpoints span 0–4, not a complete periodic-table scale. No sharp boundaries or percentages of bond type are inferred. Electronegativity alone cannot determine every material property.</p></div></div>
+<label for="triangle-answer">Which description fits a low mean and a small difference?<select id="triangle-answer"><option value="">Choose a model</option><option value="metallic">Toward the metallic model</option><option value="ionic">Toward the ionic model</option><option value="covalent">Toward the covalent model</option></select></label><button id="triangle-check" type="button">Check model</button><p id="triangle-feedback" class="feedback" role="status"></p>
+</section>
+<section id="alloy-model" data-new-activity>
+<p class="eyebrow">14 / Structure 2.4 · alloys</p><h2>Disturb a regular metal lattice</h2>
+<p>Compare a pure metal with schematic substitutional and interstitial alloys. Apply a notional shear to explore how other atoms can obstruct layer movement. This is a qualitative model, not a calculation of strength.</p>
+<label for="alloy-kind">Model<select id="alloy-kind"><option value="pure">Pure metal</option><option value="substitutional">Substitutional alloy (different-sized atoms replace host atoms)</option><option value="interstitial">Interstitial alloy (small atoms occupy gaps)</option></select></label><button id="alloy-shear" type="button">Apply schematic shear</button><button id="alloy-reset" type="button">Reset shear</button>
+<svg id="alloy-svg" viewBox="0 0 440 200" role="img" aria-label="Schematic lattice model"></svg><p id="alloy-result" class="result" aria-live="polite"></p>
+<label for="alloy-answer">Why can alloying make a metal harder?<select id="alloy-answer"><option value="">Choose an explanation</option><option value="obstruct">Different atoms distort the structure and can hinder dislocation motion</option><option value="ionic">Every metal atom becomes part of an ionic salt</option><option value="electrons">All delocalized electrons disappear</option></select></label><button id="alloy-check" type="button">Check explanation</button><p id="alloy-feedback" class="feedback" role="status"></p>
+<details><summary>From model to material</summary><p>An alloy contains a metal with other elements, which need not all be metals. Brass contains copper and zinc; carbon is important in steel. Alloying can change hardness, corrosion resistance and other properties. The outcome depends on composition and processing; not every alloy is harder than every pure metal.</p></details>
+</section>
+<section id="addition-polymer" data-new-activity>
+<p class="eyebrow">15 / Structure 2.4 · addition polymers</p><h2>Build a repeat unit from an alkene</h2>
+<p>Select a monomer and predict the repeat unit. In these addition reactions the C=C becomes a C–C link in the chain; side groups remain attached. No small molecule is eliminated.</p>
+<label for="addition-monomer">Alkene<select id="addition-monomer"><option value="ethene">Ethene: CH₂=CH₂</option><option value="propene">Propene: CH₂=CH(CH₃)</option><option value="chloroethene">Chloroethene: CH₂=CHCl</option></select></label>
+<label for="addition-answer">Repeat unit<select id="addition-answer"><option value="">Choose the repeat unit</option><option value="ethene">[–CH₂–CH₂–]</option><option value="propene">[–CH₂–CH(CH₃)–]</option><option value="chloroethene">[–CH₂–CHCl–]</option><option value="double">[–CH=CH–]</option></select></label>
+<button id="addition-check" type="button">Check repeat unit</button><button id="addition-reveal" type="button">Build chain</button><p id="addition-feedback" class="feedback" role="status"></p>
+<label for="addition-length">Repeat units to display<input id="addition-length" type="range" min="1" max="5" step="1" value="3"></label><div id="addition-chain" class="result" hidden></div>
+<details><summary>Reading the chain</summary><p>Brackets with n describe repeated units; bonds extend through the brackets to adjacent units. Actual chains can contain many more units than this display. Polymer properties also depend on chain length, branching, packing and interactions between chains; the repeat unit alone does not determine every property.</p></details>
+</section>
+<section id="condensation-polymer" data-new-activity>
+<p class="eyebrow">16 / Structure 2.4 · condensation extension</p><h2>Join functional groups into a chain</h2>
+<p>Compare a diol + dicarboxylic acid with a diamine + dicarboxylic acid. R and R′ represent the remaining carbon-containing groups. These examples use carboxylic acids, so each new ester or amide link eliminates one water molecule.</p>
+<label for="condensation-kind">Monomer pair<select id="condensation-kind"><option value="ester">HO–R–OH + HOOC–R′–COOH</option><option value="amide">H₂N–R–NH₂ + HOOC–R′–COOH</option></select></label>
+<label for="condensation-answer">Link formed<select id="condensation-answer"><option value="">Choose a link</option><option value="ester">Ester: –C(=O)–O–</option><option value="amide">Amide: –C(=O)–NH–</option><option value="alkene">Alkene: –CH=CH–</option></select></label><button id="condensation-check" type="button">Check linkage</button><button id="condensation-reveal" type="button">Reveal linkage</button><p id="condensation-feedback" class="feedback" role="status"></p><div id="condensation-link" class="result" hidden></div>
+<label for="condensation-count">Total bifunctional monomer molecules in one alternating linear chain<input id="condensation-count" type="range" min="2" max="10" step="1" value="4"></label><p id="condensation-water" class="result" aria-live="polite"></p>
+<p class="muted">Count individual molecules, not monomer pairs. The chain is open, unbranched and has no rings; only the links joining those molecules are counted. Hydrolysis can break ester/amide links by adding water. Other condensation routes can eliminate other small molecules.</p>
+</section>
+
+<footer><p>Use your teacher's required significant figures and show units in written answers. Numerical checks accept answers within 1%; they do not assess significant figures or award grades. Resetting/reloading clears activity responses.</p><p>Concept references (internet required): <a href="https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields">OpenStax: reaction yields</a>, <a href="https://openstax.org/books/chemistry-2e/pages/3-3-molarity">molarity and dilution</a>, <a href="https://openstax.org/books/chemistry-atoms-first-2e/pages/13-2-equilibrium-constants">equilibrium constants</a>. Further references: <a href="https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism">atomic structure</a>, <a href="https://openstax.org/books/chemistry-2e/pages/7-2-covalent-bonding">bonding</a>, <a href="https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations">electron configurations</a>. Additional concept references: <a href="https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept">the mole</a>, <a href="https://openstax.org/books/chemistry-2e/pages/3-2-determining-empirical-and-molecular-formulas">empirical formulas</a>, <a href="https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law">ideal gases</a>, <a href="https://www.pearson.com/content/dam/one-dot-com/one-dot-com/international-schools/pdfs/international-baccalaureate/ib-diploma/chemistry/Chem-Lesson-Plans.pdf">Structure 2.4 scope</a>, <a href="https://openstax.org/books/organic-chemistry/pages/31-1-chain-growth-polymers">addition polymers</a>, and <a href="https://openstax.org/books/organic-chemistry/pages/31-4-step-growth-polymers">condensation polymers</a>. Activities and wording are original; no examination questions or student records are included.</p></footer>
+</main><a class="back-index" href="#activity-index">Activities &#8593;</a><script>
 'use strict';
 const el = id => document.getElementById(id);
 const fmt = value => Number(value.toPrecision(4)).toString();
@@ -126,5 +200,102 @@ el('electron-species').addEventListener('change',updateElectron);el('electron-an
 el('electron-check').addEventListener('click',()=>{const species=electronCases[el('electron-species').value],answer=parseConfiguration(el('electron-answer').value),expected=parseConfiguration(species.config);if(!answer){el('electron-feedback').textContent='Use valid subshell tokens separated by spaces, e.g. 1s2 2s2 2p3, or a He, Ne or Ar core. Do not repeat subshells.';return;}const correct=subshellOrder.every(key=>(answer[key]||0)===(expected[key]||0));const count=Object.values(answer).reduce((a,b)=>a+b,0);el('electron-feedback').textContent=correct?'Correct. '+species.note:`Not yet. Your configuration has ${count} electrons; this species needs ${species.z-species.q}. Check subshell occupancies as well as the total. For transition-metal ions, remove 4s before 3d.`;});
 el('electron-reveal').addEventListener('click',()=>{const s=electronCases[el('electron-species').value],config=parseConfiguration(s.config);el('electron-model').hidden=false;el('electron-orbitals').replaceChildren();subshellOrder.filter(key=>config[key]).forEach(key=>{const row=document.createElement('div');row.className='orbital-row';row.textContent=key+' ';orbitalSpins(config[key],{s:1,p:3,d:5}[key[1]]).forEach(spin=>{const box=document.createElement('span');box.className='orbital-box';box.textContent=spin;row.append(box);});el('electron-orbitals').append(row);});el('electron-explanation').textContent=s.config+'. '+s.note;});
 updateBonding();updateAtom();updateIsotope();updateElectron();
+
+// Activities 7–16. All quantities and challenge examples are original practice data.
+const GAS_R = 8.314;
+const AVOGADRO = 6.02214076e23;
+function massToMoles(mass, molarMass) { return mass / molarMass; }
+function particleCounts(n, atoms) { return {molecules:n*AVOGADRO, atoms:n*AVOGADRO*atoms}; }
+function idealPressure(n, celsius, volume) { return n*GAS_R*(celsius+273.15)/volume; }
+function changedVolume(v, p1, p2, t1, t2) { return v*(p1/p2)*(t2/t1); }
+function gasMolarMass(m, p, v, t) { return m*GAS_R*t/(p*v); }
+const numericExplorers = {
+ 'mole-mass': {
+  fields:[['mass','Mass / g',11,0,10000],['molar','Molar mass / g mol⁻¹',44,0.001,10000]],
+  result:([m,M])=>`n = ${fmt(m)} / ${fmt(M)} = ${fmt(massToMoles(m,M))} mol.`,
+  challenge:'A 5.85 g NaCl sample has M = 58.5 g mol⁻¹. Calculate its amount.', unit:'Amount / mol',answer:0.1,
+  working:'n = 5.85 / 58.5 = 0.100 mol. Divide mass by molar mass; multiplying gives the wrong units.'
+ },
+ 'mole-entities': {
+  fields:[['amount','Amount of molecules / mol',0.5,0,100],['atoms','Atoms per molecule',3,1,100,'1']],
+  result:([n,a])=>{const r=particleCounts(n,a);return `${fmt(n)} mol contains ${r.molecules.toExponential(4)} molecules and ${r.atoms.toExponential(4)} atoms (${a} per molecule).`;},
+  challenge:'How many oxygen atoms are in 0.250 mol CO₂? Enter a number; scientific notation such as 3.01e23 is accepted.',unit:'Oxygen atoms',answer:0.5*AVOGADRO,
+  working:'Each CO₂ molecule contains two O atoms: 0.250 × 2 × Nₐ = 3.01107038 × 10²³ O atoms.'
+ },
+ 'gas-pressure': {
+  fields:[['amount','Amount / mol',0.1,0.0001,10],['temperature','Temperature / °C',26.85,-273.14,2000],['volume','Volume / dm³',2,0.001,1000]],
+  result:([n,t,v])=>`T = ${fmt(t+273.15)} K. p = nRT/V = ${fmt(idealPressure(n,t,v))} kPa.`,
+  challenge:'Find the pressure of 0.200 mol ideal gas in 5.00 dm³ at 300 K. Use R = 8.314.',unit:'Pressure / kPa',answer:99.768,
+  working:'p = 0.200 × 8.314 × 300 / 5.00 = 99.768 kPa. Use kelvin, not degrees Celsius.'
+ },
+ 'gas-change': {
+  fields:[['volume','Initial volume / dm³',2,0.001,1000],['p1','Initial pressure / kPa',100,0.001,10000],['p2','Final pressure / kPa',200,0.001,10000],['t1','Initial temperature / K',300,0.01,3000],['t2','Final temperature / K',450,0.01,3000]],
+  result:([v,p1,p2,t1,t2])=>`V₂ = ${fmt(v)} × (${fmt(p1)}/${fmt(p2)}) × (${fmt(t2)}/${fmt(t1)}) = ${fmt(changedVolume(v,p1,p2,t1,t2))} dm³.`,
+  challenge:'A fixed amount occupies 3.00 dm³ at 100 kPa and 300 K. Find its volume at 150 kPa and 300 K.',unit:'Final volume / dm³',answer:2,
+  working:'V₂ = 3.00 × (100/150) × (300/300) = 2.00 dm³. At fixed temperature, volume is inversely proportional to pressure.'
+ },
+ 'gas-molar-mass': {
+  fields:[['mass','Mass of gas / g',0.88,0.0001,1000],['pressure','Pressure / kPa',100,0.001,10000],['volume','Volume / dm³',0.5,0.001,1000],['temperature','Temperature / K',300,0.01,3000]],
+  result:([m,p,v,t])=>`n = pV/RT = ${fmt(p*v/(GAS_R*t))} mol. M = mRT/pV = ${fmt(gasMolarMass(m,p,v,t))} g mol⁻¹.`,
+  challenge:'1.20 g ideal gas occupies 1.00 dm³ at 100.0 kPa and 300.0 K. Find M using R = 8.314.',unit:'Molar mass / g mol⁻¹',answer:29.9304,
+  working:'M = 1.20 × 8.314 × 300.0 / (100.0 × 1.00) = 29.9304 g mol⁻¹. Volume and pressure units must match R.'
+ }
+};
+function buildNumericExplorer(host) {
+ const key=host.dataset.explorer, config=numericExplorers[key];
+ const grid=document.createElement('div');grid.className='grid';
+ const controls=document.createElement('div'), panel=document.createElement('div');
+ const output=document.createElement('p');output.className='result';output.id=key+'-result';output.setAttribute('aria-live','polite');
+ const inputs=config.fields.map(([suffix,title,value,min,max,step='any'])=>{
+  const label=document.createElement('label');label.textContent=title;
+  const input=document.createElement('input');input.id=key+'-'+suffix;input.type='number';input.min=min;input.max=max;input.step=step;input.value=value;
+  label.htmlFor=input.id;label.append(input);controls.append(label);return input;
+ });
+ const reset=document.createElement('button');reset.type='button';reset.textContent='Reset explorer';reset.id=key+'-reset';controls.append(reset);
+ const title=document.createElement('h3');title.textContent='Predict, then check';
+ const prompt=document.createElement('p');prompt.textContent=config.challenge;
+ const label=document.createElement('label');label.textContent=config.unit;
+ const answer=document.createElement('input');answer.type='number';answer.step='any';answer.min='0';answer.id=key+'-answer';label.htmlFor=answer.id;label.append(answer);
+ const check=document.createElement('button');check.type='button';check.textContent='Check answer';check.id=key+'-check';
+ const feedback=document.createElement('p');feedback.id=key+'-feedback';feedback.className='feedback';feedback.setAttribute('role','status');
+ panel.append(output,title,prompt,label,check,feedback);grid.append(controls,panel);host.append(grid);
+ const update=()=>{const values=inputs.map(input=>number(input.id));output.textContent=values.every(Number.isFinite)?config.result(values):'Enter a valid number within the stated range for every field.';inputs.forEach(input=>{input.setAttribute('aria-invalid',String(!Number.isFinite(number(input.id))));});};
+ // Bounds are stated beside each control, not only in browser validation bubbles.
+ inputs.forEach(input=>{const note=document.createElement('small');note.textContent=`Range: ${input.min} to ${input.max}${input.step==='1'?'; whole numbers':''}.`;input.after(note);input.addEventListener('input',update);});
+ check.addEventListener('click',()=>checkNumeric(answer.id,feedback.id,config.answer,config.working));
+ answer.addEventListener('input',()=>feedback.textContent='');
+ reset.addEventListener('click',()=>{inputs.forEach((input,i)=>input.value=config.fields[i][2]);answer.value='';feedback.textContent='';update();});
+ update();
+}
+document.querySelectorAll('.numeric-explorer').forEach(buildNumericExplorer);
+const empiricalSamples=[
+ {symbols:['C','H'],masses:[2.4,0.6],molars:[12,1],ratio:[1,3],formula:'CH₃'},
+ {symbols:['Fe','O'],masses:[11.2,4.8],molars:[56,16],ratio:[2,3],formula:'Fe₂O₃'},
+ {symbols:['C','H','O'],masses:[3.6,0.6,4.8],molars:[12,1,16],ratio:[1,2,1],formula:'CH₂O'}
+];
+function empiricalAmounts(sample){return sample.masses.map((mass,i)=>mass/sample.molars[i]);}
+function showEmpirical(){const s=empiricalSamples[el('empirical-sample').value];el('empirical-data').textContent=s.symbols.map((symbol,i)=>`${symbol}: ${s.masses[i]} g; M = ${s.molars[i]} g mol⁻¹`).join(' | ')+'. Use these rounded molar masses for this exercise.';el('empirical-answer').value='';el('empirical-feedback').textContent='';el('empirical-working').hidden=true;}
+el('empirical-sample').addEventListener('change',showEmpirical);el('empirical-answer').addEventListener('input',()=>el('empirical-feedback').textContent='');
+el('empirical-check').addEventListener('click',()=>{const s=empiricalSamples[el('empirical-sample').value],text=el('empirical-answer').value.trim(),values=text.split(':').map(Number);const valid=/^\d+(\s*:\s*\d+)+$/.test(text)&&values.length===s.ratio.length&&values.every(v=>Number.isSafeInteger(v)&&v>0);el('empirical-feedback').textContent=!valid?'Enter positive whole numbers separated by colons, one per element.':values.every((v,i)=>v===s.ratio[i])?'Correct. Empirical formula: '+s.formula+'.':'Not yet. Convert masses to amounts, divide by the smallest, then use the simplest whole-number ratio.';});
+el('empirical-reveal').addEventListener('click',()=>{const s=empiricalSamples[el('empirical-sample').value],amounts=empiricalAmounts(s),smallest=Math.min(...amounts);el('empirical-working').hidden=false;el('empirical-working').textContent=`Amounts / mol: ${amounts.map(fmt).join(' : ')}. Divide by ${fmt(smallest)}: ${amounts.map(n=>fmt(n/smallest)).join(' : ')}. Whole-number ratio ${s.ratio.join(':')}; empirical formula ${s.formula}.`;});
+function trianglePosition(a,b){const mean=(a+b)/2,difference=Math.abs(a-b);return {mean,difference,x:50+mean*90,y:290-difference*60};}
+function updateTriangle(){const a=number('triangle-a'),b=number('triangle-b'),p=trianglePosition(a,b);el('triangle-result').textContent=`χA = ${a.toFixed(1)}, χB = ${b.toFixed(1)}. Mean = ${p.mean.toFixed(2)}; Δχ = ${p.difference.toFixed(2)}.`;el('triangle-dot').setAttribute('cx',p.x);el('triangle-dot').setAttribute('cy',p.y);}
+['triangle-a','triangle-b'].forEach(id=>el(id).addEventListener('input',updateTriangle));
+function choiceCheck(prefix,expected,reason){el(prefix+'-answer').addEventListener('change',()=>el(prefix+'-feedback').textContent='');el(prefix+'-check').addEventListener('click',()=>{const value=el(prefix+'-answer').value;el(prefix+'-feedback').textContent=!value?'Choose an answer first.':(value===expected?'Correct. ':'Reconsider. ')+reason;});}
+choiceCheck('triangle','metallic','A low mean and small difference lies toward the metallic corner; a large difference moves upward toward the ionic model.');
+let alloySheared=false;
+function updateAlloy(){const kind=el('alloy-kind').value,svg=el('alloy-svg'),ns='http://www.w3.org/2000/svg';svg.replaceChildren();for(let row=0;row<3;row++)for(let col=0;col<6;col++){const guest=kind==='substitutional'&&((row===1&&col===2)||(row===2&&col===4));const circle=document.createElementNS(ns,'circle');circle.setAttribute('cx',55+col*60+(alloySheared&&row===0?(kind==='pure'?25:5):0));circle.setAttribute('cy',40+row*60);circle.setAttribute('r',guest?27:21);circle.setAttribute('fill',guest?'#f2c886':'#8ddbc9');svg.append(circle);}if(kind==='interstitial'){[[145,70],[265,130]].forEach(([x,y])=>{const circle=document.createElementNS(ns,'circle');circle.setAttribute('cx',x);circle.setAttribute('cy',y);circle.setAttribute('r',10);circle.setAttribute('fill','#f2c886');svg.append(circle);});}el('alloy-result').textContent=(kind==='pure'?'Mint circles: equal-sized host atoms.':'Mint: host atoms. Gold: added atoms of a different size.')+(alloySheared?(kind==='pure'?' The upper row slides in this simple model.':' The upper row moves less to illustrate obstruction. Distances are illustrative, not a predicted deformation.'):' Apply shear to compare the schematic response.');}
+el('alloy-kind').addEventListener('change',()=>{alloySheared=false;el('alloy-feedback').textContent='';updateAlloy();});el('alloy-shear').addEventListener('click',()=>{alloySheared=true;updateAlloy();});el('alloy-reset').addEventListener('click',()=>{alloySheared=false;updateAlloy();});
+choiceCheck('alloy','obstruct','Distortion can make dislocation motion more difficult, so plastic deformation needs more stress. Metallic bonding remains.');
+const additionUnits={ethene:'CH₂–CH₂',propene:'CH₂–CH(CH₃)',chloroethene:'CH₂–CHCl'};
+function buildAddition(){const count=number('addition-length'),unit=additionUnits[el('addition-monomer').value];el('addition-chain').textContent=`${count} repeat unit${count===1?'':'s'} (terminal groups omitted): …–`+Array(count).fill(unit).join('–')+'–…';}
+el('addition-monomer').addEventListener('change',()=>{el('addition-answer').value='';el('addition-feedback').textContent='';el('addition-chain').hidden=true;});el('addition-answer').addEventListener('change',()=>el('addition-feedback').textContent='');el('addition-length').addEventListener('input',buildAddition);
+el('addition-check').addEventListener('click',()=>{const answer=el('addition-answer').value;el('addition-feedback').textContent=!answer?'Choose a repeat unit first.':answer===el('addition-monomer').value?'Correct. The backbone is single-bonded and the original side group is retained.':'Recheck the two backbone carbons and their side groups. The original C=C double bond is not retained in the chain.';});el('addition-reveal').addEventListener('click',()=>{el('addition-chain').hidden=false;buildAddition();});
+function condensationLinks(molecules){return molecules-1;}
+function updateCondensationCount(){const n=number('condensation-count');el('condensation-water').textContent=`${n} monomer molecules joined into one open chain need ${condensationLinks(n)} links and eliminate ${condensationLinks(n)} H₂O molecules. Joining two chains adds one link and eliminates one further water molecule.`;}
+const condensationText={ester:'Diol + dicarboxylic acid → polyester. Link: –C(=O)–O–. The acid contributes OH and the alcohol contributes H to the eliminated H₂O.',amide:'Diamine + dicarboxylic acid → polyamide. Link: –C(=O)–NH–. The acid contributes OH and the amine contributes H to the eliminated H₂O.'};
+el('condensation-kind').addEventListener('change',()=>{el('condensation-answer').value='';el('condensation-feedback').textContent='';el('condensation-link').hidden=true;});el('condensation-answer').addEventListener('change',()=>el('condensation-feedback').textContent='');
+el('condensation-check').addEventListener('click',()=>{const value=el('condensation-answer').value;el('condensation-feedback').textContent=!value?'Choose a linkage first.':(value===el('condensation-kind').value?'Correct. ':'Reconsider the reacting functional groups. ')+condensationText[el('condensation-kind').value];});el('condensation-reveal').addEventListener('click',()=>{el('condensation-link').hidden=false;el('condensation-link').textContent=condensationText[el('condensation-kind').value];});el('condensation-count').addEventListener('input',updateCondensationCount);
+showEmpirical();updateTriangle();updateAlloy();updateCondensationCount();
 
 </script></body></html>

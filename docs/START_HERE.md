@@ -252,7 +252,7 @@ output locally before distribution.
 ### Include interactive Chemistry practice
 
 Open [Chemistry practice studio](../resources/ib-chemistry/practice.html) in a
-browser. It is a single offline HTML file with six activities:
+browser. It is a single offline HTML file with sixteen activities:
 
 | Activity | What students do | Suggested feedback task |
 |---|---|---|
@@ -262,6 +262,27 @@ browser. It is a single offline HTML file with six activities:
 | Ionic, covalent and metallic bonding | Compare substances and states, then predict conduction | Explain molten NaCl, copper and graphite using mobile charge carriers |
 | The nuclear atom (Structure 1.2) | Count particles in atoms/ions and vary isotope abundance | Compare carbon isotopes and explain a weighted relative atomic mass |
 | Electron configurations | Enter configurations and reveal orbital diagrams | Compare N/O and Fe/Fe2+/Fe3+; explain pairing and electron removal |
+
+The ten newest activities extend the studio with:
+
+| Activity | What students do | Suggested feedback task |
+|---|---|---|
+| Mass and moles | Vary mass and molar mass | Explain why equal masses can contain different amounts |
+| Counting entities | Compare molecule and atom counts | Count oxygen atoms in a known amount of CO2 |
+| Empirical formulas | Convert three invented analyses to mole ratios | Explain why a 1:1.5 ratio becomes 2:3 |
+| Gas pressure | Vary amount, temperature and volume | Use kelvin and predict the effect of doubling volume |
+| Changing gas conditions | Combine pressure and temperature changes | Calculate final volume for a fixed amount of gas |
+| Gas molar mass | Combine mass measurements with pV = nRT | Calculate M and explain why it does not uniquely identify a gas |
+| Bonding triangle (Structure 2.4) | Move a pair of electronegativities on a schematic triangle | Explain the effect of mean and difference without rigid bonding cutoffs |
+| Alloys (Structure 2.4) | Compare pure, substitutional and interstitial models under shear | Connect lattice distortion with resistance to deformation |
+| Addition polymers (Structure 2.4) | Select a monomer and build a short chain | Preserve side groups when drawing the repeat unit |
+| Condensation polymers (Structure 2.4 extension) | Choose ester/amide links and count eliminated water | Distinguish individual monomer molecules from pairs |
+
+Use the activity index and **Activities** return link to move around the longer
+studio. The gas activities use R = 8.314 with kPa and dm3; the pressure explorer
+converts Celsius to kelvin, while the other gas activities take kelvin directly.
+The bonding triangle and alloy diagrams are qualitative teaching models. Match
+the condensation extension to the content you have taught before assigning it.
 
 1. Try the relevant activity yourself and check its worked example.
 2. In the student's feedback, name the activity and give a specific task from the
