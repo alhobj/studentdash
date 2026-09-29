@@ -1,0 +1,272 @@
+{
+  "version": "First assessment 2025",
+  "source": "https://www.ibo.org/globalassets/new-structure/research/pdfs/chemistry-subject-report.pdf",
+  "groups": [
+    {
+      "id": "S1",
+      "parent": "Structure",
+      "title": "Models of the particulate nature of matter"
+    },
+    {
+      "id": "S2",
+      "parent": "Structure",
+      "title": "Models of bonding and structure"
+    },
+    {
+      "id": "S3",
+      "parent": "Structure",
+      "title": "Classification of matter"
+    },
+    {
+      "id": "R1",
+      "parent": "Reactivity",
+      "title": "What drives chemical reactions?"
+    },
+    {
+      "id": "R2",
+      "parent": "Reactivity",
+      "title": "How much, how fast and how far?"
+    },
+    {
+      "id": "R3",
+      "parent": "Reactivity",
+      "title": "What are the mechanisms of chemical change?"
+    }
+  ],
+  "topics": [
+    {
+      "id": "S1.1",
+      "parent": "S1",
+      "title": "Introduction to the particulate nature of matter",
+      "activities": [
+        "particle-decisions",
+        "separation-lab"
+      ]
+    },
+    {
+      "id": "S1.2",
+      "parent": "S1",
+      "title": "The nuclear atom",
+      "activities": [
+        "isotope-mixer",
+        "nuclear-atom",
+        "isotope-mixtures"
+      ]
+    },
+    {
+      "id": "S1.3",
+      "parent": "S1",
+      "title": "Electron configurations",
+      "activities": [
+        "electron-jumps",
+        "electron-configurations",
+        "emission-spectra"
+      ]
+    },
+    {
+      "id": "S1.4",
+      "parent": "S1",
+      "title": "Counting principles by mass: The mole",
+      "activities": [
+        "mole-mass",
+        "mole-entities",
+        "empirical-formula",
+        "dilution",
+        "moly-mass",
+        "moly-solution",
+        "moly-particles",
+        "holy-moly"
+      ]
+    },
+    {
+      "id": "S1.5",
+      "parent": "S1",
+      "title": "Ideal gases",
+      "activities": [
+        "gas-piston",
+        "gas-pressure",
+        "gas-change",
+        "gas-molar-mass"
+      ]
+    },
+    {
+      "id": "S2.1",
+      "parent": "S2",
+      "title": "The ionic model",
+      "activities": [
+        "ion-builder",
+        "bonding",
+        "ionic-formulas"
+      ],
+      "materials": [
+        "salt"
+      ],
+      "focus": "Balance ionic formulas and explain properties using ions and their charges."
+    },
+    {
+      "id": "S2.2",
+      "parent": "S2",
+      "title": "The covalent model",
+      "activities": [
+        "electron-pair-builder",
+        "bonding",
+        "shape-polarity"
+      ],
+      "materials": [
+        "water",
+        "diamond",
+        "graphite"
+      ],
+      "focus": "Predict molecular shapes and polarity, then compare molecular and extended covalent structures."
+    },
+    {
+      "id": "S2.3",
+      "parent": "S2",
+      "title": "The metallic model",
+      "activities": [
+        "bonding",
+        "metallic-properties"
+      ],
+      "materials": [
+        "copper"
+      ],
+      "focus": "Explain conduction, malleability and bonding using delocalized electrons."
+    },
+    {
+      "id": "S2.4",
+      "parent": "S2",
+      "title": "From models to materials",
+      "activities": [
+        "bonding-triangle",
+        "alloy-model",
+        "addition-polymer",
+        "condensation-polymer"
+      ]
+    },
+    {
+      "id": "S3.1",
+      "parent": "S3",
+      "title": "The periodic table: Classification of elements",
+      "activities": [
+        "periodic-patterns",
+        "periodic-oxides"
+      ]
+    },
+    {
+      "id": "S3.2",
+      "parent": "S3",
+      "title": "Functional groups: Classification of organic compounds",
+      "activities": [
+        "carbon-builder",
+        "functional-groups",
+        "organic-isomers"
+      ]
+    },
+    {
+      "id": "R1.1",
+      "parent": "R1",
+      "title": "Measuring enthalpy changes",
+      "activities": [
+        "calorimeter-bench",
+        "calorimetry",
+        "calorimetry-errors"
+      ]
+    },
+    {
+      "id": "R1.2",
+      "parent": "R1",
+      "title": "Energy cycles in reactions",
+      "activities": [
+        "energy-profile-lab",
+        "energy-cycles",
+        "formation-enthalpy"
+      ]
+    },
+    {
+      "id": "R1.3",
+      "parent": "R1",
+      "title": "Energy from fuels",
+      "activities": [
+        "fuel-energy",
+        "fuel-cells"
+      ]
+    },
+    {
+      "id": "R1.4",
+      "parent": "R1",
+      "title": "Entropy and spontaneity",
+      "level": "AHL",
+      "activities": [
+        "gibbs-energy",
+        "entropy-changes"
+      ]
+    },
+    {
+      "id": "R2.1",
+      "parent": "R2",
+      "title": "How much? The amount of chemical change",
+      "activities": [
+        "balance-workbench",
+        "stoichiometry",
+        "yield-economy"
+      ]
+    },
+    {
+      "id": "R2.2",
+      "parent": "R2",
+      "title": "How fast? The rate of chemical change",
+      "activities": [
+        "kinetics-bench",
+        "reaction-rates",
+        "rate-orders"
+      ]
+    },
+    {
+      "id": "R2.3",
+      "parent": "R2",
+      "title": "How far? The extent of chemical change",
+      "activities": [
+        "equilibrium-bench",
+        "equilibrium",
+        "equilibrium-shifts"
+      ]
+    },
+    {
+      "id": "R3.1",
+      "parent": "R3",
+      "title": "Proton transfer reactions",
+      "activities": [
+        "titration-bench",
+        "proton-transfer",
+        "titration-stoichiometry"
+      ]
+    },
+    {
+      "id": "R3.2",
+      "parent": "R3",
+      "title": "Electron transfer reactions",
+      "activities": [
+        "electron-transfer",
+        "voltaic-cells"
+      ]
+    },
+    {
+      "id": "R3.3",
+      "parent": "R3",
+      "title": "Electron sharing reactions",
+      "activities": [
+        "radical-steps",
+        "radical-products"
+      ]
+    },
+    {
+      "id": "R3.4",
+      "parent": "R3",
+      "title": "Electron-pair sharing reactions",
+      "activities": [
+        "electron-pairs",
+        "substitution-mechanisms"
+      ]
+    }
+  ]
+}

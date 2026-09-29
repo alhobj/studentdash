@@ -1,0 +1,690 @@
+{
+  "separation-lab": {
+    "topic": "S1.1",
+    "title": "Choose a separation route",
+    "intro": "Choose a method from the physical properties of the components. Each scenario has a different substance to recover.",
+    "questions": [
+      {
+        "name": "Sand and salt",
+        "prompt": "Sand and salt are mixed. Water dissolves the salt but not the sand. After adding water and stirring, how should you collect the sand?",
+        "options": [
+          "Filter the mixture",
+          "Distil the mixture",
+          "Use chromatography"
+        ],
+        "answer": "Filter the mixture",
+        "explanation": "Sand remains as the residue. Dissolved salt passes through the filter with the water."
+      },
+      {
+        "name": "Recover salt",
+        "prompt": "After filtering off sand, how can you recover solid salt from the filtrate if collecting the water is unnecessary?",
+        "options": [
+          "Filter again",
+          "Evaporate water and crystallize the salt",
+          "Use a separating funnel"
+        ],
+        "answer": "Evaporate water and crystallize the salt",
+        "explanation": "Removing solvent allows the dissolved salt to crystallize. Dissolved ions pass through an ordinary filter."
+      },
+      {
+        "name": "Two miscible liquids",
+        "prompt": "Two miscible liquids have different but relatively close boiling points. Which method is best suited to separating them?",
+        "options": [
+          "Filtration",
+          "A separating funnel",
+          "Fractional distillation"
+        ],
+        "answer": "Fractional distillation",
+        "explanation": "Repeated vaporization and condensation in a fractionating column improves separation. A separating funnel is used for immiscible liquid layers."
+      }
+    ]
+  },
+  "isotope-mixtures": {
+    "topic": "S1.2",
+    "title": "Work backwards from an isotope average",
+    "intro": "Use a fictional element X with only two isotopes, of relative isotopic masses 20.0 and 22.0. Relative atomic mass is a weighted mean, not a mass number.",
+    "questions": [
+      {
+        "name": "Weighted mean",
+        "prompt": "X-20 has abundance 75.0% and X-22 has abundance 25.0%. Find the relative atomic mass.",
+        "unit": "Relative atomic mass (no unit)",
+        "answer": 20.5,
+        "explanation": "20.0 × 0.750 + 22.0 × 0.250 = 20.5. The more abundant isotope contributes more to the average."
+      },
+      {
+        "name": "Find an abundance",
+        "prompt": "Another sample has relative atomic mass 21.2. What percentage of its atoms are X-22?",
+        "unit": "Abundance of X-22 / %",
+        "answer": 60,
+        "explanation": "Let f be the fraction of X-22. 20(1 − f) + 22f = 21.2, giving f = 0.600, or 60.0%."
+      },
+      {
+        "name": "Check a claim",
+        "prompt": "A sample containing only these two isotopes is reported to have relative atomic mass 23.0. Is this possible?",
+        "options": [
+          "No, the mean must lie between 20.0 and 22.0",
+          "Yes, if X-22 is very abundant",
+          "Yes, because the isotope masses are added"
+        ],
+        "answer": "No, the mean must lie between 20.0 and 22.0",
+        "explanation": "A weighted mean with non-negative abundances cannot lie outside the range of its constituent values."
+      }
+    ]
+  },
+  "emission-spectra": {
+    "topic": "S1.3",
+    "title": "Read an electron transition",
+    "intro": "Connect discrete energy levels with line emission spectra. These questions concern photons and transitions rather than filling orbitals.",
+    "questions": [
+      {
+        "name": "Emit or absorb?",
+        "prompt": "An electron moves from a higher energy level to a lower energy level. What happens?",
+        "options": [
+          "A photon must be absorbed",
+          "A photon is emitted",
+          "The nucleus loses a proton"
+        ],
+        "answer": "A photon is emitted",
+        "explanation": "The atom emits a photon with energy equal to the difference between the two levels."
+      },
+      {
+        "name": "Compare photons",
+        "prompt": "Transition A has a larger energy gap than transition B. How does the emitted photon from A compare?",
+        "options": [
+          "Lower frequency and longer wavelength",
+          "Same frequency but greater speed in vacuum",
+          "Higher frequency and shorter wavelength"
+        ],
+        "answer": "Higher frequency and shorter wavelength",
+        "explanation": "E = hf and c = fλ. Greater photon energy means greater frequency and shorter wavelength; the speed in vacuum is unchanged."
+      },
+      {
+        "name": "Why lines?",
+        "prompt": "Why does an isolated atomic gas produce discrete spectral lines rather than every possible wavelength?",
+        "options": [
+          "Only specific electron energy differences are allowed",
+          "Electrons can have any energy",
+          "Every atom emits only one photon colour"
+        ],
+        "answer": "Only specific electron energy differences are allowed",
+        "explanation": "Quantized energy levels allow only particular transition energies, producing characteristic wavelengths."
+      }
+    ]
+  },
+  "ionic-formulas": {
+    "topic": "S2.1",
+    "title": "Build a neutral ionic formula",
+    "intro": "Balance total positive and negative charge using the simplest whole-number ratio. Keep polyatomic ions together.",
+    "questions": [
+      {
+        "name": "Magnesium chloride",
+        "prompt": "Which formula combines Mg²⁺ and Cl⁻ in a neutral compound?",
+        "options": [
+          "MgCl",
+          "MgCl₂",
+          "Mg₂Cl"
+        ],
+        "answer": "MgCl₂",
+        "explanation": "One Mg²⁺ requires two Cl⁻ ions: +2 + 2(−1) = 0."
+      },
+      {
+        "name": "Aluminium oxide",
+        "prompt": "Which formula combines Al³⁺ and O²⁻ in the simplest neutral ratio?",
+        "options": [
+          "AlO",
+          "Al₃O₂",
+          "Al₂O₃"
+        ],
+        "answer": "Al₂O₃",
+        "explanation": "Two aluminium ions give +6 and three oxide ions give −6. The simplest ratio is 2:3."
+      },
+      {
+        "name": "Calcium nitrate",
+        "prompt": "Which formula combines Ca²⁺ with nitrate, NO₃⁻?",
+        "options": [
+          "Ca(NO₃)₂",
+          "CaNO₃",
+          "Ca₂NO₃"
+        ],
+        "answer": "Ca(NO₃)₂",
+        "explanation": "Two nitrate ions balance one calcium ion. Parentheses show that the entire NO₃ group occurs twice."
+      }
+    ]
+  },
+  "shape-polarity": {
+    "topic": "S2.2",
+    "title": "Separate bond polarity from molecular polarity",
+    "intro": "Use electron domains and symmetry to predict molecular shape and whether bond dipoles cancel. Multiple bonds count as one electron domain in VSEPR.",
+    "questions": [
+      {
+        "name": "Carbon dioxide",
+        "prompt": "CO₂ has two bonding domains and no lone pairs on its central carbon. Which description is correct?",
+        "options": [
+          "Bent and polar",
+          "Linear and non-polar overall",
+          "Tetrahedral and polar"
+        ],
+        "answer": "Linear and non-polar overall",
+        "explanation": "The two polar C=O bonds point in opposite directions in a linear molecule, so their equal dipoles cancel."
+      },
+      {
+        "name": "Water",
+        "prompt": "H₂O has two bonding pairs and two lone pairs around oxygen. What is its molecular shape and polarity?",
+        "options": [
+          "Linear and non-polar",
+          "Tetrahedral and non-polar",
+          "Bent and polar"
+        ],
+        "answer": "Bent and polar",
+        "explanation": "Four electron domains have a tetrahedral arrangement, but the molecular shape describes atom positions: bent. The O–H dipoles do not cancel."
+      },
+      {
+        "name": "Ammonia",
+        "prompt": "NH₃ has three bonding pairs and one lone pair around nitrogen. What is its molecular shape?",
+        "options": [
+          "Trigonal pyramidal",
+          "Trigonal planar",
+          "Linear"
+        ],
+        "answer": "Trigonal pyramidal",
+        "explanation": "Four electron domains surround nitrogen. One is a lone pair, leaving three bonds arranged in a trigonal pyramidal molecular shape."
+      }
+    ]
+  },
+  "metallic-properties": {
+    "topic": "S2.3",
+    "title": "Explain a metal's properties",
+    "intro": "Use the attraction between positive metal ions and delocalized electrons to explain behaviour beyond electrical conduction.",
+    "questions": [
+      {
+        "name": "Malleability",
+        "prompt": "Why can a pure metal often be hammered into a sheet without immediately shattering?",
+        "options": [
+          "All metallic bonds disappear permanently",
+          "Attraction to delocalized electrons persists as ion layers move",
+          "Its atoms turn into neutral gas molecules"
+        ],
+        "answer": "Attraction to delocalized electrons persists as ion layers move",
+        "explanation": "Metallic bonding is not restricted to fixed pairs of atoms. The structure can deform while attractive interactions remain."
+      },
+      {
+        "name": "Charge",
+        "prompt": "In the simple metallic bonding model, is a bulk sample of metal electrically charged?",
+        "options": [
+          "Yes, always positive",
+          "Yes, always negative",
+          "No, the positive ions and delocalized electrons balance"
+        ],
+        "answer": "No, the positive ions and delocalized electrons balance",
+        "explanation": "The model separates positive ionic cores and mobile electrons, but their total charges cancel in a neutral metal sample."
+      },
+      {
+        "name": "Bond strength",
+        "prompt": "In a simplified comparison with similar ion sizes, which change tends to strengthen metallic bonding?",
+        "options": [
+          "More delocalized electrons per atom and higher positive ion charge",
+          "Removing all delocalized electrons",
+          "Increasing ion separation while holding charge fixed"
+        ],
+        "answer": "More delocalized electrons per atom and higher positive ion charge",
+        "explanation": "Stronger electrostatic attraction can result from increased positive charge and electron density. Real melting points also depend on structure; this is a model trend."
+      }
+    ]
+  },
+  "periodic-oxides": {
+    "topic": "S3.1",
+    "title": "Predict oxide behaviour",
+    "intro": "Connect metallic and non-metallic character to acid–base behaviour of period 3 oxides. Aluminium oxide provides an important exception to a simple two-way classification.",
+    "questions": [
+      {
+        "name": "Sodium oxide",
+        "prompt": "Na₂O reacts with water to form NaOH. How is this oxide classified?",
+        "options": [
+          "Acidic",
+          "Basic",
+          "Neutral"
+        ],
+        "answer": "Basic",
+        "explanation": "Sodium oxide is a basic oxide. Na₂O + H₂O → 2NaOH gives an alkaline solution."
+      },
+      {
+        "name": "Sulfur trioxide",
+        "prompt": "SO₃ reacts with water to form sulfuric acid. How is this oxide classified?",
+        "options": [
+          "Basic",
+          "Metallic",
+          "Acidic"
+        ],
+        "answer": "Acidic",
+        "explanation": "Sulfur trioxide is an acidic non-metal oxide. SO₃ + H₂O → H₂SO₄."
+      },
+      {
+        "name": "Aluminium oxide",
+        "prompt": "Al₂O₃ reacts with both acids and bases. Which term describes this behaviour?",
+        "options": [
+          "Amphoteric",
+          "Always neutral",
+          "Inert"
+        ],
+        "answer": "Amphoteric",
+        "explanation": "An amphoteric oxide can react with either acids or bases. This does not mean that it dissolves readily in water."
+      }
+    ]
+  },
+  "organic-isomers": {
+    "topic": "S3.2",
+    "title": "Distinguish formulas and isomers",
+    "intro": "Compare molecular formulas with atom connectivity. A different way of writing the same connectivity is not a new structural isomer.",
+    "questions": [
+      {
+        "name": "Same formula, different group",
+        "prompt": "CH₃CH₂OH and CH₃OCH₃ both have molecular formula C₂H₆O. What is their relationship?",
+        "options": [
+          "Isotopes",
+          "Structural isomers",
+          "The same molecule written backwards"
+        ],
+        "answer": "Structural isomers",
+        "explanation": "They have the same molecular formula but different connectivity: one is an alcohol, the other an ether."
+      },
+      {
+        "name": "Branching",
+        "prompt": "CH₃CH₂CH₂CH₃ and (CH₃)₃CH are examples of which relationship?",
+        "options": [
+          "Different molecular formulas",
+          "Conjugate acid–base pairs",
+          "Chain structural isomers"
+        ],
+        "answer": "Chain structural isomers",
+        "explanation": "Both have formula C₄H₁₀. One has an unbranched chain and the other a branched carbon skeleton."
+      },
+      {
+        "name": "Count carbon atoms",
+        "prompt": "How many carbon atoms are in CH₃CH₂COOCH₃?",
+        "unit": "Number of carbon atoms",
+        "answer": 4,
+        "explanation": "Count the first CH₃, the CH₂, the carbonyl carbon in COO, and the final CH₃: four carbons in total."
+      }
+    ]
+  },
+  "calorimetry-errors": {
+    "topic": "R1.1",
+    "title": "Diagnose a calorimetry result",
+    "intro": "Distinguish heat transfer, molar enthalpy and systematic heat loss using fictional calorimeter measurements.",
+    "questions": [
+      {
+        "name": "Heat loss",
+        "prompt": "An exothermic reaction loses heat to the room, but the calculation uses only the solution's temperature rise. How does the calculated ΔH compare with the true value?",
+        "options": [
+          "Less negative",
+          "More negative",
+          "Always exactly zero"
+        ],
+        "answer": "Less negative",
+        "explanation": "The measured temperature rise is too small, so the calculated heat released is too small in magnitude. The result is closer to zero."
+      },
+      {
+        "name": "Include the container",
+        "prompt": "The solution absorbs 2.00 kJ and the calorimeter absorbs 0.30 kJ. Assume no other heat transfer. Find q for the reaction.",
+        "unit": "q(reaction) / kJ",
+        "answer": -2.3,
+        "explanation": "q(reaction) = −[q(solution) + q(calorimeter)] = −(2.00 + 0.30) = −2.30 kJ."
+      },
+      {
+        "name": "Scale the reaction",
+        "prompt": "Twice as much reactant undergoes the same reaction under the same conditions. What happens to the molar enthalpy change?",
+        "options": [
+          "It doubles",
+          "It stays the same",
+          "Its sign reverses"
+        ],
+        "answer": "It stays the same",
+        "explanation": "Total heat doubles, but dividing by twice the reacted amount gives the same enthalpy change per mole."
+      }
+    ]
+  },
+  "formation-enthalpy": {
+    "topic": "R1.2",
+    "title": "Calculate from formation enthalpies",
+    "intro": "Use ΔH°reaction = ΣνΔH°f(products) − ΣνΔH°f(reactants). All supplied values for the fictional substances are in kJ mol⁻¹.",
+    "questions": [
+      {
+        "name": "One-to-one reaction",
+        "prompt": "For A → B, ΔH°f(A) = −80 and ΔH°f(B) = −140. Calculate ΔH°reaction.",
+        "unit": "ΔH°reaction / kJ mol⁻¹",
+        "answer": -60,
+        "explanation": "Products minus reactants: −140 − (−80) = −60 kJ mol⁻¹ for the reaction as written."
+      },
+      {
+        "name": "Use the coefficients",
+        "prompt": "For 2A → B, ΔH°f(A) = −80 and ΔH°f(B) = −140. Calculate ΔH°reaction for the equation as written.",
+        "unit": "ΔH°reaction / kJ mol⁻¹",
+        "answer": 20,
+        "explanation": "−140 − 2(−80) = +20 kJ mol⁻¹. Multiply each formation enthalpy by its stoichiometric coefficient."
+      },
+      {
+        "name": "Reference state",
+        "prompt": "What is the standard enthalpy of formation of an element in its standard state?",
+        "unit": "ΔH°f / kJ mol⁻¹",
+        "answer": 0,
+        "explanation": "It is zero by convention. This does not mean every compound has zero formation enthalpy, or that all physical forms of an element have zero values."
+      }
+    ]
+  },
+  "fuel-cells": {
+    "topic": "R1.3",
+    "title": "Compare a fuel cell with combustion",
+    "intro": "Consider hydrogen as an energy carrier and distinguish what happens inside a device from the environmental effects of producing its fuel.",
+    "questions": [
+      {
+        "name": "Energy conversion",
+        "prompt": "What is the main useful energy conversion in a hydrogen–oxygen fuel cell?",
+        "options": [
+          "Electrical energy to stored hydrogen only",
+          "Nuclear energy to thermal energy",
+          "Chemical energy directly to electrical energy"
+        ],
+        "answer": "Chemical energy directly to electrical energy",
+        "explanation": "Separated electrode reactions transfer electrons through an external circuit. Heat is also produced; the cell is not perfectly efficient."
+      },
+      {
+        "name": "Overall product",
+        "prompt": "In the ideal overall reaction 2H₂ + O₂ → 2H₂O, how many moles of water form from 0.60 mol H₂ with excess O₂?",
+        "unit": "Amount of water / mol",
+        "answer": 0.6,
+        "explanation": "The H₂:H₂O ratio is 1:1, so 0.60 mol hydrogen forms 0.60 mol water."
+      },
+      {
+        "name": "Production matters",
+        "prompt": "A fuel cell produces water during use. Does that alone establish that its hydrogen has zero associated carbon emissions?",
+        "options": [
+          "No, the hydrogen production and energy sources also matter",
+          "Yes, all hydrogen production is emission-free",
+          "Yes, the device destroys all carbon dioxide"
+        ],
+        "answer": "No, the hydrogen production and energy sources also matter",
+        "explanation": "Hydrogen can be produced through different processes. Assessing environmental impact requires considering production and energy supply as well as use."
+      }
+    ]
+  },
+  "entropy-changes": {
+    "topic": "R1.4",
+    "title": "Account for entropy changes (AHL)",
+    "intro": "Predict changes in energy and matter dispersal, then use supplied fictional standard molar entropies. Keep entropy units separate from enthalpy units.",
+    "questions": [
+      {
+        "name": "Vaporization",
+        "prompt": "What is the usual sign of the system's entropy change when a liquid vaporizes at its boiling point?",
+        "options": [
+          "Negative",
+          "Positive",
+          "Always zero"
+        ],
+        "answer": "Positive",
+        "explanation": "The gas has many more accessible arrangements than the liquid. The system's entropy increases even though liquid and gas can coexist at equilibrium."
+      },
+      {
+        "name": "Calculate ΔS°",
+        "prompt": "For A → 2B, S°(A) = 120 and S°(B) = 90 J K⁻¹ mol⁻¹. Calculate ΔS° for the reaction as written.",
+        "unit": "ΔS° / J K⁻¹ mol⁻¹",
+        "answer": 60,
+        "explanation": "ΔS° = 2(90) − 120 = +60 J K⁻¹ mol⁻¹. Entropy changes include the stoichiometric coefficients."
+      },
+      {
+        "name": "Temperature dependence",
+        "prompt": "A reaction has ΔH < 0 and ΔS > 0. Assuming these signs remain unchanged, when is ΔG = ΔH − TΔS negative?",
+        "options": [
+          "Only at low temperatures",
+          "Never",
+          "At all positive temperatures"
+        ],
+        "answer": "At all positive temperatures",
+        "explanation": "The enthalpy term is negative and subtracting positive TΔS makes ΔG still more negative. This predicts thermodynamic favourability, not reaction speed."
+      }
+    ]
+  },
+  "yield-economy": {
+    "topic": "R2.1",
+    "title": "Separate yield from atom economy",
+    "intro": "Use fictional reaction data to distinguish recovered product from how efficiently a balanced reaction directs reactant mass into the desired product.",
+    "questions": [
+      {
+        "name": "Percentage yield",
+        "prompt": "The theoretical product mass is 8.00 g and the isolated product mass is 6.00 g. Find the percentage yield.",
+        "unit": "Yield / %",
+        "answer": 75,
+        "explanation": "Percentage yield = actual / theoretical × 100 = 6.00 / 8.00 × 100 = 75.0%."
+      },
+      {
+        "name": "Atom economy",
+        "prompt": "In A + B → P + Q, P is the desired product. For the stoichiometric quantities shown, the total reactant mass is 100 g and the theoretical mass of P is 70 g. Find the atom economy.",
+        "unit": "Atom economy / %",
+        "answer": 70,
+        "explanation": "Atom economy = theoretical mass of desired product / total stoichiometric reactant mass × 100 = 70%. It is determined by the reaction, not by product recovery."
+      },
+      {
+        "name": "Interpret both metrics",
+        "prompt": "A reaction has 100% yield but 50% atom economy. What does this mean?",
+        "options": [
+          "All theoretical desired product was recovered, but half the stoichiometric reactant mass forms other products",
+          "No unwanted product formed",
+          "Half the desired product was lost"
+        ],
+        "answer": "All theoretical desired product was recovered, but half the stoichiometric reactant mass forms other products",
+        "explanation": "Yield measures recovery relative to a theoretical amount. Atom economy measures how reactant mass is distributed among products."
+      }
+    ]
+  },
+  "rate-orders": {
+    "topic": "R2.2",
+    "title": "Infer a rate equation (AHL)",
+    "intro": "Use invented initial-rate comparisons at constant temperature. Change only one reactant concentration at a time; do not infer reaction orders from overall equation coefficients.",
+    "questions": [
+      {
+        "name": "Order in A",
+        "prompt": "Doubling [A] while holding all other reactant concentrations fixed makes the initial rate four times larger. Find the order with respect to A.",
+        "unit": "Order with respect to A",
+        "answer": 2,
+        "explanation": "2 to the power m equals 4, so m = 2. The reaction is second order with respect to A."
+      },
+      {
+        "name": "Order in B",
+        "prompt": "Tripling [B] with all other reactant concentrations fixed leaves the initial rate unchanged. Find the order with respect to B.",
+        "unit": "Order with respect to B",
+        "answer": 0,
+        "explanation": "3 to the power zero equals 1. The measured rate is zero order with respect to B over these conditions."
+      },
+      {
+        "name": "Rate constant",
+        "prompt": "The measured rate law is rate = k[A]². At [A] = 0.20 mol dm⁻³, rate = 0.012 mol dm⁻³ s⁻¹. Calculate k.",
+        "unit": "k / dm³ mol⁻¹ s⁻¹",
+        "answer": 0.3,
+        "explanation": "k = 0.012 / (0.20)² = 0.300 dm³ mol⁻¹ s⁻¹. The rate-constant units depend on the overall order."
+      }
+    ]
+  },
+  "equilibrium-shifts": {
+    "topic": "R2.3",
+    "title": "Distinguish a shift from a change in K",
+    "intro": "Consider N₂(g) + 3H₂(g) ⇌ 2NH₃(g), with an exothermic forward reaction. Predict the response to one changed condition at a time.",
+    "questions": [
+      {
+        "name": "Compress the mixture",
+        "prompt": "The equilibrium mixture is compressed at constant temperature. Which net change restores equilibrium?",
+        "options": [
+          "Formation of more N₂ and H₂",
+          "Formation of more NH₃",
+          "No response because pressure never matters"
+        ],
+        "answer": "Formation of more NH₃",
+        "explanation": "The forward direction reduces gas amount from four stoichiometric moles to two. K remains unchanged at fixed temperature."
+      },
+      {
+        "name": "Raise temperature",
+        "prompt": "For this exothermic forward reaction, what happens when temperature increases?",
+        "options": [
+          "Equilibrium shifts right and K increases",
+          "K cannot change with temperature",
+          "Equilibrium shifts left and K decreases"
+        ],
+        "answer": "Equilibrium shifts left and K decreases",
+        "explanation": "Heating favours the endothermic reverse direction. Temperature changes the equilibrium constant, unlike a concentration or pressure change at fixed temperature."
+      },
+      {
+        "name": "Add a catalyst",
+        "prompt": "A catalyst is added to a mixture already at equilibrium at fixed temperature. What changes?",
+        "options": [
+          "Both forward and reverse rates increase, but equilibrium composition is unchanged",
+          "Only the forward rate increases",
+          "K increases"
+        ],
+        "answer": "Both forward and reverse rates increase, but equilibrium composition is unchanged",
+        "explanation": "A catalyst provides a faster pathway in both directions. It does not change the equilibrium constant or favour one equilibrium composition."
+      }
+    ]
+  },
+  "titration-stoichiometry": {
+    "topic": "R3.1",
+    "title": "Use a titration endpoint",
+    "intro": "Use fictional acid–base measurements. Assume the measured endpoint closely matches equivalence and the stated neutralization is complete.",
+    "questions": [
+      {
+        "name": "Convert volume",
+        "prompt": "A titre is 25.0 cm³. Express it in dm³ before using n = cV.",
+        "unit": "Volume / dm³",
+        "answer": 0.025,
+        "explanation": "1 dm³ = 1000 cm³, so 25.0 / 1000 = 0.0250 dm³."
+      },
+      {
+        "name": "Find concentration",
+        "prompt": "20.0 cm³ of HCl is neutralized by 25.0 cm³ of 0.100 mol dm⁻³ NaOH. Using HCl + NaOH → NaCl + H₂O, find the HCl concentration.",
+        "unit": "HCl concentration / mol dm⁻³",
+        "answer": 0.125,
+        "explanation": "n(NaOH) = 0.100 × 0.0250 = 0.00250 mol. The ratio is 1:1, so c(HCl) = 0.00250 / 0.0200 = 0.125 mol dm⁻³."
+      },
+      {
+        "name": "Two protons",
+        "prompt": "For complete neutralization, H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. How many moles of NaOH are required for 0.0030 mol H₂SO₄?",
+        "unit": "Amount of NaOH / mol",
+        "answer": 0.006,
+        "explanation": "The mole ratio H₂SO₄:NaOH is 1:2, so 2 × 0.0030 = 0.0060 mol NaOH is required."
+      }
+    ]
+  },
+  "voltaic-cells": {
+    "topic": "R3.2",
+    "title": "Trace charge through a voltaic cell",
+    "intro": "Use a zinc–copper cell operating spontaneously: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s). Distinguish electrons in the wire from ions in solution.",
+    "questions": [
+      {
+        "name": "Anode reaction",
+        "prompt": "Which half-equation occurs at the anode?",
+        "options": [
+          "Cu²⁺ + 2e⁻ → Cu",
+          "Zn → Zn²⁺ + 2e⁻",
+          "Zn²⁺ + 2e⁻ → Zn"
+        ],
+        "answer": "Zn → Zn²⁺ + 2e⁻",
+        "explanation": "Oxidation occurs at the anode. Zinc atoms release electrons and enter solution as Zn²⁺."
+      },
+      {
+        "name": "External circuit",
+        "prompt": "In which direction do electrons flow through the external wire?",
+        "options": [
+          "From copper to zinc",
+          "Through the salt bridge from copper to zinc",
+          "From the zinc electrode to the copper electrode"
+        ],
+        "answer": "From the zinc electrode to the copper electrode",
+        "explanation": "Electrons released by zinc oxidation travel through the wire to the copper electrode, where Cu²⁺ is reduced."
+      },
+      {
+        "name": "Salt bridge",
+        "prompt": "What is the main role of the salt bridge?",
+        "options": [
+          "Allow ion migration to maintain charge balance",
+          "Transport electrons between electrodes",
+          "Supply copper metal"
+        ],
+        "answer": "Allow ion migration to maintain charge balance",
+        "explanation": "Ions migrate to prevent charge build-up in each half-cell. Electron transfer between electrodes occurs in the external circuit."
+      }
+    ]
+  },
+  "radical-products": {
+    "topic": "R3.3",
+    "title": "Predict radical products and limitations",
+    "intro": "Apply radical chain ideas to methane chlorination under UV light. Think about atom conservation, side products and why a single pure product is difficult to obtain.",
+    "questions": [
+      {
+        "name": "Regenerate the carrier",
+        "prompt": "Complete CH₃• + Cl₂ → CH₃Cl + ?",
+        "options": [
+          "Cl⁻",
+          "Cl•",
+          "HCl"
+        ],
+        "answer": "Cl•",
+        "explanation": "A chlorine radical is regenerated, allowing another propagation step. Both chlorine atoms are accounted for."
+      },
+      {
+        "name": "Combine methyl radicals",
+        "prompt": "Which product forms when two CH₃• radicals combine in a termination step?",
+        "options": [
+          "Ethene, C₂H₄",
+          "Methane, CH₄",
+          "Ethane, C₂H₆"
+        ],
+        "answer": "Ethane, C₂H₆",
+        "explanation": "The two carbon-centred radicals form a C–C bond: CH₃• + •CH₃ → CH₃CH₃. No radical remains."
+      },
+      {
+        "name": "Further substitution",
+        "prompt": "Why can methane chlorination produce CH₂Cl₂ as well as CH₃Cl?",
+        "options": [
+          "The first substitution product can undergo further substitution",
+          "Chlorine atoms turn into carbon atoms",
+          "Every initiation step makes CH₂Cl₂ directly"
+        ],
+        "answer": "The first substitution product can undergo further substitution",
+        "explanation": "CH₃Cl still contains C–H bonds. Further radical substitution can replace additional hydrogen atoms, giving a mixture of products."
+      }
+    ]
+  },
+  "substitution-mechanisms": {
+    "topic": "R3.4",
+    "title": "Compare substitution mechanisms (AHL)",
+    "intro": "Compare idealized SN1 and SN2 mechanisms in suitable conditions. The labels describe the molecularity of the rate-determining step, not the number of products.",
+    "questions": [
+      {
+        "name": "SN2 concentration change",
+        "prompt": "An SN2 reaction follows rate = k[halogenoalkane][nucleophile]. Both concentrations are doubled at fixed temperature. By what factor does the rate change?",
+        "unit": "Rate multiplier",
+        "answer": 4,
+        "explanation": "Doubling each of the two first-order concentration terms multiplies the rate by 2 × 2 = 4."
+      },
+      {
+        "name": "SN1 intermediate",
+        "prompt": "Which species is the characteristic intermediate in the idealized SN1 substitution of a tertiary halogenoalkane?",
+        "options": [
+          "A carbon radical",
+          "A carbocation",
+          "A free neutron"
+        ],
+        "answer": "A carbocation",
+        "explanation": "The leaving group departs in the slow first step, forming a carbocation. The nucleophile then attacks the electron-deficient carbon."
+      },
+      {
+        "name": "SN2 stereochemistry",
+        "prompt": "An SN2 reaction occurs at a chiral carbon. What is the characteristic stereochemical outcome at that centre?",
+        "options": [
+          "A planar carbocation must form first",
+          "No change in the arrangement of bonds",
+          "Inversion of configuration"
+        ],
+        "answer": "Inversion of configuration",
+        "explanation": "Backside nucleophilic attack and simultaneous leaving-group departure invert the spatial arrangement at the reacting carbon."
+      }
+    ]
+  }
+}

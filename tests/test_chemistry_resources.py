@@ -1,5 +1,6 @@
 """Offline resource checks with invented numerical examples only."""
 import importlib.util
+import json
 import os
 from pathlib import Path
 import unittest
@@ -18,10 +19,248 @@ class ChemistryResourceTests(unittest.TestCase):
         self.page = self.browser.new_page()
         self.errors = []
         self.page.on('pageerror', lambda error: self.errors.append(str(error)))
-        self.page.goto((Path(__file__).resolve().parents[1] / 'resources/ib-chemistry/practice.html').as_uri())
+        self.resource_root = Path(__file__).resolve().parents[1] / 'resources/ib-chemistry'
+        self.page.goto((self.resource_root / 'all-practice.html').as_uri())
 
     def tearDown(self):
         self.assertEqual(self.errors, [])
+
+    def set_lab_slider(self, selector, value):
+        self.page.locator(selector).evaluate('(e,v)=>{e.value=v;e.dispatchEvent(new Event("input"));}', value)
+
+    def test_electron_piston_and_balancing_workbenches(self):
+        page=self.page
+        page.locator('#electron-jumps-level-3').click()
+        self.assertIn('Photon absorbed: 4.2 eV',page.locator('#electron-jumps .result').inner_text())
+        page.locator('#electron-jumps-level-0').click()
+        self.assertIn('Photon emitted: 4.2 eV',page.locator('#electron-jumps .result').inner_text())
+        self.assertTrue(page.locator('#electron-jumps-level-0').is_disabled())
+        self.assertIn('124.71 kPa',page.locator('#gas-piston .result').inner_text())
+        page.locator('#gas-piston-compress').click()
+        self.assertIn('249.42 kPa',page.locator('#gas-piston .result').inner_text())
+        self.assertEqual(page.locator('#gas-piston svg circle').count(),24)
+        page.locator('#gas-piston-reset').click()
+        self.assertIn('124.71 kPa',page.locator('#gas-piston .result').inner_text())
+        section=page.locator('#balance-workbench')
+        section.get_by_role('button',name='Increase H₂',exact=True).click()
+        section.get_by_role('button',name='Increase H₂O',exact=True).click()
+        self.assertIn('Balanced in the simplest',section.locator('.feedback').inner_text())
+        page.select_option('#balance-workbench-reaction','combustion')
+        section.get_by_role('button',name='Increase O₂',exact=True).click()
+        section.get_by_role('button',name='Increase H₂O',exact=True).click()
+        self.assertIn('Balanced in the simplest',section.locator('.feedback').inner_text())
+
+    def test_hands_on_ion_carbon_and_electron_pair_builders(self):
+        page = self.page
+        page.select_option('#ion-builder-salt', 'Al2O3')
+        for _ in range(2): page.locator('#ion-builder-add-0').click()
+        for _ in range(3): page.locator('#ion-builder-add-1').click()
+        self.assertIn('Neutral and simplest: Al2O3', page.locator('#ion-builder [role=status]').inner_text())
+        page.locator('#ion-builder-remove-1').click()
+        self.assertIn('Net charge = +2', page.locator('#ion-builder .result').inner_text())
+        atoms = page.locator('#carbon-builder .carbon-atom')
+        for a,b in [(0,1),(1,2),(2,3)]:
+            atoms.nth(a).click(); atoms.nth(b).click()
+        self.assertIn('Built butane', page.locator('#carbon-builder .result').inner_text())
+        page.locator('#carbon-builder-clear').click()
+        for a,b in [(0,1),(0,2),(0,3)]:
+            atoms.nth(a).click(); atoms.nth(b).click()
+        self.assertIn('Built 2-methylpropane', page.locator('#carbon-builder .result').inner_text())
+        self.assertIn('2/2', page.locator('#carbon-builder [role=status]').inner_text())
+        page.select_option('#electron-pair-builder-molecule', 'water')
+        slots=page.locator('#electron-pair-builder .pair-grid button')
+        slots.nth(0).click(); slots.nth(1).click()
+        self.assertIn('H₂O complete: bent', page.locator('#electron-pair-builder [role=status]').inner_text())
+        slots.nth(2).click()
+        self.assertIn('draft', page.locator('#electron-pair-builder [role=status]').inner_text())
+
+    def test_hands_on_heat_isotopes_and_energy_profile(self):
+        page=self.page
+        self.set_lab_slider('#isotope-mixer-heavy',60)
+        page.locator('#isotope-mixer-check').click()
+        self.assertIn('Target reached',page.locator('#isotope-mixer [role=status]').inner_text())
+        self.assertEqual(page.locator('#isotope-mixer .negative').count(),12)
+        page.locator('#calorimeter-bench-heat').click()
+        self.assertIn('rise = 2.39 K',page.locator('#calorimeter-bench .result').inner_text())
+        self.set_lab_slider('#calorimeter-bench-mass',200)
+        self.assertIn('Supplied energy = 0 kJ',page.locator('#calorimeter-bench .result').inner_text())
+        page.locator('#calorimeter-bench-heat').click()
+        self.assertIn('rise = 1.20 K',page.locator('#calorimeter-bench .result').inner_text())
+        page.locator('#energy-profile-lab-catalyst').click()
+        self.assertIn('ΔH = -40',page.locator('#energy-profile-lab .result').inner_text())
+        self.assertIn('Forward Ea = 60; reverse Ea = 100',page.locator('#energy-profile-lab .result').inner_text())
+        self.set_lab_slider('#energy-profile-lab-enthalpy',80)
+        self.assertIn('Forward Ea = 90; reverse Ea = 10',page.locator('#energy-profile-lab .result').inner_text())
+
+    def test_hands_on_rate_equilibrium_and_titration_models(self):
+        page=self.page
+        page.locator('#kinetics-bench-step').click()
+        self.assertIn('[A] = 0.60653, [B] = 0.39347',page.locator('#kinetics-bench .result').inner_text())
+        page.locator('#kinetics-bench-save').click()
+        self.set_lab_slider('#kinetics-bench-rate',.2)
+        self.assertIn('Time 0 s',page.locator('#kinetics-bench .result').inner_text())
+        self.assertIn('saved [A]₀ = 1, k = 0.1',page.locator('#kinetics-bench [role=status]').inner_text())
+        self.set_lab_slider('#equilibrium-bench-catalyst',5)
+        for _ in range(4): page.locator('#equilibrium-bench-step').click()
+        self.assertIn('Q = 4; Kc = 4',page.locator('#equilibrium-bench .result').inner_text())
+        self.assertIn('Total concentration = 1',page.locator('#equilibrium-bench .result').inner_text())
+        page.locator('#equilibrium-bench-add-b').click()
+        self.assertIn('Net reverse',page.locator('#equilibrium-bench [role=status]').inner_text())
+        self.assertIn('Total concentration = 1.5',page.locator('#equilibrium-bench .result').inner_text())
+        for _ in range(4): page.locator('#titration-bench-add-5').click()
+        self.assertIn('pH = 7.00',page.locator('#titration-bench .result').inner_text())
+        page.locator('#titration-bench-check').click()
+        self.assertIn('Within 0.1',page.locator('#titration-bench [role=status]').inner_text())
+        page.locator('#titration-bench-add-0-1').click()
+        self.assertIn('Excess NaOH',page.locator('#titration-bench .result').inner_text())
+        page.locator('#titration-bench-undo').click()
+        self.assertIn('pH = 7.00',page.locator('#titration-bench .result').inner_text())
+
+    def test_syllabus_hub_and_every_topic_work_offline(self):
+        syllabus = json.loads((self.resource_root / 'practice-syllabus.json').read_text(encoding='utf-8'))
+        self.page.goto((self.resource_root / 'practice.html').as_uri())
+        self.assertEqual(self.page.locator('.topic-card').count(), 22)
+        self.assertEqual(self.page.locator('input').count(), 0)
+        for topic in syllabus['topics']:
+            filename = topic['id'].lower().replace('.', '-') + '.html'
+            self.page.goto((self.resource_root / filename).as_uri())
+            self.assertEqual(self.page.locator('section[id]').count(), len(topic['activities']))
+            for activity in topic['activities']:
+                self.assertTrue(self.page.locator('#' + activity).is_visible())
+            self.assertTrue(self.page.get_by_role('link', name='All syllabus sub-parts', exact=True).is_visible())
+            self.assertEqual(self.page.evaluate('''() => {
+                const ids = [...document.querySelectorAll('[id]')].map(e => e.id);
+                return ids.length - new Set(ids).size;
+            }'''), 0)
+            if 'materials' in topic:
+                self.assertEqual(self.page.locator('#bond-material option').evaluate_all('(els)=>els.map(e=>e.value)'), topic['materials'])
+            self.page.set_viewport_size({'width': 320, 'height': 800})
+            self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'), topic['id'])
+        self.page.goto((self.resource_root / 'practice.html').as_uri() + '#holy-moly')
+        self.page.wait_for_url('**/s1-4.html#holy-moly')
+        self.assertTrue(self.page.locator('#holy-moly-n').is_visible())
+
+    def test_new_numerical_practices_check_signs_units_and_reset(self):
+        for topic, activity, scenario, answer in [
+            ('s1-1', 'particle-decisions', '2', '300'),
+            ('r1-1', 'calorimetry', '0', '2.09'),
+            ('r1-1', 'calorimetry', '1', '-41.8'),
+            ('r1-2', 'energy-cycles', '0', '-75'),
+            ('r1-2', 'energy-cycles', '2', '-170'),
+            ('r1-3', 'fuel-energy', '1', '24'),
+            ('r1-4', 'gibbs-energy', '0', '10'),
+            ('r1-4', 'gibbs-energy', '1', '400'),
+            ('r2-2', 'reaction-rates', '0', '0.005'),
+            ('r3-1', 'proton-transfer', '2', '3'),
+            ('r3-2', 'electron-transfer', '0', '7')]:
+            self.page.goto((self.resource_root / (topic + '.html')).as_uri())
+            section = self.page.locator('#' + activity)
+            section.get_by_label('Scenario', exact=True).select_option(scenario)
+            check = section.get_by_role('button', name='Check answer', exact=True)
+            check.click()
+            self.assertIn('Enter a finite', section.get_by_role('status').inner_text())
+            field = section.locator('input[type=number]')
+            field.fill(str(float(answer) * -2))
+            check.click()
+            self.assertIn('Not yet', section.get_by_role('status').inner_text())
+            field.fill(answer)
+            check.click()
+            self.assertTrue(section.get_by_role('status').inner_text().startswith('Correct.'))
+            section.get_by_role('button', name='Next scenario', exact=True).click()
+            self.assertEqual(section.get_by_role('status').inner_text(), '')
+            section.get_by_role('button', name='Reset practice', exact=True).click()
+            self.assertEqual(section.get_by_label('Scenario', exact=True).input_value(), '0')
+            self.assertIn('0 of ', section.locator('.question-host > .muted').inner_text())
+
+    def test_new_concept_practices_accept_and_explain_answers(self):
+        for topic, activity, answer in [
+            ('s1-1', 'particle-decisions', 'A pure compound'),
+            ('s3-1', 'periodic-patterns', 'Chlorine'),
+            ('s3-2', 'functional-groups', 'Alcohol'),
+            ('r3-1', 'proton-transfer', 'NH₃'),
+            ('r3-3', 'radical-steps', 'Initiation'),
+            ('r3-4', 'electron-pairs', 'OH⁻')]:
+            self.page.goto((self.resource_root / (topic + '.html')).as_uri())
+            section = self.page.locator('#' + activity)
+            section.get_by_role('button', name='Check answer', exact=True).click()
+            self.assertIn('Choose an answer', section.get_by_role('status').inner_text())
+            section.get_by_role('button', name='Show explanation', exact=True).click()
+            self.assertTrue(section.get_by_role('status').inner_text().startswith('Answer:'))
+            self.assertIn('0 of ', section.locator('.question-host > .muted').inner_text())
+            section.get_by_label('Your prediction', exact=True).select_option(answer)
+            section.get_by_role('button', name='Check answer', exact=True).click()
+            self.assertTrue(section.get_by_role('status').inner_text().startswith('Correct.'))
+
+    def test_extension_practices_calculations_and_concept_feedback(self):
+        cases = [
+            ('s1-2', 'isotope-mixtures', '1', '60'),
+            ('r1-2', 'formation-enthalpy', '1', '20'),
+            ('r1-2', 'formation-enthalpy', '2', '0'),
+            ('r2-1', 'yield-economy', '0', '75'),
+            ('r2-1', 'yield-economy', '1', '70'),
+            ('r2-2', 'rate-orders', '1', '0'),
+            ('r2-2', 'rate-orders', '2', '0.3'),
+            ('r3-1', 'titration-stoichiometry', '1', '0.125'),
+            ('r3-4', 'substitution-mechanisms', '0', '4'),
+        ]
+        for topic, activity, scenario, answer in cases:
+            self.page.goto((self.resource_root / (topic + '.html')).as_uri())
+            section = self.page.locator('#' + activity)
+            section.get_by_label('Scenario', exact=True).select_option(scenario)
+            field = section.locator('input[type=number]')
+            field.fill(str(float(answer) + 1))
+            section.get_by_role('button', name='Check answer', exact=True).click()
+            self.assertIn('Not yet', section.get_by_role('status').inner_text())
+            field.fill(answer)
+            section.get_by_role('button', name='Check answer', exact=True).click()
+            self.assertTrue(section.get_by_role('status').inner_text().startswith('Correct.'))
+        for topic, activity, answer in [
+            ('s2-1', 'ionic-formulas', 'MgCl₂'),
+            ('s2-2', 'shape-polarity', 'Linear and non-polar overall'),
+            ('r2-3', 'equilibrium-shifts', 'Formation of more NH₃'),
+            ('r3-3', 'radical-products', 'Cl•'),
+        ]:
+            self.page.goto((self.resource_root / (topic + '.html')).as_uri())
+            section = self.page.locator('#' + activity)
+            choice = section.get_by_label('Your prediction', exact=True)
+            choices = choice.locator('option').all_text_contents()
+            choice.select_option(next(value for value in choices[1:] if value != answer))
+            section.get_by_role('button', name='Check answer', exact=True).click()
+            self.assertIn('Not yet', section.get_by_role('status').inner_text())
+            choice.select_option(answer)
+            section.get_by_role('button', name='Check answer', exact=True).click()
+            self.assertTrue(section.get_by_role('status').inner_text().startswith('Correct.'))
+
+    def test_moly_triangles_link_values_and_preserve_locks(self):
+        page = self.page
+        page.locator('#moly-mass').get_by_role('checkbox', name='Keep molar mass fixed', exact=True).check()
+        page.locator('#moly-mass-m').fill('36')
+        self.assertEqual(page.locator('#moly-mass-n').input_value(), '2')
+        self.assertEqual(page.locator('#moly-mass-M').input_value(), '18')
+        page.locator('#moly-solution').get_by_role('checkbox', name='Keep amount fixed', exact=True).check()
+        page.locator('#moly-solution-V').fill('4')
+        self.assertEqual(page.locator('#moly-solution-c').input_value(), '0.25')
+        page.locator('#moly-particles-n').fill('2')
+        self.assertAlmostEqual(float(page.locator('#moly-particles-N').input_value()) / 6.02214076e23, 2)
+        self.assertTrue(page.locator('#moly-particles-A').is_disabled())
+        holy = page.locator('#holy-moly')
+        for name in ['molar mass', 'solution volume']:
+            holy.get_by_role('checkbox', name='Keep ' + name + ' fixed', exact=True).check()
+        page.locator('#holy-moly-m').fill('36')
+        for key, expected in [('n', 2), ('c', 1), ('V', 2), ('M', 18)]:
+            self.assertEqual(float(page.locator('#holy-moly-' + key).input_value()), expected)
+        self.assertAlmostEqual(float(page.locator('#holy-moly-N').input_value()) / 6.02214076e23, 2)
+        holy.get_by_role('checkbox', name='Keep amount fixed', exact=True).check()
+        page.locator('#holy-moly-m').fill('54')
+        self.assertEqual(page.locator('#holy-moly-m').input_value(), '36')
+        self.assertIn('Change rejected', holy.get_by_role('status').inner_text())
+        holy.get_by_role('button', name='Reset triangles').click()
+        self.assertEqual(page.locator('#holy-moly-n').input_value(), '1')
+        self.assertFalse(page.locator('#holy-moly-M').is_disabled())
+        self.assertTrue(page.locator('#holy-moly-A').is_disabled())
+        page.locator('#holy-moly-n').fill('0')
+        self.assertEqual(page.locator('#holy-moly-n').get_attribute('aria-invalid'), 'true')
+        self.assertIn('greater than zero', holy.get_by_role('status').inner_text())
 
     def test_stoichiometry_conserves_atoms_and_handles_zero_and_exact_ratio(self):
         for h, o in [(4, 3), (10, 1), (4, 2), (0, 3), (0, 0)]:

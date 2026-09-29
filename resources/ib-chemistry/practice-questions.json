@@ -1,0 +1,112 @@
+{
+ "particle-decisions": {
+  "title":"Read the particle story",
+  "intro":"Switch between scenarios about particles, physical separation and temperature. Predict first, then check your reasoning.",
+  "questions":[
+   {"name":"One type of molecule","prompt":"A sample contains only identical molecules, each made from two atoms of X bonded to one atom of Y. X and Y are different elements. How is the sample classified?","options":["An element","A pure compound","A mixture"],"answer":"A pure compound","explanation":"There is one chemical substance containing two elements in a fixed ratio. Multiple elements in each molecule do not make the sample a mixture."},
+   {"name":"Recover the solvent","prompt":"A non-volatile solid is dissolved in water. Which method collects the water as a liquid?","options":["Filtration","Simple distillation","Evaporation to dryness"],"answer":"Simple distillation","explanation":"The water vaporizes and is condensed into a separate container. Filtration does not remove a dissolved solute; evaporation to dryness does not collect the solvent."},
+   {"name":"Temperature scale","prompt":"A fictional sample is at 26.85 °C. Convert this temperature to kelvin using T / K = temperature / °C + 273.15.","unit":"Temperature / K","answer":300,"explanation":"26.85 + 273.15 = 300.00 K. Temperature in kelvin is proportional to the average kinetic energy in the ideal-gas model."},
+   {"name":"Melting plateau","prompt":"A pure solid melts at constant pressure. During the melting plateau, what happens as energy is supplied?","options":["Temperature rises continuously","Average kinetic energy stays approximately constant while potential energy increases","The particles stop moving"],"answer":"Average kinetic energy stays approximately constant while potential energy increases","explanation":"Energy overcomes attractions as the solid becomes liquid. The temperature remains constant during the phase change; particles continue moving."}
+  ]
+ },
+ "periodic-patterns": {
+  "title":"Explain a periodic pattern",
+  "intro":"Compare positions and electron arrangements. Use shielding, occupied shells and nuclear charge to explain a trend rather than memorizing an arrow.",
+  "questions":[
+   {"name":"Across period 3","prompt":"Which atom is generally smaller: sodium or chlorine?","options":["Sodium","Chlorine","They have the same radius"],"answer":"Chlorine","explanation":"Across period 3 the nuclear charge increases while electrons are added to the same main shell. Similar shielding and greater attraction generally decrease atomic radius."},
+   {"name":"Down group 1","prompt":"Which requires less energy to remove its first electron as a gaseous atom: lithium or potassium?","options":["Lithium","Potassium","They require equal energy"],"answer":"Potassium","explanation":"Potassium's outer electron is in a more distant shell and is more shielded. These effects outweigh its larger nuclear charge."},
+   {"name":"Read the arrangement","prompt":"A neutral main-group atom has electron arrangement 2,8,7. In which group and period is it found?","options":["Group 7, period 2","Group 17, period 3","Group 18, period 3"],"answer":"Group 17, period 3","explanation":"Three occupied main shells indicate period 3. Seven outer-shell electrons place this main-group element in group 17."}
+  ]
+ },
+ "functional-groups": {
+  "title":"Spot the functional group",
+  "intro":"Read condensed structural formulas and distinguish groups that contain similar atoms but different bonding arrangements.",
+  "questions":[
+   {"name":"CH₃CH₂OH","prompt":"Which class contains CH₃CH₂OH?","options":["Alcohol","Carboxylic acid","Ether"],"answer":"Alcohol","explanation":"The hydroxyl group is attached to a saturated carbon. There is no carbonyl group and the oxygen is not bonded to two carbon groups."},
+   {"name":"CH₃COOCH₃","prompt":"Which class contains CH₃C(=O)OCH₃?","options":["Ketone","Ester","Carboxylic acid"],"answer":"Ester","explanation":"An ester contains –C(=O)–O– between carbon-containing groups. A carboxylic acid would have –C(=O)–OH."},
+   {"name":"CH₃COCH₃","prompt":"Which class contains CH₃C(=O)CH₃?","options":["Aldehyde","Ketone","Alcohol"],"answer":"Ketone","explanation":"The carbonyl carbon is bonded to two carbon groups. An aldehyde has a hydrogen directly attached to its carbonyl carbon."},
+   {"name":"Homologous series","prompt":"What is the formula difference between successive members of the same unbranched saturated alcohol homologous series?","options":["CH₂","H₂O","CO₂"],"answer":"CH₂","explanation":"Successive members differ by CH₂ and retain the same functional group. Their physical properties show trends, while many chemical properties are similar."}
+  ]
+ },
+ "calorimetry": {
+  "title":"Follow the heat in a calorimeter",
+  "intro":"Use fictional measurements and q = mcΔT. Assume no heat loss and neglect the heat capacity of the container. The solution and reaction have opposite heat signs.",
+  "questions":[
+   {"name":"Heat gained by solution","prompt":"100.0 g of solution warms by 5.00 K. Use c = 4.18 J g⁻¹ K⁻¹. Calculate the heat gained by the solution in kJ.","unit":"q(solution) / kJ","answer":2.09,"explanation":"q = 100.0 × 4.18 × 5.00 = 2090 J = +2.09 kJ. The reaction releases this heat."},
+   {"name":"Molar reaction enthalpy","prompt":"A reaction involving 0.0500 mol of the limiting reactant transfers 2.09 kJ to its surroundings. Find ΔH per mole of that reactant.","unit":"ΔH / kJ mol⁻¹","answer":-41.8,"explanation":"q(reaction) = −2.09 kJ, so ΔH = −2.09 / 0.0500 = −41.8 kJ mol⁻¹. Heat release is exothermic."},
+   {"name":"Cooling solution","prompt":"The solution cools during a reaction in an insulated calorimeter. What is the sign of the reaction enthalpy?","options":["Positive: endothermic","Negative: exothermic","Always zero"],"answer":"Positive: endothermic","explanation":"The reaction absorbs heat from the solution. The solution loses thermal energy while the reacting system gains it."}
+  ]
+ },
+ "energy-cycles": {
+  "title":"Choose a path through an energy cycle",
+  "intro":"Practise Hess’s law with invented thermochemical data. Reverse an equation and its enthalpy sign together; scale both by the same factor.",
+  "questions":[
+   {"name":"Add two steps","prompt":"For fictional states A, B and C: A → B has ΔH = +45 kJ mol⁻¹ and B → C has ΔH = −120 kJ mol⁻¹. Find ΔH for A → C.","unit":"ΔH / kJ mol⁻¹","answer":-75,"explanation":"Add the steps: +45 + (−120) = −75 kJ mol⁻¹. B cancels from the overall change."},
+   {"name":"Reverse a step","prompt":"A → C has ΔH = −75 kJ mol⁻¹. Find ΔH for C → A.","unit":"ΔH / kJ mol⁻¹","answer":75,"explanation":"Reversing the chemical change reverses the enthalpy sign: +75 kJ mol⁻¹."},
+   {"name":"Bond enthalpy estimate","prompt":"For one mole of a fictional gas-phase reaction, breaking bonds requires 680 kJ and forming bonds releases 850 kJ. Estimate ΔH.","unit":"ΔH / kJ mol⁻¹","answer":-170,"explanation":"ΔH ≈ sum of bond enthalpies broken − sum formed = 680 − 850 = −170 kJ mol⁻¹. Bond breaking requires energy; bond formation releases energy."}
+  ]
+ },
+ "fuel-energy": {
+  "title":"Compare useful energy from fuels",
+  "intro":"Use supplied fictional fuel data to compare energy per mass and useful output. Keep energy released as a positive quantity here, unlike a negative combustion enthalpy.",
+  "questions":[
+   {"name":"Energy per gram","prompt":"Fuel X has molar mass 40.0 g mol⁻¹ and releases 1600 kJ mol⁻¹ on complete combustion. How much energy is released per gram?","unit":"Energy released / kJ g⁻¹","answer":40,"explanation":"1600 / 40.0 = 40.0 kJ g⁻¹. Energy per mole alone is not enough to compare equal masses of fuels."},
+   {"name":"Useful energy","prompt":"Burning 2.00 g of fuel X releases 40.0 kJ g⁻¹. A device transfers 30.0% of this energy to its intended use. Calculate the useful energy.","unit":"Useful energy / kJ","answer":24,"explanation":"Total energy = 2.00 × 40.0 = 80.0 kJ. Useful energy = 80.0 × 0.300 = 24.0 kJ."},
+   {"name":"Limited oxygen","prompt":"Why can burning a hydrocarbon with insufficient oxygen be dangerous?","options":["It can form toxic carbon monoxide","It must produce only hydrogen","It cannot release any energy"],"answer":"It can form toxic carbon monoxide","explanation":"Incomplete combustion may form carbon monoxide and soot rather than converting all carbon to carbon dioxide."}
+  ]
+ },
+ "gibbs-energy": {
+  "title":"Find the temperature boundary (AHL)",
+  "intro":"For fictional data use ΔG° = ΔH° − TΔS°. Convert entropy from J K⁻¹ mol⁻¹ to kJ K⁻¹ mol⁻¹. Assume ΔH° and ΔS° are constant over the temperature range.",
+  "questions":[
+   {"name":"At 300 K","prompt":"ΔH° = +40.0 kJ mol⁻¹ and ΔS° = +100 J K⁻¹ mol⁻¹. Calculate ΔG° at 300 K.","unit":"ΔG° / kJ mol⁻¹","answer":10,"explanation":"ΔS° = 0.100 kJ K⁻¹ mol⁻¹. ΔG° = 40.0 − 300 × 0.100 = +10.0 kJ mol⁻¹. The forward change is not spontaneous under standard-state conditions at this temperature."},
+   {"name":"Boundary temperature","prompt":"With ΔH° = +40.0 kJ mol⁻¹ and ΔS° = +100 J K⁻¹ mol⁻¹, at what temperature is ΔG° = 0?","unit":"Temperature / K","answer":400,"explanation":"T = ΔH° / ΔS° = 40.0 / 0.100 = 400 K. Above this temperature ΔG° is negative within this constant-data approximation."},
+   {"name":"Thermodynamics versus speed","prompt":"A reaction has negative ΔG under the stated conditions. What can you conclude?","options":["It must be fast","It is thermodynamically spontaneous but may be slow","Its activation energy must be zero"],"answer":"It is thermodynamically spontaneous but may be slow","explanation":"The Gibbs energy change describes thermodynamic direction. A large activation barrier can make a spontaneous change very slow."}
+  ]
+ },
+ "reaction-rates": {
+  "title":"Read rate evidence",
+  "intro":"Use invented measurements to calculate an average rate, then distinguish a faster pathway from a different final equilibrium.",
+  "questions":[
+   {"name":"Average rate","prompt":"A reactant concentration decreases from 0.80 to 0.50 mol dm⁻³ over 60.0 s. Calculate its positive average rate of disappearance.","unit":"Rate / mol dm⁻³ s⁻¹","answer":0.005,"explanation":"Rate of disappearance = −Δ[reactant]/Δt = (0.80 − 0.50)/60.0 = 0.0050 mol dm⁻³ s⁻¹. This is an interval average, not an instantaneous rate."},
+   {"name":"Catalyst","prompt":"At the same temperature, what does a catalyst change?","options":["It provides a pathway with lower activation energy","It raises the equilibrium constant","It changes the reaction enthalpy"],"answer":"It provides a pathway with lower activation energy","explanation":"A catalyst increases forward and reverse rates without changing ΔH or the equilibrium constant at fixed temperature."},
+   {"name":"Surface area","prompt":"Equal masses of a solid react with identical excess acid under otherwise identical conditions. Which usually gives the greater initial rate?","options":["One large lump","Finely divided powder","Both must have the same initial rate"],"answer":"Finely divided powder","explanation":"The powder exposes more surface for collisions with the acid. Equal mass does not imply equal exposed surface area."}
+  ]
+ },
+ "proton-transfer": {
+  "title":"Track a proton",
+  "intro":"Identify Brønsted–Lowry roles and conjugate pairs, then calculate pH for a supplied ideal dilute solution.",
+  "questions":[
+   {"name":"Identify the base","prompt":"NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. Which reactant accepts a proton?","options":["NH₃","H₂O","Neither"],"answer":"NH₃","explanation":"NH₃ accepts H⁺ to form NH₄⁺ and acts as a base. Water donates H⁺ in this reaction and acts as an acid."},
+   {"name":"Conjugate pair","prompt":"Which pair differs by exactly one proton?","options":["H₂SO₄ and SO₄²⁻","NH₄⁺ and NH₃","H₃O⁺ and OH⁻"],"answer":"NH₄⁺ and NH₃","explanation":"A conjugate acid–base pair differs by one H⁺. The other pairs differ by two protons."},
+   {"name":"Calculate pH","prompt":"An ideal dilute solution has [H⁺] = 1.00 × 10⁻³ mol dm⁻³. Use pH = −log₁₀[H⁺].","unit":"pH (no unit)","answer":3,"explanation":"−log₁₀(0.00100) = 3.00. A tenfold decrease in [H⁺] would increase pH by one."}
+  ]
+ },
+ "electron-transfer": {
+  "title":"Account for transferred electrons",
+  "intro":"Use oxidation states and half-equations to identify oxidation, reduction and the role of an oxidizing agent.",
+  "questions":[
+   {"name":"Oxidation state","prompt":"In MnO₄⁻, each oxygen has oxidation state −2. What is the oxidation state of manganese?","unit":"Oxidation state (signed number)","answer":7,"explanation":"Let x be the Mn oxidation state: x + 4(−2) = −1, so x = +7."},
+   {"name":"Electron count","prompt":"How many electrons are released when one Zn atom forms Zn²⁺?","unit":"Number of electrons","answer":2,"explanation":"Zn → Zn²⁺ + 2e⁻. Loss of electrons is oxidation; charge is conserved."},
+   {"name":"Oxidizing agent","prompt":"Zn + Cu²⁺ → Zn²⁺ + Cu. Which species is the oxidizing agent?","options":["Zn","Cu²⁺","Zn²⁺"],"answer":"Cu²⁺","explanation":"Cu²⁺ accepts electrons and is reduced. By accepting those electrons it causes zinc to be oxidized."}
+  ]
+ },
+ "radical-steps": {
+  "title":"Sort a radical chain reaction",
+  "intro":"Classify steps in the photochemical chlorination of methane. A dot denotes an unpaired electron; a radical is not the same as an ion.",
+  "questions":[
+   {"name":"Cl₂ → 2Cl•","prompt":"UV light causes Cl₂ → 2Cl•. Which stage is this?","options":["Initiation","Propagation","Termination"],"answer":"Initiation","explanation":"Homolytic bond fission gives one bonding electron to each chlorine atom, creating two radicals."},
+   {"name":"Cl• + CH₄ → HCl + CH₃•","prompt":"A chlorine radical removes a hydrogen atom from methane, producing a methyl radical. Which stage is this?","options":["Initiation","Propagation","Termination"],"answer":"Propagation","explanation":"One radical is consumed and another is formed, allowing the chain to continue. CH₃• can react with Cl₂ to form CH₃Cl and regenerate Cl•."},
+   {"name":"CH₃• + Cl• → CH₃Cl","prompt":"A methyl radical combines with a chlorine radical to form chloromethane. Which stage is this?","options":["Initiation","Propagation","Termination"],"answer":"Termination","explanation":"Two radicals combine and no new radical is formed, ending that chain pathway."}
+  ]
+ },
+ "electron-pairs": {
+  "title":"Follow the donated electron pair",
+  "intro":"Recognize electron-pair donors and acceptors and predict simple substitution and addition products. Distinguish a full electron pair from the single electrons in radical reactions.",
+  "questions":[
+   {"name":"Nucleophile","prompt":"In CH₃Br + OH⁻ → CH₃OH + Br⁻, which species donates the electron pair that forms the new C–O bond?","options":["OH⁻","The carbon atom in CH₃Br","Br⁻ after it leaves"],"answer":"OH⁻","explanation":"Hydroxide donates a lone pair to the electrophilic carbon. The C–Br bond breaks and bromide leaves."},
+   {"name":"Substitution product","prompt":"Bromoethane reacts with aqueous hydroxide by substitution. What organic product forms?","options":["Ethene, CH₂=CH₂","Ethanol, CH₃CH₂OH","Ethane, CH₃CH₃"],"answer":"Ethanol, CH₃CH₂OH","explanation":"The hydroxyl group replaces bromine on the carbon chain. The stated pathway is substitution, not elimination."},
+   {"name":"Addition to ethene","prompt":"Hydrogen bromide adds across the C=C bond of ethene. Which product forms?","options":["Bromoethane, CH₃CH₂Br","1,2-dibromoethane, CH₂BrCH₂Br","Ethanol, CH₃CH₂OH"],"answer":"Bromoethane, CH₃CH₂Br","explanation":"H and Br add to the two carbons of the double bond. The carbon–carbon bond becomes single and no small molecule is eliminated."}
+  ]
+ }
+}

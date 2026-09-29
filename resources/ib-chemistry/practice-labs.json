@@ -1,0 +1,86 @@
+{
+  "ion-builder": {
+    "topic": "S2.1",
+    "title": "Build an ionic formula",
+    "intro": "Add and remove ions to make a neutral formula unit. Then reduce it to the smallest whole-number ratio.",
+    "challenge": "Build aluminium oxide with zero net charge and the smallest possible number of ions. Can a neutral collection still use a ratio that is not simplest?",
+    "method": "Total charge is the sum of each ion count multiplied by its signed charge. Al³⁺ and O²⁻ balance at two aluminium ions and three oxide ions. The counters represent a formula ratio, not isolated molecules in an ionic solid."
+  },
+  "carbon-builder": {
+    "topic": "S3.2",
+    "title": "Build two carbon skeletons",
+    "intro": "Click two carbon atoms to add or remove a single bond. Hydrogens fill the remaining carbon valences automatically. All controls work with touch or a keyboard.",
+    "challenge": "Connect all four carbon atoms to make C₄H₁₀. Then rearrange the bonds to discover its other chain isomer.",
+    "method": "A connected four-carbon tree has three C–C bonds and formula C₄H₁₀. A straight chain is butane; one carbon bonded to the other three gives 2-methylpropane. The drawing shows connectivity, not three-dimensional geometry. Only single bonds are modelled."
+  },
+  "electron-pair-builder": {
+    "topic": "S2.2",
+    "title": "Place bonds and lone pairs",
+    "intro": "Each of four buttons represents one tetrahedral electron-domain direction. Click a domain to switch between a bonding pair and a lone pair, then build the selected molecule.",
+    "challenge": "Build CH₄, NH₃ and H₂O. Compare the electron-domain arrangement with the molecular shape as bonds are replaced by lone pairs.",
+    "method": "Four electron domains have an approximately tetrahedral arrangement. Four bonds give tetrahedral CH₄, three bonds plus one lone pair give trigonal pyramidal NH₃, and two bonds plus two lone pairs give bent H₂O. The buttons are a schematic projection, not measured bond angles."
+  },
+  "isotope-mixer": {
+    "topic": "S1.2",
+    "title": "Mix an isotope sample",
+    "intro": "Move the abundance slider to blend two fictional isotopes with relative masses 20.0 and 22.0. Watch both the atom sample and weighted mean change.",
+    "challenge": "Make a relative atomic mass of 21.20, then check your mixture. Predict which isotope should be more abundant before moving the slider.",
+    "method": "Aᵣ = 20.0(1 − f) + 22.0f, where f is the fraction of the heavier isotope. Aᵣ = 21.20 needs 60% of the heavier isotope. The 20 displayed atoms are a rounded illustration; the calculation uses the slider percentage exactly."
+  },
+  "calorimeter-bench": {
+    "topic": "R1.1",
+    "title": "Run a virtual calorimeter",
+    "intro": "Set a water mass and the fraction of supplied heat retained. Press the heater button to add a known energy pulse and record the temperature response.",
+    "challenge": "With no heat loss, compare the temperature rise for 100 g and 200 g after the same energy pulse. Then introduce heat loss and explain why the measured rise is smaller.",
+    "method": "ΔT = qretained / (mc), using c = 4.18 J g⁻¹ K⁻¹ and an initial temperature of 20 °C. Container heat capacity and evaporation are omitted. Changing the setup clears the run; heat is added only when the heater button is pressed."
+  },
+  "energy-profile-lab": {
+    "topic": "R1.2",
+    "title": "Reshape an energy profile",
+    "intro": "Move the product energy and the forward activation barrier. Toggle a catalyst to compare paths with the same reactants and products.",
+    "challenge": "Create an exothermic profile, then make it endothermic. Switch on the catalyst: which energies change and which remain unchanged?",
+    "method": "Reactant energy is the reference zero. ΔH = Eproducts − Ereactants. Forward and reverse activation energies are measured from their respective starting levels to the peak. The catalyst lowers both barriers equally while keeping the peak above both endpoints. The reaction coordinate is not time."
+  },
+  "kinetics-bench": {
+    "topic": "R2.2",
+    "title": "Run and compare a reaction (AHL)",
+    "intro": "Set the initial concentration and first-order rate constant for a fictional irreversible A → B reaction. Advance the clock to collect a concentration trace. Save one run for comparison.",
+    "challenge": "Compare two initial concentrations with the same k. Do they halve in the same time? Then double k and compare the half-life.",
+    "method": "This idealized constant-volume model uses [A] = [A]₀exp(−kt), [B] = [A]₀ − [A] and t½ = ln(2)/k. It assumes constant temperature and first-order kinetics, with no reverse reaction. Changing the setup starts a new run."
+  },
+  "equilibrium-bench": {
+    "topic": "R2.3",
+    "title": "Disturb a dynamic equilibrium",
+    "intro": "For a fictional A ⇌ B system at fixed temperature and volume, add either species and advance time. Compare the forward and reverse rates as the mixture approaches equilibrium.",
+    "challenge": "Reach equilibrium, add more A, and watch the response. Repeat with a faster catalyst setting. Does the final ratio change?",
+    "method": "The model uses first-order forward and reverse steps with kf = 0.20 s⁻¹ and kr = 0.05 s⁻¹, so Kc = [B]/[A] = 4. A catalyst multiplies both rate constants equally. The exact exponential relaxation conserves [A] + [B] between additions; equilibrium has equal nonzero rates."
+  },
+  "titration-bench": {
+    "topic": "R3.1",
+    "title": "Operate a virtual burette",
+    "intro": "Add 0.100 mol dm⁻³ NaOH to 20.0 cm³ of 0.100 mol dm⁻³ HCl. Choose coarse or fine additions and watch the pH curve develop. Undo an addition if you overshoot.",
+    "challenge": "Approach equivalence with large additions, then use small additions to finish within 0.1 cm³. Explain the steep pH change near equivalence.",
+    "method": "HCl and NaOH react 1:1. The model assumes ideal dilute solutions at 25 °C, additive volumes and Kw = 1.0 × 10⁻¹⁴. Excess acid or base and water autoionization determine pH. Equivalence occurs at 20.0 cm³ added base. The colour is a pH scale, not a real indicator."
+  },
+  "electron-jumps": {
+    "topic": "S1.3",
+    "title": "Trigger an electron transition",
+    "intro": "Choose an energy level to move the electron. Watch the atom absorb or emit a photon whose energy matches the gap.",
+    "challenge": "Compare a direct drop from level 4 to level 1 with a sequence through the intermediate levels. Is the total emitted energy the same? Are the photons the same?",
+    "method": "The fictional bound levels are 0, 2.0, 3.5 and 4.2 eV relative to the ground state. Photon energy equals the level difference. The approximate conversion wavelength / nm = 1240 / (energy / eV) is supplied for exploration, not required memorization. Transitions are deliberately triggered, not a prediction of lifetimes or selection rules."
+  },
+  "gas-piston": {
+    "topic": "S1.5",
+    "title": "Push an ideal-gas piston",
+    "intro": "Move the piston by changing its volume and adjust the temperature bath. Observe the pressure response for a sealed 0.100 mol sample.",
+    "challenge": "At 300 K, compress the sample from 2.0 to 1.0 cubic decimetres. Then restore the original pressure by adjusting temperature and volume together.",
+    "method": "The ideal-gas model uses pV = nRT with R = 8.314 kPa dm^3 mol^-1 K^-1. The number of displayed dots stays constant but is only illustrative. Temperature is controlled independently; this is not an adiabatic compression model. Molecular size and intermolecular attractions are neglected."
+  },
+  "balance-workbench": {
+    "topic": "R2.1",
+    "title": "Balance atoms at the workbench",
+    "intro": "Use the plus and minus buttons to change coefficients. A live atom inventory shows what is conserved and what still needs balancing.",
+    "challenge": "Balance all three reactions using the smallest positive whole-number coefficients. Try doubling every coefficient of a balanced equation: what changes?",
+    "method": "A coefficient multiplies every atom in the formula. Subscripts stay fixed because changing them changes the substance. The two sides must contain equal numbers of atoms of each element. Coefficients are limited to 1 through 12 for these examples."
+  }
+}
