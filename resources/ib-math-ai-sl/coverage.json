@@ -1,0 +1,376 @@
+[
+  {
+    "code": "1.1",
+    "title": "Standard form",
+    "activities": [
+      "notation"
+    ],
+    "task": "Express 7200000 in standard form, then divide it by 0.0003. Explain how the powers of ten change.",
+    "solution": "7.2 × 10⁶; the quotient is 2.4 × 10¹⁰."
+  },
+  {
+    "code": "1.2",
+    "title": "Arithmetic sequences and finite sums",
+    "activities": [
+      "sequences"
+    ],
+    "task": "For deposits 10, 15, 20, … write the tenth term and the sum of ten deposits using sigma notation.",
+    "solution": "u₁₀=55; Σ from k=1 to 10 of [10+5(k−1)] = 325. A constant difference distinguishes this from geometric growth."
+  },
+  {
+    "code": "1.3",
+    "title": "Geometric sequences and finite sums",
+    "activities": [
+      "geometric"
+    ],
+    "task": "Compare the first four terms and sums when u₁=8 and r=0.5 or r=−0.5.",
+    "solution": "Positive ratio: 8, 4, 2, 1, sum 15. Negative ratio: 8, −4, 2, −1, sum 5. These are finite sums."
+  },
+  {
+    "code": "1.4",
+    "title": "Compound growth, depreciation and inflation",
+    "activities": [
+      "interest",
+      "finance"
+    ],
+    "task": "Compare 1000 invested at 6% nominal annual interest compounded annually and monthly over one year. Then account for 3% inflation.",
+    "solution": "Annual:1060; monthly:1000(1.005)¹²≈1061.68. Divide each by 1.03 to express purchasing power in starting-year money."
+  },
+  {
+    "code": "1.5",
+    "title": "Integer powers and logarithms",
+    "activities": [
+      "logarithms"
+    ],
+    "task": "Simplify (2³×2⁻¹)/2². Rewrite eˣ=7 using a logarithm and use technology to find x.",
+    "solution": "The quotient is 2⁰=1. x=ln 7≈1.94591. Exponential and logarithmic forms express the same relationship."
+  },
+  {
+    "code": "1.6",
+    "title": "Approximation, bounds and error",
+    "activities": [
+      "notation",
+      "bounds"
+    ],
+    "task": "A rectangle has sides 8.4 and 3.2 cm, both rounded to 0.1 cm. Bound its area. If an estimate is 27cm² and the exact area is 26.88cm², calculate percentage error.",
+    "solution": "26.3025≤area<27.4625cm². Percentage error=100|27−26.88|/26.88≈0.446429%. State precision and check the order of magnitude before accepting a calculation."
+  },
+  {
+    "code": "1.7",
+    "title": "Loans and annuities",
+    "activities": [
+      "loan",
+      "annuity"
+    ],
+    "task": "For a 1000 loan at 1% per month, pay 100 at each month-end. Calculate the first two balances and explain how an annuity reverses the cash-flow direction.",
+    "solution": "910 then 819.10. Each month first multiply the balance by 1.01, then subtract 100. Savings with end-of-period deposits instead add 100; timing matters."
+  },
+  {
+    "code": "1.8",
+    "title": "Systems and polynomial equations",
+    "activities": [
+      "systems",
+      "polynomials"
+    ],
+    "task": "Solve x+y=7 and 2x−y=2, then use the cubic explorer to find every solution of x³−3x=2. Verify by substitution.",
+    "solution": "x=3, y=4. Cubic roots are−1 (repeated) and 2. A graph can touch an axis without crossing it; sign-change searches alone miss repeated roots."
+  },
+  {
+    "code": "2.1",
+    "title": "Straight-line equations",
+    "activities": [
+      "line",
+      "bisectors"
+    ],
+    "task": "Find the line through(1, 5) parallel to y=2x+1, then the perpendicular line through the same point. Express the first in general form.",
+    "solution": "y=2x+3, or 2x−y+3=0. The perpendicular is y−5=−0.5(x−1). Horizontal and vertical lines need separate handling."
+  },
+  {
+    "code": "2.2",
+    "title": "Functions, domains, ranges and inverses",
+    "activities": [
+      "inverse"
+    ],
+    "task": "Restrict f(x)=2x+3 to 0≤x≤4. State its range and inverse, including the inverse domain, and interpret f⁻¹(f(2)).",
+    "solution": "Range[3, 11]; f⁻¹(x)=(x−3)/2 on[3, 11]. f⁻¹(f(2))=2: the inverse undoes the function."
+  },
+  {
+    "code": "2.3",
+    "title": "Graphs and combinations",
+    "activities": [
+      "graph-operations"
+    ],
+    "task": "Sketch f=x²−4, g=2x+1, f+g and f−g. Label intercepts and vertices; compare your sketch with the explorer.",
+    "solution": "f+g=x²+2x−3 has vertex(−1, −4), zeros−3, 1. f−g=x²−2x−5 has vertex(1, −6), zeros 1±√6."
+  },
+  {
+    "code": "2.4",
+    "title": "Graph features and intersections",
+    "activities": [
+      "quadratic",
+      "polynomials",
+      "model-family"
+    ],
+    "task": "Find the vertex, symmetry axis, intercepts and intersections with y=1 of y=(x−2)²−3. Then inspect the asymptotes of y=2/x.",
+    "solution": "Vertex(2, −3), axis x=2, y-intercept 1, zeros 2±√3; y=1 at x=0, 4. For 2/x the asymptotes arex=0, y=0."
+  },
+  {
+    "code": "2.5",
+    "title": "Linear, quadratic, exponential, power, cubic and periodic models",
+    "activities": [
+      "line",
+      "quadratic",
+      "model-family"
+    ],
+    "task": "Choose models for a two-rate taxi tariff, a cooling object, inverse sharing and seasonal temperature. For T=8 sin(30x)+12 in degrees, state amplitude, period and principal axis.",
+    "solution": "Piecewise linear; exponential decay with offset; inverse proportion; sinusoidal. T has amplitude 8, period 12 and principal axis T=12. Explain the meaning and units of each parameter."
+  },
+  {
+    "code": "2.6",
+    "title": "Building and evaluating models",
+    "activities": [
+      "line",
+      "model-family",
+      "systems"
+    ],
+    "task": "Fit y=ax²+bx+c through(0, 1), (1, 4), (2, 9) using simultaneous equations. A new observation is(3, 15). Calculate its residual, then discuss a sensible domain and whether to revise the model.",
+    "solution": "c=1, a+b=3, 4a+2b=8 gives a=1, b=2, c=1. Predicted 16; observed−predicted residual−1. Validation requires new observations and context, not just fitting the original points."
+  },
+  {
+    "code": "3.1",
+    "title": "Three-dimensional measurement and solids",
+    "activities": [
+      "solids"
+    ],
+    "task": "A cylinder of radius 2 and height 5 has a hemisphere of radius 2 attached on top. Find total volume and exposed area, including the bottom. Also find distance and midpoint from(0, 0, 0) to(2, 4, 5).",
+    "solution": "Volume=20π+16π/3=76π/3. External area=20π+8π+4π=32π; omit the shared circular face. Distance√45; midpoint(1, 2, 2.5)."
+  },
+  {
+    "code": "3.2",
+    "title": "Right and non-right triangles",
+    "activities": [
+      "triangle",
+      "nonright"
+    ],
+    "task": "For sides 5 and 7 with included angle 60°, find the third side and area. Explain why some side-side-angle information gives two triangles.",
+    "solution": "Third side√39; area 35sin60°/2≈15.1554. Since sinB=sin(180°−B), two positive remaining-angle solutions may be possible."
+  },
+  {
+    "code": "3.3",
+    "title": "Bearings and angles of elevation or depression",
+    "activities": [
+      "bearings",
+      "triangle"
+    ],
+    "task": "A boat travels 10 km on bearing 030°. Find east and north displacement and its return bearing. Sketch a 20m tower viewed from 40m away on level ground; find the depression angle from its top.",
+    "solution": "East 5 km, north 5√3 km, return 210°. Depression=arctan(20/40)≈26.5651°, equal to the elevation angle from the ground by parallel horizontals."
+  },
+  {
+    "code": "3.4",
+    "title": "Arcs and sectors in degrees",
+    "activities": [
+      "sectors"
+    ],
+    "task": "For radius 6 and angle 120°, calculate arc length, sector area and sector perimeter.",
+    "solution": "Arc 4π; area 12π; perimeter 12+4π. The angle is one third of a complete turn."
+  },
+  {
+    "code": "3.5",
+    "title": "Perpendicular bisectors",
+    "activities": [
+      "bisectors"
+    ],
+    "task": "Find the perpendicular bisector of A(2, 1), B(6, 5). Verify that(4, 3) and(3, 4) are equidistant from A and B.",
+    "solution": "Midpoint(4, 3), segment slope 1; bisector y=−x+7. Squared distances are 8 at the midpoint and 10 at(3, 4)."
+  },
+  {
+    "code": "3.6",
+    "title": "Voronoi diagrams and nearest-site decisions",
+    "activities": [
+      "voronoi",
+      "voronoi-regions"
+    ],
+    "task": "Add the third site in the region explorer. Identify cells, shared edges and the triple vertex. Explain where a new service station could reduce the greatest distance to an existing station.",
+    "solution": "Each cell contains points nearest its site; shared edges are parts of perpendicular bisectors. A triple vertex is equidistant from three sites. For a bounded service area, compare Voronoi vertices, edge-boundary intersections and boundary corners; justify practical constraints."
+  },
+  {
+    "code": "4.1",
+    "title": "Data quality and sampling",
+    "activities": [
+      "sampling",
+      "box-transform"
+    ],
+    "task": "Design a stratified sample of 20 from 60 younger and 40 older people. Contrast it with convenience sampling and identify two possible sources of unreliable data.",
+    "solution": "Randomly select 12 younger and 8 older people. Convenience selection may systematically exclude groups. Non-response, unclear questions, recording errors and outdated sources can undermine reliability; counts are discrete and measured times continuous."
+  },
+  {
+    "code": "4.2",
+    "title": "Tables, histograms, cumulative frequency and box plots",
+    "activities": [
+      "displays",
+      "box-transform"
+    ],
+    "task": "For frequencies 4, 8, 8, 4 in intervals[0, 10), [10, 20), [20, 30), [30, 40), estimate the 75 th percentile from the cumulative graph. Compare box plots before and after increasing the extreme value.",
+    "solution": "Cumulative counts 4, 12, 20, 24; position 18 lies in[20, 30), giving 20+(18−12)×10/8=27.5. Grouped percentiles are estimates. Compare medians and IQR, and identify outliers separately."
+  },
+  {
+    "code": "4.3",
+    "title": "Location, spread and transformations",
+    "activities": [
+      "statistics",
+      "displays",
+      "box-transform"
+    ],
+    "task": "For 2, 4, 4, 5, 20 find mean, median and mode. Predict what adding 3 or multiplying by 2 does to mean, variance and standard deviation.",
+    "solution": "Mean 7, median 4, mode 4. Adding 3 increases the mean by 3 and leaves variance/SD unchanged. Multiplying by 2 doubles mean/SD and multiplies variance by 4. Grouped mean/SD use class midpoints and are estimates."
+  },
+  {
+    "code": "4.4",
+    "title": "Pearson correlation and regression",
+    "activities": [
+      "regression",
+      "line"
+    ],
+    "task": "Fit the regression explorer's default points. Predict y at x=3 andx=8. Explain the difference in reliability and why correlation is not evidence of causation.",
+    "solution": "y=2x, r=1; predictions 6 and 16. x=3 is interpolation, 8 is extrapolation beyond observedx=1…5. Confounding variables or coincidence can create associations."
+  },
+  {
+    "code": "4.5",
+    "title": "Probability and expected frequency",
+    "activities": [
+      "events",
+      "binomial"
+    ],
+    "task": "List the sample space for two coin tosses. Find the probability of at least one head and its expected frequency in 200 independent trials.",
+    "solution": "HH, HT, TH, TT. For a fair coin the probability is 3/4=1−P(TT); expected count 150. Actual frequency varies."
+  },
+  {
+    "code": "4.6",
+    "title": "Combined events and conditional probability",
+    "activities": [
+      "events"
+    ],
+    "task": "A bag has 3 red and 2 blue counters. Draw twice without replacement. Draw a probability tree, calculate P(RR) and P(second red | first blue), and explain dependence.",
+    "solution": "P(RR)=(3/5)(2/4)=3/10. P(second red | first blue)=3/4, which differs from the original 3/5. Branch probabilities change after removing a counter. Use a Venn diagram or table for unions and intersections."
+  },
+  {
+    "code": "4.7",
+    "title": "Discrete distributions and expectation",
+    "activities": [
+      "expectation"
+    ],
+    "task": "Prizes 0, 5, 20 have probabilities 0.6, 0.3, 0.1. Find a fair entry fee and expected net gain if the fee is 4.",
+    "solution": "Expected prize=3.5, so the fair fee is 3.5. At fee 4 the expected net gain is−0.5. The probabilities must be non-negative and sum to 1."
+  },
+  {
+    "code": "4.8",
+    "title": "Binomial models",
+    "activities": [
+      "binomial"
+    ],
+    "task": "For X~B(3, 0.5), find P(X≥2), mean and variance. Explain the four modelling conditions and when repeated draws without replacement violate them.",
+    "solution": "P(X≥2)=0.5, mean 1.5, variance 0.75. Fixed number of trials, two outcomes, independence and constant success probability are required; removing items generally changes the success probability."
+  },
+  {
+    "code": "4.9",
+    "title": "Normal models and inverse probabilities",
+    "activities": [
+      "normal",
+      "inverse-normal"
+    ],
+    "task": "For X~N(50, 10²), find P(40≤X≤60) and the 90 th percentile. Explain why a continuous variable has P(X=50)=0.",
+    "solution": "Probability≈0.682689; 90 th percentile≈62.8155. Probability is area over an interval, and a single point has zero width. About 95% and 99.7% lie within two and three standard deviations."
+  },
+  {
+    "code": "4.10",
+    "title": "Spearman rank correlation",
+    "activities": [
+      "rank"
+    ],
+    "task": "Use the rank explorer to create a large final observation. Explain why Pearson changes while Spearman may stay unchanged, and how ties are ranked.",
+    "solution": "Pearson uses magnitudes; Spearman uses ordering. If the rank order does not change, the rank correlation stays fixed. Assign ties their average occupied rank and correlate the ranks."
+  },
+  {
+    "code": "4.11",
+    "title": "Hypothesis tests",
+    "activities": [
+      "chi-square",
+      "t-test"
+    ],
+    "task": "Compare the hypotheses, assumptions and decisions for a chi-square independence test, a goodness-of-fit test, and a pooled unpaired two-sample t-test. Repeat at 1%, 5%, 10% significance.",
+    "solution": "Independence tests association; goodness-of-fit tests category proportions; a t-test compares population means. Use expected counts>5 and df>1 for these chi-square activities. The t-test assumes independent samples from normal populations with equal unknown variances. Reject H₀ when p≤α; failing to reject is not proof of equality. Choose one/two tails before seeing results."
+  },
+  {
+    "code": "5.1",
+    "title": "Derivative as a limiting rate",
+    "activities": [
+      "tangent"
+    ],
+    "task": "For f(x)=x² at x=2, compare secant slopes forh=1, 0.1, 0.01 and predict the limiting slope.",
+    "solution": "Slopes 5, 4.1, 4.01 approach 4=f′(2). The derivative describes an instantaneous rate with output-units per input-unit."
+  },
+  {
+    "code": "5.2",
+    "title": "Increasing and decreasing functions",
+    "activities": [
+      "power-rule",
+      "stationary"
+    ],
+    "task": "For f=x³−3x, identify the intervals of increase and decrease from the derivative sign.",
+    "solution": "f′=3x²−3: positive for x<−1 orx>1, negative for−1<x<1. A zero derivative alone does not decide whether a function changes direction."
+  },
+  {
+    "code": "5.3",
+    "title": "Power-rule differentiation",
+    "activities": [
+      "power-rule"
+    ],
+    "task": "Differentiate 3x⁴−2x⁻²+7 and find the derivative at x=1.",
+    "solution": "12x³+4x⁻³; at 1 the derivative is 16. The original function and its derivative exclude x=0."
+  },
+  {
+    "code": "5.4",
+    "title": "Tangents and normals",
+    "activities": [
+      "normal-line"
+    ],
+    "task": "For y=x² at x=2 find tangent and normal equations. Explain what happens to the normal at x=0.",
+    "solution": "Tangent y−4=4(x−2); normal y−4=−(x−2)/4. Atx=0 the tangent is horizontal and the normal is the vertical line x=0."
+  },
+  {
+    "code": "5.5",
+    "title": "Antiderivatives and definite integrals",
+    "activities": [
+      "antiderivative"
+    ],
+    "task": "Given f′=3x²+2 and f(0)=5, find f. Evaluate the integral of 3x²+2 from 0 to 2 and interpret its area.",
+    "solution": "f=x³+2x+5. Integral=[x³+2x]₀²=12. The integrand is positive, so the integral equals the area between the graph and the x-axis."
+  },
+  {
+    "code": "5.6",
+    "title": "Stationary points and extrema",
+    "activities": [
+      "stationary"
+    ],
+    "task": "Classify the stationary points of x³−3x and compare with x³ at zero using changes of derivative sign.",
+    "solution": "At−1, positive to negative gives a local maximum; at 1, negative to positive gives a local minimum. Forx³ the derivative is positive on both sides of 0: a stationary inflection."
+  },
+  {
+    "code": "5.7",
+    "title": "Optimization in context",
+    "activities": [
+      "optimization"
+    ],
+    "task": "With 40m of fencing for three sides against a wall, derive the area function, state a physical domain and justify the maximum using derivative signs and endpoints.",
+    "solution": "A(w)=w(40−2w), 0≤w≤20. A′=40−4w changes positive to negative atw=10; area 200m². Endpoint areas are 0; physical positive-area designs use 0<w<20."
+  },
+  {
+    "code": "5.8",
+    "title": "Trapezoidal approximation",
+    "activities": [
+      "trapezoids"
+    ],
+    "task": "Approximate the integral ofx²+1 from 0 to 4 with one and two strips, compare with the exact value, then explain the direction of the error.",
+    "solution": "One strip 36; two strips 28; exact 76/3≈25.3333. The chords lie above this convex graph, producing an overestimate; this direction is not universal for other curves."
+  }
+]
