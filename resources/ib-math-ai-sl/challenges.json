@@ -1,0 +1,821 @@
+[
+  {
+    "code": "1.1",
+    "title": "A microscopic coating",
+    "scenario": "A fictional coating contains 3.2 × 10⁹ particles. Each has mass 7.5 × 10⁻¹⁴ g. Only 80% of the supplied material reaches the surface.",
+    "parts": [
+      {
+        "prompt": "Find the deposited mass in g.",
+        "answer": 0.00024,
+        "hint": "Multiply coefficients and add exponents.",
+        "working": "(3.2 × 7.5) × 10⁻⁵ = 2.4 × 10⁻⁴ g."
+      },
+      {
+        "prompt": "Find the mass that must be supplied, in g.",
+        "answer": 0.0003,
+        "hint": "The deposit is 0.80 of the supplied mass.",
+        "working": "2.4 × 10⁻⁴ ÷ 0.80 = 3.0 × 10⁻⁴ g."
+      }
+    ],
+    "reason": "Explain why multiplying the deposit by 1.20 would not reverse the 20% loss.",
+    "discussion": "The loss is a percentage of the supplied mass, not of the deposit. Multiplying by 1.20 would supply only 2.88 × 10⁻⁴ g and deposit 2.304 × 10⁻⁴ g."
+  },
+  {
+    "code": "1.2",
+    "title": "Recover a saving plan",
+    "scenario": "Weekly deposits form an arithmetic sequence. The fifth deposit is 38 and the twelfth is 73.",
+    "parts": [
+      {
+        "prompt": "Find the first deposit.",
+        "answer": 18,
+        "hint": "Find the common difference using the seven-step gap.",
+        "working": "d = (73−38)/7 = 5; u₁ = 38−4×5 = 18."
+      },
+      {
+        "prompt": "Find the least number of weeks needed for total deposits to reach 1000.",
+        "answer": 18,
+        "hint": "Solve the sum inequality, then check neighbouring integers.",
+        "working": "Sₙ = n(5n+31)/2. S₁₇ = 986 and S₁₈ = 1089, so 18 weeks."
+      }
+    ],
+    "reason": "Why must the continuous solution be rounded up here?",
+    "discussion": "Deposits occur at whole weeks. A fractional week has not earned the next deposit. Check the adjacent totals rather than rounding to the nearest integer."
+  },
+  {
+    "code": "1.3",
+    "title": "Finite geometric budget",
+    "scenario": "A display uses 120 lamps in its first row and 20% more in each successive row. Treat lamp counts as a continuous planning model until the final design.",
+    "parts": [
+      {
+        "prompt": "Find the model total for the first 6 rows.",
+        "answer": 1191.5903999999996,
+        "hint": "Use a finite geometric sum.",
+        "working": "S₆ = 120(1.2⁶−1)/0.2 = 1191.5904."
+      },
+      {
+        "prompt": "Find the largest whole number of rows whose model total is at most 2000.",
+        "answer": 8,
+        "hint": "Compare the totals for consecutive row counts.",
+        "working": "S₈ = 1979.890176; S₉ = 2495.8682112. Thus 8 rows."
+      }
+    ],
+    "reason": "Explain why the actual lamp order may differ from this model.",
+    "discussion": "Rows require integer counts. Rounding each row, or repeatedly rounding a recurrence, changes the total; state and apply a rounding policy before ordering."
+  },
+  {
+    "code": "1.4",
+    "title": "Nominal gain versus purchasing power",
+    "scenario": "An investment of 5000 earns 6% nominal annual interest compounded monthly for 4 years. Annual inflation is 2.5%; ignore fees and tax.",
+    "parts": [
+      {
+        "prompt": "Find the nominal final balance.",
+        "answer": 6352.445805476912,
+        "hint": "Monthly interest is 0.06/12.",
+        "working": "5000(1+0.06/12)⁴⁸ ≈ 6352.45."
+      },
+      {
+        "prompt": "Find its final purchasing power in starting-year money.",
+        "answer": 5755.002373527309,
+        "hint": "Deflate the final balance over all four years.",
+        "working": "Divide the nominal balance by 1.025⁴, giving approximately 5755.00."
+      }
+    ],
+    "reason": "Can the annual real return be found exactly by subtracting 2.5 from 6?",
+    "discussion": "No. First obtain the effective annual nominal growth factor 1.005¹²; divide by 1.025 and subtract 1. Simple subtraction is only an approximation."
+  },
+  {
+    "code": "1.5",
+    "title": "Solve for a decay time",
+    "scenario": "A sensor reading follows R = 80e^(−0.15t), with t in hours.",
+    "parts": [
+      {
+        "prompt": "Find the time when R first reaches 20, in hours.",
+        "answer": 9.241962407465937,
+        "hint": "Isolate the exponential before applying ln.",
+        "working": "e^(−0.15t) = 1/4; t = ln(4)/0.15 ≈ 9.24196."
+      },
+      {
+        "prompt": "Find the time for the reading to halve, in hours.",
+        "answer": 4.620981203732969,
+        "hint": "Set the ratio R/80 to 1/2.",
+        "working": "t = ln(2)/0.15 ≈ 4.62098 hours."
+      }
+    ],
+    "reason": "Explain why the time from 40 to 20 equals the time from 80 to 40.",
+    "discussion": "An exponential model has a constant proportional decay factor; both transitions multiply the reading by 1/2, so they take the same time."
+  },
+  {
+    "code": "1.6",
+    "title": "Bounds for a calculated density",
+    "scenario": "A block has mass 84 g, rounded to the nearest gram, and volume 12.0 cm³, rounded to the nearest 0.1 cm³. Density is mass divided by volume.",
+    "parts": [
+      {
+        "prompt": "Find the infimum of the possible density, in g cm⁻³.",
+        "answer": 6.929460580912862,
+        "hint": "Use the smallest numerator and largest limiting denominator.",
+        "working": "83.5/12.05 ≈ 6.92946 g cm⁻³."
+      },
+      {
+        "prompt": "Find the supremum of the possible density, in g cm⁻³.",
+        "answer": 7.071129707112971,
+        "hint": "Reverse the choices for the upper limit.",
+        "working": "84.5/11.95 ≈ 7.07113 g cm⁻³."
+      }
+    ],
+    "reason": "Explain why these limiting density values are not attained under the usual half-open rounding intervals.",
+    "discussion": "83.5≤m<84.5 and 11.95≤V<12.05. The lower density requires excluded V=12.05; the upper requires excluded m=84.5. Therefore density lies strictly between the two limits."
+  },
+  {
+    "code": "1.7",
+    "title": "A loan with a final smaller payment",
+    "scenario": "Borrow 10000 at 6% nominal annual interest compounded monthly. Pay 300 at each month-end after interest. No fees.",
+    "parts": [
+      {
+        "prompt": "Find the balance just after payment 12.",
+        "answer": 6916.109406775087,
+        "hint": "Subtract the accumulated value of the payments.",
+        "working": "B₁₂ = 10000(1.005)¹² − 300[(1.005¹²−1)/0.005] ≈ 6916.11."
+      },
+      {
+        "prompt": "Find the smaller final payment at month 37, after 36 full payments.",
+        "answer": 166.80362762341093,
+        "hint": "Find B₃₆, then add one month of interest.",
+        "working": "Final payment = 1.005B₃₆ ≈ 166.80. It is less than the regular 300."
+      }
+    ],
+    "reason": "Why does allowing a negative balance after a full final payment misrepresent the loan?",
+    "discussion": "Once principal and accrued interest are cleared, no further debt remains. The final payment must be reduced to the outstanding amount rather than producing a fictitious credit balance."
+  },
+  {
+    "code": "1.8",
+    "title": "Fit a quadratic from constraints",
+    "scenario": "A quadratic y=ax²+bx+c passes through (0,3), (1,0) and (3,0).",
+    "parts": [
+      {
+        "prompt": "Find coefficient a.",
+        "answer": 1,
+        "hint": "Substitute each point to obtain three equations.",
+        "working": "c=3; a+b=−3; 9a+3b=−3. Subtracting 3a+3b=−9 gives 6a=6, so a=1."
+      },
+      {
+        "prompt": "Find the smaller solution of y=8.",
+        "answer": -1.0,
+        "hint": "First find b, then solve the resulting quadratic.",
+        "working": "b=−4; x²−4x+3=8 gives x²−4x−5=0, with roots −1 and 5."
+      }
+    ],
+    "reason": "Check both intersections and explain why solving only from a narrow graph window can miss one.",
+    "discussion": "At x=−1 and 5, y=8. A window restricted to x≥0 would omit the negative intersection, although it remains a valid algebraic solution."
+  },
+  {
+    "code": "2.1",
+    "title": "Two tariffs and a perpendicular",
+    "scenario": "Tariff A costs y=3x+12. Tariff B passes through (2,24) and (6,40), where x is hours and y is cost.",
+    "parts": [
+      {
+        "prompt": "Find the algebraic x-coordinate of the intersection, even if outside the physical domain.",
+        "answer": -4,
+        "hint": "Find B’s slope and intercept, then equate the two lines.",
+        "working": "B has slope 4 and intercept 16. 3x+12=4x+16 gives x=−4. No equal cost occurs at non-negative hours."
+      },
+      {
+        "prompt": "Find the slope of a line perpendicular to tariff B.",
+        "answer": -0.25,
+        "hint": "Use the negative reciprocal of B’s nonzero slope.",
+        "working": "Perpendicular slope = −1/4."
+      }
+    ],
+    "reason": "Which tariff is cheaper for x≥0? Justify using the difference, not only a sketch.",
+    "discussion": "B−A = x+4 > 0 for x≥0, so A is always cheaper in the physical domain. The algebraic intersection lies outside it."
+  },
+  {
+    "code": "2.2",
+    "title": "Invert a restricted model",
+    "scenario": "A pricing model is f(x)=5−2x on −1≤x≤3.",
+    "parts": [
+      {
+        "prompt": "Find the minimum value in the range.",
+        "answer": -1,
+        "hint": "The slope is negative; inspect the right endpoint.",
+        "working": "f(3)=−1 and f(−1)=7, so the range is [−1,7]."
+      },
+      {
+        "prompt": "Find f⁻¹(6).",
+        "answer": -0.5,
+        "hint": "Solve 6=5−2x, or use x=(5−y)/2.",
+        "working": "f⁻¹(6)=(5−6)/2=−0.5."
+      }
+    ],
+    "reason": "State the domain of the inverse and explain why f⁻¹(8) is not allowed here.",
+    "discussion": "The inverse domain is [−1,7], the original range. Although the rearranged expression can take 8, that value was never an output of the restricted original function."
+  },
+  {
+    "code": "2.3",
+    "title": "Combine a revenue and cost graph",
+    "scenario": "Revenue R(x)=−x²+12x and cost C(x)=2x+9, for 0≤x≤10. Profit is R−C.",
+    "parts": [
+      {
+        "prompt": "Find the maximum profit.",
+        "answer": 16,
+        "hint": "Complete the square in −x²+10x−9.",
+        "working": "P(x)=−(x−5)²+16, so the maximum is 16."
+      },
+      {
+        "prompt": "Find the larger break-even value of x.",
+        "answer": 9,
+        "hint": "Set the profit to zero.",
+        "working": "x²−10x+9=0 gives x=1 or 9."
+      }
+    ],
+    "reason": "Identify where the business makes a loss in the stated domain.",
+    "discussion": "Profit is positive between the roots, zero at 1 and 9, and negative for 0≤x<1 and 9<x≤10. Subtract graph heights in the correct order."
+  },
+  {
+    "code": "2.4",
+    "title": "Choose a graph window",
+    "scenario": "Consider f(x)=6/(x−2)+1.",
+    "parts": [
+      {
+        "prompt": "Find the x-intercept.",
+        "answer": -4,
+        "hint": "Set the whole function to zero and solve.",
+        "working": "6/(x−2)=−1 gives x=−4."
+      },
+      {
+        "prompt": "Find the x-coordinate where f(x)=4.",
+        "answer": 4,
+        "hint": "Isolate the reciprocal term.",
+        "working": "6/(x−2)=3 gives x=4."
+      }
+    ],
+    "reason": "State both asymptotes and explain why a vertical line drawn between plotted points either side of x=2 is misleading.",
+    "discussion": "The asymptotes are x=2 and y=1. x=2 is outside the domain; joining samples across it draws a false part of the curve."
+  },
+  {
+    "code": "2.5",
+    "title": "Fit a seasonal model",
+    "scenario": "A seasonal quantity has maximum 18 and minimum 6. Its period is 12 months and a maximum occurs at t=0. Use y=a cos(bt)+d with degrees.",
+    "parts": [
+      {
+        "prompt": "Find a.",
+        "answer": 6,
+        "hint": "Amplitude is half the max–min difference.",
+        "working": "a=(18−6)/2=6; the principal axis is d=12."
+      },
+      {
+        "prompt": "Find b in degrees per month.",
+        "answer": 30,
+        "hint": "Use period = 360/b.",
+        "working": "b=360/12=30; y=6cos(30t)+12."
+      }
+    ],
+    "reason": "Predict y at t=3 and explain why the model should not automatically be extrapolated over decades.",
+    "discussion": "At t=3, cos90°=0, so y=12. Long-term changes can alter the mean, amplitude or period; a periodic fit does not establish permanent repetition."
+  },
+  {
+    "code": "2.6",
+    "title": "Validate a model",
+    "scenario": "Fit y=ax²+bx+c through (0,2), (1,5), (2,12). A reserved observation at x=3 has y=22.",
+    "parts": [
+      {
+        "prompt": "Find a.",
+        "answer": 2,
+        "hint": "Use c=2, then solve a+b=3 and 4a+2b=10.",
+        "working": "Subtract twice the first equation: 2a=4, so a=2 and b=1."
+      },
+      {
+        "prompt": "Find the reserved observation’s residual, observed minus predicted.",
+        "answer": -1,
+        "hint": "Predict at x=3 without refitting.",
+        "working": "Prediction = 2×9+3+2=23; residual=22−23=−1."
+      }
+    ],
+    "reason": "Why is the reserved observation useful even when all three fitting points are matched exactly?",
+    "discussion": "An exact fit to training points is guaranteed by the three-parameter construction. A separate observation tests prediction and can reveal a poor model family or measurement variation."
+  },
+  {
+    "code": "3.1",
+    "title": "A composite container",
+    "scenario": "A cylinder of radius 3 cm and height 8 cm is capped by a hemisphere of the same radius. Include the flat circular bottom but not the internal shared face.",
+    "parts": [
+      {
+        "prompt": "Find total volume in cm³.",
+        "answer": 282.7433388230814,
+        "hint": "Add cylinder volume and half a sphere.",
+        "working": "72π + 18π = 90π cm³."
+      },
+      {
+        "prompt": "Find total external surface area in cm².",
+        "answer": 235.61944901923448,
+        "hint": "Add curved cylinder, curved hemisphere and bottom disk.",
+        "working": "48π + 18π + 9π = 75π cm²."
+      }
+    ],
+    "reason": "If every length is doubled, by what factors do area and volume change? Explain dimensionally.",
+    "discussion": "Area scales by 2²=4 and volume by 2³=8. The shared internal circular face is still excluded; doubling does not change which surfaces are external."
+  },
+  {
+    "code": "3.2",
+    "title": "Resolve an ambiguous triangle",
+    "scenario": "In triangle ABC, a=7, b=10 and angle A=30°. Lower-case sides are opposite matching angles.",
+    "parts": [
+      {
+        "prompt": "Find the smaller possible angle B in degrees.",
+        "answer": 45.58469140280703,
+        "hint": "Use sin B / b = sin A / a.",
+        "working": "sin B=10sin30°/7=5/7, giving B≈45.5847°."
+      },
+      {
+        "prompt": "Find the larger possible angle B in degrees.",
+        "answer": 134.41530859719296,
+        "hint": "Sine has the same value at B and 180°−B.",
+        "working": "The other B≈134.415°. Both leave positive angle C."
+      }
+    ],
+    "reason": "Explain how to check whether both possibilities actually define triangles.",
+    "discussion": "Compute C=180°−A−B in each case. Here C≈104.415° or 15.5847°, both positive; if one were zero or negative that candidate would be rejected."
+  },
+  {
+    "code": "3.3",
+    "title": "Combine two journeys",
+    "scenario": "A boat travels 12 km on bearing 030°, then 8 km on bearing 120°. Bearings are clockwise from north.",
+    "parts": [
+      {
+        "prompt": "Find its final east displacement in km.",
+        "answer": 12.928203230275509,
+        "hint": "East components use distance × sin(bearing).",
+        "working": "12sin30°+8sin120°=6+4√3≈12.9282 km."
+      },
+      {
+        "prompt": "Find the direct distance from the starting point in km.",
+        "answer": 14.422205101855956,
+        "hint": "Sum north components too, then use Pythagoras.",
+        "working": "North = 6√3−4≈6.3923. Distance = √208≈14.4222 km."
+      }
+    ],
+    "reason": "Explain why adding the travelled distances does not give displacement magnitude.",
+    "discussion": "The 20 km total measures the route length. Displacement is the straight vector from start to finish; the direction changes between legs."
+  },
+  {
+    "code": "3.4",
+    "title": "An annular sector",
+    "scenario": "A sector-shaped strip has outer radius 10 cm, inner radius 6 cm and angle 72°.",
+    "parts": [
+      {
+        "prompt": "Find its area in cm².",
+        "answer": 40.21238596594935,
+        "hint": "Subtract two sector areas with the same angle.",
+        "working": "(72/360)π(10²−6²)=12.8π cm²."
+      },
+      {
+        "prompt": "Find its full perimeter in cm.",
+        "answer": 28.106192982974676,
+        "hint": "Include both arcs and the two radial segments.",
+        "working": "Outer plus inner arcs = (72/360)2π(10+6)=6.4π; radial sides total 2(10−6)=8."
+      }
+    ],
+    "reason": "Explain the common error of adding two complete radii to the arc lengths.",
+    "discussion": "Only the strip is bounded: each straight side runs from radius 6 to radius 10 and has length 4, not 10."
+  },
+  {
+    "code": "3.5",
+    "title": "A boundary between sites",
+    "scenario": "A=(1,2), B=(7,6). Their perpendicular bisector has equation y=mx+c.",
+    "parts": [
+      {
+        "prompt": "Find m.",
+        "answer": -1.5,
+        "hint": "Find AB’s slope and use its negative reciprocal.",
+        "working": "AB slope=4/6=2/3, so m=−3/2."
+      },
+      {
+        "prompt": "Find c.",
+        "answer": 10,
+        "hint": "Use midpoint (4,4).",
+        "working": "4=−1.5×4+c, giving c=10."
+      }
+    ],
+    "reason": "Verify that (2,7) lies on the boundary by comparing squared distances.",
+    "discussion": "It satisfies y=−1.5x+10. Squared distances to A and B are 1²+5²=26 and (−5)²+1²=26; equal distances confirm the boundary."
+  },
+  {
+    "code": "3.6",
+    "title": "A three-site Voronoi vertex",
+    "scenario": "Sites are A=(2,2), B=(8,2), C=(5,8), inside a square 0≤x,y≤10.",
+    "parts": [
+      {
+        "prompt": "Find the y-coordinate of the triple vertex.",
+        "answer": 4.25,
+        "hint": "A–B boundary is x=5; equate squared distances to A and C.",
+        "working": "9+(y−2)²=(y−8)² gives 12y=51, so y=4.25."
+      },
+      {
+        "prompt": "Find the distance from that vertex to any site.",
+        "answer": 3.75,
+        "hint": "Use the distance to C, directly above the vertex.",
+        "working": "8−4.25=3.75; distance to A is √(9+2.25²)=3.75."
+      }
+    ],
+    "reason": "Is the triple vertex necessarily the point furthest from any site in this bounded map?",
+    "discussion": "No. Compare all relevant Voronoi vertices and map-boundary candidates. For example corner (0,10) is √29≈5.385 from its nearest site C, larger than 3.75."
+  },
+  {
+    "code": "4.1",
+    "title": "A biased sample with correct totals",
+    "scenario": "A population has 600 commuters and 400 non-commuters. A sample of 80 should be proportionally stratified. A researcher instead takes volunteers within each quota.",
+    "parts": [
+      {
+        "prompt": "Find the commuter allocation.",
+        "answer": 48,
+        "hint": "Apply 600/1000 to the sample size.",
+        "working": "0.6×80=48 commuters."
+      },
+      {
+        "prompt": "Find the non-commuter allocation.",
+        "answer": 32,
+        "hint": "Use 400/1000 of 80.",
+        "working": "0.4×80=32 non-commuters."
+      }
+    ],
+    "reason": "Explain why correct group totals alone do not make the volunteer sample stratified random sampling.",
+    "discussion": "Within each stratum, selection must be random. Volunteers can differ systematically in interest, availability or travel habits, so quota proportions do not eliminate selection bias."
+  },
+  {
+    "code": "4.2",
+    "title": "Estimate a grouped percentile",
+    "scenario": "Equal-width intervals [0,10), [10,20), [20,30), [30,40) have frequencies 6,14,16,4. Use linear interpolation within classes.",
+    "parts": [
+      {
+        "prompt": "Estimate the median.",
+        "answer": 20,
+        "hint": "Locate cumulative position 0.5×40.",
+        "working": "Cumulative counts are 6,20,36,40. Position 20 is at the boundary 20."
+      },
+      {
+        "prompt": "Estimate the 85th percentile.",
+        "answer": 28.75,
+        "hint": "Locate cumulative position 0.85×40 and interpolate within its class.",
+        "working": "Position 34 lies in [20,30), where cumulative frequency rises from 20 to 36. Estimate = 20 + (34−20)×10/16 = 28.75."
+      }
+    ],
+    "reason": "Can these grouped data identify individual outliers exactly?",
+    "discussion": "No. Class frequencies lose individual values. A cumulative graph provides estimated percentiles, but exact quartiles and individual outlier labels require the raw observations and a stated quartile convention."
+  },
+  {
+    "code": "4.3",
+    "title": "Transform a weighted mean",
+    "scenario": "Group A has 8 observations with mean 12. Group B has 12 observations with mean 17. The combined population SD is 4. Transform every value by y=3x−5.",
+    "parts": [
+      {
+        "prompt": "Find the combined original mean.",
+        "answer": 15,
+        "hint": "Combine sums, not the two unweighted means.",
+        "working": "(8×12+12×17)/20=15."
+      },
+      {
+        "prompt": "Find the transformed population variance.",
+        "answer": 144,
+        "hint": "SD is multiplied by 3; variance by 9.",
+        "working": "Original variance=4²=16; transformed variance=9×16=144."
+      }
+    ],
+    "reason": "Find the transformed mean and explain why subtracting 5 does not reduce the SD by 5.",
+    "discussion": "New mean=3×15−5=40. Translation moves all values and their mean equally, leaving distances from the mean unchanged."
+  },
+  {
+    "code": "4.4",
+    "title": "Residuals and extrapolation",
+    "scenario": "A regression model is y=1.8x+4, fitted using x-values from 2 to 8. At x=5 the observation is y=11.",
+    "parts": [
+      {
+        "prompt": "Find that observation’s residual.",
+        "answer": -2,
+        "hint": "Use observed minus fitted.",
+        "working": "Fitted y=13; residual=11−13=−2."
+      },
+      {
+        "prompt": "Find the model prediction at x=12.",
+        "answer": 25.6,
+        "hint": "Substitute 12 into the fitted line.",
+        "working": "1.8×12+4=25.6."
+      }
+    ],
+    "reason": "Explain why the second answer deserves more caution, even if the original correlation is strong.",
+    "discussion": "x=12 lies outside the observed range, so this is extrapolation. A strong association over 2≤x≤8 does not show that the same linear trend continues to 12 or establishes causation."
+  },
+  {
+    "code": "4.5",
+    "title": "Use a complement carefully",
+    "scenario": "Two fair six-sided dice are rolled. Ordered pairs are equally likely.",
+    "parts": [
+      {
+        "prompt": "Find the probability that at least one die shows 6.",
+        "answer": 0.3055555555555556,
+        "hint": "Complement: neither die is 6.",
+        "working": "1−(5/6)²=11/36≈0.305556."
+      },
+      {
+        "prompt": "Find the expected count of this event in 720 independent rolls of both dice.",
+        "answer": 220,
+        "hint": "Multiply number of experiments by the event probability.",
+        "working": "720×11/36=220."
+      }
+    ],
+    "reason": "Why is adding 1/6 and 1/6 incorrect here?",
+    "discussion": "The outcome (6,6) is counted twice. Subtract the overlap 1/36, or use the complement. Expected count is not a guaranteed actual count."
+  },
+  {
+    "code": "4.6",
+    "title": "A diagnostic probability",
+    "scenario": "A fictional test has positive probability 0.9 for affected people and 0.1 for unaffected people. Prevalence is 0.02.",
+    "parts": [
+      {
+        "prompt": "Find the overall probability of a positive result.",
+        "answer": 0.116,
+        "hint": "Split into affected and unaffected branches.",
+        "working": "0.02×0.9+0.98×0.1=0.116."
+      },
+      {
+        "prompt": "Find P(affected | positive).",
+        "answer": 0.15517241379310343,
+        "hint": "Divide the affected-and-positive probability by all positives.",
+        "working": "0.018/0.116≈0.155172."
+      }
+    ],
+    "reason": "Explain why 90% sensitivity does not mean a positive result has 90% probability of indicating an affected person.",
+    "discussion": "Sensitivity conditions on affected status; the question conditions on a positive result. At low prevalence, many positives come from the much larger unaffected group. This is a fictional probability model, not medical advice."
+  },
+  {
+    "code": "4.7",
+    "title": "Set a fair game fee",
+    "scenario": "A prize X takes values 0,5,20 with probabilities 0.6,0.3,0.1. A player pays fee f.",
+    "parts": [
+      {
+        "prompt": "Find the fair fee.",
+        "answer": 3.5,
+        "hint": "Set expected net gain E(X−f) to zero.",
+        "working": "E(X)=0×0.6+5×0.3+20×0.1=3.5, so f=3.5."
+      },
+      {
+        "prompt": "At fee 4, find the expected total net gain over 200 plays.",
+        "answer": -100,
+        "hint": "Use linearity of expectation.",
+        "working": "Expected net per play=3.5−4=−0.5; total=−100."
+      }
+    ],
+    "reason": "Does a fair fee imply every player breaks even after a short session?",
+    "discussion": "No. Fairness concerns expected value over repeated play. Actual prizes fluctuate and individual results can be far from their expectation."
+  },
+  {
+    "code": "4.8",
+    "title": "A binomial threshold",
+    "scenario": "X is the number of successes in 8 independent trials, each with success probability 0.25.",
+    "parts": [
+      {
+        "prompt": "Find P(X≥2).",
+        "answer": 0.6329193115234375,
+        "hint": "Subtract probabilities of zero and one success from 1.",
+        "working": "1−0.75⁸−8(0.25)(0.75⁷)≈0.632919."
+      },
+      {
+        "prompt": "Find Var(X).",
+        "answer": 1.5,
+        "hint": "Use np(1−p).",
+        "working": "8×0.25×0.75=1.5."
+      }
+    ],
+    "reason": "Explain why sampling 8 items without replacement from a small finite batch can invalidate this binomial model.",
+    "discussion": "The probability of success changes as items are removed and outcomes become dependent. A binomial model requires constant p and independent trials."
+  },
+  {
+    "code": "4.9",
+    "title": "Recover a normal model",
+    "scenario": "A normal variable has 10th percentile 42 and 90th percentile 58. Use z₀.₉=1.2815515655.",
+    "parts": [
+      {
+        "prompt": "Find the mean.",
+        "answer": 50,
+        "hint": "The percentiles are symmetric about the mean.",
+        "working": "Mean=(42+58)/2=50."
+      },
+      {
+        "prompt": "Find the standard deviation.",
+        "answer": 6.242433168796281,
+        "hint": "The distance from mean to the 90th percentile is zσ.",
+        "working": "σ=8/1.2815515655≈6.24243."
+      }
+    ],
+    "reason": "Why does this pair of percentiles not prove the data follow a normal distribution?",
+    "discussion": "Other distributions can share these percentiles. The calculation assumes normality; assess shape, tails and context before accepting that model."
+  },
+  {
+    "code": "4.10",
+    "title": "Tied ranks and an extreme value",
+    "scenario": "x=(1,2,3,4,5), y=(10,20,20,40,100). Assign increasing averaged ranks.",
+    "parts": [
+      {
+        "prompt": "Find the rank assigned to each y=20.",
+        "answer": 2.5,
+        "hint": "Average occupied positions 2 and 3.",
+        "working": "The tied values share rank (2+3)/2=2.5."
+      },
+      {
+        "prompt": "Find Spearman’s rank correlation.",
+        "answer": 0.9746794344808964,
+        "hint": "Compute Pearson correlation of x-ranks and y-ranks.",
+        "working": "Ranks are (1,2,3,4,5) and (1,2.5,2.5,4,5). Cross-deviation sum=9.5; squared sums=10 and 9.5; rₛ=9.5/√95≈0.974679."
+      }
+    ],
+    "reason": "What happens to Spearman’s coefficient if 100 is replaced by 1000? Contrast with Pearson on the original values.",
+    "discussion": "The ranks do not change, so Spearman stays the same. Pearson uses numerical distances and can change substantially. Avoid the no-ties shortcut formula when ties exist."
+  },
+  {
+    "code": "4.11",
+    "title": "A goodness-of-fit decision",
+    "scenario": "A fair three-category spinner predicts equal proportions. In 60 trials the observed counts are 30,20,10. For df=2, upper-tail p=exp(−χ²/2).",
+    "parts": [
+      {
+        "prompt": "Find the chi-square statistic.",
+        "answer": 10,
+        "hint": "Expected counts are 20 each; sum (O−E)²/E.",
+        "working": "100/20+0/20+100/20=10; df=3−1=2."
+      },
+      {
+        "prompt": "Find the p-value.",
+        "answer": 0.006737946999085467,
+        "hint": "Use the supplied df=2 survival formula.",
+        "working": "p=e⁻⁵≈0.00673795."
+      }
+    ],
+    "reason": "State decisions at 5% and 1%, and explain what rejecting H₀ does not show.",
+    "discussion": "Reject equal probabilities at both levels because p<0.01. This does not prove a particular alternative distribution or give P(H₀ true). Independent trials and adequate expected counts are required; all E=20>5."
+  },
+  {
+    "code": "5.1",
+    "title": "From a secant to an instantaneous rate",
+    "scenario": "Distance is s(t)=t²+3t metres. Compare rates at t=2 seconds.",
+    "parts": [
+      {
+        "prompt": "Find the average rate from t=2 to t=2.5, in m/s.",
+        "answer": 7.5,
+        "hint": "Use [s(2.5)−s(2)]/0.5.",
+        "working": "s(2)=10; s(2.5)=13.75; average=3.75/0.5=7.5."
+      },
+      {
+        "prompt": "Find the instantaneous rate at t=2, in m/s.",
+        "answer": 7,
+        "hint": "Differentiate or take the limit of the secant expression.",
+        "working": "s′(t)=2t+3, so s′(2)=7."
+      }
+    ],
+    "reason": "Derive the average rate over [2,2+h] and use it to justify the limit.",
+    "discussion": "The quotient is [(2+h)²+3(2+h)−10]/h = 7+h for h≠0. As h approaches zero, this approaches 7."
+  },
+  {
+    "code": "5.2",
+    "title": "Interpret derivative signs",
+    "scenario": "f(x)=x³−6x²+9x+2 on 0≤x≤5.",
+    "parts": [
+      {
+        "prompt": "Find the smaller stationary x-value.",
+        "answer": 1,
+        "hint": "Factor f′(x)=3x²−12x+9.",
+        "working": "f′=3(x−1)(x−3), so the smaller root is 1."
+      },
+      {
+        "prompt": "Find the length of the interval where f is decreasing.",
+        "answer": 2,
+        "hint": "The derivative is negative between its roots.",
+        "working": "Decreasing for 1<x<3, an interval of length 2."
+      }
+    ],
+    "reason": "Explain why f can be positive while f′ is negative.",
+    "discussion": "The value measures height; the derivative measures change. For example f(2)=4>0 but f′(2)=−3<0: the graph is above the axis while falling."
+  },
+  {
+    "code": "5.3",
+    "title": "Differentiate negative powers",
+    "scenario": "f(x)=2x³+6x⁻²−4 for x>0.",
+    "parts": [
+      {
+        "prompt": "Find f′(2).",
+        "answer": 22.5,
+        "hint": "Differentiate each power, including the negative exponent.",
+        "working": "f′=6x²−12x⁻³; f′(2)=24−1.5=22.5."
+      },
+      {
+        "prompt": "Find the positive x-value where f′(x)=0.",
+        "answer": 1.148698354997035,
+        "hint": "Multiply the derivative equation by x³.",
+        "working": "6x⁵=12 gives x=2^(1/5)≈1.14870."
+      }
+    ],
+    "reason": "Why is multiplying by x³ safe here, and what domain restriction must be retained?",
+    "discussion": "The original function excludes zero and is restricted to x>0. Thus x³ is nonzero, so multiplying preserves solutions within that domain; do not introduce x=0."
+  },
+  {
+    "code": "5.4",
+    "title": "Intersect a normal with an axis",
+    "scenario": "For y=x²−2x, find the normal at x=3.",
+    "parts": [
+      {
+        "prompt": "Find the normal slope.",
+        "answer": -0.25,
+        "hint": "Tangent slope is 2x−2.",
+        "working": "At x=3 tangent slope=4, so normal slope=−1/4."
+      },
+      {
+        "prompt": "Find the x-intercept of that normal.",
+        "answer": 15,
+        "hint": "The point is (3,3); set y=0 in y−3=−(x−3)/4.",
+        "working": "−3=−(x−3)/4 gives x−3=12, hence x=15."
+      }
+    ],
+    "reason": "Why is taking the reciprocal without changing sign incorrect?",
+    "discussion": "Nonvertical perpendicular lines have slope product −1. A positive reciprocal would give product +1 and would not form a right angle."
+  },
+  {
+    "code": "5.5",
+    "title": "Recover a function and an area",
+    "scenario": "F′(x)=3x²−4x+5 and F(1)=7. The integrand 3x²−4x+5 is positive.",
+    "parts": [
+      {
+        "prompt": "Find C in F(x)=x³−2x²+5x+C.",
+        "answer": 3,
+        "hint": "Apply the boundary value at x=1.",
+        "working": "7=1−2+5+C=4+C, so C=3."
+      },
+      {
+        "prompt": "Find the integral of 3x²−4x+5 from 1 to 3.",
+        "answer": 20,
+        "hint": "Evaluate the antiderivative at both limits.",
+        "working": "F(3)−F(1)=(27−18+15+3)−7=20."
+      }
+    ],
+    "reason": "Explain why the constant affects the boundary condition but not the definite integral.",
+    "discussion": "The boundary condition fixes a particular antiderivative. In F(3)−F(1), the same C is subtracted from itself, so it cancels."
+  },
+  {
+    "code": "5.6",
+    "title": "Local versus global extrema",
+    "scenario": "f(x)=x³−3x on −2≤x≤3.",
+    "parts": [
+      {
+        "prompt": "Find the local minimum value.",
+        "answer": -2,
+        "hint": "Use derivative sign changes at x=±1.",
+        "working": "At x=1 derivative changes negative to positive; f(1)=−2."
+      },
+      {
+        "prompt": "Find the global maximum value on this closed interval.",
+        "answer": 18,
+        "hint": "Check endpoints as well as stationary points.",
+        "working": "Values: f(−2)=−2, f(−1)=2, f(1)=−2, f(3)=18. Global maximum=18."
+      }
+    ],
+    "reason": "Why is the local maximum at x=−1 not the global maximum?",
+    "discussion": "It is greater than nearby values but not all values in the domain. The endpoint at x=3 has a much larger value; closed-interval optimization must inspect endpoints."
+  },
+  {
+    "code": "5.7",
+    "title": "Optimize an open box",
+    "scenario": "Cut equal squares of side x cm from the corners of a 20 cm by 12 cm sheet, then fold an open box. Use 0<x<6.",
+    "parts": [
+      {
+        "prompt": "Find x giving maximum volume, in cm.",
+        "answer": 2.4274007043062173,
+        "hint": "V=x(20−2x)(12−2x); solve V′=0 and keep roots in the domain.",
+        "working": "V′=240−128x+12x². The allowed root is (16−√76)/3≈2.42740."
+      },
+      {
+        "prompt": "Find the maximum volume in cm³.",
+        "answer": 262.6822635313133,
+        "hint": "Substitute the unrounded x into the volume expression.",
+        "working": "V≈262.682 cm³. The other stationary root is outside the physical domain."
+      }
+    ],
+    "reason": "Justify a maximum using the derivative and boundary behaviour.",
+    "discussion": "V′ changes positive to negative at the allowed root. Volume tends to zero at both ends of (0,6), so this stationary point gives the global physical maximum."
+  },
+  {
+    "code": "5.8",
+    "title": "A trapezoidal estimate from measurements",
+    "scenario": "A flow rate in L/min is recorded at times 0,2,4,6 minutes as 1,3,4,2 respectively.",
+    "parts": [
+      {
+        "prompt": "Estimate total volume in litres using the trapezoidal rule.",
+        "answer": 17,
+        "hint": "Strip width is 2 minutes.",
+        "working": "2[(1+2)/2+3+4]=17 L."
+      },
+      {
+        "prompt": "A flow meter reports an exact total of 16 L. Find the percentage error of the estimate.",
+        "answer": 6.25,
+        "hint": "Use |estimate−reference|/reference ×100.",
+        "working": "|17−16|/16 ×100=6.25%."
+      }
+    ],
+    "reason": "Can these four observations alone establish whether the trapezoidal rule overestimates the unknown curve?",
+    "discussion": "No. The curve between measurements is unknown. It could bend above or below the chords; the reference total reveals the direction in this instance, not the samples alone."
+  }
+]

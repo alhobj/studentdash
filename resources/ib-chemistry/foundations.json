@@ -1,0 +1,689 @@
+{
+  "prior": [
+    {
+      "id": "symbols",
+      "title": "Read element symbols",
+      "reminder": "An element symbol identifies an element. Upper- and lower-case letters matter: Co is cobalt, while CO is carbon monoxide.",
+      "steps": [
+        {
+          "prompt": "How many different elements are in H₂O?",
+          "answer": 2,
+          "hint": "Read the symbols H and O.",
+          "working": "H is hydrogen and O is oxygen: two elements."
+        },
+        {
+          "prompt": "How many different elements are in CO₂?",
+          "answer": 2,
+          "hint": "Read C and O; the small 2 is not another element.",
+          "working": "Carbon and oxygen are two elements."
+        }
+      ]
+    },
+    {
+      "id": "subscripts",
+      "title": "Count atoms in a formula",
+      "reminder": "A subscript applies to the symbol immediately before it. No subscript means one.",
+      "steps": [
+        {
+          "prompt": "How many hydrogen atoms are in one H₂O molecule?",
+          "answer": 2,
+          "hint": "Read the small number after H.",
+          "working": "H₂ means two hydrogen atoms."
+        },
+        {
+          "prompt": "How many atoms in total are in one H₂O molecule?",
+          "answer": 3,
+          "hint": "Add the hydrogen and oxygen atoms.",
+          "working": "2 hydrogen + 1 oxygen = 3 atoms."
+        }
+      ]
+    },
+    {
+      "id": "brackets",
+      "title": "Count groups and molecules",
+      "reminder": "A number outside brackets multiplies everything inside. A coefficient multiplies the whole formula.",
+      "steps": [
+        {
+          "prompt": "How many oxygen atoms are represented by Ca(OH)₂?",
+          "answer": 2,
+          "hint": "There are two OH groups.",
+          "working": "Each OH has one O; two groups contain two O atoms."
+        },
+        {
+          "prompt": "How many hydrogen atoms are represented by 3H₂O?",
+          "answer": 6,
+          "hint": "Each water molecule contains two H atoms.",
+          "working": "3 × 2 = 6 hydrogen atoms."
+        }
+      ]
+    },
+    {
+      "id": "charges",
+      "title": "Positive and negative charges",
+      "reminder": "A proton has charge +1 and an electron −1. Add the charges to find the net charge.",
+      "steps": [
+        {
+          "prompt": "A particle has 3 protons and 3 electrons. Find its net charge.",
+          "answer": 0,
+          "hint": "Calculate 3 − 3.",
+          "working": "The charges cancel: net charge 0."
+        },
+        {
+          "prompt": "A particle has 3 protons and 2 electrons. Find its net charge.",
+          "answer": 1,
+          "hint": "Calculate 3 − 2.",
+          "working": "Net charge +1. Losing an electron makes a particle more positive."
+        }
+      ]
+    },
+    {
+      "id": "states",
+      "title": "Recognise states of matter",
+      "reminder": "(s) means solid, (l) liquid, (g) gas and (aq) dissolved in water.",
+      "steps": [
+        {
+          "prompt": "What state does (g) represent? Enter one word.",
+          "answer": [
+            "gas",
+            "gaseous"
+          ],
+          "hint": "Use the first letter as a clue.",
+          "working": "(g) means gas."
+        },
+        {
+          "prompt": "Does (aq) mean dissolved in water or melted? Enter dissolved or melted.",
+          "answer": [
+            "dissolved",
+            "dissolved in water"
+          ],
+          "hint": "Aqueous means a solution in water.",
+          "working": "(aq) means dissolved in water; it is not the same as a pure liquid."
+        }
+      ]
+    },
+    {
+      "id": "changes",
+      "title": "Separate physical and chemical changes",
+      "reminder": "In a physical change the substances keep their chemical identities. A chemical change produces different substances.",
+      "steps": [
+        {
+          "prompt": "Ice melts into liquid water. Enter physical or chemical.",
+          "answer": [
+            "physical",
+            "physical change"
+          ],
+          "hint": "Both ice and liquid water are H₂O.",
+          "working": "This is a physical change: the state changes, not the chemical identity."
+        },
+        {
+          "prompt": "Magnesium reacts with oxygen to form magnesium oxide. Enter physical or chemical.",
+          "answer": [
+            "chemical",
+            "chemical change"
+          ],
+          "hint": "Magnesium oxide is a new substance.",
+          "working": "This is a chemical change."
+        }
+      ]
+    },
+    {
+      "id": "mass-units",
+      "title": "Convert mass units",
+      "reminder": "1 g = 1000 mg. Write the unit before choosing a conversion.",
+      "steps": [
+        {
+          "prompt": "Convert 2 g to mg.",
+          "answer": 2000,
+          "hint": "Multiply by 1000.",
+          "working": "2 × 1000 = 2000 mg."
+        },
+        {
+          "prompt": "Convert 500 mg to g.",
+          "answer": 0.5,
+          "hint": "Divide by 1000.",
+          "working": "500 ÷ 1000 = 0.5 g."
+        }
+      ]
+    },
+    {
+      "id": "volume-units",
+      "title": "Convert solution volumes",
+      "reminder": "1 dm³ = 1000 cm³ and 1 cm³ = 1 mL. Mole calculations often need volume in dm³.",
+      "steps": [
+        {
+          "prompt": "Convert 250 cm³ to dm³.",
+          "answer": 0.25,
+          "hint": "Divide by 1000.",
+          "working": "250 ÷ 1000 = 0.250 dm³."
+        },
+        {
+          "prompt": "Convert 0.50 dm³ to cm³.",
+          "answer": 500,
+          "hint": "Multiply by 1000.",
+          "working": "0.50 × 1000 = 500 cm³."
+        }
+      ]
+    },
+    {
+      "id": "ratios",
+      "title": "Use a ratio",
+      "reminder": "In a 1:2 ratio, the second amount is twice the first.",
+      "steps": [
+        {
+          "prompt": "A model uses one A particle for every two B particles. How many B are needed for 3 A?",
+          "answer": 6,
+          "hint": "Multiply 3 by 2.",
+          "working": "3 × 2 = 6 B particles."
+        },
+        {
+          "prompt": "If 4 B are available, how many A can react with them?",
+          "answer": 2,
+          "hint": "Divide 4 by 2.",
+          "working": "4 ÷ 2 = 2 A particles."
+        }
+      ]
+    },
+    {
+      "id": "powers",
+      "title": "Use powers of ten",
+      "reminder": "10³ means 1000. Scientific notation keeps very large or small numbers manageable.",
+      "steps": [
+        {
+          "prompt": "Calculate 2 × 10³.",
+          "answer": 2000,
+          "hint": "Multiply 2 by 1000.",
+          "working": "2 × 1000 = 2000."
+        },
+        {
+          "prompt": "Write 0.004 as a × 10⁻³. Find a.",
+          "answer": 4,
+          "hint": "10⁻³ = 0.001.",
+          "working": "0.004 = 4 × 0.001, so a = 4."
+        }
+      ]
+    },
+    {
+      "id": "formula",
+      "title": "Substitute into a formula",
+      "reminder": "Write the formula, substitute values with units, then calculate.",
+      "steps": [
+        {
+          "prompt": "Use density = mass ÷ volume. Mass is 12 g and volume is 3 cm³. Find density in g cm⁻³.",
+          "answer": 4,
+          "hint": "Divide 12 by 3.",
+          "working": "12 ÷ 3 = 4 g cm⁻³."
+        },
+        {
+          "prompt": "Use mass = density × volume. Density is 4 g cm⁻³ and volume is 5 cm³. Find mass in g.",
+          "answer": 20,
+          "hint": "Multiply 4 by 5.",
+          "working": "4 × 5 = 20 g."
+        }
+      ]
+    },
+    {
+      "id": "change",
+      "title": "Calculate a change and a percentage",
+      "reminder": "Change = final − initial. A percentage means a number out of 100.",
+      "steps": [
+        {
+          "prompt": "Temperature rises from 20 °C to 27 °C. Find the temperature change in °C.",
+          "answer": 7,
+          "hint": "Subtract the initial temperature from the final temperature.",
+          "working": "27 − 20 = 7 °C. The temperature change is also 7 K."
+        },
+        {
+          "prompt": "A sample is 25% salt by mass. Find the salt mass in a 20 g sample.",
+          "answer": 5,
+          "hint": "Use 0.25 × 20.",
+          "working": "Salt mass = 5 g."
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "code": "S1.1",
+      "title": "Particles and mixtures",
+      "reminder": "An element contains one type of atom. A compound contains different elements chemically bonded; a mixture contains different substances together.",
+      "steps": [
+        {
+          "prompt": "A sample contains only O₂ molecules. How many types of atom are present?",
+          "answer": 1,
+          "hint": "Both atoms in O₂ are oxygen.",
+          "working": "Only one type of atom: oxygen. O₂ is an element, even though each molecule has two atoms."
+        },
+        {
+          "prompt": "Salt and sand are mixed together. Enter mixture or compound.",
+          "answer": [
+            "mixture"
+          ],
+          "hint": "Mixing does not automatically create new chemical bonds.",
+          "working": "Salt and sand form a mixture; each substance retains its identity."
+        }
+      ]
+    },
+    {
+      "code": "S1.2",
+      "title": "Count subatomic particles",
+      "reminder": "Atomic number Z counts protons. Mass number A counts protons plus neutrons. A neutral atom has equal numbers of protons and electrons.",
+      "steps": [
+        {
+          "prompt": "A carbon atom has atomic number 6 and mass number 12. How many protons does it have?",
+          "answer": 6,
+          "hint": "The atomic number is the proton count.",
+          "working": "It has 6 protons."
+        },
+        {
+          "prompt": "How many neutrons does that carbon atom have?",
+          "answer": 6,
+          "hint": "Calculate mass number minus atomic number.",
+          "working": "12 − 6 = 6 neutrons."
+        }
+      ]
+    },
+    {
+      "code": "S1.3",
+      "title": "Place a few electrons",
+      "reminder": "For these first-ten-element examples, the first shell holds up to 2 electrons and the second up to 8. This simple shell model is a starting point for orbital configurations.",
+      "steps": [
+        {
+          "prompt": "A neutral lithium atom has 3 electrons. Put 2 in its first shell. How many remain?",
+          "answer": 1,
+          "hint": "Subtract the two placed electrons from the total.",
+          "working": "3 − 2 = 1 electron in the second shell."
+        },
+        {
+          "prompt": "A neutral neon atom has 10 electrons. How many are in its second shell?",
+          "answer": 8,
+          "hint": "Put 2 in the first shell, then count what remains.",
+          "working": "10 − 2 = 8. Neon has a full second shell."
+        }
+      ]
+    },
+    {
+      "code": "S1.4",
+      "title": "Mass to moles",
+      "reminder": "Amount n = mass m ÷ molar mass M. M is measured in g mol⁻¹; n is measured in mol.",
+      "steps": [
+        {
+          "prompt": "Water has molar mass 18 g mol⁻¹. Find the amount in 18 g, in mol.",
+          "answer": 1,
+          "hint": "Use n = 18 ÷ 18.",
+          "working": "18 ÷ 18 = 1 mol."
+        },
+        {
+          "prompt": "Find the amount in 36 g of water, in mol.",
+          "answer": 2,
+          "hint": "Use the same molar mass.",
+          "working": "36 ÷ 18 = 2 mol."
+        }
+      ]
+    },
+    {
+      "code": "S1.5",
+      "title": "Temperature and gas volume",
+      "reminder": "Gas-law temperatures must be in kelvin: T/K = temperature/°C + 273.15. At constant pressure and amount, ideal-gas volume is proportional to kelvin temperature.",
+      "steps": [
+        {
+          "prompt": "Convert 0 °C to K.",
+          "answer": 273.15,
+          "hint": "Add 273.15.",
+          "working": "0 + 273.15 = 273.15 K."
+        },
+        {
+          "prompt": "An ideal gas has volume 2 dm³ at 300 K. At constant pressure and amount, find its volume at 600 K in dm³.",
+          "answer": 4,
+          "hint": "The kelvin temperature doubles, so the volume doubles.",
+          "working": "2 × (600 ÷ 300) = 4 dm³."
+        }
+      ]
+    },
+    {
+      "code": "S2.1",
+      "title": "Balance ionic charges",
+      "reminder": "An ionic formula has zero net charge. Use the smallest whole-number ratio of positive and negative ions.",
+      "steps": [
+        {
+          "prompt": "One Na⁺ and one Cl⁻ have what total charge?",
+          "answer": 0,
+          "hint": "Add +1 and −1.",
+          "working": "(+1) + (−1) = 0. Their formula is NaCl."
+        },
+        {
+          "prompt": "How many Cl⁻ ions balance one Mg²⁺ ion?",
+          "answer": 2,
+          "hint": "Each chloride ion contributes −1.",
+          "working": "Two Cl⁻ supply −2, balancing +2. The formula is MgCl₂."
+        }
+      ]
+    },
+    {
+      "code": "S2.2",
+      "title": "Share an electron pair",
+      "reminder": "A single covalent bond is a shared pair of electrons. A double bond contains two shared pairs.",
+      "steps": [
+        {
+          "prompt": "How many electrons are in one shared pair?",
+          "answer": 2,
+          "hint": "A pair contains two items.",
+          "working": "One shared pair contains 2 electrons."
+        },
+        {
+          "prompt": "How many shared electrons are in a double bond?",
+          "answer": 4,
+          "hint": "There are two pairs.",
+          "working": "2 × 2 = 4 shared electrons."
+        }
+      ]
+    },
+    {
+      "code": "S2.3",
+      "title": "Explain a metal simply",
+      "reminder": "Metallic bonding is attraction between positive metal ions and delocalized electrons. These electrons can move through the solid.",
+      "steps": [
+        {
+          "prompt": "Which particles carry charge through a solid metal: electrons or protons?",
+          "answer": [
+            "electrons",
+            "electron"
+          ],
+          "hint": "Look for particles that are free to move through the structure.",
+          "working": "Delocalized electrons carry charge through the solid metal; protons remain in nuclei."
+        },
+        {
+          "prompt": "Are the metal ions in this model positive or negative?",
+          "answer": [
+            "positive",
+            "positively charged"
+          ],
+          "hint": "They have contributed electrons to the delocalized system.",
+          "working": "The metal ions are positive."
+        }
+      ]
+    },
+    {
+      "code": "S2.4",
+      "title": "From units to materials",
+      "reminder": "An alloy combines a metal with other elements. A polymer contains many linked repeating units.",
+      "steps": [
+        {
+          "prompt": "Brass contains copper and zinc. Enter alloy or pure element.",
+          "answer": [
+            "alloy"
+          ],
+          "hint": "There is more than one element in this metallic material.",
+          "working": "Brass is an alloy."
+        },
+        {
+          "prompt": "A short addition-polymer model has 5 repeat units, each containing 2 carbon atoms. How many carbon atoms are represented?",
+          "answer": 10,
+          "hint": "Multiply units by carbons per unit.",
+          "working": "5 × 2 = 10 carbon atoms."
+        }
+      ]
+    },
+    {
+      "code": "S3.1",
+      "title": "Read rows and columns",
+      "reminder": "Periodic-table periods are horizontal rows and groups are vertical columns. Sodium is in period 3, group 1.",
+      "steps": [
+        {
+          "prompt": "Which period contains sodium?",
+          "answer": 3,
+          "hint": "Use the row number stated above.",
+          "working": "Sodium is in period 3."
+        },
+        {
+          "prompt": "A neutral sodium atom has shell arrangement 2,8,1. How many electrons are in its outer shell?",
+          "answer": 1,
+          "hint": "Read the final number.",
+          "working": "There is 1 outer-shell electron, consistent with group 1."
+        }
+      ]
+    },
+    {
+      "code": "S3.2",
+      "title": "Read a simple organic formula",
+      "reminder": "Carbon usually makes four covalent bonds in these neutral molecules. An alcohol contains an –OH group attached to a saturated carbon.",
+      "steps": [
+        {
+          "prompt": "How many carbon atoms are in CH₃CH₂OH?",
+          "answer": 2,
+          "hint": "Count the two C symbols.",
+          "working": "There are 2 carbon atoms."
+        },
+        {
+          "prompt": "CH₃CH₂OH contains an –OH group. Enter alcohol or alkane.",
+          "answer": [
+            "alcohol"
+          ],
+          "hint": "Use the functional group described above.",
+          "working": "Ethanol is an alcohol."
+        }
+      ]
+    },
+    {
+      "code": "R1.1",
+      "title": "Measure a temperature rise",
+      "reminder": "For water warming up, q = mcΔT gives energy gained by the water. In the simple insulated model, the reaction loses that energy.",
+      "steps": [
+        {
+          "prompt": "Water warms from 20 °C to 25 °C. Find ΔT in K.",
+          "answer": 5,
+          "hint": "A temperature difference has the same numerical value in °C and K.",
+          "working": "25 − 20 = 5 K."
+        },
+        {
+          "prompt": "Use m = 10 g, c = 4.18 J g⁻¹ K⁻¹ and ΔT = 5 K. Find q for the water in J.",
+          "answer": 209,
+          "hint": "Multiply 10 × 4.18 × 5.",
+          "working": "q = 209 J gained by the water."
+        }
+      ]
+    },
+    {
+      "code": "R1.2",
+      "title": "Read an energy change",
+      "reminder": "Reaction enthalpy change = product enthalpy − reactant enthalpy. A negative value means an exothermic reaction.",
+      "steps": [
+        {
+          "prompt": "Reactants are at 80 kJ mol⁻¹ and products at 30 kJ mol⁻¹ on a relative energy scale. Find ΔH in kJ mol⁻¹.",
+          "answer": -50,
+          "hint": "Subtract 80 from 30.",
+          "working": "30 − 80 = −50 kJ mol⁻¹."
+        },
+        {
+          "prompt": "Is this change exothermic or endothermic?",
+          "answer": [
+            "exothermic"
+          ],
+          "hint": "A negative ΔH means energy is released to the surroundings.",
+          "working": "It is exothermic; the products are lower in enthalpy."
+        }
+      ]
+    },
+    {
+      "code": "R1.3",
+      "title": "Energy per gram of fuel",
+      "reminder": "Energy per gram = energy released ÷ mass of fuel. Compare like units and the same conditions.",
+      "steps": [
+        {
+          "prompt": "A fictional fuel releases 60 kJ when 3 g burns. Find its energy release per gram in kJ g⁻¹.",
+          "answer": 20,
+          "hint": "Divide 60 by 3.",
+          "working": "60 ÷ 3 = 20 kJ g⁻¹."
+        },
+        {
+          "prompt": "At the same release per gram, how much energy would 2 g release in kJ?",
+          "answer": 40,
+          "hint": "Multiply 20 kJ g⁻¹ by 2 g.",
+          "working": "20 × 2 = 40 kJ."
+        }
+      ]
+    },
+    {
+      "code": "R1.4",
+      "title": "Start Gibbs energy (AHL)",
+      "reminder": "AHL starter: ΔG = ΔH − TΔS. Use kelvin and matching energy units. A negative ΔG indicates thermodynamic favourability under the stated conditions, not a fast reaction.",
+      "steps": [
+        {
+          "prompt": "Convert ΔS = 100 J mol⁻¹ K⁻¹ to kJ mol⁻¹ K⁻¹.",
+          "answer": 0.1,
+          "hint": "Divide by 1000.",
+          "working": "100 ÷ 1000 = 0.100 kJ mol⁻¹ K⁻¹."
+        },
+        {
+          "prompt": "With ΔH = 20 kJ mol⁻¹, T = 300 K and ΔS = 0.100 kJ mol⁻¹ K⁻¹, find ΔG in kJ mol⁻¹.",
+          "answer": -10,
+          "hint": "Calculate 20 − (300 × 0.100).",
+          "working": "20 − 30 = −10 kJ mol⁻¹; thermodynamically favourable under these conditions."
+        }
+      ]
+    },
+    {
+      "code": "R2.1",
+      "title": "Read a balanced equation",
+      "reminder": "In 2H₂ + O₂ → 2H₂O, the coefficients show particle or mole ratios. Balance by changing coefficients, not chemical formulas.",
+      "steps": [
+        {
+          "prompt": "How many H atoms are represented by 2H₂?",
+          "answer": 4,
+          "hint": "Two molecules, each containing two hydrogen atoms.",
+          "working": "2 × 2 = 4 hydrogen atoms."
+        },
+        {
+          "prompt": "With oxygen in excess, how many mol of H₂O form from 2 mol H₂?",
+          "answer": 2,
+          "hint": "The H₂:H₂O mole ratio is 2:2.",
+          "working": "2 mol H₂ produces 2 mol H₂O."
+        }
+      ]
+    },
+    {
+      "code": "R2.2",
+      "title": "Calculate an average rate",
+      "reminder": "Average rate of gas production = change in gas volume ÷ time interval.",
+      "steps": [
+        {
+          "prompt": "Gas volume increases from 10 to 30 cm³. Find the increase in cm³.",
+          "answer": 20,
+          "hint": "Final volume minus initial volume.",
+          "working": "30 − 10 = 20 cm³."
+        },
+        {
+          "prompt": "This increase takes 5 s. Find the average rate in cm³ s⁻¹.",
+          "answer": 4,
+          "hint": "Divide the increase by the time.",
+          "working": "20 ÷ 5 = 4 cm³ s⁻¹."
+        }
+      ]
+    },
+    {
+      "code": "R2.3",
+      "title": "Recognise dynamic equilibrium",
+      "reminder": "At dynamic equilibrium in a closed system, forward and reverse rates are equal. Reactions continue and concentrations stay constant; the concentrations need not be equal.",
+      "steps": [
+        {
+          "prompt": "At equilibrium the forward rate is 3 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+          "answer": 3,
+          "hint": "The two rates are equal at equilibrium.",
+          "working": "The reverse rate is also 3 mmol dm⁻³ s⁻¹."
+        },
+        {
+          "prompt": "At equilibrium, do the reactions continue or stop?",
+          "answer": [
+            "continue",
+            "continue reacting"
+          ],
+          "hint": "Dynamic means that both directions are still occurring.",
+          "working": "Both reactions continue at equal rates."
+        }
+      ]
+    },
+    {
+      "code": "R3.1",
+      "title": "Transfer a proton",
+      "reminder": "A Brønsted–Lowry acid donates a proton (H⁺); a base accepts one.",
+      "steps": [
+        {
+          "prompt": "In HCl + H₂O → H₃O⁺ + Cl⁻, how many protons does each HCl donate?",
+          "answer": 1,
+          "hint": "Compare HCl with Cl⁻.",
+          "working": "Each HCl donates one H⁺."
+        },
+        {
+          "prompt": "Water accepts that proton. Is it acting as an acid or a base?",
+          "answer": [
+            "base",
+            "a base"
+          ],
+          "hint": "Accepting a proton is the role of a base.",
+          "working": "Water is acting as a Brønsted–Lowry base."
+        }
+      ]
+    },
+    {
+      "code": "R3.2",
+      "title": "Transfer electrons",
+      "reminder": "Oxidation is loss of electrons; reduction is gain of electrons.",
+      "steps": [
+        {
+          "prompt": "Complete the electron count: Mg → Mg²⁺ + __ e⁻.",
+          "answer": 2,
+          "hint": "Balance the +2 charge with negative electrons.",
+          "working": "Mg → Mg²⁺ + 2e⁻."
+        },
+        {
+          "prompt": "Magnesium loses electrons. Enter oxidation or reduction.",
+          "answer": [
+            "oxidation"
+          ],
+          "hint": "Use oxidation = loss.",
+          "working": "Magnesium undergoes oxidation."
+        }
+      ]
+    },
+    {
+      "code": "R3.3",
+      "title": "Split a bond equally",
+      "reminder": "In homolytic bond breaking, each atom receives one electron from the shared pair. A radical has an unpaired electron.",
+      "steps": [
+        {
+          "prompt": "A Cl–Cl bond breaks homolytically. How many bonding electrons does each Cl receive?",
+          "answer": 1,
+          "hint": "Share the two bonding electrons equally.",
+          "working": "Each chlorine atom receives one electron from the bond."
+        },
+        {
+          "prompt": "How many chlorine radicals form from one Cl₂ molecule?",
+          "answer": 2,
+          "hint": "Each of the two chlorine atoms becomes a radical.",
+          "working": "Cl₂ → 2Cl•. Two chlorine radicals form."
+        }
+      ]
+    },
+    {
+      "code": "R3.4",
+      "title": "Donate an electron pair",
+      "reminder": "A nucleophile donates an electron pair to an electron-deficient centre. In a mechanism, a full curly arrow shows movement of a pair.",
+      "steps": [
+        {
+          "prompt": "How many electrons are represented by one full curly arrow?",
+          "answer": 2,
+          "hint": "A full curly arrow moves one pair, not one electron.",
+          "working": "A full curly arrow represents movement of 2 electrons."
+        },
+        {
+          "prompt": "Does a nucleophile donate or accept an electron pair?",
+          "answer": [
+            "donate",
+            "donates"
+          ],
+          "hint": "Use the definition above.",
+          "working": "A nucleophile donates an electron pair; an electrophile accepts it."
+        }
+      ]
+    }
+  ]
+}

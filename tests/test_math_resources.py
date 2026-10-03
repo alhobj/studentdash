@@ -52,7 +52,7 @@ class MathResourceTests(unittest.TestCase):
     def test_coverage_links_and_all_control_extremes(self):
         coverage = json.loads((self.root / 'coverage.json').read_text(encoding='utf-8'))
         self.assertEqual(len(coverage), 39)
-        for filename in ['math-practice.html', 'coverage.html', 'investigations.html'] + [f'topic-{n}.html' for n in range(1, 6)]:
+        for filename in ['math-practice.html', 'coverage.html', 'investigations.html', 'prior-learning.html'] + [f'{prefix}-{n}.html' for prefix in ['topic', 'basics'] for n in range(1, 6)]:
             self.page.goto((self.root / filename).as_uri())
             for href in self.page.locator('a[href]').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))'):
                 if href.startswith('https:'):
@@ -74,6 +74,58 @@ class MathResourceTests(unittest.TestCase):
                         select.select_option(value)
                         self.assertNotRegex(section.locator('.result').inner_text(), r'NaN|Infinity|undefined')
                 section.locator('button[id$="-reset"]').click()
+
+    def test_foundation_feedback_hints_keyboard_and_reset(self):
+        self.page.goto((self.root / 'prior-learning.html').as_uri())
+        first = self.page.locator('#signed-step-1')
+        first.press('Enter')
+        self.assertIn('Enter a number first', self.page.locator('#signed-step-1-feedback').inner_text())
+        first.fill('4')
+        first.press('Enter')
+        self.assertEqual(first.get_attribute('aria-invalid'), 'true')
+        self.assertIn('Not quite yet', self.page.locator('#signed-step-1-feedback').inner_text())
+        self.page.locator('#signed .hint summary').first.click()
+        self.assertTrue(self.page.locator('#signed .hint').first.evaluate('(e)=>e.open'))
+        first.fill('5')
+        self.assertEqual(self.page.locator('#signed-step-1-feedback').inner_text(), '')
+        first.press('Enter')
+        self.assertIn('That’s right', self.page.locator('#signed-step-1-feedback').inner_text())
+        self.page.locator('#signed .foundation-reset').click()
+        self.assertEqual(first.input_value(), '')
+        self.assertIsNone(first.get_attribute('aria-invalid'))
+        self.assertFalse(self.page.locator('#signed .hint').first.evaluate('(e)=>e.open'))
+        for name, field, answer in [('prior-learning.html','fractions-step-2','.75'),
+                                   ('basics-1.html','basic-1.7-step-2','82'),
+                                   ('basics-3.html','basic-3.2-step-2','30'),
+                                   ('basics-4.html','basic-4.10-step-2','2.5'),
+                                   ('basics-5.html','basic-5.4-step-2','-.5')]:
+            self.page.goto((self.root / name).as_uri())
+            control = self.page.locator(f'[id="{field}"]')
+            control.fill(answer)
+            control.press('Enter')
+            self.assertIn('That’s right', self.page.locator(f'[id="{field}-feedback"]').inner_text())
+
+    def test_foundations_coverage_mobile_and_no_javascript(self):
+        data = json.loads((self.root / 'foundations.json').read_text(encoding='utf-8'))
+        coverage = json.loads((self.root / 'coverage.json').read_text(encoding='utf-8'))
+        self.assertEqual({c['code'] for c in data['sections']}, {c['code'] for c in coverage})
+        total = 0
+        for name in ['prior-learning.html'] + [f'basics-{n}.html' for n in range(1,6)]:
+            self.page.goto((self.root / name).as_uri())
+            total += self.page.locator('.foundation-step').count()
+            self.page.set_viewport_size({'width':320,'height':900})
+            self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
+            self.assertEqual(self.page.evaluate('''() => {
+                const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);
+                return ids.length-new Set(ids).size;
+            }'''), 0)
+        self.assertEqual(total, 102)
+        context = self.page.context.browser.new_context(java_script_enabled=False)
+        self.addCleanup(context.close)
+        page = context.new_page()
+        page.goto((self.root / 'prior-learning.html').as_uri())
+        page.locator('#signed .hint summary').first.click()
+        self.assertTrue(page.get_by_text('Start at −3 and move 8 places right.').is_visible())
 
     def test_extended_models_and_statistical_decisions(self):
         self.topic(3)

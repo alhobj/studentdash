@@ -25,6 +25,68 @@ class ChemistryResourceTests(unittest.TestCase):
     def tearDown(self):
         self.assertEqual(self.errors, [])
 
+    def test_foundation_answers_hints_and_reset(self):
+        self.page.goto((self.resource_root / 'prior-learning.html').as_uri())
+        field = self.page.locator('#charges-step-1')
+        field.press('Enter')
+        self.assertIn('Enter a number first', self.page.locator('#charges-step-1-feedback').inner_text())
+        field.fill('1'); field.press('Enter')
+        self.assertEqual(field.get_attribute('aria-invalid'), 'true')
+        self.page.locator('#charges .foundation-hint summary').first.click()
+        self.assertTrue(self.page.get_by_text('Calculate 3 − 3.').is_visible())
+        field.fill('0')
+        self.assertEqual(self.page.locator('#charges-step-1-feedback').inner_text(), '')
+        field.press('Enter')
+        self.assertIn('That’s right', self.page.locator('#charges-step-1-feedback').inner_text())
+        self.page.locator('#charges .foundation-reset').click()
+        self.assertEqual(field.input_value(), '')
+        self.assertIsNone(field.get_attribute('aria-invalid'))
+        self.assertFalse(self.page.locator('#charges .foundation-hint').first.evaluate('(e)=>e.open'))
+        # Known examples check signed values, unit conversions and accepted word variants.
+        for name, key, answer in [('prior-learning.html','volume-units-step-1','0.25'),
+                                  ('basics-s1.html','basic-S1.5-step-1','273.15'),
+                                  ('basics-s2.html','basic-S2.3-step-1','  ELECTRONS.  '),
+                                  ('basics-r1.html','basic-R1.4-step-2','-10'),
+                                  ('basics-r3.html','basic-R3.2-step-2','oxidation')]:
+            self.page.goto((self.resource_root / name).as_uri())
+            control = self.page.locator(f'[id="{key}"]')
+            control.fill(answer); control.press('Enter')
+            self.assertIn('That’s right', self.page.locator(f'[id="{key}-feedback"]').inner_text())
+        control.fill('reduction'); control.press('Enter')
+        self.assertIn('Not quite yet', self.page.locator(f'[id="{key}-feedback"]').inner_text())
+
+    def test_foundation_coverage_links_mobile_and_static_hints(self):
+        data = json.loads((self.resource_root / 'foundations.json').read_text(encoding='utf-8'))
+        syllabus = json.loads((self.resource_root / 'practice-syllabus.json').read_text(encoding='utf-8'))
+        self.assertEqual({c['code'] for c in data['sections']}, {t['id'] for t in syllabus['topics']})
+        pages = ['prior-learning.html'] + [f'basics-{g["id"].lower()}.html' for g in syllabus['groups']]
+        total = 0
+        for name in pages:
+            self.page.goto((self.resource_root / name).as_uri())
+            total += self.page.locator('.foundation-step').count()
+            for width in [320, 1100]:
+                self.page.set_viewport_size({'width':width, 'height':900})
+                self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
+            self.assertEqual(self.page.evaluate('''() => {
+                const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);
+                return ids.length-new Set(ids).size;
+            }'''), 0)
+            for href in self.page.locator('a[href]').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))'):
+                if href.startswith('https:'): continue
+                file, _, anchor = href.partition('#')
+                target = self.resource_root / (file or name)
+                self.assertTrue(target.exists(), href)
+                if anchor: self.assertIn(f'id="{anchor}"', target.read_text(encoding='utf-8'), href)
+        self.assertEqual(total, 68)
+        self.page.goto((self.resource_root / 'basics-r1.html').as_uri())
+        self.assertIn('AHL', self.page.locator('[id="basic-R1.4"] .eyebrow').inner_text())
+        context = self.browser.new_context(java_script_enabled=False)
+        self.addCleanup(context.close)
+        page = context.new_page()
+        page.goto((self.resource_root / 'prior-learning.html').as_uri())
+        page.locator('#charges .foundation-hint summary').first.click()
+        self.assertTrue(page.get_by_text('Calculate 3 − 3.').is_visible())
+
     def set_lab_slider(self, selector, value):
         self.page.locator(selector).evaluate('(e,v)=>{e.value=v;e.dispatchEvent(new Event("input"));}', value)
 

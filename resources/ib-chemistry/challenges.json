@@ -1,0 +1,464 @@
+[
+  {
+    "code": "S1.1",
+    "title": "Separate and audit a mixture",
+    "scenario": "A dry 12.0 g mixture contains iron, sand and sodium chloride. A magnet removes 3.0 g iron. After dissolving the salt in water and filtering, the dried sand has mass 4.2 g. Assume no other substances.",
+    "parts": [
+      {
+        "prompt": "Find the original sodium chloride mass in g.",
+        "answer": 4.8,
+        "hint": "Use mass conservation on the dry mixture.",
+        "working": "12.0−3.0−4.2=4.8 g NaCl."
+      },
+      {
+        "prompt": "Only 4.32 g dry salt is recovered. Find the percentage recovery of salt.",
+        "answer": 90,
+        "hint": "Divide recovered salt by the inferred original salt mass.",
+        "working": "4.32/4.8 ×100=90%."
+      }
+    ],
+    "reason": "Explain why filtration alone cannot separate dissolved salt from water and identify two plausible sources of low recovery.",
+    "discussion": "Dissolved ions pass through ordinary filter paper with the water. Evaporation or crystallization can recover salt. Losses can arise from solution left on equipment, spillage, or salt remaining in mother liquor. Wet crystals would instead overestimate recovered dry salt mass."
+  },
+  {
+    "code": "S1.2",
+    "title": "An isotope mixture and its ion",
+    "scenario": "A fictional element has isotopes of exact relative masses 24 and 26. Their weighted mean is 24.6. Its atomic number is 12.",
+    "parts": [
+      {
+        "prompt": "Find the abundance of the mass-26 isotope as a percentage.",
+        "answer": 30,
+        "hint": "Let its fractional abundance be x: 24(1−x)+26x=24.6.",
+        "working": "2x=0.6, so x=0.30 or 30%."
+      },
+      {
+        "prompt": "Find the number of electrons in its 2+ ion.",
+        "answer": 10,
+        "hint": "Ion formation changes electrons, not protons.",
+        "working": "12 protons and charge +2 imply 12−2=10 electrons."
+      }
+    ],
+    "reason": "For the mass-26 isotope, state the neutron count and explain why changing isotopic abundance does not change the element.",
+    "discussion": "There are 26−12=14 neutrons. Isotopes have the same proton number, so changing their proportions changes the mean relative atomic mass but not elemental identity."
+  },
+  {
+    "code": "S1.3",
+    "title": "Ion formation and a photon",
+    "scenario": "A neutral magnesium atom has Z=12 and configuration 1s²2s²2p⁶3s². In a separate model, an electron drops between energy levels separated by 4.00 ×10⁻¹⁹ J. Use h=6.626×10⁻³⁴ J s and c=3.00×10⁸ m s⁻¹.",
+    "parts": [
+      {
+        "prompt": "How many occupied shells remain in Mg²⁺?",
+        "answer": 2,
+        "hint": "Remove the two highest-energy outer electrons.",
+        "working": "Mg²⁺ is 1s²2s²2p⁶, occupying shells n=1 and n=2."
+      },
+      {
+        "prompt": "Find the emitted photon wavelength in nm.",
+        "answer": 496.95000000000005,
+        "hint": "Use ΔE=hν=hc/λ, then convert metres to nm.",
+        "working": "λ=4.9695×10⁻⁷ m=496.95 nm."
+      }
+    ],
+    "reason": "Explain why emission produces discrete lines rather than every possible wavelength, and why the electron does not travel along a visible coloured path.",
+    "discussion": "Only particular energy differences between quantized levels are allowed. A photon carries the released energy; a line in a spectrum identifies its wavelength, not the spatial trajectory of the electron."
+  },
+  {
+    "code": "S1.4",
+    "title": "Purity followed by dilution",
+    "scenario": "A 2.50 g sample is 80.0% by mass NaOH, with inert impurities. Use M(NaOH)=40.0 g mol⁻¹. Dissolve it and make up to 250.0 cm³. Transfer 25.0 cm³ of this solution and dilute to 100.0 cm³.",
+    "parts": [
+      {
+        "prompt": "Find the initial NaOH concentration in mol dm⁻³.",
+        "answer": 0.2,
+        "hint": "Find pure NaOH mass, then moles, then divide by 0.2500 dm³.",
+        "working": "Pure mass=2.00 g; n=0.0500 mol; c=0.200 mol dm⁻³."
+      },
+      {
+        "prompt": "Find the final diluted concentration in mol dm⁻³.",
+        "answer": 0.05,
+        "hint": "Use c₁V₁=c₂V₂ with consistent volume units.",
+        "working": "c₂=0.200×25.0/100.0=0.0500 mol dm⁻³."
+      }
+    ],
+    "reason": "Explain why dilution changes concentration but not the amount of NaOH in the transferred aliquot.",
+    "discussion": "The aliquot contains 0.200×0.0250=0.00500 mol. Adding water increases volume without adding or removing NaOH, so 0.00500 mol remains in the final 0.1000 dm³."
+  },
+  {
+    "code": "S1.5",
+    "title": "Find a gas molar mass",
+    "scenario": "A dry gas sample of mass 0.580 g occupies 0.240 dm³ at 100.0 kPa and 300.0 K. Assume ideal behaviour. Use R=8.314 kPa dm³ mol⁻¹ K⁻¹.",
+    "parts": [
+      {
+        "prompt": "Find the amount of gas in mol.",
+        "answer": 0.009622323791195575,
+        "hint": "Use n=PV/RT with the supplied units.",
+        "working": "n=(100.0×0.240)/(8.314×300.0)≈0.00962232 mol."
+      },
+      {
+        "prompt": "Find its molar mass in g mol⁻¹.",
+        "answer": 60.27649999999999,
+        "hint": "Divide sample mass by its unrounded amount.",
+        "working": "M=0.580/n≈60.2765 g mol⁻¹."
+      }
+    ],
+    "reason": "If the same sample is compressed at constant temperature to half its volume, predict pressure and explain why ideal behaviour can become less reliable.",
+    "discussion": "Ideal pressure doubles to 200 kPa. At higher density, finite molecular size and intermolecular attractions can become significant compared with the ideal assumptions."
+  },
+  {
+    "code": "S2.1",
+    "title": "Recover an ionic formula from composition",
+    "scenario": "A binary compound contains only Al and O. A 10.20 g sample contains 5.40 g Al. Use Ar(Al)=27.0 and Ar(O)=16.0.",
+    "parts": [
+      {
+        "prompt": "Find the amount of oxygen atoms in the sample, in mol.",
+        "answer": 0.3,
+        "hint": "Find oxygen mass by difference, then divide by 16.0.",
+        "working": "O mass=4.80 g; n(O)=4.80/16.0=0.300 mol."
+      },
+      {
+        "prompt": "Find the smallest whole-number number of O ions per two Al ions.",
+        "answer": 3,
+        "hint": "Compare n(Al)=5.40/27.0 with n(O).",
+        "working": "Al:O=0.200:0.300=2:3, giving Al₂O₃."
+      }
+    ],
+    "reason": "Use ionic charges to check the formula, then explain why solid aluminium oxide does not conduct by ion movement.",
+    "discussion": "2(+3)+3(−2)=0. In the solid, ions are held at lattice positions and cannot migrate through the material; a formula ratio alone does not establish mobile charge carriers."
+  },
+  {
+    "code": "S2.2",
+    "title": "Pairs, shape and polarity",
+    "scenario": "Consider CO₂ and H₂O using simple Lewis structures. Carbon has 4 valence electrons, oxygen 6 and hydrogen 1.",
+    "parts": [
+      {
+        "prompt": "Find the total valence-electron count in one CO₂ molecule.",
+        "answer": 16,
+        "hint": "Sum one carbon and two oxygens.",
+        "working": "4+2×6=16 electrons."
+      },
+      {
+        "prompt": "Find the number of lone pairs on oxygen in one H₂O molecule.",
+        "answer": 2,
+        "hint": "After two O–H bonds use four electrons, allocate the remaining four as pairs.",
+        "working": "H₂O has 8 valence electrons; two bonds use 4, leaving 4 electrons or 2 lone pairs on O."
+      }
+    ],
+    "reason": "Explain why polar bonds give a nonpolar CO₂ molecule but a polar H₂O molecule.",
+    "discussion": "CO₂ is linear with two equal opposing bond dipoles, which cancel. H₂O has a bent molecular shape because of two lone pairs; its O–H dipoles do not cancel. Electron-domain arrangement and molecular shape are distinct."
+  },
+  {
+    "code": "S2.3",
+    "title": "Test a metallic model",
+    "scenario": "Use an idealized electron-sea model. Sample A contains 0.20 mol Na atoms, each contributing one delocalized electron. Sample B contains 0.10 mol Mg atoms, each contributing two.",
+    "parts": [
+      {
+        "prompt": "Find the amount of delocalized electrons in A, in mol.",
+        "answer": 0.2,
+        "hint": "Multiply atom amount by the stated contribution.",
+        "working": "0.20×1=0.20 mol electrons."
+      },
+      {
+        "prompt": "Find the amount of delocalized electrons in B, in mol.",
+        "answer": 0.2,
+        "hint": "Use two electrons per Mg atom.",
+        "working": "0.10×2=0.20 mol electrons."
+      }
+    ],
+    "reason": "Does equal total electron amount imply equal conductivity? Discuss a limitation and explain malleability using bonding.",
+    "discussion": "No. Conductivity also depends on volume, carrier mobility, temperature and scattering, none fixed here. Metallic attraction is not restricted to particular directed pairs, so layers can move while attraction between positive centres and the delocalized electrons persists."
+  },
+  {
+    "code": "S2.4",
+    "title": "Repeat units and atom retention",
+    "scenario": "An addition polymer is formed from propene, CH₂=CHCH₃. Use Ar(C)=12.0 and Ar(H)=1.0. Ignore end groups in the stated repeat-unit model.",
+    "parts": [
+      {
+        "prompt": "Find the repeat-unit molar mass in g mol⁻¹.",
+        "answer": 42,
+        "hint": "Addition changes the bonding but does not remove atoms from C₃H₆.",
+        "working": "M(C₃H₆)=3×12+6×1=42.0 g mol⁻¹."
+      },
+      {
+        "prompt": "A chain has model molar mass 21000 g mol⁻¹. Find the number of repeat units.",
+        "answer": 500,
+        "hint": "Divide chain molar mass by repeat-unit molar mass.",
+        "working": "21000/42=500 repeat units, ignoring end groups."
+      }
+    ],
+    "reason": "Draw the repeat unit with continuation bonds and explain why writing a remaining C=C bond in the backbone is wrong.",
+    "discussion": "The repeat unit is –CH₂–CH(CH₃)–, enclosed in brackets with bonds crossing them. The alkene double bond is opened to form links between units; leaving the original double bond would give incorrect carbon valence."
+  },
+  {
+    "code": "S3.1",
+    "title": "Read a jump in ionization energy",
+    "scenario": "A fictional period-3 element has successive ionization energies 740,1450,7730,10500 kJ mol⁻¹.",
+    "parts": [
+      {
+        "prompt": "How many valence electrons does the large jump suggest?",
+        "answer": 2,
+        "hint": "Find the jump between removing outer-shell and inner-shell electrons.",
+        "working": "The large jump after IE₂ suggests two outer-shell electrons."
+      },
+      {
+        "prompt": "Find the energy required to remove the first two electrons from 0.50 mol gaseous atoms, in kJ.",
+        "answer": 1095,
+        "hint": "Add IE₁ and IE₂, then multiply by amount.",
+        "working": "0.50(740+1450)=1095 kJ."
+      }
+    ],
+    "reason": "Identify the likely group and explain the jump in terms of shells and attraction rather than an atom wanting a full shell.",
+    "discussion": "Group 2 is indicated. The third electron is removed from an inner shell, closer to the nucleus with less shielding and stronger attraction. The first two are more weakly held outer-shell electrons."
+  },
+  {
+    "code": "S3.2",
+    "title": "Combustion evidence and isomerism",
+    "scenario": "Complete combustion of 0.300 g of a compound containing only C,H,O gives 0.440 g CO₂ and 0.180 g H₂O. Its molar mass is 60.0 g mol⁻¹. Use Ar(C)=12, H=1, O=16.",
+    "parts": [
+      {
+        "prompt": "Find the amount of carbon atoms in the original sample, in mol.",
+        "answer": 0.01,
+        "hint": "Every CO₂ contains one carbon.",
+        "working": "n(C)=0.440/44.0=0.0100 mol."
+      },
+      {
+        "prompt": "Find the number of oxygen atoms per molecule.",
+        "answer": 2,
+        "hint": "Find H amount, then oxygen mass by difference and compare with 0.300/60.0 mol molecules.",
+        "working": "n(H)=2×0.180/18=0.0200; masses C=0.120 g, H=0.0200 g, O=0.160 g, so n(O)=0.0100. Formula C₂H₄O₂."
+      }
+    ],
+    "reason": "Give two different functional-group isomers with this formula and explain why combustion alone cannot distinguish them.",
+    "discussion": "Ethanoic acid, CH₃COOH, and methyl methanoate, HCOOCH₃, are carboxylic-acid and ester isomers. Combustion establishes elemental amounts, not the connectivity of the atoms."
+  },
+  {
+    "code": "R1.1",
+    "title": "Calorimetry with a calorimeter correction",
+    "scenario": "A reaction warms 100.0 g of solution from 20.0 to 26.0 °C. Use c=4.18 J g⁻¹ K⁻¹ and calorimeter heat capacity 50.0 J K⁻¹. The reaction consumes 0.0500 mol of limiting reactant. Ignore heat loss.",
+    "parts": [
+      {
+        "prompt": "Find the total energy gained by solution plus calorimeter, in J.",
+        "answer": 2808,
+        "hint": "Both solution and apparatus warm by 6.0 K.",
+        "working": "q=(100.0×4.18+50.0)×6.0=2808 J."
+      },
+      {
+        "prompt": "Find the molar reaction enthalpy in kJ mol⁻¹.",
+        "answer": -56.16,
+        "hint": "The reaction loses the heat gained by its surroundings.",
+        "working": "ΔH=−2.808/0.0500=−56.16 kJ mol⁻¹."
+      }
+    ],
+    "reason": "Predict the direction of error if the calorimeter heat capacity is ignored, and separately if heat escapes into the room.",
+    "discussion": "Ignoring the calorimeter omits absorbed heat and gives a less negative result. Heat loss lowers the observed temperature rise and also makes the calculated exothermic enthalpy less negative, under the same simplifying assumptions."
+  },
+  {
+    "code": "R1.2",
+    "title": "Build a Hess cycle",
+    "scenario": "Use C(s)+O₂(g)→CO₂(g), ΔH=−394 kJ mol⁻¹, and CO(g)+½O₂(g)→CO₂(g), ΔH=−283 kJ mol⁻¹.",
+    "parts": [
+      {
+        "prompt": "Find ΔH for C(s)+½O₂(g)→CO(g), in kJ mol⁻¹.",
+        "answer": -111,
+        "hint": "Reverse the second equation, then add and cancel CO₂.",
+        "working": "−394+283=−111 kJ mol⁻¹."
+      },
+      {
+        "prompt": "Find the enthalpy change in kJ when 0.75 mol CO forms by this reaction.",
+        "answer": -83.25,
+        "hint": "Scale the equation and energy together.",
+        "working": "0.75×(−111)=−83.25 kJ."
+      }
+    ],
+    "reason": "Explain why reversing an equation changes the sign, but a catalyst does not change ΔH.",
+    "discussion": "Reversal swaps initial and final states, reversing the energy difference. A catalyst changes the pathway and activation energy without changing reactant and product enthalpies."
+  },
+  {
+    "code": "R1.3",
+    "title": "Compare fuels by energy and emissions",
+    "scenario": "Complete combustion of CH₄ releases 890 kJ mol⁻¹ and produces 1 mol CO₂ per mol fuel. H₂ releases 286 kJ mol⁻¹ and produces no CO₂ at use. Use M(CH₄)=16.0, M(H₂)=2.00, M(CO₂)=44.0 g mol⁻¹.",
+    "parts": [
+      {
+        "prompt": "Find the mass of CH₄ needed to release 1000 kJ, in g.",
+        "answer": 17.97752808988764,
+        "hint": "Convert required energy into fuel moles, then mass.",
+        "working": "n=1000/890 mol; m≈17.9775 g."
+      },
+      {
+        "prompt": "Find the CO₂ emitted by that methane, in g.",
+        "answer": 49.438202247191015,
+        "hint": "Use the 1:1 mole ratio between CH₄ and CO₂.",
+        "working": "m(CO₂)=(1000/890)×44≈49.4382 g."
+      }
+    ],
+    "reason": "Compare H₂ mass for the same energy and explain why zero CO₂ at use does not establish zero overall climate impact.",
+    "discussion": "H₂ mass=(1000/286)×2≈6.993 g. Production, energy source, compression, transport and losses affect lifecycle emissions. The specified reaction data do not account for those processes."
+  },
+  {
+    "code": "R1.4",
+    "title": "A temperature threshold (AHL)",
+    "scenario": "For a fictional process, ΔH=+40.0 kJ mol⁻¹ and ΔS=+120 J mol⁻¹ K⁻¹. Treat both as constant over the interval.",
+    "parts": [
+      {
+        "prompt": "Find the temperature at which ΔG=0, in K.",
+        "answer": 333.33333333333337,
+        "hint": "Convert entropy units before using T=ΔH/ΔS.",
+        "working": "ΔS=0.120 kJ mol⁻¹ K⁻¹, so T=40.0/0.120≈333.333 K."
+      },
+      {
+        "prompt": "Find ΔG at 400 K, in kJ mol⁻¹.",
+        "answer": -8,
+        "hint": "Use ΔG=ΔH−TΔS.",
+        "working": "40.0−400×0.120=−8.00 kJ mol⁻¹."
+      }
+    ],
+    "reason": "Explain the temperature range for favourability and why favourability does not establish an observable reaction rate.",
+    "discussion": "With positive ΔS, ΔG becomes negative above the threshold in this approximation. A large activation barrier can still produce a slow reaction. The constant ΔH and ΔS assumption can fail over wide temperature ranges."
+  },
+  {
+    "code": "R2.1",
+    "title": "Limiting reagent and percentage yield",
+    "scenario": "React 5.40 g Al with 12.8 g O₂ to form Al₂O₃: 4Al+3O₂→2Al₂O₃. Use M(Al)=27.0, M(O₂)=32.0, M(Al₂O₃)=102 g mol⁻¹. Actual dry product is 8.16 g.",
+    "parts": [
+      {
+        "prompt": "Find the theoretical product mass in g.",
+        "answer": 10.2,
+        "hint": "Compare n divided by the stoichiometric coefficient for each reactant.",
+        "working": "n(Al)=0.200, n(O₂)=0.400 mol. Al is limiting; n(product)=0.100 mol, so mass=10.2 g."
+      },
+      {
+        "prompt": "Find the mass of unreacted O₂ in g, assuming the limiting reactant reacts completely.",
+        "answer": 8,
+        "hint": "Use the 4:3 reactant ratio.",
+        "working": "O₂ consumed=0.200×3/4=0.150 mol; remaining=0.250 mol=8.00 g."
+      }
+    ],
+    "reason": "Calculate percentage yield and distinguish incomplete recovery from a different limiting reagent.",
+    "discussion": "Yield=8.16/10.2×100=80.0%. Losing product during collection lowers recovered yield but does not change which reactant was limiting according to the supplied starting amounts. Incomplete reaction would also affect leftover reactants."
+  },
+  {
+    "code": "R2.2",
+    "title": "Rate and a changing slope",
+    "scenario": "Gas volumes at times 0,10,20,30 s are 0,24,40,48 cm³. Conditions and collection method are unchanged.",
+    "parts": [
+      {
+        "prompt": "Find average gas-production rate from 0 to 30 s, in cm³ s⁻¹.",
+        "answer": 1.6,
+        "hint": "Use the total volume change over the whole interval.",
+        "working": "48/30=1.60 cm³ s⁻¹."
+      },
+      {
+        "prompt": "Find average rate from 20 to 30 s, in cm³ s⁻¹.",
+        "answer": 0.8,
+        "hint": "Use only the change during the final interval.",
+        "working": "(48−40)/(30−20)=0.800 cm³ s⁻¹."
+      }
+    ],
+    "reason": "Explain why the final interval average is not necessarily the instantaneous rate at 30 s, and propose a chemical reason for slowing.",
+    "discussion": "An interval average is a chord slope, while an instantaneous rate is a tangent slope. Decreasing reactant concentration can reduce successful collision frequency. More measurements near 30 s are needed to estimate the tangent; gas collection delays may also influence the data."
+  },
+  {
+    "code": "R2.3",
+    "title": "Equilibrium composition after a disturbance",
+    "scenario": "For A(g) ⇌ B(g), a closed 1.00 dm³ vessel initially contains 0.80 mol A and 0.20 mol B at equilibrium. At fixed temperature, add 0.20 mol B without changing volume.",
+    "parts": [
+      {
+        "prompt": "Find Kc before the addition.",
+        "answer": 0.25,
+        "hint": "For the 1:1 reaction, Kc=[B]/[A].",
+        "working": "Kc=0.20/0.80=0.25."
+      },
+      {
+        "prompt": "Find the amount of B in mol after equilibrium is re-established.",
+        "answer": 0.24,
+        "hint": "Total amount is now 1.20 mol; solve B/A=0.25 with A+B=1.20.",
+        "working": "B=0.25(1.20−B), so 1.25B=0.30 and B=0.24 mol."
+      }
+    ],
+    "reason": "Compare Q immediately after addition with Kc and explain why Kc itself does not change.",
+    "discussion": "Immediately Q=0.40/0.80=0.50>Kc, so there is net reverse reaction. At the same temperature, Kc is unchanged by the composition disturbance; the system changes composition to restore Q=Kc."
+  },
+  {
+    "code": "R3.1",
+    "title": "Dilution before titration",
+    "scenario": "Dilute 10.0 cm³ of an HCl solution to 100.0 cm³. A 25.0 cm³ aliquot of the diluted acid requires 20.0 cm³ of 0.100 mol dm⁻³ NaOH for complete neutralization. HCl and NaOH react 1:1.",
+    "parts": [
+      {
+        "prompt": "Find the amount of HCl in the titrated aliquot, in mol.",
+        "answer": 0.002,
+        "hint": "The NaOH amount fixes the HCl amount by stoichiometry.",
+        "working": "n(NaOH)=0.100×0.0200=0.00200 mol, equal to HCl."
+      },
+      {
+        "prompt": "Find the concentration of the original HCl, in mol dm⁻³.",
+        "answer": 0.8,
+        "hint": "First divide by aliquot volume, then undo the tenfold dilution.",
+        "working": "Diluted concentration=0.00200/0.0250=0.0800; original=0.800 mol dm⁻³."
+      }
+    ],
+    "reason": "Explain why dividing the aliquot amount by the full 100 cm³ flask volume gives the wrong concentration.",
+    "discussion": "The aliquot contains only one quarter of the flask’s acid. Pair amount with the volume that actually contains it; use either aliquot amount/aliquot volume or four times that amount/full volume."
+  },
+  {
+    "code": "R3.2",
+    "title": "Balance electron transfer",
+    "scenario": "Zinc reacts with Cu²⁺: Zn(s)+Cu²⁺(aq)→Zn²⁺(aq)+Cu(s). Start with 0.0200 mol Zn and 0.0300 mol Cu²⁺. Use M(Cu)=63.5 g mol⁻¹.",
+    "parts": [
+      {
+        "prompt": "Find the amount of electrons transferred when the limiting reactant is consumed, in mol.",
+        "answer": 0.04,
+        "hint": "Each zinc atom loses two electrons; identify the limiting reactant first.",
+        "working": "Zn is limiting in the 1:1 reaction. Electron amount=2×0.0200=0.0400 mol."
+      },
+      {
+        "prompt": "Find the mass of copper formed in g.",
+        "answer": 1.27,
+        "hint": "Each mole of Zn supplies the electrons for one mole of Cu.",
+        "working": "n(Cu)=0.0200 mol; mass=0.0200×63.5=1.27 g."
+      }
+    ],
+    "reason": "Write both half-equations and identify the oxidizing agent.",
+    "discussion": "Zn→Zn²⁺+2e⁻ and Cu²⁺+2e⁻→Cu. Cu²⁺ accepts electrons and is reduced, so it is the oxidizing agent. The electrons cancel from the overall equation."
+  },
+  {
+    "code": "R3.3",
+    "title": "Audit a radical chain",
+    "scenario": "For chlorination of methane, consider initiation Cl₂→2Cl• and propagation Cl•+CH₄→HCl+CH₃• followed by CH₃•+Cl₂→CH₃Cl+Cl•.",
+    "parts": [
+      {
+        "prompt": "How many radicals are produced by one initiation event?",
+        "answer": 2,
+        "hint": "Count chlorine radicals on the right.",
+        "working": "One Cl₂ produces two Cl• radicals."
+      },
+      {
+        "prompt": "Across one complete two-step propagation cycle, what is the net change in radical count?",
+        "answer": 0,
+        "hint": "Count radicals entering and leaving the combined steps.",
+        "working": "One Cl• is used and one regenerated; CH₃• is an intermediate. Net radical-count change is zero."
+      }
+    ],
+    "reason": "Add the propagation steps to find the net equation and give one valid termination step. Explain why further substitution is possible.",
+    "discussion": "Net: CH₄+Cl₂→CH₃Cl+HCl. A termination example is Cl•+CH₃•→CH₃Cl: two radicals disappear. CH₃Cl still has C–H bonds, so further radical substitution can produce more highly chlorinated products."
+  },
+  {
+    "code": "R3.4",
+    "title": "Track an electron-pair donation",
+    "scenario": "In the model substitution OH⁻+CH₃Br→CH₃OH+Br⁻, the C–Br bond breaks heterolytically as a lone pair on oxygen forms the new C–O bond.",
+    "parts": [
+      {
+        "prompt": "How many electrons move in the arrow from oxygen to carbon?",
+        "answer": 2,
+        "hint": "A full curly arrow moves one electron pair.",
+        "working": "Two electrons move from the oxygen lone pair toward the electron-deficient carbon."
+      },
+      {
+        "prompt": "What is the total charge of the products?",
+        "answer": -1,
+        "hint": "Methanol is neutral; bromide has charge −1.",
+        "working": "0+(−1)=−1, matching the reactant total."
+      }
+    ],
+    "reason": "Specify both curly-arrow starting and ending points, and explain why the C–Br electrons go to bromine rather than splitting equally.",
+    "discussion": "One arrow begins at an O lone pair and ends at C; the other begins at the C–Br bond and ends at Br. Heterolytic cleavage transfers the whole bonding pair to Br, producing Br⁻. Splitting equally would describe homolysis and radical products instead."
+  }
+]

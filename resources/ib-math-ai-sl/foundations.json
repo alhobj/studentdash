@@ -1,0 +1,1014 @@
+{
+  "prior": [
+    {
+      "id": "signed",
+      "title": "Signed numbers",
+      "reminder": "Use a number line: adding moves right; subtracting moves left.",
+      "steps": [
+        {
+          "prompt": "Calculate −3 + 8.",
+          "answer": 5,
+          "hint": "Start at −3 and move 8 places right.",
+          "working": "−3 + 8 = 5."
+        },
+        {
+          "prompt": "Calculate 4 − 9.",
+          "answer": -5,
+          "hint": "Move 9 places left from 4.",
+          "working": "4 − 9 = −5."
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "Order of operations",
+      "reminder": "Brackets first, then powers, then multiplication/division, then addition/subtraction.",
+      "steps": [
+        {
+          "prompt": "Calculate 3 + 4 × 2.",
+          "answer": 11,
+          "hint": "Do 4 × 2 before adding 3.",
+          "working": "3 + 8 = 11."
+        },
+        {
+          "prompt": "Calculate (3 + 4) × 2.",
+          "answer": 14,
+          "hint": "This time the brackets come first.",
+          "working": "7 × 2 = 14."
+        }
+      ]
+    },
+    {
+      "id": "fractions",
+      "title": "Fractions and decimals",
+      "reminder": "A fraction means division. For example, 1/2 = 1 ÷ 2 = 0.5.",
+      "steps": [
+        {
+          "prompt": "Write 3/4 as a decimal.",
+          "answer": 0.75,
+          "hint": "Divide 3 by 4.",
+          "working": "3 ÷ 4 = 0.75."
+        },
+        {
+          "prompt": "Calculate 1/2 + 1/4. Give a decimal.",
+          "answer": 0.75,
+          "hint": "Write 1/2 as 2/4 first.",
+          "working": "2/4 + 1/4 = 3/4 = 0.75."
+        }
+      ]
+    },
+    {
+      "id": "percent",
+      "title": "Percentages",
+      "reminder": "Percent means out of 100. For example, 10% of 80 is 0.10 × 80 = 8.",
+      "steps": [
+        {
+          "prompt": "Find 10% of 60.",
+          "answer": 6,
+          "hint": "Multiply 60 by 0.10.",
+          "working": "0.10 × 60 = 6."
+        },
+        {
+          "prompt": "A price of 60 increases by 10%. Find the new price.",
+          "answer": 66,
+          "hint": "Add the increase to the original price.",
+          "working": "60 + 6 = 66, or 60 × 1.10 = 66."
+        }
+      ]
+    },
+    {
+      "id": "ratio",
+      "title": "Ratios and proportion",
+      "reminder": "For a ratio of 2:3, there are 5 equal parts altogether.",
+      "steps": [
+        {
+          "prompt": "Share 20 in the ratio 2:3. What is the size of one part?",
+          "answer": 4,
+          "hint": "Divide the total by 2 + 3.",
+          "working": "20 ÷ 5 = 4."
+        },
+        {
+          "prompt": "What is the larger share?",
+          "answer": 12,
+          "hint": "The larger share contains 3 parts.",
+          "working": "3 × 4 = 12. The other share is 8; 8 + 12 = 20."
+        }
+      ]
+    },
+    {
+      "id": "powers",
+      "title": "Powers and roots",
+      "reminder": "3² means 3 × 3. A square root reverses squaring for a non-negative number.",
+      "steps": [
+        {
+          "prompt": "Calculate 3².",
+          "answer": 9,
+          "hint": "Multiply 3 by itself, not by 2.",
+          "working": "3 × 3 = 9."
+        },
+        {
+          "prompt": "Calculate √49.",
+          "answer": 7,
+          "hint": "Which non-negative number squares to 49?",
+          "working": "7 × 7 = 49, so √49 = 7."
+        }
+      ]
+    },
+    {
+      "id": "substitution",
+      "title": "Substitution",
+      "reminder": "Replace a letter by its value. In 2x + 1 with x = 3, calculate 2 × 3 + 1 = 7.",
+      "steps": [
+        {
+          "prompt": "Evaluate 3x + 2 when x = 4.",
+          "answer": 14,
+          "hint": "Write 3 × 4 + 2.",
+          "working": "12 + 2 = 14."
+        },
+        {
+          "prompt": "Evaluate x² + 2 when x = −3.",
+          "answer": 11,
+          "hint": "Use brackets: (−3)² + 2.",
+          "working": "(−3) × (−3) + 2 = 9 + 2 = 11."
+        }
+      ]
+    },
+    {
+      "id": "equations",
+      "title": "Undoing operations",
+      "reminder": "Keep both sides equal: use the same operation on each side.",
+      "steps": [
+        {
+          "prompt": "Solve x + 5 = 12. Enter x.",
+          "answer": 7,
+          "hint": "Subtract 5 from both sides.",
+          "working": "x = 12 − 5 = 7."
+        },
+        {
+          "prompt": "Solve 3x = 12. Enter x.",
+          "answer": 4,
+          "hint": "Divide both sides by 3.",
+          "working": "x = 12 ÷ 3 = 4."
+        }
+      ]
+    },
+    {
+      "id": "units",
+      "title": "Converting units",
+      "reminder": "1 m = 100 cm; 1 hour = 60 minutes. Use the unit to choose the conversion.",
+      "steps": [
+        {
+          "prompt": "Convert 2.5 m to cm.",
+          "answer": 250,
+          "hint": "Multiply by 100.",
+          "working": "2.5 × 100 = 250 cm."
+        },
+        {
+          "prompt": "Convert 90 minutes to hours.",
+          "answer": 1.5,
+          "hint": "Divide by 60.",
+          "working": "90 ÷ 60 = 1.5 hours."
+        }
+      ]
+    },
+    {
+      "id": "coordinates",
+      "title": "Coordinates and change",
+      "reminder": "Coordinates are (horizontal, vertical), written (x, y).",
+      "steps": [
+        {
+          "prompt": "For the point (−2, 5), enter its y-coordinate.",
+          "answer": 5,
+          "hint": "Read the second number.",
+          "working": "The y-coordinate is 5."
+        },
+        {
+          "prompt": "A graph rises from y = 3 to y = 9. Find the change in y.",
+          "answer": 6,
+          "hint": "Final value minus starting value.",
+          "working": "9 − 3 = 6."
+        }
+      ]
+    },
+    {
+      "id": "area",
+      "title": "Area and right triangles",
+      "reminder": "Rectangle area = length × width. For a right triangle, a² + b² = c², where c is the hypotenuse.",
+      "steps": [
+        {
+          "prompt": "Find the area of a rectangle 4 cm by 3 cm, in cm².",
+          "answer": 12,
+          "hint": "Multiply the two lengths.",
+          "working": "4 × 3 = 12 cm²."
+        },
+        {
+          "prompt": "A right triangle has legs 3 and 4. Find its hypotenuse.",
+          "answer": 5,
+          "hint": "Calculate √(3² + 4²).",
+          "working": "√(9 + 16) = √25 = 5."
+        }
+      ]
+    },
+    {
+      "id": "calculator",
+      "title": "Calculator confidence",
+      "reminder": "Enter brackets carefully. Keep extra digits until the final answer; check that the size of the result makes sense.",
+      "steps": [
+        {
+          "prompt": "Evaluate (6 + 4) ÷ 2.",
+          "answer": 5,
+          "hint": "Enter the brackets, then divide the whole sum by 2.",
+          "working": "10 ÷ 2 = 5."
+        },
+        {
+          "prompt": "Round 7.386 to two decimal places.",
+          "answer": 7.39,
+          "hint": "Look at the third decimal digit, 6.",
+          "working": "The hundredths digit rounds up: 7.39."
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "code": "1.1",
+      "title": "Write a number in standard form",
+      "activity": "notation",
+      "reminder": "Standard form separates a number into a coefficient and a power of ten.",
+      "steps": [
+        {
+          "prompt": "Calculate 10³.",
+          "answer": 1000,
+          "hint": "Multiply 10 × 10 × 10.",
+          "working": "10³ = 1000."
+        },
+        {
+          "prompt": "Calculate 4 × 10³.",
+          "answer": 4000,
+          "hint": "Multiply 4 by the result above.",
+          "working": "4 × 1000 = 4000."
+        }
+      ]
+    },
+    {
+      "code": "1.2",
+      "title": "Continue an arithmetic sequence",
+      "activity": "sequences",
+      "reminder": "An arithmetic sequence adds the same amount each time.",
+      "steps": [
+        {
+          "prompt": "For 3, 7, 11, … find the common difference.",
+          "answer": 4,
+          "hint": "Subtract one term from the next.",
+          "working": "7 − 3 = 4."
+        },
+        {
+          "prompt": "Find the next term after 11.",
+          "answer": 15,
+          "hint": "Add the common difference to 11.",
+          "working": "11 + 4 = 15."
+        }
+      ]
+    },
+    {
+      "code": "1.3",
+      "title": "Continue a geometric sequence",
+      "activity": "geometric",
+      "reminder": "A geometric sequence multiplies by the same amount each time.",
+      "steps": [
+        {
+          "prompt": "For 2, 6, 18, … find the common ratio.",
+          "answer": 3,
+          "hint": "Divide one term by the previous term.",
+          "working": "6 ÷ 2 = 3."
+        },
+        {
+          "prompt": "Find the next term after 18.",
+          "answer": 54,
+          "hint": "Multiply 18 by the common ratio.",
+          "working": "18 × 3 = 54."
+        }
+      ]
+    },
+    {
+      "code": "1.4",
+      "title": "One year of growth",
+      "activity": "interest",
+      "reminder": "A 5% increase means multiplying by 1.05.",
+      "steps": [
+        {
+          "prompt": "Find 5% of 200.",
+          "answer": 10,
+          "hint": "Use 0.05 × 200.",
+          "working": "The increase is 10."
+        },
+        {
+          "prompt": "Find the balance after 200 earns 5% for one year.",
+          "answer": 210,
+          "hint": "Add the interest to the initial amount.",
+          "working": "200 + 10 = 210."
+        }
+      ]
+    },
+    {
+      "code": "1.5",
+      "title": "Read a logarithm",
+      "activity": "logarithms",
+      "reminder": "log₁₀(100) asks: what power of 10 gives 100?",
+      "steps": [
+        {
+          "prompt": "Calculate 10².",
+          "answer": 100,
+          "hint": "10 squared means 10 × 10.",
+          "working": "10² = 100."
+        },
+        {
+          "prompt": "Find log₁₀(100).",
+          "answer": 2,
+          "hint": "Use 10 to what power equals 100?",
+          "working": "10² = 100, so log₁₀(100) = 2."
+        }
+      ]
+    },
+    {
+      "code": "1.6",
+      "title": "Round and find a bound",
+      "activity": "bounds",
+      "reminder": "A measurement rounded to the nearest whole unit can be half a unit away.",
+      "steps": [
+        {
+          "prompt": "Round 6.37 to one decimal place.",
+          "answer": 6.4,
+          "hint": "Look at the hundredths digit, 7.",
+          "working": "6.37 rounds to 6.4."
+        },
+        {
+          "prompt": "A length rounds to 8 cm to the nearest cm. Find its lower bound.",
+          "answer": 7.5,
+          "hint": "Subtract half of 1 cm from 8.",
+          "working": "8 − 0.5 = 7.5 cm."
+        }
+      ]
+    },
+    {
+      "code": "1.7",
+      "title": "One loan payment",
+      "activity": "loan",
+      "reminder": "Apply the period’s interest first, then subtract the payment.",
+      "steps": [
+        {
+          "prompt": "A debt of 100 earns 2% interest this month. Find the interest.",
+          "answer": 2,
+          "hint": "Multiply 100 by 0.02.",
+          "working": "Interest = 2."
+        },
+        {
+          "prompt": "You then pay 20. Find the remaining debt.",
+          "answer": 82,
+          "hint": "Start from 100 + 2, then subtract 20.",
+          "working": "102 − 20 = 82."
+        }
+      ]
+    },
+    {
+      "code": "1.8",
+      "title": "Solve two equations",
+      "activity": "systems",
+      "reminder": "Use an equation to replace an unknown in the other equation.",
+      "steps": [
+        {
+          "prompt": "Given x + y = 7 and x = 3, find y.",
+          "answer": 4,
+          "hint": "Replace x by 3 and subtract 3.",
+          "working": "3 + y = 7, so y = 4."
+        },
+        {
+          "prompt": "For this x and y, calculate 2x + y.",
+          "answer": 10,
+          "hint": "Substitute x = 3 and y = 4.",
+          "working": "2 × 3 + 4 = 10."
+        }
+      ]
+    },
+    {
+      "code": "2.1",
+      "title": "Find a slope",
+      "activity": "line",
+      "reminder": "Slope = change in y ÷ change in x.",
+      "steps": [
+        {
+          "prompt": "Between (1, 3) and (3, 7), find the change in y.",
+          "answer": 4,
+          "hint": "Subtract the first y-value from the second.",
+          "working": "7 − 3 = 4."
+        },
+        {
+          "prompt": "Find the slope between these points.",
+          "answer": 2,
+          "hint": "Divide the change in y by 3 − 1.",
+          "working": "4 ÷ 2 = 2."
+        }
+      ]
+    },
+    {
+      "code": "2.2",
+      "title": "Use a function machine",
+      "activity": "inverse",
+      "reminder": "f(x) is the output when the input is x; it does not mean f multiplied by x.",
+      "steps": [
+        {
+          "prompt": "If f(x) = 2x + 1, find f(3).",
+          "answer": 7,
+          "hint": "Replace x with 3.",
+          "working": "2 × 3 + 1 = 7."
+        },
+        {
+          "prompt": "For the same function, which input gives output 9?",
+          "answer": 4,
+          "hint": "Undo +1, then undo multiplication by 2.",
+          "working": "(9 − 1) ÷ 2 = 4."
+        }
+      ]
+    },
+    {
+      "code": "2.3",
+      "title": "Add two functions",
+      "activity": "graph-operations",
+      "reminder": "To add functions at an input, calculate both outputs and then add them.",
+      "steps": [
+        {
+          "prompt": "If f(x) = x², find f(2).",
+          "answer": 4,
+          "hint": "Square 2.",
+          "working": "2² = 4."
+        },
+        {
+          "prompt": "If g(x) = x + 1, find f(2) + g(2).",
+          "answer": 7,
+          "hint": "g(2) = 3; add it to f(2).",
+          "working": "4 + 3 = 7."
+        }
+      ]
+    },
+    {
+      "code": "2.4",
+      "title": "Find an intercept",
+      "activity": "quadratic",
+      "reminder": "At a y-intercept, x = 0. At an x-intercept, y = 0.",
+      "steps": [
+        {
+          "prompt": "For y = 2x − 6, find y when x = 0.",
+          "answer": -6,
+          "hint": "Substitute 0 for x.",
+          "working": "2 × 0 − 6 = −6."
+        },
+        {
+          "prompt": "For y = 2x − 6, find x when y = 0.",
+          "answer": 3,
+          "hint": "Solve 2x − 6 = 0.",
+          "working": "2x = 6, so x = 3."
+        }
+      ]
+    },
+    {
+      "code": "2.5",
+      "title": "Use a simple cost model",
+      "activity": "model-family",
+      "reminder": "A fixed starting cost becomes the constant; a cost per item becomes the multiplier.",
+      "steps": [
+        {
+          "prompt": "A trip costs 4 plus 2 per km. Find the cost for 3 km.",
+          "answer": 10,
+          "hint": "Use 4 + 2 × 3.",
+          "working": "4 + 6 = 10."
+        },
+        {
+          "prompt": "How much extra does one more km cost?",
+          "answer": 2,
+          "hint": "Look at the cost per km.",
+          "working": "Each extra km adds 2."
+        }
+      ]
+    },
+    {
+      "code": "2.6",
+      "title": "Check a prediction",
+      "activity": "line",
+      "reminder": "Residual = observed value − predicted value. A model is a useful approximation.",
+      "steps": [
+        {
+          "prompt": "A model y = 2x + 1 predicts a value at x = 4. Find the prediction.",
+          "answer": 9,
+          "hint": "Substitute 4 for x.",
+          "working": "2 × 4 + 1 = 9."
+        },
+        {
+          "prompt": "The observed value is 10. Find the residual.",
+          "answer": 1,
+          "hint": "Observed minus predicted.",
+          "working": "10 − 9 = 1."
+        }
+      ]
+    },
+    {
+      "code": "3.1",
+      "title": "Build a cuboid",
+      "activity": "solids",
+      "reminder": "Cuboid volume = length × width × height. Volume has cubic units.",
+      "steps": [
+        {
+          "prompt": "A cuboid base is 3 cm by 4 cm. Find its base area in cm².",
+          "answer": 12,
+          "hint": "Multiply 3 by 4.",
+          "working": "3 × 4 = 12 cm²."
+        },
+        {
+          "prompt": "The height is 2 cm. Find the volume in cm³.",
+          "answer": 24,
+          "hint": "Multiply the base area by the height.",
+          "working": "12 × 2 = 24 cm³."
+        }
+      ]
+    },
+    {
+      "code": "3.2",
+      "title": "Use a trigonometric ratio",
+      "activity": "triangle",
+      "reminder": "sin(angle) = opposite ÷ hypotenuse. Check that your calculator is in degrees.",
+      "steps": [
+        {
+          "prompt": "A right triangle has opposite side 3 and hypotenuse 6. Find sin(angle).",
+          "answer": 0.5,
+          "hint": "Divide 3 by 6.",
+          "working": "3 ÷ 6 = 0.5."
+        },
+        {
+          "prompt": "Use inverse sine in degree mode to find the angle.",
+          "answer": 30,
+          "hint": "Enter sin⁻¹(0.5), not 1 ÷ sin(0.5).",
+          "working": "sin⁻¹(0.5) = 30°."
+        }
+      ]
+    },
+    {
+      "code": "3.3",
+      "title": "Read a bearing",
+      "activity": "bearings",
+      "reminder": "Bearings are measured clockwise from north: north 000°, east 090°, south 180°, west 270°.",
+      "steps": [
+        {
+          "prompt": "Enter the bearing of east as a number.",
+          "answer": 90,
+          "hint": "A quarter turn is 90°.",
+          "working": "East is 090°; enter 90."
+        },
+        {
+          "prompt": "You travel east, then turn directly back. Enter the return bearing.",
+          "answer": 270,
+          "hint": "Add 180° to the outward bearing.",
+          "working": "90 + 180 = 270°."
+        }
+      ]
+    },
+    {
+      "code": "3.4",
+      "title": "Take a fraction of a circle",
+      "activity": "sectors",
+      "reminder": "A sector with angle 90° is 90/360 of a full circle.",
+      "steps": [
+        {
+          "prompt": "What fraction of a circle is 90°? Give a decimal.",
+          "answer": 0.25,
+          "hint": "Divide 90 by 360.",
+          "working": "90 ÷ 360 = 0.25."
+        },
+        {
+          "prompt": "A circle has circumference 20 cm. Find the 90° arc length in cm.",
+          "answer": 5,
+          "hint": "Multiply the full circumference by 0.25.",
+          "working": "20 × 0.25 = 5 cm."
+        }
+      ]
+    },
+    {
+      "code": "3.5",
+      "title": "Find a midpoint and bisector",
+      "activity": "bisectors",
+      "reminder": "A midpoint is halfway between two points. A perpendicular bisector passes through it at a right angle.",
+      "steps": [
+        {
+          "prompt": "Find the midpoint x-coordinate between (2, 0) and (8, 0).",
+          "answer": 5,
+          "hint": "Average the x-coordinates.",
+          "working": "(2 + 8) ÷ 2 = 5."
+        },
+        {
+          "prompt": "Their perpendicular bisector has equation x = k. Find k.",
+          "answer": 5,
+          "hint": "The segment is horizontal, so its bisector is vertical through the midpoint.",
+          "working": "The equation is x = 5."
+        }
+      ]
+    },
+    {
+      "code": "3.6",
+      "title": "Find the nearer site",
+      "activity": "voronoi",
+      "reminder": "A Voronoi region contains points nearer its site than any other site.",
+      "steps": [
+        {
+          "prompt": "A is at (0, 0), B at (10, 0). Find the distance from (3, 0) to A.",
+          "answer": 3,
+          "hint": "All points lie on the same horizontal line.",
+          "working": "Distance = 3 − 0 = 3."
+        },
+        {
+          "prompt": "Find the distance from (3, 0) to B.",
+          "answer": 7,
+          "hint": "Subtract 3 from 10; compare the two distances.",
+          "working": "10 − 3 = 7. Since 3 < 7, the point is in A’s region."
+        }
+      ]
+    },
+    {
+      "code": "4.1",
+      "title": "Population and sample",
+      "activity": "sampling",
+      "reminder": "The population is the whole group of interest; the sample is the smaller group measured.",
+      "steps": [
+        {
+          "prompt": "A school has 200 students and surveys 20. What is the sample size?",
+          "answer": 20,
+          "hint": "Count only the students surveyed.",
+          "working": "The sample contains 20 students."
+        },
+        {
+          "prompt": "What percentage of the population is sampled?",
+          "answer": 10,
+          "hint": "Use sample ÷ population × 100.",
+          "working": "20 ÷ 200 × 100 = 10%."
+        }
+      ]
+    },
+    {
+      "code": "4.2",
+      "title": "Add frequencies",
+      "activity": "displays",
+      "reminder": "Frequency is the number of observations in a group. Cumulative frequency is a running total.",
+      "steps": [
+        {
+          "prompt": "Groups A, B and C have frequencies 3, 5 and 2. Find the total.",
+          "answer": 10,
+          "hint": "Add all three frequencies.",
+          "working": "3 + 5 + 2 = 10."
+        },
+        {
+          "prompt": "Find the cumulative frequency up to and including group B.",
+          "answer": 8,
+          "hint": "Add A and B only.",
+          "working": "3 + 5 = 8."
+        }
+      ]
+    },
+    {
+      "code": "4.3",
+      "title": "Find mean and median",
+      "activity": "statistics",
+      "reminder": "Mean = sum ÷ number of values. Median = middle value after sorting.",
+      "steps": [
+        {
+          "prompt": "Find the mean of 2, 4 and 9.",
+          "answer": 5,
+          "hint": "Add the values, then divide by 3.",
+          "working": "(2 + 4 + 9) ÷ 3 = 15 ÷ 3 = 5."
+        },
+        {
+          "prompt": "Find the median of 2, 4 and 9.",
+          "answer": 4,
+          "hint": "The list is already sorted; take the middle.",
+          "working": "The median is 4."
+        }
+      ]
+    },
+    {
+      "code": "4.4",
+      "title": "Predict from a line",
+      "activity": "regression",
+      "reminder": "A regression line predicts y from x. A prediction need not equal an actual observation.",
+      "steps": [
+        {
+          "prompt": "For the fitted line y = 3x + 2, predict y at x = 2.",
+          "answer": 8,
+          "hint": "Replace x by 2.",
+          "working": "3 × 2 + 2 = 8."
+        },
+        {
+          "prompt": "Predict y at x = 3.",
+          "answer": 11,
+          "hint": "Use the same line with the new input.",
+          "working": "3 × 3 + 2 = 11."
+        }
+      ]
+    },
+    {
+      "code": "4.5",
+      "title": "Probability from counts",
+      "activity": "events",
+      "reminder": "For equally likely outcomes: probability = favourable outcomes ÷ total outcomes.",
+      "steps": [
+        {
+          "prompt": "A bag has 3 red and 2 blue counters. How many counters are there?",
+          "answer": 5,
+          "hint": "Add the two counts.",
+          "working": "3 + 2 = 5."
+        },
+        {
+          "prompt": "Find the probability of drawing red. Give a decimal.",
+          "answer": 0.6,
+          "hint": "Divide the red count by the total.",
+          "working": "3 ÷ 5 = 0.6."
+        }
+      ]
+    },
+    {
+      "code": "4.6",
+      "title": "Probability without replacement",
+      "activity": "events",
+      "reminder": "Without replacement means the first item is not returned; update both counts.",
+      "steps": [
+        {
+          "prompt": "A bag starts with 3 red and 2 blue. A red is removed. How many red remain?",
+          "answer": 2,
+          "hint": "Subtract the removed red counter.",
+          "working": "3 − 1 = 2 red remain."
+        },
+        {
+          "prompt": "Now find the probability the next counter is red. Give a decimal.",
+          "answer": 0.5,
+          "hint": "There are 4 counters left, including 2 red.",
+          "working": "2 ÷ 4 = 0.5."
+        }
+      ]
+    },
+    {
+      "code": "4.7",
+      "title": "Expected value",
+      "activity": "expectation",
+      "reminder": "Expected value is the sum of each outcome multiplied by its probability.",
+      "steps": [
+        {
+          "prompt": "A game pays 10 with probability 0.2 and 0 otherwise. Find 10 × 0.2.",
+          "answer": 2,
+          "hint": "Multiply the prize by its chance.",
+          "working": "10 × 0.2 = 2."
+        },
+        {
+          "prompt": "Find the expected prize.",
+          "answer": 2,
+          "hint": "Add the contribution from a zero prize, which is 0.",
+          "working": "10 × 0.2 + 0 × 0.8 = 2. This is a long-run average."
+        }
+      ]
+    },
+    {
+      "code": "4.8",
+      "title": "Binomial mean",
+      "activity": "binomial",
+      "reminder": "For n independent trials with constant success probability p, the expected number of successes is np.",
+      "steps": [
+        {
+          "prompt": "There are 10 trials and p = 0.3. Find the expected successes.",
+          "answer": 3,
+          "hint": "Multiply n by p.",
+          "working": "10 × 0.3 = 3."
+        },
+        {
+          "prompt": "If there are 20 trials with the same p, find the expected successes.",
+          "answer": 6,
+          "hint": "Use 20 × 0.3.",
+          "working": "20 × 0.3 = 6; an actual experiment can differ."
+        }
+      ]
+    },
+    {
+      "code": "4.9",
+      "title": "Standardize a value",
+      "activity": "normal",
+      "reminder": "A z-score counts standard deviations from the mean: z = (x − mean) ÷ SD.",
+      "steps": [
+        {
+          "prompt": "A distribution has mean 50 and SD 10. How far above the mean is 60?",
+          "answer": 10,
+          "hint": "Subtract 50 from 60.",
+          "working": "60 − 50 = 10."
+        },
+        {
+          "prompt": "Find the z-score of 60.",
+          "answer": 1,
+          "hint": "Divide the difference by the SD, 10.",
+          "working": "10 ÷ 10 = 1."
+        }
+      ]
+    },
+    {
+      "code": "4.10",
+      "title": "Rank observations",
+      "activity": "rank",
+      "reminder": "Assign rank 1 to the smallest value. Tied values share the average of their positions.",
+      "steps": [
+        {
+          "prompt": "In the data 10, 20, 30, what is the rank of 20?",
+          "answer": 2,
+          "hint": "It is the second-smallest value.",
+          "working": "The rank is 2."
+        },
+        {
+          "prompt": "In 10, 20, 20, 30, what rank should each 20 receive?",
+          "answer": 2.5,
+          "hint": "Average positions 2 and 3.",
+          "working": "(2 + 3) ÷ 2 = 2.5."
+        }
+      ]
+    },
+    {
+      "code": "4.11",
+      "title": "Read a significance threshold",
+      "activity": "chi-square",
+      "reminder": "Compare the p-value with α in the same units. Reject H₀ when p ≤ α.",
+      "steps": [
+        {
+          "prompt": "Write a 5% significance level as a decimal.",
+          "answer": 0.05,
+          "hint": "Divide 5 by 100.",
+          "working": "α = 0.05."
+        },
+        {
+          "prompt": "The p-value is 0.03. How far below 0.05 is it?",
+          "answer": 0.02,
+          "hint": "Calculate 0.05 − 0.03, then decide whether to reject H₀.",
+          "working": "Difference = 0.02. Since 0.03 < 0.05, reject H₀ at 5%."
+        }
+      ]
+    },
+    {
+      "code": "5.1",
+      "title": "Average rate of change",
+      "activity": "tangent",
+      "reminder": "Average rate = change in output ÷ change in input. A derivative is a limiting rate.",
+      "steps": [
+        {
+          "prompt": "Distance changes from 4 m to 10 m. Find the change in metres.",
+          "answer": 6,
+          "hint": "Final distance minus initial distance.",
+          "working": "10 − 4 = 6 m."
+        },
+        {
+          "prompt": "The change took 2 seconds. Find the average rate in m/s.",
+          "answer": 3,
+          "hint": "Divide distance change by time change.",
+          "working": "6 ÷ 2 = 3 m/s."
+        }
+      ]
+    },
+    {
+      "code": "5.2",
+      "title": "Read a derivative’s sign",
+      "activity": "power-rule",
+      "reminder": "A positive derivative means locally increasing; a negative one means locally decreasing.",
+      "steps": [
+        {
+          "prompt": "For f′(x) = 2x, calculate f′(3).",
+          "answer": 6,
+          "hint": "Substitute x = 3.",
+          "working": "2 × 3 = 6, so the function is increasing there."
+        },
+        {
+          "prompt": "Calculate f′(−2).",
+          "answer": -4,
+          "hint": "Multiply 2 by −2.",
+          "working": "2 × (−2) = −4, so the function is decreasing there."
+        }
+      ]
+    },
+    {
+      "code": "5.3",
+      "title": "Use the power rule",
+      "activity": "power-rule",
+      "reminder": "The derivative of axⁿ is (a × n)xⁿ⁻¹: multiply the coefficient by n and reduce the power by 1.",
+      "steps": [
+        {
+          "prompt": "For f(x) = 3x², find the coefficient of x in f′(x).",
+          "answer": 6,
+          "hint": "Multiply the coefficient 3 by the power 2.",
+          "working": "f′(x) = 6x."
+        },
+        {
+          "prompt": "Find f′(2).",
+          "answer": 12,
+          "hint": "Substitute 2 into 6x.",
+          "working": "6 × 2 = 12."
+        }
+      ]
+    },
+    {
+      "code": "5.4",
+      "title": "Find a tangent slope",
+      "activity": "normal-line",
+      "reminder": "The derivative at a point is the slope of the tangent there.",
+      "steps": [
+        {
+          "prompt": "For y = x², the derivative is 2x. Find the tangent slope at x = 1.",
+          "answer": 2,
+          "hint": "Use 2 × 1.",
+          "working": "The tangent slope is 2."
+        },
+        {
+          "prompt": "Find the normal slope at the same point.",
+          "answer": -0.5,
+          "hint": "For a nonzero tangent slope m, use −1/m.",
+          "working": "−1 ÷ 2 = −0.5."
+        }
+      ]
+    },
+    {
+      "code": "5.5",
+      "title": "Area under a constant graph",
+      "activity": "antiderivative",
+      "reminder": "A definite integral of a positive function gives the area between its graph and the x-axis.",
+      "steps": [
+        {
+          "prompt": "Under y = 3 from x = 0 to x = 4, find the width of the rectangle.",
+          "answer": 4,
+          "hint": "Subtract the lower x-bound from the upper.",
+          "working": "4 − 0 = 4."
+        },
+        {
+          "prompt": "Find the area, which is the integral over this interval.",
+          "answer": 12,
+          "hint": "Multiply width by height.",
+          "working": "4 × 3 = 12."
+        }
+      ]
+    },
+    {
+      "code": "5.6",
+      "title": "Locate a stationary point",
+      "activity": "stationary",
+      "reminder": "At a stationary point the derivative is zero. Its sign on either side tells you more.",
+      "steps": [
+        {
+          "prompt": "If f′(x) = 2x − 4, solve f′(x) = 0. Enter x.",
+          "answer": 2,
+          "hint": "Solve 2x − 4 = 0.",
+          "working": "2x = 4, so x = 2."
+        },
+        {
+          "prompt": "Evaluate the derivative at x = 3, to the right of the stationary point.",
+          "answer": 2,
+          "hint": "Substitute 3 into 2x − 4.",
+          "working": "6 − 4 = 2. At x = 1 it is −2, so the sign changes from negative to positive: a minimum."
+        }
+      ]
+    },
+    {
+      "code": "5.7",
+      "title": "Compare possible areas",
+      "activity": "optimization",
+      "reminder": "Optimization means choosing the best allowed value, such as the largest area.",
+      "steps": [
+        {
+          "prompt": "A rectangle with perimeter 20 has width 2 and length 8. Find its area.",
+          "answer": 16,
+          "hint": "Multiply width by length.",
+          "working": "2 × 8 = 16."
+        },
+        {
+          "prompt": "A square with the same perimeter has sides 5. Find its area.",
+          "answer": 25,
+          "hint": "Calculate 5 × 5 and compare with 16.",
+          "working": "Area = 25. Comparing examples suggests a better shape; a full optimization justifies the maximum."
+        }
+      ]
+    },
+    {
+      "code": "5.8",
+      "title": "One trapezoid",
+      "activity": "trapezoids",
+      "reminder": "Trapezoid area = width × (first height + second height) ÷ 2.",
+      "steps": [
+        {
+          "prompt": "A strip has end heights 2 and 6. Find their average.",
+          "answer": 4,
+          "hint": "Add the heights and divide by 2.",
+          "working": "(2 + 6) ÷ 2 = 4."
+        },
+        {
+          "prompt": "The strip width is 3. Find the trapezoid area.",
+          "answer": 12,
+          "hint": "Multiply the width by the average height.",
+          "working": "3 × 4 = 12."
+        }
+      ]
+    }
+  ]
+}
