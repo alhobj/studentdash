@@ -1,0 +1,158 @@
+[
+  {
+    "id": "percent",
+    "title": "Percent change",
+    "prompt": "A price of 40 increases by 15%. What is the new price?",
+    "answer": 46,
+    "working": "Increase = 0.15 × 40 = 6; new price = 40 + 6 = 46.",
+    "mistakes": [
+      {
+        "value": 6,
+        "feedback": "That is the increase alone. Add it to the original price."
+      },
+      {
+        "value": 55,
+        "feedback": "15% means 15 out of 100, not adding 15."
+      }
+    ],
+    "prior": "prior-learning.html#percent",
+    "basic": "basics-1.html#basic-1.4",
+    "challenge": "challenges-1.html#challenge-1.4"
+  },
+  {
+    "id": "equation",
+    "title": "Undo operations",
+    "prompt": "Solve 3x − 5 = 16. Enter x.",
+    "answer": 7,
+    "working": "Add 5 to both sides, then divide by 3: x = 21 ÷ 3 = 7.",
+    "mistakes": [
+      {
+        "value": 21,
+        "feedback": "You have found 3x. Divide by 3 to find x."
+      }
+    ],
+    "prior": "prior-learning.html#equations",
+    "basic": "basics-1.html#basic-1.8",
+    "challenge": "challenges-1.html#challenge-1.8"
+  },
+  {
+    "id": "function",
+    "title": "Substitute a negative input",
+    "prompt": "For f(x) = x² + 2, find f(−3).",
+    "answer": 11,
+    "working": "Use brackets: (−3)² + 2 = 9 + 2 = 11.",
+    "mistakes": [
+      {
+        "value": -7,
+        "feedback": "Square the whole negative input: (−3) × (−3) is positive."
+      },
+      {
+        "value": -1,
+        "feedback": "It looks like the square was skipped. Evaluate (−3)² before adding 2."
+      }
+    ],
+    "prior": "prior-learning.html#substitution",
+    "basic": "basics-2.html#basic-2.2",
+    "challenge": "challenges-2.html#challenge-2.2"
+  },
+  {
+    "id": "gradient",
+    "title": "Direction and slope",
+    "prompt": "A line passes through (1, 8) and (4, 2). Find its slope.",
+    "answer": -2,
+    "working": "Slope = (2 − 8)/(4 − 1) = −6/3 = −2.",
+    "mistakes": [
+      {
+        "value": 2,
+        "feedback": "The line falls as x increases, so its slope must be negative."
+      },
+      {
+        "value": -6,
+        "feedback": "You found the change in y. Divide by the change in x as well."
+      }
+    ],
+    "prior": "prior-learning.html#coordinates",
+    "basic": "basics-2.html#basic-2.1",
+    "challenge": "challenges-2.html#challenge-2.1"
+  },
+  {
+    "id": "triangle",
+    "title": "Identify the hypotenuse",
+    "prompt": "A right triangle has perpendicular sides 5 cm and 12 cm. Find its hypotenuse in cm.",
+    "answer": 13,
+    "working": "c = √(5² + 12²) = √169 = 13 cm.",
+    "mistakes": [
+      {
+        "value": 169,
+        "feedback": "169 is the squared length. Take its square root."
+      },
+      {
+        "value": 17,
+        "feedback": "Lengths of perpendicular sides are not added directly to find the hypotenuse."
+      }
+    ],
+    "prior": "prior-learning.html#area",
+    "basic": "basics-3.html#basic-3.2",
+    "challenge": "challenges-3.html#challenge-3.2"
+  },
+  {
+    "id": "mean",
+    "title": "Mean versus middle value",
+    "prompt": "Find the mean of 2, 4 and 12.",
+    "answer": 6,
+    "working": "Mean = (2 + 4 + 12)/3 = 18/3 = 6.",
+    "mistakes": [
+      {
+        "value": 4,
+        "feedback": "4 is the median. The mean uses the sum of all values divided by their number."
+      },
+      {
+        "value": 18,
+        "feedback": "18 is the total. Divide it by the three observations."
+      }
+    ],
+    "prior": "prior-learning.html#operations",
+    "basic": "basics-4.html#basic-4.3",
+    "challenge": "challenges-4.html#challenge-4.3"
+  },
+  {
+    "id": "probability",
+    "title": "Update the sample space",
+    "prompt": "A bag has 3 red and 2 blue counters. One red is removed and not replaced. Find the probability the next counter is red as a decimal.",
+    "answer": 0.5,
+    "working": "Two red counters remain among four counters: 2/4 = 0.5.",
+    "mistakes": [
+      {
+        "value": 0.6,
+        "feedback": "That was the probability before removing the first red counter."
+      },
+      {
+        "value": 0.4,
+        "feedback": "Both the red count and the total count decrease by one."
+      }
+    ],
+    "prior": "prior-learning.html#fractions",
+    "basic": "basics-4.html#basic-4.6",
+    "challenge": "challenges-4.html#challenge-4.6"
+  },
+  {
+    "id": "derivative",
+    "title": "Function value versus rate",
+    "prompt": "For f(x) = 3x², find f′(3).",
+    "answer": 18,
+    "working": "Differentiate first: f′(x) = 6x. Then substitute x = 3: 18.",
+    "mistakes": [
+      {
+        "value": 27,
+        "feedback": "27 is f(3), the function value. This question asks for the derivative at 3."
+      },
+      {
+        "value": 6,
+        "feedback": "6 is the coefficient in f′(x) = 6x. Substitute x = 3 too."
+      }
+    ],
+    "prior": "prior-learning.html#powers",
+    "basic": "basics-5.html#basic-5.3",
+    "challenge": "challenges-5.html#challenge-5.3"
+  }
+]

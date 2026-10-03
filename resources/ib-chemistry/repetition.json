@@ -1,0 +1,1462 @@
+{
+  "symbols": {
+    "focus": "Count different elements, not total atoms.",
+    "questions": [
+      {
+        "prompt": "How many different elements are in NH₃?",
+        "answer": 2,
+        "hint": "Identify each different element symbol; subscripts do not add new elements.",
+        "working": "The elements are N and H: 2 different elements."
+      },
+      {
+        "prompt": "How many different elements are in CH₄?",
+        "answer": 2,
+        "hint": "Identify each different element symbol; subscripts do not add new elements.",
+        "working": "The elements are C and H: 2 different elements."
+      },
+      {
+        "prompt": "How many different elements are in NaOH?",
+        "answer": 3,
+        "hint": "Identify each different element symbol; subscripts do not add new elements.",
+        "working": "The elements are Na, O and H: 3 different elements."
+      },
+      {
+        "prompt": "How many different elements are in H₂SO₄?",
+        "answer": 3,
+        "hint": "Identify each different element symbol; subscripts do not add new elements.",
+        "working": "The elements are H, S and O: 3 different elements."
+      },
+      {
+        "prompt": "How many different elements are in CaCO₃?",
+        "answer": 3,
+        "hint": "Identify each different element symbol; subscripts do not add new elements.",
+        "working": "Ca, C and O represent calcium, carbon and oxygen: three elements."
+      },
+      {
+        "prompt": "How many different elements are in MgCl₂?",
+        "answer": 2,
+        "hint": "Identify each different element symbol; subscripts do not add new elements.",
+        "working": "Mg and Cl represent magnesium and chlorine: two elements."
+      }
+    ]
+  },
+  "subscripts": {
+    "focus": "Count hydrogen atoms in one molecule.",
+    "questions": [
+      {
+        "prompt": "How many hydrogen atoms are in one NH₃ molecule?",
+        "answer": 3,
+        "hint": "Read the number immediately after H.",
+        "working": "The subscript on H is 3, so there are 3 hydrogen atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are in one CH₄ molecule?",
+        "answer": 4,
+        "hint": "Read the number immediately after H.",
+        "working": "The subscript on H is 4, so there are 4 hydrogen atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are in one H₂O₂ molecule?",
+        "answer": 2,
+        "hint": "Read the number immediately after H.",
+        "working": "The subscript on H is 2, so there are 2 hydrogen atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are in one C₂H₆ molecule?",
+        "answer": 6,
+        "hint": "Read the number immediately after H.",
+        "working": "The subscript on H is 6, so there are 6 hydrogen atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are in one C₃H₈ molecule?",
+        "answer": 8,
+        "hint": "Read the subscript after H; if there is none, the count is one.",
+        "working": "The subscript after H is 8."
+      },
+      {
+        "prompt": "How many hydrogen atoms are in one HCl molecule?",
+        "answer": 1,
+        "hint": "Read the subscript after H; if there is none, the count is one.",
+        "working": "No subscript after H means one hydrogen atom."
+      }
+    ]
+  },
+  "brackets": {
+    "focus": "Multiply atom count by the number of molecules.",
+    "questions": [
+      {
+        "prompt": "How many hydrogen atoms are represented by 2H₂O?",
+        "answer": 4,
+        "hint": "Multiply the coefficient by the hydrogen atoms in one molecule.",
+        "working": "2 × 2 = 4 H atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are represented by 4NH₃?",
+        "answer": 12,
+        "hint": "Multiply the coefficient by the hydrogen atoms in one molecule.",
+        "working": "4 × 3 = 12 H atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are represented by 3CH₄?",
+        "answer": 12,
+        "hint": "Multiply the coefficient by the hydrogen atoms in one molecule.",
+        "working": "3 × 4 = 12 H atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are represented by 5H₂?",
+        "answer": 10,
+        "hint": "Multiply the coefficient by the hydrogen atoms in one molecule.",
+        "working": "5 × 2 = 10 H atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are represented by 4H₂O?",
+        "answer": 8,
+        "hint": "Multiply the coefficient by the hydrogen atoms in one molecule.",
+        "working": "Four molecules × two H atoms per molecule = 8 H atoms."
+      },
+      {
+        "prompt": "How many hydrogen atoms are represented by 2NH₃?",
+        "answer": 6,
+        "hint": "Multiply the coefficient by the hydrogen atoms in one molecule.",
+        "working": "2 × 3 = 6 H atoms."
+      }
+    ]
+  },
+  "charges": {
+    "focus": "Add proton and electron charges.",
+    "questions": [
+      {
+        "prompt": "A particle has 4 protons and 3 electrons. Find its net charge.",
+        "answer": 1,
+        "hint": "Each proton is +1; each electron is −1.",
+        "working": "4 − 3 = 1."
+      },
+      {
+        "prompt": "A particle has 5 protons and 5 electrons. Find its net charge.",
+        "answer": 0,
+        "hint": "Each proton is +1; each electron is −1.",
+        "working": "5 − 5 = 0."
+      },
+      {
+        "prompt": "A particle has 8 protons and 10 electrons. Find its net charge.",
+        "answer": -2,
+        "hint": "Each proton is +1; each electron is −1.",
+        "working": "8 − 10 = -2."
+      },
+      {
+        "prompt": "A particle has 12 protons and 10 electrons. Find its net charge.",
+        "answer": 2,
+        "hint": "Each proton is +1; each electron is −1.",
+        "working": "12 − 10 = 2."
+      },
+      {
+        "prompt": "A particle has 9 protons and 10 electrons. Find its net charge.",
+        "answer": -1,
+        "hint": "Each proton is +1; each electron is −1.",
+        "working": "9 − 10 = −1."
+      },
+      {
+        "prompt": "A particle has 13 protons and 10 electrons. Find its net charge.",
+        "answer": 3,
+        "hint": "Each proton is +1; each electron is −1.",
+        "working": "13 − 10 = +3."
+      }
+    ]
+  },
+  "states": {
+    "focus": "Read a state symbol.",
+    "questions": [
+      {
+        "prompt": "Name the state represented in O₂(g). Enter solid, liquid or gas.",
+        "answer": [
+          "gas"
+        ],
+        "hint": "Read the symbol in parentheses, not the chemical formula.",
+        "working": "The state symbol represents gas."
+      },
+      {
+        "prompt": "Name the state represented in NaCl(s). Enter solid, liquid or gas.",
+        "answer": [
+          "solid"
+        ],
+        "hint": "Read the symbol in parentheses, not the chemical formula.",
+        "working": "The state symbol represents solid."
+      },
+      {
+        "prompt": "Name the state represented in H₂O(l). Enter solid, liquid or gas.",
+        "answer": [
+          "liquid"
+        ],
+        "hint": "Read the symbol in parentheses, not the chemical formula.",
+        "working": "The state symbol represents liquid."
+      },
+      {
+        "prompt": "Name the state represented in CO₂(g). Enter solid, liquid or gas.",
+        "answer": [
+          "gas"
+        ],
+        "hint": "Read the symbol in parentheses, not the chemical formula.",
+        "working": "The state symbol represents gas."
+      },
+      {
+        "prompt": "Name the state represented in Mg(s). Enter solid, liquid or gas.",
+        "answer": [
+          "solid"
+        ],
+        "hint": "Read the symbol in parentheses, not the chemical formula.",
+        "working": "(s) means solid."
+      },
+      {
+        "prompt": "Name the state represented in Br₂(l). Enter solid, liquid or gas.",
+        "answer": [
+          "liquid"
+        ],
+        "hint": "Read the symbol in parentheses, not the chemical formula.",
+        "working": "(l) means liquid."
+      }
+    ]
+  },
+  "changes": {
+    "focus": "Distinguish a physical change from a chemical change.",
+    "questions": [
+      {
+        "prompt": "Water freezes to ice. Enter physical or chemical.",
+        "answer": [
+          "physical",
+          "physical change"
+        ],
+        "hint": "Ask whether the chemical identity of the substances changes.",
+        "working": "This is a physical change. The substance remains H₂O."
+      },
+      {
+        "prompt": "Liquid water evaporates. Enter physical or chemical.",
+        "answer": [
+          "physical",
+          "physical change"
+        ],
+        "hint": "Ask whether the chemical identity of the substances changes.",
+        "working": "This is a physical change. The substance remains H₂O."
+      },
+      {
+        "prompt": "Iron reacts with oxygen to form iron oxide. Enter physical or chemical.",
+        "answer": [
+          "chemical",
+          "chemical change"
+        ],
+        "hint": "Ask whether the chemical identity of the substances changes.",
+        "working": "This is a chemical change. A different substance forms."
+      },
+      {
+        "prompt": "Hydrogen reacts with oxygen to form water. Enter physical or chemical.",
+        "answer": [
+          "chemical",
+          "chemical change"
+        ],
+        "hint": "Ask whether the chemical identity of the substances changes.",
+        "working": "This is a chemical change. Water is a different substance from the reactants."
+      },
+      {
+        "prompt": "Liquid ethanol evaporates. Enter physical or chemical.",
+        "answer": [
+          "physical",
+          "physical change"
+        ],
+        "hint": "Ask whether the chemical identity of the substances changes.",
+        "working": "Ethanol remains ethanol; only its state changes."
+      },
+      {
+        "prompt": "Carbon burns in oxygen to produce carbon dioxide. Enter physical or chemical.",
+        "answer": [
+          "chemical",
+          "chemical change"
+        ],
+        "hint": "Ask whether the chemical identity of the substances changes.",
+        "working": "Carbon dioxide is a different substance: a chemical change."
+      }
+    ]
+  },
+  "mass-units": {
+    "focus": "Convert grams to milligrams.",
+    "questions": [
+      {
+        "prompt": "Convert 0.5 g to mg.",
+        "answer": 500.0,
+        "hint": "Multiply by 1000.",
+        "working": "0.5 × 1000 = 500.0 mg."
+      },
+      {
+        "prompt": "Convert 1.5 g to mg.",
+        "answer": 1500.0,
+        "hint": "Multiply by 1000.",
+        "working": "1.5 × 1000 = 1500.0 mg."
+      },
+      {
+        "prompt": "Convert 2.5 g to mg.",
+        "answer": 2500.0,
+        "hint": "Multiply by 1000.",
+        "working": "2.5 × 1000 = 2500.0 mg."
+      },
+      {
+        "prompt": "Convert 0.25 g to mg.",
+        "answer": 250.0,
+        "hint": "Multiply by 1000.",
+        "working": "0.25 × 1000 = 250.0 mg."
+      },
+      {
+        "prompt": "Convert 3.2 g to mg.",
+        "answer": 3200,
+        "hint": "Multiply by 1000.",
+        "working": "3.2 × 1000 = 3200 mg."
+      },
+      {
+        "prompt": "Convert 0.075 g to mg.",
+        "answer": 75,
+        "hint": "Multiply by 1000.",
+        "working": "0.075 × 1000 = 75 mg."
+      }
+    ]
+  },
+  "volume-units": {
+    "focus": "Convert cm³ to dm³.",
+    "questions": [
+      {
+        "prompt": "Convert 100 cm³ to dm³.",
+        "answer": 0.1,
+        "hint": "Divide by 1000.",
+        "working": "100 ÷ 1000 = 0.1 dm³."
+      },
+      {
+        "prompt": "Convert 200 cm³ to dm³.",
+        "answer": 0.2,
+        "hint": "Divide by 1000.",
+        "working": "200 ÷ 1000 = 0.2 dm³."
+      },
+      {
+        "prompt": "Convert 50 cm³ to dm³.",
+        "answer": 0.05,
+        "hint": "Divide by 1000.",
+        "working": "50 ÷ 1000 = 0.05 dm³."
+      },
+      {
+        "prompt": "Convert 750 cm³ to dm³.",
+        "answer": 0.75,
+        "hint": "Divide by 1000.",
+        "working": "750 ÷ 1000 = 0.75 dm³."
+      },
+      {
+        "prompt": "Convert 25 cm³ to dm³.",
+        "answer": 0.025,
+        "hint": "Divide by 1000.",
+        "working": "25 ÷ 1000 = 0.025 dm³."
+      },
+      {
+        "prompt": "Convert 400 cm³ to dm³.",
+        "answer": 0.4,
+        "hint": "Divide by 1000.",
+        "working": "400 ÷ 1000 = 0.400 dm³."
+      }
+    ]
+  },
+  "ratios": {
+    "focus": "Scale a 1:2 particle ratio.",
+    "questions": [
+      {
+        "prompt": "One A particle reacts with two B particles. How many B particles are required for 2 A particles?",
+        "answer": 4,
+        "hint": "Multiply the A count by 2.",
+        "working": "2 × 2 = 4 B particles."
+      },
+      {
+        "prompt": "One A particle reacts with two B particles. How many B particles are required for 4 A particles?",
+        "answer": 8,
+        "hint": "Multiply the A count by 2.",
+        "working": "4 × 2 = 8 B particles."
+      },
+      {
+        "prompt": "One A particle reacts with two B particles. How many B particles are required for 5 A particles?",
+        "answer": 10,
+        "hint": "Multiply the A count by 2.",
+        "working": "5 × 2 = 10 B particles."
+      },
+      {
+        "prompt": "One A particle reacts with two B particles. How many B particles are required for 6 A particles?",
+        "answer": 12,
+        "hint": "Multiply the A count by 2.",
+        "working": "6 × 2 = 12 B particles."
+      },
+      {
+        "prompt": "One A particle reacts with two B particles. How many B particles are required for 7 A particles?",
+        "answer": 14,
+        "hint": "Multiply the A count by 2.",
+        "working": "7 × 2 = 14 B particles."
+      },
+      {
+        "prompt": "One A particle reacts with two B particles. How many B particles are required for 8 A particles?",
+        "answer": 16,
+        "hint": "Multiply the A count by 2.",
+        "working": "8 × 2 = 16 B particles."
+      }
+    ]
+  },
+  "powers": {
+    "focus": "Evaluate a positive power of ten.",
+    "questions": [
+      {
+        "prompt": "Calculate 3 × 10^3.",
+        "answer": 3000,
+        "hint": "Find the power of ten, then multiply.",
+        "working": "3 × 1000 = 3000."
+      },
+      {
+        "prompt": "Calculate 4 × 10^2.",
+        "answer": 400,
+        "hint": "Find the power of ten, then multiply.",
+        "working": "4 × 100 = 400."
+      },
+      {
+        "prompt": "Calculate 5 × 10^3.",
+        "answer": 5000,
+        "hint": "Find the power of ten, then multiply.",
+        "working": "5 × 1000 = 5000."
+      },
+      {
+        "prompt": "Calculate 2 × 10^4.",
+        "answer": 20000,
+        "hint": "Find the power of ten, then multiply.",
+        "working": "2 × 10000 = 20000."
+      },
+      {
+        "prompt": "Calculate 7 × 10^2.",
+        "answer": 700,
+        "hint": "Find the power of ten, then multiply.",
+        "working": "7 × 100 = 700."
+      },
+      {
+        "prompt": "Calculate 6 × 10^4.",
+        "answer": 60000,
+        "hint": "Find the power of ten, then multiply.",
+        "working": "6 × 10000 = 60000."
+      }
+    ]
+  },
+  "formula": {
+    "focus": "Use density = mass ÷ volume.",
+    "questions": [
+      {
+        "prompt": "Mass is 20 g and volume is 5 cm³. Find density in g cm⁻³.",
+        "answer": 4.0,
+        "hint": "Divide mass by volume.",
+        "working": "20 ÷ 5 = 4.0 g cm⁻³."
+      },
+      {
+        "prompt": "Mass is 18 g and volume is 3 cm³. Find density in g cm⁻³.",
+        "answer": 6.0,
+        "hint": "Divide mass by volume.",
+        "working": "18 ÷ 3 = 6.0 g cm⁻³."
+      },
+      {
+        "prompt": "Mass is 24 g and volume is 8 cm³. Find density in g cm⁻³.",
+        "answer": 3.0,
+        "hint": "Divide mass by volume.",
+        "working": "24 ÷ 8 = 3.0 g cm⁻³."
+      },
+      {
+        "prompt": "Mass is 35 g and volume is 5 cm³. Find density in g cm⁻³.",
+        "answer": 7.0,
+        "hint": "Divide mass by volume.",
+        "working": "35 ÷ 5 = 7.0 g cm⁻³."
+      },
+      {
+        "prompt": "Mass is 42 g and volume is 7 cm³. Find density in g cm⁻³.",
+        "answer": 6,
+        "hint": "Divide mass by volume.",
+        "working": "42 ÷ 7 = 6 g cm⁻³."
+      },
+      {
+        "prompt": "Mass is 45 g and volume is 9 cm³. Find density in g cm⁻³.",
+        "answer": 5,
+        "hint": "Divide mass by volume.",
+        "working": "45 ÷ 9 = 5 g cm⁻³."
+      }
+    ]
+  },
+  "change": {
+    "focus": "Find a temperature rise.",
+    "questions": [
+      {
+        "prompt": "Temperature rises from 18 °C to 24 °C. Find the change in °C.",
+        "answer": 6,
+        "hint": "Subtract initial from final temperature.",
+        "working": "24 − 18 = 6 °C, also a change of 6 K."
+      },
+      {
+        "prompt": "Temperature rises from 20 °C to 29 °C. Find the change in °C.",
+        "answer": 9,
+        "hint": "Subtract initial from final temperature.",
+        "working": "29 − 20 = 9 °C, also a change of 9 K."
+      },
+      {
+        "prompt": "Temperature rises from 22 °C to 27 °C. Find the change in °C.",
+        "answer": 5,
+        "hint": "Subtract initial from final temperature.",
+        "working": "27 − 22 = 5 °C, also a change of 5 K."
+      },
+      {
+        "prompt": "Temperature rises from 15 °C to 23 °C. Find the change in °C.",
+        "answer": 8,
+        "hint": "Subtract initial from final temperature.",
+        "working": "23 − 15 = 8 °C, also a change of 8 K."
+      },
+      {
+        "prompt": "Temperature rises from 19 °C to 28 °C. Find the change in °C.",
+        "answer": 9,
+        "hint": "Subtract initial from final temperature.",
+        "working": "28 − 19 = 9 °C, also a change of 9 K."
+      },
+      {
+        "prompt": "Temperature rises from 23 °C to 35 °C. Find the change in °C.",
+        "answer": 12,
+        "hint": "Subtract initial from final temperature.",
+        "working": "35 − 23 = 12 °C, also a change of 12 K."
+      }
+    ]
+  },
+  "S1.1": {
+    "focus": "Count types of atom in a pure substance.",
+    "questions": [
+      {
+        "prompt": "A pure sample contains only N₂ molecules. How many types of atom are present?",
+        "answer": 1,
+        "hint": "Count the different element symbols, not the atoms in a molecule.",
+        "working": "Only nitrogen is present. There are 1 types of atom."
+      },
+      {
+        "prompt": "A pure sample contains only H₂ molecules. How many types of atom are present?",
+        "answer": 1,
+        "hint": "Count the different element symbols, not the atoms in a molecule.",
+        "working": "Only hydrogen is present. There are 1 types of atom."
+      },
+      {
+        "prompt": "A pure sample contains only CO₂ molecules. How many types of atom are present?",
+        "answer": 2,
+        "hint": "Count the different element symbols, not the atoms in a molecule.",
+        "working": "Carbon and oxygen are present. There are 2 types of atom."
+      },
+      {
+        "prompt": "A pure sample contains only NH₃ molecules. How many types of atom are present?",
+        "answer": 2,
+        "hint": "Count the different element symbols, not the atoms in a molecule.",
+        "working": "Nitrogen and hydrogen are present. There are 2 types of atom."
+      },
+      {
+        "prompt": "A pure sample contains only Cl₂ molecules. How many types of atom are present?",
+        "answer": 1,
+        "hint": "Count the different element symbols, not the atoms in a molecule.",
+        "working": "Only chlorine is present: one type of atom."
+      },
+      {
+        "prompt": "A pure sample contains only CH₄ molecules. How many types of atom are present?",
+        "answer": 2,
+        "hint": "Count the different element symbols, not the atoms in a molecule.",
+        "working": "Carbon and hydrogen are present: two types of atom."
+      }
+    ]
+  },
+  "S1.2": {
+    "focus": "Find neutrons from mass number and atomic number.",
+    "questions": [
+      {
+        "prompt": "An atom has mass number 14 and atomic number 6. How many neutrons does it have?",
+        "answer": 8,
+        "hint": "Neutrons = mass number − atomic number.",
+        "working": "14 − 6 = 8 neutrons."
+      },
+      {
+        "prompt": "An atom has mass number 23 and atomic number 11. How many neutrons does it have?",
+        "answer": 12,
+        "hint": "Neutrons = mass number − atomic number.",
+        "working": "23 − 11 = 12 neutrons."
+      },
+      {
+        "prompt": "An atom has mass number 24 and atomic number 12. How many neutrons does it have?",
+        "answer": 12,
+        "hint": "Neutrons = mass number − atomic number.",
+        "working": "24 − 12 = 12 neutrons."
+      },
+      {
+        "prompt": "An atom has mass number 35 and atomic number 17. How many neutrons does it have?",
+        "answer": 18,
+        "hint": "Neutrons = mass number − atomic number.",
+        "working": "35 − 17 = 18 neutrons."
+      },
+      {
+        "prompt": "An atom has mass number 40 and atomic number 20. How many neutrons does it have?",
+        "answer": 20,
+        "hint": "Neutrons = mass number − atomic number.",
+        "working": "40 − 20 = 20 neutrons."
+      },
+      {
+        "prompt": "An atom has mass number 27 and atomic number 13. How many neutrons does it have?",
+        "answer": 14,
+        "hint": "Neutrons = mass number − atomic number.",
+        "working": "27 − 13 = 14 neutrons."
+      }
+    ]
+  },
+  "S1.3": {
+    "focus": "Fill the first shell, then the second, for the first ten elements.",
+    "questions": [
+      {
+        "prompt": "A neutral atom has 4 electrons. Place 2 in the first shell. How many occupy the second shell in this simple model?",
+        "answer": 2,
+        "hint": "Subtract the two first-shell electrons from the total.",
+        "working": "4 − 2 = 2 electrons in the second shell."
+      },
+      {
+        "prompt": "A neutral atom has 5 electrons. Place 2 in the first shell. How many occupy the second shell in this simple model?",
+        "answer": 3,
+        "hint": "Subtract the two first-shell electrons from the total.",
+        "working": "5 − 2 = 3 electrons in the second shell."
+      },
+      {
+        "prompt": "A neutral atom has 7 electrons. Place 2 in the first shell. How many occupy the second shell in this simple model?",
+        "answer": 5,
+        "hint": "Subtract the two first-shell electrons from the total.",
+        "working": "7 − 2 = 5 electrons in the second shell."
+      },
+      {
+        "prompt": "A neutral atom has 9 electrons. Place 2 in the first shell. How many occupy the second shell in this simple model?",
+        "answer": 7,
+        "hint": "Subtract the two first-shell electrons from the total.",
+        "working": "9 − 2 = 7 electrons in the second shell."
+      },
+      {
+        "prompt": "A neutral atom has 6 electrons. Place 2 in the first shell. How many occupy the second shell in this simple model?",
+        "answer": 4,
+        "hint": "Subtract the two first-shell electrons from the total.",
+        "working": "6 − 2 = 4 electrons in the second shell."
+      },
+      {
+        "prompt": "A neutral atom has 8 electrons. Place 2 in the first shell. How many occupy the second shell in this simple model?",
+        "answer": 6,
+        "hint": "Subtract the two first-shell electrons from the total.",
+        "working": "8 − 2 = 6 electrons in the second shell."
+      }
+    ]
+  },
+  "S1.4": {
+    "focus": "Calculate amount using n = m/M.",
+    "questions": [
+      {
+        "prompt": "A substance has molar mass 40 g mol⁻¹. Find the amount in 4 g, in mol.",
+        "answer": 0.1,
+        "hint": "Divide mass by molar mass.",
+        "working": "n = 4 ÷ 40 = 0.1 mol."
+      },
+      {
+        "prompt": "A substance has molar mass 40 g mol⁻¹. Find the amount in 8 g, in mol.",
+        "answer": 0.2,
+        "hint": "Divide mass by molar mass.",
+        "working": "n = 8 ÷ 40 = 0.2 mol."
+      },
+      {
+        "prompt": "A substance has molar mass 18 g mol⁻¹. Find the amount in 9 g, in mol.",
+        "answer": 0.5,
+        "hint": "Divide mass by molar mass.",
+        "working": "n = 9 ÷ 18 = 0.5 mol."
+      },
+      {
+        "prompt": "A substance has molar mass 18 g mol⁻¹. Find the amount in 54 g, in mol.",
+        "answer": 3.0,
+        "hint": "Divide mass by molar mass.",
+        "working": "n = 54 ÷ 18 = 3.0 mol."
+      },
+      {
+        "prompt": "A substance has molar mass 40 g mol⁻¹. Find the amount in 12 g, in mol.",
+        "answer": 0.3,
+        "hint": "Divide mass by molar mass.",
+        "working": "n = 12/40 = 0.300 mol."
+      },
+      {
+        "prompt": "A substance has molar mass 18 g mol⁻¹. Find the amount in 72 g, in mol.",
+        "answer": 4,
+        "hint": "Divide mass by molar mass.",
+        "working": "n = 72/18 = 4.00 mol."
+      }
+    ]
+  },
+  "S1.5": {
+    "focus": "Convert Celsius temperatures to kelvin.",
+    "questions": [
+      {
+        "prompt": "Convert 10 °C to K.",
+        "answer": 283.15,
+        "hint": "Add 273.15.",
+        "working": "10 + 273.15 = 283.15 K."
+      },
+      {
+        "prompt": "Convert 20 °C to K.",
+        "answer": 293.15,
+        "hint": "Add 273.15.",
+        "working": "20 + 273.15 = 293.15 K."
+      },
+      {
+        "prompt": "Convert 30 °C to K.",
+        "answer": 303.15,
+        "hint": "Add 273.15.",
+        "working": "30 + 273.15 = 303.15 K."
+      },
+      {
+        "prompt": "Convert 40 °C to K.",
+        "answer": 313.15,
+        "hint": "Add 273.15.",
+        "working": "40 + 273.15 = 313.15 K."
+      },
+      {
+        "prompt": "Convert 50 °C to K.",
+        "answer": 323.15,
+        "hint": "Add 273.15.",
+        "working": "50 + 273.15 = 323.15 K."
+      },
+      {
+        "prompt": "Convert 60 °C to K.",
+        "answer": 333.15,
+        "hint": "Add 273.15.",
+        "working": "60 + 273.15 = 333.15 K."
+      }
+    ]
+  },
+  "S2.1": {
+    "focus": "Balance a positive ion using singly charged negative ions.",
+    "questions": [
+      {
+        "prompt": "How many Cl⁻ ions balance one Ca²⁺ ion?",
+        "answer": 2,
+        "hint": "Each negative ion supplies charge −1.",
+        "working": "2 negative ions supply −2, balancing the +2 charge."
+      },
+      {
+        "prompt": "How many Cl⁻ ions balance one Al³⁺ ion?",
+        "answer": 3,
+        "hint": "Each negative ion supplies charge −1.",
+        "working": "3 negative ions supply −3, balancing the +3 charge."
+      },
+      {
+        "prompt": "How many F⁻ ions balance one Na⁺ ion?",
+        "answer": 1,
+        "hint": "Each negative ion supplies charge −1.",
+        "working": "1 negative ions supply −1, balancing the +1 charge."
+      },
+      {
+        "prompt": "How many F⁻ ions balance one Mg²⁺ ion?",
+        "answer": 2,
+        "hint": "Each negative ion supplies charge −1.",
+        "working": "2 negative ions supply −2, balancing the +2 charge."
+      },
+      {
+        "prompt": "How many Cl⁻ ions balance one K⁺ ion?",
+        "answer": 1,
+        "hint": "Each negative ion supplies charge −1.",
+        "working": "One chloride gives −1, balancing +1."
+      },
+      {
+        "prompt": "How many F⁻ ions balance one Al³⁺ ion?",
+        "answer": 3,
+        "hint": "Each negative ion supplies charge −1.",
+        "working": "Three fluoride ions give −3, balancing +3."
+      }
+    ]
+  },
+  "S2.2": {
+    "focus": "Count shared electrons from bond order.",
+    "questions": [
+      {
+        "prompt": "How many electrons are shared in the single bond in H–H?",
+        "answer": 2,
+        "hint": "Each bonding pair contains two electrons.",
+        "working": "1 shared pair(s) × 2 = 2 shared electrons."
+      },
+      {
+        "prompt": "How many electrons are shared in the double bond in O=O?",
+        "answer": 4,
+        "hint": "Each bonding pair contains two electrons.",
+        "working": "2 shared pair(s) × 2 = 4 shared electrons."
+      },
+      {
+        "prompt": "How many electrons are shared in the triple bond in N≡N?",
+        "answer": 6,
+        "hint": "Each bonding pair contains two electrons.",
+        "working": "3 shared pair(s) × 2 = 6 shared electrons."
+      },
+      {
+        "prompt": "How many electrons are shared in the single bond in Cl–Cl?",
+        "answer": 2,
+        "hint": "Each bonding pair contains two electrons.",
+        "working": "1 shared pair(s) × 2 = 2 shared electrons."
+      },
+      {
+        "prompt": "How many electrons are shared in the single bond in H–Cl?",
+        "answer": 2,
+        "hint": "Each bonding pair contains two electrons.",
+        "working": "One shared pair contains 2 electrons."
+      },
+      {
+        "prompt": "How many electrons are shared in the single bond in F–F?",
+        "answer": 2,
+        "hint": "Each bonding pair contains two electrons.",
+        "working": "One shared pair contains 2 electrons."
+      }
+    ]
+  },
+  "S2.3": {
+    "focus": "Identify charge carriers in a solid metal.",
+    "questions": [
+      {
+        "prompt": "Which particles carry electrical charge through solid copper: electrons or protons?",
+        "answer": [
+          "electrons",
+          "electron"
+        ],
+        "hint": "Look for particles free to move through the metallic structure.",
+        "working": "Delocalized electrons carry charge through solid copper; protons remain in nuclei."
+      },
+      {
+        "prompt": "Which particles carry electrical charge through solid aluminium: electrons or protons?",
+        "answer": [
+          "electrons",
+          "electron"
+        ],
+        "hint": "Look for particles free to move through the metallic structure.",
+        "working": "Delocalized electrons carry charge through solid aluminium; protons remain in nuclei."
+      },
+      {
+        "prompt": "Which particles carry electrical charge through solid silver: electrons or protons?",
+        "answer": [
+          "electrons",
+          "electron"
+        ],
+        "hint": "Look for particles free to move through the metallic structure.",
+        "working": "Delocalized electrons carry charge through solid silver; protons remain in nuclei."
+      },
+      {
+        "prompt": "Which particles carry electrical charge through solid magnesium: electrons or protons?",
+        "answer": [
+          "electrons",
+          "electron"
+        ],
+        "hint": "Look for particles free to move through the metallic structure.",
+        "working": "Delocalized electrons carry charge through solid magnesium; protons remain in nuclei."
+      },
+      {
+        "prompt": "Which particles carry electrical charge through solid iron: electrons or protons?",
+        "answer": [
+          "electrons",
+          "electron"
+        ],
+        "hint": "Look for particles free to move through the metallic structure.",
+        "working": "Delocalized electrons carry charge; protons stay in nuclei."
+      },
+      {
+        "prompt": "Which particles carry electrical charge through solid zinc: electrons or protons?",
+        "answer": [
+          "electrons",
+          "electron"
+        ],
+        "hint": "Look for particles free to move through the metallic structure.",
+        "working": "Delocalized electrons can move through solid zinc."
+      }
+    ]
+  },
+  "S2.4": {
+    "focus": "Count carbon atoms across repeating units.",
+    "questions": [
+      {
+        "prompt": "A short addition-polymer model contains 3 repeat units with 2 carbon atoms each. How many carbon atoms are represented?",
+        "answer": 6,
+        "hint": "Multiply repeat-unit count by carbon count in each unit.",
+        "working": "3 × 2 = 6 carbon atoms."
+      },
+      {
+        "prompt": "A short addition-polymer model contains 4 repeat units with 2 carbon atoms each. How many carbon atoms are represented?",
+        "answer": 8,
+        "hint": "Multiply repeat-unit count by carbon count in each unit.",
+        "working": "4 × 2 = 8 carbon atoms."
+      },
+      {
+        "prompt": "A short addition-polymer model contains 6 repeat units with 2 carbon atoms each. How many carbon atoms are represented?",
+        "answer": 12,
+        "hint": "Multiply repeat-unit count by carbon count in each unit.",
+        "working": "6 × 2 = 12 carbon atoms."
+      },
+      {
+        "prompt": "A short addition-polymer model contains 8 repeat units with 2 carbon atoms each. How many carbon atoms are represented?",
+        "answer": 16,
+        "hint": "Multiply repeat-unit count by carbon count in each unit.",
+        "working": "8 × 2 = 16 carbon atoms."
+      },
+      {
+        "prompt": "A short addition-polymer model contains 7 repeat units with 2 carbon atoms each. How many carbon atoms are represented?",
+        "answer": 14,
+        "hint": "Multiply repeat-unit count by carbon count in each unit.",
+        "working": "7 × 2 = 14 carbon atoms."
+      },
+      {
+        "prompt": "A short addition-polymer model contains 9 repeat units with 2 carbon atoms each. How many carbon atoms are represented?",
+        "answer": 18,
+        "hint": "Multiply repeat-unit count by carbon count in each unit.",
+        "working": "9 × 2 = 18 carbon atoms."
+      }
+    ]
+  },
+  "S3.1": {
+    "focus": "Read the outer-shell electron count.",
+    "questions": [
+      {
+        "prompt": "An atom has shell arrangement 2,1. How many electrons are in its outer shell?",
+        "answer": 1,
+        "hint": "Read the final number in the arrangement.",
+        "working": "The outermost shell contains 1 electrons."
+      },
+      {
+        "prompt": "An atom has shell arrangement 2,6. How many electrons are in its outer shell?",
+        "answer": 6,
+        "hint": "Read the final number in the arrangement.",
+        "working": "The outermost shell contains 6 electrons."
+      },
+      {
+        "prompt": "An atom has shell arrangement 2,8,2. How many electrons are in its outer shell?",
+        "answer": 2,
+        "hint": "Read the final number in the arrangement.",
+        "working": "The outermost shell contains 2 electrons."
+      },
+      {
+        "prompt": "An atom has shell arrangement 2,8,7. How many electrons are in its outer shell?",
+        "answer": 7,
+        "hint": "Read the final number in the arrangement.",
+        "working": "The outermost shell contains 7 electrons."
+      },
+      {
+        "prompt": "An atom has shell arrangement 2,5. How many electrons are in its outer shell?",
+        "answer": 5,
+        "hint": "Read the final number in the arrangement.",
+        "working": "The final number is 5: five outer-shell electrons."
+      },
+      {
+        "prompt": "An atom has shell arrangement 2,8,3. How many electrons are in its outer shell?",
+        "answer": 3,
+        "hint": "Read the final number in the arrangement.",
+        "working": "The outermost shell contains 3 electrons."
+      }
+    ]
+  },
+  "S3.2": {
+    "focus": "Count carbon atoms in a condensed formula.",
+    "questions": [
+      {
+        "prompt": "How many carbon atoms are in CH₃OH?",
+        "answer": 1,
+        "hint": "Count the C symbols; a subscript on H counts hydrogen, not carbon.",
+        "working": "There are 1 C symbols, so 1 carbon atoms."
+      },
+      {
+        "prompt": "How many carbon atoms are in CH₃CH₂CH₂OH?",
+        "answer": 3,
+        "hint": "Count the C symbols; a subscript on H counts hydrogen, not carbon.",
+        "working": "There are 3 C symbols, so 3 carbon atoms."
+      },
+      {
+        "prompt": "How many carbon atoms are in CH₃CH₂CH₃?",
+        "answer": 3,
+        "hint": "Count the C symbols; a subscript on H counts hydrogen, not carbon.",
+        "working": "There are 3 C symbols, so 3 carbon atoms."
+      },
+      {
+        "prompt": "How many carbon atoms are in CH₃CH₂CH₂CH₃?",
+        "answer": 4,
+        "hint": "Count the C symbols; a subscript on H counts hydrogen, not carbon.",
+        "working": "There are 4 C symbols, so 4 carbon atoms."
+      },
+      {
+        "prompt": "How many carbon atoms are in CH₃CH₂OH?",
+        "answer": 2,
+        "hint": "Count the C symbols; a subscript on H counts hydrogen, not carbon.",
+        "working": "There are two C symbols: two carbon atoms."
+      },
+      {
+        "prompt": "How many carbon atoms are in CH₃CH₂CH₂CH₂OH?",
+        "answer": 4,
+        "hint": "Count the C symbols; a subscript on H counts hydrogen, not carbon.",
+        "working": "There are four C symbols: four carbon atoms."
+      }
+    ]
+  },
+  "R1.1": {
+    "focus": "Use q = mcΔT for warming water.",
+    "questions": [
+      {
+        "prompt": "Water of mass 10 g warms by 2 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
+        "answer": 83.6,
+        "hint": "Multiply mass, specific heat capacity and temperature change.",
+        "working": "q = 10 × 4.18 × 2 = 83.6 J gained by the water."
+      },
+      {
+        "prompt": "Water of mass 20 g warms by 3 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
+        "answer": 250.8,
+        "hint": "Multiply mass, specific heat capacity and temperature change.",
+        "working": "q = 20 × 4.18 × 3 = 250.8 J gained by the water."
+      },
+      {
+        "prompt": "Water of mass 25 g warms by 4 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
+        "answer": 418.0,
+        "hint": "Multiply mass, specific heat capacity and temperature change.",
+        "working": "q = 25 × 4.18 × 4 = 418.0 J gained by the water."
+      },
+      {
+        "prompt": "Water of mass 50 g warms by 2 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
+        "answer": 418.0,
+        "hint": "Multiply mass, specific heat capacity and temperature change.",
+        "working": "q = 50 × 4.18 × 2 = 418.0 J gained by the water."
+      },
+      {
+        "prompt": "Water of mass 20 g warms by 5 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
+        "answer": 418,
+        "hint": "Multiply mass, specific heat capacity and temperature change.",
+        "working": "q = 20 × 4.18 × 5 = 418 J."
+      },
+      {
+        "prompt": "Water of mass 30 g warms by 3 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
+        "answer": 376.2,
+        "hint": "Multiply mass, specific heat capacity and temperature change.",
+        "working": "q = 30 × 4.18 × 3 = 376.2 J."
+      }
+    ]
+  },
+  "R1.2": {
+    "focus": "Use product minus reactant enthalpy.",
+    "questions": [
+      {
+        "prompt": "Reactants are at 90 and products at 40 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
+        "answer": -50,
+        "hint": "Subtract reactant enthalpy from product enthalpy.",
+        "working": "40 − 90 = -50 kJ mol⁻¹. The negative change is exothermic."
+      },
+      {
+        "prompt": "Reactants are at 70 and products at 20 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
+        "answer": -50,
+        "hint": "Subtract reactant enthalpy from product enthalpy.",
+        "working": "20 − 70 = -50 kJ mol⁻¹. The negative change is exothermic."
+      },
+      {
+        "prompt": "Reactants are at 60 and products at 30 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
+        "answer": -30,
+        "hint": "Subtract reactant enthalpy from product enthalpy.",
+        "working": "30 − 60 = -30 kJ mol⁻¹. The negative change is exothermic."
+      },
+      {
+        "prompt": "Reactants are at 100 and products at 60 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
+        "answer": -40,
+        "hint": "Subtract reactant enthalpy from product enthalpy.",
+        "working": "60 − 100 = -40 kJ mol⁻¹. The negative change is exothermic."
+      },
+      {
+        "prompt": "Reactants are at 120 and products at 50 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
+        "answer": -70,
+        "hint": "Subtract reactant enthalpy from product enthalpy.",
+        "working": "50 − 120 = −70 kJ mol⁻¹: exothermic."
+      },
+      {
+        "prompt": "Reactants are at 80 and products at 20 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
+        "answer": -60,
+        "hint": "Subtract reactant enthalpy from product enthalpy.",
+        "working": "20 − 80 = −60 kJ mol⁻¹: exothermic."
+      }
+    ]
+  },
+  "R1.3": {
+    "focus": "Calculate energy release per gram.",
+    "questions": [
+      {
+        "prompt": "A fictional fuel releases 80 kJ when 4 g burns. Find the energy release in kJ g⁻¹.",
+        "answer": 20.0,
+        "hint": "Divide released energy by fuel mass.",
+        "working": "80 ÷ 4 = 20.0 kJ g⁻¹."
+      },
+      {
+        "prompt": "A fictional fuel releases 90 kJ when 3 g burns. Find the energy release in kJ g⁻¹.",
+        "answer": 30.0,
+        "hint": "Divide released energy by fuel mass.",
+        "working": "90 ÷ 3 = 30.0 kJ g⁻¹."
+      },
+      {
+        "prompt": "A fictional fuel releases 120 kJ when 6 g burns. Find the energy release in kJ g⁻¹.",
+        "answer": 20.0,
+        "hint": "Divide released energy by fuel mass.",
+        "working": "120 ÷ 6 = 20.0 kJ g⁻¹."
+      },
+      {
+        "prompt": "A fictional fuel releases 100 kJ when 4 g burns. Find the energy release in kJ g⁻¹.",
+        "answer": 25.0,
+        "hint": "Divide released energy by fuel mass.",
+        "working": "100 ÷ 4 = 25.0 kJ g⁻¹."
+      },
+      {
+        "prompt": "A fictional fuel releases 150 kJ when 5 g burns. Find the energy release in kJ g⁻¹.",
+        "answer": 30,
+        "hint": "Divide released energy by fuel mass.",
+        "working": "150/5 = 30 kJ g⁻¹."
+      },
+      {
+        "prompt": "A fictional fuel releases 180 kJ when 6 g burns. Find the energy release in kJ g⁻¹.",
+        "answer": 30,
+        "hint": "Divide released energy by fuel mass.",
+        "working": "180/6 = 30 kJ g⁻¹."
+      }
+    ]
+  },
+  "R1.4": {
+    "focus": "AHL: use ΔG = ΔH − TΔS with matching units.",
+    "questions": [
+      {
+        "prompt": "Use ΔH = 20 kJ mol⁻¹, T = 300 K and ΔS = 0.1 kJ mol⁻¹ K⁻¹. Find ΔG in kJ mol⁻¹.",
+        "answer": -10.0,
+        "hint": "Units already match: multiply T by ΔS, then subtract from ΔH.",
+        "working": "ΔG = 20 − 300 × 0.1 = -10.0 kJ mol⁻¹."
+      },
+      {
+        "prompt": "Use ΔH = 30 kJ mol⁻¹, T = 400 K and ΔS = 0.1 kJ mol⁻¹ K⁻¹. Find ΔG in kJ mol⁻¹.",
+        "answer": -10.0,
+        "hint": "Units already match: multiply T by ΔS, then subtract from ΔH.",
+        "working": "ΔG = 30 − 400 × 0.1 = -10.0 kJ mol⁻¹."
+      },
+      {
+        "prompt": "Use ΔH = 10 kJ mol⁻¹, T = 300 K and ΔS = 0.05 kJ mol⁻¹ K⁻¹. Find ΔG in kJ mol⁻¹.",
+        "answer": -5.0,
+        "hint": "Units already match: multiply T by ΔS, then subtract from ΔH.",
+        "working": "ΔG = 10 − 300 × 0.05 = -5.0 kJ mol⁻¹."
+      },
+      {
+        "prompt": "Use ΔH = 40 kJ mol⁻¹, T = 500 K and ΔS = 0.1 kJ mol⁻¹ K⁻¹. Find ΔG in kJ mol⁻¹.",
+        "answer": -10.0,
+        "hint": "Units already match: multiply T by ΔS, then subtract from ΔH.",
+        "working": "ΔG = 40 − 500 × 0.1 = -10.0 kJ mol⁻¹."
+      },
+      {
+        "prompt": "Use ΔH = 25 kJ mol⁻¹, T = 300 K and ΔS = 0.1 kJ mol⁻¹ K⁻¹. Find ΔG in kJ mol⁻¹.",
+        "answer": -5,
+        "hint": "Units already match: multiply T by ΔS, then subtract from ΔH.",
+        "working": "ΔG = 25 − 300 × 0.1 = −5 kJ mol⁻¹."
+      },
+      {
+        "prompt": "Use ΔH = 35 kJ mol⁻¹, T = 400 K and ΔS = 0.1 kJ mol⁻¹ K⁻¹. Find ΔG in kJ mol⁻¹.",
+        "answer": -5,
+        "hint": "Units already match: multiply T by ΔS, then subtract from ΔH.",
+        "working": "ΔG = 35 − 400 × 0.1 = −5 kJ mol⁻¹."
+      }
+    ]
+  },
+  "R2.1": {
+    "focus": "Use the 1:1 mole ratio between H₂ and H₂O.",
+    "questions": [
+      {
+        "prompt": "For 2H₂ + O₂ → 2H₂O, oxygen is in excess. How many mol H₂O form from 1 mol H₂?",
+        "answer": 1,
+        "hint": "The coefficients for H₂ and H₂O are equal.",
+        "working": "1 × (2/2) = 1 mol H₂O."
+      },
+      {
+        "prompt": "For 2H₂ + O₂ → 2H₂O, oxygen is in excess. How many mol H₂O form from 3 mol H₂?",
+        "answer": 3,
+        "hint": "The coefficients for H₂ and H₂O are equal.",
+        "working": "3 × (2/2) = 3 mol H₂O."
+      },
+      {
+        "prompt": "For 2H₂ + O₂ → 2H₂O, oxygen is in excess. How many mol H₂O form from 4 mol H₂?",
+        "answer": 4,
+        "hint": "The coefficients for H₂ and H₂O are equal.",
+        "working": "4 × (2/2) = 4 mol H₂O."
+      },
+      {
+        "prompt": "For 2H₂ + O₂ → 2H₂O, oxygen is in excess. How many mol H₂O form from 5 mol H₂?",
+        "answer": 5,
+        "hint": "The coefficients for H₂ and H₂O are equal.",
+        "working": "5 × (2/2) = 5 mol H₂O."
+      },
+      {
+        "prompt": "For 2H₂ + O₂ → 2H₂O, oxygen is in excess. How many mol H₂O form from 6 mol H₂?",
+        "answer": 6,
+        "hint": "The coefficients for H₂ and H₂O are equal.",
+        "working": "The 2:2 ratio gives 6 × 2/2 = 6 mol H₂O."
+      },
+      {
+        "prompt": "For 2H₂ + O₂ → 2H₂O, oxygen is in excess. How many mol H₂O form from 8 mol H₂?",
+        "answer": 8,
+        "hint": "The coefficients for H₂ and H₂O are equal.",
+        "working": "The 1:1 simplified ratio gives 8 mol H₂O."
+      }
+    ]
+  },
+  "R2.2": {
+    "focus": "Calculate an average gas-production rate.",
+    "questions": [
+      {
+        "prompt": "Gas volume increases by 24 cm³ in 6 s. Find the average rate in cm³ s⁻¹.",
+        "answer": 4.0,
+        "hint": "Divide the volume change by the time interval.",
+        "working": "24 ÷ 6 = 4.0 cm³ s⁻¹."
+      },
+      {
+        "prompt": "Gas volume increases by 30 cm³ in 5 s. Find the average rate in cm³ s⁻¹.",
+        "answer": 6.0,
+        "hint": "Divide the volume change by the time interval.",
+        "working": "30 ÷ 5 = 6.0 cm³ s⁻¹."
+      },
+      {
+        "prompt": "Gas volume increases by 42 cm³ in 7 s. Find the average rate in cm³ s⁻¹.",
+        "answer": 6.0,
+        "hint": "Divide the volume change by the time interval.",
+        "working": "42 ÷ 7 = 6.0 cm³ s⁻¹."
+      },
+      {
+        "prompt": "Gas volume increases by 40 cm³ in 8 s. Find the average rate in cm³ s⁻¹.",
+        "answer": 5.0,
+        "hint": "Divide the volume change by the time interval.",
+        "working": "40 ÷ 8 = 5.0 cm³ s⁻¹."
+      },
+      {
+        "prompt": "Gas volume increases by 54 cm³ in 9 s. Find the average rate in cm³ s⁻¹.",
+        "answer": 6,
+        "hint": "Divide the volume change by the time interval.",
+        "working": "54/9 = 6 cm³ s⁻¹."
+      },
+      {
+        "prompt": "Gas volume increases by 56 cm³ in 8 s. Find the average rate in cm³ s⁻¹.",
+        "answer": 7,
+        "hint": "Divide the volume change by the time interval.",
+        "working": "56/8 = 7 cm³ s⁻¹."
+      }
+    ]
+  },
+  "R2.3": {
+    "focus": "Match forward and reverse rates at equilibrium.",
+    "questions": [
+      {
+        "prompt": "At dynamic equilibrium, the forward rate is 2 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+        "answer": 2,
+        "hint": "At equilibrium, the two rates are equal, not zero.",
+        "working": "The reverse rate is 2 mmol dm⁻³ s⁻¹. Both reactions continue."
+      },
+      {
+        "prompt": "At dynamic equilibrium, the forward rate is 4 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+        "answer": 4,
+        "hint": "At equilibrium, the two rates are equal, not zero.",
+        "working": "The reverse rate is 4 mmol dm⁻³ s⁻¹. Both reactions continue."
+      },
+      {
+        "prompt": "At dynamic equilibrium, the forward rate is 5 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+        "answer": 5,
+        "hint": "At equilibrium, the two rates are equal, not zero.",
+        "working": "The reverse rate is 5 mmol dm⁻³ s⁻¹. Both reactions continue."
+      },
+      {
+        "prompt": "At dynamic equilibrium, the forward rate is 8 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+        "answer": 8,
+        "hint": "At equilibrium, the two rates are equal, not zero.",
+        "working": "The reverse rate is 8 mmol dm⁻³ s⁻¹. Both reactions continue."
+      },
+      {
+        "prompt": "At dynamic equilibrium, the forward rate is 6 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+        "answer": 6,
+        "hint": "At equilibrium, the two rates are equal, not zero.",
+        "working": "The rates are equal: 6 mmol dm⁻³ s⁻¹."
+      },
+      {
+        "prompt": "At dynamic equilibrium, the forward rate is 9 mmol dm⁻³ s⁻¹. Find the reverse rate in the same units.",
+        "answer": 9,
+        "hint": "At equilibrium, the two rates are equal, not zero.",
+        "working": "The reverse rate is also 9 mmol dm⁻³ s⁻¹."
+      }
+    ]
+  },
+  "R3.1": {
+    "focus": "Identify the role of a proton acceptor.",
+    "questions": [
+      {
+        "prompt": "In H₂O + H⁺ → H₃O⁺, H₂O accepts a proton. Is it acting as an acid or a base?",
+        "answer": [
+          "base",
+          "a base"
+        ],
+        "hint": "A Brønsted–Lowry base accepts a proton.",
+        "working": "H₂O is acting as a base because it accepts H⁺."
+      },
+      {
+        "prompt": "In NH₃ + H⁺ → NH₄⁺, NH₃ accepts a proton. Is it acting as an acid or a base?",
+        "answer": [
+          "base",
+          "a base"
+        ],
+        "hint": "A Brønsted–Lowry base accepts a proton.",
+        "working": "NH₃ is acting as a base because it accepts H⁺."
+      },
+      {
+        "prompt": "In OH⁻ + H⁺ → H₂O, OH⁻ accepts a proton. Is it acting as an acid or a base?",
+        "answer": [
+          "base",
+          "a base"
+        ],
+        "hint": "A Brønsted–Lowry base accepts a proton.",
+        "working": "OH⁻ is acting as a base because it accepts H⁺."
+      },
+      {
+        "prompt": "In CO₃²⁻ + H⁺ → HCO₃⁻, CO₃²⁻ accepts a proton. Is it acting as an acid or a base?",
+        "answer": [
+          "base",
+          "a base"
+        ],
+        "hint": "A Brønsted–Lowry base accepts a proton.",
+        "working": "CO₃²⁻ is acting as a base because it accepts H⁺."
+      },
+      {
+        "prompt": "In F⁻ + H⁺ → HF, F⁻ accepts a proton. Is it acting as an acid or a base?",
+        "answer": [
+          "base",
+          "a base"
+        ],
+        "hint": "A Brønsted–Lowry base accepts a proton.",
+        "working": "F⁻ is a Brønsted–Lowry base because it accepts H⁺."
+      },
+      {
+        "prompt": "In HCO₃⁻ + H⁺ → H₂CO₃, HCO₃⁻ accepts a proton. Is it acting as an acid or a base?",
+        "answer": [
+          "base",
+          "a base"
+        ],
+        "hint": "A Brønsted–Lowry base accepts a proton.",
+        "working": "HCO₃⁻ is acting as a base by accepting a proton."
+      }
+    ]
+  },
+  "R3.2": {
+    "focus": "Count electrons lost when a positive ion forms.",
+    "questions": [
+      {
+        "prompt": "Complete Na → Na⁺ + __ e⁻. Enter the electron count.",
+        "answer": 1,
+        "hint": "Balance the positive charge with negative electrons on the right.",
+        "working": "Na → Na⁺ + 1e⁻. Loss of electrons is oxidation."
+      },
+      {
+        "prompt": "Complete Ca → Ca²⁺ + __ e⁻. Enter the electron count.",
+        "answer": 2,
+        "hint": "Balance the positive charge with negative electrons on the right.",
+        "working": "Ca → Ca²⁺ + 2e⁻. Loss of electrons is oxidation."
+      },
+      {
+        "prompt": "Complete Al → Al³⁺ + __ e⁻. Enter the electron count.",
+        "answer": 3,
+        "hint": "Balance the positive charge with negative electrons on the right.",
+        "working": "Al → Al³⁺ + 3e⁻. Loss of electrons is oxidation."
+      },
+      {
+        "prompt": "Complete Zn → Zn²⁺ + __ e⁻. Enter the electron count.",
+        "answer": 2,
+        "hint": "Balance the positive charge with negative electrons on the right.",
+        "working": "Zn → Zn²⁺ + 2e⁻. Loss of electrons is oxidation."
+      },
+      {
+        "prompt": "Complete K → K⁺ + __ e⁻. Enter the electron count.",
+        "answer": 1,
+        "hint": "Balance the positive charge with negative electrons on the right.",
+        "working": "K loses one electron: K → K⁺ + e⁻."
+      },
+      {
+        "prompt": "Complete Ba → Ba²⁺ + __ e⁻. Enter the electron count.",
+        "answer": 2,
+        "hint": "Balance the positive charge with negative electrons on the right.",
+        "working": "Ba loses two electrons: Ba → Ba²⁺ + 2e⁻."
+      }
+    ]
+  },
+  "R3.3": {
+    "focus": "Count radicals from homolytic bond breaking.",
+    "questions": [
+      {
+        "prompt": "1 Br₂ molecule(s) each split homolytically into two radicals. How many radicals form?",
+        "answer": 2,
+        "hint": "Every split molecule produces two radicals.",
+        "working": "1 × 2 = 2 radicals."
+      },
+      {
+        "prompt": "2 Cl₂ molecule(s) each split homolytically into two radicals. How many radicals form?",
+        "answer": 4,
+        "hint": "Every split molecule produces two radicals.",
+        "working": "2 × 2 = 4 radicals."
+      },
+      {
+        "prompt": "3 Br₂ molecule(s) each split homolytically into two radicals. How many radicals form?",
+        "answer": 6,
+        "hint": "Every split molecule produces two radicals.",
+        "working": "3 × 2 = 6 radicals."
+      },
+      {
+        "prompt": "4 Cl₂ molecule(s) each split homolytically into two radicals. How many radicals form?",
+        "answer": 8,
+        "hint": "Every split molecule produces two radicals.",
+        "working": "4 × 2 = 8 radicals."
+      },
+      {
+        "prompt": "5 Cl₂ molecules each split homolytically into two radicals. How many radicals form?",
+        "answer": 10,
+        "hint": "Every split molecule produces two radicals.",
+        "working": "5 × 2 = 10 Cl radicals."
+      },
+      {
+        "prompt": "6 Br₂ molecules each split homolytically into two radicals. How many radicals form?",
+        "answer": 12,
+        "hint": "Every split molecule produces two radicals.",
+        "working": "6 × 2 = 12 Br radicals."
+      }
+    ]
+  },
+  "R3.4": {
+    "focus": "Count electrons in one donated lone pair.",
+    "questions": [
+      {
+        "prompt": "In a model reaction, OH⁻ donates one lone pair to form a bond. How many electrons are in the donated pair?",
+        "answer": 2,
+        "hint": "A lone pair contains two electrons.",
+        "working": "OH⁻ donates a pair of 2 electrons. A full curly arrow represents movement of that pair."
+      },
+      {
+        "prompt": "In a model reaction, NH₃ donates one lone pair to form a bond. How many electrons are in the donated pair?",
+        "answer": 2,
+        "hint": "A lone pair contains two electrons.",
+        "working": "NH₃ donates a pair of 2 electrons. A full curly arrow represents movement of that pair."
+      },
+      {
+        "prompt": "In a model reaction, H₂O donates one lone pair to form a bond. How many electrons are in the donated pair?",
+        "answer": 2,
+        "hint": "A lone pair contains two electrons.",
+        "working": "H₂O donates a pair of 2 electrons. A full curly arrow represents movement of that pair."
+      },
+      {
+        "prompt": "In a model reaction, Cl⁻ donates one lone pair to form a bond. How many electrons are in the donated pair?",
+        "answer": 2,
+        "hint": "A lone pair contains two electrons.",
+        "working": "Cl⁻ donates a pair of 2 electrons. A full curly arrow represents movement of that pair."
+      },
+      {
+        "prompt": "In a model reaction, Br⁻ donates one lone pair to form a bond. How many electrons are in the donated pair?",
+        "answer": 2,
+        "hint": "A lone pair contains two electrons.",
+        "working": "A lone pair contains two electrons; Br⁻ donates that pair."
+      },
+      {
+        "prompt": "In a model reaction, I⁻ donates one lone pair to form a bond. How many electrons are in the donated pair?",
+        "answer": 2,
+        "hint": "A lone pair contains two electrons.",
+        "working": "I⁻ donates a pair of two electrons, represented by a full curly arrow."
+      }
+    ]
+  }
+}

@@ -21,3 +21,37 @@
 .foundation-reminder{border-left:3px solid var(--mint);padding:12px 16px;background:#203842;border-radius:8px}.foundation-step{border-top:1px solid var(--line);margin-top:24px;padding:12px 0}.foundation-step input{max-width:350px}.foundation-step .feedback{min-height:0}.foundation-step details{margin:8px 0;border:0;padding-top:8px}.foundation-step input[aria-invalid=true]{border-color:#ffd18a}
 
 .challenge-part{border-top:1px solid var(--line);margin-top:24px;padding-top:12px}.challenge-part input{max-width:350px}.challenge-part .feedback{min-height:0}textarea{display:block;width:100%;max-width:100%;resize:vertical;font:inherit;background:var(--bg);color:var(--ink);border:1px solid #8295ad;border-radius:8px;padding:12px}.challenge-part input[aria-invalid=true]{border-color:#ffd18a}
+
+[hidden]{display:none!important}.finder-controls{border:1px solid var(--line);padding:20px;border-radius:12px}.finder-controls input,.finder-controls select,[data-readiness] input{max-width:550px}[data-readiness] input[aria-invalid=true]{border-color:#ffd18a}.recommendation{border-left:3px solid #8ddbc9;padding-left:14px}.recommendation:empty{display:none}
+
+.similar-practice{border:1px solid var(--line);border-radius:12px;padding:18px;margin:24px 0}.similar-practice input{max-width:350px}.similar-position{font-weight:bold}.similar-practice input[aria-invalid=true]{border-color:#ffd18a}.similar-previous:disabled{opacity:.45;cursor:not-allowed}.similar-controls{display:flex;flex-wrap:wrap;gap:8px}.similar-worksheet h4{margin-bottom:6px}@media print{.similar-controls,.similar-check{display:none}.similar-practice details::details-content{content-visibility:visible}}
+
+/* Guide references remain readable offline; only PDF links need a connection. */
+.syllabus-reference { margin: 1.5rem 0; padding: clamp(1rem, 3vw, 1.6rem); border: 1px solid #b4c9d6; border-left: 5px solid #26707e; border-radius: 12px; background: #f3f8fa; color: #18333d; }
+.syllabus-reference h2 { margin-top: 0; }
+.syllabus-reference ul { padding-left: 1.3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1rem 2rem; }
+.syllabus-reference li { padding-left: .2rem; overflow-wrap: anywhere; }
+.syllabus-reference li p { margin: .35rem 0; }
+.syllabus-reference a { color: #155566; text-decoration: underline; }
+.syllabus-level { display: block; font-size: .85rem; }
+.syllabus-source { font-size: .9rem; margin-bottom: 0; }
+
+.syllabus-cross-references { margin-top: .85rem; }
+.syllabus-cross-references summary { cursor: pointer; font-weight: 600; }
+.syllabus-cross-references nav { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; margin: .65rem 0; }
+.syllabus-cross-references nav a { max-width: 100%; white-space: normal; overflow-wrap: anywhere; font-size: .9rem; }
+
+.booklet-help { margin: 1rem 0; padding: .8rem 1rem; border: 1px solid #93afbc; border-radius: 8px; }
+.booklet-help summary { cursor: pointer; font-weight: 600; }
+.booklet-help-entry { margin: .8rem 0; border-top: 1px solid #93afbc; padding-top: .65rem; }
+.booklet-formula { font-family: Georgia, serif; font-size: 1.1rem; line-height: 1.7; overflow-wrap: anywhere; }
+.booklet-entry { scroll-margin-top: 1rem; }
+.booklet-entry nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+.booklet-entry a, .booklet-help a { overflow-wrap: anywhere; }
+
+.lookup-guidance { padding: .8rem; border-left: 3px solid var(--mint); }
+.lookup-position { font-weight: 650; }
+.lookup-form select { width: 100%; max-width: 100%; white-space: normal; }
+.lookup-controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+[data-booklet-task] { scroll-margin-top: 1rem; }
+[data-booklet-task] h2:focus { outline-offset: 5px; }

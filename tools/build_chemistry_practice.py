@@ -8,6 +8,10 @@ import re
 from html import escape
 from pathlib import Path
 from practice_challenges import build_challenges
+from practice_support import build_support
+from practice_repetition import load_repetition, render_repetition
+from practice_syllabus import render_syllabus
+from practice_booklets import build_booklet, booklet_link, render_booklet_help
 
 ROOT = Path(__file__).resolve().parents[1] / 'resources' / 'ib-chemistry'
 
@@ -42,6 +46,7 @@ def question_section(key, activity):
 
 
 def build():
+    build_booklet(ROOT)
     syllabus = read_json('practice-syllabus.json')
     activities = read_json('practice-activities.json')
     labs = read_json('practice-labs.json')
@@ -63,9 +68,14 @@ def build():
     topics = syllabus['topics']
     groups = {group['id']: group for group in syllabus['groups']}
     foundations = read_json('foundations.json')
+    repetition = load_repetition(ROOT, foundations)
     starters = {c['code']: c for c in foundations['sections']}
     assert len(starters) == len(foundations['sections'])
     assert set(starters) == {t['id'] for t in topics}, 'Each sub-part needs a starter'
+    build_support(ROOT, 'Chemistry', 'practice.html', 'practice.css', [
+        dict(t, keywords=' '.join(activities[k]['title'] for k in t['activities']),
+             basic=f'basics-{t["parent"].lower()}.html#basic-{t["id"]}', explore=filename(t),
+             challenge=f'challenges-{t["parent"].lower()}.html#challenge-{t["id"]}') for t in topics])
     build_challenges(ROOT, list(groups.values()), [dict(t, filename=filename(t)) for t in topics],
                      'practice.html', 'practice.css')
     assert len({t['id'] for t in topics}) == len(topics)
@@ -87,6 +97,7 @@ def build():
         label = 'Prior learning' if topic is None else topic['id'] + (' · AHL' if topic.get('level') == 'AHL' else '') + ' · Start here'
         html = (f'<section id="{key}" data-foundation><p class="eyebrow">{label}</p>'
                 f'<h2>{escape(c["title"])}</h2><p class="foundation-reminder">{escape(c["reminder"])}</p>')
+        html += render_booklet_help(ROOT, [topic['id']] if topic else [], c.get('id'))
         for i, step in enumerate(c['steps'], 1):
             field = f'{key}-step-{i}'
             text_answer = isinstance(step['answer'], list)
@@ -99,6 +110,7 @@ def build():
                      f'<p id="{field}-feedback" class="feedback" role="status"></p>'
                      f'<details class="foundation-hint"><summary>Give me a hint</summary><p>{escape(step["hint"])}</p></details>'
                      f'<details><summary>Show the worked step</summary><p>{escape(step["working"])}</p></details></form>')
+        html += render_repetition(repetition[c.get('code', c.get('id'))], key)
         html += '<button type="button" class="foundation-reset">Try these steps again</button>'
         if topic:
             html += f'<p><a href="{filename(topic)}">Next: explore {topic["id"]} →</a></p>'
@@ -108,7 +120,7 @@ def build():
              'Use a calculator if helpful. For calculations, enter a number only; units are given in the question. '
              'For word answers, use the short term requested. There is no timer or score, and answers are not saved.</p>'
              '<noscript><p>Enable JavaScript for answer checks. Hints and worked steps remain available without it.</p></noscript>')
-    foundation_script = '<script src="foundations.js"></script>'
+    foundation_script = '<script src="foundations.js"></script><script src="similar-practice.js"></script>'
     body = '<header><a href="practice.html">← Chemistry hub</a><h1>Prior learning: small steps</h1>' + intro + '</header>'
     body += '<nav aria-label="Prior-learning lessons">' + ''.join(f'<a href="#{c["id"]}">{escape(c["title"])}</a>' for c in foundations['prior']) + '</nav>'
     body += ''.join(lesson(c, c['id']) for c in foundations['prior'])
@@ -118,7 +130,8 @@ def build():
         group_topics = [t for t in topics if t['parent'] == group['id']]
         body = (f'<header><a href="practice.html#{group["id"]}">← Chemistry hub</a><p class="eyebrow">{group["id"]} · Start here</p>'
                 f'<h1>{escape(group["title"])}: small steps</h1>' + intro + '</header>'
-                '<p><a href="prior-learning.html">Revisit prior learning</a></p><nav aria-label="Basic lessons">'
+                + render_syllabus(ROOT, [t['id'] for t in group_topics])
+                + '<p><a href="prior-learning.html">Revisit prior learning</a></p><nav aria-label="Basic lessons">'
                 + ''.join(f'<a href="#basic-{t["id"]}">{t["id"]}' + (' · AHL' if t.get('level') == 'AHL' else '') + f': {escape(starters[t["id"]]["title"])}</a>' for t in group_topics) + '</nav>'
                 + ''.join(lesson(starters[t['id']], 'basic-'+t['id'], t) for t in group_topics) + footer)
         (ROOT / f'basics-{group["id"].lower()}.html').write_text(page(group['id']+' small steps', body, foundation_script), encoding='utf-8')
@@ -135,6 +148,8 @@ def build():
 
     def activity_markup(key, topic=None):
         html = activities[key]['html']
+        related = [topic['id']] if topic else [t['id'] for t in topics if key in t['activities']]
+        html = html.replace('</section>', render_booklet_help(ROOT, related) + '</section>', 1)
         if topic:
             html = re.sub(r'<p class="eyebrow">.*?</p>',
                           f'<p class="eyebrow">{topic["id"]} / Practice</p>', html, count=1)
@@ -156,7 +171,8 @@ def build():
                 f'<p>Build up to these activities: <a href="basics-{topic["parent"].lower()}.html#basic-{code}">start with two short steps</a> '
                 'or <a href="prior-learning.html">revisit prior learning</a>.</p>'
                 f'<p>Ready for more? <a href="challenges-{topic["parent"].lower()}.html#challenge-{code}">Try the multi-part harder task</a>.</p></header>'
-                '<nav id="activity-index" aria-label="Activities in this sub-part">'
+                + render_syllabus(ROOT, [code])
+                + '<nav id="activity-index" aria-label="Activities in this sub-part">'
                 + ''.join(f'<a href="#{key}">{escape(activities[key]["title"])}</a>' for key in keys)
                 + '</nav><noscript><p class="error">Enable JavaScript for interactive controls. Worked explanations remain readable.</p></noscript>'
                 + ''.join(activity_markup(key, topic) for key in keys))
@@ -176,10 +192,11 @@ def build():
             f'<p class="muted">{len(topics)} syllabus sub-parts · {len(activities)} interactive activities</p>'
             '<p>Choose a syllabus sub-part to open its practices. Each page has interactive questions or models, '
             'answer feedback and worked explanations. R1.4 is additional higher level (AHL).</p>'
-            '<p><a href="challenges.html">Harder tasks for all 22 syllabus sub-parts →</a></p></header>'
+            '<nav><a href="readiness.html">Not sure where to start?</a><a href="find-practice.html">Find practice by topic and level</a>'
+            '<a href="challenges.html">Harder tasks for all 22 syllabus sub-parts →</a></nav></header>'
             '<section><p class="eyebrow">Start here</p><h2>Build confidence with small steps</h2>'
             '<p>12 prior-learning lessons and two starter tasks for every syllabus sub-part. Each includes a reminder, '
-            'optional hints, worked steps and answer checks.</p><nav><a href="prior-learning.html">Prior learning: 24 short tasks</a>'
+            'optional hints, worked steps and answer checks. Every lesson also includes six more questions using the same method.</p><nav><a href="prior-learning.html">Prior learning: 24 short tasks + extra practice</a>'
             + ''.join(f'<a href="basics-{g.lower()}.html">{g}: small steps</a>' for g in groups) + '</nav></section>'
             '<nav aria-label="Syllabus groups">'
             + ''.join(f'<a href="#{g["id"]}">{g["id"]} · {g["parent"]} {g["id"][1:]}</a>' for g in groups.values())
@@ -205,6 +222,7 @@ def build():
     redirect_js = ('<script>const activityPages='+json.dumps(redirects)+';'
                    'const activity=location.hash.slice(1);'
                    'if(Object.hasOwn(activityPages,activity)) location.replace(activityPages[activity]+location.hash);</script>')
+    body = body.replace('</header>', '<nav>' + booklet_link(ROOT) + '</nav></header>', 1)
     (ROOT / 'practice.html').write_text(page('Practice hub', body, redirect_js), encoding='utf-8')
 
     keys = list(activities)

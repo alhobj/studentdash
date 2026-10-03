@@ -2,6 +2,8 @@
 import json
 import math
 from html import escape
+from practice_syllabus import render_syllabus
+from practice_booklets import render_booklet_help
 
 
 def build_challenges(root, groups, topics, hub, stylesheet):
@@ -35,7 +37,8 @@ def build_challenges(root, groups, topics, hub, stylesheet):
         index += (f'<section><h2>{escape(group["title"])}</h2><p>{len(selected)} multi-part challenges</p>'
                   f'<a href="challenges-{group["id"].lower()}.html">Open {group["id"]} harder tasks →</a></section>')
         body = (f'<header><a href="challenges.html">← All harder tasks</a><h1>{escape(group["title"])}</h1>{intro}</header>'
-                '<nav aria-label="Challenge sections">' + ''.join(
+                + render_syllabus(root, [t['id'] for t in selected])
+                + '<nav aria-label="Challenge sections">' + ''.join(
                     f'<a href="#challenge-{t["id"]}">{t["id"]}' + (' · AHL' if t.get('level') == 'AHL' else '') + '</a>'
                     for t in selected) + '</nav>')
         for topic in selected:
@@ -44,6 +47,7 @@ def build_challenges(root, groups, topics, hub, stylesheet):
             level = ' · AHL' if topic.get('level') == 'AHL' else ''
             body += (f'<section id="{key}" data-challenge><p class="eyebrow">{topic["id"]}{level} · Harder task</p>'
                      f'<h2>{escape(c["title"])}</h2><p>{escape(c["scenario"])}</p>')
+            body += render_booklet_help(root, [topic['id']])
             for number, part in enumerate(c['parts'], 1):
                 field = f'{key}-part-{number}'
                 body += (f'<form class="challenge-part" data-answer="{part["answer"]}" novalidate>'

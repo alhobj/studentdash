@@ -1,0 +1,282 @@
+{
+  "title": "Mathematics: applications and interpretation guide",
+  "edition": "First assessment 2021",
+  "official_url": "https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf",
+  "copy_url": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf",
+  "copy_host": "UWC East Africa",
+  "sections": {
+    "1.1": {
+      "label": "SL 1.1",
+      "level": "SL",
+      "summary": "Working with scientific notation.",
+      "pdf_page": 32,
+      "printed_page": 27
+    },
+    "1.2": {
+      "label": "SL 1.2",
+      "level": "SL",
+      "summary": "Constant-step sequences and totals.",
+      "pdf_page": 32,
+      "printed_page": 27
+    },
+    "1.3": {
+      "label": "SL 1.3",
+      "level": "SL",
+      "summary": "Constant-ratio sequences and totals.",
+      "pdf_page": 32,
+      "printed_page": 27
+    },
+    "1.4": {
+      "label": "SL 1.4",
+      "level": "SL",
+      "summary": "Modelling repeated percentage changes.",
+      "pdf_page": 33,
+      "printed_page": 28
+    },
+    "1.5": {
+      "label": "SL 1.5",
+      "level": "SL",
+      "summary": "Connecting powers and logarithms.",
+      "pdf_page": 33,
+      "printed_page": 28
+    },
+    "1.6": {
+      "label": "SL 1.6",
+      "level": "SL",
+      "summary": "Rounding, bounds and numerical accuracy.",
+      "pdf_page": 34,
+      "printed_page": 29
+    },
+    "1.7": {
+      "label": "SL 1.7",
+      "level": "SL",
+      "summary": "Modelling repayments and regular deposits.",
+      "pdf_page": 34,
+      "printed_page": 29
+    },
+    "1.8": {
+      "label": "SL 1.8",
+      "level": "SL",
+      "summary": "Solving systems and polynomial equations.",
+      "pdf_page": 35,
+      "printed_page": 30
+    },
+    "2.1": {
+      "label": "SL 2.1",
+      "level": "SL",
+      "summary": "Describing straight lines algebraically.",
+      "pdf_page": 40,
+      "printed_page": 35
+    },
+    "2.2": {
+      "label": "SL 2.2",
+      "level": "SL",
+      "summary": "Function inputs, outputs and inverses.",
+      "pdf_page": 40,
+      "printed_page": 35
+    },
+    "2.3": {
+      "label": "SL 2.3",
+      "level": "SL",
+      "summary": "Representing functions graphically.",
+      "pdf_page": 41,
+      "printed_page": 36
+    },
+    "2.4": {
+      "label": "SL 2.4",
+      "level": "SL",
+      "summary": "Finding graph features and intersections.",
+      "pdf_page": 41,
+      "printed_page": 36
+    },
+    "2.5": {
+      "label": "SL 2.5",
+      "level": "SL",
+      "summary": "Choosing families of mathematical models.",
+      "pdf_page": 42,
+      "printed_page": 37
+    },
+    "2.6": {
+      "label": "SL 2.6",
+      "level": "SL",
+      "summary": "Fitting models and evaluating predictions.",
+      "pdf_page": 43,
+      "printed_page": 38
+    },
+    "3.1": {
+      "label": "SL 3.1",
+      "level": "SL",
+      "summary": "Measuring distances and solids.",
+      "pdf_page": 47,
+      "printed_page": 42
+    },
+    "3.2": {
+      "label": "SL 3.2",
+      "level": "SL",
+      "summary": "Solving triangles using trigonometry.",
+      "pdf_page": 48,
+      "printed_page": 43
+    },
+    "3.3": {
+      "label": "SL 3.3",
+      "level": "SL",
+      "summary": "Interpreting directions and viewing angles.",
+      "pdf_page": 48,
+      "printed_page": 43
+    },
+    "3.4": {
+      "label": "SL 3.4",
+      "level": "SL",
+      "summary": "Calculating circular lengths and areas.",
+      "pdf_page": 49,
+      "printed_page": 44
+    },
+    "3.5": {
+      "label": "SL 3.5",
+      "level": "SL",
+      "summary": "Constructing equal-distance boundaries.",
+      "pdf_page": 49,
+      "printed_page": 44
+    },
+    "3.6": {
+      "label": "SL 3.6",
+      "level": "SL",
+      "summary": "Partitioning regions by nearest site.",
+      "pdf_page": 49,
+      "printed_page": 44
+    },
+    "4.1": {
+      "label": "SL 4.1",
+      "level": "SL",
+      "summary": "Selecting samples and assessing bias.",
+      "pdf_page": 56,
+      "printed_page": 51
+    },
+    "4.2": {
+      "label": "SL 4.2",
+      "level": "SL",
+      "summary": "Presenting distributions visually.",
+      "pdf_page": 57,
+      "printed_page": 52
+    },
+    "4.3": {
+      "label": "SL 4.3",
+      "level": "SL",
+      "summary": "Summarizing location and variability.",
+      "pdf_page": 57,
+      "printed_page": 52
+    },
+    "4.4": {
+      "label": "SL 4.4",
+      "level": "SL",
+      "summary": "Measuring linear association and prediction.",
+      "pdf_page": 58,
+      "printed_page": 53
+    },
+    "4.5": {
+      "label": "SL 4.5",
+      "level": "SL",
+      "summary": "Describing outcomes and event likelihood.",
+      "pdf_page": 59,
+      "printed_page": 54
+    },
+    "4.6": {
+      "label": "SL 4.6",
+      "level": "SL",
+      "summary": "Combining events and conditional information.",
+      "pdf_page": 59,
+      "printed_page": 54
+    },
+    "4.7": {
+      "label": "SL 4.7",
+      "level": "SL",
+      "summary": "Finding expectations from discrete distributions.",
+      "pdf_page": 60,
+      "printed_page": 55
+    },
+    "4.8": {
+      "label": "SL 4.8",
+      "level": "SL",
+      "summary": "Modelling counts of independent successes.",
+      "pdf_page": 60,
+      "printed_page": 55
+    },
+    "4.9": {
+      "label": "SL 4.9",
+      "level": "SL",
+      "summary": "Calculating normal probabilities and cutoffs.",
+      "pdf_page": 61,
+      "printed_page": 56
+    },
+    "4.10": {
+      "label": "SL 4.10",
+      "level": "SL",
+      "summary": "Comparing ranked associations.",
+      "pdf_page": 61,
+      "printed_page": 56
+    },
+    "4.11": {
+      "label": "SL 4.11",
+      "level": "SL",
+      "summary": "Testing statistical claims using data.",
+      "pdf_page": 62,
+      "printed_page": 57
+    },
+    "5.1": {
+      "label": "SL 5.1",
+      "level": "SL",
+      "summary": "Understanding limits and instantaneous change.",
+      "pdf_page": 69,
+      "printed_page": 64
+    },
+    "5.2": {
+      "label": "SL 5.2",
+      "level": "SL",
+      "summary": "Using derivative signs.",
+      "pdf_page": 69,
+      "printed_page": 64
+    },
+    "5.3": {
+      "label": "SL 5.3",
+      "level": "SL",
+      "summary": "Differentiating integer-power expressions.",
+      "pdf_page": 70,
+      "printed_page": 65
+    },
+    "5.4": {
+      "label": "SL 5.4",
+      "level": "SL",
+      "summary": "Finding tangent and normal equations.",
+      "pdf_page": 70,
+      "printed_page": 65
+    },
+    "5.5": {
+      "label": "SL 5.5",
+      "level": "SL",
+      "summary": "Recovering functions and calculating areas.",
+      "pdf_page": 70,
+      "printed_page": 65
+    },
+    "5.6": {
+      "label": "SL 5.6",
+      "level": "SL",
+      "summary": "Locating stationary points and extrema.",
+      "pdf_page": 71,
+      "printed_page": 66
+    },
+    "5.7": {
+      "label": "SL 5.7",
+      "level": "SL",
+      "summary": "Optimizing quantities within a context.",
+      "pdf_page": 71,
+      "printed_page": 66
+    },
+    "5.8": {
+      "label": "SL 5.8",
+      "level": "SL",
+      "summary": "Estimating areas using trapezoids.",
+      "pdf_page": 71,
+      "printed_page": 66
+    }
+  }
+}

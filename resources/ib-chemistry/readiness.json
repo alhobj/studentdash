@@ -1,0 +1,162 @@
+[
+  {
+    "id": "volume",
+    "title": "Match concentration units",
+    "prompt": "Convert 250 cm³ to dm³.",
+    "answer": 0.25,
+    "working": "1 dm³ = 1000 cm³, so 250 ÷ 1000 = 0.250 dm³.",
+    "mistakes": [
+      {
+        "value": 250000,
+        "feedback": "A dm³ is the larger unit. The numerical value should get smaller."
+      },
+      {
+        "value": 25,
+        "feedback": "Divide by 1000, not by 10."
+      }
+    ],
+    "prior": "prior-learning.html#volume-units",
+    "basic": "basics-s1.html#basic-S1.4",
+    "challenge": "challenges-s1.html#challenge-S1.4"
+  },
+  {
+    "id": "formula",
+    "title": "Coefficient or subscript",
+    "prompt": "How many oxygen atoms are represented by 3CO₂?",
+    "answer": 6,
+    "working": "Three molecules contain two oxygen atoms each: 3 × 2 = 6.",
+    "mistakes": [
+      {
+        "value": 2,
+        "feedback": "2 is the oxygen count in one molecule. The coefficient represents three molecules."
+      },
+      {
+        "value": 9,
+        "feedback": "9 is the total atom count, including carbon. Count only oxygen here."
+      }
+    ],
+    "prior": "prior-learning.html#brackets",
+    "basic": "basics-s1.html#basic-S1.1",
+    "challenge": "challenges-s1.html#challenge-S1.1"
+  },
+  {
+    "id": "mole",
+    "title": "Mass is not amount",
+    "prompt": "A sample has mass 4.0 g and molar mass 40.0 g mol⁻¹. Find its amount in mol.",
+    "answer": 0.1,
+    "working": "n = m/M = 4.0/40.0 = 0.100 mol.",
+    "mistakes": [
+      {
+        "value": 160,
+        "feedback": "Multiply n by M to get mass; divide mass by M to get amount."
+      },
+      {
+        "value": 10,
+        "feedback": "Use mass divided by molar mass, not the reverse."
+      }
+    ],
+    "prior": "prior-learning.html#formula",
+    "basic": "basics-s1.html#basic-S1.4",
+    "challenge": "challenges-s1.html#challenge-S1.4"
+  },
+  {
+    "id": "ionic",
+    "title": "Balance charges",
+    "prompt": "How many O²⁻ ions balance two Al³⁺ ions?",
+    "answer": 3,
+    "working": "Two Al³⁺ give +6. Three O²⁻ give −6, making a neutral Al₂O₃ ratio.",
+    "mistakes": [
+      {
+        "value": 2,
+        "feedback": "Two oxide ions give only −4, leaving a net +2 charge."
+      },
+      {
+        "value": 6,
+        "feedback": "The required negative charge is −6; each oxide ion supplies −2."
+      }
+    ],
+    "prior": "prior-learning.html#charges",
+    "basic": "basics-s2.html#basic-S2.1",
+    "challenge": "challenges-s2.html#challenge-S2.1"
+  },
+  {
+    "id": "organic",
+    "title": "Read an organic formula",
+    "prompt": "How many carbon atoms are in CH₃COOH?",
+    "answer": 2,
+    "working": "There are two C symbols: one in CH₃ and one in COOH.",
+    "mistakes": [
+      {
+        "value": 1,
+        "feedback": "The carboxyl group COOH also contains a carbon atom."
+      },
+      {
+        "value": 3,
+        "feedback": "The small 3 belongs to hydrogen, not to carbon."
+      }
+    ],
+    "prior": "prior-learning.html#subscripts",
+    "basic": "basics-s3.html#basic-S3.2",
+    "challenge": "challenges-s3.html#challenge-S3.2"
+  },
+  {
+    "id": "energy",
+    "title": "Choose the enthalpy sign",
+    "prompt": "On a relative enthalpy diagram, reactants are at 70 kJ mol⁻¹ and products at 30 kJ mol⁻¹. Find ΔH in kJ mol⁻¹.",
+    "answer": -40,
+    "working": "ΔH = products − reactants = 30 − 70 = −40 kJ mol⁻¹.",
+    "mistakes": [
+      {
+        "value": 40,
+        "feedback": "The products are lower in enthalpy. Energy is released, so ΔH is negative."
+      },
+      {
+        "value": 100,
+        "feedback": "Use an energy difference rather than adding the two levels."
+      }
+    ],
+    "prior": "prior-learning.html#change",
+    "basic": "basics-r1.html#basic-R1.2",
+    "challenge": "challenges-r1.html#challenge-R1.2"
+  },
+  {
+    "id": "ratio",
+    "title": "Use coefficients as mole ratios",
+    "prompt": "For N₂ + 3H₂ → 2NH₃, how many mol H₂ are required to react fully with 1.0 mol N₂?",
+    "answer": 3,
+    "working": "The coefficient ratio N₂:H₂ is 1:3, so 1.0 mol N₂ requires 3.0 mol H₂.",
+    "mistakes": [
+      {
+        "value": 2,
+        "feedback": "2 is the coefficient of NH₃, not of the required reactant H₂."
+      },
+      {
+        "value": 1,
+        "feedback": "Use the balanced equation: these reactants are not in a 1:1 mole ratio."
+      }
+    ],
+    "prior": "prior-learning.html#ratios",
+    "basic": "basics-r2.html#basic-R2.1",
+    "challenge": "challenges-r2.html#challenge-R2.1"
+  },
+  {
+    "id": "redox",
+    "title": "Conserve charge in a half-equation",
+    "prompt": "Complete Mg → Mg²⁺ + __ e⁻. Enter the electron count.",
+    "answer": 2,
+    "working": "Two negative electrons balance the +2 charge: Mg → Mg²⁺ + 2e⁻.",
+    "mistakes": [
+      {
+        "value": 1,
+        "feedback": "One electron would leave a net +1 charge on the right."
+      },
+      {
+        "value": -2,
+        "feedback": "The coefficient counts electrons and is positive. Each electron itself carries negative charge."
+      }
+    ],
+    "prior": "prior-learning.html#charges",
+    "basic": "basics-r3.html#basic-R3.2",
+    "challenge": "challenges-r3.html#challenge-R3.2"
+  }
+]

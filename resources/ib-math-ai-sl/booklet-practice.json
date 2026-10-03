@@ -1,0 +1,527 @@
+[
+  {
+    "id": "sequence",
+    "title": "Find a sequence term",
+    "codes": [
+      "1.2"
+    ],
+    "reference": "arithmetic",
+    "choices": [
+      {
+        "id": "arithmetic",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "geometric",
+        "feedback": "A constant difference calls for addition, not a repeated multiplier."
+      },
+      {
+        "id": "finance",
+        "feedback": "There is no interest rate here; look for a sequence rule."
+      }
+    ],
+    "unit": "term value",
+    "units": [
+      {
+        "label": "term value",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "sum",
+        "feedback": "The question asks for one term, not the total of several terms."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "An arithmetic sequence starts at 4 and increases by 3. Find term 6.",
+        "answer": 19,
+        "hint": "Use uₙ = u₁ + (n − 1)d. Substitute 4 + (6 − 1) × 3.",
+        "cue": "How many gaps are there before term n?",
+        "working": "5 gaps: 4 + 5 × 3 = 19.",
+        "mistakes": [
+          {
+            "value": 22,
+            "feedback": "You may have counted n gaps. The first term needs zero steps; term n needs n − 1."
+          },
+          {
+            "value": 69.0,
+            "feedback": "That is the sum of the terms. Use the single-term rule instead."
+          }
+        ]
+      },
+      {
+        "prompt": "An arithmetic sequence starts at 7 and increases by 2. Find term 8.",
+        "answer": 21,
+        "hint": "Use uₙ = u₁ + (n − 1)d. Substitute 7 + (8 − 1) × 2.",
+        "cue": "How many gaps are there before term n?",
+        "working": "7 gaps: 7 + 7 × 2 = 21.",
+        "mistakes": [
+          {
+            "value": 23,
+            "feedback": "You may have counted n gaps. The first term needs zero steps; term n needs n − 1."
+          },
+          {
+            "value": 112.0,
+            "feedback": "That is the sum of the terms. Use the single-term rule instead."
+          }
+        ]
+      },
+      {
+        "prompt": "An arithmetic sequence starts at 5 and increases by 4. Find term 7.",
+        "answer": 29,
+        "hint": "Use uₙ = u₁ + (n − 1)d. Substitute 5 + (7 − 1) × 4.",
+        "cue": "How many gaps are there before term n?",
+        "working": "6 gaps: 5 + 6 × 4 = 29.",
+        "mistakes": [
+          {
+            "value": 33,
+            "feedback": "You may have counted n gaps. The first term needs zero steps; term n needs n − 1."
+          },
+          {
+            "value": 119.0,
+            "feedback": "That is the sum of the terms. Use the single-term rule instead."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "growth",
+    "title": "Use a percentage rate",
+    "codes": [
+      "1.4"
+    ],
+    "reference": "finance",
+    "choices": [
+      {
+        "id": "finance",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "arithmetic",
+        "feedback": "Repeated percentage increases do not add the same amount each year."
+      },
+      {
+        "id": "error",
+        "feedback": "Percentage error compares an approximation with an exact value; this is growth."
+      }
+    ],
+    "unit": "currency units",
+    "units": [
+      {
+        "label": "currency units",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "percent",
+        "feedback": "The answer is the final amount, not the rate."
+      },
+      {
+        "label": "years",
+        "feedback": "Time is an input here; calculate the final amount."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "1000 currency units earn 10% per year, compounded annually. Find the amount after 2 years, with no deposits or withdrawals.",
+        "answer": 1210.0000000000002,
+        "hint": "Use PV(1 + r/100)²: 1000 × (1 + 10/100)².",
+        "cue": "The rate is a percentage, and growth repeats twice.",
+        "working": "1000 × 1.1² = 1210 currency units.",
+        "mistakes": [
+          {
+            "value": 1200.0,
+            "feedback": "This looks like simple interest. Compound interest also earns interest on the first year’s growth."
+          },
+          {
+            "value": 121000,
+            "feedback": "Convert the percentage to a decimal before adding 1."
+          },
+          {
+            "value": 210.00000000000023,
+            "feedback": "This is the interest earned. The question asks for the final amount including the principal."
+          }
+        ]
+      },
+      {
+        "prompt": "2000 currency units earn 5% per year, compounded annually. Find the amount after 2 years, with no deposits or withdrawals.",
+        "answer": 2205.0,
+        "hint": "Use PV(1 + r/100)²: 2000 × (1 + 5/100)².",
+        "cue": "The rate is a percentage, and growth repeats twice.",
+        "working": "2000 × 1.05² = 2205 currency units.",
+        "mistakes": [
+          {
+            "value": 2200.0,
+            "feedback": "This looks like simple interest. Compound interest also earns interest on the first year’s growth."
+          },
+          {
+            "value": 72000,
+            "feedback": "Convert the percentage to a decimal before adding 1."
+          },
+          {
+            "value": 205.0,
+            "feedback": "This is the interest earned. The question asks for the final amount including the principal."
+          }
+        ]
+      },
+      {
+        "prompt": "500 currency units earn 20% per year, compounded annually. Find the amount after 2 years, with no deposits or withdrawals.",
+        "answer": 720.0,
+        "hint": "Use PV(1 + r/100)²: 500 × (1 + 20/100)².",
+        "cue": "The rate is a percentage, and growth repeats twice.",
+        "working": "500 × 1.2² = 720 currency units.",
+        "mistakes": [
+          {
+            "value": 700.0,
+            "feedback": "This looks like simple interest. Compound interest also earns interest on the first year’s growth."
+          },
+          {
+            "value": 220500,
+            "feedback": "Convert the percentage to a decimal before adding 1."
+          },
+          {
+            "value": 220.0,
+            "feedback": "This is the interest earned. The question asks for the final amount including the principal."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gradient",
+    "title": "Find a straight-line gradient",
+    "codes": [
+      "2.1"
+    ],
+    "reference": "lines",
+    "choices": [
+      {
+        "id": "lines",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "quadratic",
+        "feedback": "Two points define a straight-line gradient; no quadratic symmetry is involved."
+      },
+      {
+        "id": "coordinates",
+        "feedback": "Distance measures length. Look for the change in y divided by the change in x."
+      }
+    ],
+    "unit": "gradient",
+    "units": [
+      {
+        "label": "gradient",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "length units",
+        "feedback": "A gradient is a ratio of coordinate changes, not the distance between points."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Find the gradient of the line through (1, 8) and (4, 2).",
+        "answer": -2.0,
+        "hint": "Calculate (2 − 8) / (4 − 1). Keep the subtraction order the same.",
+        "cue": "Use vertical change divided by horizontal change.",
+        "working": "Gradient = -6/3 = -2.",
+        "mistakes": [
+          {
+            "value": 2.0,
+            "feedback": "The line falls as x increases. Check the sign and use the same point order in both differences."
+          },
+          {
+            "value": -0.5,
+            "feedback": "This is the reciprocal gradient. Divide the change in y by the change in x."
+          }
+        ]
+      },
+      {
+        "prompt": "Find the gradient of the line through (2, 10) and (6, 2).",
+        "answer": -2.0,
+        "hint": "Calculate (2 − 10) / (6 − 2). Keep the subtraction order the same.",
+        "cue": "Use vertical change divided by horizontal change.",
+        "working": "Gradient = -8/4 = -2.",
+        "mistakes": [
+          {
+            "value": 2.0,
+            "feedback": "The line falls as x increases. Check the sign and use the same point order in both differences."
+          },
+          {
+            "value": -0.5,
+            "feedback": "This is the reciprocal gradient. Divide the change in y by the change in x."
+          }
+        ]
+      },
+      {
+        "prompt": "Find the gradient of the line through (1, 12) and (6, 2).",
+        "answer": -2.0,
+        "hint": "Calculate (2 − 12) / (6 − 1). Keep the subtraction order the same.",
+        "cue": "Use vertical change divided by horizontal change.",
+        "working": "Gradient = -10/5 = -2.",
+        "mistakes": [
+          {
+            "value": 2.0,
+            "feedback": "The line falls as x increases. Check the sign and use the same point order in both differences."
+          },
+          {
+            "value": -0.5,
+            "feedback": "This is the reciprocal gradient. Divide the change in y by the change in x."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arc",
+    "title": "Choose an arc formula",
+    "codes": [
+      "3.4"
+    ],
+    "reference": "circles",
+    "choices": [
+      {
+        "id": "circles",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "measurement",
+        "feedback": "The requested length is part of a circumference, not an area or volume."
+      },
+      {
+        "id": "triangles",
+        "feedback": "The angle describes a sector, not a triangle to solve."
+      }
+    ],
+    "unit": "cm",
+    "units": [
+      {
+        "label": "cm",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "cm²",
+        "feedback": "An arc is a length; squared units would describe an area."
+      },
+      {
+        "label": "degrees",
+        "feedback": "The angle is given. The requested answer is a length."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "A circle has radius 6 cm. Find the arc length for a central angle of 60°. Give at least 3 significant figures.",
+        "answer": 6.283185307179586,
+        "hint": "Take 60/360 of the full circumference 2π × 6.",
+        "cue": "Use the fraction of one full turn.",
+        "working": "Arc = (60/360) × 2π × 6 = 6.28319 cm.",
+        "mistakes": [
+          {
+            "value": 37.69911184307752,
+            "feedback": "That is the whole circumference; multiply by the fraction of a full turn."
+          },
+          {
+            "value": 18.84955592153876,
+            "feedback": "You used the sector-area formula. An arc uses the circumference formula."
+          }
+        ]
+      },
+      {
+        "prompt": "A circle has radius 8 cm. Find the arc length for a central angle of 90°. Give at least 3 significant figures.",
+        "answer": 12.566370614359172,
+        "hint": "Take 90/360 of the full circumference 2π × 8.",
+        "cue": "Use the fraction of one full turn.",
+        "working": "Arc = (90/360) × 2π × 8 = 12.5664 cm.",
+        "mistakes": [
+          {
+            "value": 50.26548245743669,
+            "feedback": "Two methods give this number here: the whole circumference or the sector area. Use the angle’s fraction of the circumference to find a length."
+          }
+        ]
+      },
+      {
+        "prompt": "A circle has radius 10 cm. Find the arc length for a central angle of 72°. Give at least 3 significant figures.",
+        "answer": 12.566370614359172,
+        "hint": "Take 72/360 of the full circumference 2π × 10.",
+        "cue": "Use the fraction of one full turn.",
+        "working": "Arc = (72/360) × 2π × 10 = 12.5664 cm.",
+        "mistakes": [
+          {
+            "value": 62.83185307179586,
+            "feedback": "Two methods give this number here: the whole circumference or the sector area. Use the angle’s fraction of the circumference to find a length."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "expected",
+    "title": "Read a probability distribution",
+    "codes": [
+      "4.7"
+    ],
+    "reference": "expectation",
+    "choices": [
+      {
+        "id": "expectation",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "summary",
+        "feedback": "The probabilities act as weights; this is not an unweighted mean of the listed outcomes."
+      },
+      {
+        "id": "probability",
+        "feedback": "Event rules find probabilities. Here you need a probability-weighted value."
+      }
+    ],
+    "unit": "points",
+    "units": [
+      {
+        "label": "points",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "probability",
+        "feedback": "Expected score has the same unit as the score, rather than being a probability."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "A game scores 10 points with probability 0.3, otherwise 0 points. Find the expected score.",
+        "answer": 3.0,
+        "hint": "Use E(X) = ΣxP(X = x): 10 × 0.3 + 0 × 0.7.",
+        "cue": "Weight each possible score by its probability.",
+        "working": "E(X) = 10 × 0.3 = 3 points.",
+        "mistakes": [
+          {
+            "value": 5.0,
+            "feedback": "This averages the two scores without their probabilities. The outcomes are not equally likely."
+          },
+          {
+            "value": 10,
+            "feedback": "That is the winning score, not the long-run average."
+          }
+        ]
+      },
+      {
+        "prompt": "A game scores 20 points with probability 0.4, otherwise 0 points. Find the expected score.",
+        "answer": 8.0,
+        "hint": "Use E(X) = ΣxP(X = x): 20 × 0.4 + 0 × 0.6.",
+        "cue": "Weight each possible score by its probability.",
+        "working": "E(X) = 20 × 0.4 = 8 points.",
+        "mistakes": [
+          {
+            "value": 10.0,
+            "feedback": "This averages the two scores without their probabilities. The outcomes are not equally likely."
+          },
+          {
+            "value": 20,
+            "feedback": "That is the winning score, not the long-run average."
+          }
+        ]
+      },
+      {
+        "prompt": "A game scores 15 points with probability 0.2, otherwise 0 points. Find the expected score.",
+        "answer": 3.0,
+        "hint": "Use E(X) = ΣxP(X = x): 15 × 0.2 + 0 × 0.8.",
+        "cue": "Weight each possible score by its probability.",
+        "working": "E(X) = 15 × 0.2 = 3 points.",
+        "mistakes": [
+          {
+            "value": 7.5,
+            "feedback": "This averages the two scores without their probabilities. The outcomes are not equally likely."
+          },
+          {
+            "value": 15,
+            "feedback": "That is the winning score, not the long-run average."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "differentiate",
+    "title": "Use a derivative at a point",
+    "codes": [
+      "5.3",
+      "5.4"
+    ],
+    "reference": "derivative",
+    "choices": [
+      {
+        "id": "derivative",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "integral",
+        "feedback": "Integration reverses differentiation; here you need the gradient."
+      },
+      {
+        "id": "lines",
+        "feedback": "The curve is not a straight line. First find its derivative."
+      }
+    ],
+    "unit": "gradient",
+    "units": [
+      {
+        "label": "gradient",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "function value",
+        "feedback": "The function value is the height on the graph. The derivative gives its gradient."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "For y = 3x², find the gradient at x = 2.",
+        "answer": 12,
+        "hint": "Differentiate first: dy/dx = 6x. Then substitute x = 2.",
+        "cue": "Multiply by the old power and reduce the power by one.",
+        "working": "dy/dx = 6x, so the gradient is 6 × 2 = 12.",
+        "mistakes": [
+          {
+            "value": 6,
+            "feedback": "You may have reduced the power without multiplying by the old power 2."
+          },
+          {
+            "value": 4,
+            "feedback": "Keep the coefficient multiplying x² when you differentiate."
+          }
+        ]
+      },
+      {
+        "prompt": "For y = 2x², find the gradient at x = 3.",
+        "answer": 12,
+        "hint": "Differentiate first: dy/dx = 4x. Then substitute x = 3.",
+        "cue": "Multiply by the old power and reduce the power by one.",
+        "working": "dy/dx = 4x, so the gradient is 4 × 3 = 12.",
+        "mistakes": [
+          {
+            "value": 6,
+            "feedback": "Two methods give this number here: the whole circumference or the sector area. Use the angle’s fraction of the circumference to find a length."
+          }
+        ]
+      },
+      {
+        "prompt": "For y = 4x², find the gradient at x = 2.",
+        "answer": 16,
+        "hint": "Differentiate first: dy/dx = 8x. Then substitute x = 2.",
+        "cue": "Multiply by the old power and reduce the power by one.",
+        "working": "dy/dx = 8x, so the gradient is 8 × 2 = 16.",
+        "mistakes": [
+          {
+            "value": 8,
+            "feedback": "You may have reduced the power without multiplying by the old power 2."
+          },
+          {
+            "value": 4,
+            "feedback": "Keep the coefficient multiplying x² when you differentiate."
+          }
+        ]
+      }
+    ]
+  }
+]

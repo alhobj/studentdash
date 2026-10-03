@@ -1,0 +1,377 @@
+{
+  "title": "Chemistry data booklet",
+  "filename": "data-booklet.html",
+  "hub": "practice.html",
+  "stylesheet": "practice.css",
+  "edition": "First assessment 2025 · version 1.1 (February 2024 update)",
+  "url": "https://www.ibchem.com/root_pdf/DataBook2025.pdf",
+  "host": "IB Chemistry (ibchem.com)",
+  "page_offset": 4,
+  "scope": "Sections 1–23; SL and HL share the booklet. A table being listed here does not make all its uses SL content.",
+  "entries": [
+    {
+      "id": "equations",
+      "title": "Equation lookup",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Choose the equation for the quantities in your question; the cards below cover common uses.",
+      "formula": ""
+    },
+    {
+      "id": "constants",
+      "title": "Constants",
+      "pdf_page": 7,
+      "section": "section 2",
+      "note": "Match the required precision.",
+      "formula": "Nₐ ≈ 6.02 × 10²³ mol⁻¹; R ≈ 8.31 J K⁻¹ mol⁻¹"
+    },
+    {
+      "id": "prefixes",
+      "title": "Metric prefixes",
+      "pdf_page": 8,
+      "section": "section 3",
+      "note": "Convert before calculating.",
+      "formula": ""
+    },
+    {
+      "id": "conditions",
+      "title": "Units and conditions",
+      "pdf_page": 9,
+      "section": "section 4",
+      "note": "Distinguish STP from SATP.",
+      "formula": "T/K = T/°C + 273.15; 1 dm³ = 1000 cm³"
+    },
+    {
+      "id": "spectrum",
+      "title": "Radiation regions",
+      "pdf_page": 9,
+      "section": "section 5",
+      "note": "Compare frequency and wavelength.",
+      "formula": ""
+    },
+    {
+      "id": "elements",
+      "title": "Element symbols",
+      "pdf_page": 10,
+      "section": "section 6",
+      "note": "Check capitalization.",
+      "formula": ""
+    },
+    {
+      "id": "periodic",
+      "title": "Atomic data",
+      "pdf_page": 12,
+      "section": "section 7",
+      "note": "Use relative atomic masses.",
+      "formula": ""
+    },
+    {
+      "id": "melting",
+      "title": "Phase-change temperatures",
+      "pdf_page": 13,
+      "section": "section 8",
+      "note": "Compare measured trends.",
+      "formula": ""
+    },
+    {
+      "id": "ionization",
+      "title": "Ionization and electronegativity",
+      "pdf_page": 14,
+      "section": "section 9",
+      "note": "Select the correct property.",
+      "formula": ""
+    },
+    {
+      "id": "radii",
+      "title": "Atomic and ionic sizes",
+      "pdf_page": 15,
+      "section": "section 10",
+      "note": "Check the ion charge.",
+      "formula": ""
+    },
+    {
+      "id": "lengths",
+      "title": "Bond distances",
+      "pdf_page": 16,
+      "section": "section 11",
+      "note": "Match the bond order.",
+      "formula": ""
+    },
+    {
+      "id": "bonds",
+      "title": "Bond energies",
+      "pdf_page": 17,
+      "section": "section 12",
+      "note": "Count every bond.",
+      "formula": "ΔH ≈ Σ(bonds broken) − Σ(bonds formed)"
+    },
+    {
+      "id": "thermo",
+      "title": "Thermodynamic values",
+      "pdf_page": 18,
+      "section": "section 13",
+      "note": "Match physical states. Enthalpy values use kJ mol⁻¹, while entropy uses J K⁻¹ mol⁻¹.",
+      "formula": ""
+    },
+    {
+      "id": "combustion",
+      "title": "Combustion values",
+      "pdf_page": 19,
+      "section": "section 14",
+      "note": "Check the product states.",
+      "formula": ""
+    },
+    {
+      "id": "colour",
+      "title": "Visible colours",
+      "pdf_page": 20,
+      "section": "section 15",
+      "note": "Distinguish absorbed from observed.",
+      "formula": ""
+    },
+    {
+      "id": "lattice",
+      "title": "Lattice energies",
+      "pdf_page": 21,
+      "section": "section 16",
+      "note": "Values describe lattice separation.",
+      "formula": ""
+    },
+    {
+      "id": "bonding",
+      "title": "Bonding triangle",
+      "pdf_page": 22,
+      "section": "section 17",
+      "note": "Use both electronegativity axes.",
+      "formula": ""
+    },
+    {
+      "id": "indicators",
+      "title": "Indicator ranges",
+      "pdf_page": 23,
+      "section": "section 18",
+      "note": "Match the titration jump.",
+      "formula": ""
+    },
+    {
+      "id": "potentials",
+      "title": "Electrode potentials",
+      "pdf_page": 24,
+      "section": "section 19",
+      "note": "Subtract tabulated reduction potentials. Do not multiply voltages by balancing coefficients. Quantitative cell-potential work is AHL.",
+      "formula": "E°cell = E°cathode − E°anode"
+    },
+    {
+      "id": "ir",
+      "title": "IR absorption",
+      "pdf_page": 25,
+      "section": "section 20",
+      "note": "Compare patterns, not one peak.",
+      "formula": ""
+    },
+    {
+      "id": "nmr",
+      "title": "Proton NMR shifts",
+      "pdf_page": 26,
+      "section": "section 21",
+      "note": "Consider environments and integration.",
+      "formula": ""
+    },
+    {
+      "id": "fragments",
+      "title": "Fragment losses",
+      "pdf_page": 27,
+      "section": "section 22",
+      "note": "Subtract fragment masses.",
+      "formula": ""
+    },
+    {
+      "id": "uncertainties",
+      "title": "Uncertainty propagation",
+      "pdf_page": 27,
+      "section": "section 23",
+      "note": "Choose the matching operation.",
+      "formula": ""
+    },
+    {
+      "id": "amount",
+      "title": "Amounts and solutions",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Use g with g mol⁻¹, and dm³ with mol dm⁻³. For particles, multiply moles by the Avogadro constant.",
+      "formula": "n = m/M; n = cV"
+    },
+    {
+      "id": "gas",
+      "title": "Gas calculations",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Use kelvin. With R = 8.31, pair Pa with m³ or kPa with dm³; use any different R value supplied in the question.",
+      "formula": "PV = nRT"
+    },
+    {
+      "id": "heat",
+      "title": "Calorimetry",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Use the mass of the heated material. Convert J to kJ when needed; for an insulated setup the reaction and solution have opposite heat signs.",
+      "formula": "Q = mcΔT"
+    },
+    {
+      "id": "gibbs",
+      "title": "Gibbs energy (AHL)",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Convert entropy and enthalpy to matching energy units; use kelvin. A negative result indicates thermodynamic feasibility under standard conditions.",
+      "formula": "ΔG° = ΔH° − TΔS°"
+    },
+    {
+      "id": "acidity",
+      "title": "Acid–base calculations",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Use the concentration after any dilution or reaction. K_w depends on temperature; acid strength and concentration are different ideas.",
+      "formula": "pH = −log₁₀[H⁺]; K_w = [H⁺][OH⁻]"
+    },
+    {
+      "id": "arrhenius",
+      "title": "Temperature and rate (AHL)",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Use natural logarithms and kelvin; express Eₐ in J mol⁻¹ with R in J K⁻¹ mol⁻¹.",
+      "formula": "ln k = ln A − Eₐ/(RT)"
+    },
+    {
+      "id": "equilibrium-energy",
+      "title": "Equilibrium and energy (AHL)",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "This is an AHL connection. The SL equilibrium expression still comes from the balanced equation.",
+      "formula": "ΔG° = −RT ln K"
+    },
+    {
+      "id": "economy",
+      "title": "Atom economy",
+      "pdf_page": 6,
+      "section": "section 1",
+      "note": "Calculate both masses for the balanced reaction coefficients. This theoretical measure differs from experimental percentage yield.",
+      "formula": "atom economy = desired-product mass / total-reactant mass × 100%"
+    }
+  ],
+  "sections": {
+    "S1.1": [
+      "conditions",
+      "melting"
+    ],
+    "S1.2": [
+      "periodic",
+      "constants"
+    ],
+    "S1.3": [
+      "spectrum",
+      "constants",
+      "ionization"
+    ],
+    "S1.4": [
+      "amount",
+      "constants",
+      "periodic",
+      "conditions"
+    ],
+    "S1.5": [
+      "gas",
+      "constants",
+      "conditions"
+    ],
+    "S2.1": [
+      "periodic",
+      "ionization",
+      "radii"
+    ],
+    "S2.2": [
+      "ionization",
+      "lengths",
+      "bonds"
+    ],
+    "S2.3": [
+      "melting",
+      "radii"
+    ],
+    "S2.4": [
+      "bonding",
+      "ionization"
+    ],
+    "S3.1": [
+      "periodic",
+      "ionization",
+      "radii",
+      "melting",
+      "colour"
+    ],
+    "S3.2": [
+      "ir",
+      "nmr",
+      "fragments"
+    ],
+    "R1.1": [
+      "heat",
+      "constants",
+      "uncertainties"
+    ],
+    "R1.2": [
+      "bonds",
+      "thermo",
+      "combustion",
+      "lattice"
+    ],
+    "R1.3": [
+      "combustion",
+      "thermo"
+    ],
+    "R1.4": [
+      "gibbs",
+      "thermo"
+    ],
+    "R2.1": [
+      "amount",
+      "economy",
+      "periodic",
+      "conditions"
+    ],
+    "R2.2": [
+      "arrhenius",
+      "constants"
+    ],
+    "R2.3": [
+      "equilibrium-energy"
+    ],
+    "R3.1": [
+      "acidity",
+      "constants",
+      "indicators"
+    ],
+    "R3.2": [
+      "potentials",
+      "constants"
+    ],
+    "R3.3": [
+      "bonds"
+    ],
+    "R3.4": []
+  },
+  "prior": {
+    "symbols": [
+      "elements",
+      "periodic"
+    ],
+    "mass-units": [
+      "prefixes"
+    ],
+    "volume-units": [
+      "conditions"
+    ],
+    "powers": [
+      "prefixes"
+    ]
+  }
+}

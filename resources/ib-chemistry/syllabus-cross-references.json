@@ -1,0 +1,1217 @@
+{
+  "description": "Explicit numbered syllabus and skills cross-references in the linked IB guide; repeated references are combined. Direction follows the source; reverse links are not inferred.",
+  "sections": {
+    "S1.1": [
+      {
+        "target": "tool-1",
+        "source_pages": [
+          39
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          39
+        ]
+      },
+      {
+        "target": "S2.3",
+        "source_pages": [
+          39
+        ]
+      },
+      {
+        "target": "S2.4",
+        "source_pages": [
+          39
+        ]
+      },
+      {
+        "target": "S2",
+        "source_pages": [
+          39
+        ]
+      },
+      {
+        "target": "R1.2",
+        "source_pages": [
+          39
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          40
+        ]
+      }
+    ],
+    "S1.2": [
+      {
+        "target": "S1.3",
+        "source_pages": [
+          40
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          40
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          40
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          40
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          40
+        ]
+      }
+    ],
+    "S1.3": [
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          41
+        ]
+      },
+      {
+        "target": "S1.2",
+        "source_pages": [
+          41
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          41,
+          42
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          41,
+          42
+        ]
+      },
+      {
+        "target": "R3.1",
+        "source_pages": [
+          42
+        ]
+      },
+      {
+        "target": "tool-3",
+        "source_pages": [
+          42
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          42
+        ],
+        "qualifier": "AHL"
+      }
+    ],
+    "S1.4": [
+      {
+        "target": "S3.1",
+        "source_pages": [
+          42
+        ]
+      },
+      {
+        "target": "R2.1",
+        "source_pages": [
+          42
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "tool-3",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "S1.5",
+        "source_pages": [
+          43
+        ]
+      }
+    ],
+    "S1.5": [
+      {
+        "target": "S2.2",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "tool-2",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "tool-3",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          43
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          44
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          44
+        ]
+      }
+    ],
+    "S2.1": [
+      {
+        "target": "S3.1",
+        "source_pages": [
+          44,
+          45
+        ]
+      },
+      {
+        "target": "S1.3",
+        "source_pages": [
+          44
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          44
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          44
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "R3.1",
+        "source_pages": [
+          44
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          45
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          45
+        ]
+      }
+    ],
+    "S2.2": [
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          45,
+          46
+        ]
+      },
+      {
+        "target": "S1.3",
+        "source_pages": [
+          45,
+          47
+        ]
+      },
+      {
+        "target": "S2.1",
+        "source_pages": [
+          45,
+          46
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          45,
+          47
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          45
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          46
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          46,
+          47
+        ]
+      },
+      {
+        "target": "S1.5",
+        "source_pages": [
+          46
+        ]
+      },
+      {
+        "target": "S1.1",
+        "source_pages": [
+          46
+        ]
+      },
+      {
+        "target": "S2.3",
+        "source_pages": [
+          46
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          46,
+          47
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          46
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          46
+        ]
+      },
+      {
+        "target": "R2.1",
+        "source_pages": [
+          47
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          47
+        ]
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          47
+        ]
+      }
+    ],
+    "S2.3": [
+      {
+        "target": "S3.1",
+        "source_pages": [
+          48
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          48
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          48
+        ]
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          48
+        ]
+      },
+      {
+        "target": "S2.4",
+        "source_pages": [
+          48
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          48
+        ]
+      }
+    ],
+    "S2.4": [
+      {
+        "target": "S3.1",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "S2.1",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "S2.3",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "S1.1",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          49
+        ]
+      },
+      {
+        "target": "R2.1",
+        "source_pages": [
+          49
+        ]
+      }
+    ],
+    "S3.1": [
+      {
+        "target": "S1.2",
+        "source_pages": [
+          50
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          50,
+          51
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          50,
+          51
+        ]
+      },
+      {
+        "target": "tool-2",
+        "source_pages": [
+          50
+        ]
+      },
+      {
+        "target": "S2.1",
+        "source_pages": [
+          50
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          50
+        ]
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          51
+        ]
+      },
+      {
+        "target": "S2.3",
+        "source_pages": [
+          51
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          51
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          51
+        ]
+      }
+    ],
+    "S3.2": [
+      {
+        "target": "S2.2",
+        "source_pages": [
+          52,
+          53
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          52
+        ]
+      },
+      {
+        "target": "S2.4",
+        "source_pages": [
+          52
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          52
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          52
+        ]
+      },
+      {
+        "target": "tool-2",
+        "source_pages": [
+          52
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          53
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "R1.3",
+        "source_pages": [
+          53
+        ]
+      }
+    ],
+    "R1.1": [
+      {
+        "target": "S1.1",
+        "source_pages": [
+          54
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          54,
+          55
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          54
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          54
+        ]
+      },
+      {
+        "target": "inquiry-1",
+        "source_pages": [
+          54
+        ]
+      },
+      {
+        "target": "inquiry-3",
+        "source_pages": [
+          54,
+          55
+        ]
+      }
+    ],
+    "R1.2": [
+      {
+        "target": "S2.2",
+        "source_pages": [
+          55
+        ]
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          55
+        ]
+      },
+      {
+        "target": "S2.1",
+        "source_pages": [
+          55
+        ]
+      }
+    ],
+    "R1.3": [
+      {
+        "target": "R2.2",
+        "source_pages": [
+          56
+        ]
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          56,
+          57
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          56
+        ]
+      },
+      {
+        "target": "R2.1",
+        "source_pages": [
+          56
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          56
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          56
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          56
+        ]
+      }
+    ],
+    "R1.4": [
+      {
+        "target": "S1.1",
+        "source_pages": [
+          57
+        ]
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          57
+        ]
+      },
+      {
+        "target": "R2.3",
+        "source_pages": [
+          57
+        ]
+      }
+    ],
+    "R2.1": [
+      {
+        "target": "R3.2",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "S1.4",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "S1.5",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "inquiry-1",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "inquiry-3",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "S2.4",
+        "source_pages": [
+          58
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          58
+        ]
+      }
+    ],
+    "R2.2": [
+      {
+        "target": "tool-1",
+        "source_pages": [
+          59,
+          60
+        ]
+      },
+      {
+        "target": "tool-3",
+        "source_pages": [
+          59,
+          60
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          59,
+          60
+        ]
+      },
+      {
+        "target": "S1.1",
+        "source_pages": [
+          59
+        ]
+      },
+      {
+        "target": "inquiry-3",
+        "source_pages": [
+          59
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          59,
+          60
+        ]
+      },
+      {
+        "target": "R2.3",
+        "source_pages": [
+          59
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          59
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          60
+        ]
+      }
+    ],
+    "R2.3": [
+      {
+        "target": "R3.1",
+        "source_pages": [
+          61
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          61
+        ]
+      },
+      {
+        "target": "R1.4",
+        "source_pages": [
+          62
+        ]
+      }
+    ],
+    "R3.1": [
+      {
+        "target": "R3.4",
+        "source_pages": [
+          62
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          62
+        ]
+      },
+      {
+        "target": "S2.1",
+        "source_pages": [
+          62
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          62
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          62,
+          63,
+          64
+        ]
+      },
+      {
+        "target": "tool-2",
+        "source_pages": [
+          62
+        ]
+      },
+      {
+        "target": "tool-3",
+        "source_pages": [
+          62,
+          63
+        ]
+      },
+      {
+        "target": "R2.3",
+        "source_pages": [
+          62,
+          63,
+          64,
+          65
+        ]
+      },
+      {
+        "target": "R1.1",
+        "source_pages": [
+          63
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          63,
+          64
+        ]
+      },
+      {
+        "target": "S1.1",
+        "source_pages": [
+          63
+        ]
+      },
+      {
+        "target": "R3.2",
+        "source_pages": [
+          63,
+          64
+        ]
+      },
+      {
+        "target": "S1.4",
+        "source_pages": [
+          63
+        ]
+      },
+      {
+        "target": "S1.3",
+        "source_pages": [
+          63
+        ]
+      }
+    ],
+    "R3.2": [
+      {
+        "target": "S3.1",
+        "source_pages": [
+          65,
+          66
+        ]
+      },
+      {
+        "target": "S2.3",
+        "source_pages": [
+          65
+        ]
+      },
+      {
+        "target": "tool-1",
+        "source_pages": [
+          65,
+          67
+        ]
+      },
+      {
+        "target": "inquiry-2",
+        "source_pages": [
+          65
+        ]
+      },
+      {
+        "target": "R1.3",
+        "source_pages": [
+          66
+        ]
+      },
+      {
+        "target": "R2.3",
+        "source_pages": [
+          66
+        ]
+      },
+      {
+        "target": "S2.1",
+        "source_pages": [
+          66
+        ]
+      },
+      {
+        "target": "S3.2",
+        "source_pages": [
+          66
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          66
+        ],
+        "qualifier": "AHL"
+      },
+      {
+        "target": "R3.4",
+        "source_pages": [
+          67
+        ]
+      },
+      {
+        "target": "R1.4",
+        "source_pages": [
+          67
+        ]
+      }
+    ],
+    "R3.3": [
+      {
+        "target": "S2.1",
+        "source_pages": [
+          68
+        ]
+      },
+      {
+        "target": "R1.2",
+        "source_pages": [
+          68
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          68
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          68
+        ]
+      }
+    ],
+    "R3.4": [
+      {
+        "target": "R3.3",
+        "source_pages": [
+          69
+        ]
+      },
+      {
+        "target": "S2.4",
+        "source_pages": [
+          69
+        ]
+      },
+      {
+        "target": "R3.1",
+        "source_pages": [
+          69,
+          70
+        ]
+      },
+      {
+        "target": "S2.2",
+        "source_pages": [
+          69,
+          70
+        ]
+      },
+      {
+        "target": "R2.2",
+        "source_pages": [
+          70
+        ]
+      },
+      {
+        "target": "nature-of-science",
+        "source_pages": [
+          70
+        ]
+      },
+      {
+        "target": "S3.1",
+        "source_pages": [
+          70
+        ]
+      }
+    ]
+  },
+  "targets": {
+    "S1.1": {
+      "label": "S1.1 · Introduction to the particulate nature of matter",
+      "href": "s1-1.html"
+    },
+    "S1.2": {
+      "label": "S1.2 · The nuclear atom",
+      "href": "s1-2.html"
+    },
+    "S1.3": {
+      "label": "S1.3 · Electron configurations",
+      "href": "s1-3.html"
+    },
+    "S1.4": {
+      "label": "S1.4 · Counting principles by mass: The mole",
+      "href": "s1-4.html"
+    },
+    "S1.5": {
+      "label": "S1.5 · Ideal gases",
+      "href": "s1-5.html"
+    },
+    "S2.1": {
+      "label": "S2.1 · The ionic model",
+      "href": "s2-1.html"
+    },
+    "S2.2": {
+      "label": "S2.2 · The covalent model",
+      "href": "s2-2.html"
+    },
+    "S2.3": {
+      "label": "S2.3 · The metallic model",
+      "href": "s2-3.html"
+    },
+    "S2.4": {
+      "label": "S2.4 · From models to materials",
+      "href": "s2-4.html"
+    },
+    "S3.1": {
+      "label": "S3.1 · The periodic table: Classification of elements",
+      "href": "s3-1.html"
+    },
+    "S3.2": {
+      "label": "S3.2 · Functional groups: Classification of organic compounds",
+      "href": "s3-2.html"
+    },
+    "R1.1": {
+      "label": "R1.1 · Measuring enthalpy changes",
+      "href": "r1-1.html"
+    },
+    "R1.2": {
+      "label": "R1.2 · Energy cycles in reactions",
+      "href": "r1-2.html"
+    },
+    "R1.3": {
+      "label": "R1.3 · Energy from fuels",
+      "href": "r1-3.html"
+    },
+    "R1.4": {
+      "label": "R1.4 · Entropy and spontaneity",
+      "href": "r1-4.html"
+    },
+    "R2.1": {
+      "label": "R2.1 · How much? The amount of chemical change",
+      "href": "r2-1.html"
+    },
+    "R2.2": {
+      "label": "R2.2 · How fast? The rate of chemical change",
+      "href": "r2-2.html"
+    },
+    "R2.3": {
+      "label": "R2.3 · How far? The extent of chemical change",
+      "href": "r2-3.html"
+    },
+    "R3.1": {
+      "label": "R3.1 · Proton transfer reactions",
+      "href": "r3-1.html"
+    },
+    "R3.2": {
+      "label": "R3.2 · Electron transfer reactions",
+      "href": "r3-2.html"
+    },
+    "R3.3": {
+      "label": "R3.3 · Electron sharing reactions",
+      "href": "r3-3.html"
+    },
+    "R3.4": {
+      "label": "R3.4 · Electron-pair sharing reactions",
+      "href": "r3-4.html"
+    },
+    "S2": {
+      "label": "Structure 2 (all bonding sections)",
+      "href": "practice.html#S2"
+    },
+    "tool-1": {
+      "label": "Tool 1: experimental techniques",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=34",
+      "guide_only": true
+    },
+    "tool-2": {
+      "label": "Tool 2: technology",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=35",
+      "guide_only": true
+    },
+    "tool-3": {
+      "label": "Tool 3: mathematics",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=35",
+      "guide_only": true
+    },
+    "inquiry-1": {
+      "label": "Inquiry 1: exploring and designing",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=36",
+      "guide_only": true
+    },
+    "inquiry-2": {
+      "label": "Inquiry 2: collecting and processing data",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=37",
+      "guide_only": true
+    },
+    "inquiry-3": {
+      "label": "Inquiry 3: concluding and evaluating",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=37",
+      "guide_only": true
+    },
+    "nature-of-science": {
+      "label": "Nature of science",
+      "href": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf#page=12",
+      "guide_only": true
+    }
+  },
+  "note": "Includes references in additional higher-level content. AHL labels are retained where the guide specifies them."
+}

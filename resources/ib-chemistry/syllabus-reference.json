@@ -1,0 +1,163 @@
+{
+  "title": "Chemistry guide",
+  "edition": "First assessment 2025",
+  "official_url": "https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides/chemistry-guide.pdf",
+  "copy_url": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf",
+  "copy_host": "Anatolia College",
+  "sections": {
+    "S1.1": {
+      "label": "Structure 1.1",
+      "level": "SL and HL",
+      "summary": "Particles, mixtures and temperature.",
+      "pdf_page": 39,
+      "printed_page": 33
+    },
+    "S1.2": {
+      "label": "Structure 1.2",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Atomic composition and isotope evidence.",
+      "pdf_page": 40,
+      "printed_page": 34
+    },
+    "S1.3": {
+      "label": "Structure 1.3",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Electron arrangements and spectral evidence.",
+      "pdf_page": 40,
+      "printed_page": 34
+    },
+    "S1.4": {
+      "label": "Structure 1.4",
+      "level": "SL and HL",
+      "summary": "Converting mass, particles, amounts and concentrations.",
+      "pdf_page": 42,
+      "printed_page": 36
+    },
+    "S1.5": {
+      "label": "Structure 1.5",
+      "level": "SL and HL",
+      "summary": "Gas relationships and model limitations.",
+      "pdf_page": 43,
+      "printed_page": 37
+    },
+    "S2.1": {
+      "label": "Structure 2.1",
+      "level": "SL and HL",
+      "summary": "Ion formation, lattices and properties.",
+      "pdf_page": 44,
+      "printed_page": 38
+    },
+    "S2.2": {
+      "label": "Structure 2.2",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Bonding, molecular shapes and intermolecular attractions.",
+      "pdf_page": 45,
+      "printed_page": 39
+    },
+    "S2.3": {
+      "label": "Structure 2.3",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Delocalized electrons and metal properties.",
+      "pdf_page": 48,
+      "printed_page": 42
+    },
+    "S2.4": {
+      "label": "Structure 2.4",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Linking bonding to material properties.",
+      "pdf_page": 48,
+      "printed_page": 42
+    },
+    "S3.1": {
+      "label": "Structure 3.1",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Explaining patterns across chemical elements.",
+      "pdf_page": 50,
+      "printed_page": 44
+    },
+    "S3.2": {
+      "label": "Structure 3.2",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Organic families, naming and structural evidence.",
+      "pdf_page": 51,
+      "printed_page": 45
+    },
+    "R1.1": {
+      "label": "Reactivity 1.1",
+      "level": "SL and HL",
+      "summary": "Measuring energy transferred in reactions.",
+      "pdf_page": 54,
+      "printed_page": 48
+    },
+    "R1.2": {
+      "label": "Reactivity 1.2",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Calculating energy changes using cycles.",
+      "pdf_page": 55,
+      "printed_page": 49
+    },
+    "R1.3": {
+      "label": "Reactivity 1.3",
+      "level": "SL and HL",
+      "summary": "Comparing combustion and fuel options.",
+      "pdf_page": 56,
+      "printed_page": 50
+    },
+    "R1.4": {
+      "label": "Reactivity 1.4",
+      "level": "AHL only",
+      "summary": "Predicting feasibility using entropy and Gibbs energy.",
+      "pdf_page": 57,
+      "printed_page": 51
+    },
+    "R2.1": {
+      "label": "Reactivity 2.1",
+      "level": "SL and HL",
+      "summary": "Reactant quantities, yields and efficiency.",
+      "pdf_page": 58,
+      "printed_page": 52
+    },
+    "R2.2": {
+      "label": "Reactivity 2.2",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Explaining and measuring reaction speed.",
+      "pdf_page": 58,
+      "printed_page": 52
+    },
+    "R2.3": {
+      "label": "Reactivity 2.3",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Predicting equilibrium composition and shifts.",
+      "pdf_page": 61,
+      "printed_page": 55
+    },
+    "R3.1": {
+      "label": "Reactivity 3.1",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Acid–base behaviour and proton exchange.",
+      "pdf_page": 62,
+      "printed_page": 56
+    },
+    "R3.2": {
+      "label": "Reactivity 3.2",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Oxidation, reduction and electrochemical cells.",
+      "pdf_page": 65,
+      "printed_page": 59
+    },
+    "R3.3": {
+      "label": "Reactivity 3.3",
+      "level": "SL and HL",
+      "summary": "Radicals and homolytic bond breaking.",
+      "pdf_page": 67,
+      "printed_page": 61
+    },
+    "R3.4": {
+      "label": "Reactivity 3.4",
+      "level": "SL and HL; additional HL content in guide",
+      "summary": "Donors, acceptors and reaction mechanisms.",
+      "pdf_page": 68,
+      "printed_page": 62
+    }
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "title": "Mathematics AI formula booklet",
+  "filename": "formula-booklet.html",
+  "hub": "math-practice.html",
+  "stylesheet": "math-practice.css",
+  "edition": "First examinations 2021 · version 1.1",
+  "url": "https://www.ibmathematics.org/wp-content/uploads/2022/09/AI-formula-booklet.pdf",
+  "host": "IB Mathematics (ibmathematics.org)",
+  "page_offset": 1,
+  "scope": "SL entries and shared prior learning. The full PDF also contains clearly marked HL material; this navigator selects the SL entries.",
+  "entries": [
+    {
+      "id": "measurement",
+      "title": "Areas and volumes",
+      "pdf_page": 3,
+      "section": "Prior learning: SL/HL",
+      "note": "Keep length units consistent.",
+      "formula": "A(circle) = πr²; V(cylinder) = πr²h"
+    },
+    {
+      "id": "coordinates",
+      "title": "Coordinate geometry",
+      "pdf_page": 3,
+      "section": "Prior learning: SL/HL",
+      "note": "Average coordinates for midpoints.",
+      "formula": "d = √((x₂ − x₁)² + (y₂ − y₁)²)"
+    },
+    {
+      "id": "arithmetic",
+      "title": "Arithmetic patterns",
+      "pdf_page": 4,
+      "section": "SL 1.2",
+      "note": "Here d is the step between terms and n counts terms. Use uₙ for one term and Sₙ for a total.",
+      "formula": "uₙ = u₁ + (n − 1)d; Sₙ = n(u₁ + uₙ)/2"
+    },
+    {
+      "id": "geometric",
+      "title": "Geometric patterns",
+      "pdf_page": 4,
+      "section": "SL 1.3",
+      "note": "Here r multiplies each term to give the next. If r = 1, the total is simply n times the first term.",
+      "formula": "uₙ = u₁rⁿ⁻¹; Sₙ = u₁(1 − rⁿ)/(1 − r)"
+    },
+    {
+      "id": "finance",
+      "title": "Compounding",
+      "pdf_page": 4,
+      "section": "SL 1.4",
+      "note": "PV is the starting amount; r is the annual percentage rate, k the periods per year and n the years. This formula is for a lump sum; regular deposits or repayments need a cash-flow method or financial solver.",
+      "formula": "FV = PV(1 + r/(100k))ᵏⁿ"
+    },
+    {
+      "id": "logs",
+      "title": "Powers and logarithms",
+      "pdf_page": 4,
+      "section": "SL 1.5",
+      "note": "The base a must be positive and different from 1; b must be positive.",
+      "formula": "aˣ = b ⇔ x = logₐ(b)"
+    },
+    {
+      "id": "error",
+      "title": "Percentage error",
+      "pdf_page": 4,
+      "section": "SL 1.6",
+      "note": "Divide by the exact value.",
+      "formula": "ε = |(approximate − exact)/exact| × 100%"
+    },
+    {
+      "id": "lines",
+      "title": "Straight lines",
+      "pdf_page": 6,
+      "section": "SL 2.1",
+      "note": "Vertical lines need separate treatment.",
+      "formula": "m = (y₂ − y₁)/(x₂ − x₁); y − y₁ = m(x − x₁)"
+    },
+    {
+      "id": "quadratic",
+      "title": "Quadratic symmetry",
+      "pdf_page": 6,
+      "section": "SL 2.5",
+      "note": "Identify a and b first.",
+      "formula": "x = −b/(2a)"
+    },
+    {
+      "id": "solids",
+      "title": "Three-dimensional geometry",
+      "pdf_page": 7,
+      "section": "SL 3.1",
+      "note": "Distinguish height from slant length.",
+      "formula": "V(cone) = πr²h/3; V(sphere) = 4πr³/3"
+    },
+    {
+      "id": "triangles",
+      "title": "Triangle relationships",
+      "pdf_page": 7,
+      "section": "SL 3.2",
+      "note": "Match each side with its opposite angle. Check your calculator is in degrees for these SL tasks.",
+      "formula": "a/sin A = b/sin B; c² = a² + b² − 2ab cos C"
+    },
+    {
+      "id": "circles",
+      "title": "Arcs and sectors",
+      "pdf_page": 7,
+      "section": "SL 3.4",
+      "note": "Use degrees for these formulas.",
+      "formula": "arc = (θ/360)2πr; sector area = (θ/360)πr²"
+    },
+    {
+      "id": "summary",
+      "title": "Summarizing data",
+      "pdf_page": 10,
+      "section": "SL 4.2–4.3",
+      "note": "Use frequencies as weights.",
+      "formula": "IQR = Q₃ − Q₁; mean = Σ(fx)/Σf"
+    },
+    {
+      "id": "probability",
+      "title": "Event relationships",
+      "pdf_page": 10,
+      "section": "SL 4.5–4.6",
+      "note": "Check independence before multiplying.",
+      "formula": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B); P(A|B) = P(A ∩ B)/P(B)"
+    },
+    {
+      "id": "expectation",
+      "title": "Discrete distributions",
+      "pdf_page": 10,
+      "section": "SL 4.7–4.8",
+      "note": "For the binomial model, n counts trials and p is success probability. Trials must be independent with the same p.",
+      "formula": "E(X) = ΣxP(X = x); binomial mean = np, variance = np(1 − p)"
+    },
+    {
+      "id": "derivative",
+      "title": "Power derivatives",
+      "pdf_page": 12,
+      "section": "SL 5.3",
+      "note": "Differentiate each term.",
+      "formula": "d(xⁿ)/dx = nxⁿ⁻¹"
+    },
+    {
+      "id": "integral",
+      "title": "Antiderivatives and area",
+      "pdf_page": 12,
+      "section": "SL 5.5",
+      "note": "Increase the power and divide by the new power; this rule excludes n = −1. Use a boundary condition to find C, or evaluate between limits for a definite integral.",
+      "formula": "∫xⁿ dx = xⁿ⁺¹/(n + 1) + C, n ≠ −1"
+    },
+    {
+      "id": "trapezoids",
+      "title": "Area estimates",
+      "pdf_page": 12,
+      "section": "SL 5.8",
+      "note": "Use equally spaced strips.",
+      "formula": "area ≈ h[y₀ + 2(y₁ + … + yₙ₋₁) + yₙ]/2"
+    }
+  ],
+  "sections": {
+    "1.1": [],
+    "1.2": [
+      "arithmetic"
+    ],
+    "1.3": [
+      "geometric"
+    ],
+    "1.4": [
+      "finance"
+    ],
+    "1.5": [
+      "logs"
+    ],
+    "1.6": [
+      "error"
+    ],
+    "1.7": [
+      "finance",
+      "geometric"
+    ],
+    "1.8": [],
+    "2.1": [
+      "lines"
+    ],
+    "2.2": [],
+    "2.3": [],
+    "2.4": [],
+    "2.5": [
+      "quadratic",
+      "lines",
+      "finance"
+    ],
+    "2.6": [
+      "lines",
+      "quadratic"
+    ],
+    "3.1": [
+      "measurement",
+      "coordinates",
+      "solids"
+    ],
+    "3.2": [
+      "triangles"
+    ],
+    "3.3": [
+      "triangles"
+    ],
+    "3.4": [
+      "circles"
+    ],
+    "3.5": [
+      "coordinates",
+      "lines"
+    ],
+    "3.6": [
+      "coordinates",
+      "lines"
+    ],
+    "4.1": [],
+    "4.2": [
+      "summary"
+    ],
+    "4.3": [
+      "summary"
+    ],
+    "4.4": [],
+    "4.5": [
+      "probability"
+    ],
+    "4.6": [
+      "probability"
+    ],
+    "4.7": [
+      "expectation"
+    ],
+    "4.8": [
+      "expectation"
+    ],
+    "4.9": [],
+    "4.10": [],
+    "4.11": [],
+    "5.1": [
+      "derivative"
+    ],
+    "5.2": [
+      "derivative"
+    ],
+    "5.3": [
+      "derivative"
+    ],
+    "5.4": [
+      "derivative",
+      "lines"
+    ],
+    "5.5": [
+      "integral"
+    ],
+    "5.6": [
+      "derivative"
+    ],
+    "5.7": [
+      "derivative",
+      "measurement"
+    ],
+    "5.8": [
+      "trapezoids"
+    ]
+  },
+  "prior": {
+    "coordinates": [
+      "coordinates"
+    ],
+    "area": [
+      "measurement"
+    ]
+  }
+}

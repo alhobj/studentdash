@@ -56,6 +56,8 @@ class ChallengeBrowserTests(unittest.TestCase):
                     self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'),file.name)
                 self.assertEqual(self.page.evaluate('''() => { const ids=[...document.querySelectorAll('[id]')].map(e=>e.id); return ids.length-new Set(ids).size; }'''),0)
                 for href in self.page.locator('a[href]').evaluate_all('(a)=>a.map(e=>e.getAttribute("href"))'):
+                    if href.startswith('https://'):
+                        continue  # External guide references are not local practice files.
                     name,_,anchor=href.partition('#')
                     target=root/(name or file.name)
                     self.assertTrue(target.exists(),href)

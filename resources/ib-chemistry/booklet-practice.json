@@ -1,0 +1,440 @@
+[
+  {
+    "id": "concentration",
+    "title": "Convert volume before calculating",
+    "codes": [
+      "S1.4"
+    ],
+    "reference": "amount",
+    "choices": [
+      {
+        "id": "amount",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "gas",
+        "feedback": "This is a solution concentration, not a gas pressure–volume calculation."
+      },
+      {
+        "id": "heat",
+        "feedback": "There is no heating calculation here. Look for the mole–concentration relationship."
+      }
+    ],
+    "unit": "mol dm⁻³",
+    "units": [
+      {
+        "label": "mol dm⁻³",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "mol",
+        "feedback": "The amount is given; divide by the solution volume to get concentration."
+      },
+      {
+        "label": "mol cm⁻³",
+        "feedback": "The question requests mol dm⁻³. Convert the volume to dm³ first."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "0.1 mol of solute is made up to 250 cm³ of solution. Find its concentration in mol dm⁻³.",
+        "answer": 0.4,
+        "hint": "Volume = 250/1000 = 0.25 dm³. Rearrange n = cV to c = n/V.",
+        "cue": "Convert the volume, then divide amount by volume.",
+        "working": "c = 0.1/(250/1000) = 0.4 mol dm⁻³.",
+        "mistakes": [
+          {
+            "value": 0.0004,
+            "feedback": "You may have divided by cm³. Divide the volume by 1000 before using mol dm⁻³."
+          },
+          {
+            "value": 0.025,
+            "feedback": "You multiplied amount by volume. Rearrange n = cV to make c the subject."
+          }
+        ]
+      },
+      {
+        "prompt": "0.2 mol of solute is made up to 500 cm³ of solution. Find its concentration in mol dm⁻³.",
+        "answer": 0.4,
+        "hint": "Volume = 500/1000 = 0.5 dm³. Rearrange n = cV to c = n/V.",
+        "cue": "Convert the volume, then divide amount by volume.",
+        "working": "c = 0.2/(500/1000) = 0.4 mol dm⁻³.",
+        "mistakes": [
+          {
+            "value": 0.0004,
+            "feedback": "You may have divided by cm³. Divide the volume by 1000 before using mol dm⁻³."
+          },
+          {
+            "value": 0.1,
+            "feedback": "You multiplied amount by volume. Rearrange n = cV to make c the subject."
+          }
+        ]
+      },
+      {
+        "prompt": "0.15 mol of solute is made up to 300 cm³ of solution. Find its concentration in mol dm⁻³.",
+        "answer": 0.5,
+        "hint": "Volume = 300/1000 = 0.3 dm³. Rearrange n = cV to c = n/V.",
+        "cue": "Convert the volume, then divide amount by volume.",
+        "working": "c = 0.15/(300/1000) = 0.5 mol dm⁻³.",
+        "mistakes": [
+          {
+            "value": 0.0005,
+            "feedback": "You may have divided by cm³. Divide the volume by 1000 before using mol dm⁻³."
+          },
+          {
+            "value": 0.045,
+            "feedback": "You multiplied amount by volume. Rearrange n = cV to make c the subject."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gas-volume",
+    "title": "Match gas-law units",
+    "codes": [
+      "S1.5"
+    ],
+    "reference": "gas",
+    "choices": [
+      {
+        "id": "gas",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "amount",
+        "feedback": "Molar mass or solution concentration is not enough to relate pressure, temperature and volume."
+      },
+      {
+        "id": "conditions",
+        "feedback": "This entry helps with units, but the relationship to solve is in the gas-calculation entry."
+      }
+    ],
+    "unit": "dm³",
+    "units": [
+      {
+        "label": "dm³",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "m³",
+        "feedback": "With the supplied kPa pressure and R = 8.31, calculate the requested volume in dm³."
+      },
+      {
+        "label": "cm³",
+        "feedback": "The requested volume is in dm³, not cm³."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "1 mol of ideal gas is at 300 K and 100 kPa. Use R = 8.31 kPa dm³ mol⁻¹ K⁻¹. Find V in dm³.",
+        "answer": 24.93,
+        "hint": "Rearrange PV = nRT: V = nRT/P = 1 × 8.31 × 300/100.",
+        "cue": "Divide nRT by pressure; match the units of R.",
+        "working": "V = 1 × 8.31 × 300/100 = 24.93 dm³.",
+        "mistakes": [
+          {
+            "value": 0.02493,
+            "feedback": "That result is in m³. The requested unit and the supplied R use dm³."
+          },
+          {
+            "value": 2.231235000000002,
+            "feedback": "This resembles using Celsius. The gas law requires the given kelvin temperature."
+          }
+        ]
+      },
+      {
+        "prompt": "2 mol of ideal gas is at 300 K and 100 kPa. Use R = 8.31 kPa dm³ mol⁻¹ K⁻¹. Find V in dm³.",
+        "answer": 49.86,
+        "hint": "Rearrange PV = nRT: V = nRT/P = 2 × 8.31 × 300/100.",
+        "cue": "Divide nRT by pressure; match the units of R.",
+        "working": "V = 2 × 8.31 × 300/100 = 49.86 dm³.",
+        "mistakes": [
+          {
+            "value": 0.04986,
+            "feedback": "That result is in m³. The requested unit and the supplied R use dm³."
+          },
+          {
+            "value": 4.462470000000004,
+            "feedback": "This resembles using Celsius. The gas law requires the given kelvin temperature."
+          }
+        ]
+      },
+      {
+        "prompt": "1 mol of ideal gas is at 400 K and 200 kPa. Use R = 8.31 kPa dm³ mol⁻¹ K⁻¹. Find V in dm³.",
+        "answer": 16.62,
+        "hint": "Rearrange PV = nRT: V = nRT/P = 1 × 8.31 × 400/200.",
+        "cue": "Divide nRT by pressure; match the units of R.",
+        "working": "V = 1 × 8.31 × 400/200 = 16.62 dm³.",
+        "mistakes": [
+          {
+            "value": 0.01662,
+            "feedback": "That result is in m³. The requested unit and the supplied R use dm³."
+          },
+          {
+            "value": 5.270617500000001,
+            "feedback": "This resembles using Celsius. The gas law requires the given kelvin temperature."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reaction-heat",
+    "title": "Track the direction of heat transfer",
+    "codes": [
+      "R1.1"
+    ],
+    "reference": "heat",
+    "choices": [
+      {
+        "id": "heat",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "bonds",
+        "feedback": "This question supplies a temperature change, not a list of bonds."
+      },
+      {
+        "id": "combustion",
+        "feedback": "Use the measured temperature change, rather than a tabulated combustion value."
+      }
+    ],
+    "unit": "kJ",
+    "units": [
+      {
+        "label": "kJ",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "J",
+        "feedback": "Calculate in J if helpful, then divide by 1000 for the requested kJ."
+      },
+      {
+        "label": "kJ mol⁻¹",
+        "feedback": "No reacting amount is supplied. The question asks for total heat, not molar enthalpy."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "In an insulated setup, 100 g of solution warms by 5 K. Use c = 4.18 J g⁻¹ K⁻¹ and ignore apparatus heat capacity. Find the reaction heat in kJ (include its sign).",
+        "answer": -2.09,
+        "hint": "The solution gains 100 × 4.18 × 5 J. The reaction loses the same heat; convert J to kJ.",
+        "cue": "Reaction heat is opposite in sign to solution heat.",
+        "working": "Qreaction = −100 × 4.18 × 5/1000 = -2.09 kJ.",
+        "mistakes": [
+          {
+            "value": 2.09,
+            "feedback": "That positive heat belongs to the warming solution. The reaction loses heat and has a negative sign."
+          },
+          {
+            "value": -2090.0,
+            "feedback": "The sign fits, but this value is in J. Convert to kJ."
+          }
+        ]
+      },
+      {
+        "prompt": "In an insulated setup, 200 g of solution warms by 4 K. Use c = 4.18 J g⁻¹ K⁻¹ and ignore apparatus heat capacity. Find the reaction heat in kJ (include its sign).",
+        "answer": -3.344,
+        "hint": "The solution gains 200 × 4.18 × 4 J. The reaction loses the same heat; convert J to kJ.",
+        "cue": "Reaction heat is opposite in sign to solution heat.",
+        "working": "Qreaction = −200 × 4.18 × 4/1000 = -3.344 kJ.",
+        "mistakes": [
+          {
+            "value": 3.344,
+            "feedback": "That positive heat belongs to the warming solution. The reaction loses heat and has a negative sign."
+          },
+          {
+            "value": -3344.0,
+            "feedback": "The sign fits, but this value is in J. Convert to kJ."
+          }
+        ]
+      },
+      {
+        "prompt": "In an insulated setup, 150 g of solution warms by 6 K. Use c = 4.18 J g⁻¹ K⁻¹ and ignore apparatus heat capacity. Find the reaction heat in kJ (include its sign).",
+        "answer": -3.762,
+        "hint": "The solution gains 150 × 4.18 × 6 J. The reaction loses the same heat; convert J to kJ.",
+        "cue": "Reaction heat is opposite in sign to solution heat.",
+        "working": "Qreaction = −150 × 4.18 × 6/1000 = -3.762 kJ.",
+        "mistakes": [
+          {
+            "value": 3.762,
+            "feedback": "That positive heat belongs to the warming solution. The reaction loses heat and has a negative sign."
+          },
+          {
+            "value": -3762.0,
+            "feedback": "The sign fits, but this value is in J. Convert to kJ."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bond-energy",
+    "title": "Choose the bond-energy operation",
+    "codes": [
+      "R1.2"
+    ],
+    "reference": "bonds",
+    "choices": [
+      {
+        "id": "bonds",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "lengths",
+        "feedback": "Bond length is a distance. You need energy required to break bonds."
+      },
+      {
+        "id": "lattice",
+        "feedback": "Lattice data describe separating an ionic solid, not the supplied molecular bonds."
+      }
+    ],
+    "unit": "kJ mol⁻¹",
+    "units": [
+      {
+        "label": "kJ mol⁻¹",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "pm",
+        "feedback": "That measures bond length, not reaction energy."
+      },
+      {
+        "label": "J mol⁻¹",
+        "feedback": "The supplied values and requested answer are in kJ mol⁻¹."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "For a reaction as written, total bond-breaking energy is 800 kJ mol⁻¹ and total bond-forming energy released is 1000 kJ mol⁻¹. Estimate ΔH.",
+        "answer": -200,
+        "hint": "Use bonds broken minus bonds formed: 800 − 1000.",
+        "cue": "Breaking absorbs energy; forming releases it.",
+        "working": "ΔH ≈ 800 − 1000 = -200 kJ mol⁻¹.",
+        "mistakes": [
+          {
+            "value": 200,
+            "feedback": "You may have reversed the subtraction. Use energy absorbed minus energy released."
+          },
+          {
+            "value": 1800,
+            "feedback": "Do not add both as positive. Bond formation releases energy."
+          }
+        ]
+      },
+      {
+        "prompt": "For a reaction as written, total bond-breaking energy is 900 kJ mol⁻¹ and total bond-forming energy released is 1200 kJ mol⁻¹. Estimate ΔH.",
+        "answer": -300,
+        "hint": "Use bonds broken minus bonds formed: 900 − 1200.",
+        "cue": "Breaking absorbs energy; forming releases it.",
+        "working": "ΔH ≈ 900 − 1200 = -300 kJ mol⁻¹.",
+        "mistakes": [
+          {
+            "value": 300,
+            "feedback": "You may have reversed the subtraction. Use energy absorbed minus energy released."
+          },
+          {
+            "value": 2100,
+            "feedback": "Do not add both as positive. Bond formation releases energy."
+          }
+        ]
+      },
+      {
+        "prompt": "For a reaction as written, total bond-breaking energy is 700 kJ mol⁻¹ and total bond-forming energy released is 950 kJ mol⁻¹. Estimate ΔH.",
+        "answer": -250,
+        "hint": "Use bonds broken minus bonds formed: 700 − 950.",
+        "cue": "Breaking absorbs energy; forming releases it.",
+        "working": "ΔH ≈ 700 − 950 = -250 kJ mol⁻¹.",
+        "mistakes": [
+          {
+            "value": 250,
+            "feedback": "You may have reversed the subtraction. Use energy absorbed minus energy released."
+          },
+          {
+            "value": 1650,
+            "feedback": "Do not add both as positive. Bond formation releases energy."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "atomic-data",
+    "title": "Use masses from a table",
+    "codes": [
+      "S1.4"
+    ],
+    "reference": "periodic",
+    "choices": [
+      {
+        "id": "periodic",
+        "feedback": "This entry fits the quantities in the question."
+      },
+      {
+        "id": "elements",
+        "feedback": "The symbol list identifies elements; the periodic-table entry supplies relative atomic masses."
+      },
+      {
+        "id": "constants",
+        "feedback": "Universal constants are not element-specific atomic masses."
+      }
+    ],
+    "unit": "g mol⁻¹",
+    "units": [
+      {
+        "label": "g mol⁻¹",
+        "feedback": "Use the requested unit."
+      },
+      {
+        "label": "g",
+        "feedback": "Molar mass means mass per mole, not the mass of a particular sample."
+      },
+      {
+        "label": "mol",
+        "feedback": "Moles measure amount, not molar mass."
+      }
+    ],
+    "questions": [
+      {
+        "prompt": "Find the molar mass of H₂O. For this exercise use rounded table values H = 1.0, C = 12.0 and O = 16.0.",
+        "answer": 18,
+        "hint": "Find each element’s mass, multiply by its subscript and add the contributions.",
+        "cue": "A missing subscript means one atom.",
+        "working": "M = 2 × 1.0 + 0 × 12.0 + 1 × 16.0 = 18 g mol⁻¹.",
+        "mistakes": [
+          {
+            "value": 17,
+            "feedback": "This uses each element once. Multiply its mass by the subscript in the formula."
+          }
+        ]
+      },
+      {
+        "prompt": "Find the molar mass of CO₂. For this exercise use rounded table values H = 1.0, C = 12.0 and O = 16.0.",
+        "answer": 44,
+        "hint": "Find each element’s mass, multiply by its subscript and add the contributions.",
+        "cue": "A missing subscript means one atom.",
+        "working": "M = 0 × 1.0 + 1 × 12.0 + 2 × 16.0 = 44 g mol⁻¹.",
+        "mistakes": [
+          {
+            "value": 28,
+            "feedback": "This uses each element once. Multiply its mass by the subscript in the formula."
+          }
+        ]
+      },
+      {
+        "prompt": "Find the molar mass of CH₄. For this exercise use rounded table values H = 1.0, C = 12.0 and O = 16.0.",
+        "answer": 16,
+        "hint": "Find each element’s mass, multiply by its subscript and add the contributions.",
+        "cue": "A missing subscript means one atom.",
+        "working": "M = 4 × 1.0 + 1 × 12.0 + 0 × 16.0 = 16 g mol⁻¹.",
+        "mistakes": [
+          {
+            "value": 13,
+            "feedback": "This uses each element once. Multiply its mass by the subscript in the formula."
+          }
+        ]
+      }
+    ]
+  }
+]
