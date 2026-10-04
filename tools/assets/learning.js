@@ -69,8 +69,12 @@
   const helped = new WeakMap();
   function hostFor(form) { return form.closest('[data-similar]') || form; }
   function questionFor(form) { const anchor=form.closest('[data-foundation]')?.id; return catalog.questions.find(q=>q.prompt===form.querySelector('label')?.textContent && (!anchor || q.path.endsWith('#'+anchor))); }
+  function showSkills(q,host){
+    let bar=host.querySelector('.question-skills');if(bar)bar.remove();if(!q?.skills?.length)return;
+    bar=el('p','Skills: ');bar.className='question-skills';q.skills.forEach((id,i)=>{if(i)bar.append(document.createTextNode(' · '));const a=el('a',catalog.skill_labels?.[id]||id,bar);a.href='skills.html#'+encodeURIComponent(id);});host.prepend(bar);
+  }
   function restoreForm(form) {
-    const q=questionFor(form), input=form.querySelector('input'), d=q && state.drafts[q.id];
+    const q=questionFor(form);showSkills(q,form);const input=form.querySelector('input'), d=q && state.drafts[q.id];
     if(input && d) {input.value=d.answer; if(d.assisted) helped.set(hostFor(form),q.id);}
   }
   window.StudentPractice = {
@@ -123,6 +127,9 @@
     const sessions=el('div',undefined,root);sessions.className='learning-actions';
     const focusTopic=new URLSearchParams(location.hash.slice(1)).get('topic');
     if(focusTopic && catalog.questions.some(q=>q.topic===focusTopic)) button(sessions,'Practise recommended topic',()=>start(catalog.questions.filter(q=>q.topic===focusTopic).sort((a,b)=>Number(status(a.id)==='Correct independently')-Number(status(b.id)==='Correct independently')).slice(0,6)));
+    const topicSelect=el('select',undefined,sessions);topicSelect.setAttribute('aria-label','Topic for five-question set');
+    [...new Set(catalog.questions.filter(q=>q.options).map(q=>q.topic))].forEach(topic=>{const o=el('option',topic,topicSelect);o.value=topic;});
+    button(sessions,'Start five-question set',()=>{fiveOffered.clear();startFive(topicSelect.value);});
     button(sessions,'Resume saved session',()=>start((state.sessions[catalog.profile] || []).map(id=>index.get(id)).filter(Boolean)));
     button(sessions,'Practise my mistakes',()=>start(catalog.questions.filter(q=>latest(q.id) && status(q.id)!=='Correct independently').slice(0,6)));
     button(sessions,'Start mixed revision (up to 6)',()=>{
@@ -179,9 +186,11 @@
   }
   function validateAssignment(a){if(!a || a.schema!==1 || a.type!=='studentdash-assignment' || !validKey(a.id) || a.profile!==catalog.profile || typeof a.title!=='string' || a.title.length>160 || typeof a.instructions!=='string' || a.instructions.length>4000 || !Array.isArray(a.questions) || !a.questions.length || a.questions.length>1000 || new Set(a.questions).size!==a.questions.length || a.questions.some(id=>!index.has(id)))throw Error('This assignment is invalid or belongs to a different practice collection/version.');return a;}
   function renderAssignment(){const host=document.querySelector('#assigned');host.replaceChildren();el('h3',assignment.title,host);el('p',assignment.instructions,host);el('p',`${assignment.questions.length} questions. Completion reports are self-reported and may be edited; they do not change assessment marks.`,host);button(host,'Start assignment',()=>start(assignment.questions.map(id=>index.get(id))));button(host,'Export completion report',()=>download('practice-completion.json',{schema:1,type:'studentdash-completion',assignment:assignment.id,title:assignment.title,exported:new Date().toISOString(),selfReported:true,questions:assignment.questions.map(id=>({id,prompt:index.get(id).prompt,status:status(id),attempts:state.attempts.filter(a=>a.question===id)}))}));}
-  function start(questions){queue=[...questions];showQuestion();}
-  function showQuestion(){state.sessions[catalog.profile]=queue.map(q=>q.id);save();const host=document.querySelector('#learning-session');host.replaceChildren();if(!queue.length){el('p','No questions waiting. Choose another session or review your progress.',host);return;}
-    const q=queue[0];host.className='learning-card learning-question';el('h2',q.topic+' · '+q.title,host);el('p',`${queue.length} question(s) left in this session`,host);
+  let fiveTopic=null, fiveOffered=new Set();
+  function startFive(topic){fiveTopic=topic;const candidates=catalog.questions.filter(q=>q.options&&q.topic===topic&&!latest(q.id)&&!fiveOffered.has(q.id));const batch=candidates.slice(0,5);batch.forEach(q=>fiveOffered.add(q.id));start(batch,topic);if(!batch.length){const host=document.querySelector('#learning-session');host.replaceChildren();el('p','No new questions remain in this section. Choose another section or practise your mistakes.',host);}}
+  function start(questions,topic=null){fiveTopic=topic;queue=[...questions];showQuestion();}
+  function showQuestion(){state.sessions[catalog.profile]=queue.map(q=>q.id);save();const host=document.querySelector('#learning-session');host.replaceChildren();if(!queue.length){el('p','No questions waiting. Choose another session or review your progress.',host);if(fiveTopic)button(host,'Five more like these',()=>startFive(fiveTopic));return;}
+    const q=queue[0];showSkills(q,host);host.className='learning-card learning-question';el('h2',q.topic+' · '+q.title,host);el('p',`${queue.length} question(s) left in this session`,host);
     const form=el('form',undefined,host), label=el('label',q.prompt,form), input=el('input',undefined,label);input.type='text';input.maxLength=500;input.autocomplete='off';
     const draft=state.drafts[q.id];input.value=draft?.answer || '';let assisted=Boolean(draft?.assisted);
     const submit=el('button','Check answer',form);submit.type='submit';const feedback=el('p','',form);feedback.setAttribute('role','status');
@@ -196,8 +205,9 @@
     for(const [title,text] of [['Hint',q.hint],['Worked answer',q.working]]){const d=el('details',undefined,host);el('summary',title,d);el('p',text,d);d.addEventListener('toggle',()=>{if(d.open){assisted=true;persist();}});}
     function persist(){state.drafts[q.id]={answer:input.value,assisted};save();}
     input.addEventListener('input',persist);
-    form.addEventListener('submit',e=>{e.preventDefault();assisted ||= [...host.querySelectorAll('details')].some(d=>d.open);const result=check(q,input.value);feedback.textContent=q.options ? (result.correct?'Correct. '+q.working:'Not correct. Try another option or open the worked answer.') : result.message;input.setAttribute('aria-invalid',String(!result.correct));if(!result.valid)return;try{record(q,input.value,result.correct,assisted);}catch(error){feedback.textContent=error.message;return;}if(!result.correct || q.options)assisted=true;persist();current.textContent='Recorded: '+status(q.id);});
+    form.addEventListener('submit',e=>{e.preventDefault();assisted ||= [...host.querySelectorAll('details')].some(d=>d.open);const result=check(q,input.value);feedback.textContent=q.options ? (result.correct?'Correct. '+q.working:'Not correct. '+(q.feedback?.[input.value] || 'Try another option or open the worked answer.')) : result.message;input.setAttribute('aria-invalid',String(!result.correct));if(!result.valid)return;try{record(q,input.value,result.correct,assisted);}catch(error){feedback.textContent=error.message;return;}if(!result.correct || q.options)assisted=true;persist();current.textContent='Recorded: '+status(q.id);});
     button(host,'Retry independently with a blank answer',()=>{delete state.drafts[q.id];save();showQuestion();});
+    if(fiveTopic)button(host,'Five more like these',()=>startFive(fiveTopic));
     button(host,'Next question',()=>{queue.shift();showQuestion();});
     button(host,'Try another using the same method',()=>{const next=catalog.questions.find(n=>n.id!==q.id&&n.topic===q.topic&&n.kind===q.kind&&!latest(n.id));if(next){queue.unshift(next);showQuestion();}else feedback.textContent='No unattempted question of this type remains. Use mixed revision or retry later.';});
     button(host,'Finish session and refresh progress',()=>{queue=[];state.sessions[catalog.profile]=[];save();renderWorkspace();});
@@ -207,6 +217,7 @@
     if(document.querySelector('#learning-workspace')){renderWorkspace();return;}
     const bar=el('aside');bar.className='learning-bar';bar.setAttribute('aria-label','Saved practice');const link=el('a','My practice: resume, mistakes & assignments',bar);link.href='my-practice.html';document.body.prepend(bar);
     const p=el('span','',bar);p.dataset.storageMessage='';save();
+    document.querySelectorAll('.challenge').forEach(host=>{if(host.querySelector('input[type=number]'))showSkills({skills:catalog.numeric_skills},host);});
     document.querySelectorAll('.foundation-step,.similar-form').forEach(form=>{
       restoreForm(form);const host=hostFor(form);
       host.addEventListener('toggle',event=>{if(event.target.open){const q=questionFor(form);if(q){helped.set(host,q.id);state.drafts[q.id]={answer:form.querySelector('input').value,assisted:true};save();}}},true);

@@ -2,6 +2,7 @@
 import json
 import math
 from html import escape
+from practice_skills import numeric_skills
 from practice_syllabus import render_syllabus
 from practice_booklets import render_booklet_help
 
@@ -51,7 +52,7 @@ def build_challenges(root, groups, topics, hub, stylesheet):
             for number, part in enumerate(c['parts'], 1):
                 field = f'{key}-part-{number}'
                 body += (f'<form class="challenge-part" data-answer="{part["answer"]}" novalidate>'
-                         f'<h3>Part {number}</h3><label for="{field}">{escape(part["prompt"])}</label>'
+                         f'<h3>Part {number}</h3>{numeric_skills(root)}<label for="{field}">{escape(part["prompt"])}</label>'
                          f'<input type="number" step="any" id="{field}" aria-describedby="{field}-feedback">'
                          '<button type="submit">Check numerical answer</button>'
                          f'<p id="{field}-feedback" class="feedback" role="status"></p>'

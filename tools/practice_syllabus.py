@@ -2,6 +2,7 @@
 import json
 from html import escape
 from practice_booklets import booklet_link
+from practice_skills import load_skills
 
 
 def render_cross_references(data, references, code, expanded=False):
@@ -38,6 +39,12 @@ def render_cross_references(data, references, code, expanded=False):
 def render_syllabus(root, codes):
     data = json.loads((root / 'syllabus-reference.json').read_text(encoding='utf-8'))
     references = json.loads((root / 'syllabus-cross-references.json').read_text(encoding='utf-8'))
+    skills=load_skills(str(root))
+    if skills:
+        for key in skills.get("cross_reference_groups", {}):
+            if key in references["targets"]:
+                references["targets"][key]["href"]="skills-practice.html#group-"+key
+                references["targets"][key]["guide_only"]=False
     codes = list(codes)
     items = []
     for code in codes:

@@ -26,6 +26,9 @@ class ExpandedMcqContentTests(unittest.TestCase):
                 self.assertEqual(len(set(q['options'])), 4)
                 self.assertIn(q['answer'][0], 'ABCD')
                 self.assertTrue(q['working'])
+                self.assertEqual(set(q['feedback']),set('ABCD'))
+                self.assertTrue(all(q['feedback'].values()))
+                self.assertEqual(len(set(q['feedback'].values())),4)
                 filename, anchor = q['path'].split('#')
                 page = (root / filename).read_text(encoding='utf-8')
                 self.assertIn(f'id="{anchor}"', page)
@@ -71,5 +74,3 @@ class ExpandedMcqBrowserTests(authored.AuthoredMcqBrowserTests):
                     return cards.length;
                 }''')
                 self.assertEqual(result, 20, name)
-
-

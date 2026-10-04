@@ -9,6 +9,8 @@ from html import escape
 from pathlib import Path
 from practice_challenges import build_challenges
 from build_learning import build_learning
+from practice_graph import build_graph
+from practice_skills import tag_question,render_skills
 from practice_mcq import build_mcq, render_mcq
 from practice_support import build_support
 from practice_repetition import load_repetition, render_repetition
@@ -105,7 +107,7 @@ def build():
             field = f'{key}-step-{i}'
             text_answer = isinstance(step['answer'], list)
             accepted = escape(json.dumps(step['answer'], ensure_ascii=False), quote=True)
-            html += (f'<form class="foundation-step" data-answer="{accepted}" novalidate><h3>Step {i}</h3>'
+            html += (f'<form class="foundation-step" data-answer="{accepted}" novalidate><h3>Step {i}</h3>{render_skills(ROOT, tag_question(ROOT, step)["skills"])}'
                      f'<label for="{field}">{escape(step["prompt"])}</label>'
                      f'<input id="{field}" type="{"text" if text_answer else "number"}" '
                      + ('' if text_answer else 'step="any" ') + f'aria-describedby="{field}-feedback" autocomplete="off">'
@@ -243,6 +245,7 @@ def build():
             + ''.join(f'<a href="#{key}">{escape(activities[key]["title"])}</a>' for key in keys)
             + '</nav>' + ''.join(activity_markup(key) for key in keys) + footer)
     (ROOT / 'all-practice.html').write_text(page('All activities', body, scripts(keys)), encoding='utf-8')
+    build_graph(ROOT, ROOT.parents[1] / 'curricula' / 'chemistry-2025.json', 'Chemistry', 'practice.html')
     build_learning(ROOT, 'Chemistry', 'practice.html', 'practice.css')
     print(f'Built hub, {len(topics)} topic pages and all-activities page; {len(activities)} unique activities.')
 

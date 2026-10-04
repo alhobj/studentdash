@@ -4,6 +4,8 @@ from html import escape
 from pathlib import Path
 from practice_challenges import build_challenges
 from build_learning import build_learning
+from practice_graph import build_graph
+from practice_skills import tag_question,render_skills
 from practice_mcq import build_mcq, render_mcq
 from practice_support import build_support
 from practice_repetition import load_repetition, render_repetition
@@ -75,7 +77,7 @@ def build():
         html += render_booklet_help(ROOT, [c['code']] if 'code' in c else [], c.get('id'))
         for i, step in enumerate(c['steps'], 1):
             field = f'{key}-step-{i}'
-            html += (f'<form class="foundation-step" data-answer="{step["answer"]}"><h3>Step {i}</h3>'
+            html += (f'<form class="foundation-step" data-answer="{step["answer"]}"><h3>Step {i}</h3>{render_skills(ROOT, tag_question(ROOT, step)["skills"])}'
                      f'<label for="{field}">{escape(step["prompt"])}</label>'
                      f'<input id="{field}" class="answer" type="number" step="any" aria-describedby="{field}-feedback">'
                      '<button type="submit">Check this step</button>'
@@ -204,6 +206,7 @@ def build():
                 + render_syllabus(ROOT, [code]) + render_booklet_help(ROOT, [code])
                 + render_mcq(authored_mcq, code))
         write(f'mcq-{code.replace(".", "-")}.html', f'SL {code} multiple-choice practice', body)
+    build_graph(ROOT, ROOT.parents[1] / 'curricula' / 'math-ai-sl-2021.json', 'Mathematics AI SL', 'math-practice.html')
     build_learning(ROOT, 'Mathematics AI SL', 'math-practice.html', 'math-practice.css')
     print(f'Built mathematics hub and five topic pages with {len(data)} explorers.')
 

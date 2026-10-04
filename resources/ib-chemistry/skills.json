@@ -1,0 +1,4521 @@
+{
+  "schema": 1,
+  "source": "https://anatolia.edu.gr/images/highschool/IBDP/Chemistry%20Guide%202025.pdf",
+  "scope": "Tools and inquiry skills, guide PDF pp. 34–38, plus nature of science and approaches-to-learning categories. AHL tasks are labelled. Written questions prepare for practical work; performance requires practical observation.",
+  "skills": [
+    {
+      "id": "safety",
+      "label": "Safety, ethics and environmental care",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "mass",
+      "label": "Measure mass",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "volume",
+      "label": "Measure volume",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "time",
+      "label": "Measure elapsed time",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "temperature",
+      "label": "Measure temperature",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "length",
+      "label": "Measure length",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "ph",
+      "label": "Measure pH",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "current",
+      "label": "Measure electric current",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "voltage",
+      "label": "Measure potential difference",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "standard",
+      "label": "Prepare a standard solution",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "dilution",
+      "label": "Carry out a dilution",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "constant-mass",
+      "label": "Dry to constant mass",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "distillation",
+      "label": "Distillation and reflux",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "chromatography",
+      "label": "Paper and thin-layer chromatography",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "separation",
+      "label": "Separate mixtures",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "calorimetry",
+      "label": "Calorimetry",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "titration",
+      "label": "Acid–base and redox titration",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1",
+        "R3.1",
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "cells",
+      "label": "Electrochemical cells",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "colorimetry",
+      "label": "Colorimetry and spectrophotometry",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "molecular-models",
+      "label": "Physical and digital molecular models",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "recrystallization",
+      "label": "Recrystallization",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "melting",
+      "label": "Melting-point determination",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sensors",
+      "label": "Collect data with sensors",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "databases",
+      "label": "Select and extract database evidence",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "simulation",
+      "label": "Generate simulation data",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "spreadsheet",
+      "label": "Process data in spreadsheets",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "digital-graphs",
+      "label": "Graph with technology",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "computer-model",
+      "label": "Computer modelling",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "arithmetic",
+      "label": "Arithmetic and algebra",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "number-operations",
+      "label": "Fractions, ratios, percentages and powers",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "logarithms",
+      "label": "Logarithmic calculations",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "exponentials",
+      "label": "Exponential calculations · AHL",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "rates",
+      "label": "Rates from tables",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "mean-range",
+      "label": "Mean and range",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "scientific-notation",
+      "label": "Scientific notation",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "estimate",
+      "label": "Approximation and estimation",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "negligible",
+      "label": "Justify neglecting small effects",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "order",
+      "label": "Orders of magnitude",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "proportionality",
+      "label": "Proportionality and correlation",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "percentage-change",
+      "label": "Percentage change and difference",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "error",
+      "label": "Percentage error and uncertainty",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "variables-type",
+      "label": "Continuous and discrete variables",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "units",
+      "label": "SI units and prefixes",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "symbols",
+      "label": "Scientific symbols and booklet notation",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "precision",
+      "label": "Significant figures and decimal places",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "raw-uncertainty",
+      "label": "Raw and processed uncertainty",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "uncertainty-range",
+      "label": "Record uncertainty intervals",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "propagation",
+      "label": "Propagate uncertainties",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "uncertainty-forms",
+      "label": "Absolute, relative and percentage uncertainty",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "r-squared",
+      "label": "Coefficient of determination",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sketch",
+      "label": "Sketch qualitative graphs",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "charts",
+      "label": "Choose tables and graph types",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "plot",
+      "label": "Plot linear and nonlinear relationships",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "best-fit",
+      "label": "Lines and curves of best fit",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "graph-features",
+      "label": "Gradients, intercepts, extrema and area",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "error-bars",
+      "label": "Uncertainty bars",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "interpolation",
+      "label": "Interpolation and extrapolation",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "initiative",
+      "label": "Independent ideas and initiative",
+      "group": "Inquiry 1 · Exploring",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sources",
+      "label": "Consult and select relevant sources",
+      "group": "Inquiry 1 · Exploring",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "research-question",
+      "label": "Research questions and hypotheses",
+      "group": "Inquiry 1 · Exploring",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "prediction",
+      "label": "Explain scientific predictions",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "creative-design",
+      "label": "Creative investigation design",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "investigation-types",
+      "label": "Laboratory, database, simulation and modelling approaches",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "variable-selection",
+      "label": "Choose and justify variables",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sampling-design",
+      "label": "Range and number of measurements",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method",
+      "label": "Valid reproducible methodology",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "pilot",
+      "label": "Pilot and refine methods",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "calibration",
+      "label": "Calibrate apparatus",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "environment",
+      "label": "Control environmental conditions",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "insulation",
+      "label": "Limit unwanted heat transfer",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "qualitative",
+      "label": "Record qualitative observations",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "quantitative",
+      "label": "Collect sufficient quantitative data",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "collection-issues",
+      "label": "Address data-collection problems",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "processing",
+      "label": "Accurate data processing",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "interpretation",
+      "label": "Interpret qualitative and quantitative evidence",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "diagrams",
+      "label": "Interpret diagrams and charts",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "patterns",
+      "label": "Explain patterns and relationships",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "outliers",
+      "label": "Justify outlier decisions",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "quality",
+      "label": "Accuracy, precision, reliability and validity",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "conclusion",
+      "label": "Justify conclusions from data",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "scientific-context",
+      "label": "Compare with accepted context",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "question-conclusion",
+      "label": "Answer the research question",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "uncertain-conclusions",
+      "label": "Uncertainty in conclusions",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "hypothesis-evaluation",
+      "label": "Evaluate hypotheses",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "errors",
+      "label": "Random and systematic error",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "limitations",
+      "label": "Limitations and assumptions",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "improvements",
+      "label": "Realistic methodological improvements",
+      "group": "Inquiry 3 · Improvements",
+      "source_pages": [
+        38
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "models",
+      "label": "Scientific models and limits",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        13
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence and falsifiability",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        13
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "research-integrity",
+      "label": "Research integrity and collaboration",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        14
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "planning",
+      "label": "Plan and reflect on learning",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "theories",
+      "label": "Hypotheses, theories and laws",
+      "group": "Scientific thinking · Explanations",
+      "source_pages": [
+        13
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "peer-review",
+      "label": "Peer review and shared science",
+      "group": "Scientific thinking · Society",
+      "source_pages": [
+        14
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "global-impact",
+      "label": "Global and ethical impacts of science",
+      "group": "Scientific thinking · Society",
+      "source_pages": [
+        14
+      ],
+      "sections": [
+        "R1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "atl-thinking",
+      "label": "Thinking and transfer",
+      "group": "Approaches to learning · Thinking",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "atl-communication",
+      "label": "Communication and audience",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "atl-social",
+      "label": "Social skills and teamwork",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "atl-research",
+      "label": "Research, citation and validation",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "atl-self-management",
+      "label": "Self-management and feedback",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "knowledge",
+      "label": "Scientific knowledge and terminology",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "apply-knowledge",
+      "label": "Apply scientific concepts and methods",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "evaluate-science",
+      "label": "Analyse, evaluate and synthesize evidence",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "ethical-investigation",
+      "label": "Conduct an ethical scientific investigation",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    }
+  ],
+  "questions": [
+    {
+      "id": "skill-safety",
+      "skills": [
+        "safety"
+      ],
+      "prompt": "A school investigation proposes 500 cm³ of corrosive solution although 20 cm³ would suffice. What should change before starting? Include disposal and consent where relevant.",
+      "working": "Use a teacher-approved microscale method, a risk assessment, specified protection and labelled waste collection. Follow local disposal procedures. Obtain informed consent if people or personal data are involved; avoid unnecessary harm."
+    },
+    {
+      "id": "skill-mass",
+      "skills": [
+        "mass"
+      ],
+      "prompt": "A boat weighs 1.26 g empty and 3.74 g with sample. Calculate sample mass and describe checks before weighing.",
+      "working": "2.48 g. Level and zero the balance, use a suitable check mass, avoid hot samples and record resolution and uncertainty."
+    },
+    {
+      "id": "skill-volume",
+      "skills": [
+        "volume"
+      ],
+      "prompt": "Choose apparatus to transfer 25.00 cm³ for a titration and explain how to read and drain it.",
+      "working": "Use a suitable volumetric pipette, conditioned with the solution, and a pipette filler. Read the meniscus at eye level and follow the drainage specification; a beaker is less precise."
+    },
+    {
+      "id": "skill-time",
+      "skills": [
+        "time"
+      ],
+      "prompt": "Gas forms as soon as reagents touch. How would you time collection of 20 cm³ and reduce timing uncertainty?",
+      "working": "Define and synchronize start and endpoint events. Repeat trials or use suitable video/data logging; document mixing delays and clock resolution."
+    },
+    {
+      "id": "skill-temperature",
+      "skills": [
+        "temperature"
+      ],
+      "prompt": "Two probes read 24.1 and 26.8 °C in the same water. What should you check?",
+      "working": "Check calibration against a reference, immersion, stirring, equilibration, resolution and response time. Avoid contact with the vessel wall."
+    },
+    {
+      "id": "skill-length",
+      "skills": [
+        "length"
+      ],
+      "prompt": "A chromatography front is 5.2 cm from the origin and a spot centre is 3.1 cm from it. Explain the distance measurements and calculate Rf.",
+      "working": "Measure along the solvent direction from the same origin to the front and spot centre. Rf = 3.1/5.2 ≈ 0.60, without units."
+    },
+    {
+      "id": "skill-ph",
+      "skills": [
+        "ph"
+      ],
+      "prompt": "A probe just measured an alkaline sample. Prepare it to measure a weakly acidic sample reliably.",
+      "working": "Calibrate using suitable buffers, rinse with deionized water, blot appropriately, immerse and wait for stability. Avoid contamination from the previous sample."
+    },
+    {
+      "id": "skill-current",
+      "skills": [
+        "current"
+      ],
+      "prompt": "Draw how to measure current through an electrolytic cell and explain the initial meter-range choice.",
+      "working": "Put the ammeter in series, not directly across the supply. Start on a suitable high range and refine it; record amperes and uncertainty."
+    },
+    {
+      "id": "skill-voltage",
+      "skills": [
+        "voltage"
+      ],
+      "prompt": "Draw a meter connection across two cell electrodes. Why should the instrument draw little current?",
+      "working": "A high-resistance voltmeter goes in parallel. Small current reduces changes in cell conditions and internal-resistance voltage drop."
+    },
+    {
+      "id": "skill-standard",
+      "skills": [
+        "standard"
+      ],
+      "prompt": "Plan preparation of 250.0 cm³ of 0.1000 mol dm⁻³ Na₂CO₃ using a dry primary standard, M = 106.0 g mol⁻¹. Calculate mass.",
+      "working": "2.650 g. Dissolve, transfer quantitatively with washings into a volumetric flask, make up to the mark at its calibration temperature and mix thoroughly."
+    },
+    {
+      "id": "skill-dilution",
+      "skills": [
+        "dilution"
+      ],
+      "prompt": "Make 100.0 cm³ of 0.0200 mol dm⁻³ solution from 0.100 mol dm⁻³ stock. Explain the apparatus and calculation.",
+      "working": "c₁V₁ = c₂V₂ gives 20.0 cm³ stock. Transfer with appropriate volumetric apparatus, dilute to 100.0 cm³ and mix, following chemical-specific precautions."
+    },
+    {
+      "id": "skill-constant-mass",
+      "skills": [
+        "constant-mass"
+      ],
+      "prompt": "Successive heat–cool–weigh results are 12.846, 12.801, 12.799 and 12.799 g. Which supports constant mass? Why cool?",
+      "working": "The last two agree within resolution. Cool under specified dry conditions to reduce convection error and moisture uptake. Judge agreement against measurement uncertainty."
+    },
+    {
+      "id": "skill-distillation",
+      "skills": [
+        "distillation"
+      ],
+      "prompt": "Sketch an arrangement to heat a reaction without losing volatile reactants, then a different arrangement to collect a volatile product.",
+      "working": "Use vertical reflux to return condensate, then distillation to a receiver to collect a fraction. Keep heated apparatus vented as specified; never seal it."
+    },
+    {
+      "id": "skill-chromatography",
+      "skills": [
+        "chromatography"
+      ],
+      "prompt": "A sample gives Rf values 0.25, 0.50, 0.80; a reference gives 0.50 under identical conditions. What follows?",
+      "working": "At least three components are resolved; one is consistent with the reference. Matching Rf alone does not prove identity. Compare identical solvent, stationary phase and conditions."
+    },
+    {
+      "id": "skill-separation",
+      "skills": [
+        "separation"
+      ],
+      "prompt": "Recover dry sand, salt crystals and collected water separately from sand, sodium chloride and water. Outline the sequence.",
+      "working": "Filter, wash and dry sand. Distil the filtrate to collect water, then crystallize, separate and dry salt. Justify steps using solubility and volatility."
+    },
+    {
+      "id": "skill-calorimetry",
+      "skills": [
+        "calorimetry"
+      ],
+      "prompt": "100 g of solution warms by 4.0 K; c = 4.18 J g⁻¹ K⁻¹. Estimate heat gained and propose a relevant improvement.",
+      "working": "q = 1672 J ≈ 1.7 kJ. Use insulation and a lid; consider calorimeter heat capacity and remaining losses. State the heat-capacity and no-loss assumptions."
+    },
+    {
+      "id": "skill-titration",
+      "skills": [
+        "titration"
+      ],
+      "prompt": "Compare endpoints for acid–base and acidified permanganate titrations. Describe three practices that improve titre measurement.",
+      "working": "Use an appropriate indicator or pH change for acid–base work; permanganate can supply a faint persistent colour endpoint. Condition apparatus, remove bubbles, read at eye level, add dropwise near endpoint and seek concordant titres."
+    },
+    {
+      "id": "skill-cells",
+      "skills": [
+        "cells"
+      ],
+      "prompt": "Sketch a zinc–copper galvanic cell with salt bridge and explain why removing the bridge stops sustained current.",
+      "working": "Show Zn oxidation, Cu²⁺ reduction, external electron flow and bridge ion movement. Without ionic charge balance, charge buildup prevents sustained reaction."
+    },
+    {
+      "id": "skill-colorimetry",
+      "skills": [
+        "colorimetry"
+      ],
+      "prompt": "A calibration gives A = 1200c with c in mol dm⁻³. Find c for A = 0.360 and explain blank and range checks.",
+      "working": "c = 3.00 × 10⁻⁴ mol dm⁻³. A blank corrects background; consistent wavelength and cuvettes matter. Dilute unknowns outside the validated linear range."
+    },
+    {
+      "id": "skill-molecular-models",
+      "skills": [
+        "molecular-models"
+      ],
+      "prompt": "Build or draw methane and ethene models. Compare a physical model with a digital representation and identify limitations.",
+      "working": "Show tetrahedral methane and planar geometry around ethene carbons. Balls and sticks simplify electron distribution, motion, relative sizes and boundaries; models are representations."
+    },
+    {
+      "id": "skill-recrystallization",
+      "skills": [
+        "recrystallization"
+      ],
+      "prompt": "A crude solid dissolves well hot but poorly cold. Plan purification and explain why too much solvent reduces recovery.",
+      "working": "Dissolve in minimum hot solvent, remove insoluble impurities if necessary, cool, filter, wash with a little cold solvent and dry. Extra solvent retains more dissolved product."
+    },
+    {
+      "id": "skill-melting",
+      "skills": [
+        "melting"
+      ],
+      "prompt": "A reference melts at 121–122 °C; a sample at 116–120 °C. Interpret this and improve the measurement.",
+      "working": "A depressed broad range is consistent with impurity, not definitive identity evidence. Use a dry finely powdered sample, appropriate loading, calibration and slow heating near melting."
+    },
+    {
+      "id": "skill-sensors",
+      "skills": [
+        "sensors"
+      ],
+      "prompt": "Record cooling with a temperature sensor, or design the settings if unavailable. What acquisition and storage choices are necessary?",
+      "working": "Calibrate, choose range and sampling interval for the response time, record units and time origin, and retain raw data with metadata. Actual data collection requires equipment."
+    },
+    {
+      "id": "skill-databases",
+      "skills": [
+        "databases"
+      ],
+      "prompt": "Two databases report enthalpies at different temperatures and states. How would you select comparable data?",
+      "working": "Match identity, state, temperature, pressure and units. Retain provenance, access/version information and uncertainty; do not combine incompatible entries without correction."
+    },
+    {
+      "id": "skill-simulation",
+      "skills": [
+        "simulation"
+      ],
+      "prompt": "Use the gas explorer to generate five pressure–volume pairs at fixed temperature and amount. How does the evidence differ from laboratory data?",
+      "working": "Record settings and assumptions while varying one variable. Agreement with the implemented law demonstrates model behavior, not independent experimental validation."
+    },
+    {
+      "id": "skill-spreadsheet",
+      "skills": [
+        "spreadsheet"
+      ],
+      "prompt": "Enter 24.10, 24.20, 24.15 in cells. Calculate mean and range using formulas, then change 24.20 to 24.80. What updates?",
+      "working": "Use AVERAGE and MAX minus MIN. Initially mean 24.15, range 0.10; afterward mean 24.35, range 0.70. Preserve original data and document changes."
+    },
+    {
+      "id": "skill-digital-graphs",
+      "skills": [
+        "digital-graphs"
+      ],
+      "prompt": "Plot time values 0, 10, 20, 30 s against gas volumes 0, 18, 31, 40 cm³ in a spreadsheet. Explain chart and axis choices.",
+      "working": "Use an XY scatter chart with numeric time on x and volume on y, units, sensible scales and an appropriate curve. Avoid misleading category axes."
+    },
+    {
+      "id": "skill-computer-model",
+      "skills": [
+        "computer-model"
+      ],
+      "prompt": "Use T = 20 + 60exp(−0.1t) to generate temperatures at 0, 5, 10 minutes. State an assumption to test experimentally.",
+      "working": "80, approximately 56.4 and 42.1 °C. Ambient temperature and cooling coefficient are assumed constant; compare measured residuals, not merely a smooth curve."
+    },
+    {
+      "id": "skill-arithmetic",
+      "skills": [
+        "arithmetic"
+      ],
+      "prompt": "A sample has mass 12.0 g and molar mass 40.0 g mol⁻¹. Rearrange m = nM and calculate n with units.",
+      "working": "n = m/M = 0.300 mol. Division cancels grams and leaves moles."
+    },
+    {
+      "id": "skill-number-operations",
+      "skills": [
+        "number-operations"
+      ],
+      "prompt": "A mixture is 3/8 solute by mass. Give decimal, percentage and solute:solvent ratio; evaluate the reciprocal of 2².",
+      "working": "0.375; 37.5%; 3:5; 0.25. A solute:solvent ratio uses different quantities from the solute:total fraction."
+    },
+    {
+      "id": "skill-logarithms",
+      "skills": [
+        "logarithms"
+      ],
+      "prompt": "Calculate −log₁₀(2.0 × 10⁻³). What happens if the argument increases tenfold?",
+      "working": "Approximately 2.699. The logarithm increases by 1, so its negative decreases by 1."
+    },
+    {
+      "id": "skill-exponentials",
+      "skills": [
+        "exponentials"
+      ],
+      "prompt": "AHL: c(t) = 0.50exp(−0.20t). Find c(5) and the fraction remaining.",
+      "working": "c(5) ≈ 0.184; fraction remaining ≈ 0.368. Match the coefficient and time units."
+    },
+    {
+      "id": "skill-rates",
+      "skills": [
+        "rates"
+      ],
+      "prompt": "Concentration falls from 0.80 to 0.62 mol dm⁻³ between 10 and 40 s. Find the positive average disappearance rate.",
+      "working": "(0.80−0.62)/(40−10) = 0.0060 mol dm⁻³ s⁻¹. This is an interval average."
+    },
+    {
+      "id": "skill-mean-range",
+      "skills": [
+        "mean-range"
+      ],
+      "prompt": "For 18.2, 18.6, 18.4, calculate mean and range. Does a small range establish accuracy?",
+      "working": "Mean 18.4; range 0.4. Closely grouped results can share a systematic offset."
+    },
+    {
+      "id": "skill-scientific-notation",
+      "skills": [
+        "scientific-notation"
+      ],
+      "prompt": "Write 0.000450 in scientific notation and multiply by 2.0 × 10³.",
+      "working": "4.50 × 10⁻⁴; product 0.90 to two significant figures."
+    },
+    {
+      "id": "skill-estimate",
+      "skills": [
+        "estimate"
+      ],
+      "prompt": "Estimate 19.8 × 4.1, then calculate it. Is 811.8 plausible?",
+      "working": "Estimate about 80; exact product 81.18. A result near 812 has a factor-of-ten error."
+    },
+    {
+      "id": "skill-negligible",
+      "skills": [
+        "negligible"
+      ],
+      "prompt": "A process releases about 2000 J. A correction is below 1 J, with measurement uncertainty ±50 J. Is neglecting it defensible?",
+      "working": "Yes at this precision because it is small compared with uncertainty. State the assumption and revisit it if the precision target changes."
+    },
+    {
+      "id": "skill-order",
+      "skills": [
+        "order"
+      ],
+      "prompt": "Compare 6 × 10⁴ with 3 × 10⁷. Give their ratio and its nearest power of ten on a logarithmic scale.",
+      "working": "The larger divided by the smaller is 500. Its nearest power of ten on a logarithmic scale is 10³."
+    },
+    {
+      "id": "skill-proportionality",
+      "skills": [
+        "proportionality"
+      ],
+      "prompt": "When x doubles, y halves. Propose a model. Compare with a direct proportional relationship, and explain why positive or negative correlation alone does not establish proportionality.",
+      "working": "y = k/x is consistent if xy stays constant. In direct proportionality y = kx, y also doubles and y/x stays constant. Correlation alone does not establish either formula or causation."
+    },
+    {
+      "id": "skill-percentage-change",
+      "skills": [
+        "percentage-change"
+      ],
+      "prompt": "A reading rises from 40 to 50. Calculate percentage change relative to 40 and percentage difference relative to the mean.",
+      "working": "25% change; 10/45 × 100 ≈ 22.2% difference. State the denominator convention."
+    },
+    {
+      "id": "skill-error",
+      "skills": [
+        "error"
+      ],
+      "prompt": "An observation is 9.6 ± 0.2; accepted value 10.0. Calculate percentage error and percentage uncertainty.",
+      "working": "Absolute percentage error 4.0%; percentage uncertainty about 2.1%. Error compares with a reference; uncertainty describes an assigned range."
+    },
+    {
+      "id": "skill-variables-type",
+      "skills": [
+        "variables-type"
+      ],
+      "prompt": "Classify reaction time and number of bubbles counted. Why is rounded time still continuous?",
+      "working": "Time is continuous; a bubble count is discrete. Rounding limits recorded resolution, not the underlying variable type."
+    },
+    {
+      "id": "skill-units",
+      "skills": [
+        "units"
+      ],
+      "prompt": "Convert 25.0 cm³ to dm³ and m³, and 3.20 kJ to J.",
+      "working": "0.0250 dm³; 2.50 × 10⁻⁵ m³; 3200 J. Volume conversions cube length factors."
+    },
+    {
+      "id": "skill-symbols",
+      "skills": [
+        "symbols"
+      ],
+      "prompt": "Distinguish n, N, Nₐ and M in n = m/M and N = nNₐ, with units.",
+      "working": "n: amount, mol; N: particle count; Nₐ: Avogadro constant, mol⁻¹; M: molar mass, for example g mol⁻¹. Check units in each equation."
+    },
+    {
+      "id": "skill-precision",
+      "skills": [
+        "precision"
+      ],
+      "prompt": "Report 12.347 g with uncertainty 0.2 g. Explain the rounding.",
+      "working": "(12.3 ± 0.2) g. Value and uncertainty end at the same decimal place."
+    },
+    {
+      "id": "skill-raw-uncertainty",
+      "skills": [
+        "raw-uncertainty"
+      ],
+      "prompt": "Each ruler reading has uncertainty ±1 mm. Why can a distance found by subtracting two readings have greater uncertainty?",
+      "working": "Both endpoints contribute. Maximum absolute uncertainties add for a difference; distinguish this convention from a statistical uncertainty estimate."
+    },
+    {
+      "id": "skill-uncertainty-range",
+      "skills": [
+        "uncertainty-range"
+      ],
+      "prompt": "Give the interval for (20.0 ± 0.2) cm³ and explain the recorded precision.",
+      "working": "19.8–20.2 cm³. Value and uncertainty use the same decimal place."
+    },
+    {
+      "id": "skill-propagation",
+      "skills": [
+        "propagation"
+      ],
+      "prompt": "Using maximum-uncertainty rules, find uncertainty in (10.0 ± 0.2) − (4.0 ± 0.1) and percentage uncertainty in their product. AHL: what about the first quantity squared?",
+      "working": "Difference 6.0 ± 0.3; product percentage uncertainty 2.0% + 2.5% = 4.5%. Squaring gives about 4.0% for the first quantity. These are maximum-uncertainty approximations."
+    },
+    {
+      "id": "skill-uncertainty-forms",
+      "skills": [
+        "uncertainty-forms"
+      ],
+      "prompt": "For 50.0 ± 0.5, give fractional and percentage uncertainty and convert back.",
+      "working": "Fractional 0.010; percentage 1.0%; 0.010 × 50.0 recovers absolute uncertainty 0.5."
+    },
+    {
+      "id": "skill-r-squared",
+      "skills": [
+        "r-squared"
+      ],
+      "prompt": "Fits to the same response data give R² = 0.91 and 0.99. Does the latter prove a valid physical model?",
+      "working": "No. Check residual patterns, assumptions, complexity and independent predictions; a high R² alone does not establish physical validity."
+    },
+    {
+      "id": "skill-sketch",
+      "skills": [
+        "sketch"
+      ],
+      "prompt": "Sketch concentration against time for a reactant consumed quickly initially and then more slowly. Label unscaled axes.",
+      "working": "A decreasing curve becoming less steep; label time and concentration. A straight line would imply a constant rate."
+    },
+    {
+      "id": "skill-charts",
+      "skills": [
+        "charts"
+      ],
+      "prompt": "Choose displays for category counts, a continuous length distribution and paired concentration–time observations.",
+      "working": "Bar chart; histogram with suitable class widths; scatter/line graph. Raw-data tables require units and appropriate precision."
+    },
+    {
+      "id": "skill-plot",
+      "skills": [
+        "plot"
+      ],
+      "prompt": "Plot (1,1), (2,4), (3,9), (4,16). Explain why joining only first and last with a line is misleading.",
+      "working": "The points follow y = x² with increasing slope. Plot every point on labelled numeric scales and use a justified curve."
+    },
+    {
+      "id": "skill-best-fit",
+      "skills": [
+        "best-fit"
+      ],
+      "prompt": "Sketch a best-fit line for (1,2.1), (2,3.9), (3,6.2), (4,7.8). Must it pass through every point or the origin?",
+      "working": "A line near y = 2x is reasonable. It represents the overall pattern; forcing the origin needs scientific justification."
+    },
+    {
+      "id": "skill-graph-features",
+      "skills": [
+        "graph-features"
+      ],
+      "prompt": "A rate–time graph joins (0,0), (2,6), (4,0). Time is seconds and rate mol s⁻¹. State maximum rate, initial gradient, intercept and area.",
+      "working": "6 mol s⁻¹ at 2 s; initial gradient 3 mol s⁻²; initial intercept zero; area 12 mol."
+    },
+    {
+      "id": "skill-error-bars",
+      "skills": [
+        "error-bars"
+      ],
+      "prompt": "Draw (1,4.0 ± 0.5) and (2,4.4 ± 0.5). Do overlapping bars prove equal true values?",
+      "working": "Intervals 3.5–4.5 and 3.9–4.9 overlap, but overlap does not prove equality or replace an appropriate comparison."
+    },
+    {
+      "id": "skill-interpolation",
+      "skills": [
+        "interpolation"
+      ],
+      "prompt": "A calibration spans concentrations 0.10–0.50. Compare predictions at 0.30 and 0.80.",
+      "working": "0.30 is interpolation; 0.80 is extrapolation and needs validation or dilution into the calibrated range."
+    },
+    {
+      "id": "skill-initiative",
+      "skills": [
+        "initiative"
+      ],
+      "prompt": "Propose two investigable questions about an approved cooling experiment. Choose one and justify your own decision.",
+      "working": "Specify measurable quantities, compare alternatives and explain your interest, for example how an approved insulation material changes a fitted cooling rate."
+    },
+    {
+      "id": "skill-sources",
+      "skills": [
+        "sources"
+      ],
+      "prompt": "Compare a manufacturer specification, peer-reviewed method and unattributed social-media claim for planning pH measurements.",
+      "working": "Use specifications for instrument limits and a relevant method for procedure and validation. Check expertise, evidence, date and applicability; corroborate claims and cite sources."
+    },
+    {
+      "id": "skill-research-question",
+      "skills": [
+        "research-question"
+      ],
+      "prompt": "Replace “Does temperature matter?” with a measurable reaction-rate research question and a testable hypothesis.",
+      "working": "Specify system, approved temperature range, controlled concentration and rate measure. Predict a relationship with scientific reasoning; distinguish question from hypothesis."
+    },
+    {
+      "id": "skill-prediction",
+      "skills": [
+        "prediction"
+      ],
+      "prompt": "Predict the effect of increasing exposed surface area of the same solid mass on initial rate with excess solution. Give a reason and a control.",
+      "working": "More exposed reactive sites can increase initial rate under surface-controlled conditions. Control temperature and solution concentration."
+    },
+    {
+      "id": "skill-creative-design",
+      "skills": [
+        "creative-design"
+      ],
+      "prompt": "Design a fair comparison of three approved insulating materials and a clear presentation of results.",
+      "working": "Use repeat cooling runs with controlled starting conditions and a justified order. Show labelled cooling curves or fitted rates with uncertainties; explain design choices."
+    },
+    {
+      "id": "skill-investigation-types",
+      "skills": [
+        "investigation-types"
+      ],
+      "prompt": "Outline four approaches to investigating a gas law: laboratory, database, simulation and mathematical modelling. Compare their evidence.",
+      "working": "Laboratory data are measurements; databases provide prior observations with provenance; simulations explore programmed assumptions; models generate predictions. Simulated agreement is not independent experimental evidence."
+    },
+    {
+      "id": "skill-variable-selection",
+      "skills": [
+        "variable-selection"
+      ],
+      "prompt": "In a concentration–rate experiment, identify independent, dependent and three control variables.",
+      "working": "Vary concentration, measure a defined rate, control temperature, total volume and apparatus/mixing. Explain how each affects the outcome."
+    },
+    {
+      "id": "skill-sampling-design",
+      "skills": [
+        "sampling-design"
+      ],
+      "prompt": "Improve a design with only two temperatures and no repeats, within an approved safe range.",
+      "working": "Use several distributed values and repeats to reveal curvature and estimate variability. Pilot the range; justify quantity against time and precision."
+    },
+    {
+      "id": "skill-method",
+      "skills": [
+        "method"
+      ],
+      "prompt": "Outline a reproducible dissolution-time comparison at two temperatures and identify a confounder.",
+      "working": "Specify mass, particle size, solvent volume, stirring, temperature control and endpoint. Changing particle size with temperature would confound effects."
+    },
+    {
+      "id": "skill-pilot",
+      "skills": [
+        "pilot"
+      ],
+      "prompt": "A pilot finishes before the stopwatch starts reliably. What could you change and test again?",
+      "working": "Use an approved slower condition or faster acquisition. Recheck measurable range, mixing delay, repeatability and sensor response while preserving the research question."
+    },
+    {
+      "id": "skill-calibration",
+      "skills": [
+        "calibration"
+      ],
+      "prompt": "A probe reads 1.5 °C at a reliable 0 °C reference and 51.5 °C at 50 °C. Propose a correction and limitation.",
+      "working": "Subtract 1.5 °C within the validated range if stable. Two points do not establish all-range linearity or remove other uncertainty."
+    },
+    {
+      "id": "skill-environment",
+      "skills": [
+        "environment"
+      ],
+      "prompt": "A cell-voltage experiment runs by a sunny window for three hours. What could vary and how would you control it?",
+      "working": "Control and record temperature; consider evaporation and concentration changes. Use a suitable monitored environment."
+    },
+    {
+      "id": "skill-insulation",
+      "skills": [
+        "insulation"
+      ],
+      "prompt": "Explain how a lid and insulation improve calorimetry and identify remaining limitations.",
+      "working": "They reduce heat exchange and evaporation. Calorimeter heat capacity, incomplete reaction, probe delay and remaining heat loss can still matter."
+    },
+    {
+      "id": "skill-qualitative",
+      "skills": [
+        "qualitative"
+      ],
+      "prompt": "Replace “the reaction was amazing” with useful observations for a fictional gas-forming reaction that produces a white solid.",
+      "working": "Describe bubbles, white precipitate and sequence/timing of changes. Separate observations from inferred chemical explanations."
+    },
+    {
+      "id": "skill-quantitative",
+      "skills": [
+        "quantitative"
+      ],
+      "prompt": "Design a raw-data table for three reaction-time repeats at five concentrations. What belongs in headings?",
+      "working": "Concentration and time with units, replicate identifiers and instrument uncertainty; record controlled conditions and consistent precision. Retain original readings."
+    },
+    {
+      "id": "skill-collection-issues",
+      "skills": [
+        "collection-issues"
+      ],
+      "prompt": "A gas syringe sticks during a run. What should be recorded and done with the trial?",
+      "working": "Document the event and affected readings, correct the apparatus safely and repeat as justified. Keep raw records and explain exclusions."
+    },
+    {
+      "id": "skill-processing",
+      "skills": [
+        "processing"
+      ],
+      "prompt": "Gas volume rises from 12 to 42 cm³ between 10 and 30 s. Calculate average rate and explain why 42/30 differs.",
+      "working": "(42−12)/(30−10) = 1.5 cm³ s⁻¹. 42/30 assumes zero volume at time zero and a different averaging interval."
+    },
+    {
+      "id": "skill-interpretation",
+      "skills": [
+        "interpretation"
+      ],
+      "prompt": "Colour changes while absorbance falls from 0.80 to 0.40. Under a validated linear calibration, what follows and what is assumed?",
+      "working": "Absorbing-species concentration approximately halves if wavelength, path length and response stay constant. Colour alone is qualitative; other absorbers may interfere."
+    },
+    {
+      "id": "skill-diagrams",
+      "skills": [
+        "diagrams"
+      ],
+      "prompt": "Two particle drawings show six pairs and three clusters of four. What information is needed before claiming a reaction occurred?",
+      "working": "Identify symbols, whether clusters mean bonds or proximity, and whether equal material amounts are shown. Drawing arrangement alone does not establish chemical change."
+    },
+    {
+      "id": "skill-patterns",
+      "skills": [
+        "patterns"
+      ],
+      "prompt": "At fixed temperature, pressure–volume pairs are (100,4), (200,2), (400,1). Describe and justify a relationship.",
+      "working": "pV = 400 for each: inverse proportionality, consistent with a fixed amount of approximately ideal gas."
+    },
+    {
+      "id": "skill-outliers",
+      "skills": [
+        "outliers"
+      ],
+      "prompt": "Times are 30.1, 30.4, 30.2, 45.8 s. Is distance from the others enough reason to delete the last?",
+      "working": "No. Investigate a documented procedural issue, retain raw data and compare conclusions with/without it. Do not delete solely to improve agreement."
+    },
+    {
+      "id": "skill-quality",
+      "skills": [
+        "quality"
+      ],
+      "prompt": "Three readings cluster near 11.0; the reliable reference is 10.0. Discuss the four quality concepts.",
+      "working": "They may be precise but inaccurate. Reliability concerns consistency on repetition; validity concerns whether the method measures the intended quantity and supports the question."
+    },
+    {
+      "id": "skill-conclusion",
+      "skills": [
+        "conclusion"
+      ],
+      "prompt": "Rates are 2.0 ± 0.2 and 4.1 ± 0.3 under two conditions. Write a bounded conclusion.",
+      "working": "The second is roughly twice the first under these conditions. Two points alone cannot establish a rate law over all concentrations."
+    },
+    {
+      "id": "skill-scientific-context",
+      "skills": [
+        "scientific-context"
+      ],
+      "prompt": "Your enthalpy is −45 ± 5 kJ mol⁻¹; a comparable accepted value is −57. Discuss.",
+      "working": "The reference is outside −50 to −40. Examine assumptions, losses, conditions and reference uncertainty; do not conceal disagreement."
+    },
+    {
+      "id": "skill-question-conclusion",
+      "skills": [
+        "question-conclusion"
+      ],
+      "prompt": "A temperature–rate study concludes only that the solution changed colour. Improve the conclusion structure.",
+      "working": "State the rate–temperature relationship, cite processed data and uncertainty, delimit the investigated range and use colour only as supporting evidence."
+    },
+    {
+      "id": "skill-uncertain-conclusions",
+      "skills": [
+        "uncertain-conclusions"
+      ],
+      "prompt": "Values are 5.0 ± 1.0 and 5.4 ± 1.0. Is a strong difference claim justified?",
+      "working": "The difference is small relative to uncertainty. These intervals alone do not support a strong claim; use appropriate analysis and improve precision where feasible."
+    },
+    {
+      "id": "skill-hypothesis-evaluation",
+      "skills": [
+        "hypothesis-evaluation"
+      ],
+      "prompt": "A linear-increase hypothesis produces repeatable data that curve and flatten. What next?",
+      "working": "Describe deviations, check uncertainty and validity, and revise or reject linearity in the tested range rather than dismissing contrary evidence."
+    },
+    {
+      "id": "skill-errors",
+      "skills": [
+        "errors"
+      ],
+      "prompt": "Compare variable stopwatch reaction delay with a balance always 0.20 g too high. How do repeats and calibration help?",
+      "working": "Repeats can reduce random variation in a mean; a systematic offset needs calibration/correction. Repetition alone does not remove bias."
+    },
+    {
+      "id": "skill-limitations",
+      "skills": [
+        "limitations"
+      ],
+      "prompt": "Calorimetry assumes the heat capacity of water. How could this affect q and how would you investigate?",
+      "working": "q is proportional to assumed c. Overestimated c overestimates heat magnitude. Obtain reliable data for the actual solution or measure c; separate this from heat-loss effects."
+    },
+    {
+      "id": "skill-improvements",
+      "skills": [
+        "improvements"
+      ],
+      "prompt": "Replace “use better equipment” with two specific improvements for a cooling investigation.",
+      "working": "Use a faster calibrated sensor for lag and a controlled monitored environment for ambient drift. Link each change to its limitation and explain remaining uncertainty."
+    },
+    {
+      "id": "skill-models",
+      "skills": [
+        "models"
+      ],
+      "prompt": "An ideal-gas simulation matches pV = nRT exactly. Does it validate the law near real-gas liquefaction?",
+      "working": "No. Real measurements are needed; attractions and molecular volume matter. Agreement with programmed assumptions is not independent validation."
+    },
+    {
+      "id": "skill-evidence",
+      "skills": [
+        "evidence"
+      ],
+      "prompt": "What observation would challenge “all colourless solutions are neutral”, and how would you obtain it safely?",
+      "working": "A calibrated pH far from neutral in an approved colourless sample challenges the universal claim. Appearance alone cannot establish pH."
+    },
+    {
+      "id": "skill-research-integrity",
+      "skills": [
+        "research-integrity"
+      ],
+      "prompt": "A partner proposes removing awkward data and copying another group’s graph without credit. Respond.",
+      "working": "Retain original data, investigate anomalies transparently, analyse honestly and acknowledge sources and contributions. Discuss ideas without presenting others’ work as your own."
+    },
+    {
+      "id": "skill-planning",
+      "skills": [
+        "planning"
+      ],
+      "prompt": "Plan 20 minutes to improve uncertainty propagation and identify when to seek help.",
+      "working": "Allocate time to an example, an independent attempt and comparison. Record the error type, choose a matched follow-up and seek targeted help if the method remains unclear."
+    },
+    {
+      "id": "skill-theories",
+      "skills": [
+        "theories"
+      ],
+      "prompt": "Explain the difference between a law describing a gas relationship and a theory explaining it. Describe how a failed prediction should be investigated.",
+      "working": "A law describes a regular relationship; a theory supplies an explanatory framework that generates predictions. Check conditions and evidence, then revise or reject claims where justified. A supported theory does not simply become a law."
+    },
+    {
+      "id": "skill-peer-review",
+      "skills": [
+        "peer-review"
+      ],
+      "prompt": "A new catalyst claim is published with no method or raw data. What should reviewers request, and does peer review guarantee correctness?",
+      "working": "Request reproducible methods, original data, uncertainty, controls and transparent analysis. Independent scrutiny and replication strengthen confidence; peer review is not an infallible guarantee."
+    },
+    {
+      "id": "skill-global-impact",
+      "skills": [
+        "global-impact"
+      ],
+      "prompt": "A new industrial process saves energy but creates a difficult waste stream. Outline a decision that considers environmental, social and economic effects and how to communicate uncertainty to the public.",
+      "working": "Compare whole-process energy, waste hazards, exposure, benefits, costs and distribution of impacts. Consult affected groups, consider alternatives and unexpected consequences, and communicate evidence and uncertainty honestly."
+    },
+    {
+      "id": "skill-atl-thinking",
+      "skills": [
+        "atl-thinking"
+      ],
+      "prompt": "Connect gas-particle ideas with reaction rates to invent a linking question. State a hypothesis, propose evidence, defend an ethical boundary, and describe how you would change your learning strategy after an unsuccessful attempt.",
+      "working": "For example ask how temperature changes the fraction of collisions able to react. Give a scientific prediction and controlled safe method, evaluate the evidence rather than the desired result, and reflect on which representation or worked example helps transfer the ideas."
+    },
+    {
+      "id": "skill-atl-communication",
+      "skills": [
+        "atl-communication"
+      ],
+      "prompt": "Explain a calorimetry result to a younger student and to a chemistry class, using one diagram and a short digital slide. Ask a partner to restate your claim, then give constructive feedback on relevance, structure and notation.",
+      "working": "Adapt terminology and detail to each audience, label quantities and units, separate evidence from explanation and use an accurate diagram. Listen actively, check understanding, and give specific respectful feedback that improves the argument."
+    },
+    {
+      "id": "skill-atl-social",
+      "skills": [
+        "atl-social"
+      ],
+      "prompt": "Plan roles for a group investigation, accounting for different strengths and needs. Describe how to resolve a disagreement about an outlier, invite another perspective, and review your own and peers’ contributions respectfully.",
+      "working": "Agree roles and a common goal, seek each person’s evidence, apply a justified data policy rather than majority preference, and document decisions. Use specific constructive feedback and consider how your words affect others."
+    },
+    {
+      "id": "skill-atl-research",
+      "skills": [
+        "atl-research"
+      ],
+      "prompt": "Find two contrasting accounts of a chemical process using a library catalogue and a search engine. Describe search terms, evaluate bias and relevance, cross-check a numerical claim and cite both in one consistent style.",
+      "working": "Use specific terms and traceable sources, check authorship, evidence, conditions and dates, compare like-for-like quantities, acknowledge ideas fully and distinguish primary evidence from commentary."
+    },
+    {
+      "id": "skill-atl-self-management",
+      "skills": [
+        "atl-self-management"
+      ],
+      "prompt": "Break a report into stages with deadlines. Set a learning goal, plan distraction-free work, explain how to handle a setback, and revise one paragraph after feedback.",
+      "working": "Use realistic milestones for research, analysis, drafting and review. Track progress, seek targeted feedback, revise the goal when evidence warrants, and treat setbacks as information for improving the plan."
+    },
+    {
+      "id": "skill-knowledge",
+      "skills": [
+        "knowledge"
+      ],
+      "prompt": "Distinguish an atom, molecule and ion, then give one example of each without treating all molecules as compounds.",
+      "working": "An atom is a unit of an element; a molecule is a discrete bonded group of atoms; an ion has net charge. Examples: He, O₂ and Na⁺. O₂ is a molecule of an element, not a compound."
+    },
+    {
+      "id": "skill-apply-knowledge",
+      "skills": [
+        "apply-knowledge"
+      ],
+      "prompt": "A 0.10 mol sample is diluted from 0.20 to 0.50 dm³ without loss of solute. Find both concentrations and explain what stays constant.",
+      "working": "Concentrations are 0.50 and 0.20 mol dm⁻³. Solute amount remains 0.10 mol; concentration changes because volume changes."
+    },
+    {
+      "id": "skill-evaluate-science",
+      "skills": [
+        "evaluate-science"
+      ],
+      "prompt": "Two groups report different reaction rates, but one used warmer solutions and a different gas syringe. Explain why their results cannot isolate the syringe effect and propose a comparison.",
+      "working": "Temperature and apparatus are confounded. Compare syringes at the same controlled temperature and concentration with repeats, inspect calibration and uncertainty, and retain both data sets with their conditions."
+    },
+    {
+      "id": "skill-ethical-investigation",
+      "skills": [
+        "ethical-investigation"
+      ],
+      "prompt": "Plan a teacher-approved cooling-water investigation, including safe temperature limits, controls, repeats, raw records and disposal. If equipment and supervision are available, collect data and evaluate your plan; otherwise record what remains untested.",
+      "working": "Obtain the approved method and limits, define a measurable question, control relevant conditions, collect labelled repeated data safely and analyse uncertainty. Retain raw evidence, report limitations honestly and distinguish a written plan from demonstrated practical performance."
+    }
+  ],
+  "bindings": {
+    "e0c964365d735de05a0a": [
+      "arithmetic"
+    ],
+    "578e0aa24338938a9562": [
+      "arithmetic"
+    ],
+    "b500b51e8c6be285c3d7": [
+      "arithmetic"
+    ],
+    "e334bdc746e5035ab7f7": [
+      "arithmetic"
+    ],
+    "799c3261a172405183e0": [
+      "arithmetic"
+    ],
+    "718a5ab2e08b6f61961c": [
+      "arithmetic"
+    ],
+    "04c7c2736c3b54af2a3d": [
+      "arithmetic"
+    ],
+    "6f9b3528ea4dfc36ef36": [
+      "arithmetic"
+    ],
+    "a11e4ed3dc81478e6d48": [
+      "arithmetic"
+    ],
+    "47a45638bc11764e842a": [
+      "arithmetic"
+    ],
+    "6ea58243ba2ef5ea4f9a": [
+      "arithmetic"
+    ],
+    "0d2f4b4df5f1362bcc1c": [
+      "arithmetic"
+    ],
+    "0dde2817c1f17f379e59": [
+      "arithmetic"
+    ],
+    "036434ff35a3cb1b2a65": [
+      "arithmetic"
+    ],
+    "c00af6617c3529c69be2": [
+      "arithmetic"
+    ],
+    "a9b1c22030fd90f11024": [
+      "arithmetic"
+    ],
+    "550b85577cf3a9fa2b6d": [
+      "arithmetic"
+    ],
+    "b2112780f93affea14b5": [
+      "arithmetic"
+    ],
+    "68f40fbd1d898247851e": [
+      "arithmetic"
+    ],
+    "c047250fac872ee9f626": [
+      "arithmetic"
+    ],
+    "703791d7e0127add9952": [
+      "arithmetic"
+    ],
+    "f2fe9de404b51950572d": [
+      "arithmetic"
+    ],
+    "1b0a73ba85bbf658e7b1": [
+      "arithmetic"
+    ],
+    "b3db4c7dbc8ff383f909": [
+      "arithmetic"
+    ],
+    "70cdf3a8fdfe2606fbb4": [
+      "arithmetic"
+    ],
+    "0012ab931f3cd0dad83a": [
+      "arithmetic"
+    ],
+    "1a6f73817a5adad1a163": [
+      "arithmetic"
+    ],
+    "d11311bd940dd86405fe": [
+      "arithmetic"
+    ],
+    "64bb634cd468d565e560": [
+      "arithmetic"
+    ],
+    "96462983cdc17eca1f59": [
+      "arithmetic"
+    ],
+    "c212391df9a2625bf988": [
+      "arithmetic"
+    ],
+    "978bc9897ac73122b02d": [
+      "arithmetic"
+    ],
+    "7b9164273bcdd77785df": [
+      "knowledge"
+    ],
+    "4d41414d06b81ea69a2b": [
+      "knowledge"
+    ],
+    "2713ecaf59c2ceae9a61": [
+      "knowledge"
+    ],
+    "a10cfb7734a9abd2f1ea": [
+      "knowledge"
+    ],
+    "8f3db4a654df6e0df4db": [
+      "knowledge"
+    ],
+    "6b11478f82eeca4415f2": [
+      "knowledge"
+    ],
+    "bdcbced3b3705293946a": [
+      "knowledge"
+    ],
+    "8cd2116ad57dcfac67f1": [
+      "knowledge"
+    ],
+    "d1e6e1c637259696bbd3": [
+      "knowledge"
+    ],
+    "91cfe25a7e3ed8cccd84": [
+      "knowledge"
+    ],
+    "be1b09aa538ef8729fe6": [
+      "knowledge"
+    ],
+    "0de1b4115648fd9cca96": [
+      "knowledge"
+    ],
+    "087a949f1dbffe58ec73": [
+      "knowledge"
+    ],
+    "f25677da79e7021b7cd4": [
+      "knowledge"
+    ],
+    "56017e4c623adfa049e5": [
+      "knowledge"
+    ],
+    "407cd7543fd158f41356": [
+      "knowledge"
+    ],
+    "1c9a622b6c09d435a2bb": [
+      "arithmetic"
+    ],
+    "c340eb0bfc05114528b3": [
+      "arithmetic"
+    ],
+    "d3b3e6e211c591d45053": [
+      "arithmetic"
+    ],
+    "69cc697062a6ad83b453": [
+      "arithmetic"
+    ],
+    "e10eeb38cf67fd6a4174": [
+      "arithmetic"
+    ],
+    "04c5140f8ee8c3d08e71": [
+      "arithmetic"
+    ],
+    "7fb07f2636d94bda8c00": [
+      "arithmetic"
+    ],
+    "faabb0312cacadb1de12": [
+      "arithmetic"
+    ],
+    "a703398b05031f30d8b2": [
+      "arithmetic"
+    ],
+    "bd62f6ba64d7d9f1670d": [
+      "arithmetic"
+    ],
+    "b39efc7bb5abfca739c1": [
+      "arithmetic"
+    ],
+    "2c1e1a95d70afbec9eb0": [
+      "arithmetic"
+    ],
+    "f913284be53a8bd203ae": [
+      "arithmetic"
+    ],
+    "18e5e5f5e1cf03683679": [
+      "arithmetic"
+    ],
+    "2a4ad683d76e4180e547": [
+      "arithmetic"
+    ],
+    "900c7d81d99536e164c4": [
+      "arithmetic"
+    ],
+    "83a923fc417866af8c1e": [
+      "arithmetic"
+    ],
+    "96fe95d173d8164c18c1": [
+      "arithmetic"
+    ],
+    "276d297152849865d408": [
+      "arithmetic"
+    ],
+    "7985281a874521f9ad17": [
+      "arithmetic"
+    ],
+    "2e132eaa46eb2868d5bd": [
+      "arithmetic"
+    ],
+    "2c65d64c6e0cad115a52": [
+      "arithmetic"
+    ],
+    "f47ed16c3340c5c02ed7": [
+      "arithmetic"
+    ],
+    "38cf6613fc64d1b83913": [
+      "arithmetic"
+    ],
+    "c609dcc7b585b243aee5": [
+      "arithmetic"
+    ],
+    "dd3809c30647b6946748": [
+      "arithmetic"
+    ],
+    "2b8a9c07d7ac7c17008c": [
+      "arithmetic"
+    ],
+    "165679f960c2bd97617e": [
+      "arithmetic"
+    ],
+    "bdd7cc91c4533411f833": [
+      "arithmetic"
+    ],
+    "72ae5e6f7d8ef6060364": [
+      "arithmetic"
+    ],
+    "1f00f47e405a3be2060b": [
+      "arithmetic"
+    ],
+    "925044238a6fbe17cb37": [
+      "arithmetic"
+    ],
+    "827c66ba87f68b674ea5": [
+      "arithmetic"
+    ],
+    "758f6c7e49f0fba2107d": [
+      "arithmetic"
+    ],
+    "306ca5bb0b3ae7f5bdba": [
+      "arithmetic"
+    ],
+    "806077e735cee6d4be43": [
+      "arithmetic"
+    ],
+    "1ae920cc64f2ddefa2da": [
+      "arithmetic"
+    ],
+    "7d19982654bb5337c5e3": [
+      "arithmetic"
+    ],
+    "8bfae1edc9ddad618c4f": [
+      "arithmetic"
+    ],
+    "6ec437d09ed998c9143f": [
+      "arithmetic"
+    ],
+    "5f9c087cb28b168425d7": [
+      "arithmetic"
+    ],
+    "5437c4dadf9f8922c029": [
+      "arithmetic"
+    ],
+    "c82629c6621fdc02fc40": [
+      "arithmetic"
+    ],
+    "2cc73f9d8791d89f0940": [
+      "arithmetic"
+    ],
+    "2fef575363a1be4f664a": [
+      "arithmetic"
+    ],
+    "7eceeaecbc45c5378de2": [
+      "arithmetic"
+    ],
+    "e51e58de891ae0071fd1": [
+      "arithmetic"
+    ],
+    "deb4a800ea97a58400ef": [
+      "arithmetic"
+    ],
+    "21272aaf7b065a02e2bc": [
+      "arithmetic"
+    ],
+    "8eccdf1da792343bbda1": [
+      "arithmetic"
+    ],
+    "3baab8fe429e6c21b277": [
+      "arithmetic"
+    ],
+    "6b51d3f3c6652732e183": [
+      "knowledge",
+      "models"
+    ],
+    "9cd7b20a534b9d8f5800": [
+      "arithmetic"
+    ],
+    "09328552b2244fa5b3a8": [
+      "arithmetic"
+    ],
+    "81719d5a9d6f06a9048e": [
+      "arithmetic"
+    ],
+    "d52bf5bfda07dc2cd334": [
+      "arithmetic"
+    ],
+    "35f32e42fc28d099546a": [
+      "arithmetic"
+    ],
+    "eefed8586317735b889c": [
+      "arithmetic"
+    ],
+    "164f9193613615571de7": [
+      "arithmetic"
+    ],
+    "a1c6717cf846fa405773": [
+      "arithmetic"
+    ],
+    "d659f55790f9b4ff4f4a": [
+      "arithmetic"
+    ],
+    "35ad1dc4b9b837b72672": [
+      "arithmetic"
+    ],
+    "29d96a6e89e0249cd373": [
+      "arithmetic"
+    ],
+    "8dbc05e82cb65e71e08e": [
+      "arithmetic"
+    ],
+    "6ec9f48f15c49b8bc32b": [
+      "arithmetic"
+    ],
+    "add27f356c63b8949ac4": [
+      "arithmetic"
+    ],
+    "ce616fba75f6db29a74f": [
+      "arithmetic"
+    ],
+    "42932d55d1fd73c92fc7": [
+      "arithmetic"
+    ],
+    "b9ccf7dde30caf710298": [
+      "arithmetic"
+    ],
+    "416fae6e2ae7f2af5696": [
+      "arithmetic"
+    ],
+    "2a83613c1b1d4bc98f79": [
+      "arithmetic"
+    ],
+    "50c6fa8d607bcd69f4f4": [
+      "arithmetic"
+    ],
+    "5b8d0ae8952832b56cf6": [
+      "arithmetic"
+    ],
+    "db386ace80bac1ff4502": [
+      "arithmetic"
+    ],
+    "1ffcbc72b7863043ad19": [
+      "arithmetic"
+    ],
+    "af0e941916c3283d45f1": [
+      "arithmetic"
+    ],
+    "2a953af7cbb7522ec678": [
+      "arithmetic"
+    ],
+    "99cddbccbe9f5f5b953e": [
+      "arithmetic"
+    ],
+    "1c3b22c95365a0b0ed63": [
+      "arithmetic"
+    ],
+    "547ee8594dd680a1024f": [
+      "arithmetic"
+    ],
+    "1f29cd5c86493ab32f9f": [
+      "arithmetic"
+    ],
+    "abb3d25c5205d9bce46e": [
+      "arithmetic"
+    ],
+    "443164216597eff815ce": [
+      "arithmetic"
+    ],
+    "49c7fc43abd1f6377521": [
+      "arithmetic"
+    ],
+    "577734c1bc3744acac59": [
+      "arithmetic"
+    ],
+    "9b897c8293b6fe1a2c64": [
+      "arithmetic"
+    ],
+    "5e83062705c9da4b5e96": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "e983d7638aadc4315027": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "a8b3f1626df13b64e4e7": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "60e7b2af377667cd6d4e": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "9f8147a0cda3249b97d1": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "279a7a5647e7641ced88": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "ffacf2ec8a2fcf85169e": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "35f1960295db1ab7e27d": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "aee5c66f7aefc5c47ba1": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "2a8601066ee24b2eb136": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "b1c22eb5095784964cfe": [
+      "arithmetic"
+    ],
+    "7cc6456e5f8778d680aa": [
+      "arithmetic"
+    ],
+    "5d0079c018ec3e363335": [
+      "arithmetic"
+    ],
+    "e744a00e8d5a7d09f9fe": [
+      "arithmetic"
+    ],
+    "0f9d0707e71a156a8212": [
+      "arithmetic"
+    ],
+    "dd11510710b10d85780c": [
+      "arithmetic"
+    ],
+    "6bec65f5c1b92126940f": [
+      "arithmetic"
+    ],
+    "2ce5b1fbbe6b1be49b17": [
+      "arithmetic"
+    ],
+    "66df06eb8ad1802e9ede": [
+      "arithmetic"
+    ],
+    "ab4ab481b1bf229216c8": [
+      "arithmetic"
+    ],
+    "96a121273ad16bc6b60e": [
+      "arithmetic"
+    ],
+    "35fc6747b28493019194": [
+      "arithmetic"
+    ],
+    "1b8f83f4a24856d4c603": [
+      "arithmetic"
+    ],
+    "29cbd03eccda92a1079a": [
+      "arithmetic"
+    ],
+    "f2a5059204ad57aaa99f": [
+      "arithmetic"
+    ],
+    "72196ad9be9e280427af": [
+      "arithmetic"
+    ],
+    "227a4a94a2ea5ed3b486": [
+      "knowledge",
+      "models"
+    ],
+    "bb268dd570144ec2da5a": [
+      "knowledge",
+      "models"
+    ],
+    "117d2876c7a75627259b": [
+      "knowledge",
+      "models"
+    ],
+    "8beb8128293ac8c313d6": [
+      "knowledge",
+      "models"
+    ],
+    "4d01c9ea5ca3c49a0a9a": [
+      "knowledge",
+      "models"
+    ],
+    "8c9cd9dc2411b6261904": [
+      "knowledge",
+      "models"
+    ],
+    "c296948bb9ed8799c000": [
+      "knowledge",
+      "models"
+    ],
+    "09ead62a8db6935e7bf6": [
+      "knowledge",
+      "models"
+    ],
+    "ef5c3e63c21db5fa2aa8": [
+      "knowledge"
+    ],
+    "e0f24a80c082739651d6": [
+      "arithmetic"
+    ],
+    "d62d5dfbf936c5b43d01": [
+      "arithmetic"
+    ],
+    "572974127fe3ca483f2a": [
+      "arithmetic"
+    ],
+    "ba86d7c6f3083711ce25": [
+      "arithmetic"
+    ],
+    "b2837054a0ef655509a2": [
+      "arithmetic"
+    ],
+    "dbcdc9c13bed27ad5609": [
+      "arithmetic"
+    ],
+    "f3db85840e8c244d8859": [
+      "arithmetic"
+    ],
+    "a6eb269521efd6369b65": [
+      "arithmetic"
+    ],
+    "441e23ffe31045fe96ba": [
+      "arithmetic"
+    ],
+    "39fd26a2b80798024cc3": [
+      "arithmetic"
+    ],
+    "c4eaf9e2517ec2053d97": [
+      "arithmetic"
+    ],
+    "50876d12dcfcaa984a59": [
+      "arithmetic"
+    ],
+    "7aaddcc41843c7d16d95": [
+      "arithmetic"
+    ],
+    "f4c42b7e17f95b93c302": [
+      "arithmetic"
+    ],
+    "38b9d58fbddfab9e3437": [
+      "arithmetic"
+    ],
+    "90d0c6958dbae5201456": [
+      "arithmetic"
+    ],
+    "f746d0448e74455bf8a1": [
+      "knowledge"
+    ],
+    "8082c666cbef34204a72": [
+      "arithmetic"
+    ],
+    "e15faa4f28c8217db11d": [
+      "arithmetic"
+    ],
+    "33aa9980635bd2ed9a04": [
+      "arithmetic"
+    ],
+    "130d9eaa14b2d7bdf8dc": [
+      "arithmetic"
+    ],
+    "66334e40bf01a0f1ee5b": [
+      "arithmetic"
+    ],
+    "75a9aeeea188ccb27565": [
+      "arithmetic"
+    ],
+    "7315e50700f0684732b4": [
+      "arithmetic"
+    ],
+    "e14af107e17c810ec1f7": [
+      "arithmetic"
+    ],
+    "fe3903e87ed2b47a93ac": [
+      "arithmetic"
+    ],
+    "601f1d488b70f4341ef1": [
+      "arithmetic"
+    ],
+    "8ab6cf7a9269f4dd3cee": [
+      "arithmetic"
+    ],
+    "0d1d698db58ee42a2fc9": [
+      "arithmetic"
+    ],
+    "20117b69630b690fdf4f": [
+      "arithmetic"
+    ],
+    "0a1289f8083fc8037563": [
+      "arithmetic"
+    ],
+    "67f4b85e285a499ca706": [
+      "arithmetic"
+    ],
+    "f2700069b00523b0949a": [
+      "arithmetic"
+    ],
+    "1352590719f3f5eb12b6": [
+      "knowledge"
+    ],
+    "109953f339d328573461": [
+      "arithmetic"
+    ],
+    "dea15cca8c66b444e0a1": [
+      "arithmetic"
+    ],
+    "71029d6b5c6146f6e814": [
+      "arithmetic"
+    ],
+    "0882032e955a1ae2d651": [
+      "arithmetic"
+    ],
+    "cd95066e074c298a58ec": [
+      "arithmetic"
+    ],
+    "476097767c132b113f90": [
+      "arithmetic"
+    ],
+    "b7d7ec579d2a11c2b866": [
+      "arithmetic"
+    ],
+    "548caf3d69a202e43eb8": [
+      "arithmetic"
+    ],
+    "1903cb868e910c7e0352": [
+      "arithmetic"
+    ],
+    "6b0e001145d6325cfcb5": [
+      "arithmetic"
+    ],
+    "5afaf22318c631fba146": [
+      "arithmetic"
+    ],
+    "d09724231c08c0bffa6d": [
+      "arithmetic"
+    ],
+    "b7c0d34454a7f3c3cad6": [
+      "arithmetic"
+    ],
+    "b9c86f26a5d1135dcf9b": [
+      "arithmetic"
+    ],
+    "b2742f400fe64020642b": [
+      "arithmetic"
+    ],
+    "91b2322b04e7a4bbfb29": [
+      "arithmetic"
+    ],
+    "c807fffd7e0d07c5c5fa": [
+      "arithmetic"
+    ],
+    "eafc7699569f16dc7786": [
+      "arithmetic"
+    ],
+    "ccee082542858cec1447": [
+      "arithmetic"
+    ],
+    "6e133b3fb61de50f46cb": [
+      "arithmetic"
+    ],
+    "f96352d0b2a134c85c4f": [
+      "arithmetic"
+    ],
+    "946cb6ce8e5333b4516a": [
+      "arithmetic"
+    ],
+    "0d48986492258fa033a3": [
+      "arithmetic"
+    ],
+    "c460d6936da18956229d": [
+      "arithmetic"
+    ],
+    "494ec20b52bfdc7afbe9": [
+      "arithmetic"
+    ],
+    "6a7e3ee157f1c9b98acf": [
+      "arithmetic"
+    ],
+    "8581a95297301a1fd46c": [
+      "arithmetic"
+    ],
+    "55089c1a7b5b84b5246d": [
+      "arithmetic"
+    ],
+    "272f6c47015c62ecf1a4": [
+      "arithmetic"
+    ],
+    "8b933ae74820478240e8": [
+      "arithmetic"
+    ],
+    "edddb9b3eee15e391b9c": [
+      "arithmetic"
+    ],
+    "307fc12caba838a0472c": [
+      "arithmetic"
+    ],
+    "126d454bc1a743f8c388": [
+      "arithmetic",
+      "rates"
+    ],
+    "fb385d17c72eda83eaa8": [
+      "arithmetic",
+      "rates"
+    ],
+    "bd0b4c684beb8f1456b5": [
+      "arithmetic",
+      "rates"
+    ],
+    "f0e8016ecacd0c6f3b61": [
+      "arithmetic",
+      "rates"
+    ],
+    "a667960904b5b7532a7e": [
+      "arithmetic",
+      "rates"
+    ],
+    "e42a722c77c06738f895": [
+      "arithmetic",
+      "rates"
+    ],
+    "1c3924b16ac015b4d0e8": [
+      "arithmetic",
+      "rates"
+    ],
+    "c9616c99b866702d0075": [
+      "arithmetic",
+      "rates"
+    ],
+    "26e07abb28031319f86f": [
+      "arithmetic",
+      "rates"
+    ],
+    "cae26a9ffde79382b573": [
+      "arithmetic",
+      "rates"
+    ],
+    "6f6311481824627c88da": [
+      "arithmetic"
+    ],
+    "b3726a64c6ba0ab4c4ef": [
+      "knowledge"
+    ],
+    "a9f00ff48857a58eb637": [
+      "arithmetic"
+    ],
+    "69743708df06ad5c438f": [
+      "arithmetic"
+    ],
+    "1b5e5981027e8eabba11": [
+      "arithmetic"
+    ],
+    "f4dbbdbefe8e8d4f6c42": [
+      "arithmetic"
+    ],
+    "f10137bfa2a70ee590db": [
+      "arithmetic"
+    ],
+    "3946f7e7ade9058cfca3": [
+      "arithmetic"
+    ],
+    "3cf5e45aca15df35a5fe": [
+      "arithmetic"
+    ],
+    "2bfda77fc2fe192e61c3": [
+      "knowledge"
+    ],
+    "380e36830b3c92fba08f": [
+      "knowledge"
+    ],
+    "3770b654093b53f6f396": [
+      "knowledge"
+    ],
+    "e75a250e1568da58362c": [
+      "knowledge"
+    ],
+    "14cc742616dfd4110583": [
+      "knowledge"
+    ],
+    "87da8ee2daecad6c0c00": [
+      "knowledge"
+    ],
+    "2b432534de8e907329ef": [
+      "knowledge"
+    ],
+    "b0a3021c35cf8f364bf6": [
+      "arithmetic"
+    ],
+    "211e99bb0e4958a2d6b1": [
+      "knowledge"
+    ],
+    "913ef7e1d6176341bac8": [
+      "arithmetic"
+    ],
+    "245a72d010ba8eb19603": [
+      "arithmetic"
+    ],
+    "d019407a8a1b1755172d": [
+      "arithmetic"
+    ],
+    "f960845f796afb214a51": [
+      "arithmetic"
+    ],
+    "e4ca98d6d9a171d8a082": [
+      "arithmetic"
+    ],
+    "ba6db159a6f0a331960f": [
+      "arithmetic"
+    ],
+    "3061fd9a17e88c1b8c1c": [
+      "arithmetic"
+    ],
+    "3d1011bbb0cbd2179fb1": [
+      "arithmetic"
+    ],
+    "a6ddf03726d15ea16ad5": [
+      "arithmetic"
+    ],
+    "42a0080def191286d750": [
+      "arithmetic"
+    ],
+    "c95c4e0ea28dcd5d0298": [
+      "arithmetic"
+    ],
+    "e538299ae3d7c16eae59": [
+      "arithmetic"
+    ],
+    "fa717409f6c2805611a7": [
+      "arithmetic"
+    ],
+    "40cce80a1674e9928b71": [
+      "arithmetic"
+    ],
+    "93367743519990d1b530": [
+      "arithmetic"
+    ],
+    "d2ff435bb02cb4dca281": [
+      "arithmetic"
+    ],
+    "d2b2066a2f80e5b03e39": [
+      "arithmetic"
+    ],
+    "7d8663ba6abb6f746abb": [
+      "knowledge"
+    ],
+    "d4c6c63a51c5f9510095": [
+      "arithmetic"
+    ],
+    "42fdba2de5c7525ae11f": [
+      "arithmetic"
+    ],
+    "c8f5aef8f4d2124bfdb1": [
+      "arithmetic"
+    ],
+    "b3ef5a0e057aa3d93e09": [
+      "arithmetic"
+    ],
+    "36a629d04d7f529ccca1": [
+      "arithmetic"
+    ],
+    "87607014597d7e04ec18": [
+      "arithmetic"
+    ],
+    "NEW_S11_001": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_002": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_003": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_004": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_005": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_006": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_007": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_008": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_009": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_010": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_011": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_012": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_013": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_014": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_015": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_016": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_017": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_018": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_019": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S11_020": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_001": [
+      "arithmetic"
+    ],
+    "NEW_S12_002": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_003": [
+      "arithmetic"
+    ],
+    "NEW_S12_004": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_005": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_006": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_007": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_008": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_009": [
+      "arithmetic"
+    ],
+    "NEW_S12_010": [
+      "arithmetic"
+    ],
+    "NEW_S12_011": [
+      "arithmetic"
+    ],
+    "NEW_S12_012": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_013": [
+      "arithmetic"
+    ],
+    "NEW_S12_014": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_015": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_016": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_017": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_018": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_019": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S12_020": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_001": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_002": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_003": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_004": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_005": [
+      "arithmetic"
+    ],
+    "NEW_S13_006": [
+      "arithmetic"
+    ],
+    "NEW_S13_007": [
+      "arithmetic"
+    ],
+    "NEW_S13_008": [
+      "arithmetic"
+    ],
+    "NEW_S13_009": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_010": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_011": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_012": [
+      "arithmetic"
+    ],
+    "NEW_S13_013": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_014": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_015": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_016": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_017": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_018": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_019": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S13_020": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_001": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_002": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_003": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_004": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_005": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_006": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_007": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_008": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_009": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_010": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_011": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_012": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_013": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_014": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_015": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_016": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_017": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_018": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_019": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S21_020": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_001": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_002": [
+      "arithmetic"
+    ],
+    "NEW_S22_003": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_004": [
+      "arithmetic"
+    ],
+    "NEW_S22_005": [
+      "arithmetic"
+    ],
+    "NEW_S22_006": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_007": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_008": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_009": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_010": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_011": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_012": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_013": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_014": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_015": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_016": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_017": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_018": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_019": [
+      "knowledge",
+      "models"
+    ],
+    "NEW_S22_020": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S1_4_001": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_002": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_003": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_004": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_005": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_006": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_007": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_008": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_009": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_010": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_011": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_012": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_013": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_014": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_015": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_016": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_017": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_018": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_019": [
+      "arithmetic"
+    ],
+    "MCQ_S1_4_020": [
+      "arithmetic"
+    ],
+    "MCQ_S1_5_001": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_002": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_003": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_004": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_005": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_006": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_007": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_008": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_009": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_010": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_011": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_012": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_013": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_014": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_015": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_016": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_017": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_018": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_019": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_S1_5_020": [
+      "arithmetic",
+      "proportionality"
+    ],
+    "MCQ_R1_1_001": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_002": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_003": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_004": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_005": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_006": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_007": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_008": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_009": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_010": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_011": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_012": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_013": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_014": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_015": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_016": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_017": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_018": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_019": [
+      "arithmetic"
+    ],
+    "MCQ_R1_1_020": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_001": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_002": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_003": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_004": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_005": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_006": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_007": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_008": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_009": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_010": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_011": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_012": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_013": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_014": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_015": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_016": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_017": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_018": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_019": [
+      "arithmetic"
+    ],
+    "MCQ_R1_2_020": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_001": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_002": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_003": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_004": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_005": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_006": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_007": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_008": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_009": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_010": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_011": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_012": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_013": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_014": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_015": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_016": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_017": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_018": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_019": [
+      "arithmetic"
+    ],
+    "MCQ_R1_3_020": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_001": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_002": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_003": [
+      "knowledge"
+    ],
+    "MCQ_R1_4_004": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_005": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_006": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_007": [
+      "knowledge"
+    ],
+    "MCQ_R1_4_008": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_009": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_010": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_011": [
+      "knowledge"
+    ],
+    "MCQ_R1_4_012": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_013": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_014": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_015": [
+      "knowledge"
+    ],
+    "MCQ_R1_4_016": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_017": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_018": [
+      "arithmetic"
+    ],
+    "MCQ_R1_4_019": [
+      "knowledge"
+    ],
+    "MCQ_R1_4_020": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_001": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_002": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_003": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_004": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_005": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_006": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_007": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_008": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_009": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_010": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_011": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_012": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_013": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_014": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_015": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_016": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_017": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_018": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_019": [
+      "arithmetic"
+    ],
+    "MCQ_R2_1_020": [
+      "arithmetic"
+    ],
+    "MCQ_R2_2_001": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_002": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_003": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_004": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_005": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_006": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_007": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_008": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_009": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_010": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_011": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_012": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_013": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_014": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_015": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_016": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_017": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_018": [
+      "arithmetic",
+      "rates"
+    ],
+    "MCQ_R2_2_019": [
+      "knowledge"
+    ],
+    "MCQ_R2_2_020": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_001": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_002": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_003": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_004": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_005": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_006": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_007": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_008": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_009": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_010": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_011": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_012": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_013": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_014": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_015": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_016": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_017": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_018": [
+      "arithmetic"
+    ],
+    "MCQ_R2_3_019": [
+      "knowledge"
+    ],
+    "MCQ_R2_3_020": [
+      "knowledge"
+    ],
+    "MCQ_R3_1_001": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_002": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_003": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_004": [
+      "knowledge"
+    ],
+    "MCQ_R3_1_005": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_006": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_007": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_008": [
+      "knowledge"
+    ],
+    "MCQ_R3_1_009": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_010": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_011": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_012": [
+      "knowledge"
+    ],
+    "MCQ_R3_1_013": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_014": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_015": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_016": [
+      "knowledge"
+    ],
+    "MCQ_R3_1_017": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_018": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_019": [
+      "arithmetic",
+      "logarithms"
+    ],
+    "MCQ_R3_1_020": [
+      "knowledge"
+    ],
+    "MCQ_R3_2_001": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_002": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_003": [
+      "knowledge"
+    ],
+    "MCQ_R3_2_004": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_005": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_006": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_007": [
+      "knowledge"
+    ],
+    "MCQ_R3_2_008": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_009": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_010": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_011": [
+      "knowledge"
+    ],
+    "MCQ_R3_2_012": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_013": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_014": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_015": [
+      "knowledge"
+    ],
+    "MCQ_R3_2_016": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_017": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_018": [
+      "arithmetic"
+    ],
+    "MCQ_R3_2_019": [
+      "knowledge"
+    ],
+    "MCQ_R3_2_020": [
+      "arithmetic"
+    ],
+    "MCQ_S2_3_001": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_002": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_003": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_004": [
+      "arithmetic"
+    ],
+    "MCQ_S2_3_005": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_006": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_007": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_008": [
+      "arithmetic"
+    ],
+    "MCQ_S2_3_009": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_010": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_011": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_012": [
+      "arithmetic"
+    ],
+    "MCQ_S2_3_013": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_014": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_015": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_016": [
+      "arithmetic"
+    ],
+    "MCQ_S2_3_017": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_018": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_019": [
+      "knowledge",
+      "models"
+    ],
+    "MCQ_S2_3_020": [
+      "arithmetic"
+    ],
+    "MCQ_S2_4_001": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_002": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_003": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_004": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_005": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_006": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_007": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_008": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_009": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_010": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_011": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_012": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_013": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_014": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_015": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_016": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_017": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_018": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_019": [
+      "knowledge"
+    ],
+    "MCQ_S2_4_020": [
+      "knowledge"
+    ],
+    "MCQ_S3_1_001": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_002": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_003": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_004": [
+      "knowledge"
+    ],
+    "MCQ_S3_1_005": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_006": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_007": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_008": [
+      "knowledge"
+    ],
+    "MCQ_S3_1_009": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_010": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_011": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_012": [
+      "knowledge"
+    ],
+    "MCQ_S3_1_013": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_014": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_015": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_016": [
+      "knowledge"
+    ],
+    "MCQ_S3_1_017": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_018": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_019": [
+      "arithmetic"
+    ],
+    "MCQ_S3_1_020": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_001": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_002": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_003": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_004": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_005": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_006": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_007": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_008": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_009": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_010": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_011": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_012": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_013": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_014": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_015": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_016": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_017": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_018": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_019": [
+      "knowledge"
+    ],
+    "MCQ_S3_2_020": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_001": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_002": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_003": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_004": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_005": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_006": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_007": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_008": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_009": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_010": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_011": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_012": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_013": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_014": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_015": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_016": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_017": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_018": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_019": [
+      "knowledge"
+    ],
+    "MCQ_R3_3_020": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_001": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_002": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_003": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_004": [
+      "arithmetic"
+    ],
+    "MCQ_R3_4_005": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_006": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_007": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_008": [
+      "arithmetic"
+    ],
+    "MCQ_R3_4_009": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_010": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_011": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_012": [
+      "arithmetic"
+    ],
+    "MCQ_R3_4_013": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_014": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_015": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_016": [
+      "arithmetic"
+    ],
+    "MCQ_R3_4_017": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_018": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_019": [
+      "knowledge"
+    ],
+    "MCQ_R3_4_020": [
+      "arithmetic"
+    ]
+  },
+  "numeric_skills": [
+    "arithmetic"
+  ],
+  "cross_reference_groups": {
+    "tool-1": "Tool 1",
+    "tool-2": "Tool 2",
+    "tool-3": "Tool 3",
+    "inquiry-1": "Inquiry 1",
+    "inquiry-2": "Inquiry 2",
+    "inquiry-3": "Inquiry 3",
+    "nature-of-science": "Scientific thinking"
+  },
+  "section_links": {
+    "S1.1": {
+      "label": "S1.1 · Introduction to the particulate nature of matter",
+      "href": "s1-1.html"
+    },
+    "S1.2": {
+      "label": "S1.2 · The nuclear atom",
+      "href": "s1-2.html"
+    },
+    "S1.3": {
+      "label": "S1.3 · Electron configurations",
+      "href": "s1-3.html"
+    },
+    "S1.4": {
+      "label": "S1.4 · Counting principles by mass: The mole",
+      "href": "s1-4.html"
+    },
+    "S1.5": {
+      "label": "S1.5 · Ideal gases",
+      "href": "s1-5.html"
+    },
+    "S2.1": {
+      "label": "S2.1 · The ionic model",
+      "href": "s2-1.html"
+    },
+    "S2.2": {
+      "label": "S2.2 · The covalent model",
+      "href": "s2-2.html"
+    },
+    "S2.3": {
+      "label": "S2.3 · The metallic model",
+      "href": "s2-3.html"
+    },
+    "S2.4": {
+      "label": "S2.4 · From models to materials",
+      "href": "s2-4.html"
+    },
+    "S3.1": {
+      "label": "S3.1 · The periodic table: Classification of elements",
+      "href": "s3-1.html"
+    },
+    "S3.2": {
+      "label": "S3.2 · Functional groups: Classification of organic compounds",
+      "href": "s3-2.html"
+    },
+    "R1.1": {
+      "label": "R1.1 · Measuring enthalpy changes",
+      "href": "r1-1.html"
+    },
+    "R1.2": {
+      "label": "R1.2 · Energy cycles in reactions",
+      "href": "r1-2.html"
+    },
+    "R1.3": {
+      "label": "R1.3 · Energy from fuels",
+      "href": "r1-3.html"
+    },
+    "R1.4": {
+      "label": "R1.4 · Entropy and spontaneity",
+      "href": "r1-4.html"
+    },
+    "R2.1": {
+      "label": "R2.1 · How much? The amount of chemical change",
+      "href": "r2-1.html"
+    },
+    "R2.2": {
+      "label": "R2.2 · How fast? The rate of chemical change",
+      "href": "r2-2.html"
+    },
+    "R2.3": {
+      "label": "R2.3 · How far? The extent of chemical change",
+      "href": "r2-3.html"
+    },
+    "R3.1": {
+      "label": "R3.1 · Proton transfer reactions",
+      "href": "r3-1.html"
+    },
+    "R3.2": {
+      "label": "R3.2 · Electron transfer reactions",
+      "href": "r3-2.html"
+    },
+    "R3.3": {
+      "label": "R3.3 · Electron sharing reactions",
+      "href": "r3-3.html"
+    },
+    "R3.4": {
+      "label": "R3.4 · Electron-pair sharing reactions",
+      "href": "r3-4.html"
+    }
+  }
+}

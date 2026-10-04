@@ -2,6 +2,7 @@
 import json
 import math
 from html import escape
+from practice_skills import tag_question,render_skills
 
 
 def load_repetition(root, foundations):
@@ -12,6 +13,8 @@ def load_repetition(root, foundations):
         assert len(bank['questions']) >= 4 and bank['focus']
         assert len({q['prompt'] for q in bank['questions']}) == len(bank['questions'])
         for q in bank['questions']:
+            tag_question(root,q)
+            q['skill_html']=render_skills(root,q['skills'])
             assert q['prompt'] and q['hint'] and q['working']
             answer = q['answer']
             assert (isinstance(answer, list) and answer and all(isinstance(a, str) and a for a in answer)
@@ -38,6 +41,6 @@ def render_repetition(bank, key):
             '<div class="similar-controls" hidden><button type="button" class="similar-previous" disabled>Previous question</button>'
             '<button type="button" class="similar-next">Another like this</button></div>'
             f'<details class="similar-worksheet"><summary>Read or print all {count} questions and solutions</summary>'
-            + ''.join(f'<h4>Question {i}</h4><p>{escape(q["prompt"])}</p><details><summary>Worked answer</summary>'
+            + ''.join(f'<h4>Question {i}</h4>{q.get("skill_html", "")}<p>{escape(q["prompt"])}</p><details><summary>Worked answer</summary>'
                       f'<p>{escape(q["working"])}</p></details>' for i,q in enumerate(bank['questions'],1))
             + '</details><noscript><p>Enable JavaScript to switch questions and check answers, or use the full question list above.</p></noscript></div>')

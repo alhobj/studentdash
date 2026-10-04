@@ -1,5 +1,7 @@
 """Publish the original authored workbook extension with its deterministic A-D order."""
 from collections import Counter
+from practice_skills import tag_question, render_skills
+from mcq_review import apply_reviews, option_feedback
 from html import escape
 import json
 import random
@@ -35,6 +37,13 @@ def build_mcq(root, subject='chemistry'):
                             answer=[q['answer']], hint='Identify the relevant relationship or definition, work out your answer, then compare the four options.',
                             working=q['explanation'],
                             path=('mcq-' if subject == 'math' else '') + q['section'].lower().replace('.', '-') + '.html#' + q['id']))
+    for q in catalog:
+        correct = q['options']['ABCD'.index(q['answer'][0])]
+        q['feedback'] = {letter: option_feedback(option, correct, q['working']) for letter, option in zip('ABCD', q['options'])}
+    apply_reviews(root, catalog)
+    for q in catalog:
+        tag_question(root,q)
+        q["skill_html"] = render_skills(root,q["skills"])
     (root / 'authored-mcq.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return catalog
 
@@ -50,10 +59,10 @@ def render_mcq(questions, code):
     for number, q in enumerate(rows, 1):
         correct = q['answer'][0]
         html += (f'<article class="authored-mcq-card" id="{escape(q["source_id"])}" data-authored-mcq="{escape(q["id"])}" data-correct="{correct}">'
-                 f'<h3>Question {number}</h3><p class="mcq-prompt">{escape(q["prompt"])}</p>'
+                 f'<h3>Question {number}</h3>{q.get("skill_html", "")}<p class="mcq-prompt">{escape(q["prompt"])}</p>'
                  f'<div class="mcq-options" role="group" aria-label="Answers for question {number}">')
         for letter, option in zip('ABCD', q['options']):
-            html += (f'<button type="button" data-choice="{letter}" aria-pressed="false" aria-describedby="{q["source_id"]}-feedback">'
+            html += (f'<button type="button" data-choice="{letter}" data-feedback="{escape(q["feedback"][letter], quote=True)}" aria-pressed="false" aria-describedby="{q["source_id"]}-feedback">'
                      f'<strong>{letter}.</strong> {escape(option)}</button>')
         html += (f'</div><p class="mcq-feedback feedback" role="status" id="{q["source_id"]}-feedback"></p>'
                  f'<details class="mcq-explanation"><summary>Show the correct answer and explanation</summary>'

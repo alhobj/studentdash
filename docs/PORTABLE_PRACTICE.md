@@ -134,3 +134,98 @@ Rebuild with `tools/build_chemistry_practice.py` and `tools/build_math_practice.
 Mathematics banks have individual `mcq-*.html` pages linked from the hub, topic,
 small-step and coverage pages. All banks support immediate feedback, worked
 explanations, independent retries and the portable practice journal.
+
+## Five-question sets and choice feedback
+
+Each MCQ page offers **Start five-question set**, **Five more like these**, and
+**Show all 20 questions**. Direct question links reveal the set containing that
+question. My practice also offers a section selector and five-question sessions;
+additional sets skip questions already attempted or offered during that visit.
+
+Wrong choices now include option-specific feedback. Numerical feedback identifies
+sign, scale or high/low discrepancies and gives the relevant method. Conceptual
+feedback contrasts the selected statement with the applicable explanation. This
+is guidance about the answer, not a diagnosis of the student's thought process.
+
+## Teacher question review
+
+Open **Teacher: review questions** from either subject hub. Search by question
+text or ID, filter by section or review status, edit the prompt, four options,
+answer key, worked explanation and feedback for each choice. Preview the buttons
+before saving. Flag questions as reviewed, needing correction or too repetitive,
+and add editorial notes. Save before switching to another question.
+
+Drafts stay in the current browser. **Export review file** downloads
+`mcq-review.json`; **Import review file** validates and merges a file for the same
+subject, replacing matching saved drafts. Export before moving computers.
+
+To publish reviewed content, put that file in `resources/ib-chemistry/` or
+`resources/ib-math-ai-sl/`, then run the corresponding `tools/build_*_practice.py`
+builder. Invalid IDs, duplicate options, missing feedback and invalid answer keys
+stop the build. Keep the review file with the project so future builds retain the
+edits. Student pages are changed by rebuilding, not by saving an editorial draft.
+The static review tool has no teacher authentication; exported notes should contain
+only editorial information, not private student data.
+
+## Syllabus graphs
+
+Both practice hubs link to `syllabus-graph.html`. Coloured circles represent
+syllabus parts; solid arrows retain the guide's cross-reference direction and
+dashed links show explicit parent relationships. Select a node for incoming and
+outgoing references, source-page links and related practice. Search, group filters,
+zoom, a connections-only view and a plain linked list support navigation.
+
+Chemistry includes 165 statement identifiers (such as S1.1.1), with an optional
+section overview. Mathematics AI SL uses its 39 actual sub-topic identifiers;
+extra statement numbers are not invented. Guide-only targets remain distinct
+from locally available practice. References are not prerequisite requirements.
+
+`tools/practice_graph.py` reads the existing profile hierarchy and cross-reference
+files. Chemistry statement metadata lives in `syllabus-statements.json`; regenerate
+it with `tools/extract_chemistry_statements.py path/to/chemistry-guide.pdf` using the
+2025 guide. It extracts codes and references, not the full copyrighted statements.
+Both regular practice-page builders regenerate their graph and hub link.
+
+## Guide skills and the skills index
+
+Both hubs now link to `skills.html`, a searchable directory connecting skills to
+syllabus sections and specific questions. Each entry links to
+`skills-practice.html` for focused practice, guidance and the complete list of
+related questions. Skill labels beside MCQs, guided steps, repeat questions and
+numerical challenges link back to the directory. Cross-references to chemistry
+Tools, Inquiry and Nature of Science now also lead to local skills practice while
+retaining guide-page provenance.
+
+The profile inventories are in `skills.json`; `skill-coverage.json` records actual
+question links and the build fails if an inventoried skill has no practice.
+Chemistry has 103 entries and 103 new focused questions covering the tools/inquiry
+tables, assessment skills, nature of science and ATL categories. Maths AI SL has
+103 entries: 64 prior-learning, inquiry, modelling, technology and toolkit entries
+with new focused questions, plus 39 syllabus-method entries linked to existing
+questions. HL-only mathematics extensions are outside the SL profile. Labels and
+practice mappings are authored teaching aids, not official skill codes or claims
+that every possible use of a skill is covered.
+
+Focused responses are self-reviewed against guidance. Equipment, technology or a
+partner is required when specified; answering a written question does not certify
+practical competence. Skill notes and self-review checkboxes save locally and have
+their own **Export my skills notes** / **Import skills notes** controls. They do not
+become automatically marked answers or modify assessment records.
+
+Normal practice builders rebuild the skill pages from profile data. To deliberately
+regenerate the authored inventory and mappings, run these tools in order before
+both builders (this replaces edits to generated `skills.json`):
+
+```
+python tools/author_skill_practice.py
+python tools/map_practice_skills.py
+python tools/link_skill_sections.py
+```
+
+Source audit: chemistry guide PDF pp. 13–14, 21–22, 28, 34–38; mathematics guide
+PDF pp. 20–21, 23, 26, 29–30 and the individual SL section references. Chemistry
+measurement/technique items are split for practice; related reasoning items are
+sometimes combined in one multi-part question. The maths prior-learning audit
+includes simultaneous equations and set notation as well as the numerical and
+geometric prerequisites. Section links are suggested practice contexts, not new
+claims about official syllabus connections.

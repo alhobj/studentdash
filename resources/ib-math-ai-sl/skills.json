@@ -1,0 +1,6725 @@
+{
+  "schema": 1,
+  "source": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf",
+  "scope": "AI SL prior learning, mathematical inquiry, modelling, technology and toolkit skills. HL-only prior-learning extensions are outside this SL collection. Subject-specific methods remain linked to the 39 syllabus sections. Technology and collaboration tasks require the stated tool or partner; written comparison is not proof of performance.",
+  "skills": [
+    {
+      "id": "number-sets",
+      "label": "Number systems",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "units",
+      "label": "SI and derived units",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "rounding",
+      "label": "Rounding and approximation",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "absolute",
+      "label": "Absolute value",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "arithmetic",
+      "label": "Arithmetic and order of operations",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "primes",
+      "label": "Primes, factors and multiples",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "proportion",
+      "label": "Ratio, percentage and proportion",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "algebra",
+      "label": "Expand and factor expressions",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "rearrange",
+      "label": "Rearrange formulae",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "substitute",
+      "label": "Substitute into expressions",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "powers",
+      "label": "Positive integer exponents",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.1",
+        "1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "inequalities",
+      "label": "Inequalities and intervals",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "surds",
+      "label": "Simplify roots",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "standard-form",
+      "label": "Standard form",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "currency",
+      "label": "Currency notation and conversion",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "linear",
+      "label": "Linear equations",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "systems",
+      "label": "Systems of linear equations",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sets",
+      "label": "Set notation, union and intersection",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "graphing",
+      "label": "Graph linear and quadratic functions with technology",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "2.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "representations",
+      "label": "Mappings, tables and graphs",
+      "group": "Prior learning · Number and algebra",
+      "source_pages": [
+        29
+      ],
+      "sections": [
+        "2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "pythagoras",
+      "label": "Pythagoras and its converse",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "coordinates",
+      "label": "Midpoint and distance",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "2.1",
+        "3.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "geometry-language",
+      "label": "Points, lines, planes and angles",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "angles",
+      "label": "Degrees and compass directions",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "triangle-angles",
+      "label": "Triangle angle sum",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "trigonometry",
+      "label": "Right-triangle trigonometry",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "bearings",
+      "label": "Three-figure bearings",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "transformations",
+      "label": "Geometric transformations",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "circles",
+      "label": "Circle vocabulary and measures",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "plane-shapes",
+      "label": "Plane figures and compound area",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "solids",
+      "label": "Recognize three-dimensional shapes",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "volume-area",
+      "label": "Volumes and surface areas",
+      "group": "Prior learning · Geometry",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "data-displays",
+      "label": "Collect and display data",
+      "group": "Prior learning · Data and probability",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "4.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "summary",
+      "label": "Mean, median, mode and range",
+      "group": "Prior learning · Data and probability",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "4.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "probability",
+      "label": "Simple probability",
+      "group": "Prior learning · Data and probability",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "4.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "venn",
+      "label": "Venn diagrams",
+      "group": "Prior learning · Data and probability",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "4.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "trees",
+      "label": "Tree diagrams",
+      "group": "Prior learning · Data and probability",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "4.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "speed",
+      "label": "Speed, distance and time",
+      "group": "Prior learning · Data and probability",
+      "source_pages": [
+        30
+      ],
+      "sections": [
+        "5.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "knowledge",
+      "label": "Select mathematical facts and techniques",
+      "group": "Mathematical inquiry and assessment skills",
+      "source_pages": [
+        26
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "problem-solving",
+      "label": "Solve abstract and contextual problems",
+      "group": "Mathematical inquiry and assessment skills",
+      "source_pages": [
+        26
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "communication",
+      "label": "Communicate and interpret mathematics",
+      "group": "Mathematical inquiry and assessment skills",
+      "source_pages": [
+        26
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "technology",
+      "label": "Use technology appropriately",
+      "group": "Mathematical inquiry and assessment skills",
+      "source_pages": [
+        26
+      ],
+      "sections": [
+        "2.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "reasoning",
+      "label": "Construct a mathematical argument",
+      "group": "Mathematical inquiry and assessment skills",
+      "source_pages": [
+        26
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "inquiry",
+      "label": "Conjecture, test and justify",
+      "group": "Mathematical inquiry and assessment skills",
+      "source_pages": [
+        26
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "model-question",
+      "label": "Define a modelling problem",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-assumptions",
+      "label": "State assumptions and simplify",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-choice",
+      "label": "Choose model and domain",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-parameters",
+      "label": "Determine model parameters",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-validation",
+      "label": "Validate with residuals and new data",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-refine",
+      "label": "Refine a model",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-context",
+      "label": "Interpret predictions in context",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "model-transfer",
+      "label": "Transfer and evaluate a model",
+      "group": "Modelling cycle",
+      "source_pages": [
+        20
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-patterns",
+      "label": "Use technology to explore patterns",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "1.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-representations",
+      "label": "Connect representations with technology",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "2.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-data",
+      "label": "Organize and analyse data digitally",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "4.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-simulation",
+      "label": "Use simulations",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "4.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-geometry",
+      "label": "Use dynamic geometry",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-calculus",
+      "label": "Numerical calculus with technology",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "5.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "tech-statistics",
+      "label": "Statistical distributions and tests with technology",
+      "group": "Technology toolkit",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "4.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "research",
+      "label": "Research and source evaluation",
+      "group": "Toolkit · Research, collaboration and reflection",
+      "source_pages": [
+        23
+      ],
+      "sections": [
+        "4.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "collaboration",
+      "label": "Collaborate with clear authorship",
+      "group": "Toolkit · Research, collaboration and reflection",
+      "source_pages": [
+        23
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "self-management",
+      "label": "Plan and monitor work",
+      "group": "Toolkit · Research, collaboration and reflection",
+      "source_pages": [
+        23
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "reflection",
+      "label": "Reflect critically",
+      "group": "Toolkit · Research, collaboration and reflection",
+      "source_pages": [
+        23
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "presentation",
+      "label": "Present and cite mathematical work",
+      "group": "Toolkit · Research, collaboration and reflection",
+      "source_pages": [
+        23
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "method-1-1",
+      "label": "Standard form",
+      "group": "Syllabus methods",
+      "source_pages": [
+        32
+      ],
+      "sections": [
+        "1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-2",
+      "label": "Arithmetic sequences and finite sums",
+      "group": "Syllabus methods",
+      "source_pages": [
+        32
+      ],
+      "sections": [
+        "1.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-3",
+      "label": "Geometric sequences and finite sums",
+      "group": "Syllabus methods",
+      "source_pages": [
+        32
+      ],
+      "sections": [
+        "1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-4",
+      "label": "Compound growth, depreciation and inflation",
+      "group": "Syllabus methods",
+      "source_pages": [
+        33
+      ],
+      "sections": [
+        "1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-5",
+      "label": "Integer powers and logarithms",
+      "group": "Syllabus methods",
+      "source_pages": [
+        33
+      ],
+      "sections": [
+        "1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-6",
+      "label": "Approximation, bounds and error",
+      "group": "Syllabus methods",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "1.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-7",
+      "label": "Loans and annuities",
+      "group": "Syllabus methods",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "1.7"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-1-8",
+      "label": "Systems and polynomial equations",
+      "group": "Syllabus methods",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "1.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-2-1",
+      "label": "Straight-line equations",
+      "group": "Syllabus methods",
+      "source_pages": [
+        40
+      ],
+      "sections": [
+        "2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-2-2",
+      "label": "Functions, domains, ranges and inverses",
+      "group": "Syllabus methods",
+      "source_pages": [
+        40
+      ],
+      "sections": [
+        "2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-2-3",
+      "label": "Graphs and combinations",
+      "group": "Syllabus methods",
+      "source_pages": [
+        41
+      ],
+      "sections": [
+        "2.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-2-4",
+      "label": "Graph features and intersections",
+      "group": "Syllabus methods",
+      "source_pages": [
+        41
+      ],
+      "sections": [
+        "2.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-2-5",
+      "label": "Linear, quadratic, exponential, power, cubic and periodic models",
+      "group": "Syllabus methods",
+      "source_pages": [
+        42
+      ],
+      "sections": [
+        "2.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-2-6",
+      "label": "Building and evaluating models",
+      "group": "Syllabus methods",
+      "source_pages": [
+        43
+      ],
+      "sections": [
+        "2.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-3-1",
+      "label": "Three-dimensional measurement and solids",
+      "group": "Syllabus methods",
+      "source_pages": [
+        47
+      ],
+      "sections": [
+        "3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-3-2",
+      "label": "Right and non-right triangles",
+      "group": "Syllabus methods",
+      "source_pages": [
+        48
+      ],
+      "sections": [
+        "3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-3-3",
+      "label": "Bearings and angles of elevation or depression",
+      "group": "Syllabus methods",
+      "source_pages": [
+        48
+      ],
+      "sections": [
+        "3.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-3-4",
+      "label": "Arcs and sectors in degrees",
+      "group": "Syllabus methods",
+      "source_pages": [
+        49
+      ],
+      "sections": [
+        "3.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-3-5",
+      "label": "Perpendicular bisectors",
+      "group": "Syllabus methods",
+      "source_pages": [
+        49
+      ],
+      "sections": [
+        "3.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-3-6",
+      "label": "Voronoi diagrams and nearest-site decisions",
+      "group": "Syllabus methods",
+      "source_pages": [
+        49
+      ],
+      "sections": [
+        "3.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-1",
+      "label": "Data quality and sampling",
+      "group": "Syllabus methods",
+      "source_pages": [
+        56
+      ],
+      "sections": [
+        "4.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-2",
+      "label": "Tables, histograms, cumulative frequency and box plots",
+      "group": "Syllabus methods",
+      "source_pages": [
+        57
+      ],
+      "sections": [
+        "4.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-3",
+      "label": "Location, spread and transformations",
+      "group": "Syllabus methods",
+      "source_pages": [
+        57
+      ],
+      "sections": [
+        "4.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-4",
+      "label": "Pearson correlation and regression",
+      "group": "Syllabus methods",
+      "source_pages": [
+        58
+      ],
+      "sections": [
+        "4.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-5",
+      "label": "Probability and expected frequency",
+      "group": "Syllabus methods",
+      "source_pages": [
+        59
+      ],
+      "sections": [
+        "4.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-6",
+      "label": "Combined events and conditional probability",
+      "group": "Syllabus methods",
+      "source_pages": [
+        59
+      ],
+      "sections": [
+        "4.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-7",
+      "label": "Discrete distributions and expectation",
+      "group": "Syllabus methods",
+      "source_pages": [
+        60
+      ],
+      "sections": [
+        "4.7"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-8",
+      "label": "Binomial models",
+      "group": "Syllabus methods",
+      "source_pages": [
+        60
+      ],
+      "sections": [
+        "4.8"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-9",
+      "label": "Normal models and inverse probabilities",
+      "group": "Syllabus methods",
+      "source_pages": [
+        61
+      ],
+      "sections": [
+        "4.9"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-10",
+      "label": "Spearman rank correlation",
+      "group": "Syllabus methods",
+      "source_pages": [
+        61
+      ],
+      "sections": [
+        "4.10"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-4-11",
+      "label": "Hypothesis tests",
+      "group": "Syllabus methods",
+      "source_pages": [
+        62
+      ],
+      "sections": [
+        "4.11"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-1",
+      "label": "Derivative as a limiting rate",
+      "group": "Syllabus methods",
+      "source_pages": [
+        69
+      ],
+      "sections": [
+        "5.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-2",
+      "label": "Increasing and decreasing functions",
+      "group": "Syllabus methods",
+      "source_pages": [
+        69
+      ],
+      "sections": [
+        "5.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-3",
+      "label": "Power-rule differentiation",
+      "group": "Syllabus methods",
+      "source_pages": [
+        70
+      ],
+      "sections": [
+        "5.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-4",
+      "label": "Tangents and normals",
+      "group": "Syllabus methods",
+      "source_pages": [
+        70
+      ],
+      "sections": [
+        "5.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-5",
+      "label": "Antiderivatives and definite integrals",
+      "group": "Syllabus methods",
+      "source_pages": [
+        70
+      ],
+      "sections": [
+        "5.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-6",
+      "label": "Stationary points and extrema",
+      "group": "Syllabus methods",
+      "source_pages": [
+        71
+      ],
+      "sections": [
+        "5.6"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-7",
+      "label": "Optimization in context",
+      "group": "Syllabus methods",
+      "source_pages": [
+        71
+      ],
+      "sections": [
+        "5.7"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method-5-8",
+      "label": "Trapezoidal approximation",
+      "group": "Syllabus methods",
+      "source_pages": [
+        71
+      ],
+      "sections": [
+        "5.8"
+      ],
+      "across_course": false
+    }
+  ],
+  "questions": [
+    {
+      "id": "skill-number-sets",
+      "skills": [
+        "number-sets"
+      ],
+      "prompt": "Classify −3, 0.25 and √2 as integer, rational or irrational, and explain which are real.",
+      "working": "−3 is integer and rational; 0.25 = 1/4 is rational; √2 is irrational. All are real."
+    },
+    {
+      "id": "skill-units",
+      "skills": [
+        "units"
+      ],
+      "prompt": "Convert 72 km h⁻¹ to m s⁻¹ and explain why area conversion differs from length conversion.",
+      "working": "20 m s⁻¹. Area conversion squares the length factor; volume conversion cubes it."
+    },
+    {
+      "id": "skill-rounding",
+      "skills": [
+        "rounding"
+      ],
+      "prompt": "Round 0.004786 to two significant figures and state the rounding interval for 7.3 to the nearest tenth.",
+      "working": "0.0048; interval 7.25 ≤ x < 7.35 under the usual half-up positive-number convention."
+    },
+    {
+      "id": "skill-absolute",
+      "skills": [
+        "absolute"
+      ],
+      "prompt": "Evaluate |−7| and solve |x| = 4. Explain the distance interpretation.",
+      "working": "7; x = ±4. Absolute value is distance from zero."
+    },
+    {
+      "id": "skill-arithmetic",
+      "skills": [
+        "arithmetic"
+      ],
+      "prompt": "Evaluate −3 + 2(5 − 1) and 3/4 ÷ 2/5, showing order of operations.",
+      "working": "5 and 15/8 = 1.875. Evaluate brackets before multiplying; division by a fraction multiplies by its reciprocal."
+    },
+    {
+      "id": "skill-primes",
+      "skills": [
+        "primes"
+      ],
+      "prompt": "List prime factors of 84 and give three positive multiples of 12.",
+      "working": "84 = 2² × 3 × 7; examples 12, 24, 36. Distinguish factors from multiples."
+    },
+    {
+      "id": "skill-proportion",
+      "skills": [
+        "proportion"
+      ],
+      "prompt": "Split 80 in ratio 3:5, then increase the larger share by 15%.",
+      "working": "Shares 30 and 50; increased share 57.5. The ratio has eight total parts."
+    },
+    {
+      "id": "skill-algebra",
+      "skills": [
+        "algebra"
+      ],
+      "prompt": "Expand 3(x+4) and factor x²+5x+6. Check by expansion.",
+      "working": "3x+12 and (x+2)(x+3). Expanding the factors recovers the original polynomial."
+    },
+    {
+      "id": "skill-rearrange",
+      "skills": [
+        "rearrange"
+      ],
+      "prompt": "Make h the subject of V = πr²h and identify a restriction on r.",
+      "working": "h = V/(πr²), with r ≠ 0; for a physical cylinder r > 0."
+    },
+    {
+      "id": "skill-substitute",
+      "skills": [
+        "substitute"
+      ],
+      "prompt": "Evaluate 2x²−3y for x=−2, y=5, showing the substituted expression.",
+      "working": "2(−2)²−3(5) = 8−15 = −7. Square the signed input in brackets."
+    },
+    {
+      "id": "skill-powers",
+      "skills": [
+        "powers"
+      ],
+      "prompt": "Evaluate 2³ × 2⁴ and explain the exponent rule.",
+      "working": "2⁷ = 128. Multiplying powers of the same base adds exponents."
+    },
+    {
+      "id": "skill-inequalities",
+      "skills": [
+        "inequalities"
+      ],
+      "prompt": "Solve −2x < 6 and show the answer on a number line.",
+      "working": "x > −3; reverse the inequality when dividing by a negative. Draw an open endpoint at −3 and shade right."
+    },
+    {
+      "id": "skill-surds",
+      "skills": [
+        "surds"
+      ],
+      "prompt": "Simplify √72 and check its approximate value on a calculator.",
+      "working": "6√2 ≈ 8.485. Extract the square factor 36."
+    },
+    {
+      "id": "skill-standard-form",
+      "skills": [
+        "standard-form"
+      ],
+      "prompt": "Write 5 600 000 and 0.00056 in standard form.",
+      "working": "5.6 × 10⁶ and 5.6 × 10⁻⁴; coefficient between 1 and 10."
+    },
+    {
+      "id": "skill-currency",
+      "skills": [
+        "currency"
+      ],
+      "prompt": "At a fictional rate of 1 EUR = 11.5 NOK, convert EUR 80 into NOK. What else might affect an actual transaction?",
+      "working": "NOK 920 before fees. Real transactions may use different buy/sell rates and charges; the stated fictional rate fixes this calculation."
+    },
+    {
+      "id": "skill-linear",
+      "skills": [
+        "linear"
+      ],
+      "prompt": "Solve 3x+7=22 and verify by substitution.",
+      "working": "x=5; 3(5)+7=22."
+    },
+    {
+      "id": "skill-systems",
+      "skills": [
+        "systems"
+      ],
+      "prompt": "Solve x+y=9 and 2x−y=3. Verify the solution in both equations.",
+      "working": "Adding gives 3x=12, so x=4 and y=5. Both original equations hold."
+    },
+    {
+      "id": "skill-sets",
+      "skills": [
+        "sets"
+      ],
+      "prompt": "For A={1,2,3} and B={3,4}, find A∪B and A∩B. Explain membership notation.",
+      "working": "Union {1,2,3,4}; intersection {3}. For example 2∈A but 2∉B."
+    },
+    {
+      "id": "skill-graphing",
+      "skills": [
+        "graphing"
+      ],
+      "prompt": "Graph y=2x+1 and y=x² on your calculator or graphing software. Find intersections and record the window used.",
+      "working": "Solve x²=2x+1: x=1±√2, with corresponding y=3±2√2. Use a window displaying both intersections and verify algebraically."
+    },
+    {
+      "id": "skill-representations",
+      "skills": [
+        "representations"
+      ],
+      "prompt": "For f(x)=2x+1 on inputs −1,0,1, give ordered pairs, a table and plotted points.",
+      "working": "Pairs (−1,−1),(0,1),(1,3); use identical input–output relationships in all representations. The specified domain has three points, not all real inputs."
+    },
+    {
+      "id": "skill-pythagoras",
+      "skills": [
+        "pythagoras"
+      ],
+      "prompt": "A triangle has sides 6,8,10. Is it right-angled? Explain the converse test.",
+      "working": "6²+8²=10², so the angle opposite side 10 is right."
+    },
+    {
+      "id": "skill-coordinates",
+      "skills": [
+        "coordinates"
+      ],
+      "prompt": "Find midpoint and distance between (−1,2) and (5,10).",
+      "working": "Midpoint (2,6); distance √(6²+8²)=10."
+    },
+    {
+      "id": "skill-geometry-language",
+      "skills": [
+        "geometry-language"
+      ],
+      "prompt": "Describe the difference between a point, line and plane, then identify two intersecting lines in a drawn plane.",
+      "working": "A point represents a position, a line extends in two directions, and a plane is a flat two-dimensional surface. Label the intersection and an angle between the lines."
+    },
+    {
+      "id": "skill-angles",
+      "skills": [
+        "angles"
+      ],
+      "prompt": "A turn goes clockwise from north to southwest. State the angle and explain how it differs from an anticlockwise turn to the same direction.",
+      "working": "Clockwise 225°; anticlockwise 135°. The direction of measurement matters."
+    },
+    {
+      "id": "skill-triangle-angles",
+      "skills": [
+        "triangle-angles"
+      ],
+      "prompt": "Two interior angles are 48° and 67°. Find the third and show your reasoning.",
+      "working": "180−48−67=65° for a Euclidean triangle."
+    },
+    {
+      "id": "skill-trigonometry",
+      "skills": [
+        "trigonometry"
+      ],
+      "prompt": "A 5 m ladder makes a 60° angle with the ground. Find vertical height and state the calculator angle mode.",
+      "working": "5sin60° ≈ 4.33 m, using degree mode."
+    },
+    {
+      "id": "skill-bearings",
+      "skills": [
+        "bearings"
+      ],
+      "prompt": "B is northeast of A. Give its three-figure bearing and the reverse bearing.",
+      "working": "045° and 225°, measured clockwise from north."
+    },
+    {
+      "id": "skill-transformations",
+      "skills": [
+        "transformations"
+      ],
+      "prompt": "Transform (2,1) by translation (3,−2), reflection in the y-axis, 90° anticlockwise rotation about the origin and enlargement of scale 2 from the origin. Treat each separately.",
+      "working": "(5,−1), (−2,1), (−1,2), (4,2). Specify the centre, axis or vector for each transformation."
+    },
+    {
+      "id": "skill-circles",
+      "skills": [
+        "circles"
+      ],
+      "prompt": "Draw a circle with radius 3 and label diameter, chord, tangent, arc, sector and segment. Calculate area and circumference.",
+      "working": "Diameter 6, area 9π, circumference 6π. A sector is bounded by two radii and an arc; a segment by a chord and arc; a tangent touches at one point."
+    },
+    {
+      "id": "skill-plane-shapes",
+      "skills": [
+        "plane-shapes"
+      ],
+      "prompt": "An 8 by 5 rectangle has a 2 by 2 square removed from one corner. Find area and perimeter; compare the defining properties of rectangles, squares, rhombuses, kites and trapezoids.",
+      "working": "Area 36; perimeter remains 26 for this corner removal. Rectangles have four right angles; squares also have four equal sides; rhombuses have four equal sides; kites have two pairs of adjacent equal sides. State the convention for trapezoids (one pair of parallel sides, or at least one pair)."
+    },
+    {
+      "id": "skill-solids",
+      "skills": [
+        "solids"
+      ],
+      "prompt": "Describe how to distinguish a prism, pyramid, sphere, cylinder and cone. Sketch and label one feature of each.",
+      "working": "Prisms have matching parallel end faces; pyramids taper from a polygon to an apex; spheres have points equidistant from a centre; cylinders have circular ends; cones taper from a circular base."
+    },
+    {
+      "id": "skill-volume-area",
+      "skills": [
+        "volume-area"
+      ],
+      "prompt": "A closed cuboid has dimensions 2,3,4. Find volume and surface area. Find the volume of a triangular prism with base triangle area 6 and length 5, and a cylinder of radius 2 and height 3. Explain how to handle joined solids.",
+      "working": "Cuboid volume 24 and area 52; prism volume 30; cylinder volume 12π. Add non-overlapping volumes for joined solids and exclude internal shared faces from exposed surface area."
+    },
+    {
+      "id": "skill-data-displays",
+      "skills": [
+        "data-displays"
+      ],
+      "prompt": "Collect ten fictional travel times and choose a bar chart, pie chart, pictogram or line graph for a clearly stated purpose. Explain when each is suitable.",
+      "working": "Categories suit bars, composition can suit pies, pictograms require a key, and ordered time series suit line graphs. Record units and avoid treating arbitrary category order as time."
+    },
+    {
+      "id": "skill-summary",
+      "skills": [
+        "summary"
+      ],
+      "prompt": "Find mean, median, mode and range of 2,3,3,4,8.",
+      "working": "Mean 4, median 3, mode 3, range 6."
+    },
+    {
+      "id": "skill-probability",
+      "skills": [
+        "probability"
+      ],
+      "prompt": "A bag has three red and five blue counters. Find the probability of one red draw and its complement.",
+      "working": "3/8 and 5/8; these complementary probabilities sum to 1."
+    },
+    {
+      "id": "skill-venn",
+      "skills": [
+        "venn"
+      ],
+      "prompt": "In a group of 30, 18 study A, 14 study B and 8 study both. Draw a Venn diagram and find how many study neither.",
+      "working": "A only 10, both 8, B only 6, neither 6."
+    },
+    {
+      "id": "skill-trees",
+      "skills": [
+        "trees"
+      ],
+      "prompt": "Draw a tree for two independent fair-coin tosses and calculate exactly one head.",
+      "working": "Four equally likely paths HH, HT, TH, TT; probability 2/4=1/2. Multiply along branches and add the relevant paths."
+    },
+    {
+      "id": "skill-speed",
+      "skills": [
+        "speed"
+      ],
+      "prompt": "A cyclist travels 18 km in 45 minutes. Find average speed in km h⁻¹ and explain why this need not be instantaneous speed.",
+      "working": "18/0.75=24 km h⁻¹. An average over the journey can conceal changing speed."
+    },
+    {
+      "id": "skill-knowledge",
+      "skills": [
+        "knowledge"
+      ],
+      "prompt": "A rectangular field has fixed perimeter. Which mathematical facts help find the greatest possible area, and why?",
+      "working": "Use perimeter and area formulae, express area in one variable and locate the maximum of a quadratic or use an equivalent justified argument."
+    },
+    {
+      "id": "skill-problem-solving",
+      "skills": [
+        "problem-solving"
+      ],
+      "prompt": "A taxi charges a fixed 4 plus 2.5 per kilometre. With a budget of 29, what is the maximum distance? State assumptions.",
+      "working": "Solve 4+2.5d≤29 to get d≤10 km. Assume the stated continuous fare, no extra charges and a nonnegative distance."
+    },
+    {
+      "id": "skill-communication",
+      "skills": [
+        "communication"
+      ],
+      "prompt": "Rewrite “the answer is 12” as a mathematical conclusion for a model predicting 12 litres after three minutes. Include notation, units and a limitation.",
+      "working": "For example V(3)=12 L under the stated model. Define V and time units, identify the domain and avoid claiming exact real-world measurement from a model prediction."
+    },
+    {
+      "id": "skill-technology",
+      "skills": [
+        "technology"
+      ],
+      "prompt": "Use graphing technology to solve x³−x−1=0, then check the reported root by substitution and explain a display limitation.",
+      "working": "The real root is approximately 1.324718. A graph can suggest a root but a poor window can hide features; numerical output needs substitution and sensible precision."
+    },
+    {
+      "id": "skill-reasoning",
+      "skills": [
+        "reasoning"
+      ],
+      "prompt": "Prove that the sum of any two consecutive integers is odd. Is checking five examples enough?",
+      "working": "Let the integers be n and n+1. Their sum is 2n+1, odd for every integer n. Examples suggest but do not prove a universal result."
+    },
+    {
+      "id": "skill-inquiry",
+      "skills": [
+        "inquiry"
+      ],
+      "prompt": "Investigate sums of the first n odd positive integers for n=1 to 5. Conjecture a rule, test a new case and explain with a diagram or argument.",
+      "working": "Sums 1,4,9,16,25 suggest n². Test n=6 gives 36; adding the next odd number creates a new border of a square, supporting the general rule."
+    },
+    {
+      "id": "skill-model-question",
+      "skills": [
+        "model-question"
+      ],
+      "prompt": "Turn “bus delays are bad” into a mathematical modelling question, defining an outcome and data needed.",
+      "working": "For example predict journey time from departure time over a specified route. Define units, population and response, collect relevant observations and distinguish prediction from causal explanation."
+    },
+    {
+      "id": "skill-model-assumptions",
+      "skills": [
+        "model-assumptions"
+      ],
+      "prompt": "A tank model assumes a constant inflow and no outflow. Name two real features ignored and explain when that simplification is defensible.",
+      "working": "Changing pump rate and leaks are ignored. The model may suit a short controlled interval if their effects are small relative to the required accuracy."
+    },
+    {
+      "id": "skill-model-choice",
+      "skills": [
+        "model-choice"
+      ],
+      "prompt": "A population cannot grow beyond a finite habitat capacity. Explain why an unlimited exponential model may fit early data but need a restricted domain.",
+      "working": "Early growth can approximate a constant percentage rate; resource limits later violate that assumption. Specify a tested time range and consider a bounded model for longer-term predictions."
+    },
+    {
+      "id": "skill-model-parameters",
+      "skills": [
+        "model-parameters"
+      ],
+      "prompt": "A line passes through (0,3) and (4,11). Determine parameters and interpret them if x is hours and y litres.",
+      "working": "y=2x+3. Initial amount 3 L; modeled increase 2 L per hour."
+    },
+    {
+      "id": "skill-model-validation",
+      "skills": [
+        "model-validation"
+      ],
+      "prompt": "A model predicts 8,10,12 for observed 7,10,15. Calculate residuals and propose a validation step.",
+      "working": "Observed minus predicted: −1,0,3. Plot residuals and test on data not used to fit; systematic patterns suggest a missing feature."
+    },
+    {
+      "id": "skill-model-refine",
+      "skills": [
+        "model-refine"
+      ],
+      "prompt": "Residuals from a line form a U-shaped pattern. Suggest a refinement and explain how to avoid assuming complexity always improves the model.",
+      "working": "Consider a quadratic or scientifically justified alternative, compare residuals and independent prediction error, and balance fit against complexity and assumptions."
+    },
+    {
+      "id": "skill-model-context",
+      "skills": [
+        "model-context"
+      ],
+      "prompt": "A model estimates 2.7 buses needed for a trip. What decision should be reported and why?",
+      "working": "Under a capacity requirement of at least 2.7 buses, provide 3 whole buses. Explain integer feasibility and the model assumptions rather than reporting an impossible fractional allocation."
+    },
+    {
+      "id": "skill-model-transfer",
+      "skills": [
+        "model-transfer"
+      ],
+      "prompt": "A fare model fitted in one city is used in another. What must be checked before transferring it?",
+      "working": "Check fare rules, rates, units, fees, domain and data comparability. Refit or reject it if the context changes relevant assumptions."
+    },
+    {
+      "id": "skill-tech-patterns",
+      "skills": [
+        "tech-patterns"
+      ],
+      "prompt": "Use a spreadsheet to generate n and n² for n=1 to 10, then first differences. Explain the pattern and test n=11.",
+      "working": "Squares have consecutive odd first differences; the next difference is 21. The spreadsheet supports exploration; an argument is needed for a general proof."
+    },
+    {
+      "id": "skill-tech-representations",
+      "skills": [
+        "tech-representations"
+      ],
+      "prompt": "Display y=(x−2)²+1 as a formula, table and graph. Show how the vertex appears in all three.",
+      "working": "Vertex (2,1); the squared term is zero at x=2, the table has its lowest listed value there and the graph has a turning point. Explain table-domain limitations."
+    },
+    {
+      "id": "skill-tech-data",
+      "skills": [
+        "tech-data"
+      ],
+      "prompt": "Enter 4,5,5,6,10 in a spreadsheet and obtain mean and median using formulas. Change 10 to 30 and compare.",
+      "working": "Initial mean 6, median 5; new mean 10, median 5. Record formulas and explain sensitivity to an extreme observation."
+    },
+    {
+      "id": "skill-tech-simulation",
+      "skills": [
+        "tech-simulation"
+      ],
+      "prompt": "Simulate 100 fair-coin tosses, record the proportion of heads and repeat. Must each run have exactly 50 heads?",
+      "working": "No. Record random variation and compare proportions across runs. The theoretical probability is 0.5; simulation frequency fluctuates."
+    },
+    {
+      "id": "skill-tech-geometry",
+      "skills": [
+        "tech-geometry"
+      ],
+      "prompt": "Construct a triangle and its angle bisectors with dynamic geometry software. Drag a vertex and state a conjecture about their intersection.",
+      "working": "The internal angle bisectors meet at the incenter, equidistant from the sides. A dynamic construction suggests the relationship but is not alone a proof."
+    },
+    {
+      "id": "skill-tech-calculus",
+      "skills": [
+        "tech-calculus"
+      ],
+      "prompt": "Use technology to evaluate the area under y=x² from 0 to 2, then verify by integration.",
+      "working": "The integral is 8/3 ≈ 2.6667. Set bounds and function correctly; compare with the antiderivative x³/3."
+    },
+    {
+      "id": "skill-tech-statistics",
+      "skills": [
+        "tech-statistics"
+      ],
+      "prompt": "Use a calculator to find P(X≤2) for X~Bin(10,0.3). Explain cumulative versus point probability.",
+      "working": "Approximately 0.3828. Cumulative adds probabilities for 0,1,2; P(X=2) alone is about 0.2335. Record the distribution and parameters, not only the output."
+    },
+    {
+      "id": "skill-research",
+      "skills": [
+        "research"
+      ],
+      "prompt": "Find two sources for a fictional city population model. What metadata would you record and what would make sources incompatible?",
+      "working": "Record source, date, geographic definition, measurement method and units. Different boundaries or years may prevent direct comparison; cite sources and assess reliability."
+    },
+    {
+      "id": "skill-collaboration",
+      "skills": [
+        "collaboration"
+      ],
+      "prompt": "In a practice modelling project, assign roles for collecting, checking and explaining data. How should contributions and disagreements be recorded?",
+      "working": "Agree responsibilities and checkpoints, keep a contribution log and resolve disagreements using evidence. Discuss ideas while keeping individual assessed work and authorship clear."
+    },
+    {
+      "id": "skill-self-management",
+      "skills": [
+        "self-management"
+      ],
+      "prompt": "Plan three short sessions for a modelling investigation, including checkpoints and a response to missing data.",
+      "working": "Separate question/data planning, analysis and evaluation/communication. Set achievable outputs, record progress and revise the scope or obtain justified replacement evidence."
+    },
+    {
+      "id": "skill-reflection",
+      "skills": [
+        "reflection"
+      ],
+      "prompt": "A fitted curve looks impressive but predicts a negative population outside the data range. Write a reflection that changes what you would report.",
+      "working": "Restrict the domain, explain why extrapolation is invalid, consider a more appropriate model and test it. Reflection should affect the analysis or conclusion, not just say the task was interesting."
+    },
+    {
+      "id": "skill-presentation",
+      "skills": [
+        "presentation"
+      ],
+      "prompt": "Outline a short exploration report with a clear aim, methods, results and reflection. Where should graphs and citations appear?",
+      "working": "Use a coherent sequence, define symbols, integrate labelled graphs near their discussion and cite data/methods where used. State personal decisions, limitations and conclusions without copying another report."
+    }
+  ],
+  "bindings": {
+    "ea9cada4a428fdad8e05": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "aea98a4fce315e54587c": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "27173f554fd42a58d16a": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "e0933c2b770d76000c56": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "76b471bf54ee9d48ab23": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "e317d27a19237ff49c07": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "9e8723d9a0d5a2427e62": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "10fb25cf1d6572f381b9": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "9cbcdb459efe43ffd116": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "bf8f493d7e39c769f8be": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "bfb63941b472f4924e65": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "4874e11deb44ffa07c78": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "a6e141905e2fe5847bb9": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "ed4b7ba80c937d2ce574": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "dcaa9c84f903f406e9d0": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "785aa6724779f468d3f1": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "197c176fc5aff5f19427": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "259d21b0857b038327fd": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "aaec38a6a7f1b3ceea9b": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "24b2b8cc420800f3f02c": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "6785ec4b47b43c8adce1": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "55b94bfb9b4ae49b29c3": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "6e3343752960feafd8f8": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "c8fd8e1b8c7c046b00de": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "96436c5b6fb1d5cd257e": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "3e9a256c3e7970c9b2b9": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "fde5a8a12b8686228b5c": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "0916b58f398e1ff2e2c7": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "db12b1c694384f7318f4": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "1edda162c44c7cd0f9ed": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "b1f460fe7653dab08e2f": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "84462163858fa774103a": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "ee0fe236bd22e3789759": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "578a9a3ee7320b423b58": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "56f7fb25f33106987332": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "067414b6f2aa12d215f5": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "81bd840660a5b9df009a": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "526be890c8603220f0b3": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "2505c191084839d2e7c7": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "ef0162267e73e689ddd3": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "c2841c88e9b6f225c92a": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "361f8c4fb24ab2bf2fdd": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "bda4f6ad1e85c427646e": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "dd8129ebca24391efba8": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "40facaa89fcbae6f5e5c": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "ce87fcb98021f48b7349": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "6b18e9a7d51810bed8ef": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "57092f17ac30a919fdea": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "f1376c0e1a36c35ffd7d": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "d5eabd75edd364b3e0d3": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "5e2d8e724eb12b1459c3": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "5bd3582590477d164d81": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "edefe6ba318e246b72ae": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "f79a6f3e134a55af316f": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "8ea06e3988cb63c38d7b": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "d95b6f21a98e15fcf4d2": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "5451d9189868c2649b6b": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "81fd16de5c56cdf7922b": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "39c358e91b0a9cf4e824": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "42c65e1a24dba46151fb": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "a033205f6abdc9a0b6f2": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "57db74029a19482f8b40": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "c41731ed99bf6a3c836c": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "41cf8946ca046bb63613": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "fc32bfc52dcfcde7fa28": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "1aa5dfbc98653c0d2b32": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "4740474ece7fea3872d8": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "d1c6d93e6a4f522951fe": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "2f30ba204e1cdd93a4aa": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "cf400903375be2d1268a": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "8cee77d4928b6cef22c5": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "882fe73aee7dd2e4dfab": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "9302372dc7facff0d7a6": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "740b49644d614ad0aae9": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "554647d84264b00c95c9": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "32f1d182ce61a9efc700": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "afa3a383cff270a31073": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "11280fd60506df617b73": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "9ac4f9ff7d86589ccba3": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "ba74ca7a1135b65b0d80": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "8900d39e41ee5a4d2e4e": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "2652e11bb7d0cbba4749": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "397988fd02b00115eefa": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "bda3d2eb34f59a61e127": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "d62241683165341903fc": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "de69e9b3a12e749b1960": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "a68438c6c67d155445ad": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "cfaa0a2bdd3c9a656629": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "53645080febb2fc98f9b": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "8f847ac20da87a42648e": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "3ccb5fd30ec717d02979": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "37167d4b57c47811d590": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "a08144e2b66dc5405c44": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "aadfd7def24d5578d60d": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "77ee000765b551cfd6fe": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "39dfcb434aeae7024c56": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "847d08b7dc2433a1ce48": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "839838addc425ace498a": [
+      "knowledge",
+      "arithmetic"
+    ],
+    "d1d0f978910744e6b10b": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "6c9df48816652b5d1a3e": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "7910e27eeb7de458d85b": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "722e7739d75a67b1b4ae": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "b4533546d6d042b2f17f": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "9a881309f6ea41fbeae2": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "99bdfaea315e52dbbc49": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "c970c4ac91a5131e95ed": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "41474111490a7f30bf7d": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "0b68fe812503b93b400c": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "e9249890c64cd10da6b4": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "a2204076effc3111e980": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "6b7d4cb25ab794ce830c": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "18b5992db5c8c1b8a7ee": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "2fd3e949762e6e33d294": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "f72e0bbb1430b03d7367": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "7f9f5235c6cbf9d25fdd": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "ed943754e2b1c2d3e2cb": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "b32527688b6bd7003b1d": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "8083f9c1df483a9043b0": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "944c48a6036cb28768a5": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "1ed7c5c7ce488f16b5eb": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "901978ff18cc095fff32": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "50d4d6a80625643efa55": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "17cdd415eed708320187": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "c470105b154409ca7c6d": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "7d37a9c0757db57a489e": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "000e01673748de9ecd0f": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "3007ad8e99c75224476c": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "4ce2e9d950162ec075d2": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "5b8b5338e1ca2fbb7bb2": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "e9c1cd894273fc18aaf2": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "cdfba43b763ad492b5a0": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "7de7774ae311297a60e1": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "d5eac2424bd21ed3ec71": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "190a67edd3bef40483d9": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "1490d2f4214bad9318af": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "51f3f301d1794ef56446": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "344d2f6c6b0260936887": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "6e047887bda7a2f68b31": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "87e20afc0d0dbfc60847": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "9425fc11162dd722983f": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "e5b0a31aa0ccf2a8e28c": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "ed0e610c7bfafd5f8a2f": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "f337a08667480e80ee48": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "9b117d21ea4d217b6cc1": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "a24c5fe3e4b9284d6db1": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "3e50a9bca9f94a218455": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "e4e06c7c6a0ddcf3d418": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "34d9e16e046ad041d0a2": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "5599822d3913a26b043f": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "7a37c1ad8ea36385e03d": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "9163933bb3ebfa811f81": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "041798b0ec3ce9e8c590": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "59d5a8d6aff695d4b3f1": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "b7fbdc85c68a4cdfde18": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "3f75ec16b42452d7af91": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "e3c41da12ebd4d61c081": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "7ad4d6aa518ab70363da": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "53bc26dbf945996ee0e1": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "4ef14ec95a42bce2d509": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "c4e4386e7dd3b530f23c": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "a20a42f273d54695542a": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "f34a03930c0708a69a7e": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "26b28f00916130680735": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "4a32e6e2b00241c7cfcd": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "c5c64eb93ca2c6d8a595": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "3033adddcf8e9451d669": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "1bc4dd4a27e42d0e3b9c": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "198e4ccb2cf05e7f5b21": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "e8ee75b1a9c117b31579": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "bf7a83a031ff7b6fcadc": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "7f1058efe1466d3b9627": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "8821cf7cb244ebd33f53": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "98c44d4a6a0a59fcdebb": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "2b4ff3fa9ccfab83f982": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "892db969561026d373c0": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "be627a5979e471961612": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "c1351d23291b59670c0f": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "8fe839ccde059acb33ca": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "87b7deaebb8ac9514c74": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "98e0de3d66c83b0c1a0d": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "94b00571f61b8f8eb4b7": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "370c173fe076598f2466": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "869db070578b4435a24a": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "898c710d55463bdd4da9": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "45e3ac19558f6d43b871": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "bfdeb698247da9f34384": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "58d18db5a4c4408279b0": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "f931c26e9c38b3ac90e1": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "94f58e3d2760b1dfa2cb": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "9a233541a606bc8914ba": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "b6d0a182038fb48aa662": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "878bb6f2f8d1e6729cdd": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "c5c0c8536df0d9e4a541": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "718a8518a31fb0918f7a": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "67db30cdb2d3a7436617": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "f95135ccdc234a72299e": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "9382174ce4a28dee1cb9": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "9ddacdb785b53bfec714": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "79d8860fef5c3341d827": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "8d649080d77fa4e1e15d": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "53ae11d9e99ffdd5ce33": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "289be84ebef6b260f404": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "78fc0ca183e9b87e2010": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "adb00865183ecf71aae8": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "76d8601370036594931d": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "103761665f8e8d6ed90e": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "6998535a5bbdd528ca68": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "9192599fa634881eefe4": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "587ff5c8bf3d0bec3fa6": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "d57873826b3d85286567": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "89a7f2b13153b5b32bb6": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "7f64852788f75a3a4d00": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "91cdb8a7ea73e91121cc": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "a82de8e0bf27a9a5ba85": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "b6a0db89d7e55f52908b": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "adb642c473dc41cc6bbb": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "e1c13331c27a80855f2f": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "edf969ec4eedc69b3c23": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "256addffab2e621222c8": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "81bc84fb24412dc73b7f": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "99aebb3228025242d70a": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "358cb5232ac49d918d6b": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "7894c8a27b2276c0f9f3": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "84e9cf3791996af0b127": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "b28914b0eb19875acbd3": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "d428e8cb5d224031bd9b": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "f79a3ec29be6741a0437": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "01c26ed4c32c22a748ce": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "d0aea9f2f27c82d96f01": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "a32ef80d8b230dd49dc8": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "8175a21a4f94bfc6da64": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "f6f6a3387bd73e930fe3": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "27c63e50e6b8074b21e1": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "914d3e2b5f5e76400f53": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "234cde592dae41ea4e48": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "91ac0962d7987fd88a7f": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "78eb70036b6bde1e28c8": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "6c91e811b69514807e8f": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "4a6b3ece7928119ffe8d": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "ba07017823f43cabafbe": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "9f2086180a01934422e0": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "808ac70e5f3588c99ede": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "5abf6a76b8a409fd4ae4": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "fa75b177ba2a1e6c8cca": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "901fa8a1c2df9348d8fb": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "0c98c5370995a6703a01": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "53afdef254d7cbffb87d": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "6e30845b948138a4dacd": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "72f9af5f1d38c0905b3a": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "8965ab90b4a18b8290f7": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "c42ee3840de004601b07": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "b686b8f278e5dae9601b": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "406c8e4c6ccd8e6f6ea4": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "b0c438af66433db61f2b": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "ef7b1d3e322245c8e398": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "c248d117666a579ddf78": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "62ff9cfa80560440d106": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "18fdb81e7400a8d9b61e": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "6ee8021a73c6017b5e7e": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "8c98e2139f4819a1600a": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "e5abb479d338d4da1ee3": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "5299d80c0bb475258922": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "64ab8d94804a7773d770": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "8a876bb19f419e40c917": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "658103413835adc43dbf": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "0b330f7124ddc5bd4a02": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "fa934d70b7cd8acda9e8": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "822e701193cf4e1aaf3a": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "baa7ecc1ee0663a24196": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "baf019db42f2026c9435": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "cff7479dd7a6f17a940f": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "b383246dc10e16eb84fc": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "da3b4d313f6a55169a86": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "259ebddf662d0be84b6b": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "55755047f8cae48708ee": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "750264be1959e1b40398": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "0153396916314192cbf8": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "109b39ce23240e7c8898": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "6ba07a7fd929b2d0f135": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "eb543107fcb74eaeae9d": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "c0dcdf8dff161e68d3a3": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "75374c2b14d3b5eefef5": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "cd1969dda3ce0efd60cc": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "44fbc054414e398c1e8d": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "d3ddf0162c3e273f0805": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "8ecd7a18e9c97fc76b20": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "c69005c78878c9087460": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "9bc40f53361177b59f2f": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "f1820d69fd9a603d4bdc": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "33c52435dc1baf843ac1": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "c8a86781eb2e2ce64179": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "6d55cfd669140d09a65c": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "8c9887b038c37ec6dbbd": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "3ad1896d51807c88de80": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "b4559f8cb380b945a898": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "3cdc7be3ac75becdde2d": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "5fc52348309f29b4bedd": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "9c1c6021c14743e1476f": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "b21e93abc1d3e5b7b19c": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "977f9aef86375c31134f": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "f1834c62b2a03ab68a00": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "92662fd4f224c7c41a59": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "303cad481504001961ba": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "eb21fa15712320b9b057": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "d20f19ee064c1ff9959b": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "c87ec3de0a32f4430dd7": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "e42134173a4c7d85faf0": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "8a4cab055909e24a4f2a": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "5629d4c0c791806f5435": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "7851d2d3ceceffef5f1b": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "76c8b6414154ef4a3ce8": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "5ef1ec174ed02e306648": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "5e7ff55358e28f3caf36": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "380eb0677041fd3d801f": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "680c480e02633619d7be": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "7b90c9de9b5f12f12794": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "eb1693d4edac1f510a46": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "6736ef3a13bb982e9d96": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "d75229c5aa67e62ec3fa": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "d649f628aa6a691dcee2": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "a0ce4a9c42f5ad67194f": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "0c1473623d13a47aeb5f": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "b782a6bc7a6859cbd4e4": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "178417835ac50fc9ad0a": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "083f60abac7b0bb54bda": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "06ecf61ec7b7471bcc51": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "4fac00aa55ca39c5410f": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "7dc307b1bcd5a5c4e1c4": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "1767cf3a3ffb69041a24": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "a22b0523ef3e76f30264": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "6902b9e17e87f4666033": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "d0592d97f1c0cec4e1cd": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "af9dca26b93809141766": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "106834239fdcf7807d3a": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "67d4c54327bba5654132": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "90ca699810978fd67523": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "1dab6af1eeedc4b62fbf": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "817ea5a5dce9511f92bb": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "d136ce3c9da7732795ea": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "65899aae1df83ee90b74": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "d8663b79883518b6e287": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "25a8b6b76564e22d9b8b": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "27be19f462660060ff83": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "c9dae667e53fdd6739c4": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "e85d10baff3d5084fa9a": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "f4f85ca55c85deaf6e1e": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "d339fad31390adbada20": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "f806851e94b17e0de1e3": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "09d8d6dbc7c12c4e98fb": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "09295d89c58cd60d6521": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "09e98d53bad0113a4dfb": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "507772965bd0ef7c64f2": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "1f8bb6374801ab9030f4": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "d92655b223e2c406c627": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "0a9086924c1d894849b3": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "2165a08fd58dd5cf1658": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "817d74e600d26d6970af": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "bd89b82ea2c08d252378": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "c94ea697dcd9babccd4a": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "be53f95f18f7ca6933a2": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "74142843245ca3f91168": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "3cf948e5468f388a5126": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "0d3f14a660f4435bee53": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "0ad9455b01d7f92437f1": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "9b4ff4bef1ed0ab16815": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "b13b30b7b378177e6758": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "00d40979eab578f55ae7": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "736b92078c3dbc80d3bc": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "29d96dac25c641c1ea33": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "fbd38208160b5b26228c": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "53deb17ca221d7048364": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "42edf832529f653e6ea4": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "b178c78e7e78e022fcb8": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "fffaac9531fda4570015": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "d5637f15576d321a8816": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "a8aee46d7d9807668b53": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "60c0e6eadee691e1fb82": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "75d98968693a3b65b360": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "463c693ab79d9f04e2c8": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "03247ad0864c5a0b36cb": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "4a15520554fe41cd43f1": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "1eabe3ebfa1dc401b17a": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "1dca46ff3c1f439d1bdd": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "af88deda8cf01355297c": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "123cb6652a20ba0ef144": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "90dd74193415e3849695": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "1703956d1649ec7ce59f": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "33f19bec66a03d285efe": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "39ce2c2fd43907728de6": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "01752dc564200d69e8b1": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "a3eeb9d8d4723b93d169": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "e1d22ef4e8c94e00f01f": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "4a7fca1fdad6b9ddbeb4": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "c1c2ff847e3387a75e33": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "0df5440fac4ae23860c4": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "1a76c3db5896f4e2822b": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "7b86a1c8b7ea3efcc9a6": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "b965877c474e569551d0": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "845dd30381538e2e1cee": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "063f431874ff6b89d932": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "d84d93a3d4d083f693ec": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "7e6670fdddfe0fd7d69a": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "f3cbb165ed91a1867086": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "b4a31ba19dc7f178c371": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "b67fef8e12e434627aef": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "6ea82e1b6303f4f2d4e0": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "24f455305ca3808fc6c7": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "1ca4aa4d1d863264d486": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "743c886c28b681d89be0": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "327b6878c39ce5354b51": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "e591d21da6fa60cc3210": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "ecc2bef3acc90def0773": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "7fd7c991403ab236c4f0": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "97b8153f0065bbf88f2f": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "8ac5809dce76cf11b26c": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "bef669124378dca51ae8": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "1d2240d7a79cac37c7ed": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "d8863cffbb14e3e9dd93": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "576400a8cde9b7d1896b": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "993c912360da315cbe61": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "2728369e4ef49ac656a2": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "a020684d7d891fb28227": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "e607a254982eb206352f": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "4bdacc48be0266ec0342": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_1_1_001": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_002": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_003": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_004": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_005": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_006": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_007": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_008": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_009": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_010": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_011": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_012": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_013": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_014": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_015": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_016": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_017": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_018": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_019": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_1_020": [
+      "knowledge",
+      "method-1-1"
+    ],
+    "MCQ_1_2_001": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_002": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_003": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_004": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_005": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_006": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_007": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_008": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_009": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_010": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_011": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_012": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_013": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_014": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_015": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_016": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_017": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_018": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_019": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_2_020": [
+      "knowledge",
+      "method-1-2"
+    ],
+    "MCQ_1_3_001": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_002": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_003": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_004": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_005": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_006": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_007": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_008": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_009": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_010": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_011": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_012": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_013": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_014": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_015": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_016": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_017": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_018": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_019": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_3_020": [
+      "knowledge",
+      "method-1-3"
+    ],
+    "MCQ_1_4_001": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_002": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_003": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_004": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_005": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_006": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_007": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_008": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_009": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_010": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_011": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_012": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_013": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_014": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_015": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_016": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_017": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_018": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_019": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_4_020": [
+      "knowledge",
+      "method-1-4"
+    ],
+    "MCQ_1_5_001": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_002": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_003": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_004": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_005": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_006": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_007": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_008": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_009": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_010": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_011": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_012": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_013": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_014": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_015": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_016": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_017": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_018": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_019": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_5_020": [
+      "knowledge",
+      "method-1-5"
+    ],
+    "MCQ_1_6_001": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_002": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_003": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_004": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_005": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_006": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_007": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_008": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_009": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_010": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_011": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_012": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_013": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_014": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_015": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_016": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_017": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_018": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_019": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_6_020": [
+      "knowledge",
+      "method-1-6"
+    ],
+    "MCQ_1_7_001": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_002": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_003": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_004": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_005": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_006": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_007": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_008": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_009": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_010": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_011": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_012": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_013": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_014": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_015": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_016": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_017": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_018": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_019": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_7_020": [
+      "knowledge",
+      "method-1-7"
+    ],
+    "MCQ_1_8_001": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_002": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_003": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_004": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_005": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_006": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_007": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_008": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_009": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_010": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_011": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_012": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_013": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_014": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_015": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_016": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_017": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_018": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_019": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_1_8_020": [
+      "knowledge",
+      "method-1-8"
+    ],
+    "MCQ_2_1_001": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_002": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_003": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_004": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_005": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_006": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_007": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_008": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_009": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_010": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_011": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_012": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_013": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_014": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_015": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_016": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_017": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_018": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_019": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_1_020": [
+      "knowledge",
+      "method-2-1"
+    ],
+    "MCQ_2_2_001": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_002": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_003": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_004": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_005": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_006": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_007": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_008": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_009": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_010": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_011": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_012": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_013": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_014": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_015": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_016": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_017": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_018": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_019": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_2_020": [
+      "knowledge",
+      "method-2-2"
+    ],
+    "MCQ_2_3_001": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_002": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_003": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_004": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_005": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_006": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_007": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_008": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_009": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_010": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_011": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_012": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_013": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_014": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_015": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_016": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_017": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_018": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_019": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_3_020": [
+      "knowledge",
+      "method-2-3"
+    ],
+    "MCQ_2_4_001": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_002": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_003": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_004": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_005": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_006": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_007": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_008": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_009": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_010": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_011": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_012": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_013": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_014": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_015": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_016": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_017": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_018": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_019": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_4_020": [
+      "knowledge",
+      "method-2-4"
+    ],
+    "MCQ_2_5_001": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_002": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_003": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_004": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_005": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_006": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_007": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_008": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_009": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_010": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_011": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_012": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_013": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_014": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_015": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_016": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_017": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_018": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_019": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_5_020": [
+      "knowledge",
+      "method-2-5"
+    ],
+    "MCQ_2_6_001": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_002": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_003": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_004": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_005": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_006": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_007": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_008": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_009": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_010": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_011": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_012": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_013": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_014": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_015": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_016": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_017": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_018": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_019": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_2_6_020": [
+      "knowledge",
+      "method-2-6"
+    ],
+    "MCQ_3_1_001": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_002": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_003": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_004": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_005": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_006": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_007": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_008": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_009": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_010": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_011": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_012": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_013": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_014": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_015": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_016": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_017": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_018": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_019": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_1_020": [
+      "knowledge",
+      "method-3-1"
+    ],
+    "MCQ_3_2_001": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_002": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_003": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_004": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_005": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_006": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_007": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_008": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_009": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_010": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_011": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_012": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_013": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_014": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_015": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_016": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_017": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_018": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_019": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_2_020": [
+      "knowledge",
+      "method-3-2"
+    ],
+    "MCQ_3_3_001": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_002": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_003": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_004": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_005": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_006": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_007": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_008": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_009": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_010": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_011": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_012": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_013": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_014": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_015": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_016": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_017": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_018": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_019": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_3_020": [
+      "knowledge",
+      "method-3-3"
+    ],
+    "MCQ_3_4_001": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_002": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_003": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_004": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_005": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_006": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_007": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_008": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_009": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_010": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_011": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_012": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_013": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_014": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_015": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_016": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_017": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_018": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_019": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_4_020": [
+      "knowledge",
+      "method-3-4"
+    ],
+    "MCQ_3_5_001": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_002": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_003": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_004": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_005": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_006": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_007": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_008": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_009": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_010": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_011": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_012": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_013": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_014": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_015": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_016": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_017": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_018": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_019": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_5_020": [
+      "knowledge",
+      "method-3-5"
+    ],
+    "MCQ_3_6_001": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_002": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_003": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_004": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_005": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_006": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_007": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_008": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_009": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_010": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_011": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_012": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_013": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_014": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_015": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_016": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_017": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_018": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_019": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_3_6_020": [
+      "knowledge",
+      "method-3-6"
+    ],
+    "MCQ_4_1_001": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_002": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_003": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_004": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_005": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_006": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_007": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_008": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_009": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_010": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_011": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_012": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_013": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_014": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_015": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_016": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_017": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_018": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_019": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_1_020": [
+      "knowledge",
+      "method-4-1"
+    ],
+    "MCQ_4_2_001": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_002": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_003": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_004": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_005": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_006": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_007": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_008": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_009": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_010": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_011": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_012": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_013": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_014": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_015": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_016": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_017": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_018": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_019": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_2_020": [
+      "knowledge",
+      "method-4-2"
+    ],
+    "MCQ_4_3_001": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_002": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_003": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_004": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_005": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_006": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_007": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_008": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_009": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_010": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_011": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_012": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_013": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_014": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_015": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_016": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_017": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_018": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_019": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_3_020": [
+      "knowledge",
+      "method-4-3"
+    ],
+    "MCQ_4_4_001": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_002": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_003": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_004": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_005": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_006": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_007": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_008": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_009": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_010": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_011": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_012": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_013": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_014": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_015": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_016": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_017": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_018": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_019": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_4_020": [
+      "knowledge",
+      "method-4-4"
+    ],
+    "MCQ_4_5_001": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_002": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_003": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_004": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_005": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_006": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_007": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_008": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_009": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_010": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_011": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_012": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_013": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_014": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_015": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_016": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_017": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_018": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_019": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_5_020": [
+      "knowledge",
+      "method-4-5"
+    ],
+    "MCQ_4_6_001": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_002": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_003": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_004": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_005": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_006": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_007": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_008": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_009": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_010": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_011": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_012": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_013": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_014": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_015": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_016": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_017": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_018": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_019": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_6_020": [
+      "knowledge",
+      "method-4-6"
+    ],
+    "MCQ_4_7_001": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_002": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_003": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_004": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_005": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_006": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_007": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_008": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_009": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_010": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_011": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_012": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_013": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_014": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_015": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_016": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_017": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_018": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_019": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_7_020": [
+      "knowledge",
+      "method-4-7"
+    ],
+    "MCQ_4_8_001": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_002": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_003": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_004": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_005": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_006": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_007": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_008": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_009": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_010": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_011": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_012": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_013": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_014": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_015": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_016": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_017": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_018": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_019": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_8_020": [
+      "knowledge",
+      "method-4-8"
+    ],
+    "MCQ_4_9_001": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_002": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_003": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_004": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_005": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_006": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_007": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_008": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_009": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_010": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_011": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_012": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_013": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_014": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_015": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_016": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_017": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_018": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_019": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_9_020": [
+      "knowledge",
+      "method-4-9"
+    ],
+    "MCQ_4_10_001": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_002": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_003": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_004": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_005": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_006": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_007": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_008": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_009": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_010": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_011": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_012": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_013": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_014": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_015": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_016": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_017": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_018": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_019": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_10_020": [
+      "knowledge",
+      "method-4-10"
+    ],
+    "MCQ_4_11_001": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_002": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_003": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_004": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_005": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_006": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_007": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_008": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_009": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_010": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_011": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_012": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_013": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_014": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_015": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_016": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_017": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_018": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_019": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_4_11_020": [
+      "knowledge",
+      "method-4-11"
+    ],
+    "MCQ_5_1_001": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_002": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_003": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_004": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_005": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_006": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_007": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_008": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_009": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_010": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_011": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_012": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_013": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_014": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_015": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_016": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_017": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_018": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_019": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_1_020": [
+      "knowledge",
+      "method-5-1"
+    ],
+    "MCQ_5_2_001": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_002": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_003": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_004": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_005": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_006": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_007": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_008": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_009": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_010": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_011": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_012": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_013": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_014": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_015": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_016": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_017": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_018": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_019": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_2_020": [
+      "knowledge",
+      "method-5-2"
+    ],
+    "MCQ_5_3_001": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_002": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_003": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_004": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_005": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_006": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_007": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_008": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_009": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_010": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_011": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_012": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_013": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_014": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_015": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_016": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_017": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_018": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_019": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_3_020": [
+      "knowledge",
+      "method-5-3"
+    ],
+    "MCQ_5_4_001": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_002": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_003": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_004": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_005": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_006": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_007": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_008": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_009": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_010": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_011": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_012": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_013": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_014": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_015": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_016": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_017": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_018": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_019": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_4_020": [
+      "knowledge",
+      "method-5-4"
+    ],
+    "MCQ_5_5_001": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_002": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_003": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_004": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_005": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_006": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_007": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_008": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_009": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_010": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_011": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_012": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_013": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_014": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_015": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_016": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_017": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_018": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_019": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_5_020": [
+      "knowledge",
+      "method-5-5"
+    ],
+    "MCQ_5_6_001": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_002": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_003": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_004": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_005": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_006": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_007": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_008": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_009": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_010": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_011": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_012": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_013": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_014": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_015": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_016": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_017": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_018": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_019": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_6_020": [
+      "knowledge",
+      "method-5-6"
+    ],
+    "MCQ_5_7_001": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_002": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_003": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_004": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_005": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_006": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_007": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_008": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_009": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_010": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_011": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_012": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_013": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_014": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_015": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_016": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_017": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_018": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_019": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_7_020": [
+      "knowledge",
+      "method-5-7"
+    ],
+    "MCQ_5_8_001": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_002": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_003": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_004": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_005": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_006": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_007": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_008": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_009": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_010": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_011": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_012": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_013": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_014": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_015": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_016": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_017": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_018": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_019": [
+      "knowledge",
+      "method-5-8"
+    ],
+    "MCQ_5_8_020": [
+      "knowledge",
+      "method-5-8"
+    ]
+  },
+  "numeric_skills": [
+    "arithmetic"
+  ],
+  "cross_reference_groups": {},
+  "section_links": {
+    "1.1": {
+      "label": "SL 1.1 · Standard form",
+      "href": "coverage.html#sl-1.1"
+    },
+    "1.2": {
+      "label": "SL 1.2 · Arithmetic sequences and finite sums",
+      "href": "coverage.html#sl-1.2"
+    },
+    "1.3": {
+      "label": "SL 1.3 · Geometric sequences and finite sums",
+      "href": "coverage.html#sl-1.3"
+    },
+    "1.4": {
+      "label": "SL 1.4 · Compound growth, depreciation and inflation",
+      "href": "coverage.html#sl-1.4"
+    },
+    "1.5": {
+      "label": "SL 1.5 · Integer powers and logarithms",
+      "href": "coverage.html#sl-1.5"
+    },
+    "1.6": {
+      "label": "SL 1.6 · Approximation, bounds and error",
+      "href": "coverage.html#sl-1.6"
+    },
+    "1.7": {
+      "label": "SL 1.7 · Loans and annuities",
+      "href": "coverage.html#sl-1.7"
+    },
+    "1.8": {
+      "label": "SL 1.8 · Systems and polynomial equations",
+      "href": "coverage.html#sl-1.8"
+    },
+    "2.1": {
+      "label": "SL 2.1 · Straight-line equations",
+      "href": "coverage.html#sl-2.1"
+    },
+    "2.2": {
+      "label": "SL 2.2 · Functions, domains, ranges and inverses",
+      "href": "coverage.html#sl-2.2"
+    },
+    "2.3": {
+      "label": "SL 2.3 · Graphs and combinations",
+      "href": "coverage.html#sl-2.3"
+    },
+    "2.4": {
+      "label": "SL 2.4 · Graph features and intersections",
+      "href": "coverage.html#sl-2.4"
+    },
+    "2.5": {
+      "label": "SL 2.5 · Linear, quadratic, exponential, power, cubic and periodic models",
+      "href": "coverage.html#sl-2.5"
+    },
+    "2.6": {
+      "label": "SL 2.6 · Building and evaluating models",
+      "href": "coverage.html#sl-2.6"
+    },
+    "3.1": {
+      "label": "SL 3.1 · Three-dimensional measurement and solids",
+      "href": "coverage.html#sl-3.1"
+    },
+    "3.2": {
+      "label": "SL 3.2 · Right and non-right triangles",
+      "href": "coverage.html#sl-3.2"
+    },
+    "3.3": {
+      "label": "SL 3.3 · Bearings and angles of elevation or depression",
+      "href": "coverage.html#sl-3.3"
+    },
+    "3.4": {
+      "label": "SL 3.4 · Arcs and sectors in degrees",
+      "href": "coverage.html#sl-3.4"
+    },
+    "3.5": {
+      "label": "SL 3.5 · Perpendicular bisectors",
+      "href": "coverage.html#sl-3.5"
+    },
+    "3.6": {
+      "label": "SL 3.6 · Voronoi diagrams and nearest-site decisions",
+      "href": "coverage.html#sl-3.6"
+    },
+    "4.1": {
+      "label": "SL 4.1 · Data quality and sampling",
+      "href": "coverage.html#sl-4.1"
+    },
+    "4.2": {
+      "label": "SL 4.2 · Tables, histograms, cumulative frequency and box plots",
+      "href": "coverage.html#sl-4.2"
+    },
+    "4.3": {
+      "label": "SL 4.3 · Location, spread and transformations",
+      "href": "coverage.html#sl-4.3"
+    },
+    "4.4": {
+      "label": "SL 4.4 · Pearson correlation and regression",
+      "href": "coverage.html#sl-4.4"
+    },
+    "4.5": {
+      "label": "SL 4.5 · Probability and expected frequency",
+      "href": "coverage.html#sl-4.5"
+    },
+    "4.6": {
+      "label": "SL 4.6 · Combined events and conditional probability",
+      "href": "coverage.html#sl-4.6"
+    },
+    "4.7": {
+      "label": "SL 4.7 · Discrete distributions and expectation",
+      "href": "coverage.html#sl-4.7"
+    },
+    "4.8": {
+      "label": "SL 4.8 · Binomial models",
+      "href": "coverage.html#sl-4.8"
+    },
+    "4.9": {
+      "label": "SL 4.9 · Normal models and inverse probabilities",
+      "href": "coverage.html#sl-4.9"
+    },
+    "4.10": {
+      "label": "SL 4.10 · Spearman rank correlation",
+      "href": "coverage.html#sl-4.10"
+    },
+    "4.11": {
+      "label": "SL 4.11 · Hypothesis tests",
+      "href": "coverage.html#sl-4.11"
+    },
+    "5.1": {
+      "label": "SL 5.1 · Derivative as a limiting rate",
+      "href": "coverage.html#sl-5.1"
+    },
+    "5.2": {
+      "label": "SL 5.2 · Increasing and decreasing functions",
+      "href": "coverage.html#sl-5.2"
+    },
+    "5.3": {
+      "label": "SL 5.3 · Power-rule differentiation",
+      "href": "coverage.html#sl-5.3"
+    },
+    "5.4": {
+      "label": "SL 5.4 · Tangents and normals",
+      "href": "coverage.html#sl-5.4"
+    },
+    "5.5": {
+      "label": "SL 5.5 · Antiderivatives and definite integrals",
+      "href": "coverage.html#sl-5.5"
+    },
+    "5.6": {
+      "label": "SL 5.6 · Stationary points and extrema",
+      "href": "coverage.html#sl-5.6"
+    },
+    "5.7": {
+      "label": "SL 5.7 · Optimization in context",
+      "href": "coverage.html#sl-5.7"
+    },
+    "5.8": {
+      "label": "SL 5.8 · Trapezoidal approximation",
+      "href": "coverage.html#sl-5.8"
+    }
+  }
+}
