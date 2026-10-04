@@ -122,3 +122,19 @@ Prerequisites are authored teaching suggestions, not official syllabus requireme
 or diagnoses. Ancestor rollups count each question once per node, even with several
 descendant links. Existing workbook dashboards retain their previous behavior and
 show a setup explanation until explicit curriculum links are available.
+
+## Portable practice and recovery
+
+The profile builders publish a content-addressed question catalog for the standalone
+practice journal. Its browser progress, assignments and completion reports remain
+self-reported learning evidence and never enter the assessment score model. Unit
+aliases and optional mistake feedback belong to authored question data. An optional
+`practice_journal` resource in a curriculum enables a focused journal link without
+assuming that every course supplies the same practice pages. Existing class copies
+keep their captured version until explicitly migrated.
+
+`studentdash.portability` separates public classroom packages from single-learner
+snapshots and private course backups. Backup uses SQLite snapshots and integrity
+checks; restore validates in staging and requires a new destination. The teacher UI
+registers a managed recovery as a separate class copy, preserving the original.
+This remains a local, files-only workflow and does not introduce hosted services.

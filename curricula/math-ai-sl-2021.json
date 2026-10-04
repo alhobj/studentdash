@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "math-ai-sl-2021",
-  "version": "1",
+  "version": "2",
   "label": "Mathematics AI SL · first assessment 2021",
   "prerequisite_note": "Authored teaching links, not official IB prerequisite requirements. A prerequisite suggestion is not a diagnosis.",
   "categories": {},
@@ -1380,5 +1380,6 @@
       "title": "Trapezoidal approximation",
       "path": "ib-math-ai-sl/coverage.html#sl-5.8"
     }
-  ]
+  ],
+  "practice_journal": "ib-math-ai-sl/my-practice.html"
 }

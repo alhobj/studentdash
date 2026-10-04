@@ -55,3 +55,12 @@
 .lookup-controls { display: flex; flex-wrap: wrap; gap: .5rem; }
 [data-booklet-task] { scroll-margin-top: 1rem; }
 [data-booklet-task] h2:focus { outline-offset: 5px; }
+
+.authored-mcq-card {padding:1rem 0;border-top:1px solid #8498a8;scroll-margin-top:1rem}
+.mcq-options {display:grid;grid-template-columns:1fr;gap:.6rem;margin:1rem 0}
+.mcq-options button {text-align:left;white-space:normal;width:100%;line-height:1.5;padding:.8rem 1rem}
+.mcq-options button[aria-pressed=true] {outline:3px solid currentColor;outline-offset:2px}
+.mcq-options .mcq-right {background:#d8f2df;color:#153b23;border-color:#1d7140}
+.mcq-options .mcq-wrong {background:#ffe5de;color:#652919;border-color:#a13c23}
+.mcq-feedback {min-height:1.5em}.mcq-retry {margin-top:.7rem}
+@media print {.mcq-retry {display:none}.mcq-options button {color:#000;background:#fff}}

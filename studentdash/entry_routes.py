@@ -26,7 +26,7 @@ def register_entry_routes(app, base_config):
     @app.url_defaults
     def keep_class_context(endpoint, values):
         if endpoint in {'index', 'generate', 'feedback_editor', 'feedback_preview', 'save_draft',
-                        'publish_feedback', 'record_attempt', 'preview'}:
+                        'publish_feedback', 'record_attempt', 'preview', 'portability.transfer', 'portability.download'}:
             values.setdefault('class_key', request.values.get('class_key', session.get('entered_class', '')))
 
     def version():

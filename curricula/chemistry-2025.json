@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "chemistry-2025",
-  "version": "1",
+  "version": "2",
   "label": "IB Chemistry · first assessment 2025",
   "prerequisite_note": "Authored teaching links, not official IB prerequisite requirements. A prerequisite suggestion is not a diagnosis.",
   "nodes": [
@@ -1222,5 +1222,6 @@
     "curriculum": {
       "nodes": []
     }
-  }
+  },
+  "practice_journal": "ib-chemistry/my-practice.html"
 }

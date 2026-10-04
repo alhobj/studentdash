@@ -1,4 +1,4 @@
-/* Authored finite sets; no random difficulty changes, storage, or scoring. */
+/* Local practice checks; optional portable progress is provided by learning.js. */
 (() => {
   'use strict';
   const normalize = text => text.trim().toLowerCase().replace(/\s+/g, ' ').replace(/[.!?]+$/, '').trim();
@@ -6,10 +6,12 @@
     const bank = JSON.parse(host.dataset.similar), form = host.querySelector('form');
     const input = form.querySelector('input'), feedback = host.querySelector('.similar-feedback');
     const previous = host.querySelector('.similar-previous'), next = host.querySelector('.similar-next');
-    let index = 0;
+    const positionKey = host.closest('[data-foundation]').id;
+    let index = Math.min(window.StudentPractice?.position(positionKey) || 0, bank.questions.length - 1);
     host.querySelector('.similar-controls').hidden = false;
     host.querySelector('.similar-check').hidden = false;
     function show() {
+      window.StudentPractice?.move(positionKey, index);
       const q = bank.questions[index];
       form.querySelector('label').textContent = q.prompt;
       input.type = Array.isArray(q.answer) ? 'text' : 'number';
@@ -21,6 +23,7 @@
       previous.disabled = index === 0;
       next.textContent = index === bank.questions.length - 1 ? 'Repeat this set' : 'Another like this';
     }
+    show();
     form.addEventListener('submit', event => {
       event.preventDefault();
       const answer = bank.questions[index].answer, words = Array.isArray(answer);
@@ -30,7 +33,8 @@
       }
       const correct = words ? answer.some(a => normalize(a) === normalize(input.value)) : Math.abs(input.valueAsNumber - answer) < 1e-8;
       input.setAttribute('aria-invalid', String(!correct));
-      feedback.textContent = correct ? 'That’s right. When you are ready, try another using the same method.' : 'Not quite yet. Use the hint, check your steps and try again.';
+      window.StudentPractice?.recordForm(form, correct);
+      feedback.textContent = correct ? 'That’s right. When you are ready, try another using the same method.' : (window.StudentPractice?.feedbackFor(form) || 'Not quite yet. Use the hint, check your steps and try again.');
     });
     input.addEventListener('input', () => { feedback.textContent = ''; input.removeAttribute('aria-invalid'); });
     previous.addEventListener('click', () => { index = Math.max(0, index - 1); show(); input.focus(); });

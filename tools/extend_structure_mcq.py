@@ -66,7 +66,7 @@ def authored_questions(content=CONTENT):
             qid = f'NEW_{section.replace(".", "")}_{index:03}'
             result.append(dict(id=qid, section=section, prompt=prompt,
                                text=prompt+'\n'+'\n'.join(f'{letter}. {option}' for letter, option in zip('ABCD', options)),
-                               answer='ABCD'[position], correct=correct, explanation=explanation,
+                               answer='ABCD'[position], options=options, correct=correct, explanation=explanation,
                                paper=paper, source_id=str(source_id)))
     if len({r['prompt'] for r in result}) != 100:
         raise ValueError('Duplicate new prompts.')

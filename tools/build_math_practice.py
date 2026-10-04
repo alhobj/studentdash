@@ -3,6 +3,8 @@ import json
 from html import escape
 from pathlib import Path
 from practice_challenges import build_challenges
+from build_learning import build_learning
+from practice_mcq import build_mcq, render_mcq
 from practice_support import build_support
 from practice_repetition import load_repetition, render_repetition
 from practice_syllabus import render_syllabus
@@ -15,6 +17,8 @@ SOURCE = 'https://www.ibo.org/globalassets/new-structure/university-admission/pd
 
 
 def build():
+    authored_mcq = build_mcq(ROOT, 'math')
+    (ROOT / 'authored-mcq.js').write_text((ROOT.parent / 'ib-chemistry' / 'authored-mcq.js').read_text(encoding='utf-8'), encoding='utf-8')
     build_booklet(ROOT)
     data = json.loads((ROOT / 'activities.json').read_text(encoding='utf-8'))
     extra = json.loads((ROOT / 'extensions.json').read_text(encoding='utf-8'))
@@ -52,6 +56,8 @@ def build():
         if activities:
             serialized = json.dumps(activities, ensure_ascii=False).replace('<', '\\u003c')
             scripts = f'<script type="application/json" id="math-data">{serialized}</script><script src="math-extensions.js"></script><script src="math-practice.js"></script>'
+        if 'data-authored-mcq' in body:
+            scripts += '<script src="authored-mcq.js"></script>'
         if 'data-foundation' in body:
             scripts += '<script src="foundations.js"></script><script src="similar-practice.js"></script>'
         text = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
@@ -64,6 +70,8 @@ def build():
         label = f'SL {c["code"]} · Start here' if 'code' in c else 'Prior learning'
         html = (f'<section id="{key}" data-foundation><p class="eyebrow">{label}</p><h2>{escape(c["title"])}</h2>'
                 f'<p class="reminder">{escape(c["reminder"])}</p>')
+        if 'code' in c:
+            html += f'<p><a href="mcq-{c["code"].replace(".", "-")}.html">20 multiple-choice questions with instant feedback</a></p>'
         html += render_booklet_help(ROOT, [c['code']] if 'code' in c else [], c.get('id'))
         for i, step in enumerate(c['steps'], 1):
             field = f'{key}-step-{i}'
@@ -82,7 +90,7 @@ def build():
 
     intro = ('<p>Work at your own pace. Read the reminder, try each step, and use a hint whenever you need one. '
              'You can use a calculator. Enter numbers only; units are stated in each question. '
-             'There is no timer or score, and answers are not saved.</p>'
+             'There is no timer or assessment score. My practice saves these short answers in this browser; export progress to move it between computers.</p>'
              '<noscript><p>Enable JavaScript to check answers. Hints and worked steps can still be opened without it.</p></noscript>')
     body = '<header><a href="math-practice.html">← Mathematics hub</a><h1>Prior learning: small steps</h1>' + intro + '</header>'
     body += '<nav aria-label="Prior-learning lessons">' + ''.join(f'<a href="#{c["id"]}">{escape(c["title"])}</a>' for c in foundations['prior']) + '</nav>'
@@ -122,6 +130,7 @@ def build():
                 'or <a href="prior-learning.html">revisit prior learning</a>.</p>'
                 f'<p>Ready for more? <a href="challenges-{number}.html">Try multi-part harder tasks</a>.</p></header>'
                 + render_syllabus(ROOT, [c['code'] for c in coverage if c['code'].startswith(f'{number}.')])
+                + '<nav aria-label="Multiple-choice practice">' + ''.join(f'<a href="mcq-{c["code"].replace(".", "-")}.html">SL {c["code"]}: 20 MCQs</a>' for c in coverage if c['code'].startswith(f'{number}.')) + '</nav>'
                 + '<nav aria-label="Activities">'
                 + ''.join(f'<a href="#{key}">{escape(c["title"])}</a>' for key, c in activities.items()) + '</nav>'
                 '<noscript><p>Enable JavaScript for the explorers and answer checks. Worked explanations remain readable.</p></noscript>')
@@ -145,8 +154,9 @@ def build():
             body += f'<a href="topic-{number+1}.html">Topic {number+1} →</a>'
         body += '</nav>'
         write(f'topic-{number}.html', title, body, activities)
+    hub += '</div><section><h2>780 multiple-choice questions</h2><p>20 questions for every SL sub-topic, with immediate A–D feedback and explanations.</p><nav>' + ''.join(f'<a href="mcq-{c["code"].replace(".", "-")}.html">{c["code"]}: {escape(c["title"])}</a>' for c in coverage) + '</nav></section>'
     hub = hub.replace('</header>', '<nav>' + booklet_link(ROOT) + '</nav></header>', 1)
-    write('math-practice.html', 'Mathematics practice hub', hub + '</div>')
+    write('math-practice.html', 'Mathematics practice hub', hub)
     body = ('<header><a href="math-practice.html">← Mathematics hub</a><h1>AI SL syllabus coverage</h1>'
             '<p>First assessment 2021 · 39 of 39 SL sub-topics. Each entry links to live activities and adds a guided task '
             'with a worked discussion. Use these tasks to practise explanations, diagrams, assumptions and calculator interpretation as well as numerical answers.</p>'
@@ -160,6 +170,7 @@ def build():
                 continue
             code = c['code']
             body += (f'<section id="sl-{code}"><h3>SL {code} · {escape(c["title"])}</h3>'
+                     f'<p><a href="mcq-{code.replace(".", "-")}.html">20 multiple-choice questions with instant feedback</a></p>'
                      f'<p><a href="basics-{n}.html#basic-{code}">Start here: two short steps with hints</a></p>'
                      f'<p><a href="challenges-{n}.html#challenge-{code}">Go further: multi-part harder task</a></p>'
                      '<nav aria-label="Linked practice">' + ''.join(f'<a href="topic-{data[k]["topic"]}.html#{k}">{escape(data[k]["title"])}</a>' for k in c['activities'])
@@ -184,6 +195,16 @@ def build():
           '<section><h2>Communicate your work</h2><p>Define variables and units; label diagrams and graphs; explain technology outputs; '
           'support conclusions with mathematics; check reasonableness and precision; acknowledge data sources; reflect on assumptions and improvements. '
           'Use your own question, reasoning and observations when developing an assessed exploration.</p></section>')
+    for c in coverage:
+        code = c['code']
+        body = (f'<header><a href="math-practice.html">← Mathematics hub</a>'
+                f'<h1>SL {code} · {escape(c["title"])}</h1>'
+                f'<nav><a href="basics-{code.split(".")[0]}.html#basic-{code}">Guided small steps</a>'
+                f'<a href="coverage.html#sl-{code}">Related explorers and tasks</a></nav></header>'
+                + render_syllabus(ROOT, [code]) + render_booklet_help(ROOT, [code])
+                + render_mcq(authored_mcq, code))
+        write(f'mcq-{code.replace(".", "-")}.html', f'SL {code} multiple-choice practice', body)
+    build_learning(ROOT, 'Mathematics AI SL', 'math-practice.html', 'math-practice.css')
     print(f'Built mathematics hub and five topic pages with {len(data)} explorers.')
 
 

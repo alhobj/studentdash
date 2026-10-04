@@ -1,7 +1,7 @@
 {% extends 'entry_base.html' %}
 {% block title %}My classes · Studentdash{% endblock %}
 {% block body %}
-<h1>My classes</h1><p>Create your class once, then reuse its roster for each assessment.</p>
+<p><a href="{{ url_for('portability.transfer') }}">Packages & workspace backup</a></p><h1>My classes</h1><p>Create your class once, then reuse its roster for each assessment.</p>
 <section class="card"><h2>Open a class</h2>{% for c in classes %}<p><a href="{{ url_for('entry.class_page', key=c.id) }}">{{ c.name }}</a> · {{ c.students|length }} students · {{ c.assessments|length }} assessments</p>{% else %}<p>No classes yet. Create your first class below.</p>{% endfor %}</section>
 <section class="card"><h2>Create a class</h2><form method="post">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">

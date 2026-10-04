@@ -186,7 +186,7 @@ class ChemistryResourceTests(unittest.TestCase):
         for topic in syllabus['topics']:
             filename = topic['id'].lower().replace('.', '-') + '.html'
             self.page.goto((self.resource_root / filename).as_uri())
-            self.assertEqual(self.page.locator('section[id]').count(), len(topic['activities']))
+            self.assertEqual(self.page.locator('section[id]:not(#authored-mcq)').count(), len(topic['activities']))
             for activity in topic['activities']:
                 self.assertTrue(self.page.locator('#' + activity).is_visible())
             self.assertTrue(self.page.get_by_role('link', name='All syllabus sub-parts', exact=True).is_visible())

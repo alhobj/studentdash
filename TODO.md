@@ -58,8 +58,8 @@ Retake scores should continue to remain separate from original assessment eviden
 
 ## 3. Protect and recover a course workspace
 
-- [ ] Add a backup command that captures workbook and consistent SQLite state together.
-- [ ] Add a restore rehearsal with integrity checks and a clear course identity.
+- [x] Add a backup command that captures workbook and consistent SQLite state together.
+- [x] Add a restore rehearsal with integrity checks and a clear course identity.
 - [ ] Add database versioning and upgrade tests using saved older fictional fixtures.
 - [ ] Define archive/export and retention procedures for ticket answers and audit records.
 

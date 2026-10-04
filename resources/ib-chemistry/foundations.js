@@ -1,4 +1,4 @@
-/* Profile-local starter tasks. No storage, requests, timers or scores. */
+/* Local practice checks; optional portable progress is provided by learning.js. */
 (() => {
   'use strict';
   const normalize = value => value.trim().toLowerCase().replace(/\s+/g, ' ').replace(/[.!?]+$/, '').trim();
@@ -20,6 +20,8 @@
           ? 'That’s right. Open the worked step to compare your reasoning.'
           : 'Not quite yet. Open a hint, check your reasoning and try again.';
         input.setAttribute('aria-invalid', String(!correct));
+        window.StudentPractice?.recordForm(form, correct);
+        if(!correct && window.StudentPractice) feedback.textContent = 'Not quite yet. ' + (window.StudentPractice.feedbackFor(form) || 'Check your method.');
       });
       input.addEventListener('input', () => {
         feedback.textContent = '';
@@ -27,6 +29,7 @@
       });
     });
     lesson.querySelector('.foundation-reset').addEventListener('click', () => {
+      window.StudentPractice?.clearLesson(lesson);
       lesson.querySelectorAll('form').forEach(form => form.reset());
       lesson.querySelectorAll('.feedback').forEach(e => { e.textContent = ''; });
       lesson.querySelectorAll('input').forEach(e => e.removeAttribute('aria-invalid'));

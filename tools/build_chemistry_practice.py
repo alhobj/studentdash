@@ -8,6 +8,8 @@ import re
 from html import escape
 from pathlib import Path
 from practice_challenges import build_challenges
+from build_learning import build_learning
+from practice_mcq import build_mcq, render_mcq
 from practice_support import build_support
 from practice_repetition import load_repetition, render_repetition
 from practice_syllabus import render_syllabus
@@ -46,6 +48,7 @@ def question_section(key, activity):
 
 
 def build():
+    authored_mcq = build_mcq(ROOT)
     build_booklet(ROOT)
     syllabus = read_json('practice-syllabus.json')
     activities = read_json('practice-activities.json')
@@ -86,7 +89,7 @@ def build():
     assert assigned == set(activities), 'Every activity needs a syllabus home'
 
     footer = ('<footer><p>Original independent practice with invented numerical scenarios. '
-              'Not an official IB assessment. Responses stay in this page and are not saved or sent to a teacher. '
+              'Not an official IB assessment. Small-step and repeat answers can be saved in this browser through My practice. Other activity settings stay in the open page; nothing is sent automatically. '
               'Main activity numerical checks accept answers within 1%; small-step tasks check the stated numerical result. '
               'Show appropriate units and significant figures in written work.</p>'
               f'<p>Organisation follows the {escape(syllabus["version"])} syllabus: '
@@ -118,7 +121,7 @@ def build():
 
     intro = ('<p>Take one small step at a time. Read the reminder, try the question and open a hint whenever you need one. '
              'Use a calculator if helpful. For calculations, enter a number only; units are given in the question. '
-             'For word answers, use the short term requested. There is no timer or score, and answers are not saved.</p>'
+             'For word answers, use the short term requested. There is no timer or assessment score. My practice saves these short answers in this browser; export progress to move it between computers.</p>'
              '<noscript><p>Enable JavaScript for answer checks. Hints and worked steps remain available without it.</p></noscript>')
     foundation_script = '<script src="foundations.js"></script><script src="similar-practice.js"></script>'
     body = '<header><a href="practice.html">← Chemistry hub</a><h1>Prior learning: small steps</h1>' + intro + '</header>'
@@ -144,7 +147,7 @@ def build():
                 '<script src="moly-triangles.js"></script>'
                 '<script src="practice-labs.js"></script>'
                 f'<script type="application/json" id="practice-question-data">{serialized}</script>'
-                '<script src="practice-questions.js"></script>')
+                '<script src="practice-questions.js"></script><script src="authored-mcq.js"></script>')
 
     def activity_markup(key, topic=None):
         html = activities[key]['html']
@@ -176,6 +179,9 @@ def build():
                 + ''.join(f'<a href="#{key}">{escape(activities[key]["title"])}</a>' for key in keys)
                 + '</nav><noscript><p class="error">Enable JavaScript for interactive controls. Worked explanations remain readable.</p></noscript>'
                 + ''.join(activity_markup(key, topic) for key in keys))
+        if any(q['topic'] == code for q in authored_mcq):
+            body = body.replace('</header>', '<p><a href="#authored-mcq">20 A–D questions with instant feedback</a></p></header>', 1)
+            body += render_mcq(authored_mcq, code)
         body += '<nav aria-label="Syllabus navigation">'
         if index:
             previous = topics[index-1]
@@ -222,6 +228,10 @@ def build():
     redirect_js = ('<script>const activityPages='+json.dumps(redirects)+';'
                    'const activity=location.hash.slice(1);'
                    'if(Object.hasOwn(activityPages,activity)) location.replace(activityPages[activity]+location.hash);</script>')
+    mcq_topics = list(dict.fromkeys(q['topic'] for q in authored_mcq))
+    mcq_links = f'<p>{len(authored_mcq)} authored A–D questions with instant feedback:</p><nav>' + ''.join(
+        f'<a href="{code.lower().replace(".", "-")}.html#authored-mcq">{code}: 20 questions</a>' for code in mcq_topics) + '</nav>'
+    body = body.replace('</header>', mcq_links + '</header>', 1)
     body = body.replace('</header>', '<nav>' + booklet_link(ROOT) + '</nav></header>', 1)
     (ROOT / 'practice.html').write_text(page('Practice hub', body, redirect_js), encoding='utf-8')
 
@@ -233,6 +243,7 @@ def build():
             + ''.join(f'<a href="#{key}">{escape(activities[key]["title"])}</a>' for key in keys)
             + '</nav>' + ''.join(activity_markup(key) for key in keys) + footer)
     (ROOT / 'all-practice.html').write_text(page('All activities', body, scripts(keys)), encoding='utf-8')
+    build_learning(ROOT, 'Chemistry', 'practice.html', 'practice.css')
     print(f'Built hub, {len(topics)} topic pages and all-activities page; {len(activities)} unique activities.')
 
 

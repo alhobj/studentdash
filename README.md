@@ -266,3 +266,18 @@ node references, learning roles (`basic`, `practice`, `check`) and local HTML pa
 A class captures its selected definition, so catalog changes do not silently alter
 existing mappings. Mathematics and chemistry definitions are included. Prerequisite
 links are teaching suggestions. New subject definitions require no core code changes.
+
+## Portable practice, assignments and recovery
+
+Open **My practice** from a practice page to save and resume short questions, retry
+mistakes, create mixed sessions and export/import progress. Teachers can export
+assignments (JSON or standalone HTML) and review students' self-reported completion
+files. The journal distinguishes independent answers from assisted work; none of
+these records changes assessment marks.
+
+Use **Packages & workspace backup** in the local teacher app to download public
+practice files, a private package for one learner, or a complete selected-course
+backup. Restore validates checksums and databases and creates a new recovered copy.
+
+See [the portable-practice guide](docs/PORTABLE_PRACTICE.md) for coverage, browser
+storage limits, the files-only sharing workflow and backup/restore instructions.

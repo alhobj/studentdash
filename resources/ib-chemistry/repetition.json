@@ -323,49 +323,81 @@
         "prompt": "Convert 100 cm³ to dm³.",
         "answer": 0.1,
         "hint": "Divide by 1000.",
-        "working": "100 ÷ 1000 = 0.1 dm³."
+        "working": "100 ÷ 1000 = 0.1 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 200 cm³ to dm³.",
         "answer": 0.2,
         "hint": "Divide by 1000.",
-        "working": "200 ÷ 1000 = 0.2 dm³."
+        "working": "200 ÷ 1000 = 0.2 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 50 cm³ to dm³.",
         "answer": 0.05,
         "hint": "Divide by 1000.",
-        "working": "50 ÷ 1000 = 0.05 dm³."
+        "working": "50 ÷ 1000 = 0.05 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 750 cm³ to dm³.",
         "answer": 0.75,
         "hint": "Divide by 1000.",
-        "working": "750 ÷ 1000 = 0.75 dm³."
+        "working": "750 ÷ 1000 = 0.75 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 25 cm³ to dm³.",
         "answer": 0.025,
         "hint": "Divide by 1000.",
-        "working": "25 ÷ 1000 = 0.025 dm³."
+        "working": "25 ÷ 1000 = 0.025 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 400 cm³ to dm³.",
         "answer": 0.4,
         "hint": "Divide by 1000.",
-        "working": "400 ÷ 1000 = 0.400 dm³."
+        "working": "400 ÷ 1000 = 0.400 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 350 cm³ to dm³.",
         "answer": 0.35,
         "hint": "Divide by 1000.",
-        "working": "350 ÷ 1000 = 0.35 dm³."
+        "working": "350 ÷ 1000 = 0.35 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       },
       {
         "prompt": "Convert 850 cm³ to dm³.",
         "answer": 0.85,
         "hint": "Divide by 1000.",
-        "working": "850 ÷ 1000 = 0.85 dm³."
+        "working": "850 ÷ 1000 = 0.85 dm³.",
+        "units": [
+          "dm³",
+          "dm^3"
+        ]
       }
     ]
   },
@@ -675,49 +707,73 @@
         "prompt": "A substance has molar mass 40 g mol⁻¹. Find the amount in 4 g, in mol.",
         "answer": 0.1,
         "hint": "Divide mass by molar mass.",
-        "working": "n = 4 ÷ 40 = 0.1 mol."
+        "working": "n = 4 ÷ 40 = 0.1 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A substance has molar mass 40 g mol⁻¹. Find the amount in 8 g, in mol.",
         "answer": 0.2,
         "hint": "Divide mass by molar mass.",
-        "working": "n = 8 ÷ 40 = 0.2 mol."
+        "working": "n = 8 ÷ 40 = 0.2 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A substance has molar mass 18 g mol⁻¹. Find the amount in 9 g, in mol.",
         "answer": 0.5,
         "hint": "Divide mass by molar mass.",
-        "working": "n = 9 ÷ 18 = 0.5 mol."
+        "working": "n = 9 ÷ 18 = 0.5 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A substance has molar mass 18 g mol⁻¹. Find the amount in 54 g, in mol.",
         "answer": 3.0,
         "hint": "Divide mass by molar mass.",
-        "working": "n = 54 ÷ 18 = 3.0 mol."
+        "working": "n = 54 ÷ 18 = 3.0 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A substance has molar mass 40 g mol⁻¹. Find the amount in 12 g, in mol.",
         "answer": 0.3,
         "hint": "Divide mass by molar mass.",
-        "working": "n = 12/40 = 0.300 mol."
+        "working": "n = 12/40 = 0.300 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A substance has molar mass 18 g mol⁻¹. Find the amount in 72 g, in mol.",
         "answer": 4,
         "hint": "Divide mass by molar mass.",
-        "working": "n = 72/18 = 4.00 mol."
+        "working": "n = 72/18 = 4.00 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A sample has mass 12 g and molar mass 60 g mol⁻¹. Find its amount in mol.",
         "answer": 0.2,
         "hint": "Use n = m/M.",
-        "working": "n = 12 ÷ 60 = 0.2 mol."
+        "working": "n = 12 ÷ 60 = 0.2 mol.",
+        "units": [
+          "mol"
+        ]
       },
       {
         "prompt": "A sample has mass 21 g and molar mass 84 g mol⁻¹. Find its amount in mol.",
         "answer": 0.25,
         "hint": "Use n = m/M.",
-        "working": "n = 21 ÷ 84 = 0.25 mol."
+        "working": "n = 21 ÷ 84 = 0.25 mol.",
+        "units": [
+          "mol"
+        ]
       }
     ]
   },
@@ -728,49 +784,73 @@
         "prompt": "Convert 10 °C to K.",
         "answer": 283.15,
         "hint": "Add 273.15.",
-        "working": "10 + 273.15 = 283.15 K."
+        "working": "10 + 273.15 = 283.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 20 °C to K.",
         "answer": 293.15,
         "hint": "Add 273.15.",
-        "working": "20 + 273.15 = 293.15 K."
+        "working": "20 + 273.15 = 293.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 30 °C to K.",
         "answer": 303.15,
         "hint": "Add 273.15.",
-        "working": "30 + 273.15 = 303.15 K."
+        "working": "30 + 273.15 = 303.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 40 °C to K.",
         "answer": 313.15,
         "hint": "Add 273.15.",
-        "working": "40 + 273.15 = 313.15 K."
+        "working": "40 + 273.15 = 313.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 50 °C to K.",
         "answer": 323.15,
         "hint": "Add 273.15.",
-        "working": "50 + 273.15 = 323.15 K."
+        "working": "50 + 273.15 = 323.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 60 °C to K.",
         "answer": 333.15,
         "hint": "Add 273.15.",
-        "working": "60 + 273.15 = 333.15 K."
+        "working": "60 + 273.15 = 333.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 35 °C to kelvin.",
         "answer": 308.15,
         "hint": "Add 273.15 to the Celsius temperature.",
-        "working": "T = 35 + 273.15 = 308.15 K."
+        "working": "T = 35 + 273.15 = 308.15 K.",
+        "units": [
+          "K"
+        ]
       },
       {
         "prompt": "Convert 65 °C to kelvin.",
         "answer": 338.15,
         "hint": "Add 273.15 to the Celsius temperature.",
-        "working": "T = 65 + 273.15 = 338.15 K."
+        "working": "T = 65 + 273.15 = 338.15 K.",
+        "units": [
+          "K"
+        ]
       }
     ]
   },
@@ -1045,49 +1125,73 @@
         "prompt": "Water of mass 10 g warms by 2 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
         "answer": 83.6,
         "hint": "Multiply mass, specific heat capacity and temperature change.",
-        "working": "q = 10 × 4.18 × 2 = 83.6 J gained by the water."
+        "working": "q = 10 × 4.18 × 2 = 83.6 J gained by the water.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "Water of mass 20 g warms by 3 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
         "answer": 250.8,
         "hint": "Multiply mass, specific heat capacity and temperature change.",
-        "working": "q = 20 × 4.18 × 3 = 250.8 J gained by the water."
+        "working": "q = 20 × 4.18 × 3 = 250.8 J gained by the water.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "Water of mass 25 g warms by 4 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
         "answer": 418.0,
         "hint": "Multiply mass, specific heat capacity and temperature change.",
-        "working": "q = 25 × 4.18 × 4 = 418.0 J gained by the water."
+        "working": "q = 25 × 4.18 × 4 = 418.0 J gained by the water.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "Water of mass 50 g warms by 2 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
         "answer": 418.0,
         "hint": "Multiply mass, specific heat capacity and temperature change.",
-        "working": "q = 50 × 4.18 × 2 = 418.0 J gained by the water."
+        "working": "q = 50 × 4.18 × 2 = 418.0 J gained by the water.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "Water of mass 20 g warms by 5 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
         "answer": 418,
         "hint": "Multiply mass, specific heat capacity and temperature change.",
-        "working": "q = 20 × 4.18 × 5 = 418 J."
+        "working": "q = 20 × 4.18 × 5 = 418 J.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "Water of mass 30 g warms by 3 K. Use c = 4.18 J g⁻¹ K⁻¹. Find the energy gained in J.",
         "answer": 376.2,
         "hint": "Multiply mass, specific heat capacity and temperature change.",
-        "working": "q = 30 × 4.18 × 3 = 376.2 J."
+        "working": "q = 30 × 4.18 × 3 = 376.2 J.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "50 g of water warms by 8 K. Use c = 4.18 J g⁻¹ K⁻¹ to calculate heat absorbed in J.",
         "answer": 1672.0,
         "hint": "Use q = mcΔT.",
-        "working": "q = 50 × 4.18 × 8 = 1672 J."
+        "working": "q = 50 × 4.18 × 8 = 1672 J.",
+        "units": [
+          "J"
+        ]
       },
       {
         "prompt": "100 g of water warms by 6 K. Use c = 4.18 J g⁻¹ K⁻¹ to calculate heat absorbed in J.",
         "answer": 2508.0,
         "hint": "Use q = mcΔT.",
-        "working": "q = 100 × 4.18 × 6 = 2508 J."
+        "working": "q = 100 × 4.18 × 6 = 2508 J.",
+        "units": [
+          "J"
+        ]
       }
     ]
   },
@@ -1098,49 +1202,89 @@
         "prompt": "Reactants are at 90 and products at 40 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
         "answer": -50,
         "hint": "Subtract reactant enthalpy from product enthalpy.",
-        "working": "40 − 90 = -50 kJ mol⁻¹. The negative change is exothermic."
+        "working": "40 − 90 = -50 kJ mol⁻¹. The negative change is exothermic.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "Reactants are at 70 and products at 20 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
         "answer": -50,
         "hint": "Subtract reactant enthalpy from product enthalpy.",
-        "working": "20 − 70 = -50 kJ mol⁻¹. The negative change is exothermic."
+        "working": "20 − 70 = -50 kJ mol⁻¹. The negative change is exothermic.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "Reactants are at 60 and products at 30 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
         "answer": -30,
         "hint": "Subtract reactant enthalpy from product enthalpy.",
-        "working": "30 − 60 = -30 kJ mol⁻¹. The negative change is exothermic."
+        "working": "30 − 60 = -30 kJ mol⁻¹. The negative change is exothermic.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "Reactants are at 100 and products at 60 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
         "answer": -40,
         "hint": "Subtract reactant enthalpy from product enthalpy.",
-        "working": "60 − 100 = -40 kJ mol⁻¹. The negative change is exothermic."
+        "working": "60 − 100 = -40 kJ mol⁻¹. The negative change is exothermic.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "Reactants are at 120 and products at 50 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
         "answer": -70,
         "hint": "Subtract reactant enthalpy from product enthalpy.",
-        "working": "50 − 120 = −70 kJ mol⁻¹: exothermic."
+        "working": "50 − 120 = −70 kJ mol⁻¹: exothermic.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "Reactants are at 80 and products at 20 kJ mol⁻¹ on a relative enthalpy scale. Find ΔH in kJ mol⁻¹.",
         "answer": -60,
         "hint": "Subtract reactant enthalpy from product enthalpy.",
-        "working": "20 − 80 = −60 kJ mol⁻¹: exothermic."
+        "working": "20 − 80 = −60 kJ mol⁻¹: exothermic.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "On an enthalpy diagram the reactant level is 70 kJ mol⁻¹ and the product level is 25 kJ mol⁻¹. Find ΔH in kJ mol⁻¹.",
         "answer": -45,
         "hint": "Subtract the reactant level from the product level.",
-        "working": "ΔH = 25 − 70 = -45 kJ mol⁻¹."
+        "working": "ΔH = 25 − 70 = -45 kJ mol⁻¹.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       },
       {
         "prompt": "On an enthalpy diagram the reactant level is 40 kJ mol⁻¹ and the product level is 95 kJ mol⁻¹. Find ΔH in kJ mol⁻¹.",
         "answer": 55,
         "hint": "Subtract the reactant level from the product level.",
-        "working": "ΔH = 95 − 40 = 55 kJ mol⁻¹."
+        "working": "ΔH = 95 − 40 = 55 kJ mol⁻¹.",
+        "units": [
+          "kJ mol⁻¹",
+          "kJ/mol",
+          "kJ mol^-1"
+        ]
       }
     ]
   },
@@ -1274,49 +1418,89 @@
         "prompt": "Gas volume increases by 24 cm³ in 6 s. Find the average rate in cm³ s⁻¹.",
         "answer": 4.0,
         "hint": "Divide the volume change by the time interval.",
-        "working": "24 ÷ 6 = 4.0 cm³ s⁻¹."
+        "working": "24 ÷ 6 = 4.0 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "Gas volume increases by 30 cm³ in 5 s. Find the average rate in cm³ s⁻¹.",
         "answer": 6.0,
         "hint": "Divide the volume change by the time interval.",
-        "working": "30 ÷ 5 = 6.0 cm³ s⁻¹."
+        "working": "30 ÷ 5 = 6.0 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "Gas volume increases by 42 cm³ in 7 s. Find the average rate in cm³ s⁻¹.",
         "answer": 6.0,
         "hint": "Divide the volume change by the time interval.",
-        "working": "42 ÷ 7 = 6.0 cm³ s⁻¹."
+        "working": "42 ÷ 7 = 6.0 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "Gas volume increases by 40 cm³ in 8 s. Find the average rate in cm³ s⁻¹.",
         "answer": 5.0,
         "hint": "Divide the volume change by the time interval.",
-        "working": "40 ÷ 8 = 5.0 cm³ s⁻¹."
+        "working": "40 ÷ 8 = 5.0 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "Gas volume increases by 54 cm³ in 9 s. Find the average rate in cm³ s⁻¹.",
         "answer": 6,
         "hint": "Divide the volume change by the time interval.",
-        "working": "54/9 = 6 cm³ s⁻¹."
+        "working": "54/9 = 6 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "Gas volume increases by 56 cm³ in 8 s. Find the average rate in cm³ s⁻¹.",
         "answer": 7,
         "hint": "Divide the volume change by the time interval.",
-        "working": "56/8 = 7 cm³ s⁻¹."
+        "working": "56/8 = 7 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "A reaction produces 48 cm³ of gas in 12 s. Find the average rate in cm³ s⁻¹.",
         "answer": 4.0,
         "hint": "Divide the gas volume produced by the elapsed time.",
-        "working": "Average rate = 48 ÷ 12 = 4 cm³ s⁻¹."
+        "working": "Average rate = 48 ÷ 12 = 4 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       },
       {
         "prompt": "A reaction produces 75 cm³ of gas in 15 s. Find the average rate in cm³ s⁻¹.",
         "answer": 5.0,
         "hint": "Divide the gas volume produced by the elapsed time.",
-        "working": "Average rate = 75 ÷ 15 = 5 cm³ s⁻¹."
+        "working": "Average rate = 75 ÷ 15 = 5 cm³ s⁻¹.",
+        "units": [
+          "cm³ s⁻¹",
+          "cm^3/s",
+          "cm³/s"
+        ]
       }
     ]
   },

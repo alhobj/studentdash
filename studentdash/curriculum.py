@@ -54,6 +54,8 @@ def validate_curriculum(curriculum):
         if not isinstance(curriculum.get(name), str) or not curriculum[name].strip():
             raise ValueError('Curriculum identity, version and label are required.')
     index = node_index(curriculum)
+    if curriculum.get('practice_journal'):
+        resource_path(curriculum['practice_journal'])
     seen = set()
     resources = curriculum.get('resources', [])
     if not isinstance(resources, list):
@@ -118,7 +120,7 @@ def evidence_by_node(data, sid, assessment_id=None):
 
 def next_steps(data, sid, assessment_id=None):
     curriculum = data.curriculum
-    plan = dict(focus=None, steps=[], reason='', unmapped=0, coverage=[])
+    plan = dict(focus=None, steps=[], reason='', unmapped=0, coverage=[], journal=curriculum.get('practice_journal') if curriculum else None)
     if not curriculum:
         plan['reason'] = 'Your teacher can connect this class to a curriculum to enable linked next steps. Your existing feedback and revision plan are still available.'
         return plan

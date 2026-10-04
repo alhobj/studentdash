@@ -15,6 +15,7 @@ from .workspace import Workspace, WorkspaceError
 from .freshness import stale_reasons
 from .exit_routes import register_exit_routes, STUDENT_ENDPOINTS
 from .entry_routes import register_entry_routes
+from .portability_routes import register_portability_routes
 
 
 def create_app(config=None):
@@ -22,6 +23,7 @@ def create_app(config=None):
     app = Flask(__name__, template_folder=str(ROOT / 'templates'), static_folder=None)
     app.secret_key = secrets.token_hex(32)
     active_config = register_entry_routes(app, config)
+    register_portability_routes(app, active_config, config)
 
     def workspace():
         return Workspace(active_config().workspace)
@@ -29,6 +31,8 @@ def create_app(config=None):
 
     @app.before_request
     def local_host_only():
+        if request.endpoint == 'portability.transfer':
+            request.max_content_length = 100 * 1024 * 1024
         if request.endpoint == 'assessment_import.upload':
             request.max_content_length = 21 * 1024 * 1024
         # Reject foreign Host headers (including DNS-rebinding requests).
