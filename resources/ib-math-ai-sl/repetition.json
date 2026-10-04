@@ -37,6 +37,18 @@
         "answer": 5,
         "hint": "Start at the negative number and move right.",
         "working": "−12 + 17 = 5."
+      },
+      {
+        "prompt": "Calculate −14 + 23.",
+        "answer": 9,
+        "hint": "Move right from the negative number.",
+        "working": "−14 + 23 = 9."
+      },
+      {
+        "prompt": "Calculate −18 + 31.",
+        "answer": 13,
+        "hint": "Move right from the negative number.",
+        "working": "−18 + 31 = 13."
       }
     ]
   },
@@ -652,6 +664,18 @@
         "answer": 624,
         "hint": "Find the interest, then add it to the original balance.",
         "working": "Interest = 24; 600 + 24 = 624."
+      },
+      {
+        "prompt": "A balance of 300 earns 4% interest for one year. Find the new balance.",
+        "answer": 312.0,
+        "hint": "Multiply the starting balance by 1 + rate/100.",
+        "working": "300 × 1.04 = 312."
+      },
+      {
+        "prompt": "A balance of 800 earns 3% interest for one year. Find the new balance.",
+        "answer": 824.0,
+        "hint": "Multiply the starting balance by 1 + rate/100.",
+        "working": "800 × 1.03 = 824."
       }
     ]
   },
@@ -898,6 +922,18 @@
         "answer": 17,
         "hint": "Replace x by the input.",
         "working": "2 × 6 + 5 = 17."
+      },
+      {
+        "prompt": "If f(x) = 3x + 7, find f(4).",
+        "answer": 19,
+        "hint": "Replace x with the given input, multiply, then add.",
+        "working": "f(4) = 3 × 4 + 7 = 19."
+      },
+      {
+        "prompt": "If f(x) = 2x + 9, find f(6).",
+        "answer": 21,
+        "hint": "Replace x with the given input, multiply, then add.",
+        "working": "f(6) = 2 × 6 + 9 = 21."
       }
     ]
   },
@@ -1103,6 +1139,18 @@
         "answer": 90,
         "hint": "Multiply all three perpendicular lengths.",
         "working": "5 × 3 × 6 = 90 cm³."
+      },
+      {
+        "prompt": "A cuboid measures 3 cm by 4 cm by 8 cm. Find its volume in cm³.",
+        "answer": 96,
+        "hint": "Multiply length, width and height.",
+        "working": "V = 3 × 4 × 8 = 96 cm³."
+      },
+      {
+        "prompt": "A cuboid measures 5 cm by 6 cm by 7 cm. Find its volume in cm³.",
+        "answer": 210,
+        "hint": "Multiply length, width and height.",
+        "working": "V = 5 × 6 × 7 = 210 cm³."
       }
     ]
   },
@@ -1431,6 +1479,18 @@
         "answer": 12,
         "hint": "Add the three values and divide by 3.",
         "working": "36/3 = 12."
+      },
+      {
+        "prompt": "Find the mean of 4, 7 and 10.",
+        "answer": 7.0,
+        "hint": "Add all three values and divide by three.",
+        "working": "(4 + 7 + 10) ÷ 3 = 7."
+      },
+      {
+        "prompt": "Find the mean of 8, 11 and 17.",
+        "answer": 12.0,
+        "hint": "Add all three values and divide by three.",
+        "working": "(8 + 11 + 17) ÷ 3 = 12."
       }
     ]
   },
@@ -1636,6 +1696,18 @@
         "answer": 12,
         "hint": "Use n × p.",
         "working": "24 × 0.5 = 12."
+      },
+      {
+        "prompt": "X has a binomial distribution with n = 30 and p = 0.4. Find E(X).",
+        "answer": 12.0,
+        "hint": "Use E(X) = np.",
+        "working": "E(X) = 30 × 0.4 = 12."
+      },
+      {
+        "prompt": "X has a binomial distribution with n = 50 and p = 0.3. Find E(X).",
+        "answer": 15.0,
+        "hint": "Use E(X) = np.",
+        "working": "E(X) = 50 × 0.3 = 15."
       }
     ]
   },
@@ -1882,6 +1954,18 @@
         "answer": 20,
         "hint": "First multiply the coefficient by 2 and reduce the power to 1.",
         "working": "f′(x) = 4x; f′(5) = 20."
+      },
+      {
+        "prompt": "For f(x) = 4x², find f′(5).",
+        "answer": 40,
+        "hint": "Differentiate first: f′(x) = 2ax.",
+        "working": "f′(x) = 8x, so f′(5) = 40."
+      },
+      {
+        "prompt": "For f(x) = 6x², find f′(2).",
+        "answer": 24,
+        "hint": "Differentiate first: f′(x) = 2ax.",
+        "working": "f′(x) = 12x, so f′(2) = 24."
       }
     ]
   },
@@ -2087,6 +2171,18 @@
         "answer": 28,
         "hint": "Average the heights, then multiply by width.",
         "working": "Average height = 7; area = 7 × 4 = 28."
+      },
+      {
+        "prompt": "Using one trapezoid of width 3, estimate the area under a graph with endpoint heights 4 and 10.",
+        "answer": 21.0,
+        "hint": "Multiply the width by the average of the two heights.",
+        "working": "Area ≈ 3 × (4 + 10) ÷ 2 = 21."
+      },
+      {
+        "prompt": "Using one trapezoid of width 4, estimate the area under a graph with endpoint heights 5 and 9.",
+        "answer": 28.0,
+        "hint": "Multiply the width by the average of the two heights.",
+        "working": "Area ≈ 4 × (5 + 9) ÷ 2 = 28."
       }
     ]
   }

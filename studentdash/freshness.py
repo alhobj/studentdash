@@ -12,9 +12,13 @@ def digest(value):
 
 def fingerprints(config, state=None):
     state = state if state is not None else Workspace(config.workspace).export_state()
-    sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html', 'student_night.html', 'student_navigation.js')]
-    sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py', 'entry.py', 'classification.py')]
+    sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html', 'student_night.html', 'student_navigation.js', 'next_plan.html')]
+    sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py', 'entry.py', 'classification.py', 'curriculum.py')]
     sources += [ROOT / 'profiles' / 'ib_chemistry.json']
+    sources += sorted((ROOT / 'resources').rglob('*.html'))
+    sources += sorted((ROOT / 'resources').rglob('*.js'))
+    sources += sorted((ROOT / 'resources').rglob('*.json'))
+    sources += sorted((ROOT / 'resources').rglob('*.css'))
     templates = b''.join(p.name.encode() + b'\0' + p.read_bytes() for p in sources)
     return {'workbook': digest(config.workbook.read_bytes()),
             'feedback': digest(json.dumps(state['feedback'], sort_keys=True).encode()),

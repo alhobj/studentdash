@@ -15,22 +15,11 @@ class SuggestionProvider(Protocol):
 
 
 def curriculum_nodes(profile):
-    nodes = profile.get('curriculum', {}).get('nodes', [])
-    index = {}
-    for node in nodes:
-        key = node.get('id')
-        if not isinstance(key, str) or not key or key in index or not node.get('label'):
-            raise EntryError('The course curriculum has missing or duplicate node references.')
-        index[key] = node
-    for node in nodes:
-        seen, current = set(), node
-        while current.get('parent'):
-            key = current['parent']
-            if key not in index or key in seen or key == node['id']:
-                raise EntryError('The course curriculum has an invalid parent relationship.')
-            seen.add(key)
-            current = index[key]
-    return index
+    from .curriculum import node_index
+    try:
+        return node_index(profile.get('curriculum', {}))
+    except ValueError as exc:
+        raise EntryError(str(exc)) from exc
 
 
 def valid_suggestion(suggestion, profile):

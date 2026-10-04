@@ -35,7 +35,7 @@ def create_app(config=None):
         if request.host.split(':', 1)[0] not in {'127.0.0.1', 'localhost'}:
             abort(400)
         if session.get('simulated_student'):
-            if request.endpoint not in STUDENT_ENDPOINTS | {'exit_tickets.simulate_teacher'}:
+            if request.endpoint not in STUDENT_ENDPOINTS | {'exit_tickets.simulate_teacher', 'practice_asset'}:
                 abort(403, description='Return to teacher simulation before opening teacher-only pages.')
         elif request.endpoint in STUDENT_ENDPOINTS:
             abort(403, description='Choose a fictional student from the teacher Exit Tickets area first.')
@@ -43,6 +43,16 @@ def create_app(config=None):
             token = session.get('csrf_token', '')
             if not token or not secrets.compare_digest(token, request.form.get('csrf_token', '')):
                 abort(400, description='Invalid form token. Reload the teacher page and retry.')
+
+    @app.get('/practice/<path:filename>')
+    @app.get('/preview/resources/<path:filename>')
+    def practice_asset(filename):
+        from pathlib import Path
+        root = (ROOT / 'resources').resolve()
+        target = (root / filename).resolve()
+        if not target.is_relative_to(root) or target.suffix not in {'.html', '.css', '.js', '.json'}:
+            abort(404)
+        return send_from_directory(root, filename)
 
     @app.errorhandler(413)
     def upload_too_large(error):

@@ -16,13 +16,13 @@ class RepetitionContentTests(unittest.TestCase):
             banks=json.loads((root/'repetition.json').read_text(encoding='utf-8'))
             self.assertEqual(set(banks),{c.get('code',c.get('id')) for group in lessons.values() for c in group})
             self.assertEqual(len(banks),count)
-            self.assertTrue(all(len(b['questions'])==6 for b in banks.values()))
+            self.assertTrue(all(len(b['questions'])>=6 for b in banks.values()))
         maths=json.loads((ROOT/'ib-math-ai-sl/repetition.json').read_text(encoding='utf-8'))
         chemistry=json.loads((ROOT/'ib-chemistry/repetition.json').read_text(encoding='utf-8'))
         self.assertEqual([q['answer'] for q in maths['4.6']['questions']],[.6,.5,.25,.75,.8,.4])
         self.assertEqual([q['answer'] for q in maths['4.10']['questions']],[2.5,1.5,3.5,2.5,2.5,1.5])
-        self.assertEqual([q['answer'] for q in chemistry['S1.4']['questions']],[.1,.2,.5,3,.3,4])
-        self.assertEqual([q['answer'] for q in chemistry['S1.2']['questions']],[8,12,12,18,20,14])
+        self.assertEqual([q['answer'] for q in chemistry['S1.4']['questions'][:6]],[.1,.2,.5,3,.3,4])
+        self.assertEqual([q['answer'] for q in chemistry['S1.2']['questions'][:6]],[8,12,12,18,20,14])
 
 
 @unittest.skipUnless(importlib.util.find_spec('playwright'),'Requires optional Playwright')
@@ -58,9 +58,9 @@ class RepetitionBrowserTests(unittest.TestCase):
                         self.assertIn('That’s right',host.locator('.similar-feedback').inner_text())
                         self.assertEqual(host.locator('.similar-next').inner_text(),'Repeat this set' if i==len(bank['questions'])-1 else 'Another like this')
                         host.locator('.similar-next').click();total+=1
-                    self.assertEqual(host.locator('.similar-position').inner_text(),'Question 1 of 6')
+                    self.assertEqual(host.locator('.similar-position').inner_text(),f"Question 1 of {len(json.loads(host.get_attribute('data-similar'))['questions'])}")
                     self.assertTrue(host.locator('.similar-previous').is_disabled())
-        self.assertEqual(total,510)
+        self.assertEqual(total,542)
 
     def test_retry_previous_reset_and_offline_worksheet(self):
         self.page.goto((ROOT/'ib-math-ai-sl/basics-1.html').as_uri())
@@ -77,11 +77,11 @@ class RepetitionBrowserTests(unittest.TestCase):
         host.locator('.similar-previous').click()
         self.assertIn('100 earns 5%',host.locator('form label').inner_text())
         host.locator('.similar-next').click();lesson.locator('.foundation-reset').click()
-        self.assertEqual(host.locator('.similar-position').inner_text(),'Question 1 of 6')
+        self.assertEqual(host.locator('.similar-position').inner_text(),f"Question 1 of {len(json.loads(host.get_attribute('data-similar'))['questions'])}")
         context=self.browser.new_context(java_script_enabled=False);self.addCleanup(context.close)
         page=context.new_page();page.goto((ROOT/'ib-chemistry/basics-s1.html').as_uri())
         worksheet=page.locator('[id="basic-S1.4"] .similar-worksheet')
         worksheet.locator('summary').first.click()
-        self.assertEqual(worksheet.locator('h4:visible').count(),6)
+        self.assertEqual(worksheet.locator('h4:visible').count(),8)
         worksheet.locator('details summary').first.click()
         self.assertTrue(worksheet.get_by_text('n = 4 ÷ 40 = 0.1 mol.').is_visible())

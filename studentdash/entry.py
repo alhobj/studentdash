@@ -14,6 +14,7 @@ import sqlite3
 from uuid import uuid4
 
 from .classification import DEFAULT_PROFILE, QuestionTag
+from .curriculum import node_index
 from .models import Assessment, Question, QuestionResult, Result, Student, WorkbookData
 
 
@@ -184,10 +185,18 @@ def prepare_assessment(doc, aid, payload):
                     QuestionTag(qid, category, value, 'teacher', vocabulary=doc['profile']['categories'])
                 except (ValueError, TypeError):
                     raise EntryError(f'Question {number}: choose classifications from the listed values.') from None
+        links = q.get('curriculum_nodes', old_questions.get(qid, {}).get('curriculum_nodes', []))
+        allowed = node_index(doc['profile'].get('curriculum', {}))
+        if not isinstance(links, list) or any(not isinstance(k, str) or k not in allowed for k in links):
+            raise EntryError(f'Question {number}: choose curriculum links from this class curriculum.')
         cleaned.append(dict(id=qid, number=number, marks=maximum,
                             text=text(q.get('text', ''), f'Question {number} text', 10000),
                             curriculum=text(q.get('curriculum', ''), f'Question {number} curriculum mapping', 300),
                             tags={c: list(dict.fromkeys(v)) for c, v in tags.items() if v}))
+        cleaned[-1]['curriculum_nodes'] = list(dict.fromkeys(links))
+        cleaned[-1]['curriculum_review'] = dict(status='reviewed', source='teacher')
+        if 'curriculum_history' in old_questions.get(qid, {}):
+            cleaned[-1]['curriculum_history'] = deepcopy(old_questions[qid]['curriculum_history'])
         # Retain import provenance and hierarchy when the normal editor is used later.
         if qid in old_questions and 'import_context' in old_questions[qid]:
             cleaned[-1]['import_context'] = deepcopy(old_questions[qid]['import_context'])
@@ -286,12 +295,15 @@ def as_workbook(path):
     doc = read_document(path)
     data = WorkbookData(has_question_tables=True)
     data.question_authoritative = True
+    data.curriculum = deepcopy(doc['profile'].get('curriculum'))
     for s in doc['students']:
         data.students[s['id']] = Student(s['id'], s['name'], s['email'], doc['name'])
     for a in doc['assessments']:
         aid = a['id']
         data.assessments[aid] = Assessment(aid, a['name'], date.fromisoformat(a['date']), '', sum(q['marks'] for q in a['questions']))
         for q in a['questions']:
+            if q.get('curriculum_review', {}).get('status') == 'reviewed':
+                data.question_curriculum[q['id']] = list(q.get('curriculum_nodes', []))
             verb = ', '.join(q['tags'].get(doc['profile'].get('command_category'), []))
             data.questions[q['id']] = Question(q['id'], aid, q['number'], '', q['text'], q['marks'],
                                               q['curriculum'], '', '', verb)

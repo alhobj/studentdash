@@ -196,7 +196,7 @@ def build():
             '<a href="challenges.html">Harder tasks for all 22 syllabus sub-parts →</a></nav></header>'
             '<section><p class="eyebrow">Start here</p><h2>Build confidence with small steps</h2>'
             '<p>12 prior-learning lessons and two starter tasks for every syllabus sub-part. Each includes a reminder, '
-            'optional hints, worked steps and answer checks. Every lesson also includes six more questions using the same method.</p><nav><a href="prior-learning.html">Prior learning: 24 short tasks + extra practice</a>'
+            'optional hints, worked steps and answer checks. Every lesson also includes at least six more questions using the same method.</p><nav><a href="prior-learning.html">Prior learning: 24 short tasks + extra practice</a>'
             + ''.join(f'<a href="basics-{g.lower()}.html">{g}: small steps</a>' for g in groups) + '</nav></section>'
             '<nav aria-label="Syllabus groups">'
             + ''.join(f'<a href="#{g["id"]}">{g["id"]} · {g["parent"]} {g["id"][1:]}</a>' for g in groups.values())

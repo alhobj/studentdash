@@ -72,6 +72,33 @@ class EntryBrowserTests(unittest.TestCase):
         self.page.keyboard.press('Control+V')
         self.page.wait_for_function("document.querySelector('#grid-message').textContent.length > 0")
 
+    def test_curriculum_review_and_next_steps(self):
+        from playwright.sync_api import expect
+        from studentdash.entry import save_assessment, save_scores
+        p = self.page
+        p.goto(self.base + '/classes')
+        p.get_by_label('Class name', exact=True).fill('Fictional mathematics class')
+        p.get_by_label('Curriculum', exact=True).select_option('math-ai-sl-2021')
+        p.get_by_label('Paste student roster').fill('Fictional Learner')
+        p.get_by_role('button', name='Create class', exact=True).click()
+        store = ClassStore(self.root / 'entered_classes')
+        doc = store.list()[0]
+        self.assertEqual(doc['profile']['categories'], {})
+        aid = save_assessment(store, doc['id'], None, dict(name='Fictional check', date='2026-01-01',
+            participants=[doc['students'][0]['id']], questions=[dict(number='1', marks=4,
+            text='A fictional growth calculation.', curriculum='', tags={})]), doc['version'])
+        save_scores(store, doc['id'], aid, [['1']], store.read(doc['id'])['version'])
+        p.get_by_role('link', name='Curriculum & reviewed question links', exact=True).click()
+        p.get_by_label('Reviewed curriculum links', exact=False).select_option('math-ai-sl-2021:1.4')
+        p.get_by_role('button', name='Save reviewed links', exact=True).click()
+        p.get_by_role('link', name='Fictional mathematics class', exact=True).click()
+        p.get_by_role('link', name='Preview next steps', exact=True).click()
+        expect(p.get_by_role('heading', name='What should I do next?', exact=True)).to_be_visible()
+        self.assertEqual(p.locator('ol > li').count(), 3)
+        p.get_by_role('link', name='Open warm up activity', exact=True).click()
+        expect(p.locator(':target')).to_be_visible()
+        self.assertEqual(self.errors, [])
+
     def test_full_teacher_workflow_clipboard_keyboard_reopen_and_export(self):
         from playwright.sync_api import expect
         self.setup_assessment()

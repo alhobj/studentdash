@@ -1,0 +1,23 @@
+{% extends 'entry_base.html' %}
+{% block body %}
+<h1>Curriculum & question links</h1>
+<p>Link questions to stable curriculum nodes after reviewing their content. Original labels and recorded marks are preserved. Unlinked questions do not generate topic-specific practice suggestions.</p>
+<form method="post">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<input type="hidden" name="version" value="{{ doc.version }}">
+{% if not curriculum %}
+<label>Choose this class's curriculum <select name="curriculum_id" required>{% for c in curricula %}<option value="{{ c.id }}">{{ c.label }}</option>{% endfor %}</select></label>
+<p>A versioned copy is saved with the class. Later catalog edits do not silently change its links or prerequisites. Existing classifications stay unchanged.</p><button>Connect curriculum</button>
+{% else %}
+<h2>{{ curriculum.label }} · version {{ curriculum.version }}</h2>
+<p>{{ curriculum.prerequisite_note }}</p>
+<details class="card"><summary>Browse curriculum, prerequisites and activities</summary>
+{% for id, node in nodes.items() %}<article><h3>{{ node.get('code', '') }} {{ node.label }}</h3><p>Parent: {{ nodes[node.parent].label if node.get('parent') else 'Root' }}</p>
+{% if node.get('prerequisites') %}<p>Suggested prerequisites: {% for key in node.prerequisites %}{{ nodes[key].label }}{% if not loop.last %}; {% endif %}{% endfor %}</p>{% endif %}
+{% for r in curriculum.get('resources', []) if r.node_id == id %}<p><a href="/practice/{{ r.path }}">{{ r.role }}: {{ r.title }}</a></p>{% endfor %}</article>{% endfor %}</details>
+{% for a in doc.assessments %}<section class="card"><h2>{{ a.name }}</h2>
+{% for q in a.questions %}<fieldset><legend>Question {{ q.number }}</legend><p>{{ q.text }}</p><p>Original label: {{ q.curriculum or 'None' }}</p>
+<label>Reviewed curriculum links (use Ctrl / Command to select more than one)<select multiple size="6" name="node-{{ q.id }}">{% for id, n in nodes.items() %}<option value="{{ id }}" {% if id in q.get('curriculum_nodes', []) %}selected{% endif %}>{{ n.get('code', '') }} {{ n.label }}</option>{% endfor %}</select></label></fieldset>{% endfor %}</section>{% else %}<p>Create an assessment first, then return here to review its curriculum links.</p>{% endfor %}
+<button>Save reviewed links</button>
+{% endif %}</form>
+{% endblock %}

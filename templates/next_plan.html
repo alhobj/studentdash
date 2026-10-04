@@ -1,0 +1,7 @@
+<h2>What should I do next?</h2>
+<p>{{ plan.reason }}</p>
+{% if plan.focus %}<p><strong>{{ plan.focus.code }} {{ plan.focus.label }}</strong><br>{{ plan.focus.assessment }} · Question {{ plan.focus.number }} · {{ '%g'|format(plan.focus.score) }}/{{ '%g'|format(plan.focus.marks) }} marks</p><p>{{ plan.focus.text }}</p>
+<ol>{% for step in plan.steps %}<li><h3>{{ step.label }}: {{ step.title }}</h3><p>{{ step.instruction }}</p>{% if step.path %}<p><a href="{{ resource_base|default('resources/') }}{{ step.path }}">Open {{ step.label|lower }} activity</a></p>{% else %}<p>{{ step.fallback }}</p>{% endif %}</li>{% endfor %}</ol>
+<p>Practice does not change your assessment marks. After the check, return to your revision plan or discuss your method with your teacher.</p>{% endif %}
+{% if plan.unmapped %}<p>{{ plan.unmapped }} graded question(s) still need curriculum links.</p>{% endif %}
+{% if plan.coverage %}<details><summary>Graded evidence by curriculum node</summary><p>Only reviewed links and graded questions count. Parent totals count a question once, even if it has several child links. These totals do not establish syllabus mastery.</p><ul>{% for row in plan.coverage %}<li>{{ row.label }}: {{ '%g'|format(row.score) }}/{{ '%g'|format(row.maximum) }} marks from {{ row.count }} question(s)</li>{% endfor %}</ul></details>{% endif %}

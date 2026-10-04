@@ -1,11 +1,13 @@
 """Teacher-only class setup, assessment editing and score entry."""
-from datetime import date
+from datetime import date, datetime, timezone
 import json
 import secrets
 
-from flask import Blueprint, redirect, render_template, request, session, url_for
+from flask import abort, Blueprint, redirect, render_template, request, session, url_for
 
 from .config import Config
+from .curriculum import catalog, selected_curriculum, node_index, next_steps
+from .entry import as_workbook
 from .entry import ClassStore, EntryError, assessment, save_assessment, save_scores, score_rows, summary_label
 from .import_routes import register_import_routes
 
@@ -52,12 +54,15 @@ def register_entry_routes(app, base_config):
         error = None
         if request.method == 'POST':
             try:
-                doc = store.create(request.form.get('name', ''), request.form.get('roster', ''))
+                chosen = request.form.get('curriculum_id', '')
+                curriculum = selected_curriculum(chosen) if chosen else None
+                profile = dict(curriculum.get('profile', {'categories': curriculum.get('categories', {})}), curriculum=curriculum) if curriculum else None
+                doc = store.create(request.form.get('name', ''), request.form.get('roster', ''), profile)
                 session['entered_class'] = doc['id']
                 return redirect(url_for('entry.class_page', key=doc['id']), code=303)
-            except EntryError as exc:
+            except ValueError as exc:
                 error = str(exc)
-        return render_template('classes.html', classes=store.list(), error=error), 400 if error else 200
+        return render_template('classes.html', classes=store.list(), curricula=catalog().values(), error=error), 400 if error else 200
 
     @bp.post('/classes/legacy')
     def legacy():
@@ -76,6 +81,42 @@ def register_entry_routes(app, base_config):
             except EntryError as exc:
                 error = str(exc)
         return render_template('class_entry.html', doc=doc, error=error), 400 if error else 200
+
+    @bp.route('/classes/<key>/curriculum', methods=['GET', 'POST'])
+    def curriculum_review(key):
+        doc = store.read(key)
+        curriculum = doc['profile'].get('curriculum')
+        if request.method == 'POST':
+            if not curriculum:
+                try:
+                    doc['profile']['curriculum'] = selected_curriculum(request.form.get('curriculum_id', ''))
+                except ValueError as exc:
+                    raise EntryError(str(exc)) from exc
+            else:
+                allowed = node_index(curriculum)
+                for item in doc['assessments']:
+                    for q in item['questions']:
+                        links = request.form.getlist('node-' + q['id'])
+                        if any(k not in allowed for k in links):
+                            raise EntryError('Choose links from the captured class curriculum.')
+                        if links != q.get('curriculum_nodes', []):
+                            q.setdefault('curriculum_history', []).append(dict(
+                                previous=list(q.get('curriculum_nodes', [])), selected=links,
+                                source='teacher', date=datetime.now(timezone.utc).isoformat()))
+                        q['curriculum_nodes'] = list(dict.fromkeys(links))
+                        q['curriculum_review'] = dict(status='reviewed', source='teacher')
+            store.save(doc, version())
+            return redirect(url_for('entry.curriculum_review', key=key), code=303)
+        return render_template('curriculum_review.html', doc=doc, curriculum=curriculum,
+                               nodes=node_index(curriculum or {}), curricula=catalog().values())
+
+    @bp.get('/classes/<key>/students/<sid>/next')
+    def student_next(key, sid):
+        data = as_workbook(store.path(key))
+        if sid not in data.students:
+            abort(404)
+        # Teacher preview is private; shared snapshots contain only this learner's plan.
+        return render_template('next_steps.html', plan=next_steps(data, sid), resource_base='/practice/')
 
     @bp.route('/classes/<key>/assessments/new', methods=['GET', 'POST'])
     @bp.route('/classes/<key>/assessments/<aid>/edit', methods=['GET', 'POST'])

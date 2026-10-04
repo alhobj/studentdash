@@ -245,3 +245,24 @@ including empty states; they never receive invented practice scores.
 Before real classroom use, complete the pilot and operating checks in the system guide.
 Online use requires authentication, per-student authorization and a deployment design;
 the current local teacher server must not be exposed as a student portal.
+
+## Curriculum links and personal next steps
+
+When creating a class, choose its curriculum. Existing classes can use **Curriculum
+& reviewed question links** to connect a curriculum, then review the question links.
+Use Ctrl/Command in the selection list to map a question to multiple nodes. Original
+labels and marks are preserved; labels are never automatically treated as reviewed
+curriculum links.
+
+On the class page, **Preview next steps** shows each student's warm-up, focused
+practice and independent check. Generate student dashboards to include **My next
+steps** in each private snapshot. Share the learner's HTML file together with the
+adjacent `resources` folder so its practice links work offline. The local preview is
+teacher-only; this does not introduce a hosted student portal.
+
+Curriculum definitions live in `curricula/*.json`. Each has a stable ID and version,
+explicit node parents, optional prerequisite IDs and resources with stable IDs,
+node references, learning roles (`basic`, `practice`, `check`) and local HTML paths.
+A class captures its selected definition, so catalog changes do not silently alter
+existing mappings. Mathematics and chemistry definitions are included. Prerequisite
+links are teaching suggestions. New subject definitions require no core code changes.

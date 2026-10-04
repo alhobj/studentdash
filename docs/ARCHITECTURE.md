@@ -42,16 +42,20 @@ reporting model, derives totals from question evidence, and does not require lev
 or classifications. The existing vocabulary has moved to
 `profiles/ib_chemistry.json`; new classes capture a copy, and their generic tag editor
 and validation use that copy. The default remains the existing IB Chemistry profile.
-This is not a profile-selection UI or a generic curriculum importer. Curriculum
-mapping is still teacher-entered text, not an implemented CurriculumNode tree.
+Classes can now select a versioned curriculum from `curricula/*.json`, or connect
+one later without changing existing classifications. Explicit node IDs, parents,
+prerequisites and resource links are captured in the class document. Original
+free-text mappings remain intact; teachers separately review stable question links.
+The curriculum catalog is configured in files, not imported through the UI.
 
 Assessment-import update: document adapters now produce shared source blocks and a
 structured draft with explicit parent references. A separate suggestion provider
 consumes the class vocabulary, configured definitions/rules and optional curriculum
 nodes with explicit parent IDs. It validates tree references and never generates
 curriculum codes. The initial provider is local evidence matching, not a language
-model. The bundled profile still has no curriculum nodes; a curriculum-management
-UI remains deferred. Draft review and finalization preserve the original upload and
+model. Classes with a selected curriculum expose its nodes during import review.
+Accepted links survive finalization and later question editing. Draft review and
+finalization preserve the original upload and
 source metadata while producing the existing assessment format.
 
 This inventory describes the current implementation, not approved patterns for new
@@ -108,3 +112,13 @@ evidence separate under the existing rules.
 Public hosting, accounts, online deployment and service integrations are deferred.
 Their discussion in the system guide is future context, not the next implementation
 phase. No public/hosted work begins under this architecture direction.
+
+## Personal next steps
+
+Reviewed links drive a learner-scoped three-step plan: prerequisite warm-up, focused
+practice and an independent check. The plan selects a graded question with lost
+marks, never treats missing work as zero, and leaves assessment evidence unchanged.
+Prerequisites are authored teaching suggestions, not official syllabus requirements
+or diagnoses. Ancestor rollups count each question once per node, even with several
+descendant links. Existing workbook dashboards retain their previous behavior and
+show a setup explanation until explicit curriculum links are available.

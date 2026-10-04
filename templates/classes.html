@@ -6,6 +6,7 @@
 <section class="card"><h2>Create a class</h2><form method="post">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <label>Class name <input name="name" required maxlength="200" value="{{ request.form.get('name', '') }}" placeholder="Chemistry 2026"></label>
+<label for="class-curriculum">Curriculum</label><select id="class-curriculum" name="curriculum_id"><option value="">Choose later (existing default classifications)</option>{% for c in curricula %}<option value="{{ c.id }}">{{ c.label }}</option>{% endfor %}</select>
 <label>Paste student roster <textarea name="roster" rows="9" required placeholder="Student name&#10;Another student">{{ request.form.get('roster', '') }}</textarea></label>
 <p>Copy one name per row from Excel. You may include email addresses in a second column. Do not include a heading row. Names can be repeated; use a distinguishing name or email where needed.</p>
 <button>Create class</button></form></section>

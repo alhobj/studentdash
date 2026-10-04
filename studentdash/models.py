@@ -94,3 +94,5 @@ class WorkbookData:
     question_tags: list = field(default_factory=list)
     question_syllabus: dict = field(default_factory=dict)
     question_authoritative: bool = False
+    curriculum: dict | None = None
+    question_curriculum: dict = field(default_factory=dict)

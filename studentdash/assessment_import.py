@@ -243,7 +243,7 @@ def save_review(store, key, did, payload, version, finalize=False):
             context = parent_context(node, index)
             parts = [n['text'] for n in context + [node] if n['text'].strip()]
             questions.append(dict(number=node['number'], marks=node['marks'], text='\n\n'.join(parts), tags=node['tags'],
-                curriculum='; '.join(curriculum[k].get('code') or curriculum[k]['label'] for k in node['curriculum_nodes'])))
+                curriculum_nodes=node['curriculum_nodes'], curriculum='; '.join(curriculum[k].get('code') or curriculum[k]['label'] for k in node['curriculum_nodes'])))
         item = prepare_assessment(doc, None, dict(name=draft['title'], date=draft['date'], description=draft['description'],
                                                  participants=draft['participants'], questions=questions))
         for question, node in zip(item['questions'], leaves):

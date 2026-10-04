@@ -1,5 +1,6 @@
 """Build explicit student-only presentation records; never serialize a workbook."""
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from .curriculum import next_steps
 from datetime import datetime, timezone
 from hashlib import sha256
 
@@ -107,6 +108,7 @@ class StudentDashboard:
     feedback: list[FeedbackView]
     attempts: list[AttemptView]
     question_authoritative: bool = False
+    next_plan: dict = field(default_factory=dict)
 
 
 def suggested_grade(percent, boundaries):
@@ -193,5 +195,5 @@ def build_dashboard(data: WorkbookData, student_id: str, include_examples=True, 
         questions, [r for r in data.resources if r.topic in topics], sorted(tickets, key=lambda t: t.date, reverse=True),
         datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), bool(practice),
         [(aid, data.assessments[aid].name) for aid in sorted(own_assessments)], assessment_id or '',
-        revision, feedback, attempts, data.question_authoritative,
+        revision, feedback, attempts, data.question_authoritative, next_steps(data, student_id, assessment_id),
     )

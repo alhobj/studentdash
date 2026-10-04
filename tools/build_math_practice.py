@@ -109,7 +109,7 @@ def build():
            '<a href="coverage.html">Browse all 39 syllabus sub-topics</a><a href="challenges.html">Harder tasks: all 39 sections</a><a href="investigations.html">Investigations and reflection</a></nav></header>'
            '<section><p class="eyebrow">Start here</p><h2>Build confidence with small steps</h2>'
            '<p>12 prior-learning lessons and a two-step starter for each syllabus section. Read a reminder, try a short question, '
-           'then open a hint or worked step when you need it. Every lesson also includes six more questions using the same method.</p><nav><a href="prior-learning.html">Prior learning: 24 short tasks + extra practice</a>'
+           'then open a hint or worked step when you need it. Every lesson also includes at least six more questions using the same method.</p><nav><a href="prior-learning.html">Prior learning: 24 short tasks + extra practice</a>'
            + ''.join(f'<a href="basics-{n}.html">Topic {n}: small steps</a>' for n in TOPICS) + '</nav></section><div class="cards">')
     for number, title in TOPICS.items():
         activities = {k: v for k, v in data.items() if v['topic'] == number}
