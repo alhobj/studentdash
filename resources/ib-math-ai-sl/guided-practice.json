@@ -1,0 +1,328 @@
+[
+  {
+    "id": "ib-math-ai-sl:guided:1",
+    "topic": "1.2",
+    "title": "Arithmetic sequence",
+    "prompt": "A sequence starts at 5 and increases by 3 each term. Find its 10th term.",
+    "answer": 32,
+    "tolerance": 1e-05,
+    "units": [
+      "no unit",
+      "unitless",
+      "dimensionless"
+    ],
+    "hint": "The tenth term is nine steps after the first.",
+    "working": "u_n=u_1+(n-1)d; 5+(10-1)*3 = 32 no unit.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "u_n=u_1+(n-1)d",
+          "u_n=u_1+n*d",
+          "u_n=u_1*d^(n-1)"
+        ],
+        "answer": "u_n=u_1+(n-1)d",
+        "hint": "The tenth term is nine steps after the first."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "5+(10-1)*3",
+          "5+10*3",
+          "5*3^9"
+        ],
+        "answer": "5+(10-1)*3",
+        "hint": "The tenth term is nine steps after the first."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 32,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "no unit",
+          "unitless",
+          "dimensionless"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-math-ai-sl:guided:2",
+    "topic": "2.1",
+    "title": "Gradient",
+    "prompt": "Find the gradient of the line through (2, 3) and (6, 11). Coordinates are dimensionless.",
+    "answer": 2,
+    "tolerance": 1e-05,
+    "units": [
+      "no unit",
+      "unitless",
+      "dimensionless"
+    ],
+    "hint": "Use change in y divided by change in x, in the same direction.",
+    "working": "m=(y₂-y₁)/(x₂-x₁); (11-3)/(6-2) = 2 no unit.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "m=(y₂-y₁)/(x₂-x₁)",
+          "m=(x₂-x₁)/(y₂-y₁)",
+          "m=(y₂+y₁)/(x₂+x₁)"
+        ],
+        "answer": "m=(y₂-y₁)/(x₂-x₁)",
+        "hint": "Use change in y divided by change in x, in the same direction."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "(11-3)/(6-2)",
+          "(6-2)/(11-3)",
+          "(11+3)/(6+2)"
+        ],
+        "answer": "(11-3)/(6-2)",
+        "hint": "Use change in y divided by change in x, in the same direction."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 2,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "no unit",
+          "unitless",
+          "dimensionless"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-math-ai-sl:guided:3",
+    "topic": "3.2",
+    "title": "Area of a triangle",
+    "prompt": "Two sides of a triangle are 6 cm and 8 cm; their included angle is 30°. Find its area.",
+    "answer": 12,
+    "tolerance": 1e-05,
+    "units": [
+      "cm²",
+      "cm^2",
+      "cm2"
+    ],
+    "hint": "Use half the product of the two sides and the sine of the included angle. Set degrees.",
+    "working": "A=0.5*a*b*sin(C); 0.5*6*8*sin(30°) = 12 cm².",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "A=0.5*a*b*sin(C)",
+          "A=a*b*sin(C)",
+          "A=0.5*a*b*cos(C)"
+        ],
+        "answer": "A=0.5*a*b*sin(C)",
+        "hint": "Use half the product of the two sides and the sine of the included angle. Set degrees."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "0.5*6*8*sin(30°)",
+          "6*8*sin(30°)",
+          "0.5*6*8*cos(30°)"
+        ],
+        "answer": "0.5*6*8*sin(30°)",
+        "hint": "Use half the product of the two sides and the sine of the included angle. Set degrees."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 12,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "cm²",
+          "cm^2",
+          "cm2"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-math-ai-sl:guided:4",
+    "topic": "4.3",
+    "title": "Mean from frequencies",
+    "prompt": "A sample has values 2, 4 and 8 with frequencies 3, 2 and 1 respectively. Find its mean.",
+    "answer": 3.6666666666666665,
+    "tolerance": 0.005,
+    "units": [
+      "no unit",
+      "unitless",
+      "dimensionless"
+    ],
+    "hint": "Multiply each value by its frequency. Divide by the total frequency.",
+    "working": "mean=Σ(f*x)/Σf; (3*2+2*4+1*8)/(3+2+1) = 3.66667 no unit.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "mean=Σ(f*x)/Σf",
+          "mean=Σx/3",
+          "mean=Σ(f*x)/3"
+        ],
+        "answer": "mean=Σ(f*x)/Σf",
+        "hint": "Multiply each value by its frequency. Divide by the total frequency."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "(3*2+2*4+1*8)/(3+2+1)",
+          "(2+4+8)/3",
+          "(3*2+2*4+1*8)/3"
+        ],
+        "answer": "(3*2+2*4+1*8)/(3+2+1)",
+        "hint": "Multiply each value by its frequency. Divide by the total frequency."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 3.6666666666666665,
+        "tolerance": 0.005,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "no unit",
+          "unitless",
+          "dimensionless"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-math-ai-sl:guided:5",
+    "topic": "5.3",
+    "title": "Gradient of a curve",
+    "prompt": "For y = 3x² + 2x, find the gradient at x = 2. Coordinates are dimensionless.",
+    "answer": 14,
+    "tolerance": 1e-05,
+    "units": [
+      "no unit",
+      "unitless",
+      "dimensionless"
+    ],
+    "hint": "Differentiate first using the power rule, then substitute x = 2.",
+    "working": "dy/dx=6x+2; 6*2+2 = 14 no unit.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "dy/dx=6x+2",
+          "dy/dx=3x+2",
+          "dy/dx=6x"
+        ],
+        "answer": "dy/dx=6x+2",
+        "hint": "Differentiate first using the power rule, then substitute x = 2."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "6*2+2",
+          "3*2+2",
+          "6*2"
+        ],
+        "answer": "6*2+2",
+        "hint": "Differentiate first using the power rule, then substitute x = 2."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 14,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "no unit",
+          "unitless",
+          "dimensionless"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-math-ai-sl:guided:6",
+    "topic": "1.4",
+    "title": "Compound interest",
+    "prompt": "A deposit of 1000 grows at 5% annually, compounded once per year. Find its value after 2 years in currency units.",
+    "answer": 1102.5,
+    "tolerance": 0.005,
+    "units": [
+      "currency units"
+    ],
+    "hint": "Use the annual multiplier 1.05 twice.",
+    "working": "V=P*(1+r/100)^n; 1000*(1+5/100)^2 = 1102.5 currency units.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "V=P*(1+r/100)^n",
+          "V=P*(1+r)^n",
+          "V=P*(1+n*r/100)"
+        ],
+        "answer": "V=P*(1+r/100)^n",
+        "hint": "Use the annual multiplier 1.05 twice."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "1000*(1+5/100)^2",
+          "1000*(1+5)^2",
+          "1000*(1+2*5/100)"
+        ],
+        "answer": "1000*(1+5/100)^2",
+        "hint": "Use the annual multiplier 1.05 twice."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 1102.5,
+        "tolerance": 0.005,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "currency units"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  }
+]

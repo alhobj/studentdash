@@ -1,0 +1,320 @@
+[
+  {
+    "id": "ib-chemistry:guided:1",
+    "topic": "S1.4",
+    "title": "Amount from mass",
+    "prompt": "Find the amount in 5.85 g of NaCl. Use M = 58.5 g mol⁻¹.",
+    "answer": 0.1,
+    "tolerance": 1e-05,
+    "units": [
+      "mol"
+    ],
+    "hint": "Divide mass by molar mass; grams cancel.",
+    "working": "n=m/M; 5.85/58.5 = 0.1 mol.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "n=m/M",
+          "n=M/m",
+          "n=m*M"
+        ],
+        "answer": "n=m/M",
+        "hint": "Divide mass by molar mass; grams cancel."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "5.85/58.5",
+          "58.5/5.85",
+          "5.85*58.5"
+        ],
+        "answer": "5.85/58.5",
+        "hint": "Divide mass by molar mass; grams cancel."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 0.1,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "mol"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-chemistry:guided:2",
+    "topic": "S1.4",
+    "title": "Solution concentration",
+    "prompt": "A solution contains 0.0500 mol in 250 cm³. Find its concentration in mol dm⁻³.",
+    "answer": 0.2,
+    "tolerance": 1e-05,
+    "units": [
+      "mol dm^-3",
+      "mol/dm3",
+      "mol dm⁻³"
+    ],
+    "hint": "First convert 250 cm³ to 0.250 dm³, then divide amount by volume.",
+    "working": "c=n/V; 0.0500/0.250 = 0.2 mol dm^-3.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "c=n/V",
+          "c=n*V",
+          "c=V/n"
+        ],
+        "answer": "c=n/V",
+        "hint": "First convert 250 cm³ to 0.250 dm³, then divide amount by volume."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "0.0500/0.250",
+          "0.0500/250",
+          "0.250/0.0500"
+        ],
+        "answer": "0.0500/0.250",
+        "hint": "First convert 250 cm³ to 0.250 dm³, then divide amount by volume."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 0.2,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "mol dm^-3",
+          "mol/dm3",
+          "mol dm⁻³"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-chemistry:guided:3",
+    "topic": "S1.4",
+    "title": "Counting particles",
+    "prompt": "Find the number of molecules in 0.0200 mol. Use Nₐ = 6.02 × 10²³ mol⁻¹. Give three significant figures.",
+    "answer": 1.2e+22,
+    "tolerance": 1e+18,
+    "units": [
+      "molecules"
+    ],
+    "hint": "Multiply the amount by the number of molecules per mole. Round only at the end.",
+    "working": "N=n*Nₐ; 0.0200*6.02e23 = 1.2e+22 molecules.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "N=n*Nₐ",
+          "N=n/Nₐ",
+          "N=Nₐ/n"
+        ],
+        "answer": "N=n*Nₐ",
+        "hint": "Multiply the amount by the number of molecules per mole. Round only at the end."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "0.0200*6.02e23",
+          "0.0200/6.02e23",
+          "6.02e23/0.0200"
+        ],
+        "answer": "0.0200*6.02e23",
+        "hint": "Multiply the amount by the number of molecules per mole. Round only at the end."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 1.2e+22,
+        "tolerance": 1e+18,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "molecules"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-chemistry:guided:4",
+    "topic": "R1.1",
+    "title": "Heating water",
+    "prompt": "Calculate the energy absorbed by 50.0 g of water heated by 8.00 K. Use c = 4.18 J g⁻¹ K⁻¹. Give the answer in J.",
+    "answer": 1672,
+    "tolerance": 1,
+    "units": [
+      "J"
+    ],
+    "hint": "Use mass × specific heat capacity × temperature change.",
+    "working": "q=m*c*ΔT; 50.0*4.18*8.00 = 1672 J.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "q=m*c*ΔT",
+          "q=m*c/ΔT",
+          "q=c*ΔT/m"
+        ],
+        "answer": "q=m*c*ΔT",
+        "hint": "Use mass × specific heat capacity × temperature change."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "50.0*4.18*8.00",
+          "50.0*4.18/8.00",
+          "4.18*8.00/50.0"
+        ],
+        "answer": "50.0*4.18*8.00",
+        "hint": "Use mass × specific heat capacity × temperature change."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 1672,
+        "tolerance": 1,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "J"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-chemistry:guided:5",
+    "topic": "R2.2",
+    "title": "Average rate",
+    "prompt": "The concentration of a product rises from 0.10 to 0.34 mol dm⁻³ in 60 s. Find the average rate of formation.",
+    "answer": 0.004,
+    "tolerance": 1e-06,
+    "units": [
+      "mol dm^-3 s^-1",
+      "mol dm⁻³ s⁻¹",
+      "mol/dm3/s"
+    ],
+    "hint": "Use the change in concentration, not the final concentration.",
+    "working": "rate=Δc/Δt; (0.34-0.10)/60 = 0.004 mol dm^-3 s^-1.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "rate=Δc/Δt",
+          "rate=Δt/Δc",
+          "rate=Δc*Δt"
+        ],
+        "answer": "rate=Δc/Δt",
+        "hint": "Use the change in concentration, not the final concentration."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "(0.34-0.10)/60",
+          "0.34/60",
+          "60/(0.34-0.10)"
+        ],
+        "answer": "(0.34-0.10)/60",
+        "hint": "Use the change in concentration, not the final concentration."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 0.004,
+        "tolerance": 1e-06,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "mol dm^-3 s^-1",
+          "mol dm⁻³ s⁻¹",
+          "mol/dm3/s"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  },
+  {
+    "id": "ib-chemistry:guided:6",
+    "topic": "R3.1",
+    "title": "Hydrogen ion concentration and pH",
+    "prompt": "For a solution with [H⁺] = 0.0010 mol dm⁻³, calculate pH.",
+    "answer": 3,
+    "tolerance": 1e-05,
+    "units": [
+      "no unit",
+      "unitless",
+      "dimensionless"
+    ],
+    "hint": "pH is the negative base-ten logarithm and has no unit.",
+    "working": "pH=-log10([H⁺]); -log10(0.0010) = 3 no unit.",
+    "skills": [
+      "arithmetic"
+    ],
+    "steps": [
+      {
+        "label": "Choose the equation",
+        "options": [
+          "pH=-log10([H⁺])",
+          "pH=log10([H⁺])",
+          "pH=1/[H⁺]"
+        ],
+        "answer": "pH=-log10([H⁺])",
+        "hint": "pH is the negative base-ten logarithm and has no unit."
+      },
+      {
+        "label": "Substitute the values",
+        "options": [
+          "-log10(0.0010)",
+          "log10(0.0010)",
+          "1/0.0010"
+        ],
+        "answer": "-log10(0.0010)",
+        "hint": "pH is the negative base-ten logarithm and has no unit."
+      },
+      {
+        "label": "Calculate the numerical value",
+        "answer": 3,
+        "tolerance": 1e-05,
+        "hint": "Follow your chosen substitution. Use e for powers of ten, and keep extra digits."
+      },
+      {
+        "label": "State the unit",
+        "answer": [
+          "no unit",
+          "unitless",
+          "dimensionless"
+        ],
+        "hint": "Use the units requested in the question. For a dimensionless result, enter no unit."
+      }
+    ]
+  }
+]

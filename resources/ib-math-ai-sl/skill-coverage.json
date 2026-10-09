@@ -620,6 +620,42 @@
         "topic": "calculator"
       },
       {
+        "id": "ib-math-ai-sl:guided:1",
+        "path": "guided-practice.html#ib-math-ai-sl:guided:1",
+        "prompt": "A sequence starts at 5 and increases by 3 each term. Find its 10th term.",
+        "topic": "1.2"
+      },
+      {
+        "id": "ib-math-ai-sl:guided:2",
+        "path": "guided-practice.html#ib-math-ai-sl:guided:2",
+        "prompt": "Find the gradient of the line through (2, 3) and (6, 11). Coordinates are dimensionless.",
+        "topic": "2.1"
+      },
+      {
+        "id": "ib-math-ai-sl:guided:3",
+        "path": "guided-practice.html#ib-math-ai-sl:guided:3",
+        "prompt": "Two sides of a triangle are 6 cm and 8 cm; their included angle is 30°. Find its area.",
+        "topic": "3.2"
+      },
+      {
+        "id": "ib-math-ai-sl:guided:4",
+        "path": "guided-practice.html#ib-math-ai-sl:guided:4",
+        "prompt": "A sample has values 2, 4 and 8 with frequencies 3, 2 and 1 respectively. Find its mean.",
+        "topic": "4.3"
+      },
+      {
+        "id": "ib-math-ai-sl:guided:5",
+        "path": "guided-practice.html#ib-math-ai-sl:guided:5",
+        "prompt": "For y = 3x² + 2x, find the gradient at x = 2. Coordinates are dimensionless.",
+        "topic": "5.3"
+      },
+      {
+        "id": "ib-math-ai-sl:guided:6",
+        "path": "guided-practice.html#ib-math-ai-sl:guided:6",
+        "prompt": "A deposit of 1000 grows at 5% annually, compounded once per year. Find its value after 2 years in currency units.",
+        "topic": "1.4"
+      },
+      {
         "id": "skill-arithmetic",
         "path": "skills-practice.html#skill-arithmetic",
         "prompt": "Evaluate −3 + 2(5 − 1) and 3/4 ÷ 2/5, showing order of operations."

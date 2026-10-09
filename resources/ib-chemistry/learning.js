@@ -31,11 +31,20 @@
       if(!validKey(key) || !Array.isArray(ids) || ids.length>1000 || ids.some(id=>!validKey(id))) throw Error('Invalid saved session.');
       sessions[key]=ids;
     }
-    return {schema:1,attempts,drafts,positions,sessions};
+    const assignments = {};
+    for(const [key,items] of Object.entries(raw.assignments || {})) {
+      if(!validKey(key) || !Array.isArray(items) || items.length>100) throw Error('Invalid saved assignments.');
+      assignments[key]=items.map(a=>{
+        if(!a || a.schema!==1 || a.type!=='studentdash-assignment' || !validKey(a.id) || a.profile!==key || typeof a.title!=='string' || a.title.length>160 || typeof a.instructions!=='string' || a.instructions.length>4000 || !Array.isArray(a.questions) || !a.questions.length || a.questions.length>1000 || a.questions.some(id=>!validKey(id))) throw Error('Invalid saved assignment.');
+        return {schema:1,type:a.type,id:a.id,profile:key,title:a.title,instructions:a.instructions,questions:[...new Set(a.questions)]};
+      });
+    }
+    return {schema:1,attempts,drafts,positions,sessions,assignments};
   }
   try { const saved = localStorage.getItem(KEY); if(saved) state = validate(JSON.parse(saved)); } catch (_) { storageOK = false; }
   function save() {
     try { localStorage.setItem(KEY,JSON.stringify(state)); } catch (_) { storageOK = false; }
+    window.dispatchEvent(new Event('studentdash-progress'));
     document.querySelectorAll('[data-storage-message]').forEach(n => n.textContent = storageOK
       ? 'Saved on this browser. Export progress before moving files or changing computer. On a shared computer, export then clear your progress.'
       : 'Browser saving is unavailable. Export progress before closing this page.');
@@ -78,7 +87,9 @@
     if(input && d) {input.value=d.answer; if(d.assisted) helped.set(hostFor(form),q.id);}
   }
   window.StudentPractice = {
-    check, status,
+    check, status, validate,
+    snapshot() {return JSON.parse(JSON.stringify(state));},
+    saveDraft(id, answer, assisted) {if(index.has(id)){state.drafts[id]={answer:String(answer).slice(0,500),assisted:Boolean(assisted)};save();}},
     choiceDraft(id) {return index.has(id) ? state.drafts[id] : null;},
     saveChoiceHelp(id) {if(index.has(id)){state.drafts[id]={answer:state.drafts[id]?.answer || '',assisted:true};save();}},
     clearChoice(id) {delete state.drafts[id];save();},
@@ -110,6 +121,7 @@
     const root=document.querySelector('#learning-workspace'); if(!root)return;
     root.replaceChildren(); el('h1','My practice · '+catalog.label,root);
     if(catalog.hub){const back=el('a','Practice hub',root);back.href=catalog.hub;}
+    if(!window.PRACTICE_ASSIGNMENT){const nav=el('p','',root);for(const [label,path] of [['Combined student backup','student-backup.html'],['Guided problem solving','guided-practice.html'],['Teacher class overview','class-practice.html']]){const a=el('a',label,nav);a.href=path;nav.append(' · ');}}
     el('p','Save your place, revisit mistakes and build independence. These are self-reported practice records, not assessment marks. This journal covers small-step, repeat and authored multiple-choice questions; explorers and longer written tasks remain available in the hub.',root);
     const storage=el('p','',root);storage.dataset.storageMessage='';
     message=el('p','',root);message.setAttribute('role','status');message.className='learning-status';
@@ -120,7 +132,7 @@
       const incoming=validate(raw), combined=new Map(state.attempts.map(a=>[a.id,a]));
       incoming.attempts.forEach(a=>{if(combined.has(a.id) && ['question','answer','correct','assisted','at'].some(key=>combined.get(a.id)[key]!==a[key]))throw Error('Conflicting attempt IDs; no records imported.');combined.set(a.id,a);});
       if(combined.size>20000)throw Error('Combined progress is too large.');
-      state={schema:1,attempts:[...combined.values()],drafts:{...state.drafts,...incoming.drafts},positions:{...state.positions,...incoming.positions},sessions:{...state.sessions,...incoming.sessions}};save();renderWorkspace();message.textContent='Progress merged. Imported saved answers replace matching drafts; previous attempts are retained.';
+      state={schema:1,attempts:[...combined.values()],drafts:{...state.drafts,...incoming.drafts},positions:{...state.positions,...incoming.positions},sessions:{...state.sessions,...incoming.sessions},assignments:{...state.assignments,...incoming.assignments}};save();renderWorkspace();message.textContent='Progress merged. Imported saved answers replace matching drafts; previous attempts are retained.';
     });
     const counts={};catalog.questions.forEach(q=>counts[status(q.id)]=(counts[status(q.id)]||0)+1);
     el('p',Object.entries(counts).map(([k,v])=>`${k}: ${v}`).join(' · '),root);
@@ -145,7 +157,9 @@
     });
     const session=el('section',undefined,root);session.id='learning-session';session.className='learning-card';session.setAttribute('aria-live','polite');el('p','Choose a session or a question below.',session);
     const assignmentBox=el('section',undefined,root);assignmentBox.className='learning-card';el('h2','Assignments',assignmentBox);
-    inputFile(assignmentBox,'Open an assignment file',raw=>{assignment=validateAssignment(raw);renderAssignment();});
+    inputFile(assignmentBox,'Open an assignment file',raw=>{assignment=validateAssignment(raw);rememberAssignment(assignment);renderWorkspace();});
+    const savedAssignments=state.assignments?.[catalog.profile] || [];
+    if(savedAssignments.length){const l=el('label','Saved assignments',assignmentBox),select=el('select',undefined,l);select.setAttribute('aria-label','Saved assignments');el('option','Choose an assignment',select).value='';savedAssignments.forEach(a=>{el('option',a.title,select).value=a.id;});select.onchange=()=>{try{assignment=validateAssignment(savedAssignments.find(a=>a.id===select.value));renderAssignment();}catch(e){message.textContent=e.message;}};}
     inputFile(assignmentBox,'Review a student completion report',raw=>{
       if(!raw || raw.schema!==1 || raw.type!=='studentdash-completion' || typeof raw.title!=='string' || !Array.isArray(raw.questions) || raw.questions.length>1000) throw Error('Invalid completion report.');
       const rows=raw.questions.map(row=>{
@@ -174,16 +188,17 @@
     });
     search.addEventListener('input',()=>{for(const row of list.children)row.hidden=!row.dataset.search.includes(search.value.toLowerCase());});
     function makeAssignment(){const ids=[...list.querySelectorAll('input:checked')].map(n=>n.value);if(!ids.length)throw Error('Select at least one question.');return {schema:1,type:'studentdash-assignment',id:uid(),profile:catalog.profile,title:title.value.trim()||'Practice assignment',instructions:note.value,questions:ids};}
-    button(details,'Export assignment file',()=>{try{download('practice-assignment.json',makeAssignment());}catch(e){message.textContent=e.message;}});
+    button(details,'Export assignment file',()=>{try{const a=makeAssignment();rememberAssignment(a);download('practice-assignment.json',a);}catch(e){message.textContent=e.message;}});
     button(details,'Export standalone assignment page',()=>{try{
-      const a=makeAssignment(), data={...catalog,hub:null,questions:a.questions.map(id=>index.get(id))};
-      const script='('+window.StudentPracticeRuntime.toString()+')();';
-      const html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Practice assignment</title><style>body{font:18px system-ui;max-width:900px;margin:auto;padding:1rem}button,input,textarea{font:inherit;max-width:100%}label{display:block;margin:.7rem 0}.learning-list{max-height:20rem;overflow:auto}</style></head><body><main id="learning-workspace"></main><script>window.PRACTICE_CATALOG='+JSON.stringify(data).replace(/</g,'\\u003c')+';window.PRACTICE_ASSIGNMENT='+JSON.stringify(a).replace(/</g,'\\u003c')+';'+script.replace(/<\/script/gi,'<\\/script')+'<\/script></body></html>';
+      const a=makeAssignment();rememberAssignment(a);const data={...catalog,hub:null,questions:a.questions.map(id=>{const q=index.get(id);return q.kind==='guided'?{...q,path:'#'+q.id}:q;})};
+      const script='('+window.StudentPracticeRuntime.toString()+')();'+(data.questions.some(q=>q.kind==='guided')?'('+window.StudentGuidedRuntime.toString()+')();':'');
+      const html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Practice assignment</title><style>body{font:18px system-ui;max-width:900px;margin:auto;padding:1rem}button,input,textarea{font:inherit;max-width:100%}label{display:block;margin:.7rem 0}.learning-list{max-height:20rem;overflow:auto}</style></head><body><main id="learning-workspace"></main><div id="guided-practice"></div><script>window.PRACTICE_CATALOG='+JSON.stringify(data).replace(/</g,'\\u003c')+';window.PRACTICE_ASSIGNMENT='+JSON.stringify(a).replace(/</g,'\\u003c')+';'+script.replace(/<\/script/gi,'<\\/script')+'<\/script></body></html>';
       download('practice-assignment.html',html,'text/html');
     }catch(e){message.textContent=e.message;}});
-    if(window.PRACTICE_ASSIGNMENT && !assignment) assignment=validateAssignment(window.PRACTICE_ASSIGNMENT);
+    if(window.PRACTICE_ASSIGNMENT && !assignment){assignment=validateAssignment(window.PRACTICE_ASSIGNMENT);rememberAssignment(assignment);}
     if(assignment)renderAssignment();save();
   }
+  function rememberAssignment(a){state.assignments ||= {};const items=state.assignments[catalog.profile] || [];if(items.length>=100 && !items.some(item=>item.id===a.id))throw Error('Saved assignment limit reached (100 per subject).');state.assignments[catalog.profile]=[...items.filter(item=>item.id!==a.id),a];save();}
   function validateAssignment(a){if(!a || a.schema!==1 || a.type!=='studentdash-assignment' || !validKey(a.id) || a.profile!==catalog.profile || typeof a.title!=='string' || a.title.length>160 || typeof a.instructions!=='string' || a.instructions.length>4000 || !Array.isArray(a.questions) || !a.questions.length || a.questions.length>1000 || new Set(a.questions).size!==a.questions.length || a.questions.some(id=>!index.has(id)))throw Error('This assignment is invalid or belongs to a different practice collection/version.');return a;}
   function renderAssignment(){const host=document.querySelector('#assigned');host.replaceChildren();el('h3',assignment.title,host);el('p',assignment.instructions,host);el('p',`${assignment.questions.length} questions. Completion reports are self-reported and may be edited; they do not change assessment marks.`,host);button(host,'Start assignment',()=>start(assignment.questions.map(id=>index.get(id))));button(host,'Export completion report',()=>download('practice-completion.json',{schema:1,type:'studentdash-completion',assignment:assignment.id,title:assignment.title,exported:new Date().toISOString(),selfReported:true,questions:assignment.questions.map(id=>({id,prompt:index.get(id).prompt,status:status(id),attempts:state.attempts.filter(a=>a.question===id)}))}));}
   let fiveTopic=null, fiveOffered=new Set();
@@ -191,6 +206,7 @@
   function start(questions,topic=null){fiveTopic=topic;queue=[...questions];showQuestion();}
   function showQuestion(){state.sessions[catalog.profile]=queue.map(q=>q.id);save();const host=document.querySelector('#learning-session');host.replaceChildren();if(!queue.length){el('p','No questions waiting. Choose another session or review your progress.',host);if(fiveTopic)button(host,'Five more like these',()=>startFive(fiveTopic));return;}
     const q=queue[0];showSkills(q,host);host.className='learning-card learning-question';el('h2',q.topic+' · '+q.title,host);el('p',`${queue.length} question(s) left in this session`,host);
+    if(q.kind==='guided'){const a=el('a','Open guided solution',host);a.href=q.path;button(host,'Next question',()=>{queue.shift();showQuestion();});return;}
     const form=el('form',undefined,host), label=el('label',q.prompt,form), input=el('input',undefined,label);input.type='text';input.maxLength=500;input.autocomplete='off';
     const draft=state.drafts[q.id];input.value=draft?.answer || '';let assisted=Boolean(draft?.assisted);
     const submit=el('button','Check answer',form);submit.type='submit';const feedback=el('p','',form);feedback.setAttribute('role','status');

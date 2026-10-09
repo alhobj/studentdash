@@ -3044,6 +3044,42 @@
         "topic": "R3.4"
       },
       {
+        "id": "ib-chemistry:guided:1",
+        "path": "guided-practice.html#ib-chemistry:guided:1",
+        "prompt": "Find the amount in 5.85 g of NaCl. Use M = 58.5 g mol⁻¹.",
+        "topic": "S1.4"
+      },
+      {
+        "id": "ib-chemistry:guided:2",
+        "path": "guided-practice.html#ib-chemistry:guided:2",
+        "prompt": "A solution contains 0.0500 mol in 250 cm³. Find its concentration in mol dm⁻³.",
+        "topic": "S1.4"
+      },
+      {
+        "id": "ib-chemistry:guided:3",
+        "path": "guided-practice.html#ib-chemistry:guided:3",
+        "prompt": "Find the number of molecules in 0.0200 mol. Use Nₐ = 6.02 × 10²³ mol⁻¹. Give three significant figures.",
+        "topic": "S1.4"
+      },
+      {
+        "id": "ib-chemistry:guided:4",
+        "path": "guided-practice.html#ib-chemistry:guided:4",
+        "prompt": "Calculate the energy absorbed by 50.0 g of water heated by 8.00 K. Use c = 4.18 J g⁻¹ K⁻¹. Give the answer in J.",
+        "topic": "R1.1"
+      },
+      {
+        "id": "ib-chemistry:guided:5",
+        "path": "guided-practice.html#ib-chemistry:guided:5",
+        "prompt": "The concentration of a product rises from 0.10 to 0.34 mol dm⁻³ in 60 s. Find the average rate of formation.",
+        "topic": "R2.2"
+      },
+      {
+        "id": "ib-chemistry:guided:6",
+        "path": "guided-practice.html#ib-chemistry:guided:6",
+        "prompt": "For a solution with [H⁺] = 0.0010 mol dm⁻³, calculate pH.",
+        "topic": "R3.1"
+      },
+      {
         "id": "skill-arithmetic",
         "path": "skills-practice.html#skill-arithmetic",
         "prompt": "A sample has mass 12.0 g and molar mass 40.0 g mol⁻¹. Rearrange m = nM and calculate n with units."

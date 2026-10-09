@@ -229,3 +229,35 @@ sometimes combined in one multi-part question. The maths prior-learning audit
 includes simultaneous equations and set notation as well as the numerical and
 geometric prerequisites. Section links are suggested practice contexts, not new
 claims about official syllabus connections.
+
+### Guided solutions, progress rings and class snapshots
+
+Both subjects now link to `guided-practice.html`, `student-backup.html` and
+`class-practice.html`. Guided examples check equation, substitution, numerical
+calculation and units separately. A correct check unlocks the next step; drafts
+and checked stages survive reloads. Hints and incorrect attempts count as help.
+A fresh independent attempt resets the working, while previous evidence remains.
+Guided examples also work in exported standalone assignments.
+
+The syllabus graph shows rings for the latest checked question results, with
+counts in its inspector. Section questions aggregate once through explicit
+parents. Individual statements without question mappings remain unscored; a
+section result is not evidence for each statement. Colours describe practice
+history, not mastery or assessment marks.
+
+The combined backup contains the shared practice journal (including guided
+steps), saved assignments, and both subjects' available written skills notes.
+Preview an import before merging. Attempts are deduplicated by ID; conflicts
+reject the import. Matching drafts, notes and assignments use the imported
+version. Existing legacy progress exports still work. Storage depends on browser
+and file origin: export from the browser/location where the work was completed.
+Reopen other practice tabs after import or clearing to avoid stale in-memory
+records. No automatic SharePoint synchronization is attempted.
+
+Teachers can import multiple combined backups or legacy progress files into the
+class overview. Use distinct student aliases and remove an old snapshot before
+importing a newer one for that student. Repeated filenames are rejected. The
+view reports latest results by section and skill, including unattempted questions
+in the denominator, and excludes unknown IDs. Written self-review notes are not
+scored. Class snapshots remain in memory only and never modify assessment data
+or the teacher's own practice. Keep the source files to reopen a class overview.
