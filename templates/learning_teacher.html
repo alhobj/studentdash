@@ -1,0 +1,28 @@
+{% extends 'entry_base.html' %}
+{% block body %}
+<p><a href="{{ url_for('entry.class_page', key=doc.id) }}">Back to {{ doc.name }}</a></p>
+<h1>Teaching groups & upcoming tests</h1>
+<p>Select a topic or skill, inspect the evidence, then choose students and an activity. Suggestions are temporary teaching groups, not student labels. Missing work is not a zero.</p>
+{% if not nodes %}<p>Connect a curriculum and review question links first.</p>{% else %}
+<form method="get" class="card"><h2>1. Find the evidence</h2>
+<label>Topic <select name="node"><option value="">All topics</option>{% for id,n in nodes.items() %}<option value="{{ id }}" {% if id==selected_node %}selected{% endif %}>{{ n.get('code','') }} {{ n.label }}</option>{% endfor %}</select></label>
+<label>Skill / classification <select name="skill"><option value="">All classifications</option>{% for skill in skills %}<option {% if skill==selected_skill %}selected{% endif %}>{{ skill }}</option>{% endfor %}</select></label>
+<label>Evidence since <input type="date" name="since" value="{{ since }}"></label><button>Show evidence</button>
+<p>Choose a follow-up date here later to inspect subsequent test evidence. The latest linked exit ticket is shown separately; its score is never added to the formal result.</p></form>
+<form method="post" class="card"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}">
+<h2>2. Choose students and their next activity</h2><div class="table-wrap"><table><thead><tr><th>Select</th><th>Student</th><th>Graded questions</th><th>Recorded performance</th><th>Other records</th><th>Latest evidence</th><th>Suggested starting point</th><th>Latest linked exit ticket</th></tr></thead><tbody>
+{% for row in rows %}<tr><td><input type="checkbox" name="students" value="{{ row.id }}" aria-label="Select {{ row.name }}"></td><td>{{ row.name }}</td><td>{{ row.count }}</td><td>{{ '%.0f%%'|format(row.percent) if row.percent is not none else 'No graded evidence' }}</td><td>{{ row.pending }}</td><td>{{ row.latest }}</td><td>{{ row.suggestion }}</td><td>{% if row.ticket %}{{ row.ticket.title }} · {{ row.ticket.date[:10] }} · {{ row.ticket.status }}{% if row.ticket.score is not none %} · {{ row.ticket.score }}/{{ row.ticket.maximum }}{% endif %}{% else %}No matching ticket{% endif %}</td></tr>{% endfor %}
+</tbody></table></div><p>Fewer than two graded questions means check first. Otherwise the suggestions use &lt;50%, 50–79%, and ≥80%; review suitability before assigning.</p>
+<label>Plan type <select name="kind"><option value="intervention">Temporary teaching group</option><option value="exam">Upcoming test / revision scope</option></select></label>
+<label>Title <input name="title" maxlength="160" required></label>
+<label>Follow-up or test date <input type="date" name="date" min="{{ today }}" required></label>
+<label>Topics in this plan <select name="nodes" multiple size="7" required>{% for id,n in nodes.items() %}<option value="{{ id }}" {% if id==selected_node %}selected{% endif %}>{{ n.get('code','') }} {{ n.label }}</option>{% endfor %}</select></label>
+<p>Use Ctrl/Command to select several topics. Students see only their own plan and its scope.</p>
+<label>Temporary group name (teaching groups only) <input name="group" value="Focused practice" maxlength="100"></label>
+<label>Activity (teaching groups only) <select name="role"><option value="basic">Foundation / guided support</option><option value="practice">Independent practice</option><option value="check">Extension / independent check</option></select></label>
+<label>Instructions <textarea name="instructions" maxlength="4000" rows="3"></textarea></label><button>Save plan</button>
+<p>Regenerate student dashboards to share the plan. This does not send messages or change marks.</p></form>
+{% endif %}
+{% if ticket_rows and nodes %}<form method="post" class="card"><h2>Review exit-ticket topic links</h2><p>Link submitted tickets to topics before using them in topic histories or follow-up comparisons. These links do not change marks.</p><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}"><input type="hidden" name="action" value="ticket-links">{% for ticket in ticket_rows %}<label>{{ ticket.title }}<select multiple size="4" name="ticket-{{ ticket.id }}">{% for id,n in nodes.items() %}<option value="{{ id }}" {% if id in doc.get('learning',{}).get('ticket_links',{}).get(ticket.id,[]) %}selected{% endif %}>{{ n.get('code','') }} {{ n.label }}</option>{% endfor %}</select></label>{% endfor %}<button>Save reviewed ticket links</button></form>{% endif %}
+<section class="card"><h2>Saved plans</h2>{% for collection in ['interventions','exams'] %}{% for item in doc.get('learning',{}).get(collection,[]) %}<article><h3>{{ item.title }}</h3><p>{{ item.date }} · {{ item.students|length }} student(s) · {{ 'Upcoming test' if collection=='exams' else item.group }}</p><p>{{ item.instructions }}</p><p><a href="{{ url_for('entry.learning_workspace', key=doc.id, node=item.nodes[0], since=item.created[:10]) }}">Review evidence since this plan</a></p><form method="post"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}"><input type="hidden" name="action" value="remove"><input type="hidden" name="collection" value="{{ collection }}"><input type="hidden" name="id" value="{{ item.id }}"><button>Remove {{ item.title }}</button></form></article>{% endfor %}{% endfor %}</section>
+{% endblock %}

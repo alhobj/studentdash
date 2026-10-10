@@ -3080,6 +3080,18 @@
         "topic": "R3.1"
       },
       {
+        "id": "ib-chemistry:investigation:heating",
+        "path": "investigations.html#heating",
+        "prompt": "Fresh check: 100 g of water absorbs 4180 J. With c = 4.18 J g⁻¹ K⁻¹ and no heat loss, find the temperature rise in K.",
+        "topic": "R1.1"
+      },
+      {
+        "id": "ib-chemistry:investigation:rate",
+        "path": "investigations.html#rate",
+        "prompt": "Fresh check: gas volume increases from 12 to 30 cm³ over 15 s. Calculate the average rate in cm³ s⁻¹.",
+        "topic": "R2.2"
+      },
+      {
         "id": "skill-arithmetic",
         "path": "skills-practice.html#skill-arithmetic",
         "prompt": "A sample has mass 12.0 g and molar mass 40.0 g mol⁻¹. Rearrange m = nM and calculate n with units."

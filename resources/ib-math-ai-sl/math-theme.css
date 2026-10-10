@@ -1,0 +1,14 @@
+/* Mathematics uses a violet palette; layout and feedback meanings match chemistry. */
+:root{--bg:#1b182b;--paper:#29223c;--ink:#f1edf9;--muted:#c8bed8;--accent:#c8b3f5;--mint:var(--accent);--line:#514463;--lc-primary-bg:#c8b3f5;--lc-primary-ink:#281b3d;--lc-button-bg:#382d4d;--lc-button-ink:#f1edf9}
+body{background:var(--bg);color:var(--ink)}a{color:var(--accent)}
+button{color:#281b3d}input,select,textarea{border-color:#9989ad}
+.result,.reminder{background:#352c49}.recommendation{border-left-color:var(--accent)}
+.syllabus-reference{background:#f5f0fb;color:#352846;border-color:#cbbade;border-left-color:#79589b}.syllabus-reference a{color:#624181}
+.learning-bar{background:#eee7f8;color:#352846;border-color:#b9a4d2}.learning-bar a{color:#60417e}
+.question-skills{background:#eee7f8;color:#352846;border-left-color:#79589b}.question-skills a{color:#60417e}
+.booklet-help{border-left-color:#9875bd}.learning-centre .panel{background:var(--paper)}
+/* The graph keeps its geometry, reference colours and progress-ring meanings. */
+.toolbar,#graph-inspector{background:var(--paper);border-color:var(--line)}.toolbar button,.toolbar input,.toolbar select,#graph-inspector button{background:#382d4d;color:var(--ink);border-color:#9989ad}
+#graph-viewport{background-color:#211d33;border-color:var(--line)}#graph-inspector a{color:var(--accent)}.toolbar button:hover,#graph-inspector button:hover{background:#4b3a61}
+footer,footer p{color:var(--muted)}
+@media print{:root{--bg:#fff;--paper:#fff;--ink:#21192d;--muted:#51465a;--accent:#624181;--line:#b7adbf}body,.result,.reminder,.learning-centre .panel,#graph-inspector{background:#fff;color:#21192d}.learning-bar{display:none}}

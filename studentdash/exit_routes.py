@@ -1,6 +1,7 @@
 """Local development simulation and exit-ticket HTTP adapter."""
 import json
 import secrets
+from werkzeug.local import LocalProxy
 
 from flask import Blueprint, abort, redirect, render_template, request, session, url_for
 
@@ -19,11 +20,12 @@ STUDENT_ENDPOINTS = {'exit_tickets.student_home', 'exit_tickets.student_ticket',
 
 def register_exit_routes(app, config):
     bp = Blueprint('exit_tickets', __name__)
-    repo = TicketRepository(config.workspace)
+    selected_config = config if callable(config) else lambda: config
+    repo = LocalProxy(lambda: TicketRepository(selected_config().workspace))
     service = TicketService(repo)
 
     def roster():
-        return read_workbook(config.workbook)
+        return read_workbook(selected_config().workbook)
 
     def version():
         try:
@@ -145,13 +147,19 @@ def register_exit_routes(app, config):
     def simulate_student(sid):
         if sid not in roster().students:
             abort(404)
+        class_key = session.get('entered_class')
         session.clear()
+        if class_key:
+            session['entered_class'] = class_key
         session.update(simulated_student=sid, csrf_token=secrets.token_urlsafe(32))
         return redirect(url_for('exit_tickets.student_home', student_key='student' + sid), code=303)
 
     @bp.post('/simulation/teacher')
     def simulate_teacher():
+        class_key = session.get('entered_class')
         session.clear()
+        if class_key:
+            session['entered_class'] = class_key
         session['csrf_token'] = secrets.token_urlsafe(32)
         return redirect(url_for('exit_tickets.list_tickets'), code=303)
 
@@ -159,15 +167,15 @@ def register_exit_routes(app, config):
     def student_home(student_key):
         sid, data = student(student_key)
         available, completed = service.student_home(sid)
-        formal = build_dashboard(data, sid, False, workspace_state=Workspace(config.workspace).export_state())
+        formal = build_dashboard(data, sid, False, workspace_state=Workspace(selected_config().workspace).export_state())
         return render_template('local_student.html', student_key=student_key, available=available, completed=completed,
                                formal=formal, progress=progress_rows(data, sid, completed))
 
     @bp.get('/student/<student_key>/progress')
     def student_progress(student_key):
         sid, data = student(student_key)
-        return render_student(data, sid, False, Workspace(config.workspace).export_state(),
-                              local_dashboard_url=url_for('exit_tickets.student_home', student_key=student_key))
+        return render_student(data, sid, False, Workspace(selected_config().workspace).export_state(),
+                              local_dashboard_url=url_for('exit_tickets.student_home', student_key=student_key), completed_tickets=service.student_home(sid)[1])
 
     @bp.get('/student/<student_key>/tickets/<ticket_id>')
     def student_ticket(student_key, ticket_id):

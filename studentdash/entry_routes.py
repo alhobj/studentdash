@@ -10,6 +10,7 @@ from .curriculum import catalog, selected_curriculum, node_index, next_steps
 from .entry import as_workbook
 from .entry import ClassStore, EntryError, assessment, save_assessment, save_scores, score_rows, summary_label
 from .import_routes import register_import_routes
+from .learning import intervention_rows, save_learning_plan
 
 
 def register_entry_routes(app, base_config):
@@ -109,6 +110,64 @@ def register_entry_routes(app, base_config):
             return redirect(url_for('entry.curriculum_review', key=key), code=303)
         return render_template('curriculum_review.html', doc=doc, curriculum=curriculum,
                                nodes=node_index(curriculum or {}), curricula=catalog().values())
+
+    @bp.route('/classes/<key>/learning', methods=['GET', 'POST'])
+    def learning_workspace(key):
+        doc = store.read(key)
+        session['entered_class'] = key
+        data = as_workbook(store.path(key))
+        nodes = node_index(data.curriculum or {})
+        workspace_path = Config(store.path(key), base_config.output).workspace
+        from .learning import completed_tickets
+        ticket_rows = []
+        # Read completed tickets through learner-scoped views, not answer-key definitions.
+        for sid in data.students:
+            for ticket in completed_tickets(workspace_path, sid):
+                if not any(t['id']=='interactive:'+ticket['ticket_id'] for t in ticket_rows):
+                    ticket_rows.append(dict(id='interactive:'+ticket['ticket_id'], title=ticket['title']))
+        for ticket in data.exit_tickets:
+            if not any(t['id']=='reflection:'+ticket.id for t in ticket_rows):
+                ticket_rows.append(dict(id='reflection:'+ticket.id, title=ticket.prompt))
+        if request.method == 'POST':
+            if request.form.get('action') == 'ticket-links':
+                links = {}
+                for ticket in ticket_rows:
+                    selected = request.form.getlist('ticket-'+ticket['id'])
+                    if any(node not in nodes for node in selected):
+                        raise EntryError('Choose ticket links from the class curriculum.')
+                    links[ticket['id']] = list(dict.fromkeys(selected))
+                doc.setdefault('learning', {}).setdefault('ticket_links', {}).update(links)
+                store.save(doc, version())
+            elif request.form.get('action') == 'remove':
+                kind = request.form.get('collection')
+                if kind not in {'interventions', 'exams'}:
+                    raise EntryError('Choose an existing plan.')
+                items = doc.get('learning', {}).get(kind, [])
+                item_id = request.form.get('id')
+                if not any(i['id']==item_id for i in items):
+                    raise EntryError('That plan is no longer available.')
+                doc['learning'][kind] = [i for i in items if i['id']!=item_id]
+                store.save(doc, version())
+            else:
+                raw = dict(request.form)
+                raw.update(nodes=request.form.getlist('nodes'), students=request.form.getlist('students'))
+                save_learning_plan(store, key, version(), raw)
+            return redirect(url_for('entry.learning_workspace', key=key), code=303)
+        node = request.args.get('node', '')
+        skill = request.args.get('skill', '')
+        since = request.args.get('since', '')
+        skills = sorted({t.category+': '+t.tag for t in data.question_tags})
+        if (node and node not in nodes) or (skill and skill not in skills):
+            raise EntryError('Select a topic or skill from this class.')
+        if since:
+            try:
+                date.fromisoformat(since)
+            except ValueError:
+                raise EntryError('Enter a valid evidence start date.') from None
+        rows = intervention_rows(data, node, skill, since, workspace_path)
+        return render_template('learning_teacher.html', doc=doc, nodes=nodes, skills=skills,
+                               rows=rows, selected_node=node, selected_skill=skill, since=since,
+                               today=date.today().isoformat(), ticket_rows=ticket_rows)
 
     @bp.get('/classes/<key>/students/<sid>/next')
     def student_next(key, sid):

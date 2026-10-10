@@ -180,7 +180,7 @@ def build():
                      + f'<details><summary>Check your reasoning</summary><p>{escape(c["solution"])}</p></details>'
                      f'<label class="checklist"><input type="checkbox"> I can explain SL {code} and have tried its practice.</label></section>')
     write('coverage.html', 'Syllabus coverage', body)
-    write('investigations.html', 'Investigations and reflection',
+    write('exploration-projects.html', 'Investigations and reflection',
           '<header><a href="math-practice.html">← Mathematics hub</a><h1>Investigate, explain and reflect</h1>'
           '<p>Use the explorers as a mathematical toolkit. These prompts support exploration skills; they are not a completed internal assessment or an assessment rubric.</p></header>'
           '<section><h2>Which savings plan meets your goal?</h2><p>Choose a fictional savings goal and realistic constraints. Use the '
@@ -208,6 +208,10 @@ def build():
         write(f'mcq-{code.replace(".", "-")}.html', f'SL {code} multiple-choice practice', body)
     build_graph(ROOT, ROOT.parents[1] / 'curricula' / 'math-ai-sl-2021.json', 'Mathematics AI SL', 'math-practice.html')
     build_learning(ROOT, 'Mathematics AI SL', 'math-practice.html', 'math-practice.css')
+    for page in ROOT.glob('*.html'):
+        html = page.read_text(encoding='utf-8')
+        if 'href="math-theme.css"' not in html:
+            page.write_text(html.replace('</head>', '<link rel="stylesheet" href="math-theme.css"></head>'), encoding='utf-8')
     print(f'Built mathematics hub and five topic pages with {len(data)} explorers.')
 
 

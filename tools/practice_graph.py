@@ -42,6 +42,9 @@ def build_graph(root, curriculum_file, label, hub):
     if skills:
         for key in skills.get("cross_reference_groups", {}):
             if key in nodes: nodes[key]["href"]="skills-practice.html#group-"+key
+    for n in nodes.values():
+        if n['code'] in bycode:
+            n['learning_node'] = bycode[n['code']]['id']
     data=dict(label=label,nodes=list(nodes.values()),edges=edges,guide=source['copy_url'],note=refs['note'])
     (root/'syllabus-graph.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     for name in ('syllabus-graph.js','syllabus-graph.css'):(root/name).write_bytes((ASSETS/name).read_bytes())

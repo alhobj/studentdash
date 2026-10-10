@@ -190,7 +190,7 @@
     function makeAssignment(){const ids=[...list.querySelectorAll('input:checked')].map(n=>n.value);if(!ids.length)throw Error('Select at least one question.');return {schema:1,type:'studentdash-assignment',id:uid(),profile:catalog.profile,title:title.value.trim()||'Practice assignment',instructions:note.value,questions:ids};}
     button(details,'Export assignment file',()=>{try{const a=makeAssignment();rememberAssignment(a);download('practice-assignment.json',a);}catch(e){message.textContent=e.message;}});
     button(details,'Export standalone assignment page',()=>{try{
-      const a=makeAssignment();rememberAssignment(a);const data={...catalog,hub:null,questions:a.questions.map(id=>{const q=index.get(id);return q.kind==='guided'?{...q,path:'#'+q.id}:q;})};
+      const a=makeAssignment();if(a.questions.some(id=>index.get(id).kind==='investigation'))throw Error('For investigations, export an assignment file and share the full practice resource folder.');rememberAssignment(a);const data={...catalog,hub:null,questions:a.questions.map(id=>{const q=index.get(id);return q.kind==='guided'?{...q,path:'#'+q.id}:q;})};
       const script='('+window.StudentPracticeRuntime.toString()+')();'+(data.questions.some(q=>q.kind==='guided')?'('+window.StudentGuidedRuntime.toString()+')();':'');
       const html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Practice assignment</title><style>body{font:18px system-ui;max-width:900px;margin:auto;padding:1rem}button,input,textarea{font:inherit;max-width:100%}label{display:block;margin:.7rem 0}.learning-list{max-height:20rem;overflow:auto}</style></head><body><main id="learning-workspace"></main><div id="guided-practice"></div><script>window.PRACTICE_CATALOG='+JSON.stringify(data).replace(/</g,'\\u003c')+';window.PRACTICE_ASSIGNMENT='+JSON.stringify(a).replace(/</g,'\\u003c')+';'+script.replace(/<\/script/gi,'<\\/script')+'<\/script></body></html>';
       download('practice-assignment.html',html,'text/html');
@@ -206,7 +206,7 @@
   function start(questions,topic=null){fiveTopic=topic;queue=[...questions];showQuestion();}
   function showQuestion(){state.sessions[catalog.profile]=queue.map(q=>q.id);save();const host=document.querySelector('#learning-session');host.replaceChildren();if(!queue.length){el('p','No questions waiting. Choose another session or review your progress.',host);if(fiveTopic)button(host,'Five more like these',()=>startFive(fiveTopic));return;}
     const q=queue[0];showSkills(q,host);host.className='learning-card learning-question';el('h2',q.topic+' · '+q.title,host);el('p',`${queue.length} question(s) left in this session`,host);
-    if(q.kind==='guided'){const a=el('a','Open guided solution',host);a.href=q.path;button(host,'Next question',()=>{queue.shift();showQuestion();});return;}
+    if(q.kind==='guided'||q.kind==='investigation'){const a=el('a',q.kind==='investigation'?'Open investigation':'Open guided solution',host);a.href=q.path;button(host,'Next question',()=>{queue.shift();showQuestion();});return;}
     const form=el('form',undefined,host), label=el('label',q.prompt,form), input=el('input',undefined,label);input.type='text';input.maxLength=500;input.autocomplete='off';
     const draft=state.drafts[q.id];input.value=draft?.answer || '';let assisted=Boolean(draft?.assisted);
     const submit=el('button','Check answer',form);submit.type='submit';const feedback=el('p','',form);feedback.setAttribute('role','status');
@@ -230,6 +230,7 @@
     host.scrollIntoView({block:'start'});
   }
   function init(){
+    if(window.PRACTICE_EMBEDDED)return;
     if(document.querySelector('#learning-workspace')){renderWorkspace();return;}
     const bar=el('aside');bar.className='learning-bar';bar.setAttribute('aria-label','Saved practice');const link=el('a','My practice: resume, mistakes & assignments',bar);link.href='my-practice.html';document.body.prepend(bar);
     const p=el('span','',bar);p.dataset.storageMessage='';save();

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "regression",
+    "title": "How convincing is a straight-line model?",
+    "topic": "4.4",
+    "skills": [
+      "arithmetic",
+      "graphing",
+      "representations",
+      "model-choice",
+      "model-parameters",
+      "model-transfer"
+    ],
+    "question": "How do measurement scatter and the range of x values affect a fitted line?",
+    "model": "line",
+    "slope": "slope",
+    "intercept": "intercept",
+    "x": "x",
+    "xLabel": "Input x",
+    "yLabel": "Measured y",
+    "parameters": [
+      {
+        "id": "x",
+        "label": "Input x",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "value": 5
+      },
+      {
+        "id": "slope",
+        "label": "Underlying model slope",
+        "min": 1,
+        "max": 5,
+        "step": 0.5,
+        "value": 2
+      },
+      {
+        "id": "intercept",
+        "label": "Underlying model intercept",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "value": 3
+      },
+      {
+        "id": "scatter",
+        "label": "Maximum simulated measurement error",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "value": 3
+      }
+    ],
+    "noiseParameter": "scatter",
+    "fit": true,
+    "method": "Hold slope, intercept and scatter fixed. Record at least six readings across a range of x values, then fit a line. Try another data set restricted to a small x range.",
+    "explanation": "Measurements come from a straight-line model plus independent uniform random errors. A fitted relationship alone does not establish causation. Real data can have outliers and systematic error absent here.",
+    "reflection": "Compare the fitted line with the underlying model. Explain when interpolation is reasonable and why extrapolation needs caution.",
+    "check": {
+      "prompt": "Fresh check: a fitted model is y = 2.4x + 1.8. Predict y when x = 5. Enter the numerical value.",
+      "answer": 13.8,
+      "tolerance": 0.001,
+      "units": [],
+      "hint": "Substitute x = 5 into the fitted model.",
+      "skills": [
+        "arithmetic"
+      ]
+    }
+  },
+  {
+    "id": "optimisation",
+    "title": "Price, sales and revenue",
+    "topic": "5.7",
+    "skills": [
+      "arithmetic",
+      "graphing",
+      "representations",
+      "model-choice",
+      "model-parameters",
+      "model-transfer"
+    ],
+    "question": "Which price gives the largest daily revenue in a simplified sales model?",
+    "model": "polynomial",
+    "coefficients": [
+      0,
+      120,
+      -3
+    ],
+    "x": "price",
+    "xLabel": "Price / currency units",
+    "yLabel": "Revenue / currency units per day",
+    "parameters": [
+      {
+        "id": "price",
+        "label": "Price / currency units",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "value": 10
+      }
+    ],
+    "noise": 0,
+    "fit": false,
+    "method": "The model assumes daily sales = 120 − 3p, with 0 ≤ p ≤ 40. Record revenues at several prices. Narrow your search near the maximum and explain it using a derivative or graph.",
+    "explanation": "Revenue is R(p) = p(120 − 3p). This assumes a linear price-demand relationship and ignores costs, capacity constraints and competitors. Revenue and profit are different.",
+    "reflection": "Use your readings to locate the maximum, then justify it mathematically. Explain one reason why a real business might choose a different price.",
+    "check": {
+      "prompt": "Fresh check: a different model is R(p) = 80p − 2p² for 0 ≤ p ≤ 40. At what price is revenue maximized? Enter the numerical price.",
+      "answer": 20,
+      "tolerance": 0.001,
+      "units": [],
+      "hint": "Solve R′(p) = 80 − 4p = 0 and check the maximum.",
+      "skills": [
+        "arithmetic"
+      ]
+    }
+  }
+]

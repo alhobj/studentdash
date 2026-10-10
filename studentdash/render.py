@@ -7,6 +7,7 @@ import shutil
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .analytics import build_dashboard
+from .learning import learner_context, completed_tickets
 from .config import ROOT
 from .excel import read_workbook, WorkbookError
 from .workspace import Workspace
@@ -20,6 +21,7 @@ def template_environment():
 
 def render_student(data, sid, include_examples=True, state=None, **context):
     context.setdefault('resource_base', '/practice/')
+    context['learning_context'] = learner_context(data, sid, state, context.pop('completed_tickets', []))
     student = build_dashboard(data, sid, include_examples, workspace_state=state)
     views = [student] + [build_dashboard(data, sid, include_examples, aid, state)
                          for aid, _ in student.assessment_options]
@@ -33,7 +35,7 @@ def generate_dashboards(config, include_examples=True):
     # Render every page before touching existing output. No workbook object reaches Jinja.
     pages = {}
     for sid in data.students:
-        pages[f'student{sid}.html'] = render_student(data, sid, include_examples, state, resource_base="resources/")
+        pages[f'student{sid}.html'] = render_student(data, sid, include_examples, state, resource_base="resources/", completed_tickets=completed_tickets(config.workspace, sid))
     if fingerprints(config) != source_versions:
         raise WorkbookError('Inputs changed while rendering. Retry generation to make a consistent snapshot.')
     output = Path(config.output).resolve()
@@ -47,13 +49,12 @@ def generate_dashboards(config, include_examples=True):
     for old in output.glob('student*.html'):
         if old.name not in pages and old.is_file():
             old.unlink()
-    if data.curriculum:
-        # Only public, repository-owned practice assets are copied, never learner data.
-        for asset in (ROOT / 'resources').rglob('*'):
-            if asset.is_file() and asset.suffix in {'.html', '.css', '.js', '.json'}:
-                target = output / 'resources' / asset.relative_to(ROOT / 'resources')
-                target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(asset, target)
+    # Only public repository assets are copied, including shared learning-centre files.
+    for asset in (ROOT / 'resources').rglob('*'):
+        if asset.is_file() and asset.suffix in {'.html', '.css', '.js', '.json'}:
+            target = output / 'resources' / asset.relative_to(ROOT / 'resources')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(asset, target)
     manifest = {'generated_at': build_dashboard(data, next(iter(data.students)), False).generated_at,
                 'workbook_sha256': source_versions['workbook'],
                 'include_examples': include_examples, 'fingerprints': source_versions,

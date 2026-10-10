@@ -12,6 +12,7 @@ from zipfile import ZipFile, ZIP_DEFLATED, BadZipFile
 from .config import ROOT, Config
 from .excel import read_workbook
 from .render import render_student
+from .learning import completed_tickets
 from .workspace import Workspace
 
 
@@ -30,7 +31,7 @@ def practice_package():
     output = BytesIO()
     with ZipFile(output, 'w', ZIP_DEFLATED) as archive:
         _assets(archive)
-        links = ''.join(f'<li><a href="resources/{p.name}/my-practice.html">{p.name}</a></li>'
+        links = ''.join(f'<li><a href="resources/{p.name}/learning-home.html">{p.name}</a></li>'
                         for p in sorted((ROOT / 'resources').iterdir()) if (p / 'my-practice.html').is_file())
         archive.writestr('index.html', '<!doctype html><html lang="en"><meta charset="utf-8"><title>Practice</title><h1>Practice</h1><p>Extract the complete ZIP first, then open this file. Keep the resources folder beside it.</p><ul>' + links + '</ul></html>')
     return output.getvalue()
@@ -40,7 +41,7 @@ def student_package(config, sid):
     data = read_workbook(config.workbook)
     if sid not in data.students:
         raise PackageError('Unknown student.')
-    html = render_student(data, sid, False, Workspace(config.workspace).export_state(), resource_base='resources/')
+    html = render_student(data, sid, False, Workspace(config.workspace).export_state(), resource_base='resources/', completed_tickets=completed_tickets(config.workspace, sid))
     output = BytesIO()
     with ZipFile(output, 'w', ZIP_DEFLATED) as archive:
         archive.writestr('index.html', html)

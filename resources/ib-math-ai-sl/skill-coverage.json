@@ -656,6 +656,18 @@
         "topic": "1.4"
       },
       {
+        "id": "ib-math-ai-sl:investigation:regression",
+        "path": "investigations.html#regression",
+        "prompt": "Fresh check: a fitted model is y = 2.4x + 1.8. Predict y when x = 5. Enter the numerical value.",
+        "topic": "4.4"
+      },
+      {
+        "id": "ib-math-ai-sl:investigation:optimisation",
+        "path": "investigations.html#optimisation",
+        "prompt": "Fresh check: a different model is R(p) = 80p − 2p² for 0 ≤ p ≤ 40. At what price is revenue maximized? Enter the numerical price.",
+        "topic": "5.7"
+      },
+      {
         "id": "skill-arithmetic",
         "path": "skills-practice.html#skill-arithmetic",
         "prompt": "Evaluate −3 + 2(5 − 1) and 3/4 ÷ 2/5, showing order of operations."

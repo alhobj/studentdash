@@ -138,3 +138,21 @@ snapshots and private course backups. Backup uses SQLite snapshots and integrity
 checks; restore validates in staging and requires a new destination. The teacher UI
 registers a managed recovery as a separate class copy, preserving the original.
 This remains a local, files-only workflow and does not introduce hosted services.
+
+## Connected learning workspace
+
+`studentdash.learning` creates a learner-scoped timeline from explicit reviewed
+question links, configured classifications, published feedback, retries and exit
+results. Teacher-reviewed ticket links live alongside versioned intervention and
+upcoming-assessment plans in the class document's optional `learning` configuration.
+Only a plan's assigned learner receives it; roster lists and grouping comparisons
+remain teacher-only. Original marks, labels, submissions and answer-release rules
+remain intact. Exit routes select the active class workspace rather than always
+using the legacy workbook.
+
+The shared browser learning centre uses profile-provided nodes, resources and
+numerical investigation definitions. Subject-specific equations and wording are
+JSON content. Student-owned revision plans and notebooks have bounded, validated
+exports. Private snapshots attach practice evidence explicitly; they do not infer
+learner identity from a shared browser journal. No blended mastery score, hosted
+service or automatic file synchronization is introduced.

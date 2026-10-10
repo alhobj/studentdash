@@ -228,5 +228,5 @@ def create_app(config=None):
             abort(404)
         return send_from_directory(active_config().output, filename)
 
-    register_exit_routes(app, config)
+    register_exit_routes(app, active_config)
     return app

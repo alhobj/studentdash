@@ -53,13 +53,13 @@ def build_learning(root, label, hub, css):
         '</header><div id="mcq-review"></div></main><script src="learning-catalog.js"></script><script src="mcq-review.js"></script></body></html>', encoding='utf-8')
     build_student_tools(root,label,hub,css)
     for page in root.glob('*.html'):
-        if page.name in ('my-practice.html', 'question-review.html', 'skills-practice.html', 'skills.html', 'student-backup.html', 'class-practice.html', 'guided-practice.html'):
+        if page.name in ('my-practice.html', 'question-review.html', 'skills-practice.html', 'skills.html', 'student-backup.html', 'class-practice.html', 'guided-practice.html', 'learning-home.html', 'investigations.html'):
             continue
         text = page.read_text(encoding='utf-8')
         if 'skills-practice.css' not in text:
             text = text.replace('</head>', '<link rel="stylesheet" href="skills-practice.css"></head>')
         if page.name == hub:
-            text = text.replace('</header>', '<p><a href="guided-practice.html">Guided problem solving</a> · <a href="student-backup.html">Combined student backup</a> · <a href="class-practice.html">Teacher class overview</a> · <a href="question-review.html">Teacher: review questions</a></p></header>', 1)
+            text = text.replace('</header>', '<p><a href="learning-home.html">Start here: my learning</a> · <a href="investigations.html">Investigations</a> · <a href="guided-practice.html">Guided problem solving</a> · <a href="student-backup.html">Combined student backup</a> · <a href="class-practice.html">Teacher class overview</a> · <a href="question-review.html">Teacher: review questions</a></p></header>', 1)
         if 'class="booklet-entry"' in text:
             # Reference booklets stay script-free, including when opened for printing.
             text = text.replace('</header>', '<p><a href="my-practice.html">My practice</a></p></header>', 1)

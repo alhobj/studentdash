@@ -296,6 +296,7 @@ def as_workbook(path):
     data = WorkbookData(has_question_tables=True)
     data.question_authoritative = True
     data.curriculum = deepcopy(doc['profile'].get('curriculum'))
+    data.learning_settings = dict(deepcopy(doc.get('learning', {})), class_id=doc['id'])
     for s in doc['students']:
         data.students[s['id']] = Student(s['id'], s['name'], s['email'], doc['name'])
     for a in doc['assessments']:

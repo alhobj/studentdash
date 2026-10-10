@@ -1,6 +1,7 @@
 {% extends 'entry_base.html' %}
 {% block body %}<p><a href="{{ url_for('portability.transfer') }}">Packages & workspace backup</a></p><h1>{{ doc.name }}</h1>
 <p><a href="{{ url_for('entry.curriculum_review', key=doc.id) }}">Curriculum & reviewed question links</a></p>
+<p><a href="{{ url_for('entry.learning_workspace', key=doc.id) }}">Teaching groups & upcoming tests</a></p>
 <section class="card"><h2>New assessment</h2><div class="actions"><a class="button-link" href="{{ url_for('assessment_import.upload', key=doc.id) }}">Import assessment</a><a href="{{ url_for('entry.edit', key=doc.id) }}">Create manually</a></div><p>Upload a test, review the extracted questions and suggested classifications, then enter scores.</p></section>
 {% if doc.get('import_drafts') %}<section class="card"><h2>Import drafts</h2>{% for d in doc.import_drafts if d.status == 'draft' %}<p><a href="{{ url_for('assessment_import.review', key=doc.id, did=d.id) }}">Review {{ d.title }}</a> · {{ d.source.filename }}</p>{% else %}<p>No unfinished imports.</p>{% endfor %}</section>{% endif %}
 <section class="card"><h2>Assessments</h2>

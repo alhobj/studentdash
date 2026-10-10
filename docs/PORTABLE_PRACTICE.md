@@ -261,3 +261,78 @@ view reports latest results by section and skill, including unattempted question
 in the denominator, and excludes unknown IDs. Written self-review notes are not
 scored. Class snapshots remain in memory only and never modify assessment data
 or the teacher's own practice. Keep the source files to reopen a class overview.
+
+## Learning home, histories, investigations and test preparation
+
+The default student snapshot now starts with three actions: **Continue learning**,
+**Prepare for a test**, and **See my progress**. Detailed assessment tables and the
+question explorer remain under **Detailed results & feedback**. No marks or
+questions have been removed. The standalone subject homes are
+`resources/ib-chemistry/learning-home.html` and
+`resources/ib-math-ai-sl/learning-home.html`; public practice ZIPs open these homes.
+Maths uses violet accents while chemistry retains teal, with shared layouts and
+unchanged correct/incorrect feedback colours. Full topic libraries remain available
+under the home page's exploration menu. Students choose a topic before revealing
+five question links or starting a focused practice session.
+
+### Teacher workflow
+
+In a managed class, choose **Teaching groups & upcoming tests**. Filter question
+results by a reviewed curriculum node, classification, or evidence start date.
+The table counts graded evidence separately from other statuses. Group suggestions
+require two graded questions and are editable teaching choices, not permanent
+student classifications. Select learners, topic scope, activity type, instructions
+and a follow-up date, then save a temporary group. The teacher can review subsequent
+formal evidence and the latest linked exit-ticket result without combining scores.
+
+Use the same workspace to save an upcoming test's date and scope. Regenerate the
+student snapshots to distribute these plans; only assigned learners receive them.
+Plans use the class document's version checks and do not modify scores. Removing
+a plan affects newly generated snapshots, not files already distributed.
+
+Exit-ticket routes now use the selected class's workspace and roster. The existing
+local simulation still applies; no hosted service or authentication was added.
+After submission, review ticket-to-topic links in the teaching workspace. Links
+are explicit and preserve the original labels and marks. Both snapshots and the
+live assessment page include the learner's submitted ticket results; answer keys
+and other students' records never enter the history payload. Snapshot freshness
+now includes exit-ticket records.
+
+### Student history and planner
+
+History filters by topic or classification. It keeps formal question records,
+reviewed retries, teacher feedback, exit tickets and self-reported practice as
+separate events. Multi-mapped questions appear once per topic history. Missing,
+pending and exempt work remain unscored. Whole-assessment feedback stays in the
+full history; unlinked tickets are not guessed into topics. Graph section circles
+link to the corresponding standalone practice history.
+
+A private snapshot can explicitly attach a practice backup through **Save or
+restore my learning**. This is a separate imported snapshot, not a live connection,
+and never changes formal marks. A public subject home uses its browser journal.
+Private learning records are scoped to the learner and course and have their own
+export/import. Shared subject plans and investigation notebooks are included in
+the combined practice backup; private snapshot records must be exported from that
+snapshot. Reopen other tabs after restoring records to avoid stale browser state.
+
+The planner uses a teacher-assigned test or a student-created scope, a date and
+5–90 minutes per day. It prioritizes linked lost marks, unattempted areas and older
+evidence, then offers warm-up, practice and independent-check steps. Activities
+are estimated five-minute starting points, spaced within the available days.
+Insufficient time is shown explicitly; completion checkboxes are self-reports.
+
+### Investigations
+
+Each subject has two new investigations with adjustable controls, recorded data,
+an accessible readings table, scatter plot, prediction, conclusion and fresh check.
+Chemistry covers heating and reaction rate; maths covers regression and revenue
+optimization. The regression investigation fits a least-squares line only when
+other model settings are held constant. All models disclose assumptions; simulated
+measurements are not experimental evidence about real systems.
+
+Notebooks save in the browser and can be exported. Only the final numerical check
+enters the practice journal; written conclusions and broader investigation skills
+are not automatically marked. The previous maths exploration projects remain at
+`exploration-projects.html`, linked from the new investigation page. Investigation
+assignments require the full practice folder and assignment JSON; single-file
+assignment exports continue to support the other question types.
