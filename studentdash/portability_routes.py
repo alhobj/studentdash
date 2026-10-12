@@ -1,5 +1,6 @@
 """Teacher-only download and non-overwriting restore controls."""
 from io import BytesIO
+from werkzeug.utils import secure_filename
 import secrets
 import shutil
 from uuid import uuid4
@@ -41,9 +42,11 @@ def register_portability_routes(app, active_config, base_config):
             except (ValueError, OSError) as exc:
                 error = str(exc)
         config = active_config()
+        source_label = (read_document(config.workbook)['name'] if config.workbook.exists() and
+                        config.workbook.suffix == '.sdclass' else config.workbook.name)
         students = read_workbook(config.workbook).students.values() if config.workbook.exists() else []
         return render_template('transfer.html', students=students, restored=restored, restored_key=restored_key, error=error,
-                               source_exists=config.workbook.exists()), 400 if error else 200
+                               source_exists=config.workbook.exists(), source_label=source_label), 400 if error else 200
 
     @bp.post('/transfer/download/<kind>')
     def download(kind):
@@ -51,7 +54,9 @@ def register_portability_routes(app, active_config, base_config):
             if kind == 'practice':
                 content, filename = practice_package(), 'classroom-practice.zip'
             elif kind == 'student':
-                content, filename = student_package(active_config(), request.form.get('student', '')), 'private-student-package.zip'
+                sid = request.form.get('student', '')
+                content = student_package(active_config(), sid)
+                filename = 'private-student-' + secure_filename(sid) + '.zip'
             elif kind == 'backup':
                 content, filename = backup_workspace(active_config()), 'teacher-workspace-backup.zip'
             else:

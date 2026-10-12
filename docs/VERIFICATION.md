@@ -87,6 +87,28 @@ Interactive exit tickets remain a local fictional simulation without real
 authentication. Follow the classroom-use steps in `SYSTEM_GUIDE.md` before
 introducing actual student records. The implemented follow-up rules are documented in `FOLLOW_UP.md`; remaining
 product and pilot work is listed in `TODO.md`.
+# Classroom rollout verification — 2026-10-12
+
+- Ran the complete 242-test suite, including local Edge browser tests. Its only
+  failure was an old browser expectation that detailed results were immediately
+  visible; the current student home intentionally puts them behind navigation.
+  Updated the test to open Detailed results & feedback, then Assessments. The
+  affected full clipboard/keyboard/save/reopen/snapshot test passed on rerun.
+- Added and passed a full PDF upload → question review → score entry → private ZIP
+  download → extracted offline snapshot test. Checked selected-class display,
+  student-specific download filename, exclusion of another learner's records,
+  and exclusion of teacher databases/original documents from the package.
+- All four portability tests passed after the download changes, including backup
+  restore integrity, private/public separation and teacher-only access. All nine
+  exam-bank import/repair tests passed, including clean-checkout output setup.
+- These runs cover 243 distinct tests. The complete suite was not repeated after
+  the targeted fixes; affected tests were rerun successfully.
+- Prepared a practice-only ZIP and verified its ZIP integrity and exclusion of
+  class databases and the private exam bank. Updated classroom/import guidance.
+- Actual school SharePoint permissions, managed student-device behavior, and the
+  user's forthcoming test layout remain untested. Try one downloaded/extracted
+  package on an intended student device before class-wide distribution.
+
 # Classification verification — 2026-09-23
 
 - `python -m unittest discover -s tests`: 87 tests passed, including tag validation,

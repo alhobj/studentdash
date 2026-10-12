@@ -6,10 +6,11 @@ system. IB Chemistry is the first implementation and test profile. See the
 assumptions and the configuration-driven target. Local assessment usability comes
 first; public/hosted development is deferred.
 
-A local Python dashboard prototype developed entirely with fictional learners and
-assessment records. Excel is the input; each learner gets a self-contained HTML
-snapshot. A local Flask workspace lets teachers review validation notes, generate
-snapshots and preview them.
+A local Python dashboard developed and tested with fictional learners and
+assessment records. Import a PDF/DOCX assessment and paste question scores, or use
+the existing Excel workbook workflow. Each learner receives an individual HTML
+snapshot with practice resources. A local Flask workspace provides teacher review,
+score entry, feedback and private download packages.
 
 The [local exit-ticket workflow](docs/EXIT_TICKETS.md) adds one-block JSON import,
 preview/publish, fictional student sessions, submissions, deterministic marking and
@@ -27,6 +28,9 @@ Exit tickets also support [audited corrections, linked retakes and answer-releas
 controls](docs/FOLLOW_UP.md). See [TODO](TODO.md) for suggested next milestones.
 
 ## Enter your first assessment
+
+For classroom rollout, follow the [first-use checklist](docs/CLASSROOM_CHECKLIST.md),
+including private student packages, SharePoint downloads and backups.
 
 Prefer **Import assessment** to upload a PDF/DOCX test, review its questions and
 classification suggestions, and continue into score entry. **Create manually**

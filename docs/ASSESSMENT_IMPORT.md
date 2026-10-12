@@ -42,10 +42,10 @@ matching**, not an LLM. Suggestions show detected versus inferred provenance and
 heuristic confidence, not probabilities. Nothing is sent to an external AI service.
 Teacher edits and rejections take precedence on later suggestion passes.
 
-Curriculum proposals use only the class's configured tree. The bundled IB Chemistry
-profile currently has no curriculum nodes, so it reports **Needs review** rather
-than inventing syllabus codes. Its tag suggestions still work. No curriculum
-importer or profile-management screen was added in this milestone.
+Curriculum proposals use only the class's configured tree. Select a curriculum
+when creating the class, or connect one through **Curriculum & reviewed question
+links**. Without a configured tree, suggestions cannot invent syllabus codes.
+Tag suggestions still work and all proposed links require review.
 
 Scans need transcription; OCR is not implemented. PDF columns, equations, automatic
 Word numbering, table placement and image associations may need correction.

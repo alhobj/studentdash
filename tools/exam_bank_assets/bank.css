@@ -1,0 +1,9 @@
+:root {font-family:system-ui,sans-serif;color:#173b3a;background:#f2f7f6;line-height:1.6}
+main {max-width:980px;margin:2rem auto;padding:1.5rem;background:white;border-radius:16px}
+h1,h2 {line-height:1.2} a {color:#09635b} label {display:block;margin:.8rem 0}
+input[type=search] {display:block;width:95%;max-width:650px} input,select,button {font:inherit;padding:.5rem}
+article {border-top:1px solid #d8e4e1;padding:1rem 0} article p {margin:.25rem 0}
+img {max-width:100%;height:auto} table {border-collapse:collapse} td,th {border:1px solid #bbc;padding:.4rem}
+details {margin:1.5rem 0;padding:1rem;background:#f2f7f6} summary {cursor:pointer;font-weight:600}
+.warning {padding:.7rem;background:#fff3d6;color:#633f00;border-left:4px solid #b87b00}
+dt {font-weight:600} dd {margin:0 0 .5rem;overflow-wrap:anywhere} math {font-size:1.1em}

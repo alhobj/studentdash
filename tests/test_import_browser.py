@@ -29,6 +29,42 @@ class ImportBrowserTests(unittest.TestCase):
             checkbox.check()
         self.page.locator('#review-ack').check()
 
+    def test_full_import_scores_private_download_and_offline_open(self):
+        from zipfile import ZipFile
+        from playwright.sync_api import expect
+        self.upload('pdf')
+        self.review_all()
+        p = self.page
+        p.get_by_role('button', name='Create assessment', exact=True).click()
+        p.wait_for_url('**/scores?saved=1')
+        for row, values in enumerate(([1, 1, 1, 1, 1], [0, 0, 0, 0, 0])):
+            for col, value in enumerate(values):
+                p.locator(f'input[data-row="{row}"][data-col="{col}"]').fill(str(value))
+        p.get_by_role('button', name='Save scores', exact=True).click()
+        p.wait_for_url('**/scores?saved=1')
+        doc = ClassStore(self.root / 'entered_classes').list()[0]
+        sid = doc['students'][0]['id']
+        p.goto(self.base + '/transfer?class_key=' + doc['id'])
+        expect(p.get_by_text('Fictional import class', exact=False)).to_be_visible()
+        p.get_by_label('Student', exact=True).select_option(sid)
+        with p.expect_download() as download:
+            p.get_by_role('button', name='Download private student package', exact=True).click()
+        item = download.value
+        self.assertEqual(item.suggested_filename, f'private-student-{sid}.zip')
+        archive_path = self.root / item.suggested_filename
+        item.save_as(archive_path)
+        offline = self.root / 'offline'
+        with ZipFile(archive_path) as archive:
+            html = archive.read('index.html').decode()
+            self.assertNotIn(doc['students'][1]['id'], html)
+            self.assertNotIn('Bob Private', html)
+            self.assertNotIn('Alice Private', html)
+            self.assertFalse(any(n.endswith(('.sdclass', '.sqlite3', '.xlsx', '.pdf')) for n in archive.namelist()))
+            archive.extractall(offline)
+        p.goto((offline / 'index.html').as_uri())
+        expect(p.locator('body')).to_contain_text('Fictional assessment import example')
+        self.assertEqual(self.errors, [])
+
     def test_pdf_upload_review_finalize_and_score_grid(self):
         from playwright.sync_api import expect
         self.upload('pdf')
