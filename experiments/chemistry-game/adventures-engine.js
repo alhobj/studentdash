@@ -28,9 +28,21 @@ window.createAdventureRunner=function(api){
     if(!visible.length)el('p',mode==='ready'?'No new quests are ready. Open All quests to see what equipment or practice opens the next route.':'No completed quests yet.');
     for(const q of visible){
       const done=read().completedActivities.includes(q.id),needs=missing(q);
-      button(`${done?'✓':needs.length?'◇':'→'} ${q.section} · ${q.title}`,()=>offer(q));
+      button(`${done?'✓':needs.length?'◇':'→'} ${q.section}${q.level?' · '+q.level:''} · ${q.title}`,()=>offer(q));
       el('p',read().activityDrafts[q.id]?`In progress · step ${read().activityDrafts[q.id].stage+1} of ${q.steps.length}`:done?(read().independentActivities.includes(q.id)?'Completed without hints on at least one run.':'Completed with support. You can replay without hints.'):(needs.join(' ')||'Ready to start.'));
     }
+  }
+  function coverage(){
+    open();el('small','SYLLABUS ROUTES');el('h2','Find an investigation by section');
+    el('p','Each section has an introductory investigation. Completing it does not mean every statement or skill in that section has been mastered. AHL activities are labelled separately.');
+    for(const [id,section]of Object.entries(profile.sectionCatalog||{})){
+      const entry=el('section');entry.className='notebook-entry';el('h3',`${id} · ${section.summary}`,entry);el('p',section.level,entry);
+      for(const q of quests.filter(q=>q.section===id)){
+        const done=read().completedActivities.includes(q.id),needs=missing(q);
+        button(`${done?'Completed':needs.length?'Locked':'Ready'} · ${q.title}${q.level?' · '+q.level:''}`,()=>offer(q),entry);
+      }
+    }
+    button('Back to ready quests',journal);
   }
   function notebook(id){
     open();el('small','YOUR RESEARCH NOTEBOOK');
@@ -51,7 +63,7 @@ window.createAdventureRunner=function(api){
     button('Notebook contents',notebook);button('Revisit this investigation',()=>offer(q));
   }
   function offer(q){
-    open();el('small',`${q.section} / ${q.npc}`);el('h2',q.title);el('p',q.story);
+    open();el('small',`${q.section}${q.level?' / '+q.level:''} / ${q.npc}`);el('h2',q.title);el('p',q.story);
     const needs=missing(q);
     if(needs.length){needs.forEach(text=>el('p',text));button('Arrange equipment',arrange);button('Visit supply desk',supply);button('Return to teaching lab',training);button('Other quests',journal);return;}
     el('p',`First completion: ${q.reward.credits} credits${q.reward.tool?' + '+equipment[q.reward.tool]:''}${q.reward.elements?' + '+q.reward.elements.join(', ')+' element cards':''}. Free hints are always available.`);
@@ -62,6 +74,22 @@ window.createAdventureRunner=function(api){
     let stage=read().activityDrafts[q.id]?.stage||0,assisted=read().activityDrafts[q.id]?.assisted||false;
     function remember(extra={}){read().activityDrafts[q.id]={stage,assisted,...extra};save();}
     function advance(){button(stage+1<q.steps.length?'Next step':'Finish quest',()=>{stage++;if(stage<q.steps.length){remember();render();}else complete();});}
+    function matchStep(step){
+      const controls=step.fields.map((field,i)=>{
+        const label=el('label',field.label);label.className='match-field';const select=el('select',undefined,label);select.setAttribute('aria-label',field.label);
+        el('option','Choose a match…',select).value='';
+        step.options.forEach(option=>el('option',option,select).value=option);
+        select.value=read().activityDrafts[q.id]?.values?.[i]||'';
+        select.onchange=()=>remember({values:controls.map(c=>c.value)});return select;
+      });
+      const feedback=el('p');feedback.className='feedback';feedback.setAttribute('role','status');
+      const hint=button('Free hint',()=>{assisted=true;remember({values:controls.map(c=>c.value)});feedback.textContent=step.hint;});
+      const check=button('Check matches',()=>{
+        if(!controls.every((control,i)=>control.value===step.fields[i].target)){assisted=true;remember({values:controls.map(c=>c.value)});feedback.textContent='Not quite yet. '+step.hint;return;}
+        feedback.textContent='Correct. '+step.explanation;controls.forEach(c=>c.disabled=true);hint.disabled=check.disabled=true;advance();
+      });
+      remember({values:controls.map(c=>c.value)});button('Return to journal',journal);
+    }
     function orderStep(step){
       let order=[...(read().activityDrafts[q.id]?.order||step.initialOrder)],locked=false;const list=el('div');list.className='ordering-list';
       const feedback=el('p');feedback.className='feedback';feedback.setAttribute('role','status');
@@ -72,8 +100,9 @@ window.createAdventureRunner=function(api){
       button('Return to journal',journal);paint();
     }
     function render(){
-      open();const step=q.steps[stage];el('small',`${q.section} / STEP ${stage+1} OF ${q.steps.length}`);el('h2',step.title);el('p',step.context);
+      open();const step=q.steps[stage];el('small',`${q.section}${q.level?' / '+q.level:''} / STEP ${stage+1} OF ${q.steps.length}`);el('h2',step.title);el('p',step.context);
       if(step.kind==='order'){orderStep(step);return;}
+      if(step.kind==='match'){matchStep(step);return;}
       const form=el('div');form.className='activity-fields';const inputs=[],adjusters=[];
       for(const [fieldIndex,f] of step.fields.entries()){
         const row=el('label',f.label,form);row.className='quantity-field';const control=el('div',undefined,row);control.className='quantity-controls';
@@ -92,6 +121,7 @@ window.createAdventureRunner=function(api){
         if(step.model){
           if(values.some(v=>!Number.isFinite(v))){el('p','Enter valid control values.',visual);return;}
           const model=profile.models[step.model](values);for(const line of model.lines)el('p',line,visual);
+          for(const bar of model.bars||[]){const label=el('label',`${bar.label}: ${Number(bar.value.toFixed(3))}`,visual);label.className='model-bar';const meter=el('meter',undefined,label);meter.min=0;meter.max=bar.max;meter.value=bar.value;meter.setAttribute('aria-label',bar.label);}
           if(model.piston!==undefined){const chamber=el('div',undefined,visual);chamber.className='piston-chamber';const gas=el('div','·  ·  ·  ·  ·  ·  ·  ·',chamber);gas.className='piston-gas';gas.style.width=Math.max(10,Math.min(100,model.piston*100))+'%';}
           const gauge=el('div',undefined,visual);gauge.className='experiment-gauge';gauge.setAttribute('aria-label',model.gauge);const fill=el('div',undefined,gauge);fill.style.width=`${Math.max(0,Math.min(1,model.fraction))*100}%`;
         }else if(step.visual==='atom'){
@@ -106,7 +136,7 @@ window.createAdventureRunner=function(api){
       const hint=button('Free hint',()=>{assisted=true;remember({values:inputs.map(i=>String(i.value))});feedback.textContent=step.hint;});
       const check=button('Check model',()=>{
         const valid=inputs.every((input,i)=>{const f=step.fields[i],v=Number(input.value);return input.value.trim()!==''&&Number.isFinite(v)&&v>=f.min&&v<=f.max;});
-        const correct=valid&&(step.model?Math.abs(profile.models[step.model](inputs.map(input=>Number(input.value))).values[step.goal.key]-step.goal.target)<=(step.goal.tolerance??0.000001):inputs.every((input,i)=>Math.abs(Number(input.value)-step.fields[i].target)<=(step.fields[i].tolerance??0.000001)));
+        const correct=valid&&(step.model?(step.goals||[step.goal]).every(goal=>Math.abs(profile.models[step.model](inputs.map(input=>Number(input.value))).values[goal.key]-goal.target)<=(goal.tolerance??0.000001)):inputs.every((input,i)=>Math.abs(Number(input.value)-step.fields[i].target)<=(step.fields[i].tolerance??0.000001)));
         if(!correct){assisted=true;remember({values:inputs.map(i=>String(i.value))});feedback.textContent='Not quite yet. '+step.hint;return;}
         feedback.textContent='Correct. '+step.explanation;check.disabled=true;hint.disabled=true;[...inputs,...adjusters].forEach(input=>input.disabled=true);
         advance();
@@ -131,5 +161,5 @@ window.createAdventureRunner=function(api){
     available.forEach(q=>button(`${q.section} · ${q.title}`,()=>offer(q)));button('All quests',journal);return true;
   }
   function districtStatus(id){const list=quests.filter(q=>q.district===id);return !list.length?'CONCEPT':list.some(q=>!missing(q).length)?'OPEN':'QUESTS LOCKED';}
-  return {journal,notebook,summary,district,missing,districtStatus,visit:id=>offer(byId(id))};
+  return {journal,notebook,coverage,summary,district,missing,districtStatus,visit:id=>offer(byId(id))};
 };

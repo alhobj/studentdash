@@ -18,9 +18,16 @@ and character buttons provide the same access without walking. Hints are free in
 investigations. Supported completion earns the same quest reward; unhinted runs are
 recorded separately. Replays do not award credits twice.
 
-Ten investigations contain thirty steps across six districts. They include particle
+Twenty-three investigations contain sixty-nine steps across six districts. They include particle
 counters, ion ratios, ordering cards, numerical experiments, a calorimeter, titration
-and gas-piston models. Four curated molecular puzzles cover atom counts and bonds.
+and gas-piston models. New routes explore electron arrangements (S1.3), covalent
+bonding (S2.2), bond enthalpies (R1.2), limiting reactants and yields (R2.1), and
+dynamic equilibrium (R2.3). The remaining routes cover metals (S2.3), materials (S2.4), organic families
+(S3.2), fuels (R1.3), Gibbs energy (R1.4, labelled AHL), redox (R3.2), radicals
+(R3.3), and electron-pair reactions (R3.4). All 22 sections now have an introductory
+investigation. Each route samples its section; it does not cover every syllabus
+statement. Use **Explore syllabus sections** to find ready, locked and completed
+routes. See `COVERAGE.md` for the section-to-quest map. Four curated molecular puzzles cover atom counts and bonds.
 This is an exploratory learning game, not a complete course or a secure assessment.
 
 Progress and unfinished investigations save in this browser. Export/import moves a

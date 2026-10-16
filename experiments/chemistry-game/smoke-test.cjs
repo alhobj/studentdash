@@ -18,7 +18,7 @@ class Element{
 }
 const document={getElementById(id){if(!els.has(id))els.set(id,new Element());return els.get(id);},createElement(tag){return new Element(tag);},querySelector(){return new Element('button');}};
 global.document=document;global.window={addEventListener(){}};global.localStorage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)};global.requestAnimationFrame=fn=>{paintFrame=fn;};global.Option=function(text,value){const e=new Element('option');e.textContent=text;e.value=value;return e;};global.confirm=()=>true;
-function load(){vm.runInThisContext(fs.readFileSync(path.join(dir,'profile.js'),'utf8'),{filename:'profile.js'});for(const name of ['adventures.js','expansion.js','molecules.js','lab-room.js','adventures-engine.js'])vm.runInThisContext(fs.readFileSync(path.join(dir,name),'utf8'),{filename:name});vm.runInThisContext(fs.readFileSync(path.join(dir,'game.js'),'utf8'),{filename:'game.js'});}
+function load(){vm.runInThisContext(fs.readFileSync(path.join(dir,'profile.js'),'utf8'),{filename:'profile.js'});for(const name of ['adventures.js','expansion.js','further-investigations.js','remaining-sections.js','molecules.js','lab-room.js','adventures-engine.js'])vm.runInThisContext(fs.readFileSync(path.join(dir,name),'utf8'),{filename:name});vm.runInThisContext(fs.readFileSync(path.join(dir,'game.js'),'utf8'),{filename:'game.js'});}
 function find(root,match){if(root.tagName==='BUTTON'&&match(root.textContent))return root;for(const c of root.children){const x=find(c,match);if(x)return x;}return null;}
 function click(root,label){const b=find(root,s=>s.includes(label));assert.ok(b,`button containing "${label}" exists`);b.click();}
 const panel=document.getElementById('panel'),people=document.getElementById('people'),collection=document.getElementById('collection');
@@ -51,6 +51,10 @@ function quest(title,answers,{hint=false}={}){
  click(panel,find(panel,t=>t.includes('Resume activity'))?'Resume activity':find(panel,t=>t.includes('Replay activity'))?'Replay activity':'Accept quest and begin');
  if(hint)click(panel,'Free hint');
  for(let step=0;step<answers.length;step++){
+  if(answers[step].match){
+   const selects=descendants(panel).filter(n=>n.tagName==='SELECT');assert.equal(selects.length,answers[step].match.length);
+   selects.forEach((select,i)=>{select.value=answers[step].match[i];select.onchange();});click(panel,'Check matches');click(panel,step===answers.length-1?'Finish quest':'Next step');continue;
+  }
   if(answers[step].order){
    const list=descendants(panel).find(n=>n.className==='ordering-list');assert.ok(list);
    answers[step].order.forEach((label,target)=>{let index=list.children.findIndex(n=>n.textContent.includes(label));assert.ok(index>=0);while(index>target){const up=descendants(panel).find(n=>n.attributes['aria-label']===`Move ${label} up`);assert.ok(up);up.click();index--;}});
@@ -93,6 +97,53 @@ assert.ok(Math.abs(window.GAME_PROFILE.models.titration([30]).values.pH-11.9586)
 assert.equal(window.GAME_PROFILE.models.calorimeter([20]).values.energy,0);
 state=quest('Repair the gas-piston display',[[0.125],[400],[298.15]]);assert.ok(state.tools.includes('gasSyringe'));
 assert.ok(Math.abs(window.GAME_PROFILE.models.gasVolume([0.125]).values.pressure-199.536)<0.00001);
+// Five additional sections use the same progression and replay runner.
+state=quest('Relight the spectral archive',[[2,8,1],{order:['1s²','2s²','2p⁶','3s¹']},{order:['An atom absorbs energy','An electron occupies a higher energy level','The electron returns to a lower energy level','A photon carries away the energy difference']}]);
+state=quest('Repair the molecular model labels',[[2,2],[4,3],[2,180]]);
+state=quest('Balance the bond-energy ledger',[[1,1,2],[679,862],[-91.5]]);
+// Oxygen exhaustion alone is not enough: the required product amount must also be met.
+document.getElementById('journal').click();click(panel,'All quests');click(panel,'Plan the reaction batches');click(panel,'Accept quest and begin');
+let batchInputs=descendants(panel).filter(n=>n.tagName==='INPUT');batchInputs[1].value='1';batchInputs[1].oninput();click(panel,'Check model');
+assert.ok(!find(panel,t=>t==='Next step'),'insufficient product cannot pass the multi-goal check');
+assert.equal(descendants(panel).filter(n=>n.tagName==='METER').length,3);
+state=quest('Plan the reaction batches',[[4,2],[3,0.5],[80]]);
+state=quest('Restore the reversible reactor',[[0.75],[0.12,0],[3,0.75]]);assert.equal(state.completedActivities.length,15);
+assert.deepEqual(window.GAME_PROFILE.models.batchReaction([3,2]).values,{water:3,hydrogen:0,oxygen:0.5});
+assert.equal(window.GAME_PROFILE.models.reversibleMixture([0.75]).values.ratio,3);
+assert.equal(window.GAME_PROFILE.models.reactionEnergy([679,862]).values.delta,-183);
+const newQuestCredits=state.credits;
+state=quest('Restore the reversible reactor',[[0.75],[0.12,0],[3,0.75]]);assert.equal(state.credits,newQuestCredits);
+// Complete every previously uncovered section using its real UI controls.
+state=quest('Restore the metal workshop',[[12],{match:['Mobile delocalized electrons','Attraction between positive ions and electrons','Layers can slide while metallic attraction persists']},[4,12]]);
+state=quest('Design the materials cabinet',[[30],{match:['Copper metal','Diamond covalent network','Poly(ethene) chains']},[100,200]]);
+state=quest('Organize the organic archive',[{match:['Alcohol','Aldehyde','Carboxylic acid','Alkene']},[12],{match:['Butane','2-methylpropane']}]);
+state=quest('Compare the fuel supplies',[[2,1,2],[4],[5,12]]);
+state=quest('Tune the feasibility display',[[0.1],[400],[-10]]);
+state=quest('Restore the zinc–copper cell',[{match:['Oxidation','Reduction']},[3,2,6],{match:['Zinc electrode to copper electrode through wire','Through the salt bridge and solutions']}]);
+state=quest('Rebuild the radical sequence',[[2,1],{match:['Initiation','Propagation','Propagation','Termination']},[1,1]]);
+state=quest('Restore the electron-pair desk',[{match:['Electron-pair donor (nucleophile)','Electron-pair acceptor (electrophile)']},{match:['Oxygen lone pair → carbon bonded to Br','C–Br bond → bromine']},[2,1]]);
+assert.equal(state.completedActivities.length,23);
+const sections=JSON.parse(fs.readFileSync(path.join(dir,'../../resources/ib-chemistry/syllabus-reference.json'),'utf8')).sections;
+assert.deepEqual(Object.keys(window.GAME_PROFILE.sectionCatalog).sort(),Object.keys(sections).sort());
+const questIds=window.GAME_PROFILE.adventures.map(q=>q.id);
+assert.equal(new Set(questIds).size,questIds.length,'quest IDs must be unique');
+function checkRoute(id,path=[]){assert.ok(!path.includes(id),`No prerequisite cycle: ${id}`);const q=window.GAME_PROFILE.adventures.find(q=>q.id===id);assert.ok(q,`Prerequisite exists: ${id}`);for(const parent of q.requires?.completed||[])checkRoute(parent,[...path,id]);}
+questIds.forEach(id=>checkRoute(id));
+assert.equal(window.GAME_PROFILE.adventures.reduce((total,q)=>total+q.steps.length,0),69);
+for(const section of Object.keys(sections))assert.ok(window.GAME_PROFILE.adventures.some(q=>q.section===section),`Investigation for ${section}`);
+document.getElementById('coverage').click();assert.match(panel.textContent,/R1.4/);assert.match(panel.textContent,/AHL/);assert.match(panel.textContent,/R3.4/);
+assert.equal(window.GAME_PROFILE.models.gibbsTemperature([400]).values.delta,0);
+assert.equal(window.GAME_PROFILE.models.gibbsTemperature([500]).values.delta,-10);
+assert.equal(window.GAME_PROFILE.models.fuelBudget([4]).values.carbonDioxide,11);
+// Saved matching choices and support survive reload; blank answers earn nothing.
+const beforeMatchingCredits=state.credits;
+document.getElementById('journal').click();click(panel,'All quests');click(panel,'Restore the electron-pair desk');click(panel,'Replay activity');click(panel,'Check matches');
+assert.ok(!find(panel,t=>t==='Next step'));
+let matching=descendants(panel).filter(n=>n.tagName==='SELECT');matching[0].value='Electron-pair donor (nucleophile)';matching[0].onchange();load();
+document.getElementById('journal').click();click(panel,'All quests');click(panel,'Restore the electron-pair desk');click(panel,'Resume activity');
+assert.equal(descendants(panel).find(n=>n.tagName==='SELECT').value,'Electron-pair donor (nucleophile)');
+assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).activityDrafts['electron-pairs'].assisted,true);
+state=quest('Restore the electron-pair desk',[{match:['Electron-pair donor (nucleophile)','Electron-pair acceptor (electrophile)']},{match:['Oxygen lone pair → carbon bonded to Br','C–Br bond → bromine']},[2,1]]);assert.equal(state.credits,beforeMatchingCredits);
 // A partially answered, supported activity survives a new runtime.
 const beforeResumeCredits=state.credits;
 click(collection,'Arrange equipment');click(panel,'Place Magnetic stirrer');
@@ -124,14 +175,14 @@ state=molecule('NH₃',{N:1,H:3},[1,1,1]);assert.equal(state.completedModels.len
 document.getElementById('lab-room').click();assert.match(descendants(panel).find(n=>n.tagName==='CANVAS').attributes['aria-label'],/Burette/);
 paintFrame(16); // Exercise both pixel renderers, without claiming a visual browser test.
 load();assert.match(document.getElementById('quest-title').textContent,/restored research lab/);
-assert.match(collection.textContent,/10 \/ 10 campus quests complete/);
+assert.match(collection.textContent,/23 \/ 23 campus quests complete/);
 assert.match(collection.textContent,/NH₃/);
 document.getElementById('notebook').click();click(panel,'Repair the gas-piston display');
 let note=descendants(panel).find(n=>n.tagName==='TEXTAREA');assert.ok(note);note.value='Half the volume doubled the pressure at constant temperature.';note.oninput();
 load();document.getElementById('notebook').click();click(panel,'Repair the gas-piston display');
 assert.equal(descendants(panel).find(n=>n.tagName==='TEXTAREA').value,'Half the volume doubled the pressure at constant temperature.');
 const fullSave=JSON.parse(store.get('studentdash-element-quest-v1'));
-document.getElementById('reset').click();click(panel,'Cancel');assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).completedActivities.length,10);
+document.getElementById('reset').click();click(panel,'Cancel');assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).completedActivities.length,23);
 document.getElementById('reset').click();click(panel,'Reset this game save');state=JSON.parse(store.get('studentdash-element-quest-v1'));assert.equal(state.credits,0);assert.deepEqual(state.completedActivities,[]);
 async function importSave(value){await document.getElementById('import').onchange({target:{files:[{text:async()=>JSON.stringify(value)}],value:'test.json'}});}
 (async()=>{
@@ -142,5 +193,5 @@ async function importSave(value){await document.getElementById('import').onchang
  assert.match(document.getElementById('notice').textContent,/Invalid save/);assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).credits,fullSave.credits);
  await importSave({...fullSave,completedModels:['unknown-model']});assert.match(document.getElementById('notice').textContent,/Invalid save/);
  await importSave({version:1,credits:20,solved:[],independent:[],lab:false,water:true});assert.deepEqual(JSON.parse(store.get('studentdash-element-quest-v1')).completedModels,['water']);
- console.log('PASS: legacy saves, repair loop, ten quests, ordering, science models, equipment gates, hints, resumable tasks, notebook persistence, four molecules, pixel-renderer execution, one-time rewards, reset, valid imports and corrupt-save rejection.');
+ console.log('PASS: legacy saves, repair loop, 23 quests across all 22 sections, matching tasks and coverage links, ordering, science models, equipment gates, hints, resumable tasks, notebook persistence, four molecules, pixel-renderer execution, one-time rewards, reset, valid imports and corrupt-save rejection.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

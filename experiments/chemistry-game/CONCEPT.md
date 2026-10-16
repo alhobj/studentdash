@@ -26,7 +26,7 @@ Districts share one visual language but have different identities:
 Syllabus cross-references are conceptual connections, not a directed prerequisite
 graph. Use them for visible footpaths, revisiting questions and joint quests.
 Keep a separate, teacher-editable prerequisite graph. The initial checkpoint opens
-S1.2 from S1.1. Ten equipment and investigation quests now branch across all six
+S1.2 from S1.1. Twenty-three equipment and investigation quests now branch across all six
 districts; these proposed routes do not claim full syllabus coverage.
 
 ## Progression and economy
@@ -84,7 +84,7 @@ later comparison of CO and CO2, requiring different structures and explanations.
 
 ## Next stages, before a full game
 
-### Playable expansion: ten campus quests
+### Playable expansion: twenty-three campus quests
 
 The new quest journal offers two branches after the first restoration:
 
@@ -102,7 +102,22 @@ The new quest journal offers two branches after the first restoration:
 | Bo: titration desk | Complete solution and materials; place purchased pipette and burette | Order preparation; explore a strong-acid/strong-base pH model; calculate concentration | 22 credits |
 | Jun: gas-piston display | Complete weighing and isotope display | Change volume and temperature at controlled conditions; convert temperature to kelvin | Gas syringe, 18 credits |
 
-These contain thirty steps and no new MCQs. Atom and ion counters update a live
+| Mira: spectral archive | Complete isotope display | Arrange shell electrons, order occupied sublevels and an emission event | 18 credits |
+| Sol: molecular labels | Complete spectral archive | Count bonding/lone pairs and domains; set a molecular angle | 18 credits |
+| Kaia: bond-energy ledger | Complete energy station and molecular labels | Count bonds; balance energy totals; scale reaction enthalpy | 20 credits |
+| Bo: reaction batches | Complete reference solution | Adjust reagent amounts; identify limiting quantity; calculate yield | 20 credits |
+| Bo: reversible reactor | Complete reactor clock and reaction batches | Adjust composition to Kc; compare rates; predict catalyst effect | 22 credits |
+
+| Sol: metal workshop | Complete electron arrangements and ionic materials | Count delocalized electrons; match metal properties to explanations | 18 credits |
+| Sol: materials cabinet | Complete metals and covalent models | Set alloy composition; select structures; count polymer atoms | 20 credits |
+| Mira: organic archive | Complete covalent models and periodic archive | Match functional groups and isomers; calculate formula | 20 credits |
+| Kaia: fuel supplies | Complete bond-energy ledger and reaction batches | Balance combustion; adjust fuel mass; compare equal energy | 20 credits |
+| Kaia: feasibility display (AHL) | Complete bond-energy ledger and equilibrium | Convert entropy units; vary temperature; calculate Gibbs energy | 22 credits |
+| Bo: zinc–copper cell | Complete ionic materials and reaction batches | Classify redox; balance electron transfer; trace carriers | 20 credits |
+| Bo: radical sequence | Complete organic archive and bond-energy ledger | Count radical electrons; classify chain steps; combine equations | 18 credits |
+| Mira: electron-pair desk | Complete organic archive and covalent models | Identify donors/acceptors; match arrows; count donated electrons | 20 credits |
+
+These contain sixty-nine steps and no new MCQs. Atom and ion counters update a live
 particle/charge display. They are counting/formula models, not a molecular dynamics
 simulation. Solution preparation and stirring tasks are calculation/data activities;
 they do not claim to assess real laboratory technique. Stirring changes the observed
@@ -111,7 +126,7 @@ dissolving time here; it is not presented as increasing equilibrium solubility.
 Equipment is never consumed or permanently trapped in a slot. Only three items can
 be placed at once; removing an item frees the slot and keeps all completed progress.
 The journal explains each prerequisite and offers a route back to the teaching lab.
-New gates and rewards are in `adventures.js` and `expansion.js`; the generic
+New gates and rewards are in `adventures.js`, `expansion.js`, `further-investigations.js` and `remaining-sections.js`; the generic
 runner is in `adventures-engine.js`. Science models state their simplifying
 assumptions in each activity; simulated readings are fictional learning data.
 Supported completion grants the same quest reward; a separate local field records
@@ -155,7 +170,7 @@ or sample reward. Export a save, reset browser storage manually, and import it t
 check the portable-save path. `node smoke-test.cjs` runs a dependency-free mock-DOM
 interaction check for the quest/reward loop, repair-part cost, still activity,
 equipment placement, S1.1 gate and reload persistence. The expansion check also
-completes all ten quests, checks science-model values, verifies locked routes,
+completes all twenty-three quests, checks science-model values, verifies locked routes,
 supported practice, one-time rewards, unfinished-control/order persistence,
 four molecule models, notebook notes, valid imports, corrupt-save rejection and
 cancel/confirm reset. Both canvas painters are executed by the mock harness.
@@ -170,3 +185,25 @@ map topology, building collision, touch walking, unseen checkpoint variants,
 text-answer scaffolding, advanced molecule structures and live teacher controls
 remain future work. This remains a local, single-player prototype and does not
 sync progress across devices or connect to student results.
+
+
+## Additional section coverage
+
+The latest routes add S1.3, S2.2, R1.2, R2.1 and R2.3, mapped against the existing
+local syllabus reference. They are original fictional activities, not imported
+exam questions. Each represents selected concepts rather than full section mastery.
+Configurable models can show labelled numerical bars; multiple conditions can be
+required simultaneously (for example, the correct product amount and no excess
+oxygen). No new subject assumptions were added to the main Studentdash application.
+Older game saves retain progress and acquire these new routes automatically.
+
+
+The remaining eight sections now have introductory quests: S2.3, S2.4, S3.2,
+R1.3, R1.4, R3.2, R3.3 and R3.4. R1.4 is explicitly labelled AHL throughout
+its task screens. Every section in the local reference has at least one quest;
+`COVERAGE.md` records the mapping. This is section representation, not complete
+SL/AHL statement or experimental-skill coverage. The coverage screen provides
+ready/locked/completed navigation. Matching tasks use labelled native selects
+and save unfinished choices and support flags just like numerical tasks. Tests
+compare section coverage with the local reference and reject cyclic or missing
+prerequisite references in the content check.
