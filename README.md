@@ -6,6 +6,15 @@ system. IB Chemistry is the first implementation and test profile. See the
 assumptions and the configuration-driven target. Local assessment usability comes
 first; public/hosted development is deferred.
 
+## Local game experiments
+
+The standalone [Element Quest](experiments/chemistry-game/index.html) chemistry
+game now has a mathematics companion, [Pattern Quest](experiments/math-game/index.html).
+Open either local HTML file directly. Pattern Quest starts with five districts and
+ten investigations, browser saves and manual export/import. See its
+[game guide](experiments/math-game/README.md). These experiments do not change
+assessment marks or learner records and require no hosted service.
+
 A local Python dashboard developed and tested with fictional learners and
 assessment records. Import a PDF/DOCX assessment and paste question scores, or use
 the existing Excel workbook workflow. Each learner receives an individual HTML
