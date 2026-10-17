@@ -40,3 +40,49 @@ Run `node experiments/chemistry-game/smoke-test.cjs` from the repository root.
 The dependency-free mock-DOM harness exercises the progression and save flows.
 It is not a real-browser layout/accessibility test. See `CONCEPT.md` for scope,
 design decisions and remaining work.
+
+
+## Location screens and edge travel
+
+Each district now occupies its own screen, with a distinct palette and scenery.
+Click the map and use WASD or arrow keys. Cross an edge labelled with a destination
+to enter that screen from the opposite side. Unlabelled edges stop the character.
+You can keep holding a movement key through a transition. A short arrival fade
+pauses movement briefly; reduced-motion settings disable that fade. Press E near the local
+guide or central entrance to open that district's activities.
+
+Travel buttons offer the same locations without walking; the existing destination
+buttons travel and open the local activity menu. Visiting a screen does not bypass
+quest prerequisites. Hold the on-screen arrow buttons to walk on touch devices, or activate them with
+a keyboard for a small step. Pointer release/cancellation stops movement. The
+Talk / enter button works like E. The current travel destination is highlighted
+and available exits are listed in text. Paths lead only to connected edges.
+
+Position is session-only; refreshing returns to the first
+screen while keeping saved learning progress. Buildings, trees, shelving, machinery and water block walking. Northern paths
+pass beside buildings. Small ground decorations and signs remain walkable; there
+are no timed obstacles. A nearby-interaction prompt identifies a guide or doorway. Travel routes are authored geography,
+not a claim about curriculum prerequisites.
+
+`world-profile.js` contains local routes, palettes and guide positions.
+`screen-world.js` is the same standalone controller in both game folders so each
+folder remains portable. Run `node experiments/chemistry-game/world-test.cjs`
+from the repository root to test both maps and keyboard/travel-button integration.
+The tests use a mock DOM; they do not establish actual browser layout or focus
+behaviour. `locations-preview.png` is a static painter contact sheet, not a browser
+screenshot. Full browser verification remains outstanding.
+
+
+### Route map and character feedback
+
+**Open route map** displays the authored geography, highlights your current
+location and marks places visited during this session. Select a location for
+step-by-step walking directions or use its direct-travel button. This map shows
+travel connections rather than learning prerequisites; quest gates remain intact.
+Visited markers reset on reload and are not scores or mastery indicators.
+
+The character faces the direction of travel and alternates steps while moving.
+Walking into a wall stops the stepping pose. Reduced-motion mode keeps a static
+walking pose and removes arrival fades. Routes and animation are covered by the
+mock-DOM world tests, including route-map selection and direct travel. Actual
+browser and touch-device verification is still outstanding.

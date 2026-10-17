@@ -185,34 +185,23 @@
     catch(error){$('notice').textContent='Import failed. Current progress is unchanged. '+error.message;}finally{input.value='';}
   };
   P.districts.forEach(d=>{
-    button(`${d.guide} · ${d.name}`,()=>journal('all',d.id),$('destinations'));
+    button(`${d.guide} · ${d.name}`,()=>{travel(d.id);journal('all',d.id);},$('destinations'));
     const a=el('a',d.name+' →',$('routes'));a.href='../../resources/ib-math-ai-sl/'+d.resource;
   });
-  const canvas=$('map'),ctx=canvas.getContext('2d'),player={x:480,y:285};
-  function rect(x,y,w,h,color){ctx.fillStyle=color;ctx.fillRect(Math.round(x),Math.round(y),w,h);}
-  function paintMap(){
-    const s=engine.read();rect(0,0,960,576,'#294747');
-    for(let x=0;x<960;x+=24)for(let y=0;y<576;y+=24)if((x/24+y/24)%3===0)rect(x+6,y+9,3,3,'#3d5952');
-    // River, footpaths, bridges and a central town square, drawn without external assets.
-    rect(0,320,960,48,'#376575');rect(0,327,960,5,'#477b88');rect(0,355,960,4,'#477b88');
-    ctx.strokeStyle='#849184';ctx.lineWidth=18;ctx.beginPath();ctx.moveTo(170,205);ctx.lineTo(170,275);ctx.lineTo(790,275);ctx.lineTo(790,205);ctx.moveTo(480,185);ctx.lineTo(480,275);ctx.moveTo(260,275);ctx.lineTo(260,440);ctx.moveTo(690,275);ctx.lineTo(690,440);ctx.stroke();
-    [260,690].forEach(x=>{rect(x-19,315,38,59,'#a18b65');for(let y=319;y<374;y+=9)rect(x-19,y,38,3,'#c4ab79');});
-    rect(420,235,120,72,'#a8a388');rect(449,247,62,42,'#597f81');rect(459,255,42,26,'#83b7bc');
-    for(const d of P.districts){
-      const qs=P.quests.filter(q=>q.district===d.id),n=qs.filter(q=>s.completed.includes(q.id)).length;
-      rect(d.x-91,d.y-48,188,119,'#1c3538');rect(d.x-82,d.y-63,164,111,d.color);rect(d.x-90,d.y-74,180,20,'#243c45');
-      rect(d.x-69,d.y-39,138,61,'#3c5359');for(let i=0;i<3;i++){rect(d.x-60+i*45,d.y-29,27,25,n?'#e3d397':'#94b7b7');rect(d.x-48+i*45,d.y-29,3,25,'#415a5e');}
-      rect(d.x-14,d.y+5,28,43,'#203641');rect(d.x-9,d.y+11,18,30,n===qs.length?'#dbd49b':'#779a9a');
-      ctx.font='bold 14px monospace';ctx.textAlign='center';ctx.fillStyle='#edf0df';ctx.fillText(d.name.toUpperCase(),d.x,d.y-86);
-      ctx.font='12px monospace';ctx.fillStyle='#e6d399';ctx.fillText(`${n}/${qs.length} restored`,d.x,d.y+71);
-      const nx=d.x+110,ny=d.y+44;rect(nx-6,ny-12,12,13,'#d9ad8b');rect(nx-8,ny+1,16,17,d.color);rect(nx-6,ny+18,5,8,'#182d38');rect(nx+2,ny+18,5,8,'#182d38');ctx.font='11px monospace';ctx.fillStyle='#fff0b7';ctx.fillText(d.guide.toUpperCase(),nx,ny-19);
-    }
-    for(const [x,y]of [[45,80],[900,75],[54,446],[898,463],[390,192],[575,430]]){rect(x-3,y,7,29,'#a18c69');rect(x-17,y-18,34,29,'#638871');rect(x-11,y-28,22,20,'#88a47b');}
-    rect(player.x-10,player.y+20,23,6,'#1a3339');rect(player.x-7,player.y-12,14,15,'#e0b692');rect(player.x-9,player.y-17,18,7,'#544a41');rect(player.x-10,player.y+3,20,18,'#e6d79c');rect(player.x-7,player.y+21,5,9,'#1b303c');rect(player.x+3,player.y+21,5,9,'#1b303c');rect(player.x+4,player.y+6,6,9,'#799b94');ctx.font='11px monospace';ctx.textAlign='center';ctx.fillStyle='#fff0b7';ctx.fillText('YOU',player.x,player.y-25);
-  }
-  function interact(){const d=[...P.districts].sort((a,b)=>Math.hypot(a.x-player.x,a.y-player.y)-Math.hypot(b.x-player.x,b.y-player.y))[0];if(Math.hypot(d.x-player.x,d.y-player.y)<180)journal('all',d.id);else $('notice').textContent='Walk closer to a district, or use its destination button below the map.';}
-  canvas.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d','e'].includes(k)){e.preventDefault();if(k==='e'&&!e.repeat)interact();else keys.add(k);}});
+  const canvas=$('map');
+  const world=window.createScreenWorld({canvas,rooms:P.rooms,reducedMotion:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false,start:'number',coat:'#e6d79c',
+    onHint:text=>$('interaction-hint').textContent=text,
+ status:id=>`${P.quests.filter(q=>q.district===id&&engine.read().completed.includes(q.id)).length} investigations restored`,
+    onChange:r=>{for(const b of $('travel-buttons').children)b.setAttribute('aria-current',b.textContent==='Travel to '+r.name?'location':'false');$('location-name').textContent=r.name;$('travel-status').textContent='Arrived at '+r.name+'. Exits: '+Object.entries(r.exits).map(([direction,id])=>direction+' to '+P.rooms.find(room=>room.id===id).name).join('; ')+'.';canvas.setAttribute('aria-label',r.name+'. Walk with arrows or WASD; E near a guide or entrance.');},
+    onInteract:(_id,room)=>journal('all',room)});
+  function paintMap(){world.paint();}
+  function travel(id){keys.clear();world.travel(id);world.paint();canvas.focus?.();}
+  P.districts.forEach(d=>button('Travel to '+d.name,()=>travel(d.id),$('travel-buttons')));
+  function interact(){if(!world.interact())$('travel-status').textContent='Move near the guide or central entrance and press E.';}
+  $('atlas').onclick=()=>{keys.clear();walking.stop();open('Meridian route map','EXPLORE THE TOWN');window.renderWorldAtlas({parent:panel,world,rooms:P.rooms,travel:id=>{dialog.close();travel(id);}});};
+const walking=window.attachWalkingControls({container:$('walking-controls'),keys,world,interact,blocked:()=>dialog.open});dialog.addEventListener('close',()=>walking.stop());
+canvas.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d','e'].includes(k)){e.preventDefault();if(k==='e'){if(!e.repeat)interact();}else keys.add(k);}});
   window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));canvas.addEventListener('blur',()=>keys.clear());window.addEventListener('blur',()=>keys.clear());
-  let previous=0;function frame(time){const dt=Math.min((time-previous)/1000,.04);previous=time;if(!dialog.open&&keys.size){const dx=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft')),dy=Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup')),norm=Math.hypot(dx,dy)||1;player.x=Math.max(20,Math.min(940,player.x+dx/norm*150*dt));player.y=Math.max(25,Math.min(535,player.y+dy/norm*150*dt));paintMap();}requestAnimationFrame(frame);}
-  refresh();requestAnimationFrame(frame);
+  let previous=0;function frame(time){const dt=Math.min((time-previous)/1000,.04);previous=time;if(!dialog.open){const dx=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft')),dy=Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'));world.step(dx,dy,dt);}else keys.clear();paintMap();requestAnimationFrame(frame);}
+  travel('number');refresh();requestAnimationFrame(frame);
 })();

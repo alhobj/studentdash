@@ -5,9 +5,9 @@
 <header><div><small>STUDENTDASH / GAME LAB / LOCAL PROTOTYPE</small><h1>Pattern Quest <span>Mathematics</span></h1></div><div id="wallet" aria-live="polite"></div></header>
 <main>
   <section class="world"><div class="world-title"><div><small>CHAPTER 01 · A TOWN IN THE MAKING</small><h2>Welcome to Meridian</h2><p>A broken clock. An unfinished bridge. A hundred patterns to discover.</p></div><span class="pill">Explore at your own pace</span></div>
-    <canvas id="map" width="960" height="576" tabindex="0" aria-label="Meridian map. Walk with arrows or WASD. Press E near a district to meet its guide. All destinations are also available as buttons below."></canvas>
-    <p class="controls">Click the map to walk: WASD / arrows · E to meet a guide · Or choose any destination below.</p>
-    <nav id="destinations" aria-label="Districts and guides"></nav>
+    <h2 id="location-name"></h2><canvas id="map" width="960" height="576" tabindex="0" aria-label="Meridian map. Walk with arrows or WASD. Press E near a district to meet its guide. All destinations are also available as buttons below."></canvas>
+    <p class="controls">Click the map: WASD / arrows · Cross a signed screen edge to travel · E near a guide or entrance.</p>
+    <p id="interaction-hint" role="status"></p><button id="atlas">Open route map</button><nav id="walking-controls" aria-label="Walk or interact"></nav><p id="travel-status" role="status"></p><nav id="travel-buttons" aria-label="Travel without walking"></nav><nav id="destinations" aria-label="Districts and guides"></nav>
     <p class="legend">Paths connect the town. Quest requirements are authored game routes, not official curriculum prerequisites.</p>
   </section>
   <aside>
@@ -19,5 +19,5 @@
 </main>
 <dialog id="dialog" aria-labelledby="panel-title"><button id="close" class="close" aria-label="Close dialog">×</button><div id="panel"></div></dialog>
 <noscript><p>This interactive game needs JavaScript enabled. No server or account is required.</p></noscript>
-<script src="profile.js"></script><script src="engine.js"></script><script src="game.js"></script>
+<script src="profile.js"></script><script src="engine.js"></script><script src="world-profile.js"></script><script src="screen-world.js"></script><script src="walking-controls.js"></script><script src="route-atlas.js"></script><script src="game.js"></script>
 </body></html>

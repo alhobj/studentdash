@@ -207,3 +207,14 @@ ready/locked/completed navigation. Matching tasks use labelled native selects
 and save unfinished choices and support flags just like numerical tasks. Tests
 compare section coverage with the local reference and reject cyclic or missing
 prerequisite references in the content check.
+
+
+## Screen-world update
+
+The six districts now occupy separate coloured screens, joined by labelled edge
+exits. Scenery and local guide positions come from world-profile.js. The older
+preview.png shows the original overview and is retained as historical concept art;
+locations-preview.png shows the current scenes. The old dotted campus overview
+has been replaced; the recorded syllabus cross-reference list below the map remains.
+A screen visit does not unlock an investigation. See README.md for movement and
+standalone map tests. Locations reset on reload; saved quest progress is unchanged.
