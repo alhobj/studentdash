@@ -6,13 +6,13 @@ window.GAME_PROFILE.rooms=[
     "short": "Garden",
     "theme": "garden",
     "palette": {
-      "ground": "#294a40",
-      "detail": "#65885b",
-      "path": "#88906b",
-      "roof": "#263c33",
+      "ground": "#64845b",
+      "detail": "#527345",
+      "path": "#c6ad7a",
+      "roof": "#a46f4d",
       "accent": "#b4d38b",
-      "window": "#bde2cb",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "right": "S2",
@@ -100,13 +100,13 @@ window.GAME_PROFILE.rooms=[
     "short": "Workshop",
     "theme": "factory",
     "palette": {
-      "ground": "#493d31",
-      "detail": "#84654a",
-      "path": "#a68b64",
-      "roof": "#302b30",
+      "ground": "#7c8661",
+      "detail": "#a88d63",
+      "path": "#c6ad7a",
+      "roof": "#986547",
       "accent": "#dcac6c",
-      "window": "#e5cf9c",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "left": "S1",
@@ -153,13 +153,13 @@ window.GAME_PROFILE.rooms=[
     "short": "Archive",
     "theme": "archive",
     "palette": {
-      "ground": "#39324f",
-      "detail": "#7e7198",
-      "path": "#8e84a1",
-      "roof": "#27283b",
+      "ground": "#74816d",
+      "detail": "#a6a57b",
+      "path": "#c6ad7a",
+      "roof": "#7c718a",
       "accent": "#c3a3df",
-      "window": "#e2d4ea",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "left": "S2",
@@ -229,13 +229,13 @@ window.GAME_PROFILE.rooms=[
     "short": "Energy",
     "theme": "energy",
     "palette": {
-      "ground": "#512f29",
-      "detail": "#a15d3c",
-      "path": "#b48d65",
-      "roof": "#322a2d",
+      "ground": "#8b865c",
+      "detail": "#b99e66",
+      "path": "#c6ad7a",
+      "roof": "#ac6946",
       "accent": "#f0ad69",
-      "window": "#ffe0ac",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "up": "S1",
@@ -281,13 +281,13 @@ window.GAME_PROFILE.rooms=[
     "short": "Waterworks",
     "theme": "water",
     "palette": {
-      "ground": "#244550",
-      "detail": "#568894",
-      "path": "#7e9d99",
-      "roof": "#203641",
+      "ground": "#689484",
+      "detail": "#9db78c",
+      "path": "#c6ad7a",
+      "roof": "#5e8993",
       "accent": "#8cc9d8",
-      "window": "#c9ece4",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "up": "S2",
@@ -334,13 +334,13 @@ window.GAME_PROFILE.rooms=[
     "short": "Observatory",
     "theme": "stars",
     "palette": {
-      "ground": "#342c49",
-      "detail": "#796084",
-      "path": "#98839e",
-      "roof": "#21283d",
+      "ground": "#657486",
+      "detail": "#9b9eaf",
+      "path": "#c6ad7a",
+      "roof": "#68718f",
       "accent": "#e5aec8",
-      "window": "#f0d7e8",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "up": "S3",

@@ -22,7 +22,7 @@ global.document=document;global.window={addEventListener(){}};global.localStorag
 for(const game of ['chemistry-game','math-game']){
  const base=path.join(dir,'..',game);els.clear();store.clear();
  const files=game==='chemistry-game'?['profile.js','adventures.js','expansion.js','further-investigations.js','remaining-sections.js','molecules.js','lab-room.js','adventures-engine.js']:['profile.js','engine.js'];
- for(const name of [...files,'world-profile.js','screen-world.js','walking-controls.js','route-atlas.js'])vm.runInThisContext(fs.readFileSync(path.join(base,name),'utf8'),{filename:name});
+ for(const name of [...files,'world-profile.js','village-art.js','screen-world.js','walking-controls.js','route-atlas.js'])vm.runInThisContext(fs.readFileSync(path.join(base,name),'utf8'),{filename:name});
  const p=game==='chemistry-game'?window.GAME_PROFILE:window.MATH_GAME_PROFILE;
  const reverse={left:'right',right:'left',up:'down',down:'up'},vectors={left:[-1,0],right:[1,0],up:[0,-1],down:[0,1]};
  let entered,interaction;
@@ -102,3 +102,5 @@ const mathSmoke=fs.readFileSync(path.join(dir,'../math-game/smoke-test.js'),'utf
 vm.runInThisContext(mathSmoke,{filename:'math-engine-smoke'});
 assert.ok(!document.getElementById('result').textContent.includes('FAIL'),document.getElementById('result').textContent);
 console.log(document.getElementById('result').textContent);
+
+assert.equal(fs.readFileSync(path.join(dir,'village-art.js'),'utf8'),fs.readFileSync(path.join(dir,'../math-game/village-art.js'),'utf8'),'portable art renderers match');

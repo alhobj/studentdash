@@ -6,13 +6,13 @@ window.MATH_GAME_PROFILE.rooms=[
     "short": "Market",
     "theme": "market",
     "palette": {
-      "ground": "#384b43",
-      "detail": "#769887",
-      "path": "#b9a578",
-      "roof": "#2d3d41",
+      "ground": "#839363",
+      "detail": "#a9b375",
+      "path": "#c6ad7a",
+      "roof": "#b57b52",
       "accent": "#ecd493",
-      "window": "#fff1c5",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "right": "functions",
@@ -58,13 +58,13 @@ window.MATH_GAME_PROFILE.rooms=[
     "short": "Foundry",
     "theme": "factory",
     "palette": {
-      "ground": "#4b4139",
-      "detail": "#967957",
-      "path": "#b8a17d",
-      "roof": "#2f3545",
+      "ground": "#7c8661",
+      "detail": "#a88d63",
+      "path": "#c6ad7a",
+      "roof": "#986547",
       "accent": "#dfb776",
-      "window": "#f2dca3",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "left": "number",
@@ -111,13 +111,13 @@ window.MATH_GAME_PROFILE.rooms=[
     "short": "Harbour",
     "theme": "water",
     "palette": {
-      "ground": "#284653",
-      "detail": "#648fa6",
-      "path": "#b3b8a5",
-      "roof": "#263449",
+      "ground": "#689484",
+      "detail": "#9db78c",
+      "path": "#c6ad7a",
+      "roof": "#5e8993",
       "accent": "#9ccde0",
-      "window": "#d9eff6",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "left": "functions"
@@ -162,13 +162,13 @@ window.MATH_GAME_PROFILE.rooms=[
     "short": "Gardens",
     "theme": "garden",
     "palette": {
-      "ground": "#3f3e55",
-      "detail": "#879184",
-      "path": "#a7a28d",
-      "roof": "#303348",
+      "ground": "#64845b",
+      "detail": "#527345",
+      "path": "#c6ad7a",
+      "roof": "#a46f4d",
       "accent": "#c5b3df",
-      "window": "#e4eed2",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "up": "number",
@@ -250,13 +250,13 @@ window.MATH_GAME_PROFILE.rooms=[
     "short": "Observatory",
     "theme": "stars",
     "palette": {
-      "ground": "#3d304e",
-      "detail": "#8b779b",
-      "path": "#9c8c9e",
-      "roof": "#272c44",
+      "ground": "#657486",
+      "detail": "#9b9eaf",
+      "path": "#c6ad7a",
+      "roof": "#68718f",
       "accent": "#e2a9a5",
-      "window": "#f0dee0",
-      "water": "#315b78"
+      "window": "#f1d9a0",
+      "water": "#4d8799"
     },
     "exits": {
       "up": "functions",

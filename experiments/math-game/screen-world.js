@@ -34,39 +34,15 @@ window.createScreenWorld=function({canvas,rooms,start,coat,onChange,onInteract,s
  function paint(){const r=room(),c=canvas.getContext('2d'),p=r.palette;
   const rect=(x,y,w,h,color)=>{c.fillStyle=color;c.fillRect(Math.round(x),Math.round(y),w,h);};
   const text=(s,x,y,size=14,color='#f3eed6')=>{c.font=`${size}px monospace`;c.textAlign='center';c.fillStyle=color;c.fillText(s,x,y);};
-  rect(0,0,W,H,p.ground);
-  for(let x=0;x<W;x+=32)for(let y=0;y<H;y+=32)if((x/32+y/32)%3===0)rect(x+7,y+14,4,3,p.detail);
-  // The north path passes beside the building, with a clear walking corridor.
-  rect(448,280,64,116,p.path);
-  if(r.exits.left)rect(0,332,480,64,p.path);
-  if(r.exits.right)rect(480,332,480,64,p.path);
-  if(r.exits.up){const nx=r.northExitX||480;rect(nx-14,0,28,364,p.path);rect(nx,332,480-nx,64,p.path);}
-  if(r.exits.down)rect(448,364,64,H-364,p.path);
-  if(r.theme==='water'){rect(20,100,300,180,p.water);rect(640,100,300,180,p.water);for(let y=120;y<270;y+=32){rect(40,y,250,3,p.detail);rect(665,y,250,3,p.detail);}rect(110,245,170,30,p.roof);}
-  if(r.theme==='garden'){for(const x of [70,200,720,850])for(const y of [160,450]){rect(x-4,y,8,34,p.roof);rect(x-24,y-24,48,40,p.detail);rect(x-15,y-38,30,22,p.accent);}for(let i=0;i<8;i++)rect(100+i*95,500,8,8,p.accent);}
-  if(r.theme==='factory'){for(const x of [90,740]){rect(x,100,120,140,p.roof);rect(x+20,120,80,90,p.detail);rect(x+45,60,25,50,p.accent);for(let y=425;y<520;y+=30)rect(x,y,130,10,p.accent);}}
-  if(r.theme==='energy'){for(const x of [65,740]){rect(x,100,150,170,p.roof);for(let i=0;i<4;i++)rect(x+15+i*32,120,20,120,p.accent);}for(let x=80;x<900;x+=80)rect(x,480,45,14,p.detail);}
-  if(r.theme==='archive'){for(const x of [65,735])for(const y of [110,180,450]){rect(x,y,150,48,p.roof);for(let i=0;i<7;i++)rect(x+10+i*19,y+8,11,28,i%2?p.accent:p.detail);}}
-  if(r.theme==='stars'){for(let i=0;i<32;i++){const x=(i*137+30)%W,y=(i*71+60)%H;if(x<340||x>630)rect(x,y,3,3,p.accent);}for(const x of [150,800]){rect(x-5,175,10,100,p.roof);rect(x-45,150,90,24,p.detail);rect(x+24,130,25,30,p.accent);}}
-  if(r.theme==='market'){for(const x of [70,730]){rect(x,120,160,90,p.roof);for(let i=0;i<8;i++)rect(x+i*20,100,20,30,i%2?p.accent:p.detail);rect(x+10,185,140,20,p.path);}}
-  // A single local destination, rather than every district on one canvas.
-  rect(350,106,260,174,p.roof);rect(338,96,284,30,p.accent);rect(368,142,224,90,p.detail);
-  for(let i=0;i<3;i++){rect(380+i*72,151,44,35,p.window);rect(400+i*72,151,4,35,p.roof);}
-  rect(462,216,36,64,p.roof);rect(468,225,24,55,p.window);
-  text(r.name,480,78,19);text(status?.(r.id)||'',480,455,13);text('E · Enter / meet your guide',480,306,13);
-  for(const a of r.actors){rect(a.x-7,a.y-14,14,14,'#dcb18b');rect(a.x-9,a.y,18,20,p.accent);rect(a.x-7,a.y+20,5,9,p.roof);rect(a.x+2,a.y+20,5,9,p.roof);text(a.name,a.x,a.y-24,12);}
+  window.paintVillageScene(c,r);
+  text(r.name,480,78,19);text(status?.(r.id)||'',480,455,13);
+  for(const a of r.actors){window.paintVillagePerson(c,{x:a.x,y:a.y,coat:p.accent,accent:p.roof});text(a.name,a.x,a.y-24,12);}
   for(const [edge,id]of Object.entries(r.exits)){const name=rooms.find(x=>x.id===id).short;
    const x=edge==='left'?105:edge==='right'?855:edge==='up'?(r.northExitX||480):480,y=edge==='up'?26:edge==='down'?553:366;
-   rect(x-100,y-19,200,28,p.roof);text(`${edge==='left'?'← ':edge==='up'?'↑ ':''}${name}${edge==='right'?' →':edge==='down'?' ↓':''}`,x,y,13);
+   rect(x-3,y+6,6,12,'#795334');rect(x-100,y-21,200,31,'#684b35');rect(x-97,y-18,194,25,'#a4794f');rect(x-94,y-16,188,2,'#d3ad74');text(`${edge==='left'?'← ':edge==='up'?'↑ ':''}${name}${edge==='right'?' →':edge==='down'?' ↓':''}`,x,y,13);
   }
   const x=player.x,y=player.y,pace=moving&&!reducedMotion?(Math.floor(stride/9)%2?2:-2):0;
-  rect(x-12,y+20,26,7,p.roof);rect(x-7,y-12,14,15,'#e0b692');rect(x-9,y-17,18,7,'#514239');
-  rect(x-10,y+3,20,18,coat);rect(x-7,y+21+pace,5,9,'#1b303c');rect(x+3,y+21-pace,5,9,'#1b303c');
-  rect(x-13,y+5-pace,4,12,coat);rect(x+9,y+5+pace,4,12,coat);
-  if(facing==='up'){rect(x-7,y-10,14,12,'#514239');rect(x-5,y+6,10,10,p.detail);}
-  else if(facing==='left'){rect(x-9,y-6,3,3,'#1b303c');rect(x+4,y+6,5,8,p.accent);}
-  else if(facing==='right'){rect(x+6,y-6,3,3,'#1b303c');rect(x-8,y+6,5,8,p.accent);}
-  else{rect(x-5,y-6,3,3,'#1b303c');rect(x+3,y-6,3,3,'#1b303c');rect(x+4,y+6,5,8,p.accent);}
+  window.paintVillagePerson(c,{x,y,coat,accent:p.accent,facing,pace});
   const hint=nearby();const hintText=hint?'E / Talk button · '+hint.label:'Walk near a guide or the front door to interact.';
   if(hint){rect(250,484,460,28,p.roof);text(hintText,480,504,13);}
   if(hintText!==lastHint){lastHint=hintText;onHint?.(hintText);}

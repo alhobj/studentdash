@@ -86,3 +86,14 @@ Walking into a wall stops the stepping pose. Reduced-motion mode keeps a static
 walking pose and removes arrival fades. Routes and animation are covered by the
 mock-DOM world tests, including route-map selection and direct travel. Actual
 browser and touch-device verification is still outstanding.
+
+
+### Village artwork
+
+The original procedural art in `village-art.js` uses warm cottage roofs, plaster
+and timber facades, stone foundations, flowerpots, shaded foliage, textured paths,
+pond details, and outlined characters. Each district retains its own palette and
+props. No game sprites or external image assets are used. The renderer copies in
+both portable folders are identical. Art changes leave collision footprints,
+travel links, saved progress and question content unchanged. Updated previews are
+static renders of the canvas drawing commands, not browser screenshots.
