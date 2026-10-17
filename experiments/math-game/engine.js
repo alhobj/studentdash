@@ -7,7 +7,7 @@
     const quests = profile.quests, quest = id => quests.find(q => q.id === id);
     const ids = quests.map(q => q.id), tools = Object.keys(profile.equipment);
     const fresh = () => ({version:1, profile:profile.id, credits:0, completed:[], independent:[],
-      tools:[], placed:[], purchased:[], drafts:{}, notes:{}});
+      tools:[], placed:[], purchased:[], drafts:{}, notes:{},discoveries:[],outfit:"classic"});
     const list = (value, allowed) => Array.isArray(value) && new Set(value).size === value.length && value.every(v => allowed.includes(v));
     let state = fresh(), storageError = '';
     function missing(id, s = state) { return quest(id).requires.filter(required => !s.completed.includes(required)); }
@@ -33,7 +33,7 @@
       if (Object.entries(raw.notes).some(([id, note]) => !raw.completed.includes(id) || typeof note !== 'string' || note.length > 2000)) throw Error('Invalid notebook entry.');
       // Explicit projection discards unknown imported fields.
       return copy({version:1, profile:profile.id, credits:raw.credits, completed:raw.completed, independent:raw.independent,
-        tools:raw.tools, placed:raw.placed, purchased:raw.purchased, drafts:raw.drafts, notes:raw.notes});
+        tools:raw.tools, placed:raw.placed, purchased:raw.purchased, drafts:raw.drafts, notes:raw.notes,...root.validateFieldwork(profile,raw,raw.completed.length)});
     }
     function answersCorrect(step, values) {
       return values.length === step.fields.length && step.fields.every((f, i) => {
@@ -99,7 +99,8 @@
       if (typeof text !== 'string' || text.length > 500000) throw Error('Save file is too large.');
       const incoming = validate(JSON.parse(text)); state = incoming; save();
     }
-    return {read:() => copy(state), error:() => storageError, missing, start, record, check, hint, advance, buy, place, note,
+    function fieldwork(data){const safe=root.validateFieldwork(profile,data,state.completed.length);state={...state,...safe};save();}
+    return {fieldwork,read:() => copy(state), error:() => storageError, missing, start, record, check, hint, advance, buy, place, note,
       validate, importSave, exportSave:() => JSON.stringify(state, null, 2), reset:() => {state = fresh(); save();}};
   }
   root.createQuestEngine = createEngine;

@@ -64,6 +64,32 @@ window.MATH_GAME_PROFILE = (() => {
         step('An exact area','Find the area under y = 2x from x = 0 to x = 3.',[field('Area',9,'square units')],'Integrate 2x to get x², or use a triangle of base 3 and height 6.','∫₀³ 2x dx = [x²]₀³ = 9 square units.'),
         step('Estimate a curved edge','Use one trapezoid to estimate the area under y = x² + 1 between x = 0 and x = 4.',[field('Estimated area',36,'square units')],'Width is 4 and the endpoint heights are 1 and 17.','Estimate = 4(1 + 17)/2 = 36. The exact integral is 76/3 ≈ 25.33; this one-strip estimate overestimates the curved area.')
       ]}
+,
+      {id:'savings',district:'number',title:'Fund the lantern festival',requires:['market','scale'],reward:{credits:20,card:'Growth & depreciation'},story:'Nia needs a budget for next year. Compare savings growth with equipment losing value.',steps:[
+        step('Grow the savings','A fund starts with 1000 credits and earns 5% interest annually, compounded once per year. Find its value after two years.',[field('Future value',1102.5,'credits',0.01)],'Multiply by 1.05 twice.','1000(1.05)² = 1102.50 credits.'),
+        step('Value the equipment','A projector worth 800 credits loses 20% of its value each year. Find its value after three years.',[field('Remaining value',409.6,'credits',0.01)],'The annual multiplier is 0.80, not 0.20.','800(0.80)³ = 409.60 credits. This is a depreciation model, not a resale guarantee.'),
+        step('Plan regular contributions','Starting with no savings, Nia adds 30 credits each week for 12 weeks. Ignore interest. Find the total.',[field('Total saved',360,'credits')],'Add twelve equal contributions.','12 × 30 = 360 credits. An annuity model would also account for interest and payment timing.')
+      ]},
+      {id:'tickets',district:'functions',title:'Plan the festival tickets',requires:['clock','market'],reward:{credits:20,card:'Break-even models'},story:'Jun models ticket revenue and fixed costs. Help choose a sensible target before printing tickets.',steps:[
+        step('Set the revenue model','Tickets cost 8 credits each. In y = mx + b, x counts tickets and y is revenue. Set m and b.',[field('Gradient m',8),field('Intercept b',0)],'With zero tickets revenue is zero. Each ticket adds eight credits.','Revenue is R(x) = 8x. This model assumes every sold ticket has the same price.','line'),
+        step('Find break-even','Total cost is C(x) = 120 + 2x and revenue is R(x) = 8x. At how many tickets does revenue equal cost?',[field('Tickets',20)],'Solve 8x = 120 + 2x.','6x = 120, so x = 20 tickets is break-even.'),
+        step('Reach the surplus target','Using the same models, find the minimum whole number of tickets needed for a surplus of at least 100 credits.',[field('Minimum tickets',37)],'Solve 6x − 120 ≥ 100 and round upward.','x ≥ 36.666…, so 37 tickets gives a surplus of 102 credits. Rounding down would miss the target.')
+      ]},
+      {id:'beacons',district:'geometry',title:'Chart the beacon route',requires:['survey','shelter'],reward:{credits:20,card:'Bearings & sectors'},story:'Mira is drawing a visitor route between two beacons. Use bearings measured clockwise from north.',steps:[
+        step('Reverse the route','The bearing of B from A is 065°. Find the bearing of A from B, in degrees from 0 to 359.',[field('Reverse bearing',245,'degrees')],'Reverse direction by adding 180°; subtract 360° if needed.','065° + 180° = 245°.'),
+        step('Measure the circular path','A circular path has radius 12 m. Find the length of a 60° arc. Give a decimal within 0.02 m.',[field('Arc length',4*Math.PI,'m',0.02)],'Take 60/360 of the circumference.','(60/360) × 2π × 12 = 4π ≈ 12.57 m.'),
+        step('Compare two bearings','From the same point, one beacon has bearing 030° and another 110°. Find the smaller angle between their directions.',[field('Angle',80,'degrees')],'Both bearings use the same north line as reference.','110° − 30° = 80°. This gives the included angle between the two sightlines.')
+      ]},
+      {id:'sampling',district:'statistics',title:'Audit the festival survey',requires:['garden','chance'],reward:{credits:22,card:'Sampling & conditional probability'},story:'Sol is checking a fictional visitor survey. Keep population proportions and conditional groups separate.',steps:[
+        step('Allocate a stratified sample','A population has 120 younger and 80 older students. A proportional stratified sample has 30 people. How many should come from each group?',[field('Younger students',18),field('Older students',12)],'Use each group’s fraction of the 200 students.','30 × 120/200 = 18 and 30 × 80/200 = 12. Selection within each stratum still needs an appropriate method.'),
+        step('Change the reference group','Of 40 surveyed visitors, 24 attended a workshop. Of those 24, 18 liked it. Find P(liked | attended).',[field('Conditional probability',0.75)],'The condition restricts the denominator to the 24 attendees.','18/24 = 0.75. Dividing by 40 would answer a different question.'),
+        step('Estimate an expected count','In a model, 60 independent visitors each attend with probability 0.4. Find the expected number attending.',[field('Expected attendance',24)],'For a binomial model, E(X) = np.','60 × 0.4 = 24. Expected attendance is a long-run average, not a guaranteed count.')
+      ]},
+      {id:'reservoir',district:'calculus',title:'Restore the reservoir gauge',requires:['motion','park'],reward:{credits:22,card:'Accumulation & net change'},story:'Kaia is interpreting a fictional flow model. Distinguish a rate from the accumulated amount.',steps:[
+        step('Read the rate','Water flows into an empty reservoir at r(t) = 2t + 3 litres per minute for 0 ≤ t ≤ 4 minutes. Find r(4).',[field('Flow rate',11,'L/min')],'Substitute t = 4.','r(4) = 11 L/min. This is the rate at that instant, not the total volume.'),
+        step('Accumulate the inflow','For r(t) = 2t + 3, calculate the total volume entering between t = 0 and t = 4 minutes.',[field('Volume',28,'L')],'Integrate the rate: an antiderivative is t² + 3t.','[t² + 3t]₀⁴ = 16 + 12 = 28 L.'),
+        step('Account for an outflow','An outlet simultaneously removes 2 L/min over the same four minutes. With initial volume zero, find the final stored volume.',[field('Final volume',20,'L')],'Subtract four minutes of outflow from the integrated inflow.','28 − 2 × 4 = 20 L. The net inflow remains positive throughout the stated interval.')
+      ]}
     ]
   };
 })();

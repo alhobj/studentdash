@@ -18,7 +18,7 @@ and character buttons provide the same access without walking. Hints are free in
 investigations. Supported completion earns the same quest reward; unhinted runs are
 recorded separately. Replays do not award credits twice.
 
-Twenty-three investigations contain sixty-nine steps across six districts. They include particle
+Twenty-five investigations contain seventy-five steps across six districts. They include particle
 counters, ion ratios, ordering cards, numerical experiments, a calorimeter, titration
 and gas-piston models. New routes explore electron arrangements (S1.3), covalent
 bonding (S2.2), bond enthalpies (R1.2), limiting reactants and yields (R2.1), and
@@ -97,3 +97,70 @@ props. No game sprites or external image assets are used. The renderer copies in
 both portable folders are identical. Art changes leave collision footprints,
 travel links, saved progress and question content unchanged. Updated previews are
 static renders of the canvas drawing commands, not browser screenshots.
+
+
+### Additional analytical investigations
+
+Identify the sample formula (S1.4) opens after reference-solution and reaction-batch
+quests. Reconstruct the energy route (R1.2) opens after the bond-energy ledger.
+Both have three original tasks with hints, notebook summaries and one-time rewards.
+
+
+### Discovery cards, stamps and outfits
+
+Every location has a field chest beside the main path. Approach it and press E or
+Talk / enter, or use **Open field satchel → Inspect this location’s discovery**
+without walking. Read the note and keep the card. Cards are reusable reference
+notes, not questions or mastery claims. Each card can be collected once.
+
+The satchel awards a displayed fieldwork stamp when that area's card is collected
+and at least one investigation there is completed. Supported investigations count.
+Two cards plus one investigation unlock the fern coat; three cards plus three
+investigations unlock the sunset coat; all location cards plus five investigations
+unlock the midnight coat. Select an unlocked outfit in the satchel to wear it.
+
+Cards and outfit selection are included in the normal save/export/import and reset
+with the game. Older saves start with an empty collection and the original outfit.
+No credit cost, score bonus or question advantage is attached to these rewards.
+Collection and outfit validation are profile-driven; no Studentdash records change.
+
+
+### Collect all 118 elements
+
+Open **Collect the periodic table** for a searchable periodic-table album. Every
+cell shows whether its reference card is locked, ready or collected. Selecting any
+cell shows the name, symbol, atomic number, period, group/series and exact reward
+requirements. Reference information remains readable before collection.
+
+Fixed sets unlock when you complete the named investigation and collect its
+district discovery card. Supported work counts, and older completed quests count
+retroactively. Claim an individual set or all ready sets. There are no random
+packs, duplicates, credit costs or repeat-grinding requirements. All 118 cards are
+available without completing the optional AHL Gibbs-energy quest. Completing the
+album earns the displayed Periodic explorer title. Sets and completion survive
+normal saves/export/import; reset starts a new album. Older saves start empty but
+can immediately claim rewards they already qualify for.
+
+These are symbolic reference cards, not physical elemental samples or evidence of
+chemical synthesis. Reward assignments are game design, not scientific links
+between each element and its rewarding quest. The four curated molecule puzzles
+retain their existing element-card unlocks; this album does not add arbitrary
+molecule recipes or imply every element can form those molecules.
+
+Names, symbols and atomic numbers follow the IUPAC periodic table (4 May 2022):
+https://iupac.org/what-we-do/periodic-table-of-elements/
+The compact layout separates La–Lu and Ac–Lr and does not assign those series a
+contested group-3 arrangement. Atomic weights and isotope masses are not shown.
+
+
+### Five-round practice circuits
+
+Use **Practice challenge** for a short circuit with free hints, immediate feedback
+and an explanation recap. There is no timer or credit reward. Incorrect checks or
+hints mark that round supported; blank input does not count as an answer. Close
+and reopen to resume within this page session. Reloading starts over; circuits are
+not included in exported progress or assessment results. The recap counts rounds
+completed without in-game hints/incorrect checks, not demonstrated mastery.
+Chemistry circuits use collected album elements, or the first 20 as a starter
+pool when the album is empty. They practise protons, neutral electrons and period
+location. You may consult the album while working.

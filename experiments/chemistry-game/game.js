@@ -2,7 +2,7 @@
 (()=>{'use strict';
 const P=window.GAME_PROFILE,G=P.gameplay,PR=G.progression,$=id=>document.getElementById(id),key='studentdash-element-quest-v1';
 const toolIds=Object.keys(G.equipment);
-const fresh=()=>({version:2,credits:0,solved:[],independent:[],lab:false,water:false,questAccepted:false,questDone:false,parts:0,waterSystem:false,distillation:false,tools:[],bench:[],purchased:[],completedActivities:[],independentActivities:[],activityDrafts:{},completedModels:[],fieldNotes:{}});
+const fresh=()=>({version:2,credits:0,solved:[],independent:[],lab:false,water:false,questAccepted:false,questDone:false,parts:0,waterSystem:false,distillation:false,tools:[],bench:[],purchased:[],completedActivities:[],independentActivities:[],activityDrafts:{},completedModels:[],fieldNotes:{},discoveries:[],outfit:"classic",elementPacks:[]});
 const all=P.questions,ids=Object.entries(all).flatMap(([topic,qs])=>qs.map(q=>topic+':'+q[0]));
 function validate(s){
  if(!s||![1,2].includes(s.version)||!Number.isInteger(s.credits)||s.credits<0||s.credits>100000||typeof s.lab!=='boolean'||typeof s.water!=='boolean'||!Array.isArray(s.solved)||!Array.isArray(s.independent)||![...s.solved,...s.independent].every(x=>ids.includes(x))||new Set(s.solved).size!==s.solved.length||new Set(s.independent).size!==s.independent.length||!s.independent.every(x=>s.solved.includes(x)))throw Error('This is not a valid Element Quest save.');
@@ -24,7 +24,9 @@ function validate(s){
   if(draft.values!==undefined&&(!Array.isArray(draft.values)||!step.fields||draft.values.length!==step.fields.length||draft.values.some(v=>typeof v!=='string'||v.length>64)))throw Error('Invalid saved controls.');
   if(draft.order!==undefined&&(!Array.isArray(draft.order)||!step.items||draft.order.length!==step.items.length||new Set(draft.order).size!==step.items.length||draft.order.some(v=>!Number.isInteger(v)||v<0||v>=step.items.length)))throw Error('Invalid saved order.');
  }
- return {...s,solved:[...s.solved],independent:[...s.independent],tools:[...s.tools],bench:[...s.bench],purchased:[...s.purchased],completedActivities:[...completed],independentActivities:[...independent],activityDrafts:JSON.parse(JSON.stringify(activityDrafts)),completedModels:[...completedModels],fieldNotes:{...fieldNotes}};
+ const fieldworkState=window.validateFieldwork(P,s,completed.length);
+ const elementPacks=window.validateElementPacks(P,{...s,...fieldworkState,completedActivities:completed});
+ return {...s,elementPacks,solved:[...s.solved],independent:[...s.independent],tools:[...s.tools],bench:[...s.bench],purchased:[...s.purchased],completedActivities:[...completed],independentActivities:[...independent],activityDrafts:JSON.parse(JSON.stringify(activityDrafts)),completedModels:[...completedModels],fieldNotes:{...fieldNotes},...window.validateFieldwork(P,s,completed.length)};
 }
 let state=fresh();try{const raw=localStorage.getItem(key);if(raw)state=validate(JSON.parse(raw));}catch{$('notice').textContent='Browser save unavailable or invalid. Export your progress before leaving.';}
 function save(){try{localStorage.setItem(key,JSON.stringify(state));}catch{$('notice').textContent='Browser save failed. Export your progress before closing.';}refresh();}
@@ -84,16 +86,22 @@ $('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const incoming=validate(JSON.parse(await file.text()));if(confirm('Replace this prototype’s current progress with this save?')){state=incoming;save();dialog.close();$('notice').textContent='Save imported.';}}catch{$('notice').textContent='Invalid save. Your current progress is unchanged.';}e.target.value='';};
 for(const s of P.sections)$('link-topic').add(new Option(s.id+' · '+s.title,s.id));function links(){const id=$('link-topic').value;$('links').replaceChildren();const related=P.links.filter(e=>e.source===id||e.source.startsWith(id+'.')||e.target===id||e.target.startsWith(id+'.'));for(const e of related)el('span',e.source+' ↔ '+e.target,$('links'));if(!related.length)el('p','No cross-references recorded for this selection.',$('links'));}$('link-topic').onchange=links;links();
 const canvas=$('map'),keys=new Set();
-const world=window.createScreenWorld({canvas,rooms:P.rooms,reducedMotion:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false,start:PR.entryDistrict,coat:'#eff0d8',
+const world=window.createScreenWorld({canvas,rooms:P.rooms,reducedMotion:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false,start:PR.entryDistrict,coat:()=>P.explorerStyles.find(s=>s.id===state.outfit).color,discovered:id=>state.discoveries.includes(id+'-card'),
  onHint:text=>$('interaction-hint').textContent=text,
  status:id=>`${P.adventures.filter(q=>q.district===id&&state.completedActivities.includes(q.id)).length} investigations complete${id===PR.entryDistrict?' · Still '+(state.waterSystem?'restored':'needs repair'):''}`,
  onChange:r=>{for(const b of $('travel-buttons').children)b.setAttribute('aria-current',b.textContent==='Travel to '+r.name?'location':'false');$('location-name').textContent=r.name;$('travel-status').textContent='Arrived at '+r.name+'. Exits: '+Object.entries(r.exits).map(([direction,id])=>direction+' to '+P.rooms.find(room=>room.id===id).name).join('; ')+'.';canvas.setAttribute('aria-label',r.name+'. Walk with arrows or WASD; E near a guide or the entrance.');},
- onInteract:(id,room)=>id==='nia'?talkNia():id==='jun'?talkJun():district(P.districts.find(d=>d.id===room))});
+ onInteract:(id,room)=>id==='discovery'?fieldwork.inspect():id==='nia'?talkNia():id==='jun'?talkJun():district(P.districts.find(d=>d.id===room))});
 function travel(id){keys.clear();world.travel(id);world.paint();canvas.focus?.();}
 button('Nia · sample quest',()=>{travel(PR.entryDistrict);talkNia();},$('people'));button('Jun · caretaker',()=>{travel(PR.entryDistrict);talkJun();},$('people'));
 for(const person of P.adventurePeople)button(person.label,()=>{travel(P.adventures.find(q=>q.id===person.quest).district);adventures.visit(person.quest);},$('people'));
 for(const d of P.districts)button('Travel to '+d.name,()=>travel(d.id),$('travel-buttons'));
 function interact(){if(!world.interact())$('travel-status').textContent='Move near the guide or central entrance and press E.';}
+const fieldwork=window.createFieldwork({profile:P,read:()=>({discoveries:state.discoveries,outfit:state.outfit}),write:data=>{Object.assign(state,window.validateFieldwork(P,data,state.completedActivities.length));save();},completed:()=>P.adventures.filter(q=>state.completedActivities.includes(q.id)),room:()=>world.room().id,open,parent:panel});
+$('fieldwork').onclick=fieldwork.menu;
+const album=window.createPeriodicAlbum({profile:P,read:()=>state,save,open,parent:panel,visit:adventures.visit,satchel:fieldwork.menu,molecules:builder});
+$('periodic').onclick=()=>album.menu();
+const circuit=window.createPracticeCircuit({makeSet:()=>P.makeChallengeSet(album.numbers()),open,parent:panel});
+$('circuit').onclick=circuit.start;
 $('atlas').onclick=()=>{keys.clear();walking.stop();open();el('h2','Campus route map');window.renderWorldAtlas({parent:panel,world,rooms:P.rooms,travel:id=>{dialog.close();travel(id);}});};
 const walking=window.attachWalkingControls({container:$('walking-controls'),keys,world,interact,blocked:()=>dialog.open});dialog.addEventListener('close',()=>walking.stop());
 canvas.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d','e'].includes(k)){e.preventDefault();if(k==='e'){if(!e.repeat)interact();}else keys.add(k);}});

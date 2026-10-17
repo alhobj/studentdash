@@ -26,7 +26,7 @@ Districts share one visual language but have different identities:
 Syllabus cross-references are conceptual connections, not a directed prerequisite
 graph. Use them for visible footpaths, revisiting questions and joint quests.
 Keep a separate, teacher-editable prerequisite graph. The initial checkpoint opens
-S1.2 from S1.1. Twenty-three equipment and investigation quests now branch across all six
+S1.2 from S1.1. Twenty-five equipment and investigation quests now branch across all six
 districts; these proposed routes do not claim full syllabus coverage.
 
 ## Progression and economy
@@ -84,7 +84,7 @@ later comparison of CO and CO2, requiring different structures and explanations.
 
 ## Next stages, before a full game
 
-### Playable expansion: twenty-three campus quests
+### Playable expansion: twenty-five campus quests
 
 The new quest journal offers two branches after the first restoration:
 
@@ -117,7 +117,7 @@ The new quest journal offers two branches after the first restoration:
 | Bo: radical sequence | Complete organic archive and bond-energy ledger | Count radical electrons; classify chain steps; combine equations | 18 credits |
 | Mira: electron-pair desk | Complete organic archive and covalent models | Identify donors/acceptors; match arrows; count donated electrons | 20 credits |
 
-These contain sixty-nine steps and no new MCQs. Atom and ion counters update a live
+These contain seventy-five steps and no new MCQs. Atom and ion counters update a live
 particle/charge display. They are counting/formula models, not a molecular dynamics
 simulation. Solution preparation and stirring tasks are calculation/data activities;
 they do not claim to assess real laboratory technique. Stirring changes the observed
@@ -170,7 +170,7 @@ or sample reward. Export a save, reset browser storage manually, and import it t
 check the portable-save path. `node smoke-test.cjs` runs a dependency-free mock-DOM
 interaction check for the quest/reward loop, repair-part cost, still activity,
 equipment placement, S1.1 gate and reload persistence. The expansion check also
-completes all twenty-three quests, checks science-model values, verifies locked routes,
+completes all twenty-five quests, checks science-model values, verifies locked routes,
 supported practice, one-time rewards, unfinished-control/order persistence,
 four molecule models, notebook notes, valid imports, corrupt-save rejection and
 cancel/confirm reset. Both canvas painters are executed by the mock harness.
@@ -218,3 +218,9 @@ locations-preview.png shows the current scenes. The old dotted campus overview
 has been replaced; the recorded syllabus cross-reference list below the map remains.
 A screen visit does not unlock an investigation. See README.md for movement and
 standalone map tests. Locations reset on reload; saved quest progress is unchanged.
+
+
+The analytical follow-up quests add empirical/molecular formulae (S1.4) and Hess
+cycles (R1.2), three steps each. These extend existing sections rather than adding
+new syllabus claims. Fictional mass data and supplied enthalpies keep questions
+self-contained. Total: 25 investigations and 75 steps.

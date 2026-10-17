@@ -18,7 +18,7 @@ class Element{
 }
 const document={getElementById(id){if(!els.has(id))els.set(id,new Element());return els.get(id);},createElement(tag){return new Element(tag);},querySelector(){return new Element('button');}};
 global.document=document;global.window={addEventListener(){}};global.localStorage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)};global.requestAnimationFrame=fn=>{paintFrame=fn;};global.Option=function(text,value){const e=new Element('option');e.textContent=text;e.value=value;return e;};global.confirm=()=>true;
-function load(){vm.runInThisContext(fs.readFileSync(path.join(dir,'profile.js'),'utf8'),{filename:'profile.js'});for(const name of ['adventures.js','expansion.js','further-investigations.js','remaining-sections.js','molecules.js','lab-room.js','adventures-engine.js','world-profile.js','village-art.js','screen-world.js','walking-controls.js','route-atlas.js'])vm.runInThisContext(fs.readFileSync(path.join(dir,name),'utf8'),{filename:name});vm.runInThisContext(fs.readFileSync(path.join(dir,'game.js'),'utf8'),{filename:'game.js'});}
+function load(){vm.runInThisContext(fs.readFileSync(path.join(dir,'profile.js'),'utf8'),{filename:'profile.js'});for(const name of ['fieldwork-profile.js','fieldwork.js','adventures.js','expansion.js','further-investigations.js','remaining-sections.js','molecules.js','lab-room.js','adventures-engine.js','world-profile.js','village-art.js','screen-world.js','walking-controls.js','route-atlas.js','periodic-profile.js','periodic-album.js','practice-circuit.js','challenge-profile.js'])vm.runInThisContext(fs.readFileSync(path.join(dir,name),'utf8'),{filename:name});vm.runInThisContext(fs.readFileSync(path.join(dir,'game.js'),'utf8'),{filename:'game.js'});}
 function find(root,match){if(root.tagName==='BUTTON'&&match(root.textContent))return root;for(const c of root.children){const x=find(c,match);if(x)return x;}return null;}
 function click(root,label){const b=find(root,s=>s.includes(label));assert.ok(b,`button containing "${label}" exists`);b.click();}
 const panel=document.getElementById('panel'),people=document.getElementById('people'),collection=document.getElementById('collection');
@@ -122,14 +122,16 @@ state=quest('Tune the feasibility display',[[0.1],[400],[-10]]);
 state=quest('Restore the zinc–copper cell',[{match:['Oxidation','Reduction']},[3,2,6],{match:['Zinc electrode to copper electrode through wire','Through the salt bridge and solutions']}]);
 state=quest('Rebuild the radical sequence',[[2,1],{match:['Initiation','Propagation','Propagation','Termination']},[1,1]]);
 state=quest('Restore the electron-pair desk',[{match:['Electron-pair donor (nucleophile)','Electron-pair acceptor (electrophile)']},{match:['Oxygen lone pair → carbon bonded to Br','C–Br bond → bromine']},[2,1]]);
-assert.equal(state.completedActivities.length,23);
+state=quest('Identify the sample formula',[[0.2,0.6,0.2],[1,3,1],[2,6,2]]);
+state=quest('Reconstruct the energy route',[[394],[-566],[-111]]);
+assert.equal(state.completedActivities.length,25);
 const sections=JSON.parse(fs.readFileSync(path.join(dir,'../../resources/ib-chemistry/syllabus-reference.json'),'utf8')).sections;
 assert.deepEqual(Object.keys(window.GAME_PROFILE.sectionCatalog).sort(),Object.keys(sections).sort());
 const questIds=window.GAME_PROFILE.adventures.map(q=>q.id);
 assert.equal(new Set(questIds).size,questIds.length,'quest IDs must be unique');
 function checkRoute(id,path=[]){assert.ok(!path.includes(id),`No prerequisite cycle: ${id}`);const q=window.GAME_PROFILE.adventures.find(q=>q.id===id);assert.ok(q,`Prerequisite exists: ${id}`);for(const parent of q.requires?.completed||[])checkRoute(parent,[...path,id]);}
 questIds.forEach(id=>checkRoute(id));
-assert.equal(window.GAME_PROFILE.adventures.reduce((total,q)=>total+q.steps.length,0),69);
+assert.equal(window.GAME_PROFILE.adventures.reduce((total,q)=>total+q.steps.length,0),75);
 for(const section of Object.keys(sections))assert.ok(window.GAME_PROFILE.adventures.some(q=>q.section===section),`Investigation for ${section}`);
 document.getElementById('coverage').click();assert.match(panel.textContent,/R1.4/);assert.match(panel.textContent,/AHL/);assert.match(panel.textContent,/R3.4/);
 assert.equal(window.GAME_PROFILE.models.gibbsTemperature([400]).values.delta,0);
@@ -175,23 +177,44 @@ state=molecule('NH₃',{N:1,H:3},[1,1,1]);assert.equal(state.completedModels.len
 document.getElementById('lab-room').click();assert.match(descendants(panel).find(n=>n.tagName==='CANVAS').attributes['aria-label'],/Burette/);
 paintFrame(16); // Exercise both pixel renderers, without claiming a visual browser test.
 load();assert.match(document.getElementById('quest-title').textContent,/restored research lab/);
-assert.match(collection.textContent,/23 \/ 23 campus quests complete/);
+assert.match(collection.textContent,/25 \/ 25 campus quests complete/);
 assert.match(collection.textContent,/NH₃/);
 document.getElementById('notebook').click();click(panel,'Repair the gas-piston display');
 let note=descendants(panel).find(n=>n.tagName==='TEXTAREA');assert.ok(note);note.value='Half the volume doubled the pressure at constant temperature.';note.oninput();
 load();document.getElementById('notebook').click();click(panel,'Repair the gas-piston display');
 assert.equal(descendants(panel).find(n=>n.tagName==='TEXTAREA').value,'Half the volume doubled the pressure at constant temperature.');
+const creditsBeforeCards=JSON.parse(store.get('studentdash-element-quest-v1')).credits;
+for(const travelButton of document.getElementById('travel-buttons').children.slice(-window.GAME_PROFILE.rooms.length)){travelButton.click();document.getElementById('fieldwork').click();click(panel,'Inspect this location');click(panel,'Keep discovery card');}
+document.getElementById('fieldwork').click();assert.match(panel.textContent,/Fieldwork stamp earned/);click(panel,'Wear · Midnight explorer coat');
+load();state=JSON.parse(store.get('studentdash-element-quest-v1'));assert.equal(state.discoveries.length,6);assert.equal(state.outfit,'midnight');assert.equal(state.credits,creditsBeforeCards);
+const periodic=window.GAME_PROFILE.periodic;
+assert.deepEqual(periodic.elements.map(e=>e.z),Array.from({length:118},(_,i)=>i+1));
+assert.equal(new Set(periodic.elements.map(e=>e.symbol)).size,118);
+assert.equal(new Set(periodic.elements.map(e=>e.row+','+e.col)).size,118);
+assert.deepEqual(periodic.packs.flatMap(p=>p.elements).sort((a,b)=>a-b),Array.from({length:118},(_,i)=>i+1));
+for(const pack of periodic.packs){const q=window.GAME_PROFILE.adventures.find(q=>q.id===pack.quest);assert.ok(q);assert.notEqual(q.level,'AHL','album completion does not require the optional AHL quest');}
+assert.throws(()=>window.validateElementPacks(window.GAME_PROFILE,{elementPacks:[periodic.packs[0].id],completedActivities:[],discoveries:[]}));
+document.getElementById('periodic').click();assert.match(panel.textContent,/0 \/ 118/);
+const collectAll=find(panel,t=>t.includes('Collect all'));assert.ok(collectAll);collectAll.click();assert.match(panel.textContent,/118 \/ 118/);assert.match(panel.textContent,/Collection complete/);
+collectAll.click();state=JSON.parse(store.get('studentdash-element-quest-v1'));assert.equal(state.elementPacks.length,25);assert.equal(state.credits,creditsBeforeCards);
+let search=descendants(panel).find(n=>n.type==='search');search.value='Og';search.oninput();assert.equal(descendants(panel).filter(n=>n.className.includes('element-tile')&&!n.hidden).length,1);
+const og=descendants(panel).find(n=>n.attributes['aria-label']==='118 Oganesson, Og, collected');assert.ok(og);og.click();assert.match(panel.textContent,/Period 7 · Group 18/);
+load();document.getElementById('periodic').click();assert.match(panel.textContent,/118 \/ 118/);
 const fullSave=JSON.parse(store.get('studentdash-element-quest-v1'));
-document.getElementById('reset').click();click(panel,'Cancel');assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).completedActivities.length,23);
+document.getElementById('reset').click();click(panel,'Cancel');assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).completedActivities.length,25);
 document.getElementById('reset').click();click(panel,'Reset this game save');state=JSON.parse(store.get('studentdash-element-quest-v1'));assert.equal(state.credits,0);assert.deepEqual(state.completedActivities,[]);
 async function importSave(value){await document.getElementById('import').onchange({target:{files:[{text:async()=>JSON.stringify(value)}],value:'test.json'}});}
 (async()=>{
  await importSave(fullSave);assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).completedModels.length,4);
  assert.match(JSON.parse(store.get('studentdash-element-quest-v1')).fieldNotes['gas-piston'],/doubled the pressure/);
  await importSave({...fullSave,fieldNotes:{'gas-piston':'x'.repeat(2001)}});assert.match(document.getElementById('notice').textContent,/Invalid save/);
+ await importSave({...fullSave,discoveries:['unknown']});assert.match(document.getElementById('notice').textContent,/Invalid save/);
+ await importSave({...fullSave,outfit:'unknown'});assert.match(document.getElementById('notice').textContent,/Invalid save/);
+ await importSave({...fullSave,elementPacks:['unknown']});assert.match(document.getElementById('notice').textContent,/Invalid save/);
+ await importSave({...fullSave,discoveries:[],outfit:'classic'});assert.match(document.getElementById('notice').textContent,/Invalid save/);
  const broken=JSON.parse(JSON.stringify(fullSave));broken.activityDrafts.heat={stage:999,assisted:false};await importSave(broken);
  assert.match(document.getElementById('notice').textContent,/Invalid save/);assert.equal(JSON.parse(store.get('studentdash-element-quest-v1')).credits,fullSave.credits);
  await importSave({...fullSave,completedModels:['unknown-model']});assert.match(document.getElementById('notice').textContent,/Invalid save/);
  await importSave({version:1,credits:20,solved:[],independent:[],lab:false,water:true});assert.deepEqual(JSON.parse(store.get('studentdash-element-quest-v1')).completedModels,['water']);
- console.log('PASS: legacy saves, repair loop, 23 quests across all 22 sections, matching tasks and coverage links, ordering, science models, equipment gates, hints, resumable tasks, notebook persistence, four molecules, pixel-renderer execution, one-time rewards, reset, valid imports and corrupt-save rejection.');
+ console.log('PASS: legacy saves, repair loop, 25 quests across all 22 sections, matching tasks and coverage links, ordering, science models, equipment gates, hints, resumable tasks, notebook persistence, four molecules, pixel-renderer execution, one-time rewards, reset, valid imports and corrupt-save rejection.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

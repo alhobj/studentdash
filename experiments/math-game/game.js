@@ -189,16 +189,20 @@
     const a=el('a',d.name+' →',$('routes'));a.href='../../resources/ib-math-ai-sl/'+d.resource;
   });
   const canvas=$('map');
-  const world=window.createScreenWorld({canvas,rooms:P.rooms,reducedMotion:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false,start:'number',coat:'#e6d79c',
+  const world=window.createScreenWorld({canvas,rooms:P.rooms,reducedMotion:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false,start:'number',coat:()=>P.explorerStyles.find(s=>s.id===engine.read().outfit).color,discovered:id=>engine.read().discoveries.includes(id+'-card'),
     onHint:text=>$('interaction-hint').textContent=text,
  status:id=>`${P.quests.filter(q=>q.district===id&&engine.read().completed.includes(q.id)).length} investigations restored`,
     onChange:r=>{for(const b of $('travel-buttons').children)b.setAttribute('aria-current',b.textContent==='Travel to '+r.name?'location':'false');$('location-name').textContent=r.name;$('travel-status').textContent='Arrived at '+r.name+'. Exits: '+Object.entries(r.exits).map(([direction,id])=>direction+' to '+P.rooms.find(room=>room.id===id).name).join('; ')+'.';canvas.setAttribute('aria-label',r.name+'. Walk with arrows or WASD; E near a guide or entrance.');},
-    onInteract:(_id,room)=>journal('all',room)});
+    onInteract:(id,room)=>id==='discovery'?fieldwork.inspect():journal('all',room)});
   function paintMap(){world.paint();}
   function travel(id){keys.clear();world.travel(id);world.paint();canvas.focus?.();}
   P.districts.forEach(d=>button('Travel to '+d.name,()=>travel(d.id),$('travel-buttons')));
   function interact(){if(!world.interact())$('travel-status').textContent='Move near the guide or central entrance and press E.';}
-  $('atlas').onclick=()=>{keys.clear();walking.stop();open('Meridian route map','EXPLORE THE TOWN');window.renderWorldAtlas({parent:panel,world,rooms:P.rooms,travel:id=>{dialog.close();travel(id);}});};
+  const fieldwork=window.createFieldwork({profile:P,read:()=>({discoveries:engine.read().discoveries,outfit:engine.read().outfit}),write:data=>{engine.fieldwork(data);refresh();},completed:()=>P.quests.filter(q=>engine.read().completed.includes(q.id)),room:()=>world.room().id,open:()=>open('Fieldwork','EXPLORATION'),parent:panel});
+$('fieldwork').onclick=fieldwork.menu;
+const circuit=window.createPracticeCircuit({makeSet:()=>P.makeChallengeSet(),open:()=>open('Field practice','UNSCORED PRACTICE'),parent:panel});
+$('circuit').onclick=circuit.start;
+$('atlas').onclick=()=>{keys.clear();walking.stop();open('Meridian route map','EXPLORE THE TOWN');window.renderWorldAtlas({parent:panel,world,rooms:P.rooms,travel:id=>{dialog.close();travel(id);}});};
 const walking=window.attachWalkingControls({container:$('walking-controls'),keys,world,interact,blocked:()=>dialog.open});dialog.addEventListener('close',()=>walking.stop());
 canvas.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d','e'].includes(k)){e.preventDefault();if(k==='e'){if(!e.repeat)interact();}else keys.add(k);}});
   window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));canvas.addEventListener('blur',()=>keys.clear());window.addEventListener('blur',()=>keys.clear());

@@ -34,6 +34,9 @@ Prerequisites are proposed game routes, not official syllabus dependencies.
 | R3.3 | Radicals and homolytic bond breaking. | Rebuild the radical sequence | Organize the organic archive; Balance the bond-energy ledger |
 | R3.4 | Donors, acceptors and reaction mechanisms. | Restore the electron-pair desk | Organize the organic archive; Repair the molecular model labels |
 
+| S1.4 | Empirical and molecular formulae | Identify the sample formula | Prepare the reference solution; Plan the reaction batches |
+| R1.2 | Hess cycles | Reconstruct the energy route | Balance the bond-energy ledger |
+
 The in-game quest description also lists any equipment, initial checkpoint and
 water-sample prerequisites. All new routes use the same save, notebook, support
 tracking and one-time reward system. No existing Studentdash scores are changed.

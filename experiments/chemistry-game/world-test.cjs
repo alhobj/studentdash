@@ -21,8 +21,8 @@ global.document=document;global.window={addEventListener(){}};global.localStorag
 
 for(const game of ['chemistry-game','math-game']){
  const base=path.join(dir,'..',game);els.clear();store.clear();
- const files=game==='chemistry-game'?['profile.js','adventures.js','expansion.js','further-investigations.js','remaining-sections.js','molecules.js','lab-room.js','adventures-engine.js']:['profile.js','engine.js'];
- for(const name of [...files,'world-profile.js','village-art.js','screen-world.js','walking-controls.js','route-atlas.js'])vm.runInThisContext(fs.readFileSync(path.join(base,name),'utf8'),{filename:name});
+ const files=game==='chemistry-game'?['profile.js','fieldwork-profile.js','fieldwork.js','adventures.js','expansion.js','further-investigations.js','remaining-sections.js','molecules.js','lab-room.js','adventures-engine.js','periodic-profile.js','periodic-album.js']:['profile.js','fieldwork-profile.js','fieldwork.js','engine.js'];
+ for(const name of [...files,'world-profile.js','village-art.js','screen-world.js','walking-controls.js','route-atlas.js','practice-circuit.js','challenge-profile.js'])vm.runInThisContext(fs.readFileSync(path.join(base,name),'utf8'),{filename:name});
  const p=game==='chemistry-game'?window.GAME_PROFILE:window.MATH_GAME_PROFILE;
  const reverse={left:'right',right:'left',up:'down',down:'up'},vectors={left:[-1,0],right:[1,0],up:[0,-1],down:[0,1]};
  let entered,interaction;
@@ -92,6 +92,38 @@ for(const game of ['chemistry-game','math-game']){
  const go=descendants(atlasPanel).find(n=>n.tagName==='BUTTON'&&n.textContent==='Travel to '+targetRoom.name);assert.ok(go);go.click();
  assert.equal(document.getElementById('location-name').textContent,targetRoom.name);assert.equal(document.getElementById('dialog').open,false);
  assert.equal(store.size,0,'walking and atlas travel do not overwrite or create academic progress');
+ // Collection is available without movement, but cannot unlock outfits without study.
+ document.getElementById('fieldwork').click();
+ const findButton=text=>descendants(document.getElementById('panel')).find(n=>n.tagName==='BUTTON'&&n.textContent.includes(text));
+ findButton('Inspect this location').click();const keep=findButton('Keep discovery card');assert.ok(keep);keep.click();keep.click();
+ const storageKey=game==='chemistry-game'?'studentdash-element-quest-v1':p.storageKey;
+ let saved=JSON.parse(store.get(storageKey));assert.equal(saved.discoveries.length,1,'duplicate collection grants nothing');assert.equal(saved.credits,0);
+ findButton('Open field satchel').click();assert.ok(findButton('Fern explorer coat').disabled,'outfit requires investigations as well as cards');
+ assert.throws(()=>window.validateFieldwork(p,{discoveries:['unknown'],outfit:'classic'},0));
+ assert.throws(()=>window.validateFieldwork(p,{discoveries:p.discoveryCards.map(c=>c.id),outfit:'midnight'},0));
+ assert.throws(()=>window.validateFieldwork(p,{discoveries:[],outfit:'unknown'},0));
+ // Independently check generated tasks and the five-round UI state machine.
+ if(game==='math-game'){
+  assert.deepEqual(p.makeChallengeSet(()=>0).map(q=>q.answer),[38,-3,5,6,2]);
+  assert.deepEqual(p.makeChallengeSet(()=>0.999999).map(q=>q.answer),[120,38,25,16,60]);
+ }else{
+  const gold=p.makeChallengeSet([79],()=>0);assert.deepEqual(gold.map(q=>q.answer),[79,79,6,79,79]);
+  assert.equal(p.makeChallengeSet([],()=>0).length,5);
+ }
+ document.getElementById('circuit').click();assert.ok(document.getElementById('panel').textContent.includes('ROUND 1 / 5'));
+ const practicePanel=document.getElementById('panel'),beforePractice=JSON.stringify([...store]);
+ let made=0;
+ const circuit=window.createPracticeCircuit({parent:practicePanel,open:()=>practicePanel.replaceChildren(),makeSet:()=>{made++;return Array.from({length:5},(_,i)=>({topic:'Fictional fixture',title:'Round '+i,prompt:'Enter the specified count.',label:'Count',answer:i+2,hint:'Use the given count.',explanation:'The count is '+(i+2)}));}});
+ circuit.start();
+ const action=text=>descendants(practicePanel).find(n=>n.tagName==='BUTTON'&&n.textContent===text);
+ for(let i=0;i<5;i++){
+  let number=descendants(practicePanel).find(n=>n.tagName==='INPUT');
+  if(i===0){action('Check answer').click();assert.ok(practicePanel.textContent.includes('Enter a number first'));number.value='99';number.oninput();action('Check answer').click();circuit.start();number=descendants(practicePanel).find(n=>n.tagName==='INPUT');assert.equal(number.value,'99','circuit retains input when reopened');}
+  number.value=String(i+2);number.oninput();action('Check answer').click();assert.ok(action('Check answer').disabled);action(i===4?'Review circuit':'Next round').click();
+ }
+ assert.ok(practicePanel.textContent.includes('5 rounds reviewed · 4 solved'));
+ assert.equal(JSON.stringify([...store]),beforePractice,'circuit does not alter saved progress or credits');
+ action('Try a new circuit').click();assert.equal(made,2);assert.ok(practicePanel.textContent.includes('ROUND 1 / 5'));
  console.log('PASS: '+game+' connected screens, reciprocal edge warps, safe arrival, closed edges, local interaction, rendering, travel buttons and keyboard integration.');
 }
 assert.equal(fs.readFileSync(path.join(dir,'route-atlas.js'),'utf8'),fs.readFileSync(path.join(dir,'../math-game/route-atlas.js'),'utf8'),'portable atlas copies match');

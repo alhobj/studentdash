@@ -9,3 +9,5 @@
 
 /* Warm timber framing around the original village artwork. */
 .world{border-color:#8e7552;background:linear-gradient(160deg,#2e4038,#1d3030);box-shadow:inset 0 0 0 3px #443e30,0 8px 24px #0003}#map{border:6px solid #78593c;border-radius:4px;box-shadow:0 0 0 2px #b18b5c,inset 0 0 0 2px #513c2e}#location-name{color:#f1d6a2;font-family:Georgia,serif;font-size:24px;letter-spacing:.4px}#atlas{background:#75573d;border-color:#c29c68;color:#fff0c7}#travel-buttons button[aria-current=location]{background:#796344;border-color:#edcc87}
+
+.circuit-answer{display:block;width:100%;max-width:300px;padding:12px;margin:10px 0;background:#102126;color:#edf1db;border:1px solid #9aaf83;border-radius:5px;font:inherit}

@@ -43,7 +43,7 @@ records or examination questions. They sample selected ideas and do not cover al
 | Data gardens / Sol | Garden records; probability fair | Mean/median, explicitly defined quartiles, regression prediction, independent events, binomial probability, normal symmetry |
 | Change observatory / Kaia | Tracker; riverside park | Average and instantaneous rates, stationary points, optimization, integration, trapezoidal approximation |
 
-Ten investigations contain thirty numerical steps. Four task models display live
+Fifteen investigations contain forty-five numerical steps. Four task models display live
 graphs or diagrams (linear, quadratic, tangent and enclosure). The graph workbench
 provides an additional freely adjustable linear model. Angles in the content are
 in degrees; numerical tolerances and units are authored per field. Canvas graphs
@@ -90,10 +90,10 @@ browser profile. The UI suite temporarily exercises the actual game save key and
 backs up/restores its previous value; use a temporary profile to avoid affecting a
 live play session if the test window is interrupted. No Node installation is needed.
 
-The suite checks all 30 steps against separately worked answers, route locks,
+The suite checks all 45 steps against separately worked answers, route locks,
 draft recovery, support tracking, reward replay, slot limits, duplicate purchases,
 notes, import/export, invalid-save preservation and storage failures. Its real-DOM
-flow completes all ten quests, renders the model canvases, places studio tools,
+flow completes all fifteen quests, renders the model canvases, places studio tools,
 changes a workbench slider, writes a note and reloads the game. Chromium headless
 checks passed during development; desktop and narrow-screen screenshots were also
 reviewed. This is not a full screen-reader or physical touch-device audit.
@@ -162,3 +162,44 @@ props. No game sprites or external image assets are used. The renderer copies in
 both portable folders are identical. Art changes leave collision footprints,
 travel links, saved progress and question content unchanged. Updated previews are
 static renders of the canvas drawing commands, not browser screenshots.
+
+
+### Second-chapter investigations
+
+Five additional routes build on the first chapter: lantern-festival savings
+(Number market), break-even ticket planning (Function foundry), beacon bearings
+and arcs (Harbour), stratified sampling and conditional probability (Data gardens),
+and reservoir accumulation (Observatory). Each has three steps, free support and
+one-time rewards. Existing ten-quest saves keep their progress and credits; the
+new routes open from the stated completed prerequisites.
+
+
+### Discovery cards, stamps and outfits
+
+Every location has a field chest beside the main path. Approach it and press E or
+Talk / enter, or use **Open field satchel → Inspect this location’s discovery**
+without walking. Read the note and keep the card. Cards are reusable reference
+notes, not questions or mastery claims. Each card can be collected once.
+
+The satchel awards a displayed fieldwork stamp when that area's card is collected
+and at least one investigation there is completed. Supported investigations count.
+Two cards plus one investigation unlock the fern coat; three cards plus three
+investigations unlock the sunset coat; all location cards plus five investigations
+unlock the midnight coat. Select an unlocked outfit in the satchel to wear it.
+
+Cards and outfit selection are included in the normal save/export/import and reset
+with the game. Older saves start with an empty collection and the original outfit.
+No credit cost, score bonus or question advantage is attached to these rewards.
+Collection and outfit validation are profile-driven; no Studentdash records change.
+
+
+### Five-round practice circuits
+
+Use **Practice challenge** for a short circuit with free hints, immediate feedback
+and an explanation recap. There is no timer or credit reward. Incorrect checks or
+hints mark that round supported; blank input does not count as an answer. Close
+and reopen to resume within this page session. Reloading starts over; circuits are
+not included in exported progress or assessment results. The recap counts rounds
+completed without in-game hints/incorrect checks, not demonstrated mastery.
+Math circuits generate new numbers for discounts, linear models, rectangular
+diagonals, medians and derivatives. One round represents each district.
