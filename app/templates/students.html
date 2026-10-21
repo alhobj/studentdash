@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block content %}
+<section><h2>Student overview · {{ current.id }}</h2><p>Stable IDs survive reordered rows, repeated imports and new assessments. Classifications are retained independently of score imports.</p>{% include 'coverage.html' %}</section>
+<section><div class="scroll"><table><thead><tr><th>Student</th><th>Assessment history / progress</th><th>Preview</th></tr></thead><tbody>
+{% for student in students %}<tr><td>{{ student.name }}<br><small>StudentID {{ student.id }}</small></td><td>{% for a in student.assessments %}{{ a.date }}: {% if a.percent is not none %}{{ '%g'|format(a.score) }}/{{ '%g'|format(a.maximum) }} · {{ '%.1f'|format(a.percent) }}%{% if a.grade is not none %} · grade {{ a.grade }}{% endif %}{% else %}{{ a.status }} ({{ a.graded }} graded questions){% endif %}<br>{% else %}No assessments yet{% endfor %}</td><td><a href="{{ url_for('student_preview', sid=student.id) }}">Open student preview</a></td></tr>{% endfor %}
+</tbody></table></div></section>{% endblock %}

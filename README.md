@@ -1,287 +1,199 @@
-# Studentdash
+# Studentdash — local assessment results and persistent classifications
 
-Studentdash is being developed as a subject-independent, curriculum-independent
-system. IB Chemistry is the first implementation and test profile. See the
-[architecture direction and migration plan](docs/ARCHITECTURE.md) for current
-assumptions and the configuration-driven target. Local assessment usability comes
-first; public/hosted development is deferred.
+Import your existing Excel grading workbook, review classifications produced
+separately with ChatGPT, and generate a private standalone HTML file per student.
+The application uses local SQLite and makes no external API calls. Normal use
+works offline after the initial Python dependencies have been installed.
 
-A local Python dashboard developed and tested with fictional learners and
-assessment records. Import a PDF/DOCX assessment and paste question scores, or use
-the existing Excel workbook workflow. Each learner receives an individual HTML
-snapshot with practice resources. A local Flask workspace provides teacher review,
-score entry, feedback and private download packages.
+## 1. Start on Windows
 
-The [local exit-ticket workflow](docs/EXIT_TICKETS.md) adds one-block JSON import,
-preview/publish, fictional student sessions, submissions, deterministic marking and
-teacher review. Use its reusable ChatGPT prompt and `examples/exit-ticket.json`.
+Install Python **3.10 or newer**, clone/download the repository, and double-click
+`start.bat`. It creates `.venv` and installs `requirements.txt` if needed. Open
+**http://127.0.0.1:5000**. The server stays on loopback with debug disabled.
+Stop it with Ctrl+C before moving/restoring its private database.
 
-Read the [complete system and classroom-use guide](docs/SYSTEM_GUIDE.md) for the data
-model, feedback workflow, revision history, operating instructions and readiness checklist.
+Linux/macOS:
 
-For colleagues, use the [one-page teacher overview](docs/TEACHER_OVERVIEW.md).
-Open the [ten-design gallery](examples/layouts/index.html) locally to compare
-student dashboard layouts with identical fictional content. Rebuild these offline
-previews with `python build_layout_previews.py`.
-
-Exit tickets also support [audited corrections, linked retakes and answer-release
-controls](docs/FOLLOW_UP.md). See [TODO](TODO.md) for suggested next milestones.
-
-## Enter your first assessment
-
-For classroom rollout, follow the [first-use checklist](docs/CLASSROOM_CHECKLIST.md),
-including private student packages, SharePoint downloads and backups.
-
-Prefer **Import assessment** to upload a PDF/DOCX test, review its questions and
-classification suggestions, and continue into score entry. **Create manually**
-remains available. See [Import a test document](docs/ASSESSMENT_IMPORT.md) for the
-workflow and supplied fictional examples.
-
-For your own class, start `.\.venv\Scripts\python.exe teacher.py` and open
-**http://127.0.0.1:5000/classes**. Follow [Enter your first assessment](docs/FIRST_ASSESSMENT.md)
-for class setup, question classification, spreadsheet score entry and dashboards.
-No workbook preparation or import commands are needed for this workflow.
-
-## Run the fictional demo
-
-Python 3.10 or newer is required. In PowerShell:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python -m pip install -r requirements.txt
-.\.venv\Scripts\python create_example_workbook.py
-.\.venv\Scripts\python seed_exit_tickets.py
-.\.venv\Scripts\python generate.py
-.\.venv\Scripts\python teacher.py
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python teacher.py
 ```
 
-Open http://127.0.0.1:5000 or open `output/student2001.html` directly after generation.
-On macOS/Linux use `.venv/bin/python` in place of `.\.venv\Scripts\python`.
-The generator creates `data/classroom.xlsx` and refuses to overwrite an existing
-workbook. It never reads another workbook. The application defaults to that file;
-it no longer falls back to `master.xlsx` or the former private-workbook filename.
-Existing workbooks are left untouched. All tests use generated fictional fixtures.
+## 2. Import the grading workbook
 
-The default demo contains 24 learners in four SL/HL class groups, six assessments
-from April to September 2026, 36 questions, 665 question records and 34 revision attempts.
-It includes varied performance, graded zeroes, exemptions, absent/pending/missing work
-and genuinely unrecorded questions. `--small` creates the original two-learner fixture
-at `data/fictional.xlsx`; use the workbook environment override to select that fixture.
+Choose **Import results**, give your course a permanent ClassID such as
+`Chemistry_HL_2026`, and upload the original `.xlsx`. Use that same ClassID on
+subsequent imports even if the workbook filename changes. Preview the students,
+assessments, scores, warnings and identity mappings, then confirm.
 
-## What is implemented
+The adapter supports the supplied `Chemistry 23-25 HL.xlsx` structure:
 
-- Assessment history, weighted overall percentage and suggested grades.
-- Validated question results joined by stable IDs, with explicit SL/HL membership.
-- Topic, subtopic and command-term breakdowns with inspectable evidence.
-- Offline assessment filtering: totals, evidence, resources and exit tickets all
-  change together. Without JavaScript, the all-assessments view remains available.
-- Strength/work-on hints require at least two graded questions in a command term.
-  Strength means at least 75%; work-on means below 50%. These are limited learning
-  hints, not diagnoses. Sparse categories display an evidence notice.
-- Topic-matched revision resources embedded in the snapshot for offline use.
-- Student-specific exit-ticket responses and teacher feedback, imported from Excel.
-- Grouped teacher validation notes, a legacy demonstration toggle, generation time
-  and a stale-snapshot notice when the workbook content changes.
-- Assessment-specific grade boundaries with global defaults.
-- A live teacher class overview with assessment/class filters, individual performance,
-  recorded question statuses and explicitly unrecorded question counts.
-- Question review ordered by graded percentage, showing how many eligible learners
-  have graded evidence. SL/HL membership determines applicability; small samples are labelled.
-- Student revision plans: up to three graded questions with the most lost marks,
-  with matching topic resources and a checklist. Ungraded work never becomes a retry task.
-- A print button for the currently selected student assessment view.
-- Editable per-learner, per-assessment teacher comments and revision tasks with
-  save draft, preview and publish states. Published feedback enters the next generation.
-- Revision-attempt recording and history showing original and new marks side by side.
-- Freshness reasons for workbook, published feedback, attempts, template/calculation
-  changes, and missing or modified snapshot files.
-- Interactive local exit tickets supporting MCQ, exact multiple-select, true/false,
-  numeric, accepted short answers and manually reviewed text. Teacher assignment,
-  publication, submissions and results are stored in the paired SQLite workspace.
-- Explicit fictional student sessions, per-student histories and separate exit-ticket
-  evidence. Offline HTML files do not submit answers, and formal scores are unchanged.
+- `Overview`: names in A2 onward, with `Name` in A1. No scores are read from this
+  administrative overview. Optional `StudentID` and `Level` columns are supported.
+- `Assessment blueprint`: a template, **never an assessment**.
+- Copy that template and name each assessment sheet `DD.MM.YYYY` (ISO
+  `YYYY-MM-DD` also works). Row 1 contains question labels, row 2 maximum marks,
+  and rows 3 onward contain students and marks. Question columns run from B up to
+  the `Marks` total column. Labels such as `*1a` are kept exactly, with no inferred
+  syllabus or level meaning.
+- The adapter ignores `Marks`, absence, percentages, suggested/official grades
+  and statistics columns as question data. It skips the `Sum` and `Task` footer
+  rows and reports unknown non-date sheets as ignored.
+- `Grade boundaries`: numeric grades and minimum percentages. The `FRAV` row is
+  an absence label, not a grade. Suggested grades are recomputed from complete
+  question evidence, using inclusive thresholds; official teacher grades are not
+  silently substituted.
 
-Revision checks are stored in the browser on the current device when storage is
-available. They are not teacher submissions and do not affect scores. The same task
-stays checked across assessment filters and regeneration; changing its question text
-or score starts a fresh task. Browser storage restrictions fall back to checks that
-last while the page is open. Moving to another browser or file location may not carry
-the checks across.
+**The supplied example currently contains 33 roster entries, seven grade boundaries
+and no dated assessment sheets.** Its blueprint has no scores. Importing it must
+not invent assessments, results or classifications. No structural change to the
+original workbook is required: continue copying the blueprint as usual.
 
-## Workbook tables
+Blank marks stay **pending**; numeric zero stays a **graded zero**. `A`, `X` or
+`FRAV` means absent, `E` exempt, `M` missing and `P` pending; full English status
+names also work. An `x` in the `x for absence` column marks all that row's questions
+absent and warns if it overrides recorded marks. Ungraded statuses do not contribute
+to category performance. Incomplete assessments have no suggested overall grade.
 
-Headers belong in row 1. IDs contain letters, digits, underscores or hyphens.
-Question IDs are globally unique; student IDs cannot collide ignoring case.
-The five original sheets remain required, and older fictional fixtures still work.
+Original Excel files are **never modified**. Direct name links such as
+`=Overview!A2` are resolved read-only. Other score formulas require saved cached
+values: recalculate/save in Excel before importing. Excel errors and missing score
+formula caches block import; cache freshness cannot be established automatically.
+Administrative totals/grades need not be recalculated by Python. Complete cached
+totals that disagree with question marks produce a warning for teacher review.
 
-| Sheet | Columns |
-|---|---|
-| Students | StudentID, StudentName, Email, Class |
-| Assessments | AssessmentID, AssessmentName, Date, Subject, Marks |
-| Questions | QuestionID, AssessmentID, QuestionNumber, SLHL, Text, Answer, Marks, Topic, Subtopic, QuestionType, ActionVerb, AutoMark |
-| Results | AssessmentID, StudentID, Score, MaxScore, Status |
-| Grade boundaries | Grade, Percent |
-| Memberships | AssessmentID, StudentID, Level |
-| QuestionResults | AssessmentID, QuestionID, StudentID, Score, Status |
-| AssessmentBoundaries | AssessmentID, Grade, Percent |
-| Resources | ResourceID, Topic, Title, Content |
-| ExitTickets | TicketID, StudentID, AssessmentID, Date, Prompt, Response, Feedback |
-| RevisionAttempts | AttemptID, StudentID, AssessmentID, QuestionID, Date, Score, Note |
+Student mappings use an explicit source StudentID if present, otherwise the exact
+normalized name, never the row position. Without source IDs, renamed students must
+be mapped to their existing internal ID in the preview. Unmatched students require
+confirmation as new. Duplicate/ambiguous names are rejected; use distinguishing
+names in this case. No IDs or classifications are guessed from names or filenames.
 
-The last seven tables are optional extensions. QuestionResults requires Memberships;
-exit-ticket rows also require membership. Each assessment/student membership is
-unique and has Level SL or HL. Question SLHL is SL, HL or BOTH. HL members can take
-SL and HL questions; SL members cannot take HL-only questions. BOTH applies to either.
-Class names and row positions are never used to infer these relationships.
+## 3. Obtain and import classifications
 
-Linked questions require positive Marks, text, topic, subtopic and a command term.
-MCQ belongs in QuestionType, not ActionVerb. Topic names match resources exactly.
-Resources contain teacher-authored text and practice prompts, not fetched content.
-The Excel ExitTickets sheet is imported reflection history. Interactive local exit
-tickets use separate SQLite tables and Flask forms; they never write to this sheet.
-RevisionAttempts imports fictional retry history against original graded question
-results. Attempts recorded in the teacher interface are stored separately in SQLite.
+After importing results, open **Import classifications**. Download either the
+blank template or a template populated with your existing question identities and
+classifications. Download the short ChatGPT prompt too. Give ChatGPT the **question
+paper**, template and vocabulary; do not send student names, results or the grading
+workbook. ChatGPT is used separately; Studentdash has no API integration.
 
-## Scoring and reconciliation
+The `.xlsx` contains `Classifications`, `Vocabulary`, `SyllabusNodes` and
+`Instructions` sheets. UTF-8 comma-delimited CSV is supported for the
+Classifications table with the same headers:
 
-| Status | Score | Counts in question-category percentage |
-|---|---|---|
-| graded | Required, between zero and question Marks | Yes, including zero |
-| missing | Blank | No |
-| absent | Blank | No |
-| exempt | Blank | No |
-| pending | Blank | No |
-
-Category percentages are total earned marks divided by total possible marks for
-**graded questions only**. Missing rows are not invented. Non-graded questions
-remain visible in question records. These percentages describe available evidence,
-not assessment completion or an official grade.
-
-Results remains the source for assessment totals. Only graded Results contribute
-to overall performance, calculated as total earned / total possible rather than
-an average of rounded percentages. The importer compares question totals against
-Results only when all questions applicable to that membership have a graded or
-exempt record. Exempt questions contribute neither score nor denominator.
-Disagreements and incomplete evidence produce teacher notes; no totals are replaced.
-Membership can yield different SL/HL maximums, and exemptions can reduce them further.
-Assessments.Marks describes the full question set; Results.MaxScore describes the
-recorded student summary.
-
-Each boundary set must contain grades 1 through 7 exactly once, with strictly
-increasing inclusive minimum percentages, starting at zero for grade 1. Rows in
-AssessmentBoundaries override the global set for that assessment only. Suggested
-grades remain separate from official teacher or final grades, which are not modeled.
-
-The legacy Results spelling Stratus is accepted. Blank summary status is interpreted
-as graded if a score exists, otherwise pending, with a warning. QuestionResults
-requires an explicit status. Formula caches are read, never calculated by openpyxl;
-missing caches or Excel errors are validation failures. Recalculate and save in Excel
-before importing formulas. Saved-cache freshness cannot be established automatically.
-
-## Local review workflow
-
-1. Edit the fictional workbook and save it.
-2. Open the teacher workspace and review grouped data-quality notes.
-   Use the class overview and question review to identify follow-up: missing, pending,
-   absent and exempt are distinct from a question with no record at all. A low question
-   percentage is evidence to inspect, not an automatic diagnosis or learner ranking.
-3. Generate snapshots after checking totals and question evidence.
-4. Open a learner preview and use its assessment selector to inspect each assessment.
-5. Use **Feedback & revisions** next to a learner to save a draft, preview it, and
-   publish it locally. Regenerate dashboards to distribute the published content.
-6. Record later revision attempts there without changing the original grades.
-
-Teacher drafts, published feedback and interface-recorded attempts are stored in
-`<workbook-name>.workspace.sqlite3` beside the workbook. Keep that file with the workbook
-when backing up or moving a course. Do not reuse learner/assessment IDs for a different
-cohort in the same workbook/workspace pair. Stale draft versions are rejected to avoid
-overwriting edits made in another browser tab. This is a single-teacher local workflow.
-
-Generation validates and renders every page before replacing existing output.
-It removes obsolete `student*.html` files in the dedicated output folder.
-Keep unrelated files outside that filename pattern. `generation.json` stores the
-input fingerprints, snapshot file fingerprints, generation time and demonstration
-setting. The teacher workspace lists stale reasons and filenames needing refresh.
-Draft edits do not mark student exports stale; published changes do. Regeneration
-rebuilds every current learner, rather than performing an incremental update.
-Generation is local publication of files; it does not send anything to students.
-
-## Architecture
-
-- `studentdash/excel.py`: workbook reading, cache checks and core validation.
-- `studentdash/question_data.py`: membership, question results, resources, tickets,
-  boundary overrides and summary reconciliation.
-- `studentdash/models.py`: typed workbook records.
-- `studentdash/analytics.py`: student-only views and evidence calculations.
-- `studentdash/overview.py`: teacher-only cohort and question review calculations.
-- `studentdash/workspace.py`: SQLite draft/publication state and revision recording.
-- `studentdash/freshness.py`: source fingerprints and stale reasons.
-- `studentdash/exit_schema.py`, `exit_tickets.py`: structured import, marking and ticket views.
-- `studentdash/exit_store.py`, `exit_routes.py`: ticket SQLite adapter and local interactive routes.
-- `studentdash/render.py`, `templates/`: escaped HTML and offline filtering.
-- `studentdash/teacher.py`: local review, generation and preview routes.
-- `create_example_workbook.py`, `studentdash/demo.py`: repeatable fictional datasets.
-
-Only allowlisted student views reach student templates. Names, emails, answer keys,
-other learners' reflections and unrelated workbook content are excluded. Resources
-are shared teacher content. Pages load no external scripts, styles or services.
-The server binds to loopback with debug disabled, protects generation using CSRF,
-rejects foreign Host headers and prevents caching of previews. The exit-ticket student
-session is a development simulation, not authentication. There is no school login,
-Microsoft integration, production student portal or network distribution workflow.
-
-## Configuration and checks
-
-```powershell
-$env:STUDENTDASH_WORKBOOK = 'C:\path\to\fictional.xlsx'
-$env:STUDENTDASH_OUTPUT = 'C:\path\to\demo-output'
-.\.venv\Scripts\python -m unittest discover -s tests -v
+```text
+ClassID,AssessmentID,QuestionID,Level,SyllabusCode,Topic,Subtopic,CommandTerm,Skill,CognitiveDemand,Context,Representation,QuantitativeSkill,ExperimentalSkill
 ```
 
-Relative configuration paths are resolved from the repository, not the working
-directory. Excel inputs, generated snapshots and common exports are excluded from
-Git. CI runs fictional-data tests on Windows and Linux with Python 3.10 and 3.13.
+Use ISO assessment dates, preserve question labels exactly, and separate multiple
+tags with semicolons. Categories/allowed tags come from the class's captured
+`profiles/*.json` profile. The included Chemistry profile permits SL, HL or BOTH;
+other subjects can configure entirely different categories and level rules without
+core Python changes. Level is optional. Eligibility filtering applies only when
+both student level and question scope are explicitly known from profile metadata.
+No level is inferred from `*` labels or filenames.
 
-`generate.py --no-examples` disables the separate legacy practice demonstration.
-Normalized workbooks with memberships always use their own question records,
-including empty states; they never receive invented practice scores.
+SyllabusCode accepts explicit configured node IDs or external codes. Existing
+hierarchy nodes come from the selected `curricula/*.json`. For finer syllabus
+statements, add rows to `SyllabusNodes` with `NodeID`, `ParentID`, `Label`, `Code`.
+Parents must exist; cycles, duplicates and redefinition of existing nodes are
+rejected. **No hierarchy is inferred by splitting codes.** CSV can reference
+existing nodes but cannot add nodes. Topic/Subtopic are optional teacher-supplied
+labels, kept separate from the controlled tag vocabulary.
 
-Before real classroom use, complete the pilot and operating checks in the system guide.
-Online use requires authentication, per-student authorization and a deployment design;
-the current local teacher server must not be exposed as a student portal.
+Upload and preview the file. Unknown classes, assessments, questions and tags,
+duplicates and conflicts are reported. Blank fields preserve existing values;
+unknown new fields remain unknown. Use `[clear]` to explicitly clear a field.
+Existing teacher-confirmed classifications require explicit replacement consent.
+To correct them, download the populated template, edit it, upload, review and
+confirm. Before/after changes are recorded in the private import history.
 
-## Curriculum links and personal next steps
+## 4. Generate student HTML dashboards
 
-When creating a class, choose its curriculum. Existing classes can use **Curriculum
-& reviewed question links** to connect a curriculum, then review the question links.
-Use Ctrl/Command in the selection list to map a question to multiple nodes. Original
-labels and marks are preserved; labels are never automatically treated as reviewed
-curriculum links.
+**Student overview** shows results, classification coverage and per-student previews.
+**Generate dashboards** regenerates every active student's file under:
 
-On the class page, **Preview next steps** shows each student's warm-up, focused
-practice and independent check. Generate student dashboards to include **My next
-steps** in each private snapshot. Share the learner's HTML file together with the
-adjacent `resources` folder so its practice links work offline. The local preview is
-teacher-only; this does not introduce a hosted student portal.
+```text
+data/generated/<ClassID>/student1001.html
+data/generated/<ClassID>/student1002.html
+```
 
-Curriculum definitions live in `curricula/*.json`. Each has a stable ID and version,
-explicit node parents, optional prerequisite IDs and resources with stable IDs,
-node references, learning roles (`basic`, `practice`, `check`) and local HTML paths.
-A class captures its selected definition, so catalog changes do not silently alter
-existing mappings. Mathematics and chemistry definitions are included. Prerequisite
-links are teaching suggestions. New subject definitions require no core code changes.
+Each file includes only its learner's assessment history, question evidence and
+classification analyses. Styling is inline. There are no external scripts, fonts,
+APIs, workbook files or databases; each HTML works offline without Flask/Python.
+Marks and percentages use graded question evidence only. Multi-tag questions count
+once per tag and once per explicit syllabus ancestor. Category percentages overlap
+and must not be added. Strength/low-performance labels require at least two graded
+questions; insufficient evidence, missing results and no classification are distinct.
 
-## Portable practice, assignments and recovery
+Saved files are marked stale after imports. The ZIP download always renders current
+data. **The all-student ZIP is for the teacher**: distribute each HTML individually
+to the correct student. It contains no source workbook or teacher database.
 
-Open **My practice** from a practice page to save and resume short questions, retry
-mistakes, create mixed sessions and export/import progress. Teachers can export
-assignments (JSON or standalone HTML) and review students' self-reported completion
-files. The journal distinguishes independent answers from assisted work; none of
-these records changes assessment marks.
+## 5. Back up or move to another computer
 
-Use **Packages & workspace backup** in the local teacher app to download public
-practice files, a private package for one learner, or a complete selected-course
-backup. Restore validates checksums and databases and creates a new recovered copy.
+All classes, stable student mappings, assessment metadata, result snapshots,
+classifications, retired classifications, teacher corrections and import history
+are stored in **`data/private/studentdash.sqlite3`**. Scores remain authoritative in
+your original Excel workbook; the database contains its last confirmed import.
 
-See [the portable-practice guide](docs/PORTABLE_PRACTICE.md) for coverage, browser
-storage limits, the files-only sharing workflow and backup/restore instructions.
+Use **Backup & history → Create and download database backup**. This uses SQLite's
+consistent backup API and verifies integrity. A copy also stays under
+`data/private/backups/`; retain a secure copy on another device. Backups contain
+private data for **all classes**, not just the currently selected class.
+
+On the new computer clone Studentdash, install its dependencies, and keep the server
+stopped. Restore to a **new** location:
+
+```bat
+.venv\Scripts\python.exe -m app.restore "D:\Backups\studentdash.sqlite3" data\restored\studentdash.sqlite3
+set "STUDENTDASH_PRIVATE=C:\path\to\studentdash\data\restored"
+start.bat
+```
+
+Restore validates the database version/integrity and never overwrites existing
+data. Keep the backup and previous directory until you verify the restored classes.
+The session key is regenerated on another machine; it is not needed to recover
+classifications. Use `STUDENTDASH_GENERATED` to choose another generated-file root.
+Keep private and generated directories separate. Both default directories, Excel,
+SQLite, ZIP, CSV and mapping files under `data/` are excluded from Git. GitHub does
+not back up your private classifications.
+
+## 6. Add the next test
+
+Copy the blueprint, name it with the new test date, enter scores, and upload the
+updated workbook using the same ClassID. Studentdash recognizes existing students,
+assessments and question labels. All previous classifications remain stored and
+the new assessment is flagged as needing classification. Upload only the new
+classification file and regenerate dashboards. Previous files are not needed.
+
+If an existing question's label or maximum changes, review and confirm the structure
+change. Affected classifications are **retired into history**, never silently
+reattached. Reclassify the changed questions explicitly. Removed sheets are retained
+privately with their classifications, but excluded from current dashboards after
+confirmation. Preview revisions prevent stale tabs from overwriting newer imports.
+
+## Development and archive
+
+```sh
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+Tests generate only fictional workbooks and temporary databases. They cover
+reimports, the three-assessment workflow, classification corrections, IDs, statuses,
+formula caches, hierarchical/multi-tag analytics, privacy, persistence, backup,
+restore, standalone exports and the teacher HTTP workflow.
+
+An optional real-browser test additionally exercises uploads, confirmations, ZIP
+download and an offline-rendered student document. Install `requirements-dev.txt`
+and set `STUDENTDASH_BROWSER_EXECUTABLE` to your Chromium/Chrome executable (or use
+system `chromium`). The browser check is skipped if these optional tools are absent;
+all core workflow tests still run.
+
+The previous application is preserved intact under **`archive/legacy/`**, including
+its original source, tests, documentation, workbook support, quizzes, games,
+question banks, exit tickets and student submission simulations. It is not imported
+by the active app. Shared profile/curriculum data remain available at the root;
+the archive retains its own snapshot for compatibility. See [archive notes](archive/README.md)
+for running the old workflow separately. Public hosting and student submissions
+are outside the active application.

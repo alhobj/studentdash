@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block content %}
+<section><h2>Private database backup</h2><p>The database contains all classes, stable student mappings, assessment snapshots, classifications and correction/import history. It is private and excluded from Git.</p>
+<form method="post"><input type="hidden" name="csrf" value="{{ session.csrf }}"><button>Create and download database backup</button></form>
+<p>A consistent SQLite backup is also saved under <code>data/private/backups/</code>. Keep it in a secure location separate from this computer.</p>
+<h3>Transfer or restore</h3><p>Stop Studentdash. On the destination computer run:</p><pre>.venv\Scripts\python.exe -m app.restore BACKUP.sqlite3 data\restored\studentdash.sqlite3</pre><p>Restore requires a new destination and never replaces an existing database. Then set <code>STUDENTDASH_PRIVATE</code> to the absolute path of <code>data/restored</code> before running <code>start.bat</code>. You do not need to reimport old classifications.</p></section>
+<section><h2>Import and correction history</h2>{% for item in history %}<details><summary>{{ item.created }} · {{ item.kind }}</summary><pre>{{ item.detail|tojson(indent=2) }}</pre></details>{% else %}<p>No imports yet.</p>{% endfor %}</section>{% endblock %}

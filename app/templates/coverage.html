@@ -1,0 +1,1 @@
+<table><thead><tr><th>AssessmentID</th><th>Coverage</th><th>Status</th></tr></thead><tbody>{% for a in assessments %}<tr><td>{{ a.id }}</td><td>{{ a.classified }}/{{ a.total }} questions</td><td>{{ a.label }}</td></tr>{% else %}<tr><td colspan="3">No assessment sheets imported yet.</td></tr>{% endfor %}</tbody></table>

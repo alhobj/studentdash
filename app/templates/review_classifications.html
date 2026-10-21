@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block content %}
+<section><h2>Preview classifications · {{ payload.key }}</h2><p>{{ proposal.rows }} rows validated · {{ proposal.changes|length }} question changes · {{ proposal.added_nodes|length }} new syllabus nodes. Nothing has been saved.</p>
+{% if not proposal.changes and not proposal.added_nodes %}<p>This import is already applied or contains only blank fields. No duplicate classifications will be created.</p>{% endif %}
+{% if proposal.conflicts %}<div class="warning"><h3>Existing classifications are protected</h3><ul>{% for conflict in proposal.conflicts %}<li>{{ conflict }}</li>{% endfor %}</ul></div>{% endif %}
+{% for change in proposal.changes %}<article><h3>{{ change.assessment }} / {{ change.question }}</h3><details open><summary>Current classifications</summary><pre>{{ change.before|tojson(indent=2) }}</pre></details><details open><summary>Proposed classifications</summary><pre>{{ change.after|tojson(indent=2) }}</pre></details></article>{% endfor %}
+{% if proposal.added_nodes %}<h3>New explicit syllabus nodes</h3><pre>{{ proposal.added_nodes|tojson(indent=2) }}</pre>{% endif %}
+<form method="post"><input type="hidden" name="csrf" value="{{ session.csrf }}">{% if proposal.conflicts %}<label><input type="checkbox" name="replace" value="yes" required> I reviewed and confirm the listed replacements of existing classifications.</label>{% endif %}<button>Confirm classification import</button></form></section>
+{% endblock %}

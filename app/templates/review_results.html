@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block content %}
+<section><h2>Preview results · {{ payload.key }}</h2><p>{{ payload.incoming.students|length }} students · {{ payload.incoming.assessments|length }} dated assessments. Nothing has been saved yet.</p>
+{% for warning in payload.incoming.warnings %}<p class="warning">{{ warning }}</p>{% endfor %}
+{% if changes %}<h3>Structure changes requiring confirmation</h3><ul>{% for change in changes %}<li>{{ change }}</li>{% endfor %}</ul>{% endif %}
+<form method="post"><input type="hidden" name="csrf" value="{{ session.csrf }}">
+<h3>Student identity matching</h3><p>Matches use the existing StudentID source, or the exact normalized name when your workbook has no IDs. Map renamed students to their previous internal ID before confirming. Student IDs are never based on row positions.</p>
+<table><thead><tr><th>Student in workbook</th><th>Stable internal ID / correction</th></tr></thead><tbody>
+{% for s in payload.incoming.students %}<tr><td>{{ s.name }}</td><td>{% if s.key in previous %}{{ previous[s.key] }} · existing match{% elif target %}<select name="map:{{ s.key }}"><option value="">New student</option>{% for sid, old in target.students.items() %}<option value="{{ sid }}">{{ sid }} · {{ old.name }}</option>{% endfor %}</select>{% else %}New stable ID will be assigned{% endif %}</td></tr>{% endfor %}
+</tbody></table>
+{% if target %}<label><input type="checkbox" name="new_students" value="yes"> Unmatched students are genuinely new; I have mapped any renamed students to their old IDs.</label>{% endif %}
+{% if changes %}<label class="warning"><input type="checkbox" name="confirm_changes" value="yes" required> I reviewed the structure changes. Retire affected classifications and retain their history; do not attach them to changed questions.</label>{% endif %}
+<button>Confirm results import</button></form></section>
+{% for aid, assessment in payload.incoming.assessments.items() %}<section><h3>{{ aid }} · {{ assessment.questions|length }} questions</h3><div class="scroll"><table><thead><tr><th>Student</th>{% for qid, q in assessment.questions.items() %}<th>{{ qid }}<br>Max {{ '%g'|format(q.marks) }}</th>{% endfor %}</tr></thead><tbody>
+{% for s in payload.incoming.students %}<tr><td>{{ s.name }}</td>{% for qid in assessment.questions %}{% set r = assessment.results[s.key][qid] %}<td>{{ ('%g'|format(r.score)) if r.status == 'graded' else r.status }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div></section>{% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student {{ student.id }} · Assessment progress</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;color:#17333b;background:#f2f6f5;margin:0}main{max-width:1050px;margin:auto;padding:2rem 1rem}h1,h2,h3{line-height:1.2}section,header{background:white;padding:1.5rem;border-radius:12px;margin-bottom:1rem}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.65rem;border-bottom:1px solid #dce5e3}th{font-size:.85rem;color:#355c65}small,.muted{color:#52676b}.scroll{overflow:auto}progress{max-width:100%;accent-color:#167266}details{margin:1rem 0}button{font:inherit}@media print{body{background:white}section{break-inside:avoid}button{display:none}}
+</style></head><body><main>
+<header><p>{{ student.course }} · Private learner snapshot</p><h1>{{ student.name }}</h1><p>Student {{ student.id }} · Assessment results and progress</p><small>Snapshot source updated {{ student.updated }}. This offline file changes only when your teacher regenerates it.</small></header>
+<section><h2>Assessment history</h2><p>Only complete graded/exempt evidence produces an assessment percentage and suggested grade. Zero marks and missing results are different.</p>
+<div class="scroll"><table><thead><tr><th>Date / assessment</th><th>Marks / available graded marks</th><th>Result</th><th>Suggested grade</th><th>Progress</th><th>Classifications</th></tr></thead><tbody>
+{% for a in student.assessments %}<tr><td>{{ a.date }}<br>{{ a.name }}</td><td>Assessment maximum: {{ '%g'|format(a.assessment_maximum) }}<br>Graded evidence: {{ '%g'|format(a.score) }} / {{ '%g'|format(a.maximum) }}<br><small>{{ a.graded }} graded; {{ a.pending }} pending; {{ a.missing }} missing; {{ a.absent }} absent; {{ a.exempt }} exempt</small></td><td>{% if a.percent is not none %}{{ '%.1f'|format(a.percent) }}%{% else %}{{ a.status }}{% endif %}</td><td>{{ a.grade if a.grade is not none else '—' }}</td><td>{% if a.percent is not none %}<progress max="100" value="{{ a.percent }}">{{ a.percent }}%</progress>{% else %}—{% endif %}</td><td>{{ a.classification.label }}<br><small>{{ a.classification.classified }}/{{ a.classification.total }} questions have some classification</small></td></tr>{% else %}<tr><td colspan="6">No dated assessments imported yet.</td></tr>{% endfor %}
+</tbody></table></div></section>
+<section><h2>Performance by classification</h2><p>Percentages use earned / possible marks on graded questions only, including zeroes. Multiple tags overlap: percentages must not be added together. Each question counts once per tag and once per explicit syllabus ancestor. Strength/low-performance labels require at least two graded questions.</p>
+{% for category, rows in student.groups.items() %}<h3>{{ category }}</h3>
+{% if student.unknown.get(category) %}<p class="muted">{{ student.unknown[category] }} question(s) have no classification in this category. Unknown classifications are excluded, never guessed.</p>{% endif %}
+{% if rows %}<div class="scroll"><table><thead><tr><th>Classification</th><th>Graded marks</th><th>Performance</th><th>Evidence</th><th>Pattern</th></tr></thead><tbody>
+{% for row in rows %}<tr><td>{{ row.tag }}</td><td>{{ '%g'|format(row.score) }} / {{ '%g'|format(row.maximum) }}</td><td>{{ ('%.1f'|format(row.percent) ~ '%') if row.percent is not none else 'No graded results' }}</td><td>{{ row.questions }} graded questions; {{ row.ungraded }} ungraded</td><td>{{ row.pattern }}</td></tr>{% endfor %}
+</tbody></table></div>{% else %}<p>No classification available.</p>{% endif %}{% endfor %}
+</section>
+<section><details><summary>Question-level evidence</summary><div class="scroll"><table><thead><tr><th>Assessment</th><th>Question</th><th>Result</th><th>Imported classifications</th></tr></thead><tbody>
+{% for row in student.questions %}<tr><td>{{ row.assessment }}</td><td>{{ row.question }}</td><td>{% if row.result.status == 'graded' %}{{ '%g'|format(row.result.score) }} / {{ '%g'|format(row.marks) }}{% else %}{{ row.result.status }}{% endif %}</td><td>{% for category, tags in row.classification.get('tags', {}).items() %}{% if tags %}{{ category }}: {{ tags|join('; ') }}<br>{% endif %}{% else %}No classification available{% endfor %}{% if row.classification.get('level') %}Scope: {{ row.classification.level }}{% endif %}</td></tr>{% endfor %}
+</tbody></table></div></details></section>
+</main></body></html>

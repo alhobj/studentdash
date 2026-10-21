@@ -1,4 +1,5 @@
-from studentdash.teacher import create_app
+"""Start the private local assessment workspace."""
+from app.teacher import create_app
 
 app = create_app()
 

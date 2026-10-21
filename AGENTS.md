@@ -1,23 +1,19 @@
-# Architecture direction
+# Active application
 
-Studentdash is subject-independent and curriculum-independent. IB Chemistry is
-the first implementation and test profile, not the application domain model.
-Read [the architecture direction](docs/ARCHITECTURE.md) before changing domain,
-classification, curriculum or assessment behavior.
+The active local assessment workflow is in `app/`, launched by root `teacher.py`.
+Read `docs/ARCHITECTURE.md` before domain or classification changes. The previous
+application, its tests and original guidance are preserved in `archive/legacy/`.
 
-- Do not introduce new hard-coded IB, Chemistry, SL/HL, command-term, syllabus-code,
-  experimental-skill, representation or other curriculum assumptions into the core.
-- Subject-specific categories and allowed tags belong in data/configuration. A new
-  subject must be able to define different categories without Python/code changes.
-- Model curriculum as a generic hierarchy with explicit parent relationships.
-  Course-level distinctions belong in configurable course/profile metadata.
-- Preserve existing IB Chemistry functionality and workbook compatibility. Refactor
-  only what the current feature needs; do not start a broad architecture rewrite.
-- Prioritize usability with real IB Chemistry assessment data. Keep automated tests
-  and development fixtures fictional; preserve original assessment evidence.
-- Do not build the public/hosted version until explicitly requested.
-
-The target concepts are Course, Student, Curriculum, CurriculumNode, Assessment,
-Question, QuestionResult, TagCategory, Tag, QuestionTag, Feedback, Resource and
-ExitTicket. These are architectural direction, not a requirement to implement all
-entities immediately. Existing limitations are inventoried in the linked document.
+- Keep the core subject- and curriculum-independent. Categories, vocabulary,
+  levels and eligibility belong in profile data; curriculum nodes have explicit
+  parents. Do not infer hierarchy from syllabus-code syntax.
+- Preserve source workbooks. Do not put real student data, mappings, generated
+  dashboards, private databases or backups into Git. Automated fixtures are fictional.
+- Keep student identity stable across reimports and row reordering. Structural
+  changes and classification replacements require explicit teacher review.
+- Keep scores separate from classifications. Zero marks are graded; absent,
+  exempt, missing and pending evidence never becomes zero.
+- Keep the active teacher server loopback-only. No public/hosted features, games,
+  exit tickets or student submission work without an explicit request.
+- Run `python -m unittest discover -s tests -v` for active changes. Archived
+  regression suites must be run from `archive/legacy` with that checkout on PYTHONPATH.
