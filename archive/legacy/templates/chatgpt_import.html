@@ -1,0 +1,10 @@
+<section class="card"><h2>Prepare this assessment with ChatGPT</h2>
+<p>Copy this prompt into ChatGPT and attach your <strong>test paper and mark scheme</strong>. ChatGPT will return the questions, maximum marks and classifications together. Paste its full JSON response below; you do not need to enter every question manually.</p>
+<label>Prompt for ChatGPT<textarea id="chatgpt-prompt" rows="8" readonly>{{ chatgpt_prompt }}</textarea></label>
+<button type="button" id="copy-chatgpt-prompt">Copy prompt</button> <span id="chatgpt-copy-status" role="status"></span>
+<form method="post" {% if draft is defined %}action="{{ url_for('assessment_import.paste_chatgpt', key=doc.id, did=draft.id) }}"{% endif %}>
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}"><input type="hidden" name="method" value="chatgpt">
+<label>Paste ChatGPT response<textarea name="chatgpt_response" rows="10" maxlength="1000000" required placeholder="Paste the complete JSON response here">{{ request.form.get('chatgpt_response', '') }}</textarea></label>
+<p>This loads a proposal into the review page. It does not create an assessment or change scores. Existing unsaved edits to this draft will be replaced by the pasted proposal. Check the preview against both documents before confirming.</p>
+<button type="submit">Preview ChatGPT assessment</button></form>
+<p>Studentdash does not contact ChatGPT. Share the question paper and mark scheme separately, without student names or results. Unknown information remains unknown; no syllabus mappings are invented.</p></section>

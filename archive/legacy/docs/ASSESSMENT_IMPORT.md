@@ -56,3 +56,25 @@ bank's layout and stronger semantic inference wait for the real example document
 The original test and its draft/source metadata stay teacher-only. Final questions
 use the existing assessment format, retain their parent context and go through the
 existing score entry, overview and student export workflow.
+# Prepare an assessment with ChatGPT
+
+On **Import assessment**, choose **Prepare this assessment with ChatGPT**. Copy
+the prompt, attach your test paper and mark scheme in ChatGPT, then paste its
+complete JSON response into the webpage. The prompt includes the selected class's
+allowed tags, curriculum node IDs and import schema, but no student information.
+It requests question text, marks, shared context, multiple tags and supported
+curriculum links. Studentdash does not call an external API.
+
+**Preview ChatGPT assessment** loads an unconfirmed draft. Review it against both
+documents; use **I have reviewed all imported questions and marks**, confirm the
+final review and choose **Create assessment**. You do not have to edit or check
+each question separately when all populated information is correct. Errors and
+uncertainties remain visible; unknown marks or unreadable figures are not invented.
+The same prompt/paste panel appears on existing PDF/DOCX import drafts. Pasting
+there replaces that draft's question proposal while keeping the original uploaded
+document and the existing participating students. A stale tab cannot overwrite a
+newer saved draft. Existing created assessments and scores are never changed by
+pasting a proposal.
+
+Use root `start-assessment-import.bat` to open this workflow on Windows. It uses
+root `data/entered_classes` unless STUDENTDASH_WORKBOOK selects another location.

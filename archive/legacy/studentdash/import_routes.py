@@ -10,6 +10,7 @@ from .assessment_import import create_draft, draft_by_id, save_review, update_re
 from .document_extract import MAX_BYTES
 from .entry import EntryError
 from .import_suggestions import curriculum_nodes
+from .chatgpt_assessment import prompt as chatgpt_prompt, save_response
 
 
 def register_import_routes(app, store):
@@ -26,6 +27,13 @@ def register_import_routes(app, store):
         error = None
         if request.method == 'POST':
             try:
+                if request.form.get('method') == 'chatgpt':
+                    try:
+                        version = int(request.form['version'])
+                    except (ValueError, KeyError):
+                        raise EntryError('Reload the page before importing the ChatGPT response.') from None
+                    did = save_response(store, key, request.form.get('chatgpt_response', ''), version)
+                    return redirect(url_for('assessment_import.review', key=key, did=did), code=303)
                 source = request.files.get('document')
                 if source is None or not source.filename:
                     raise EntryError('Choose a PDF or DOCX test document.')
@@ -33,7 +41,23 @@ def register_import_routes(app, store):
                 return redirect(url_for('assessment_import.review', key=key, did=did), code=303)
             except EntryError as exc:
                 error = str(exc)
-        return render_template('assessment_upload.html', doc=doc, error=error), 400 if error else 200
+        return render_template('assessment_upload.html', doc=doc, error=error, chatgpt_prompt=chatgpt_prompt(doc)), 400 if error else 200
+
+    @bp.route('/classes/<key>/imports/<did>/chatgpt', methods=['POST'])
+    def paste_chatgpt(key, did):
+        doc = store.read(key)
+        draft = deepcopy(draft_by_id(doc, did))
+        try:
+            try:
+                version = int(request.form['version'])
+            except (ValueError, KeyError):
+                raise EntryError('Reload the page before importing the ChatGPT response.') from None
+            save_response(store, key, request.form.get('chatgpt_response', ''), version, did)
+            return redirect(url_for('assessment_import.review', key=key, did=did), code=303)
+        except EntryError as exc:
+            return render_template('assessment_review.html', doc=doc, draft=draft, report=validation(draft),
+                curriculum=curriculum_nodes(draft['profile']), form_version=doc['version'], error=str(exc),
+                submitted=None, chatgpt_prompt=chatgpt_prompt(doc, draft)), 400
 
     @bp.route('/classes/<key>/imports/<did>', methods=['GET', 'POST'])
     def review(key, did):
@@ -60,7 +84,7 @@ def register_import_routes(app, store):
                 error = str(exc)
         return render_template('assessment_review.html', doc=doc, draft=draft, report=validation(draft),
                                curriculum=curriculum_nodes(draft['profile']), form_version=form_version,
-                               error=error, submitted=submitted), 400 if error else 200
+                               error=error, submitted=submitted, chatgpt_prompt=chatgpt_prompt(doc, draft)), 400 if error else 200
 
     @bp.get('/classes/<key>/imports/<did>/source')
     def source(key, did):

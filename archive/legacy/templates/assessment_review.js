@@ -149,6 +149,11 @@
     changed(); render(); list.lastElementChild.querySelector('.import-number').focus();
   });
   form.addEventListener('input', changed);
+  document.querySelector('#check-chatgpt-questions')?.addEventListener('click', () => {
+    for (const node of nodes) node.reviewed = true;
+    changed(); render();
+    state.textContent = 'All question checks marked reviewed. Confirm the final review below to create the assessment.';
+  });
   form.addEventListener('submit', event => {
     if (event.submitter?.value === 'finalize' && (!document.querySelector('#review-ack').checked || nodes.some(n => !n.reviewed))) {
       event.preventDefault(); state.textContent = 'Check each question/context and confirm the final review before creating the assessment.'; return;

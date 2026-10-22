@@ -7,6 +7,20 @@ works offline after the initial Python dependencies have been installed.
 
 ## 1. Start on Windows
 
+For the **PDF/DOCX “Import assessment” workflow with ChatGPT copy/paste**, use
+`start-assessment-import.bat` instead of `start.bat`. Stop any other Studentdash
+server, open `http://127.0.0.1:5000/classes`, select your class and choose
+**Import assessment**. Copy the prompt, attach the test paper and mark scheme in
+ChatGPT, then paste the complete JSON response into **Paste ChatGPT response**.
+Choose **Preview ChatGPT assessment**, compare the populated questions, marks and
+classifications with the documents, mark all imported questions reviewed together,
+confirm the final review and create the assessment. No per-question editing is
+needed when the proposal is correct. Unknown/unreadable information still needs
+review. This workflow is also available on an existing PDF/DOCX import draft.
+The launcher uses the original root `data/entered_classes` location by default,
+preserving existing classes. An existing STUDENTDASH_WORKBOOK override is respected.
+The Excel-results application described below remains available via `start.bat`.
+
 Install Python **3.10 or newer**, clone/download the repository, and double-click
 `start.bat`. It creates `.venv` and installs `requirements.txt` if needed. Open
 **http://127.0.0.1:5000**. The server stays on loopback with debug disabled.
