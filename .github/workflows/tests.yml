@@ -34,3 +34,6 @@ jobs:
       - name: Test Excel score and confidence paste
         working-directory: archive/legacy
         run: python -m unittest discover -s tests -p "test_confidence_paste.py" -v
+      - name: Test course vocabulary and grouped classification
+        working-directory: archive/legacy
+        run: python -m unittest discover -s tests -p "test_math_classification.py" -v

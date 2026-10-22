@@ -4,7 +4,6 @@
   "version": "2",
   "label": "Mathematics AI SL · first assessment 2021",
   "prerequisite_note": "Authored teaching links, not official IB prerequisite requirements. A prerequisite suggestion is not a diagnosis.",
-  "categories": {},
   "nodes": [
     {
       "id": "math-ai-sl-2021:root",
@@ -1393,5 +1392,53 @@
     "HL": "HL",
     "BOTH": "Both"
   },
-  "question_level_help": "SL: questions for SL students. HL: questions for HL students. Both: questions for both levels."
+  "question_level_help": "SL: questions for SL students. HL: questions for HL students. Both: questions for both levels.",
+  "profile": {
+    "categories": {
+      "CommandTerm": [
+        "Calculate",
+        "Comment",
+        "Compare",
+        "Construct",
+        "Deduce",
+        "Demonstrate",
+        "Describe",
+        "Determine",
+        "Differentiate",
+        "Distinguish",
+        "Draw",
+        "Estimate",
+        "Explain",
+        "Find",
+        "Hence",
+        "Hence or otherwise",
+        "Identify",
+        "Integrate",
+        "Interpret",
+        "Investigate",
+        "Justify",
+        "Label",
+        "List",
+        "Plot",
+        "Predict",
+        "Prove",
+        "Show",
+        "Show that",
+        "Sketch",
+        "Solve",
+        "State",
+        "Suggest",
+        "Verify",
+        "Write down"
+      ]
+    },
+    "command_category": "CommandTerm",
+    "category_options": {
+      "CommandTerm": {
+        "label": "Action verbs",
+        "multiple": true
+      }
+    },
+    "vocabulary_source": "IB Mathematics: applications and interpretation guide (first assessment 2021), glossary of command terms; configured labels only, no automatic inference."
+  }
 }

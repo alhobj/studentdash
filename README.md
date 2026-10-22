@@ -124,6 +124,32 @@ maximums and each student's before/after total, then explicitly confirm. The old
 question and its recorded marks are archived locally and in backups. No rating is
 inferred from those marks. Existing snapshots change only after regeneration.
 
+### Mathematics action verbs and grouped classification
+
+Mathematics AI SL now configures IB command-term labels under the existing
+`CommandTerm` tag category, displayed as **Action verbs**. The previous mathematics
+configuration had no categories, which produced empty prompt vocabulary and no
+verb controls. Exact matching saved course identities receive additive vocabulary
+when read: no database write or curriculum snapshot replacement occurs. Existing
+custom categories, values and selection rules are retained. Normal later saves
+can persist the expanded vocabulary. No historical question is classified from text.
+
+In **Edit assessment → Classify**, choose action verbs and expand **Curriculum
+parts** into Prior learning and the five configured mathematics regions. Select
+across groups without Ctrl/Command. Selected tags and references remain visible in
+the collapsed Classify summary; the count is tags plus curriculum references.
+Broad part references remain selectable. The course root is offered only when
+already saved, as an existing broad reference; uncheck it deliberately to clear.
+The legacy/free-text label is retained but does not create stable curriculum links.
+
+The same groups appear in import preview. Copy a fresh ChatGPT prompt to include
+the vocabulary, category labels and selection rules. Previously empty `tags` JSON
+still works. Add verbs manually or import reviewed classifications, then regenerate
+student dashboards to update **Skills and action verbs**. Scores and confidence
+remain separate. Vocabulary labels reference the IB Mathematics: applications and
+interpretation guide (first assessment 2021), glossary of command terms; this is
+configuration, not automatic skill inference or an official assessment judgement.
+
 ## 2. Import the grading workbook
 
 Choose **Import results**, give your course a permanent ClassID such as

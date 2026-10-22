@@ -11,8 +11,8 @@
 {% for q in payload.questions %}<tr class="metadata-question">
 <td><label>Question label<input class="metadata-number" value="{{ q.number }}" required maxlength="40"></label><label>Short name (optional)<input class="metadata-short-name" value="{{ q.get('name', '') }}" maxlength="200"></label></td>
 <td><label>Maximum marks<input class="metadata-marks" type="number" min="0.0000001" step="any" value="{{ q.marks if q.marks is not none else '' }}" required></label></td>
-<td>{% for category, tags in vocabulary.items() %}<details><summary>{{ category }}: {{ q.tags.get(category, [])|join('; ') or 'Unknown' }}</summary><label>{{ category }}<select multiple class="metadata-tags" data-category="{{ category }}" size="3">{% for tag in tags %}<option value="{{ tag }}" {% if tag in q.tags.get(category, []) %}selected{% endif %}>{{ tag }}</option>{% endfor %}{% for tag in q.tags.get(category, []) if tag not in tags %}<option value="{{ tag }}" selected>Unknown: {{ tag }}</option>{% endfor %}</select></label></details>{% endfor %}{% for category in q.tags if category not in vocabulary %}<p class="error">Unknown category: {{ category }}. Correct the response and preview again.</p>{% endfor %}</td>
-<td><label>Curriculum nodes<select multiple class="metadata-curriculum" size="3">{% for id, node in curriculum.items() %}<option value="{{ id }}" {% if id in q.curriculum_nodes %}selected{% endif %}>{{ node.get('code', '') }} {{ node.label }}</option>{% endfor %}{% for id in q.curriculum_nodes if id not in curriculum %}<option value="{{ id }}" selected>Unknown: {{ id }}</option>{% endfor %}</select></label></td>
+<td>{% for category, tags in vocabulary.items() %}<details><summary>{{ category_options.get(category, {}).get('label', category) }}: {{ q.tags.get(category, [])|join('; ') or 'Unknown' }}</summary><label>{{ category_options.get(category, {}).get('label', category) }}<select {% if category_options.get(category, {}).get('multiple', true) %}multiple{% endif %} class="metadata-tags" data-category="{{ category }}" data-label="{{ category_options.get(category, {}).get('label', category) }}" size="3">{% if not category_options.get(category, {}).get('multiple', true) %}<option value="">Unknown</option>{% endif %}{% for tag in tags %}<option value="{{ tag }}" {% if tag in q.tags.get(category, []) %}selected{% endif %}>{{ tag }}</option>{% endfor %}{% for tag in q.tags.get(category, []) if tag not in tags %}<option value="{{ tag }}" selected>Unknown: {{ tag }}</option>{% endfor %}</select></label></details>{% endfor %}{% for category in q.tags if category not in vocabulary %}<p class="error">Unknown category: {{ category }}. Correct the response and preview again.</p>{% endfor %}</td>
+<td>{% from 'curriculum_select.html' import options, containers %}<details><summary>Curriculum parts</summary><div class="metadata-curriculum">{{ options(curriculum_selection.groups, q.curriculum_nodes, 'metadata-node') }}{{ containers(curriculum_selection.containers, q.curriculum_nodes, 'metadata-node') }}{% for id in q.curriculum_nodes if id not in curriculum %}<label class="error"><input type="checkbox" class="metadata-node" data-label="Unknown: {{ id }}" value="{{ id }}" checked> Unknown: {{ id }}</label>{% endfor %}</div></details><small class="metadata-selected-curriculum"></small></td>
 {% if not question_levels.single %}<td><label>Question level<select class="metadata-scope"><option value="">Unknown / unspecified</option>{% for scope in scopes %}<option value="{{ scope }}" {% if q.scope == scope %}selected{% endif %}>{{ question_levels.labels.get(scope, scope) }}</option>{% endfor %}{% if q.scope and q.scope not in scopes %}<option selected value="{{ q.scope }}">Unknown: {{ q.scope }}</option>{% endif %}</select></label></td>{% endif %}</tr>{% endfor %}
 </tbody></table></div><p><strong>Total maximum marks: <span id="metadata-total">—</span></strong></p>
 {% if changes %}<div class="notice"><ul>{% for change in changes %}<li>{{ change }}</li>{% endfor %}</ul></div>{% endif %}
@@ -34,20 +34,21 @@ function editedMetadata() {
     q.name = row.querySelector('.metadata-short-name').value;
     const marks = row.querySelector('.metadata-marks').value;
     q.marks = marks === '' ? null : Number(marks);
-    for (const select of row.querySelectorAll('.metadata-tags')) q.tags[select.dataset.category] = [...select.selectedOptions].map(o => o.value);
-    q.curriculum_nodes = [...row.querySelector('.metadata-curriculum').selectedOptions].map(o => o.value);
+    for (const select of row.querySelectorAll('.metadata-tags')) q.tags[select.dataset.category] = [...select.selectedOptions].map(o => o.value).filter(Boolean);
+    q.curriculum_nodes = [...row.querySelectorAll('.metadata-curriculum input:checked')].map(o => o.value);
     q.scope = {{ question_levels.single|tojson }} || row.querySelector('.metadata-scope').value;
     return q;
   });
   return result;
 }
-function updateTotal() { const questions = editedMetadata().questions; document.querySelector('#metadata-total').textContent = questions.some(q => !Number.isFinite(q.marks) || q.marks <= 0) ? 'Correct missing/invalid marks' : questions.reduce((total, q) => total + q.marks, 0); }
+function updateTotal() { for(const row of document.querySelectorAll('.metadata-question')) { row.querySelector('.metadata-selected-curriculum').textContent = [...row.querySelectorAll('.metadata-curriculum input:checked')].map(i=>i.dataset.label.trim()).join(' · ') || 'Unclassified'; for(const group of row.querySelectorAll('.curriculum-group')) group.querySelector('summary .group-count').textContent = `(${group.querySelectorAll('input:checked').length} selected)`; } const questions = editedMetadata().questions; document.querySelector('#metadata-total').textContent = questions.some(q => !Number.isFinite(q.marks) || q.marks <= 0) ? 'Correct missing/invalid marks' : questions.reduce((total, q) => total + q.marks, 0); }
 form.addEventListener('input', updateTotal);
 form.addEventListener('change', event => {
   if (event.target.matches('.metadata-tags')) {
     const select = event.target;
-    select.closest('details').querySelector('summary').textContent = select.dataset.category + ': ' + ([...select.selectedOptions].map(o => o.value).join('; ') || 'Unknown');
+    select.closest('details').querySelector('summary').textContent = select.dataset.label + ': ' + ([...select.selectedOptions].map(o => o.value).join('; ') || 'Unknown');
   }
+  updateTotal();
 });
 form.addEventListener('submit', () => { document.querySelector('#metadata-payload').value = JSON.stringify(editedMetadata()); });
 updateTotal();

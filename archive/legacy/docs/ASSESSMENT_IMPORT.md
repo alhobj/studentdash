@@ -111,3 +111,22 @@ blank Excel column. Confidence accepts only integer 1–5 or blank, not A/E/M/P.
 Question-score rules remain unchanged. Review then Save scores once. Both kinds of
 entry participate in keyboard navigation, validation and unsaved-change warnings;
 confidence is excluded from the score payload and calculated totals.
+
+## Action verbs and curriculum selection
+
+Copy a new prompt after updating to include the mathematics course's configured
+IB command terms. Values use the `CommandTerm` tag category, labelled Action verbs;
+unknown classifications stay empty. Existing custom vocabulary is retained while
+missing course defaults are added for an exact curriculum ID/version match. Saved
+curriculum nodes and parent links are not replaced, and no read writes the database.
+
+Import previews and assessment editors share expandable curriculum groups, with
+codes, labels and multi-selection across groups. Mathematics has Prior learning and
+five regions; other courses use their explicit saved parents. Selected references
+are summarised outside the groups. Course-root references are not newly offered,
+but any saved root is visible and preserved until deliberately cleared. Broad
+regional references remain available. Free-text labels are legacy metadata only.
+
+The editor counts selected tags plus curriculum references, supports clearing tags,
+and respects configured single/multiple selection rules. Imported empty tags retain
+existing classifications; deliberate clearing is available in Edit assessment.

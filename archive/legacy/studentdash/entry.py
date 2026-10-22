@@ -61,6 +61,8 @@ def read_document(path):
     doc = json.loads(row[1])
     if doc.get('schema') != 1:
         raise EntryError('This class needs a newer version of Studentdash.')
+    from .course_profile import effective
+    doc['profile'] = effective(doc['profile'])
     doc['version'] = row[0]
     return doc
 
@@ -142,6 +144,8 @@ def save_assessment(store, key, aid, payload, version):
 
 def prepare_assessment(doc, aid, payload):
     """Validate and place an assessment in a document, without committing it."""
+    from .course_profile import effective
+    doc['profile'] = effective(doc['profile'])
     old = assessment(doc, aid) if aid else None
     if not isinstance(payload, dict):
         raise EntryError('The assessment could not be read. Reload and retry.')
@@ -186,6 +190,10 @@ def prepare_assessment(doc, aid, payload):
         for category, values in tags.items():
             if not isinstance(values, list):
                 raise EntryError(f'Question {number}: invalid classifications.')
+            if category not in doc['profile']['categories'] or any(not isinstance(v, str) for v in values):
+                raise EntryError(f'Question {number}: choose classifications from the listed categories and values.')
+            if not doc['profile'].get('category_options', {}).get(category, {}).get('multiple', True) and len(set(values)) > 1:
+                raise EntryError(f'Question {number}: {category} permits only one tag.')
             for value in values:
                 try:
                     QuestionTag(qid, category, value, 'teacher', vocabulary=doc['profile']['categories'])
@@ -335,6 +343,7 @@ def as_workbook(path):
     data.learning_settings['metadata_only'] = any(a.get('metadata_only') for a in doc['assessments'])
     data.learning_settings['class_based'] = True
     data.learning_settings['report_categories'] = deepcopy(doc['profile']['categories'])
+    data.learning_settings['category_options'] = deepcopy(doc['profile'].get('category_options', {}))
     for s in doc['students']:
         data.students[s['id']] = Student(s['id'], s['name'], s['email'], doc['name'])
     for a in doc['assessments']:

@@ -12,6 +12,7 @@ from .entry import EntryError
 from .import_suggestions import curriculum_nodes
 from .chatgpt_assessment import prompt as chatgpt_prompt, save_response
 from . import metadata_assessment as metadata
+from .curriculum_tree import selection
 from . import import_drafts
 from .question_levels import settings as level_settings
 
@@ -99,7 +100,7 @@ def register_import_routes(app, store):
         except EntryError as exc:
             error = error or str(exc)
         return render_template('metadata_review.html', doc=doc, payload=payload, error=error, changes=changes,
-            item=item, vocabulary=doc['profile']['categories'], curriculum=curriculum_nodes(metadata.import_profile(doc)),
+            item=item, vocabulary=metadata.import_profile(doc)['categories'], category_options=metadata.import_profile(doc).get('category_options', {}), curriculum_selection=selection(doc['profile'].get('curriculum', {})), curriculum=curriculum_nodes(metadata.import_profile(doc)),
             scopes=level_settings(doc)['options'], question_levels=level_settings(doc), preview_id=did), 400 if error else 200
 
     @bp.route('/classes/<key>/imports/<did>/chatgpt', methods=['POST'])

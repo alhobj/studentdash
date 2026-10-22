@@ -18,7 +18,7 @@ def evidence(data, sid):
             rows.append(dict(label=tag, score=result['score'], maximum=result['maximum'], percent=result['percent'], count=count,
                 ungraded=sum(r.status != 'graded' for r in own if (category, tag) in question_tags.get(r.question_id, ())),
                 pattern=pattern(count, result['percent'])))
-        groups[category] = dict(rows=rows, unknown=sum(not any(c == category for c, _ in question_tags.get(r.question_id, ())) for r in own))
+        groups[category] = dict(label=data.learning_settings.get('category_options', {}).get(category, {}).get('label', category), rows=rows, unknown=sum(not any(c == category for c, _ in question_tags.get(r.question_id, ())) for r in own))
     syllabus = []
     for row in evidence_by_node(data, sid).values():
         percent = 100 * row['score'] / row['maximum'] if row['maximum'] else None

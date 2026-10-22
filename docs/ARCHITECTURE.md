@@ -91,3 +91,19 @@ history and teacher overview views read ratings without passing them to any
 performance calculation. The document hash covers snapshot freshness and backups.
 `confidence_corrections` archives a question and its recorded scores only after an
 explicit review; normal imports never reinterpret a question by its name.
+
+### Effective course vocabulary and selection controls
+
+`course_profile.effective` adds missing configured vocabulary for an exact captured
+curriculum ID/version. It unions tag values and fills absent category options and
+command-category metadata without replacing custom values or the saved curriculum.
+`read_document` returns this effective profile without modifying SQLite or its
+version; normal validated saves can persist it. Generic code contains no subject
+vocabulary. The mathematics catalog profile owns the IB command-term labels and
+Action verbs display label. Prompt, editor, validation and analytics share this
+profile. Vocabulary/catalog changes participate in snapshot freshness fingerprints.
+
+Editor and import preview reuse a selection-tree macro based on explicit parents.
+Saved container roots have a separate preserved-reference control rather than an
+ordinary new-selection checkbox. Selection summaries/counts do not alter stored
+links. The legacy free-text label never creates hierarchy or links.

@@ -13,7 +13,7 @@ from .import_routes import register_import_routes
 from .learning import intervention_rows, save_learning_plan
 from .teacher_navigation import register_navigation
 from .question_levels import settings as level_settings
-from .curriculum_tree import tree
+from .curriculum_tree import tree, selection
 
 
 def register_entry_routes(app, base_config):
@@ -214,7 +214,7 @@ def register_entry_routes(app, base_config):
             except EntryError as exc:
                 error = str(exc)
         return render_template('assessment_entry.html', doc=doc, item=item, aid=aid,
-                               form_version=form_version, error=error, curriculum_nodes=node_index(doc['profile'].get('curriculum', {}))), 400 if error else 200
+                               form_version=form_version, error=error, curriculum_nodes=node_index(doc['profile'].get('curriculum', {})), curriculum_selection=selection(doc['profile'].get('curriculum', {}))), 400 if error else 200
 
     @bp.route('/classes/<key>/assessments/<aid>/confidence-correction', methods=['GET', 'POST'])
     def confidence_correction(key, aid):

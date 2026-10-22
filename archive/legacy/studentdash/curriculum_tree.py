@@ -14,3 +14,17 @@ def tree(curriculum, evidence=None):
         return dict(id=key, label=nodes[key]['label'], code=nodes[key].get('code', ''),
                     evidence=evidence.get(key), children=[build(k) for k in children.get(key, [])])
     return [build(k) for k in roots]
+
+
+def selection(curriculum):
+    nodes = node_index(curriculum or {})
+    groups = tree(curriculum)
+    visible = set()
+    def visit(group):
+        visible.add(group['id'])
+        for child in group['children']:
+            visit(child)
+    for group in groups:
+        visit(group)
+    return dict(groups=groups, containers=[dict(id=key, label=node['label'], code=node.get('code', ''))
+                 for key, node in nodes.items() if key not in visible])

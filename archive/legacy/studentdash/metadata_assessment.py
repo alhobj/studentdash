@@ -42,6 +42,8 @@ def prompt(doc, assessment_type='assessment'):
         'and recognizes repeated name/date imports. For an explicit update, use an existing ID listed below.\n\n'
         'JSON schema/example (return all scored parts, not just this example):\n' + json.dumps(example, indent=2) +
         '\n\nAllowed categories and tags:\n' + json.dumps(profile['categories'], indent=2) +
+        '\n\nCategory labels and selection rules:\n' + json.dumps(profile.get('category_options', {}), indent=2) +
+        '\nAction-verb category (when configured): ' + str(profile.get('command_category', 'Not configured')) +
         '\n\nQuestion level (the compatible JSON field is named scope):\n' +
         (f'All new questions use the class level {levels["single"]}; no per-question choice is needed.' if levels['single'] else levels['help']) +
         '\nAllowed JSON values (empty string remains unknown for mixed classes): ' + json.dumps(levels['options']) +

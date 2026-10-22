@@ -20,7 +20,8 @@ def draft_by_id(doc, did):
 
 
 def import_profile(doc):
-    profile = deepcopy(doc['profile'])
+    from .course_profile import effective
+    profile = effective(doc['profile'])
     # Earlier saved copies of this exact vocabulary predate suggestion definitions.
     # Add only missing configuration, without changing existing categories or curriculum.
     if profile.get('name') == DEFAULT_PROFILE['name'] and profile['categories'] == DEFAULT_PROFILE['categories']:
