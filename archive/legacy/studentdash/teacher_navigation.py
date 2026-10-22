@@ -32,7 +32,7 @@ def register_navigation(app, store):
                 section = 'curriculum'
             elif endpoint in {'entry.classes', 'entry.class_page', 'entry.legacy'}:
                 section = 'classes'
-            elif endpoint.startswith('assessment_import.') or endpoint in {'entry.edit', 'entry.scores', 'entry.learning_workspace'} or endpoint.startswith('exit_tickets.'):
+            elif endpoint.startswith('assessment_import.') or endpoint in {'entry.edit', 'entry.scores', 'entry.confidence_correction', 'entry.learning_workspace'} or endpoint.startswith('exit_tickets.'):
                 section = 'assessments'
             elif endpoint == 'index':
                 section = 'home'

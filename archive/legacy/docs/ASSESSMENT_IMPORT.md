@@ -81,3 +81,21 @@ Regenerate student snapshots to replace old layouts with history, expandable ski
 and curriculum analysis, feedback and suggested revision. All class assessments,
 including older manual assessments, use this layout. Revision attempts, resource
 activities and completion controls are hidden; their historical data is retained.
+
+## Confidence and exit-ticket marks
+
+Exit-ticket prompts default to one mark per scored question, unless explicit marks
+or a teacher override say otherwise. Academic explanations remain scored questions;
+self-reported confidence/reflection items are excluded from the question list.
+Optional assessment metadata is `"confidence": {"enabled": true, "min": 1, "max": 5}`.
+The fixed scale is 1 = very low confidence, 5 = very high confidence. `enabled` can
+also be false; disabling configuration never deletes saved ratings. Omitted
+configuration preserves an existing assessment's setting.
+
+Enter individual ratings beside scores, save, and regenerate snapshots. Blank
+means Not recorded and explicitly clears a saved rating. Old score-only submissions
+and repeated metadata imports retain ratings. Ratings are stored separately from
+scores, never affect performance or grades, and are not included in prompt JSON.
+The assessment editor offers a reviewed correction for a mistakenly scored
+confidence question, archiving original evidence without translating marks to a
+rating. Neither this correction nor any migration runs automatically.

@@ -28,3 +28,6 @@ jobs:
       - name: Test unified assessment and exit-ticket results
         working-directory: archive/legacy
         run: python -m unittest discover -s tests -p "test_unified_results.py" -v
+      - name: Test separate confidence ratings
+        working-directory: archive/legacy
+        run: python -m unittest discover -s tests -p "test_confidence.py" -v

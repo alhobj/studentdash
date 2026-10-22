@@ -228,6 +228,15 @@ def prepare_assessment(doc, aid, payload):
     item = dict(id=aid or identifier(), name=name, date=day, assessment_type=kind,
                 description=text(payload.get('description', ''), 'Description', 5000),
                 participants=list(dict.fromkeys(participants)), questions=cleaned, scores=scores)
+    from .confidence import configuration
+    if 'confidence' in payload:
+        item['confidence'] = configuration(payload['confidence'])
+    elif old and 'confidence' in old:
+        item['confidence'] = deepcopy(old['confidence'])
+    if old:
+        for field in ('confidence_ratings', 'confidence_corrections'):
+            if field in old:
+                item[field] = deepcopy(old[field])
     if old and 'import_source' in old:
         item['import_source'] = deepcopy(old['import_source'])
     if old and old.get('metadata_only'):
@@ -261,7 +270,7 @@ def score_rows(doc, item):
     return [students[sid] for sid in item['participants']]
 
 
-def save_scores(store, key, aid, rows, version):
+def save_scores(store, key, aid, rows, version, confidence=None):
     doc = store.read(key)
     item = assessment(doc, aid)
     students = score_rows(doc, item)
@@ -277,6 +286,9 @@ def save_scores(store, key, aid, rows, version):
                 errors[f'{r}:{c}'] = f"{student['name']}, question {q['number']}: {exc}"
     if errors:
         raise EntryError('Scores were not saved. Correct the highlighted cells.', errors)
+    if confidence is not None:
+        from .confidence import ratings
+        item['confidence_ratings'] = ratings(item, confidence)
     item['scores'] = scores
     store.save(doc, version)
 
@@ -316,6 +328,7 @@ def as_workbook(path):
         data.students[s['id']] = Student(s['id'], s['name'], s['email'], doc['name'])
     for a in doc['assessments']:
         aid = a['id']
+        data.assessment_confidence[aid] = deepcopy(a.get('confidence_ratings', {}))
         data.assessments[aid] = Assessment(aid, a['name'], date.fromisoformat(a['date']), '', sum(q['marks'] for q in a['questions']), a.get('assessment_type', 'assessment'))
         for q in a['questions']:
             if q.get('curriculum_review', {}).get('status') == 'reviewed':

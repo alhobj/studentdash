@@ -1,0 +1,15 @@
+{
+  "schema": "studentdash-assessment-metadata-v2",
+  "class_id": "COPY_CLASS_ID_FROM_YOUR_PROMPT",
+  "assessment_id": null,
+  "assessment_type": "exit_ticket",
+  "name": "Exit ticket 2A",
+  "date": "2026-10-22",
+  "confidence": {"enabled": true, "min": 1, "max": 5},
+  "questions": [
+    {"number": "1", "marks": 1, "tags": {}, "curriculum_nodes": [], "scope": "", "name": "General term"},
+    {"number": "2", "marks": 1, "tags": {}, "curriculum_nodes": [], "scope": "", "name": "Term 30"},
+    {"number": "3", "marks": 1, "tags": {}, "curriculum_nodes": [], "scope": "", "name": "Sum of 30 terms"},
+    {"number": "4", "marks": 1, "tags": {}, "curriculum_nodes": [], "scope": "", "name": "Interpretation of the sum"}
+  ]
+}

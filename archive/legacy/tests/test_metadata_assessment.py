@@ -233,7 +233,7 @@ class MetadataBrowserTests(unittest.TestCase):
                     page.get_by_role('button',name='Copy prompt',exact=True).click()
                     self.assertIn(metadata.SCHEMA,page.evaluate('navigator.clipboard.readText()'))
                     self.assertIn('\"assessment_type\": \"exit_ticket\"',page.evaluate('navigator.clipboard.readText()'))
-                    payload=self.payload();payload['assessment_type']='exit_ticket'
+                    payload=self.payload();payload['assessment_type']='exit_ticket';payload['confidence']=dict(enabled=True,min=1,max=5)
                     page.get_by_label('Paste ChatGPT response',exact=True).fill(json.dumps(payload))
                     page.get_by_role('button',name='Preview assessment',exact=True).click()
                     expect(page.get_by_role('heading',name='Preview assessment',exact=True)).to_be_visible()
@@ -248,6 +248,7 @@ class MetadataBrowserTests(unittest.TestCase):
                     self.assertEqual(self.store.read(self.key)['assessments'][0]['assessment_type'],'exit_ticket')
                     cells = page.locator('#score-grid input')
                     for i, score in enumerate(['2','3','0','A']): cells.nth(i).fill(score)
+                    page.get_by_label('Fictional Alpha, confidence',exact=True).select_option('2')
                     page.get_by_role('button',name='Save scores',exact=True).click()
                     expect(page.get_by_text('Saved. You can close this page and continue later.',exact=True)).to_be_visible()
                     page.get_by_role('button',name='Generate student dashboards',exact=True).click()
@@ -267,6 +268,7 @@ class MetadataBrowserTests(unittest.TestCase):
                     expect(offline_page.get_by_text('No assessments in this view.',exact=True)).to_be_visible()
                     offline_page.get_by_label('Assessment type',exact=True).select_option('exit_ticket')
                     expect(offline_page.locator('.report-view:not([hidden]) table').first.locator('tbody tr')).to_have_count(1)
+                    expect(offline_page.locator('.report-view:not([hidden])').get_by_text('Confidence: 2/5',exact=True)).to_be_visible()
                     self.assertNotIn('Question-level evidence',offline_page.locator('body').inner_text())
                     offline.close()
                 finally:

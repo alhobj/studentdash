@@ -45,7 +45,8 @@
         curriculum_nodes: [...row.querySelectorAll('.curriculum-nodes input:checked')].map(i => i.value),
         text: row.querySelector('.question-text').value, curriculum: row.querySelector('.curriculum').value, tags};
     });
-    document.querySelector('#payload').value = JSON.stringify({assessment_type: document.querySelector('#assessment-type').value, name: document.querySelector('#assessment-name').value,
+    const confidence = {confidence: {enabled:document.querySelector('#assessment-confidence').checked,min:1,max:5}};
+    document.querySelector('#payload').value = JSON.stringify({...confidence, assessment_type: document.querySelector('#assessment-type').value, name: document.querySelector('#assessment-name').value,
       date: document.querySelector('#assessment-date').value, description: document.querySelector('#description').value,
       participants: [...document.querySelectorAll('.participant:checked')].map(i => i.value), questions});
     dirty = false;

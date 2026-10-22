@@ -49,6 +49,7 @@ if (typeof document !== 'undefined') (() => {
     });
   }
   function changed() { dirty = true; state.textContent = 'Unsaved changes — save before generating dashboards'; totals(); }
+  table.addEventListener('change', e => { if (e.target.matches('select[name^=confidence-]')) changed(); });
   table.addEventListener('input', e => { if (e.target.matches('input')) { validate(e.target); changed(); } });
   table.addEventListener('paste', e => {
     if (!e.target.matches('input')) return;

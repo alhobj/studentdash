@@ -79,3 +79,15 @@ produce expandable region trees and deduplicated ancestor evidence. Settings and
 storage remain compatible. Retired planning, interactive ticket, revision-attempt
 and practice routes/data remain archival implementation; interactive routes are
 unavailable when a class workspace is selected. No destructive migration runs.
+
+### Separate confidence ratings
+
+Assessment definitions optionally carry `confidence` with boolean `enabled` and
+fixed integer `min=1`, `max=5`. The separate `confidence_ratings` map stores integer
+ratings by participating student ID. Scores remain unchanged; `save_scores` accepts
+an optional partial ratings map, preserving omitted entries and clearing explicit
+blank/null values atomically under the existing document-version check. Report
+history and teacher overview views read ratings without passing them to any
+performance calculation. The document hash covers snapshot freshness and backups.
+`confidence_corrections` archives a question and its recorded scores only after an
+explicit review; normal imports never reinterpret a question by its name.

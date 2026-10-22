@@ -16,15 +16,20 @@ def prompt(doc, assessment_type='assessment'):
     profile = import_profile(doc)
     levels = level_settings(doc)
     example = dict(schema=SCHEMA, class_id=doc['id'], assessment_id=None,
-        assessment_type=assessment_type, name='Assessment name', date=date.today().isoformat(), questions=[dict(number='1a', marks=2,
+        confidence=dict(enabled=True, min=1, max=5), assessment_type=assessment_type, name='Assessment name', date=date.today().isoformat(), questions=[dict(number='1a', marks=1 if assessment_type == 'exit_ticket' else 2,
         tags={c: [] for c in profile['categories']}, curriculum_nodes=[], scope=levels['single'], name='')])
     return ('Create assessment METADATA for Studentdash from the attached test paper. '
         'Return one JSON object only, following the exact schema below. '
         'Include only individually scored questions/subparts, preserving their exact labels (including * prefixes). '
         'Do not include parent subtotals as additional questions or count marks twice. '
         'Include positive maximum marks, classifications and supported curriculum references. '
+        'For exit_ticket, default to 1 mark per scored question; explicit printed marks or a teacher override take precedence. '
+        'For ordinary assessments use their stated marks. If genuinely unresolved use null, not an invented allocation. '
+        'A self-reported confidence/reflection item is not a scored question: omit it from questions and configure optional '
+        'assessment-level confidence as {"enabled": true, "min": 1, "max": 5}. Omit confidence if not requested or present. '
+        'Confidence uses 1 = very low confidence and 5 = very high confidence. Never include individual ratings. '
         'Do NOT include full question text, answers, marking instructions, source documents, page references, '
-        'student information, confidence values, context entries or review checkboxes. '
+        'student information, individual confidence ratings, context entries or review checkboxes. '
         'The optional name is a short label, not question text. '
         'Include every configured classification category, including action verbs when configured; multiple tags are arrays. '
         'Use exact configured category/tag values. assessment_type must be assessment or exit_ticket; keep the selected type below. '
@@ -68,13 +73,16 @@ def parse(raw, key):
         raise EntryError('Invalid JSON. Paste the complete response without extra explanation.') from None
     if not isinstance(payload, dict) or payload.get('schema') != SCHEMA or payload.get('class_id') != key:
         raise EntryError('Copy the prompt for this class. The schema and class_id must match.')
-    if set(payload) - {'schema', 'class_id', 'assessment_id', 'name', 'date', 'questions', 'assessment_type'}:
-        raise EntryError('Use metadata fields only: schema, class_id, assessment_id, name, date, questions, assessment_type.')
+    if set(payload) - {'schema', 'class_id', 'assessment_id', 'name', 'date', 'questions', 'assessment_type', 'confidence'}:
+        raise EntryError('Use metadata fields only: schema, class_id, assessment_id, name, date, questions, assessment_type, optional confidence.')
     if payload.get('assessment_id') is not None and not isinstance(payload['assessment_id'], str):
         raise EntryError('assessment_id must be an existing ID or null.')
     from .assessment_types import TYPES
     if not isinstance(payload.get('assessment_type', 'assessment'), str) or payload.get('assessment_type', 'assessment') not in TYPES:
         raise EntryError('assessment_type must be assessment or exit_ticket.')
+    if 'confidence' in payload:
+        from .confidence import configuration
+        configuration(payload['confidence'])
     questions = payload.get('questions')
     if not isinstance(questions, list) or not 1 <= len(questions) <= 200:
         raise EntryError('Include 1–200 individually scored questions.')
@@ -134,7 +142,7 @@ def proposal(doc, payload):
             text=previous.get('text', name), tags=tags, curriculum_nodes=links,
             curriculum='; '.join(allowed_nodes[n].get('code') or allowed_nodes[n]['label'] for n in links if n in allowed_nodes), scope=scope))
     item = prepare_assessment(working, old['id'] if old else None, dict(name=payload.get('name'), date=payload.get('date'),
-        assessment_type=payload.get('assessment_type', (old or {}).get('assessment_type', 'assessment')), description=old.get('description', '') if old else '', participants=old['participants'] if old else [s['id'] for s in doc['students']], questions=questions))
+        **({'confidence': payload['confidence']} if 'confidence' in payload else {}), assessment_type=payload.get('assessment_type', (old or {}).get('assessment_type', 'assessment')), description=old.get('description', '') if old else '', participants=old['participants'] if old else [s['id'] for s in doc['students']], questions=questions))
     for q, raw in zip(item['questions'], questions):
         q['scope'] = raw['scope']
     for q, raw in zip(item['questions'], payload['questions']):

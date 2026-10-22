@@ -15,5 +15,6 @@ def filtered(data, kind=''):
     result.memberships = {k: v for k, v in data.memberships.items() if k[0] in result.assessments}
     result.exit_tickets = [t for t in data.exit_tickets if t.assessment_id in result.assessments]
     result.question_tags = [t for t in data.question_tags if t.question_id in result.questions]
+    result.assessment_confidence = {k: v for k, v in data.assessment_confidence.items() if k in result.assessments}
     result.question_curriculum = {k: v for k, v in data.question_curriculum.items() if k in result.questions}
     return result

@@ -216,6 +216,27 @@ def register_entry_routes(app, base_config):
         return render_template('assessment_entry.html', doc=doc, item=item, aid=aid,
                                form_version=form_version, error=error, curriculum_nodes=node_index(doc['profile'].get('curriculum', {}))), 400 if error else 200
 
+    @bp.route('/classes/<key>/assessments/<aid>/confidence-correction', methods=['GET', 'POST'])
+    def confidence_correction(key, aid):
+        from copy import deepcopy
+        from .confidence import correct_scored_question
+        doc = store.read(key)
+        item = assessment(doc, aid)
+        qid = request.values.get('question', '')
+        question = next((q for q in item['questions'] if q['id'] == qid), None)
+        if request.method == 'POST':
+            if request.form.get('confirm') != 'archive':
+                raise EntryError('Explicitly confirm archiving the scored question and changing totals.')
+            correct_scored_question(store, key, aid, qid, version())
+            return redirect(url_for('entry.scores', key=key, aid=aid, saved='1'), code=303)
+        revised = deepcopy(item)
+        revised['questions'] = [q for q in item['questions'] if q['id'] != qid]
+        totals = [(student['name'], summary_label(item, student['id']), summary_label(revised, student['id']))
+                  for student in score_rows(doc, item)] if question else []
+        return render_template('confidence_correction.html', doc=doc, item=item, question=question,
+                               previous_maximum=sum(q['marks'] for q in item['questions']),
+                               new_maximum=sum(q['marks'] for q in revised['questions']), totals=totals)
+
     @bp.route('/classes/<key>/assessments/<aid>/scores', methods=['GET', 'POST'])
     def scores(key, aid):
         doc = store.read(key)
@@ -238,7 +259,8 @@ def register_entry_routes(app, base_config):
                 submitted = payload()
                 if isinstance(submitted, list) and len(submitted) == len(students) and all(isinstance(r, list) and len(r) == len(item['questions']) for r in submitted):
                     rows = submitted
-                save_scores(store, key, aid, submitted, form_version)
+                save_scores(store, key, aid, submitted, form_version,
+                    {s['id']: request.form['confidence-' + s['id']] for s in students if 'confidence-' + s['id'] in request.form})
                 return redirect(url_for('entry.scores', key=key, aid=aid, saved='1'), code=303)
             except EntryError as exc:
                 error, cells = str(exc), exc.cells

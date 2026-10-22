@@ -91,6 +91,33 @@ curriculum shows its five regions plus Prior learning. Shared descendant links
 count each question once per ancestor. Unclassified and ungraded evidence remain
 visible. Settings and private data locations are unchanged.
 
+### Separate self-reported confidence
+
+On the score-entry page, record optional confidence beside each student's marks:
+**1 = very low confidence, 5 = very high confidence**. Blank is **Not recorded**;
+select blank to clear a saved rating. Save scores to persist both. Ordinary score
+pastes and imports that omit confidence retain saved ratings. Confidence appears
+next to the assessment in teacher overviews and offline student history, but never
+changes marks, grades, classification/curriculum percentages or evidence counts.
+Regenerate snapshots after editing confidence.
+
+See [the four-mark exit-ticket JSON example](archive/legacy/examples/exit-ticket-confidence.json).
+Replace its class ID and date using your generated prompt; add configured tags and
+curriculum IDs as appropriate.
+
+The compatible v2 assessment JSON accepts optional
+`"confidence": {"enabled": true, "min": 1, "max": 5}`. This configures the separate
+rating, not a scored question; student ratings never belong in definition JSON.
+For exit tickets, the ChatGPT prompt defaults scored questions to 1 mark each,
+with explicit printed marks or a teacher's override taking precedence. Confidence
+reflections are excluded from `questions`. Older JSON remains supported.
+
+If confidence was previously imported as a scored question, open **Edit assessment →
+Correct a previously scored confidence item**. Select the question, review changed
+maximums and each student's before/after total, then explicitly confirm. The old
+question and its recorded marks are archived locally and in backups. No rating is
+inferred from those marks. Existing snapshots change only after regeneration.
+
 ## 2. Import the grading workbook
 
 Choose **Import results**, give your course a permanent ClassID such as

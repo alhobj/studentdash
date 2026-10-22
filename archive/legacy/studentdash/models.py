@@ -98,3 +98,4 @@ class WorkbookData:
     curriculum: dict | None = None
     question_curriculum: dict = field(default_factory=dict)
     learning_settings: dict = field(default_factory=dict)
+    assessment_confidence: dict = field(default_factory=dict)

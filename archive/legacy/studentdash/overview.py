@@ -17,6 +17,7 @@ class LearnerOverview:
     unrecorded: int
     practice: list[str]
     result_label: str = ''
+    confidence: tuple = ()
 
 
 @dataclass(frozen=True)
@@ -56,7 +57,7 @@ def build_overview(data, assessment_id=None, class_name=None):
                             'Incomplete' if result.status == 'pending' else result.status.capitalize())
         learners.append(LearnerOverview(sid, student.name, student.class_name, view.overall_percent,
                                        view.graded_count, dict(Counter(r.status for r in rows)),
-                                       len(expected - {r.question_id for r in rows}), view.work_on, result_label))
+                                       len(expected - {r.question_id for r in rows}), view.work_on, result_label, tuple((a.name, data.assessment_confidence.get(a.id, {}).get(sid)) for a in data.assessments.values() if (not assessment_id or a.id == assessment_id) and (a.id, sid) in data.memberships)))
     items = []
     for question in data.questions.values():
         if assessment_id and question.assessment_id != assessment_id:
