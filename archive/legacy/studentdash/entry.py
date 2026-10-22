@@ -90,7 +90,7 @@ class ClassStore:
             db.execute('INSERT INTO class_document VALUES (1, 1, ?)', (json.dumps(doc),))
         return self.read(doc['id'])
 
-    def save(self, doc, version, source=None):
+    def save(self, doc, version, source=None, delete_sources=()):
         with closing(sqlite3.connect(self.path(doc['id']), timeout=10)) as db, db:
             if source is not None:
                 db.execute('CREATE TABLE IF NOT EXISTS import_sources (id TEXT PRIMARY KEY, filename TEXT, mime TEXT, content BLOB)')
@@ -99,6 +99,8 @@ class ClassStore:
                                  (json.dumps({k: v for k, v in doc.items() if k != 'version'}), version))
             if changed.rowcount != 1:
                 raise EntryError('Another tab saved this class. Your changes were not saved. Copy your edits, then reload before retrying.')
+            if delete_sources and db.execute("SELECT 1 FROM sqlite_master WHERE name='import_sources'").fetchone():
+                db.executemany('DELETE FROM import_sources WHERE id=?', [(key,) for key in delete_sources])
         return self.read(doc['id'])
 
     def source(self, key, source_id):

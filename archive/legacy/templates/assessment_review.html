@@ -1,5 +1,5 @@
 {% extends 'entry_base.html' %}
-{% block body %}<h1>Review assessment import</h1>
+{% block body %}<h1>Review assessment import</h1>{% if draft.status == 'draft' %}<p><a href="{{ url_for('assessment_import.delete_draft', key=doc.id, kind='document', did=draft.id) }}">Delete draft</a></p>{% endif %}
 {% include 'chatgpt_import.html' %}
 {% if request.args.get('saved') and not error %}<p class="notice" role="status">Draft saved. Continue reviewing now or reopen it from your class later.</p>{% endif %}
 <p><a href="{{ url_for('assessment_import.source', key=doc.id, did=draft.id) }}">Download original test: {{ draft.source.filename }}</a></p>

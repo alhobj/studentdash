@@ -40,6 +40,30 @@ The existing Excel-results-only workspace remains available via `start.bat` and
 its original private SQLite directory. The following sections document that
 separate, preserved workflow; it is not required for metadata assessment import.
 
+### Teacher navigation, question levels and drafts
+
+The shared teacher bar is **Studentdash | Classes | Assessments | Students |
+Curriculum | Settings**. The active section is highlighted, and the class link at
+the right returns to the selected class overview. Navigation keeps the selected
+class. On narrow screens the compact bar scrolls horizontally. Student exports
+and student simulations do not receive teacher navigation.
+
+**Settings** contains backup/restore and the selected class's level configuration.
+For a single-level class, metadata import hides the per-question selector and uses
+the configured class level automatically. For a mixed class, **Question level**
+shows configured choices (SL, HL and Both for Chemistry), with a short explanation.
+The compatible JSON key remains `scope`; `BOTH` remains the stored value for Both.
+Existing course snapshots can obtain additive level defaults from their matching
+configured curriculum. Class names are never used to infer levels. Selecting class
+levels changes import defaults, not saved assessments or score/eligibility rules.
+
+Delete unwanted imports using **Delete draft** on the class's draft lists or the
+metadata/document review page. The confirmation names the draft and class; Cancel
+keeps it. Confirmation deletes only an unpublished draft and its owned temporary
+source records, with a success message and refreshed list. Published assessments,
+scores, classifications and backup copies are protected. Concurrent changes require
+reloading the confirmation. The introductory marketing panel has been removed.
+
 ## 2. Import the grading workbook
 
 Choose **Import results**, give your course a permanent ClassID such as

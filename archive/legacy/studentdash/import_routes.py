@@ -12,10 +12,33 @@ from .entry import EntryError
 from .import_suggestions import curriculum_nodes
 from .chatgpt_assessment import prompt as chatgpt_prompt, save_response
 from . import metadata_assessment as metadata
+from . import import_drafts
+from .question_levels import settings as level_settings
 
 
 def register_import_routes(app, store):
     bp = Blueprint('assessment_import', __name__)
+
+    @bp.errorhandler(EntryError)
+    def invalid(error):
+        return render_template('entry_error.html', error=str(error)), 400
+
+    @bp.route('/classes/<key>/drafts/<kind>/<did>/delete', methods=['GET', 'POST'])
+    def delete_draft(key, kind, did):
+        doc = store.read(key)
+        session['entered_class'] = key
+        _, draft, title = import_drafts.locate(doc, kind, did)
+        if request.method == 'POST':
+            if request.form.get('confirm') != 'delete':
+                raise EntryError('Deletion was not confirmed. The draft has been kept.')
+            try:
+                version = int(request.form['version'])
+            except (ValueError, KeyError):
+                raise EntryError('Reload the confirmation page before deleting.') from None
+            title = import_drafts.delete(store, key, kind, did, version)
+            session['draft_message'] = f'Deleted draft: {title}. Existing assessments and results were kept.'
+            return redirect(url_for('entry.class_page', key=key, section='assessments', _anchor='drafts'), code=303)
+        return render_template('delete_import_draft.html', doc=doc, draft_title=title)
 
     @bp.before_request
     def token():
@@ -77,7 +100,7 @@ def register_import_routes(app, store):
             error = error or str(exc)
         return render_template('metadata_review.html', doc=doc, payload=payload, error=error, changes=changes,
             item=item, vocabulary=doc['profile']['categories'], curriculum=curriculum_nodes(metadata.import_profile(doc)),
-            scopes=metadata.import_profile(doc).get('levels', [])), 400 if error else 200
+            scopes=level_settings(doc)['options'], question_levels=level_settings(doc), preview_id=did), 400 if error else 200
 
     @bp.route('/classes/<key>/imports/<did>/chatgpt', methods=['POST'])
     def paste_chatgpt(key, did):

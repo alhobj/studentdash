@@ -11,6 +11,22 @@ http://127.0.0.1:5000/classes. Keep your existing data directory when updating.
 5. Check the editable table and total maximum marks. Correct only what is necessary.
 6. Click **Import assessment** once. Enter/paste the students' scores separately.
 
+The top teacher bar preserves class context across Classes, Assessments, Students,
+Curriculum and Settings. Backups/restores and class-level configuration are under
+Settings; class planning and upcoming tests remain accessible in the class area.
+
+For a configured single-level class, per-question level is hidden and defaults to
+that class level. Mixed classes show **Question level** with configured labels
+(SL, HL, Both for Chemistry) and help text. Unknown saved levels remain compatible.
+The JSON field stays `scope`, with `BOTH` retained as the Both value. Settings can
+select class levels explicitly; the application does not guess from class names.
+Changing these defaults does not rewrite existing results or eligibility rules.
+
+Use **Delete draft** in the class's metadata/document draft lists or either review
+page. A named confirmation offers Delete and Cancel. Only unpublished drafts and
+their owned temporary data are deleted. Published assessments, scores and other
+classifications remain protected; deleted previews disappear from the class list.
+
 Only assessment name/date, class identity, question labels and positive maximum
 marks are necessary for import. Tags support multiple configured values. Empty
 classifications/curriculum/scope remain unknown for new questions and preserve

@@ -88,7 +88,7 @@ class EntryBrowserTests(unittest.TestCase):
             participants=[doc['students'][0]['id']], questions=[dict(number='1', marks=4,
             text='A fictional growth calculation.', curriculum='', tags={})]), doc['version'])
         save_scores(store, doc['id'], aid, [['1']], store.read(doc['id'])['version'])
-        p.get_by_role('link', name='Curriculum & reviewed question links', exact=True).click()
+        p.get_by_role('navigation', name='Teacher navigation').get_by_role('link', name='Curriculum', exact=True).click()
         p.get_by_label('Reviewed curriculum links', exact=False).select_option('math-ai-sl-2021:1.4')
         p.get_by_role('button', name='Save reviewed links', exact=True).click()
         p.get_by_role('link', name='Fictional mathematics class', exact=True).click()

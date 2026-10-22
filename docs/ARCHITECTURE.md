@@ -1,5 +1,15 @@
 # Local assessment architecture
 
+Teacher navigation is centralized in `teacher_navigation.py` and one shared HTML
+partial reused by the teacher base and standalone teacher pages. It links to
+existing routes/anchors and carries explicit class context. Student exports are
+excluded. Question-level display/defaults come from explicit class/profile or
+matching curriculum metadata in `question_levels.py`, never class-name parsing;
+they do not introduce new scoring/eligibility filters. Import draft deletion uses
+named confirmation, CSRF and optimistic class versions. Draft removal and deletion
+of owned temporary SQLite source rows share one transaction; published records and
+sources referenced by other imports are protected.
+
 The class-based metadata import is implemented in
 `archive/legacy/studentdash/metadata_assessment.py` and exposed by that workspace's
 Import assessment page. Its canonical Windows launcher remains

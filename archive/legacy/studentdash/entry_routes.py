@@ -11,11 +11,14 @@ from .entry import as_workbook
 from .entry import ClassStore, EntryError, assessment, save_assessment, save_scores, score_rows, summary_label
 from .import_routes import register_import_routes
 from .learning import intervention_rows, save_learning_plan
+from .teacher_navigation import register_navigation
+from .question_levels import settings as level_settings
 
 
 def register_entry_routes(app, base_config):
     bp = Blueprint('entry', __name__)
     store = ClassStore(base_config.workbook.parent / 'entered_classes')
+    register_navigation(app, store)
     register_import_routes(app, store)
 
     def active_config():
@@ -77,11 +80,20 @@ def register_entry_routes(app, base_config):
         error = None
         if request.method == 'POST':
             try:
+                if request.form.get('action') == 'levels':
+                    levels = request.form.getlist('course_levels')
+                    allowed = level_settings(doc)['course_options']
+                    if not levels or any(level not in allowed for level in levels):
+                        raise EntryError('Choose one or more configured class levels.')
+                    doc['course_levels'] = list(dict.fromkeys(levels))
+                    store.save(doc, version())
+                    session['level_message'] = 'Class level settings saved. Existing assessments and scoring rules are unchanged.'
+                    return redirect(url_for('portability.transfer', class_key=key), code=303)
                 store.add_students(key, request.form.get('roster', ''), version())
                 return redirect(url_for('entry.class_page', key=key), code=303)
             except EntryError as exc:
                 error = str(exc)
-        return render_template('class_entry.html', doc=doc, error=error), 400 if error else 200
+        return render_template('class_entry.html', doc=doc, error=error, draft_message=session.pop('draft_message', None)), 400 if error else 200
 
     @bp.route('/classes/<key>/curriculum', methods=['GET', 'POST'])
     def curriculum_review(key):

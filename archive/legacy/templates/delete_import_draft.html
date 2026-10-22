@@ -1,0 +1,6 @@
+{% extends 'entry_base.html' %}{% block body %}
+<section class="card"><h1>Delete draft?</h1><p>You are about to delete <strong>{{ draft_title }}</strong> from <strong>{{ doc.name }}</strong>.</p>
+<p>The unpublished draft and its associated temporary import data will be removed. Existing assessments, student results and classifications belonging to other assessments will be kept.</p>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}">
+<button name="confirm" value="delete">Delete draft</button> <a href="{{ url_for('entry.class_page', key=doc.id, section='assessments', _anchor='drafts') }}">Cancel</a></form></section>
+{% endblock %}

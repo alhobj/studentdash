@@ -1381,5 +1381,17 @@
       "path": "ib-math-ai-sl/coverage.html#sl-5.8"
     }
   ],
-  "practice_journal": "ib-math-ai-sl/my-practice.html"
+  "practice_journal": "ib-math-ai-sl/my-practice.html",
+  "course_levels": [
+    "SL"
+  ],
+  "question_levels": [
+    "SL"
+  ],
+  "question_level_labels": {
+    "SL": "SL",
+    "HL": "HL",
+    "BOTH": "Both"
+  },
+  "question_level_help": "SL: questions for SL students. HL: questions for HL students. Both: questions for both levels."
 }

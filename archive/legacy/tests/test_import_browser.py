@@ -80,7 +80,7 @@ class ImportBrowserTests(unittest.TestCase):
         p.get_by_role('button', name='Save draft', exact=True).click()
         p.wait_for_url('**?saved=1')
         review_url = p.url
-        p.get_by_role('link', name='My classes', exact=True).click()
+        p.get_by_role('navigation', name='Teacher navigation').get_by_role('link', name='Classes', exact=True).click()
         p.get_by_role('link', name='Fictional import class', exact=True).click()
         p.get_by_role('link', name='Review Fictional assessment import example', exact=True).click()
         expect(p.locator('.import-question')).to_have_count(6)

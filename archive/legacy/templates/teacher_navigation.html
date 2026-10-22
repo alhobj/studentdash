@@ -1,0 +1,12 @@
+<style>
+.teacher-navigation{display:flex;align-items:center;gap:.2rem;overflow-x:auto;max-width:100%;white-space:nowrap;background:white;border:1px solid #d7e3e4;border-radius:10px;margin-bottom:1.2rem;padding:.3rem;scrollbar-width:thin}
+.teacher-navigation a{flex-shrink:0;color:#18564f;text-decoration:none;padding:.55rem .7rem;border-radius:6px;font-size:.95rem}
+.teacher-navigation a[aria-current=page]{background:#175f57;color:white;font-weight:700}
+.teacher-navigation a:focus-visible{outline:3px solid #2687af;outline-offset:-3px}
+.teacher-navigation .current-class{margin-left:auto;max-width:16rem;overflow:hidden;text-overflow:ellipsis;border-left:1px solid #d7e3e4}
+@media(max-width:600px){.teacher-navigation a{padding:.55rem .6rem}.teacher-navigation .current-class{max-width:10rem}}
+</style>
+<nav class="teacher-navigation" aria-label="Teacher navigation">
+{% for section, label, href in teacher_nav %}<a href="{{ href }}" {% if teacher_section == section %}aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}
+{% if nav_class %}<a class="current-class" href="{{ url_for('entry.class_page', key=nav_class.id) }}" title="Return to class overview: {{ nav_class.name }}">{{ nav_class.name }}</a>{% endif %}
+</nav>

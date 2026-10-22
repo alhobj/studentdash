@@ -7,15 +7,17 @@ import re
 from .assessment_import import import_profile
 from .entry import EntryError, identifier, prepare_assessment, text
 from .import_suggestions import curriculum_nodes
+from .question_levels import settings as level_settings
 
 SCHEMA = 'studentdash-assessment-metadata-v2'
 
 
 def prompt(doc):
     profile = import_profile(doc)
+    levels = level_settings(doc)
     example = dict(schema=SCHEMA, class_id=doc['id'], assessment_id=None,
         name='Assessment name', date=date.today().isoformat(), questions=[dict(number='1a', marks=2,
-        tags={c: [] for c in profile['categories']}, curriculum_nodes=[], scope='', name='')])
+        tags={c: [] for c in profile['categories']}, curriculum_nodes=[], scope=levels['single'], name='')])
     return ('Create assessment METADATA for Studentdash from the attached test paper. '
         'Return one JSON object only, following the exact schema below. '
         'Include only individually scored questions/subparts, preserving their exact labels (including * prefixes). '
@@ -33,7 +35,9 @@ def prompt(doc):
         'and recognizes repeated name/date imports. For an explicit update, use an existing ID listed below.\n\n'
         'JSON schema/example (return all scored parts, not just this example):\n' + json.dumps(example, indent=2) +
         '\n\nAllowed categories and tags:\n' + json.dumps(profile['categories'], indent=2) +
-        '\n\nConfigured scope values (empty string also allowed):\n' + json.dumps(profile.get('levels', [])) +
+        '\n\nQuestion level (the compatible JSON field is named scope):\n' +
+        (f'All new questions use the class level {levels["single"]}; no per-question choice is needed.' if levels['single'] else levels['help']) +
+        '\nAllowed JSON values (empty string remains unknown for mixed classes): ' + json.dumps(levels['options']) +
         '\n\nConfigured curriculum nodes:\n' + json.dumps([dict(id=k, label=n['label'], parent=n.get('parent'), code=n.get('code'))
             for k, n in curriculum_nodes(profile).items()], indent=2) +
         '\n\nExisting assessment identities (no student results):\n' + json.dumps([
@@ -92,6 +96,7 @@ def proposal(doc, payload):
     working = deepcopy(doc)
     working['profile'] = import_profile(doc)
     profile = working['profile']
+    levels = level_settings(doc)
     aid = payload.get('assessment_id')
     if aid:
         matches = [a for a in doc['assessments'] if a['id'] == aid]
@@ -107,9 +112,9 @@ def proposal(doc, payload):
     allowed_nodes = curriculum_nodes(profile)
     for raw in payload['questions']:
         previous = old_questions.get(raw['number'].strip(), {})
-        scope = raw.get('scope', '').strip() or previous.get('scope', '')
-        if scope and scope not in profile.get('levels', []):
-            raise EntryError(f'Question {raw["number"]}: unknown scope {scope}. Use a configured scope or leave it blank.')
+        scope = levels['single'] or raw.get('scope', '').strip() or previous.get('scope', '')
+        if scope and scope not in levels['options']:
+            raise EntryError(f'Question {raw["number"]}: unknown question level {scope}. Choose a configured level or leave it blank.')
         tags = deepcopy(previous.get('tags', {}))
         for category, values in raw.get('tags', {}).items():
             if category not in profile['categories'] or any(t not in profile['categories'][category] for t in values):
@@ -139,7 +144,7 @@ def proposal(doc, payload):
         for q in item['questions']:
             prev = next((p for p in old['questions'] if p['id'] == q['id']), None)
             if prev and any(prev.get(f, '' if f == 'scope' else None) != q.get(f) for f in ('marks', 'tags', 'curriculum_nodes', 'scope')):
-                changes.append(f'Question {q["number"]}: replace maximum marks, classifications, curriculum or scope; existing scores are retained.')
+                changes.append(f'Question {q["number"]}: replace maximum marks, classifications, curriculum or question level; existing scores are retained.')
         if (old['name'], old['date']) != (item['name'], item['date']):
             changes.append('Update the existing assessment name/date while retaining its stable ID.')
     return item, changes

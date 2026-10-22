@@ -1223,5 +1223,20 @@
       "nodes": []
     }
   },
-  "practice_journal": "ib-chemistry/my-practice.html"
+  "practice_journal": "ib-chemistry/my-practice.html",
+  "course_levels": [
+    "SL",
+    "HL"
+  ],
+  "question_levels": [
+    "SL",
+    "HL",
+    "BOTH"
+  ],
+  "question_level_labels": {
+    "SL": "SL",
+    "HL": "HL",
+    "BOTH": "Both"
+  },
+  "question_level_help": "SL: questions for SL students. HL: questions for HL students. Both: questions for both levels."
 }

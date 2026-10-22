@@ -1,6 +1,5 @@
 {% extends 'entry_base.html' %}
 {% block body %}
-<p><a href="{{ url_for('entry.class_page', key=doc.id) }}">Back to {{ doc.name }}</a></p>
 <h1>Teaching groups & upcoming tests</h1>
 <p>Select a topic or skill, inspect the evidence, then choose students and an activity. Suggestions are temporary teaching groups, not student labels. Missing work is not a zero.</p>
 {% if not nodes %}<p>Connect a curriculum and review question links first.</p>{% else %}

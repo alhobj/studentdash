@@ -138,6 +138,8 @@ def save_response(store, key, raw, version, did=None):
     draft['chatgpt'] = True
     content = raw.encode('utf-8')
     source_id = identifier() if original else draft['id']
+    draft['chatgpt_source_ids'] = list(dict.fromkeys(draft.get('chatgpt_source_ids', []) +
+        ([draft['chatgpt_source_id']] if draft.get('chatgpt_source_id') else []) + [source_id]))
     draft['chatgpt_source_id'] = source_id
     if not original:
         draft['source']['sha256'] = hashlib.sha256(content).hexdigest()
