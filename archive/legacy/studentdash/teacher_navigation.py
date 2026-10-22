@@ -23,6 +23,8 @@ def register_navigation(app, store):
             session['entered_class'] = key
         endpoint = request.endpoint or ''
         section = request.args.get('section')
+        if request.endpoint == 'entry.class_page' and request.method == 'POST' and request.form.get('roster'):
+            section = 'classes'
         if section not in {'home', 'classes', 'assessments', 'students', 'curriculum', 'settings'}:
             if endpoint.startswith('portability.'):
                 section = 'settings'

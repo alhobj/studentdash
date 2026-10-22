@@ -43,13 +43,15 @@ class CurriculumTests(unittest.TestCase):
     def data(self):
         return as_workbook(self.store.path(self.key))
 
-    def test_three_steps_and_learner_scope(self):
+    def test_evidence_next_steps_without_activities_and_learner_scope(self):
         plan = next_steps(self.data(), self.sids[0])
         self.assertEqual(plan['focus']['number'], '1')
-        self.assertEqual([s['resource_id'] for s in plan['steps']], ['warm', 'try', 'check'])
+        self.assertEqual(plan['steps'], [])
+        self.assertIsNone(plan['journal'])
         self.assertEqual(next_steps(self.data(), self.sids[1])['focus']['number'], '2')
         html = render_student(self.data(), self.sids[0], False)
-        self.assertIn('/practice/fictional/basic.html#start', html)
+        self.assertNotIn('/practice/fictional/basic.html#start', html)
+        self.assertIn('Suggested next steps', html)
         self.assertNotIn('PRIVATE BETA', html)
         self.assertNotIn(self.sids[1], html)
         self.assertIsNone(next_steps(self.data(), self.sids[0], 'not-an-assessment')['focus'])
@@ -120,7 +122,8 @@ class CurriculumTests(unittest.TestCase):
         self.assertEqual(saved['assessments'][0]['scores'], original_scores)
         self.assertEqual(saved['assessments'][0]['questions'][0]['curriculum_history'][0]['previous'], ['a', 'b'])
         page = client.get(f'/classes/{self.key}/students/{self.sids[0]}/next')
-        self.assertIn(b'Check independently', page.data)
+        self.assertIn(b'Suggested next steps', page.data)
+        self.assertNotIn(b'activity', page.data)
         self.assertEqual(client.get(f'/classes/{self.key}/students/unknown/next').status_code, 404)
         with client.session_transaction() as session:
             session['simulated_student'] = 'fictional'
@@ -145,9 +148,9 @@ class CurriculumTests(unittest.TestCase):
         config = Config(self.store.path(self.key), self.root / 'output')
         _, pages = generate_dashboards(config, False)
         html = (config.output / pages[0]).read_text(encoding='utf-8')
-        self.assertIn('href="resources/', html)
+        self.assertNotIn('href="resources/', html)
         for r in curriculum['resources']:
-            self.assertTrue((config.output / 'resources' / urlsplit(r['path']).path).is_file())
+            self.assertFalse((config.output / 'resources' / urlsplit(r['path']).path).is_file())
         client = create_app(Config(self.root / 'unused.xlsx', self.root / 'output')).test_client()
         path = urlsplit(curriculum['resources'][0]['path']).path
         with client.get('/practice/' + path) as response:

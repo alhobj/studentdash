@@ -3,6 +3,7 @@
 <section class="card"><p>Check the metadata below. No document extraction, question text or per-question checks are required. Scores remain separate.</p>
 <form method="post" id="metadata-form"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}"><input type="hidden" name="payload" id="metadata-payload">
 <p>Class: {{ doc.name }} · Stable assessment ID: {{ item.id if item and payload.get('assessment_id') else 'Assigned on import; matching name/date keeps the existing ID' }}</p>
+<label>Assessment type<select aria-label="Assessment type" id="metadata-type"><option value="assessment" {{ 'selected' if payload.get('assessment_type', item.get('assessment_type', 'assessment') if item else 'assessment') == 'assessment' else '' }}>Assessment</option><option value="exit_ticket" {{ 'selected' if payload.get('assessment_type', item.get('assessment_type', 'assessment') if item else 'assessment') == 'exit_ticket' else '' }}>Exit ticket</option></select></label>
 <label>Assessment name<input id="metadata-name" value="{{ payload.get('name', '') }}" required maxlength="200"></label>
 <label>Assessment date<input id="metadata-date" type="date" value="{{ payload.get('date', '') }}" required></label>
 {% if question_levels.single %}<p>Question level is automatically {{ question_levels.single }} for this single-level class.</p>{% else %}<p>{{ question_levels.help }}</p>{% endif %}<div class="table-wrap"><table class="entry-table"><thead><tr><th>Question / optional name</th><th>Maximum marks</th><th>Tags</th><th>Curriculum</th>{% if not question_levels.single %}<th>Question level</th>{% endif %}</tr></thead><tbody>
@@ -23,6 +24,7 @@ const metadataOriginal = {{ payload|tojson }};
 const form = document.querySelector('#metadata-form');
 function editedMetadata() {
   const result = structuredClone(metadataOriginal);
+  result.assessment_type = document.querySelector('#metadata-type').value;
   result.name = document.querySelector('#metadata-name').value;
   result.date = document.querySelector('#metadata-date').value;
   result.questions = [...document.querySelectorAll('.metadata-question')].map((row, index) => {

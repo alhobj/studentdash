@@ -61,19 +61,18 @@ class UsabilityTests(unittest.TestCase):
             (f'/classes/{self.key}/assessments/{aid}/scores','Assessments'),
             (f'/classes/{self.key}/assessments/{aid}/edit','Assessments'),
             (f'/classes/{self.key}/curriculum','Curriculum'),
-            (f'/classes/{self.key}/learning','Assessments'),
             (f'/?class_key={self.key}&section=home','Studentdash'),
             (f'/?class_key={self.key}&section=students','Students'),
             (f'/transfer?class_key={self.key}','Settings'),
             (f'/feedback/{sid}?class_key={self.key}','Students'),
             (f'/classes/{self.key}/students/{sid}/next','Students'),
-            ('/exit-tickets','Assessments')]
+            ('/classes','Classes')]
         # Use the app's real registered paths for student-specific routes.
         with self.app.test_request_context():
             from flask import url_for
             paths[-3] = (url_for('feedback_editor',sid=sid,class_key=self.key),'Students')
             paths[-2] = (url_for('entry.student_next',key=self.key,sid=sid),'Students')
-            paths[-1] = (url_for('exit_tickets.list_tickets'),'Assessments')
+            paths[-1] = (url_for('entry.classes'),'Classes')
         for path, active in paths:
             with self.subTest(path=path):
                 response = self.client.get(path)
@@ -107,7 +106,8 @@ class UsabilityTests(unittest.TestCase):
         self.assertNotIn(b'Add students', assessment_page)
         students = self.client.get(f'/?class_key={self.key}&section=students').data
         self.assertIn(b'Preview next steps', students)
-        self.assertIn(b'Add students', students)
+        self.assertNotIn(b'Add students', students)
+        self.assertIn(b'Add students', self.client.get(f'/classes/{self.key}').data)
         sid = before['students'][0]['id']
         self.assertIn(f'/classes/{self.key}/students/{sid}/next'.encode(), students)
         self.assertNotIn(b'Classroom practice', self.client.get('/transfer').data)
@@ -121,7 +121,7 @@ class UsabilityTests(unittest.TestCase):
         response = self.client.post(f'/classes/{self.key}', data=dict(
             csrf_token=self.csrf(), version=before['version'], roster='Fictional Gamma', section='students'))
         self.assertEqual(response.status_code, 303)
-        self.assertIn('section=students', response.location)
+        self.assertIn(f'/classes/{self.key}', response.location)
         self.assertIn(b'Fictional Gamma', self.client.get(response.location).data)
         self.assertEqual(before['assessments'], self.store.read(self.key)['assessments'])
 

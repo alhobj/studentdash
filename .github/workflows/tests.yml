@@ -25,3 +25,6 @@ jobs:
       - name: Test teacher navigation, levels and draft deletion
         working-directory: archive/legacy
         run: python -m unittest discover -s tests -p "test_teacher_usability.py" -v
+      - name: Test unified assessment and exit-ticket results
+        working-directory: archive/legacy
+        run: python -m unittest discover -s tests -p "test_unified_results.py" -v

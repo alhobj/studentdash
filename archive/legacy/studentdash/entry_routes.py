@@ -13,6 +13,7 @@ from .import_routes import register_import_routes
 from .learning import intervention_rows, save_learning_plan
 from .teacher_navigation import register_navigation
 from .question_levels import settings as level_settings
+from .curriculum_tree import tree
 
 
 def register_entry_routes(app, base_config):
@@ -90,10 +91,14 @@ def register_entry_routes(app, base_config):
                     session['level_message'] = 'Class level settings saved. Existing assessments and scoring rules are unchanged.'
                     return redirect(url_for('portability.transfer', class_key=key), code=303)
                 store.add_students(key, request.form.get('roster', ''), version())
-                return redirect(url_for('index', class_key=key, section='students', _anchor='students'), code=303)
+                return redirect(url_for('entry.class_page', key=key), code=303)
             except EntryError as exc:
                 error = str(exc)
-        return render_template('class_entry.html', doc=doc, error=error, draft_message=session.pop('draft_message', None)), 400 if error else 200
+        kind = request.args.get('assessment_type', '')
+        if kind not in {'', 'assessment', 'exit_ticket'}:
+            abort(400, description='Unknown assessment type.')
+        visible_assessments = [a for a in doc['assessments'] if not kind or a.get('assessment_type', 'assessment') == kind]
+        return render_template('class_entry.html', doc=doc, visible_assessments=visible_assessments, error=error, draft_message=session.pop('draft_message', None)), 400 if error else 200
 
     @bp.route('/classes/<key>/curriculum', methods=['GET', 'POST'])
     def curriculum_review(key):
@@ -121,7 +126,7 @@ def register_entry_routes(app, base_config):
             store.save(doc, version())
             return redirect(url_for('entry.curriculum_review', key=key), code=303)
         return render_template('curriculum_review.html', doc=doc, curriculum=curriculum,
-                               nodes=node_index(curriculum or {}), curricula=catalog().values())
+                               nodes=node_index(curriculum or {}), curriculum_tree=tree(curriculum), curricula=catalog().values())
 
     @bp.route('/classes/<key>/learning', methods=['GET', 'POST'])
     def learning_workspace(key):

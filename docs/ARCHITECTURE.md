@@ -66,3 +66,16 @@ by the active app. Its architecture history is in
 `archive/legacy/docs/ARCHITECTURE.md`. Active changes must not silently rewrite
 historical workbook or classification semantics. The focused local application
 does not add public hosting, accounts, external APIs or student submissions.
+
+### Unified class-based results
+
+The supported `.sdclass` workspace stores optional `assessment_type` on each
+assessment. The default is `assessment`; `exit_ticket` uses identical scoring,
+classification and import services. Filters operate on copied report data and do
+not rewrite records or alter default weighting. All class-based snapshots share
+the results-focused metadata template, including feedback draft previews. Rendering
+fingerprints include the report templates and helpers. Explicit curriculum parents
+produce expandable region trees and deduplicated ancestor evidence. Settings and
+storage remain compatible. Retired planning, interactive ticket, revision-attempt
+and practice routes/data remain archival implementation; interactive routes are
+unavailable when a class workspace is selected. No destructive migration runs.

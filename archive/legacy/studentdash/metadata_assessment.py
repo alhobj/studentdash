@@ -12,11 +12,11 @@ from .question_levels import settings as level_settings
 SCHEMA = 'studentdash-assessment-metadata-v2'
 
 
-def prompt(doc):
+def prompt(doc, assessment_type='assessment'):
     profile = import_profile(doc)
     levels = level_settings(doc)
     example = dict(schema=SCHEMA, class_id=doc['id'], assessment_id=None,
-        name='Assessment name', date=date.today().isoformat(), questions=[dict(number='1a', marks=2,
+        assessment_type=assessment_type, name='Assessment name', date=date.today().isoformat(), questions=[dict(number='1a', marks=2,
         tags={c: [] for c in profile['categories']}, curriculum_nodes=[], scope=levels['single'], name='')])
     return ('Create assessment METADATA for Studentdash from the attached test paper. '
         'Return one JSON object only, following the exact schema below. '
@@ -26,11 +26,13 @@ def prompt(doc):
         'Do NOT include full question text, answers, marking instructions, source documents, page references, '
         'student information, confidence values, context entries or review checkboxes. '
         'The optional name is a short label, not question text. '
-        'Use exact configured category/tag values; multiple tags are arrays. '
+        'Include every configured classification category, including action verbs when configured; multiple tags are arrays. '
+        'Use exact configured category/tag values. assessment_type must be assessment or exit_ticket; keep the selected type below. '
         'Leave uncertain classifications as empty arrays and unknown scope as an empty string; never invent them. '
         'Use only configured curriculum node IDs; never infer parents by splitting syllabus codes. '
         'If maximum marks cannot be determined, use null so the teacher can correct them in the preview. '
         'Use the assessment date below unless I specify another; it is editable in Studentdash. '
+        'Selected class/course: ' + doc['name'] + '. '
         'Keep class_id exactly as given. Leave assessment_id null for a new import: Studentdash manages stable IDs '
         'and recognizes repeated name/date imports. For an explicit update, use an existing ID listed below.\n\n'
         'JSON schema/example (return all scored parts, not just this example):\n' + json.dumps(example, indent=2) +
@@ -66,10 +68,13 @@ def parse(raw, key):
         raise EntryError('Invalid JSON. Paste the complete response without extra explanation.') from None
     if not isinstance(payload, dict) or payload.get('schema') != SCHEMA or payload.get('class_id') != key:
         raise EntryError('Copy the prompt for this class. The schema and class_id must match.')
-    if set(payload) - {'schema', 'class_id', 'assessment_id', 'name', 'date', 'questions'}:
-        raise EntryError('Use metadata fields only: schema, class_id, assessment_id, name, date, questions.')
+    if set(payload) - {'schema', 'class_id', 'assessment_id', 'name', 'date', 'questions', 'assessment_type'}:
+        raise EntryError('Use metadata fields only: schema, class_id, assessment_id, name, date, questions, assessment_type.')
     if payload.get('assessment_id') is not None and not isinstance(payload['assessment_id'], str):
         raise EntryError('assessment_id must be an existing ID or null.')
+    from .assessment_types import TYPES
+    if not isinstance(payload.get('assessment_type', 'assessment'), str) or payload.get('assessment_type', 'assessment') not in TYPES:
+        raise EntryError('assessment_type must be assessment or exit_ticket.')
     questions = payload.get('questions')
     if not isinstance(questions, list) or not 1 <= len(questions) <= 200:
         raise EntryError('Include 1–200 individually scored questions.')
@@ -129,7 +134,7 @@ def proposal(doc, payload):
             text=previous.get('text', name), tags=tags, curriculum_nodes=links,
             curriculum='; '.join(allowed_nodes[n].get('code') or allowed_nodes[n]['label'] for n in links if n in allowed_nodes), scope=scope))
     item = prepare_assessment(working, old['id'] if old else None, dict(name=payload.get('name'), date=payload.get('date'),
-        description=old.get('description', '') if old else '', participants=old['participants'] if old else [s['id'] for s in doc['students']], questions=questions))
+        assessment_type=payload.get('assessment_type', (old or {}).get('assessment_type', 'assessment')), description=old.get('description', '') if old else '', participants=old['participants'] if old else [s['id'] for s in doc['students']], questions=questions))
     for q, raw in zip(item['questions'], questions):
         q['scope'] = raw['scope']
     for q, raw in zip(item['questions'], payload['questions']):
@@ -137,6 +142,8 @@ def proposal(doc, payload):
         q['name'] = raw.get('name', '') or previous.get('name', '')
     item['metadata_only'] = True
     if old:
+        if item['assessment_type'] != old.get('assessment_type', 'assessment'):
+            changes.append('Change assessment type; scores and classifications remain unchanged.')
         old_ids = {q['id'] for q in old['questions']}
         new_ids = {q['id'] for q in item['questions']}
         if old_ids != new_ids:

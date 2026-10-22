@@ -73,7 +73,7 @@ def register_import_routes(app, store):
                 return redirect(url_for('assessment_import.review', key=key, did=did), code=303)
             except EntryError as exc:
                 error = str(exc)
-        return render_template('assessment_upload.html', doc=doc, error=error, chatgpt_prompt=metadata.prompt(doc)), 400 if error else 200
+        return render_template('assessment_upload.html', doc=doc, error=error, chatgpt_prompt=metadata.prompt(doc, request.args.get('assessment_type', 'assessment') if request.args.get('assessment_type', 'assessment') in {'assessment', 'exit_ticket'} else 'assessment')), 400 if error else 200
 
     @bp.route('/classes/<key>/metadata/<did>', methods=['GET', 'POST'])
     def metadata_review(key, did):

@@ -14,8 +14,8 @@ def digest(value):
 
 def fingerprints(config, state=None):
     state = state if state is not None else Workspace(config.workspace).export_state()
-    sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html', 'student_night.html', 'student_navigation.js', 'next_plan.html')]
-    sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py', 'entry.py', 'classification.py', 'curriculum.py', 'learning.py')]
+    sources = [ROOT / 'templates' / name for name in ('student.html', 'style.html', 'student_night.html', 'student_navigation.js', 'next_plan.html', 'metadata_student.html', 'curriculum_tree.html', 'next_plan_snapshot.html')]
+    sources += [ROOT / 'studentdash' / name for name in ('analytics.py', 'models.py', 'excel.py', 'question_data.py', 'render.py', 'workspace.py', 'examples.py', 'freshness.py', 'entry.py', 'classification.py', 'curriculum.py', 'learning.py', 'metadata_report.py', 'curriculum_tree.py', 'assessment_types.py')]
     sources += [ROOT / 'profiles' / 'ib_chemistry.json']
     sources += sorted((ROOT / 'resources').rglob('*.html'))
     sources += sorted((ROOT / 'resources').rglob('*.js'))

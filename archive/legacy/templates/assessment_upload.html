@@ -1,5 +1,6 @@
 {% extends 'entry_base.html' %}
 {% block body %}<h1>Import assessment</h1>
+<form method="get"><label>Assessment type<select aria-label="Assessment type" name="assessment_type"><option value="assessment" {{ 'selected' if request.args.get('assessment_type', 'assessment') == 'assessment' else '' }}>Assessment</option><option value="exit_ticket" {{ 'selected' if request.args.get('assessment_type', 'assessment') == 'exit_ticket' else '' }}>Exit ticket</option></select></label><button>Update prompt</button></form>
 <section class="card"><h2>1. Copy the prompt into ChatGPT</h2>
 <p>Attach the test paper in ChatGPT. Studentdash needs only question labels, maximum marks, tags, curriculum links and scope. No test, mark scheme, answers or full question text is uploaded or stored here.</p>
 <label>Prompt for ChatGPT<textarea id="chatgpt-prompt" rows="8" readonly>{{ chatgpt_prompt }}</textarea></label>

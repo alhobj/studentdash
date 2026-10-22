@@ -1,0 +1,4 @@
+{% macro display(nodes, performance=true) %}
+{% for node in nodes %}<details class="curriculum-part"><summary>{{ node.label }}{% if performance %} · {% if node.evidence and node.evidence.maximum %}{{ '%g'|format(node.evidence.score) }}/{{ '%g'|format(node.evidence.maximum) }} · {{ '%.1f'|format(node.evidence.percent) }}% · {{ node.evidence.count }} graded questions · {{ node.evidence.pattern }}{% else %}No graded evidence{% endif %}{% endif %}</summary>
+{% if node.children %}<div class="curriculum-children">{{ display(node.children, performance) }}</div>{% endif %}</details>{% endfor %}
+{% endmacro %}

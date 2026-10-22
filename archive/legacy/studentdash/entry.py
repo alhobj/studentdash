@@ -145,6 +145,10 @@ def prepare_assessment(doc, aid, payload):
     old = assessment(doc, aid) if aid else None
     if not isinstance(payload, dict):
         raise EntryError('The assessment could not be read. Reload and retry.')
+    from .assessment_types import TYPES
+    kind = payload.get('assessment_type', (old or {}).get('assessment_type', 'assessment'))
+    if not isinstance(kind, str) or kind not in TYPES:
+        raise EntryError('Choose Assessment or Exit ticket.')
     name = text(payload.get('name', ''), 'Assessment name', 200, True)
     try:
         day = date.fromisoformat(payload.get('date', '')).isoformat()
@@ -221,7 +225,7 @@ def prepare_assessment(doc, aid, payload):
             v = row.get(q['id'], {})
             if v.get('score') is not None and v['score'] > q['marks']:
                 raise EntryError(f"Question {q['number']}: the new maximum is below a saved score. Correct that score first.")
-    item = dict(id=aid or identifier(), name=name, date=day,
+    item = dict(id=aid or identifier(), name=name, date=day, assessment_type=kind,
                 description=text(payload.get('description', ''), 'Description', 5000),
                 participants=list(dict.fromkeys(participants)), questions=cleaned, scores=scores)
     if old and 'import_source' in old:
@@ -306,12 +310,13 @@ def as_workbook(path):
     data.curriculum = deepcopy(doc['profile'].get('curriculum'))
     data.learning_settings = dict(deepcopy(doc.get('learning', {})), class_id=doc['id'])
     data.learning_settings['metadata_only'] = any(a.get('metadata_only') for a in doc['assessments'])
+    data.learning_settings['class_based'] = True
     data.learning_settings['report_categories'] = deepcopy(doc['profile']['categories'])
     for s in doc['students']:
         data.students[s['id']] = Student(s['id'], s['name'], s['email'], doc['name'])
     for a in doc['assessments']:
         aid = a['id']
-        data.assessments[aid] = Assessment(aid, a['name'], date.fromisoformat(a['date']), '', sum(q['marks'] for q in a['questions']))
+        data.assessments[aid] = Assessment(aid, a['name'], date.fromisoformat(a['date']), '', sum(q['marks'] for q in a['questions']), a.get('assessment_type', 'assessment'))
         for q in a['questions']:
             if q.get('curriculum_review', {}).get('status') == 'reviewed':
                 data.question_curriculum[q['id']] = list(q.get('curriculum_nodes', []))

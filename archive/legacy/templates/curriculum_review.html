@@ -1,4 +1,4 @@
 {% extends 'entry_base.html' %}
 {% block body %}<h1>Curriculum</h1><p>{{ doc.name }}</p>
-{% if curriculum %}<section class="card"><h2>{{ curriculum.label }}</h2><p>Version {{ curriculum.version }} · {{ nodes|length }} configured nodes</p><p>This curriculum is saved with the class. Edit question references through each assessment’s classifications.</p></section>
+{% if curriculum %}<section class="card"><h2>{{ curriculum.label }}</h2><p>Version {{ curriculum.version }} · {{ nodes|length }} configured nodes</p><p>This curriculum is saved with the class. Edit question references through each assessment’s classifications.</p>{% from 'curriculum_tree.html' import display %}{{ display(curriculum_tree, false) }}</section>
 {% else %}<form method="post"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}"><label>Class curriculum <select name="curriculum_id" required>{% for c in curricula %}<option value="{{ c.id }}">{{ c.label }}</option>{% endfor %}</select></label><button>Connect curriculum</button></form>{% endif %}{% endblock %}

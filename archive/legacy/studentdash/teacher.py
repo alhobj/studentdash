@@ -38,6 +38,8 @@ def create_app(config=None):
         # Reject foreign Host headers (including DNS-rebinding requests).
         if request.host.split(':', 1)[0] not in {'127.0.0.1', 'localhost'}:
             abort(400)
+        if active_config().workbook.suffix == '.sdclass' and ((request.endpoint or '').startswith('exit_tickets.') or request.endpoint in {'entry.learning_workspace', 'record_attempt', 'practice_asset'}):
+            abort(404, description='This interaction is retired. Use assessment imports and student results.')
         if session.get('simulated_student'):
             if request.endpoint not in STUDENT_ENDPOINTS | {'exit_tickets.simulate_teacher', 'practice_asset'}:
                 abort(403, description='Return to teacher simulation before opening teacher-only pages.')
@@ -107,7 +109,16 @@ def create_app(config=None):
                      'Question metadata' if warning.startswith(('Questions', 'Assessment ')) else
                      'Workbook and assessment totals')
             groups.setdefault(group, []).append(warning)
+        from .assessment_types import filtered
+        all_assessment_ids = set(data.assessments) if data else set()
+        kind = request.args.get('assessment_type', '')
+        try:
+            data = filtered(data, kind) if data else data
+        except ValueError:
+            abort(400, description='Unknown assessment type.')
         assessment_id = request.args.get('assessment', '')
+        if kind and assessment_id in all_assessment_ids and assessment_id not in data.assessments:
+            assessment_id = ''
         class_name = request.args.get('class_name', '')
         classes = sorted({s.class_name for s in data.students.values() if s.class_name}) if data else []
         if data and ((assessment_id and assessment_id not in data.assessments)

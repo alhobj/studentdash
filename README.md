@@ -64,13 +64,32 @@ source records, with a success message and refreshed list. Published assessments
 scores, classifications and backup copies are protected. Concurrent changes require
 reloading the confirmation. The introductory marketing panel has been removed.
 
-Question review uses expandable curriculum groups, with exact assessment/question
-labels inside. Explicit parent links provide context; unlinked questions appear
-under **Unclassified**. Shared links do not change overall totals. **Students**
-contains next-step previews and Add students. **Curriculum** shows the selected
-configuration; question references are edited under each assessment's **Classify →
-Curriculum parts**. The separate mapping form, curriculum activity browser and
-classroom practice download panel have been removed. Existing saved data remains.
+Tests and exit tickets use the same import and score workflow. Select **Assessment**
+or **Exit ticket**, click **Update prompt**, then copy the prompt. The compatible
+v2 JSON adds optional `assessment_type` (`assessment` or `exit_ticket`). Older
+JSON remains valid; existing types survive updates that omit the field. Filters
+on assessment lists, teacher overview and offline snapshots select types without
+changing saved totals or the default calculations.
+
+**Classes → selected class** contains the roster and Add students. **Students**
+contains individual results, next-step previews and feedback. Class planning and
+the separate interactive exit-ticket workflow are retired in the supported class
+workspace. Their historical data remains stored and included in backups.
+
+Class snapshots have one history row per assessment, expandable **Skills and action
+verbs**, hierarchical **Curriculum performance**, published teacher feedback and
+suggested revision. They omit progress bars, question-evidence listings, revision
+attempts and practice activities/completion. Draft feedback can still be previewed
+and published; regenerate snapshots after changes. Old class assessments use the
+same results-focused layout without migration. Existing historical snapshot files
+are not overwritten until regeneration.
+
+The **Curriculum** page displays a compact expandable tree. Question references
+remain editable under assessment **Classify → Curriculum parts**. Trees use explicit
+parents; a single container root is omitted from performance. The mathematics
+curriculum shows its five regions plus Prior learning. Shared descendant links
+count each question once per ancestor. Unclassified and ungraded evidence remain
+visible. Settings and private data locations are unchanged.
 
 ## 2. Import the grading workbook
 

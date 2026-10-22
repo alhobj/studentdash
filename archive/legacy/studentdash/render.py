@@ -20,10 +20,17 @@ def template_environment():
 
 
 def render_student(data, sid, include_examples=True, state=None, **context):
-    if data.learning_settings.get('metadata_only'):
+    if data.learning_settings.get('class_based') or data.learning_settings.get('metadata_only'):
         from .metadata_report import evidence
         student = build_dashboard(data, sid, False, workspace_state=state)
-        return template_environment().get_template('metadata_student.html').render(student=student, report=evidence(data, sid))
+        from .assessment_types import filtered, TYPES
+        reports = []
+        for kind in ['', *TYPES]:
+            selected = filtered(data, kind)
+            view = build_dashboard(selected, sid, False, workspace_state=state)
+            reports.append(dict(kind=kind, student=view, report=evidence(selected, sid)))
+        return template_environment().get_template('metadata_student.html').render(
+            student=student, reports=reports, assessment_types=TYPES, **context)
     context.setdefault('resource_base', '/practice/')
     context['learning_context'] = learner_context(data, sid, state, context.pop('completed_tickets', []))
     student = build_dashboard(data, sid, include_examples, workspace_state=state)
@@ -54,7 +61,7 @@ def generate_dashboards(config, include_examples=True):
         if old.name not in pages and old.is_file():
             old.unlink()
     # Only public repository assets are copied, including shared learning-centre files.
-    for asset in ([] if data.learning_settings.get('metadata_only') else (ROOT / 'resources').rglob('*')):
+    for asset in ([] if data.learning_settings.get('class_based') or data.learning_settings.get('metadata_only') else (ROOT / 'resources').rglob('*')):
         if asset.is_file() and asset.suffix in {'.html', '.css', '.js', '.json'}:
             target = output / 'resources' / asset.relative_to(ROOT / 'resources')
             target.parent.mkdir(parents=True, exist_ok=True)

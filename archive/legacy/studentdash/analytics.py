@@ -72,6 +72,7 @@ class AssessmentView:
     status: str
     percent: float | None
     grade: int | None
+    assessment_type: str = 'assessment'
 
 
 @dataclass(frozen=True)
@@ -140,7 +141,7 @@ def build_dashboard(data: WorkbookData, student_id: str, include_examples=True, 
         percent = 100 * result.score / result.max_score if result.status == 'graded' else None
         history.append(AssessmentView(assessment.id, assessment.name, assessment.date.isoformat(), result.score,
                        result.max_score, result.status, percent,
-                       suggested_grade(percent, data.assessment_boundaries.get(assessment.id, data.boundaries)) if percent is not None else None))
+                       suggested_grade(percent, data.assessment_boundaries.get(assessment.id, data.boundaries)) if percent is not None else None, assessment.assessment_type))
     graded = [r for r in own_results if r.status == 'graded']
     score = sum(r.score for r in graded)
     maximum = sum(r.max_score for r in graded)

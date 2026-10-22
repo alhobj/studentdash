@@ -17,6 +17,7 @@ class Assessment:
     date: date
     subject: str
     marks: float
+    assessment_type: str = 'assessment'
 
 
 @dataclass(frozen=True)

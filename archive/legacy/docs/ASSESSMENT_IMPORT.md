@@ -4,7 +4,7 @@ Use root **start-assessment-import.bat** on Windows and open
 http://127.0.0.1:5000/classes. Keep your existing data directory when updating.
 
 1. Select a class and choose **Import assessment**.
-2. Click **Copy prompt**. It contains the selected class ID, JSON schema, allowed
+2. Select **Assessment** or **Exit ticket**, click **Update prompt**, then **Copy prompt**. It contains the selected class ID, JSON schema, allowed
    categories/tags, configured curriculum nodes and scope options. No pupil data is included.
 3. Attach the test paper in ChatGPT, paste the prompt, and copy the complete JSON response.
 4. Paste the response in Studentdash and choose **Preview assessment**.
@@ -13,7 +13,8 @@ http://127.0.0.1:5000/classes. Keep your existing data directory when updating.
 
 The top teacher bar preserves class context across Classes, Assessments, Students,
 Curriculum and Settings. Backups/restores and class-level configuration are under
-Settings; class planning and upcoming tests remain accessible in the class area.
+Settings. Add students through Classes and the selected class overview. Class planning
+and separate student-interactive exit tickets are retired; historical data is retained.
 
 For a configured single-level class, per-question level is hidden and defaults to
 that class level. Mixed classes show **Question level** with configured labels
@@ -67,3 +68,16 @@ existing destination. Student snapshots do not include other students' results.
 Older saved document imports remain readable, with their original documents and
 review controls preserved. They are not required for new metadata imports. The
 historical document-import instructions are in DOCUMENT_IMPORT_LEGACY.md.
+
+## Unified results
+
+Optional `assessment_type` is `assessment` or `exit_ticket`. Omitted types default
+to Assessment for old records and preserve the type of an existing assessment on
+update. Both use the same question classifications, scores and stable identity.
+Type filters affect displayed evidence only. The default overall calculation is
+unchanged; exit tickets receive no special weighting.
+
+Regenerate student snapshots to replace old layouts with history, expandable skills
+and curriculum analysis, feedback and suggested revision. All class assessments,
+including older manual assessments, use this layout. Revision attempts, resource
+activities and completion controls are hidden; their historical data is retained.

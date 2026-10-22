@@ -145,6 +145,13 @@ def next_steps(data, sid, assessment_id=None):
         plan['reason'] = 'The curriculum links need teacher review.'
         return plan
     target = sorted(linked, key=lambda key: (-len(ancestors(index, key)), key))[0]
+    if data.learning_settings.get('class_based'):
+        plan['focus'] = dict(label=index[target]['label'], code=index[target].get('code', ''),
+                             assessment=data.assessments[q.assessment_id].name, number=q.number,
+                             text=q.text, score=result.score, marks=q.marks)
+        plan['reason'] = 'Revisit one graded question with marks to recover. Evidence suggests a focus, not mastery of a whole topic.'
+        plan['journal'] = None
+        return plan
     resources = curriculum.get('resources', [])
     def resource(node, role):
         return next((r for r in resources if r['node_id'] == node and r['role'] == role), None)
