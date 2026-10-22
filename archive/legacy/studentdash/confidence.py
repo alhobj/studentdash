@@ -15,6 +15,8 @@ def ratings(item, values):
         raise EntryError('Confidence must refer only to participating students.')
     result = deepcopy(item.get('confidence_ratings', {}))
     for sid, value in values.items():
+        if isinstance(value, str):
+            value = value.strip()
         if value is None or value == '':
             result.pop(sid, None)
         elif type(value) is int and 1 <= value <= 5:

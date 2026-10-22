@@ -99,3 +99,15 @@ scores, never affect performance or grades, and are not included in prompt JSON.
 The assessment editor offers a reviewed correction for a mistakenly scored
 confidence question, archiving original evidence without translating marks to a
 rating. Neither this correction nor any migration runs automatically.
+
+### Paste confidence with Excel scores
+
+Copy question-score columns followed by the optional confidence column, without
+headings or the calculated Total / state. For four questions, `1<TAB>1<TAB>1<TAB>0<TAB>2`
+means 3/4 marks and confidence 2/5. Paste can start at any question/confidence cell,
+cover several students, or contain only confidence. Ratings outside the rectangle
+stay unchanged. An included blank confidence cell clears it, including a trailing
+blank Excel column. Confidence accepts only integer 1–5 or blank, not A/E/M/P.
+Question-score rules remain unchanged. Review then Save scores once. Both kinds of
+entry participate in keyboard navigation, validation and unsaved-change warnings;
+confidence is excluded from the score payload and calculated totals.

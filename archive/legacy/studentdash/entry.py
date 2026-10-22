@@ -284,11 +284,22 @@ def save_scores(store, key, aid, rows, version, confidence=None):
                 scores[student['id']][q['id']] = parse_score(value, q['marks'])
             except ValueError as exc:
                 errors[f'{r}:{c}'] = f"{student['name']}, question {q['number']}: {exc}"
-    if errors:
-        raise EntryError('Scores were not saved. Correct the highlighted cells.', errors)
     if confidence is not None:
         from .confidence import ratings
-        item['confidence_ratings'] = ratings(item, confidence)
+        if not isinstance(confidence, dict) or any(sid not in item['participants'] for sid in confidence):
+            raise EntryError('Confidence must refer only to participating students.')
+        updated = deepcopy(item.get('confidence_ratings', {}))
+        for r, student in enumerate(students):
+            sid = student['id']
+            if sid in confidence:
+                try:
+                    updated = ratings(dict(item, confidence_ratings=updated), {sid: confidence[sid]})
+                except EntryError as exc:
+                    errors[f'{r}:confidence'] = f"{student['name']}, confidence: {exc}"
+    if errors:
+        raise EntryError('Scores and confidence were not saved. Correct the highlighted cells.', errors)
+    if confidence is not None:
+        item['confidence_ratings'] = updated
     item['scores'] = scores
     store.save(doc, version)
 

@@ -89,11 +89,11 @@ class ImportBrowserTests(unittest.TestCase):
         p.get_by_role('button', name='Create assessment', exact=True).click()
         p.wait_for_url('**/scores?saved=1')
         expect(p.locator('#score-grid tbody tr')).to_have_count(2)
-        expect(p.locator('#score-grid input[data-row="0"]')).to_have_count(5)
-        p.locator('input[data-row="0"][data-col="0"]').fill('2')
+        expect(p.locator('#score-grid input[data-max][data-row="0"]')).to_have_count(5)
+        p.locator('input[data-max][data-row="0"][data-col="0"]').fill('2')
         p.get_by_role('button', name='Save scores', exact=True).click()
         p.wait_for_url('**/scores?saved=1')
-        expect(p.locator('input[data-row="0"][data-col="0"]')).to_have_value('2')
+        expect(p.locator('input[data-max][data-row="0"][data-col="0"]')).to_have_value('2')
         doc = ClassStore(self.root / 'entered_classes').list()[0]
         self.assertEqual(doc['import_drafts'][0]['status'], 'confirmed')
         first = doc['assessments'][0]['questions'][0]
@@ -140,7 +140,7 @@ class ImportBrowserTests(unittest.TestCase):
             p.screenshot(path=os.environ['STUDENTDASH_IMPORT_SCREENSHOT'], full_page=False)
         p.get_by_role('button', name='Create assessment', exact=True).click()
         p.wait_for_url('**/scores?saved=1')
-        expect(p.locator('#score-grid input[data-row="0"]')).to_have_count(6)
+        expect(p.locator('#score-grid input[data-max][data-row="0"]')).to_have_count(6)
         self.assertEqual(self.errors, [])
 
     def test_reject_and_manual_multiple_tags_persist(self):

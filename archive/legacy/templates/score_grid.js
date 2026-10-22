@@ -12,28 +12,34 @@ const ScoreGrid = (() => {
   }
   function paste(text, rows, columns, startRow, startCol) {
     let lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
-    if (lines.at(-1) === '') lines.pop(); // Excel's trailing line terminator is not an extra student.
+    if (lines.length > 1 && lines.at(-1) === '') lines.pop(); // Excel's trailing line terminator is not an extra student.
     const block = lines.map(line => line.split('\t'));
     if (!block.length || !block[0].length || block.some(row => row.length !== block[0].length)) throw Error('Paste a rectangular block with the same number of columns in every row.');
     if (startRow + block.length > rows || startCol + block[0].length > columns) throw Error('The pasted block extends beyond the grid. No cells were changed.');
     return block;
   }
-  return {parse, paste};
+  function parseConfidence(value) {
+    const raw = String(value).trim();
+    if (raw === '') return {rating: null};
+    return /^[1-5]$/.test(raw) ? {rating: Number(raw)} : {error: 'Enter a whole number from 1 to 5, or blank for Not recorded.'};
+  }
+  return {parse, paste, parseConfidence};
 })();
 if (typeof module !== 'undefined') module.exports = ScoreGrid;
 if (typeof document !== 'undefined') (() => {
   const table = document.querySelector('#score-grid'), form = document.querySelector('#scores-form');
   const rows = [...table.tBodies[0].rows].map(row => [...row.querySelectorAll('input')]);
+  const scoreRows = rows.map(row => row.filter(input => !input.dataset.confidence));
   const state = document.querySelector('#save-state'), message = document.querySelector('#grid-message');
   let dirty = form.dataset.unsaved === 'true';
   function validate(input) {
-    const result = ScoreGrid.parse(input.value, Number(input.dataset.max));
+    const result = input.dataset.confidence ? ScoreGrid.parseConfidence(input.value) : ScoreGrid.parse(input.value, Number(input.dataset.max));
     input.setAttribute('aria-invalid', result.error ? 'true' : 'false');
-    document.getElementById(input.getAttribute('aria-describedby')).textContent = result.error || '';
+    document.getElementById(input.getAttribute('aria-describedby')).textContent = result.error ? `${input.getAttribute('aria-label')}: ${result.error}` : '';
     return result;
   }
   function totals() {
-    rows.forEach((row, i) => {
+    scoreRows.forEach((row, i) => {
       const values = row.map(input => ScoreGrid.parse(input.value, Number(input.dataset.max)));
       let label = 'Incomplete';
       if (values.some(v => v.error)) label = 'Invalid entry';
@@ -49,7 +55,6 @@ if (typeof document !== 'undefined') (() => {
     });
   }
   function changed() { dirty = true; state.textContent = 'Unsaved changes — save before generating dashboards'; totals(); }
-  table.addEventListener('change', e => { if (e.target.matches('select[name^=confidence-]')) changed(); });
   table.addEventListener('input', e => { if (e.target.matches('input')) { validate(e.target); changed(); } });
   table.addEventListener('paste', e => {
     if (!e.target.matches('input')) return;
@@ -76,8 +81,8 @@ if (typeof document !== 'undefined') (() => {
   });
   form.addEventListener('submit', e => {
     const invalid = rows.flat().filter(input => validate(input).error);
-    if (invalid.length) { e.preventDefault(); invalid[0].focus(); message.textContent = 'Correct the highlighted cells before saving.'; return; }
-    document.querySelector('#payload').value = JSON.stringify(rows.map(row => row.map(input => input.value)));
+    if (invalid.length) { e.preventDefault(); invalid[0].focus(); message.textContent = `${invalid[0].getAttribute('aria-label')}: correct the highlighted entry before saving.`; return; }
+    document.querySelector('#payload').value = JSON.stringify(scoreRows.map(row => row.map(input => input.value)));
     dirty = false;
   });
   document.querySelector('#generate-form').addEventListener('submit', e => {

@@ -95,7 +95,13 @@ visible. Settings and private data locations are unchanged.
 
 On the score-entry page, record optional confidence beside each student's marks:
 **1 = very low confidence, 5 = very high confidence**. Blank is **Not recorded**;
-select blank to clear a saved rating. Save scores to persist both. Ordinary score
+clear the confidence cell to remove a saved rating. Save scores to persist both. Excel column order is question scores followed by
+confidence; the calculated Total / state column is not part of the paste. Rectangles
+can start at any editable cell, including confidence, and span several students.
+Score-only pastes preserve ratings outside the pasted block. A blank confidence cell
+inside the rectangle, including a trailing blank Excel column, explicitly clears it.
+Invalid entries remain available for correction; malformed/out-of-bounds rectangles
+change no cells. Ordinary score
 pastes and imports that omit confidence retain saved ratings. Confidence appears
 next to the assessment in teacher overviews and offline student history, but never
 changes marks, grades, classification/curriculum percentages or evidence counts.

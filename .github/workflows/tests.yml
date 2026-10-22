@@ -31,3 +31,6 @@ jobs:
       - name: Test separate confidence ratings
         working-directory: archive/legacy
         run: python -m unittest discover -s tests -p "test_confidence.py" -v
+      - name: Test Excel score and confidence paste
+        working-directory: archive/legacy
+        run: python -m unittest discover -s tests -p "test_confidence_paste.py" -v

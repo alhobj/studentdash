@@ -164,7 +164,7 @@ class EntryBrowserTests(unittest.TestCase):
         self.paste('99\tE\tM\tP\n0\t1,5\t0\t2\nA\tA\tA\tA')
         expect(p.locator('input[data-row="0"][data-col="0"]')).to_have_attribute('aria-invalid', 'true')
         p.get_by_role('button', name='Save scores', exact=True).click()
-        expect(p.locator('#grid-message')).to_have_text('Correct the highlighted cells before saving.')
+        expect(p.locator('#grid-message')).to_contain_text('correct the highlighted entry before saving.')
         p.locator('input[data-row="0"][data-col="0"]').fill('2')
         expect(p.locator('.row-total').nth(1)).to_have_text('3.5/8')
         expect(p.locator('.row-total').nth(2)).to_have_text('Absent')
