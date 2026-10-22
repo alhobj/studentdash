@@ -24,7 +24,7 @@ def import_profile(doc):
     # Earlier saved copies of this exact vocabulary predate suggestion definitions.
     # Add only missing configuration, without changing existing categories or curriculum.
     if profile.get('name') == DEFAULT_PROFILE['name'] and profile['categories'] == DEFAULT_PROFILE['categories']:
-        for key in ('suggestion_rules', 'tag_definitions', 'category_options'):
+        for key in ('suggestion_rules', 'tag_definitions', 'category_options', 'levels', 'level_eligibility'):
             profile.setdefault(key, deepcopy(DEFAULT_PROFILE.get(key, {})))
     return profile
 

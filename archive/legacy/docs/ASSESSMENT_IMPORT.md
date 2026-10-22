@@ -1,80 +1,53 @@
-# Import a test document
+# Import assessment metadata from ChatGPT
 
-Start Studentdash with `.\.venv\Scripts\python.exe teacher.py`, open
-**http://127.0.0.1:5000/classes**, and select your class.
+Use root **start-assessment-import.bat** on Windows and open
+http://127.0.0.1:5000/classes. Keep your existing data directory when updating.
 
-1. Choose **Import assessment** and upload a **PDF or DOCX**, up to 20 MB.
-   **Create manually** remains available beside it.
-2. Check the detected question count, marks and document-total comparison.
-   The upload is a saved draft, not an assessment yet. You can reopen it from your class.
-3. Use **Download original test** and **Compare extracted source** to check the
-   questions. Parent instructions, source text, tables and figure references are kept.
-4. Edit labels, text, marks or parent relationships. For a split, place the cursor
-   where the second question begins, then choose **Split question**. Assign the
-   two labels and marks yourself. **Combine with next** combines adjacent leaf
-   questions under the same parent. You can also add, delete and reorder questions.
-5. Accept or reject proposed classifications, or open **Selected classifications /
-   edit manually**. Multiple tags are supported where the category permits them.
-   **Accept all high-confidence suggestions** only selects strong explicit signals;
-   it does not accept semantic inference or confirm question text/marks.
-6. Check each question/context against the original and tick its review checkbox.
-   **Save draft** preserves unfinished work without accepting pending suggestions.
-7. Resolve validation errors. If you deliberately changed the test total, explain
-   the difference in **Review note**. Confirm the final review and choose
-   **Create assessment**. The normal spreadsheet score grid opens immediately.
+1. Select a class and choose **Import assessment**.
+2. Click **Copy prompt**. It contains the selected class ID, JSON schema, allowed
+   categories/tags, configured curriculum nodes and scope options. No pupil data is included.
+3. Attach the test paper in ChatGPT, paste the prompt, and copy the complete JSON response.
+4. Paste the response in Studentdash and choose **Preview assessment**.
+5. Check the editable table and total maximum marks. Correct only what is necessary.
+6. Click **Import assessment** once. Enter/paste the students' scores separately.
 
-Try the supplied fictional examples first:
+Only assessment name/date, class identity, question labels and positive maximum
+marks are necessary for import. Tags support multiple configured values. Empty
+classifications/curriculum/scope remain unknown for new questions and preserve
+existing values when updating. Short question names are optional. No full question
+text, answers, source files, document extraction, parent contexts, page references,
+confidence ratings or question-by-question review checkboxes are required.
 
-- [PDF test](../examples/assessment_import/fictional-test.pdf)
-- [DOCX test](../examples/assessment_import/fictional-test.docx)
+The JSON schema is `studentdash-assessment-metadata-v2`. Question fields are
+`number`, `marks`, `tags`, `curriculum_nodes`, `scope`, and optional `name`.
+Scope and curriculum values must come from the selected profile; arbitrary-depth
+curriculum parents remain explicit. Include individually scored parts only, not
+parent subtotals. The preview total is calculated from question maxima.
 
-Both contain **5 scorable questions, 16 marks**, with shared context for question 3.
-The DOCX includes an actual table. These examples are not an official assessment.
+Unknown tags/nodes, duplicate labels and invalid marks prevent confirmation with
+an actionable error. The response and editable values remain available. Metadata
+previews are saved privately and can be reopened from the class page after restart.
+No source document or raw test content is stored by this workflow.
 
-## What works now and what still needs your real example
+Student snapshots for classes using metadata imports show assessment history,
+all configured tag categories, curriculum rollups and question/status evidence.
+They are standalone HTML with inline styling, without test text, practice assets
+or external dependencies. Each file contains only its own learner's evidence.
 
-Extraction supports simple numbered questions, letter/roman subparts and explicit
-mark annotations. DOCX tables are retained; PDF pages and DOCX paragraph references
-help locate the source. Original files remain available after finalization.
+Studentdash generates stable internal IDs. Matching name/date imports recognize
+an existing assessment; explicit IDs or the update selector identify an existing
+assessment even when its name/date changes. Matching labels preserve question IDs,
+scores and historical text. Replacements need explicit confirmation. Removing
+questions with recorded evidence, or reducing maxima below saved scores, is blocked
+rather than deleting evidence. Repeated confirmation of one preview is idempotent.
 
-Automatic classifications currently use **local profile rules and definition/keyword
-matching**, not an LLM. Suggestions show detected versus inferred provenance and
-heuristic confidence, not probabilities. Nothing is sent to an external AI service.
-Teacher edits and rejections take precedence on later suggestion passes.
+Metadata, previews, import/correction history and scores are stored in the existing
+private `.sdclass` SQLite files under `data/entered_classes` (or your configured
+location). Scores are independent of classifications: entering/pasting updated
+Excel results does not clear tags or curriculum links. **Packages & workspace
+backup** retains the full course and metadata history; restore never overwrites an
+existing destination. Student snapshots do not include other students' results.
 
-Curriculum proposals use only the class's configured tree. Select a curriculum
-when creating the class, or connect one through **Curriculum & reviewed question
-links**. Without a configured tree, suggestions cannot invent syllabus codes.
-Tag suggestions still work and all proposed links require review.
-
-Scans need transcription; OCR is not implemented. PDF columns, equations, automatic
-Word numbering, table placement and image associations may need correction.
-Figures stay in the original document and are referenced in review; diagrams are
-not reconstructed in student dashboards. More accurate recognition of your question
-bank's layout and stronger semantic inference wait for the real example document.
-
-The original test and its draft/source metadata stay teacher-only. Final questions
-use the existing assessment format, retain their parent context and go through the
-existing score entry, overview and student export workflow.
-# Prepare an assessment with ChatGPT
-
-On **Import assessment**, choose **Prepare this assessment with ChatGPT**. Copy
-the prompt, attach your test paper and mark scheme in ChatGPT, then paste its
-complete JSON response into the webpage. The prompt includes the selected class's
-allowed tags, curriculum node IDs and import schema, but no student information.
-It requests question text, marks, shared context, multiple tags and supported
-curriculum links. Studentdash does not call an external API.
-
-**Preview ChatGPT assessment** loads an unconfirmed draft. Review it against both
-documents; use **I have reviewed all imported questions and marks**, confirm the
-final review and choose **Create assessment**. You do not have to edit or check
-each question separately when all populated information is correct. Errors and
-uncertainties remain visible; unknown marks or unreadable figures are not invented.
-The same prompt/paste panel appears on existing PDF/DOCX import drafts. Pasting
-there replaces that draft's question proposal while keeping the original uploaded
-document and the existing participating students. A stale tab cannot overwrite a
-newer saved draft. Existing created assessments and scores are never changed by
-pasting a proposal.
-
-Use root `start-assessment-import.bat` to open this workflow on Windows. It uses
-root `data/entered_classes` unless STUDENTDASH_WORKBOOK selects another location.
+Older saved document imports remain readable, with their original documents and
+review controls preserved. They are not required for new metadata imports. The
+historical document-import instructions are in DOCUMENT_IMPORT_LEGACY.md.

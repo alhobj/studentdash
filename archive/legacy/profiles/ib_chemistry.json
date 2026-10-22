@@ -339,5 +339,21 @@
   },
   "curriculum": {
     "nodes": []
+  },
+  "levels": [
+    "SL",
+    "HL",
+    "BOTH"
+  ],
+  "level_eligibility": {
+    "SL": [
+      "SL",
+      "BOTH"
+    ],
+    "HL": [
+      "SL",
+      "HL",
+      "BOTH"
+    ]
   }
 }

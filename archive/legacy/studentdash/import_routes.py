@@ -11,6 +11,7 @@ from .document_extract import MAX_BYTES
 from .entry import EntryError
 from .import_suggestions import curriculum_nodes
 from .chatgpt_assessment import prompt as chatgpt_prompt, save_response
+from . import metadata_assessment as metadata
 
 
 def register_import_routes(app, store):
@@ -34,6 +35,14 @@ def register_import_routes(app, store):
                         raise EntryError('Reload the page before importing the ChatGPT response.') from None
                     did = save_response(store, key, request.form.get('chatgpt_response', ''), version)
                     return redirect(url_for('assessment_import.review', key=key, did=did), code=303)
+                if request.form.get('method') == 'metadata':
+                    try:
+                        version = int(request.form['version'])
+                    except (ValueError, KeyError):
+                        raise EntryError('Reload before previewing the response.') from None
+                    did = metadata.save_preview(store, key, request.form.get('chatgpt_response', ''), version,
+                        assessment_id=request.form.get('assessment_id') or None)
+                    return redirect(url_for('assessment_import.metadata_review', key=key, did=did), code=303)
                 source = request.files.get('document')
                 if source is None or not source.filename:
                     raise EntryError('Choose a PDF or DOCX test document.')
@@ -41,7 +50,34 @@ def register_import_routes(app, store):
                 return redirect(url_for('assessment_import.review', key=key, did=did), code=303)
             except EntryError as exc:
                 error = str(exc)
-        return render_template('assessment_upload.html', doc=doc, error=error, chatgpt_prompt=chatgpt_prompt(doc)), 400 if error else 200
+        return render_template('assessment_upload.html', doc=doc, error=error, chatgpt_prompt=metadata.prompt(doc)), 400 if error else 200
+
+    @bp.route('/classes/<key>/metadata/<did>', methods=['GET', 'POST'])
+    def metadata_review(key, did):
+        doc = store.read(key)
+        session['entered_class'] = key
+        saved = metadata.get_preview(doc, did)
+        if saved['status'] == 'imported':
+            return redirect(url_for('entry.scores', key=key, aid=saved['assessment_id']), code=303)
+        payload = deepcopy(saved['payload'])
+        error, changes = None, []
+        if request.method == 'POST':
+            raw = request.form.get('payload', '')
+            try:
+                payload = metadata.parse(raw, key)
+                version = int(request.form['version'])
+                aid = metadata.commit(store, key, did, raw, version, replace=request.form.get('replace') == 'yes')
+                return redirect(url_for('entry.scores', key=key, aid=aid, saved='1'), code=303)
+            except (ValueError, KeyError) as exc:
+                error = str(exc) if isinstance(exc, EntryError) else 'Invalid preview. Reload and try again.'
+        item = None
+        try:
+            item, changes = metadata.proposal(doc, payload)
+        except EntryError as exc:
+            error = error or str(exc)
+        return render_template('metadata_review.html', doc=doc, payload=payload, error=error, changes=changes,
+            item=item, vocabulary=doc['profile']['categories'], curriculum=curriculum_nodes(metadata.import_profile(doc)),
+            scopes=metadata.import_profile(doc).get('levels', [])), 400 if error else 200
 
     @bp.route('/classes/<key>/imports/<did>/chatgpt', methods=['POST'])
     def paste_chatgpt(key, did):

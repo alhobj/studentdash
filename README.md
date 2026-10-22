@@ -1,38 +1,44 @@
 # Studentdash — local assessment results and persistent classifications
 
-Import your existing Excel grading workbook, review classifications produced
-separately with ChatGPT, and generate a private standalone HTML file per student.
+Import lightweight assessment metadata from ChatGPT, enter or paste results, and
+generate private student dashboards. An existing Excel-results-only workflow is
+also preserved.
 The application uses local SQLite and makes no external API calls. Normal use
 works offline after the initial Python dependencies have been installed.
 
-## 1. Start on Windows
+## 1. Start the assessment workspace on Windows
 
-For the **PDF/DOCX “Import assessment” workflow with ChatGPT copy/paste**, use
-`start-assessment-import.bat` instead of `start.bat`. Stop any other Studentdash
-server, open `http://127.0.0.1:5000/classes`, select your class and choose
-**Import assessment**. Copy the prompt, attach the test paper and mark scheme in
-ChatGPT, then paste the complete JSON response into **Paste ChatGPT response**.
-Choose **Preview ChatGPT assessment**, compare the populated questions, marks and
-classifications with the documents, mark all imported questions reviewed together,
-confirm the final review and create the assessment. No per-question editing is
-needed when the proposal is correct. Unknown/unreadable information still needs
-review. This workflow is also available on an existing PDF/DOCX import draft.
-The launcher uses the original root `data/entered_classes` location by default,
-preserving existing classes. An existing STUDENTDASH_WORKBOOK override is respected.
-The Excel-results application described below remains available via `start.bat`.
+Install Python **3.10 or newer**, update the `work` branch, keep your existing
+`data` folder, and double-click **`start-assessment-import.bat`**. This is the
+recommended startup path for ChatGPT assessment imports. Stop any other
+Studentdash server first. Open **http://127.0.0.1:5000/classes** and select a class.
+The launcher retains the original `data/entered_classes` location and respects an
+existing `STUDENTDASH_WORKBOOK` override. No private data migration is required.
 
-Install Python **3.10 or newer**, clone/download the repository, and double-click
-`start.bat`. It creates `.venv` and installs `requirements.txt` if needed. Open
-**http://127.0.0.1:5000**. The server stays on loopback with debug disabled.
-Stop it with Ctrl+C before moving/restoring its private database.
+1. Choose **Import assessment** and **Copy prompt**.
+2. Paste the prompt in ChatGPT and attach the test paper there.
+3. Paste the complete JSON response into Studentdash and click **Preview assessment**.
+4. Check/edit the compact question/marks/tags/curriculum/scope table and total marks.
+5. Click **Import assessment** once, then enter or paste scores from Excel separately.
 
-Linux/macOS:
+No full question text, source document, mark scheme, answer, page reference,
+confidence rating or per-question review checkbox is required. Missing tags and
+curriculum links are allowed. Marks must be positive. The optional short question
+name is only a label. Scope options come from the class profile; blank means unknown.
 
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python teacher.py
-```
+Repeated imports preserve assessment and matching question IDs. Blank classification
+fields preserve existing values. Explicit updates can select an existing assessment;
+replacements require confirmation, and changes that would discard recorded scores
+or make a saved score exceed its maximum are blocked. Historical saved assessments,
+source documents and backups are retained without destructive migration.
+
+Unfinished metadata previews can be reopened from the class page. The response is
+retained on validation errors. Back up class data using **Packages & workspace
+backup** in this workspace. See [metadata import details](archive/legacy/docs/ASSESSMENT_IMPORT.md).
+
+The existing Excel-results-only workspace remains available via `start.bat` and
+its original private SQLite directory. The following sections document that
+separate, preserved workflow; it is not required for metadata assessment import.
 
 ## 2. Import the grading workbook
 
@@ -188,6 +194,15 @@ privately with their classifications, but excluded from current dashboards after
 confirmation. Preview revisions prevent stale tabs from overwriting newer imports.
 
 ## Development and archive
+
+For the class-based metadata import, run from `archive/legacy`:
+
+```sh
+../../.venv/bin/python -m unittest discover -s tests -p 'test_*assessment*.py' -v
+```
+
+This covers the metadata paste/preview/import and historical assessment-import
+compatibility. The tests below cover the preserved Excel-results-only workspace.
 
 ```sh
 .venv/bin/python -m unittest discover -s tests -v

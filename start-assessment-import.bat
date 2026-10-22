@@ -13,9 +13,9 @@ if errorlevel 1 goto failed
 :dependencies
 ".venv\Scripts\python.exe" -c "import sys; raise SystemExit(0 if sys.version_info >= (3,10) else 1)" >nul 2>nul
 if errorlevel 1 goto failed
-".venv\Scripts\python.exe" -c "import flask, jinja2, openpyxl, pypdf, docx" >nul 2>nul
+".venv\Scripts\python.exe" -c "import flask, jinja2, openpyxl" >nul 2>nul
 if not errorlevel 1 goto run
-".venv\Scripts\python.exe" -m pip install -r archive\legacy\requirements.txt
+".venv\Scripts\python.exe" -m pip install -r requirements.txt
 if errorlevel 1 goto failed
 :run
 if not defined STUDENTDASH_WORKBOOK set "STUDENTDASH_WORKBOOK=%CD%\data\classroom.xlsx"

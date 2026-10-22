@@ -1,10 +1,13 @@
 {% extends 'entry_base.html' %}
-{% block body %}<h1>Import assessment</h1><p>Upload your test. Review its questions and suggested classifications before creating an assessment.</p>
-{% include 'chatgpt_import.html' %}
-<h2>Or extract a PDF/DOCX locally</h2>
-<section class="card"><form method="post" enctype="multipart/form-data"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-<label>Test document <input type="file" name="document" accept=".pdf,.docx" required></label><p>PDF or DOCX, up to 20 MB. Simple numbered questions with explicit marks work best. Scanned PDFs need transcription; automatic Word numbering, equations and complex layouts need extra review.</p>
-<button type="submit">Upload test & review</button></form></section>
-<p>The original is kept with the draft. Nothing enters score entry until you confirm it. Automatic suggestions use your class profile and local text evidence; the document is not sent to an external AI service.</p>
-<p><a href="{{ url_for('entry.edit', key=doc.id) }}">Create manually</a></p>{% endblock %}
+{% block body %}<h1>Import assessment</h1>
+<section class="card"><h2>1. Copy the prompt into ChatGPT</h2>
+<p>Attach the test paper in ChatGPT. Studentdash needs only question labels, maximum marks, tags, curriculum links and scope. No test, mark scheme, answers or full question text is uploaded or stored here.</p>
+<label>Prompt for ChatGPT<textarea id="chatgpt-prompt" rows="8" readonly>{{ chatgpt_prompt }}</textarea></label>
+<button type="button" id="copy-chatgpt-prompt">Copy prompt</button> <span id="chatgpt-copy-status" role="status"></span></section>
+<section class="card"><h2>2. Paste the response</h2>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><input type="hidden" name="version" value="{{ doc.version }}"><input type="hidden" name="method" value="metadata">
+<label>Assessment to update (optional)<select name="assessment_id"><option value="">Match existing name/date, or create new</option>{% for a in doc.assessments %}<option value="{{ a.id }}">{{ a.date }} · {{ a.name }}</option>{% endfor %}</select></label>
+<label>Paste ChatGPT response<textarea name="chatgpt_response" rows="10" maxlength="1000000" required>{{ request.form.get('chatgpt_response', '') }}</textarea></label>
+<button>Preview assessment</button></form><p>Next: edit a compact table if needed and click Import assessment once. Missing classifications are allowed; marks must be positive. Empty classification fields preserve existing values when updating an assessment.</p></section>
+{% endblock %}
 {% block scripts %}<script>{% include 'chatgpt_import.js' %}</script>{% endblock %}

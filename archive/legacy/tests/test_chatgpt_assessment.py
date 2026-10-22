@@ -157,9 +157,10 @@ class ChatGPTBrowserTests(unittest.TestCase):
                 try:
                     context = browser.new_context(permissions=['clipboard-read', 'clipboard-write'])
                     page = context.new_page()
-                    page.goto(f'http://127.0.0.1:{server.server_port}/classes/{self.key}/import')
+                    did = create_draft(self.store, self.key, 'fictional.docx', docx_bytes(['1a. Explain a relationship. [2]', '1b. State a fact. [1]'], False))
+                    page.goto(f'http://127.0.0.1:{server.server_port}/classes/{self.key}/imports/{did}')
                     page.get_by_role('button', name='Copy prompt', exact=True).click()
-                    expect(page.get_by_role('status')).to_contain_text('Prompt copied')
+                    expect(page.locator('#chatgpt-copy-status')).to_contain_text('Prompt copied')
                     self.assertIn(SCHEMA, page.evaluate('navigator.clipboard.readText()'))
                     page.get_by_label('Paste ChatGPT response', exact=True).fill(json.dumps(self.response()))
                     page.get_by_role('button', name='Preview ChatGPT assessment', exact=True).click()

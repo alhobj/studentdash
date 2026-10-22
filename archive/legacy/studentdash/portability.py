@@ -45,7 +45,8 @@ def student_package(config, sid):
     output = BytesIO()
     with ZipFile(output, 'w', ZIP_DEFLATED) as archive:
         archive.writestr('index.html', html)
-        _assets(archive)
+        if not data.learning_settings.get('metadata_only'):
+            _assets(archive)
         archive.writestr('READ-ME.txt', 'Private learner package. Share only with this learner. Extract the complete ZIP, then open index.html. Export practice progress before changing computers. Browser saving for local files depends on the browser; use the progress file to transfer records.')
     return output.getvalue()
 

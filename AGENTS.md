@@ -1,5 +1,11 @@
 # Active application
 
+For the supported class-based ChatGPT metadata assessment workflow, work in
+`archive/legacy/studentdash/metadata_assessment.py` and its import routes/templates.
+The canonical Windows launcher is `start-assessment-import.bat`. New imports use
+metadata-only v2 JSON and one compact preview confirmation, not document extraction
+or per-question checks. Keep legacy saved documents readable without migration.
+
 The active local assessment workflow is in `app/`, launched by root `teacher.py`.
 Read `docs/ARCHITECTURE.md` before domain or classification changes. The previous
 application, its tests and original guidance are preserved in `archive/legacy/`.

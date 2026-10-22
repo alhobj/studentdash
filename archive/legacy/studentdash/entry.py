@@ -194,6 +194,10 @@ def prepare_assessment(doc, aid, payload):
                             curriculum=text(q.get('curriculum', ''), f'Question {number} curriculum mapping', 300),
                             tags={c: list(dict.fromkeys(v)) for c, v in tags.items() if v}))
         cleaned[-1]['curriculum_nodes'] = list(dict.fromkeys(links))
+        if 'scope' in q or 'scope' in old_questions.get(qid, {}):
+            cleaned[-1]['scope'] = q.get('scope', old_questions.get(qid, {}).get('scope', ''))
+        if 'name' in old_questions.get(qid, {}):
+            cleaned[-1]['name'] = old_questions[qid]['name']
         cleaned[-1]['curriculum_review'] = dict(status='reviewed', source='teacher')
         if 'curriculum_history' in old_questions.get(qid, {}):
             cleaned[-1]['curriculum_history'] = deepcopy(old_questions[qid]['curriculum_history'])
@@ -220,6 +224,8 @@ def prepare_assessment(doc, aid, payload):
                 participants=list(dict.fromkeys(participants)), questions=cleaned, scores=scores)
     if old and 'import_source' in old:
         item['import_source'] = deepcopy(old['import_source'])
+    if old and old.get('metadata_only'):
+        item['metadata_only'] = True
     if old:
         doc['assessments'][doc['assessments'].index(old)] = item
     else:
@@ -297,6 +303,8 @@ def as_workbook(path):
     data.question_authoritative = True
     data.curriculum = deepcopy(doc['profile'].get('curriculum'))
     data.learning_settings = dict(deepcopy(doc.get('learning', {})), class_id=doc['id'])
+    data.learning_settings['metadata_only'] = any(a.get('metadata_only') for a in doc['assessments'])
+    data.learning_settings['report_categories'] = deepcopy(doc['profile']['categories'])
     for s in doc['students']:
         data.students[s['id']] = Student(s['id'], s['name'], s['email'], doc['name'])
     for a in doc['assessments']:
@@ -306,8 +314,8 @@ def as_workbook(path):
             if q.get('curriculum_review', {}).get('status') == 'reviewed':
                 data.question_curriculum[q['id']] = list(q.get('curriculum_nodes', []))
             verb = ', '.join(q['tags'].get(doc['profile'].get('command_category'), []))
-            data.questions[q['id']] = Question(q['id'], aid, q['number'], '', q['text'], q['marks'],
-                                              q['curriculum'], '', '', verb)
+            data.questions[q['id']] = Question(q['id'], aid, q['number'], q.get('scope', ''), q.get('text', ''), q['marks'],
+                                              q.get('curriculum', ''), '', '', verb)
             for category, tags in q['tags'].items():
                 data.question_tags.extend(QuestionTag(q['id'], category, tag, 'teacher', vocabulary=doc['profile']['categories']) for tag in tags)
             if q['curriculum']:

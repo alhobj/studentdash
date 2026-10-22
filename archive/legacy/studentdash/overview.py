@@ -47,7 +47,7 @@ def build_overview(data, assessment_id=None, class_name=None):
                 and (not assessment_id or r.assessment_id == assessment_id)]
         expected = {q.id for (aid, member), level in data.memberships.items() if member == sid
                     and (not assessment_id or aid == assessment_id)
-                    for q in data.questions.values() if q.assessment_id == aid and eligible(q, level)}
+                    for q in data.questions.values() if q.assessment_id == aid and (data.question_authoritative or eligible(q, level))}
         result_label = ''
         if data.question_authoritative and len(view.history) == 1:
             result = view.history[0]
@@ -61,7 +61,7 @@ def build_overview(data, assessment_id=None, class_name=None):
         if assessment_id and question.assessment_id != assessment_id:
             continue
         expected = {sid for (aid, sid), level in data.memberships.items() if aid == question.assessment_id
-                    and sid in student_ids and eligible(question, level)}
+                    and sid in student_ids and (data.question_authoritative or eligible(question, level))}
         if not expected:
             continue
         rows = [r for r in data.question_results if r.question_id == question.id and r.student_id in expected]

@@ -1,5 +1,11 @@
 # Preserved legacy application
 
+The class-based metadata import is actively supported here via
+`studentdash/metadata_assessment.py`. Launch it using root
+`start-assessment-import.bat`; this uses the original root private class directory.
+New imports need only metadata, not PDF/DOCX extraction or source documents. See
+`legacy/docs/ASSESSMENT_IMPORT.md`. Historical document imports remain readable.
+
 `legacy/` contains the complete previous Studentdash application and its original
 documentation, tests, examples, games/practice tools, question banks, exit tickets
 and submission simulations. No legacy application source has been removed.

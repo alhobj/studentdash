@@ -1,5 +1,23 @@
 # Local assessment architecture
 
+The class-based metadata import is implemented in
+`archive/legacy/studentdash/metadata_assessment.py` and exposed by that workspace's
+Import assessment page. Its canonical Windows launcher remains
+`start-assessment-import.bat`, with the original private `.sdclass` data locations.
+It accepts metadata-only v2 JSON, persists editable previews, and commits an
+assessment in one version-checked transaction. No source files or question text
+are required. Stable IDs are retained by explicit assessment ID or name/date and
+exact question labels; replacements are confirmed and unsafe score deletion is
+blocked. Existing document imports remain readable without migration. The
+Excel-results-only workspace below is preserved separately.
+
+Classes containing metadata-only assessments use a focused standalone snapshot
+template: history, all configured classification categories, explicit curriculum
+rollups and question/status evidence. It does not depend on question text or
+practice assets. Existing classes without metadata imports keep their original
+dashboard layout. Scope is retained as metadata; explicit class participation
+continues to define score-grid applicability rather than guessing student levels.
+
 The active workflow is intentionally small: `app/teacher.py` provides four teacher
 areas; `excel_import.py` is the read-only adapter for the supplied grading format;
 `classification_import.py` validates explicit classification proposals; `storage.py`
