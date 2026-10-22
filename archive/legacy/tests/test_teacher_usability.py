@@ -99,6 +99,56 @@ class UsabilityTests(unittest.TestCase):
         self.assertIn(f'class_key={other["id"]}'.encode(),response.data)
         self.assertIn(f'/classes/{other["id"]}?section=assessments'.encode(),response.data)
 
+    def test_simplified_pages_and_student_actions(self):
+        _, aid = self.publish()
+        before = self.store.read(self.key)
+        assessment_page = self.client.get(f'/classes/{self.key}?section=assessments').data
+        self.assertNotIn(b'Preview next steps', assessment_page)
+        self.assertNotIn(b'Add students', assessment_page)
+        students = self.client.get(f'/?class_key={self.key}&section=students').data
+        self.assertIn(b'Preview next steps', students)
+        self.assertIn(b'Add students', students)
+        sid = before['students'][0]['id']
+        self.assertIn(f'/classes/{self.key}/students/{sid}/next'.encode(), students)
+        self.assertNotIn(b'Classroom practice', self.client.get('/transfer').data)
+        curriculum = self.client.get(f'/classes/{self.key}/curriculum').data
+        self.assertNotIn(b'Browse curriculum', curriculum)
+        self.assertNotIn(b'Reviewed curriculum links', curriculum)
+        editor = self.client.get(f'/classes/{self.key}/assessments/{aid}/edit').data
+        self.assertIn(b'Curriculum parts', editor)
+        self.assertNotIn(b'Review curriculum links', editor)
+        self.assertEqual(before, self.store.read(self.key))
+        response = self.client.post(f'/classes/{self.key}', data=dict(
+            csrf_token=self.csrf(), version=before['version'], roster='Fictional Gamma', section='students'))
+        self.assertEqual(response.status_code, 303)
+        self.assertIn('section=students', response.location)
+        self.assertIn(b'Fictional Gamma', self.client.get(response.location).data)
+        self.assertEqual(before['assessments'], self.store.read(self.key)['assessments'])
+
+    def test_curriculum_groups_preserve_evidence_and_explicit_hierarchy(self):
+        from studentdash.entry import as_workbook
+        from studentdash.overview import build_overview, curriculum_groups
+        from studentdash.curriculum import node_index
+        self.publish()
+        data = as_workbook(self.store.path(self.key))
+        data.curriculum = {'nodes': [dict(id='arbitrary', label='Foundations', parent=None), dict(id='unrelated-code', label='Applications', parent='arbitrary')]}
+        nodes = node_index(data.curriculum)
+        keys = list(nodes)[:2]
+        learners, items = build_overview(data)
+        item = items[0]
+        data.question_curriculum[item.question_id] = keys + keys
+        before = deepcopy((learners, items))
+        grouped = curriculum_groups(data, items)
+        self.assertEqual(len(grouped), 2)
+        self.assertEqual({g['label'] for g in grouped}, {nodes[k]['label'] for k in keys})
+        self.assertTrue(all(g['items'] == [item] for g in grouped))
+        self.assertEqual(next(g for g in grouped if g['label'] == 'Applications')['path'], 'Foundations')
+        self.assertEqual(before, build_overview(data))
+        data.question_curriculum[item.question_id] = []
+        self.assertEqual(curriculum_groups(data, items)[0]['label'], 'Unclassified')
+        html = self.client.get(f'/?class_key={self.key}').data
+        self.assertIn(b'<summary>Unclassified', html)
+
     def test_metadata_delete_confirmation_cancel_then_delete(self):
         did = self.preview()
         before = self.store.read(self.key)
@@ -258,5 +308,20 @@ class NavigationBrowserTests(unittest.TestCase):
                     page.get_by_role('button',name='Import assessment',exact=True).click()
                     expect(page.locator('#score-grid')).to_be_visible()
                     self.assertEqual(self.store.read(self.key)['assessments'][0]['questions'][0]['scope'],'SL')
+                    doc=self.store.read(self.key)
+                    doc['profile']['curriculum']=selected_curriculum('math-ai-sl-2021')
+                    self.store.save(doc,doc['version'])
+                    aid=doc['assessments'][0]['id']
+                    page.goto(base+f'/classes/{self.key}/assessments/{aid}/edit')
+                    page.locator('summary').filter(has_text='Classify').first.click()
+                    page.get_by_text('Curriculum parts',exact=True).click()
+                    checkbox=page.locator('.curriculum-nodes input').nth(1)
+                    node=checkbox.input_value();checkbox.check()
+                    page.get_by_role('button',name='Save assessment & enter scores',exact=True).click()
+                    expect(page.locator('#score-grid')).to_be_visible()
+                    self.assertEqual(self.store.read(self.key)['assessments'][0]['questions'][0]['curriculum_nodes'],[node])
+                    page.goto(base+f'/?class_key={self.key}&section=students')
+                    page.get_by_role('link',name='Preview next steps').first.click()
+                    expect(page.get_by_role('navigation').locator('[aria-current=page]')).to_have_text('Students')
                 finally:browser.close()
         finally:server.shutdown();thread.join(5);server.server_close()

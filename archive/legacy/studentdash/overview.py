@@ -30,6 +30,7 @@ class ItemOverview:
     expected: int
     statuses: dict[str, int]
     unrecorded: int
+    question_id: str = ''
 
 
 def build_overview(data, assessment_id=None, class_name=None):
@@ -69,6 +70,30 @@ def build_overview(data, assessment_id=None, class_name=None):
         percent = 100 * sum(r.score for r in graded) / (len(graded) * question.marks) if graded else None
         items.append(ItemOverview(data.assessments[question.assessment_id].name, question.number,
                                  question.text, question.topic, percent, len(graded), len(expected),
-                                 dict(Counter(r.status for r in rows)), len(expected) - len(rows)))
+                                 dict(Counter(r.status for r in rows)), len(expected) - len(rows), question.id))
     items.sort(key=lambda q: (q.percent is None, q.percent if q.percent is not None else 0, q.assessment, q.number))
     return learners, items
+
+
+def curriculum_groups(data, items):
+    """Group evidence by explicit nodes; each question occurs once per node.
+
+    No group totals are summed: shared links never inflate cohort totals.
+    Ancestor labels follow captured parent references, never code syntax.
+    """
+    from .curriculum import node_index
+    nodes = node_index(data.curriculum or {})
+    groups = {}
+    for item in items:
+        links = list(dict.fromkeys(k for k in data.question_curriculum.get(item.question_id, []) if k in nodes))
+        for key in links or [None]:
+            if key not in groups:
+                path, seen, current = [], set(), key
+                while current in nodes and current not in seen:
+                    seen.add(current)
+                    path.insert(0, nodes[current]['label'])
+                    current = nodes[current].get('parent')
+                groups[key] = dict(label=nodes[key]['label'] if key else 'Unclassified',
+                                   path=' / '.join(path[:-1]), items=[])
+            groups[key]['items'].append(item)
+    return sorted(groups.values(), key=lambda g: (g['label'] == 'Unclassified', g['path'], g['label']))

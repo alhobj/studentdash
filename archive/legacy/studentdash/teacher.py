@@ -10,7 +10,7 @@ from flask import Flask, abort, redirect, render_template, request, send_from_di
 from .config import ROOT, Config
 from .excel import WorkbookError, read_workbook
 from .render import generate_dashboards, render_student
-from .overview import build_overview
+from .overview import build_overview, curriculum_groups
 from .workspace import Workspace, WorkspaceError
 from .freshness import stale_reasons
 from .exit_routes import register_exit_routes, STUDENT_ENDPOINTS
@@ -131,7 +131,7 @@ def create_app(config=None):
                 snapshots_to_refresh.append(name)
         return render_template('teacher.html', managed=active_config().workbook.suffix == '.sdclass', workbook_name=active_config().workbook.name, data=data,
                                error=error, names=names, message=message, warning_groups=groups,
-                               generation=generation, stale=stale, learners=learners, items=items,
+                               generation=generation, stale=stale, learners=learners, items=items, review_groups=curriculum_groups(data, items) if data else [],
                                stale_reasons=reasons, snapshots_to_refresh=snapshots_to_refresh,
                                classes=classes, selected_class=class_name, selected_assessment=assessment_id), status
 

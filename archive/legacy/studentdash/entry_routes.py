@@ -90,7 +90,7 @@ def register_entry_routes(app, base_config):
                     session['level_message'] = 'Class level settings saved. Existing assessments and scoring rules are unchanged.'
                     return redirect(url_for('portability.transfer', class_key=key), code=303)
                 store.add_students(key, request.form.get('roster', ''), version())
-                return redirect(url_for('entry.class_page', key=key), code=303)
+                return redirect(url_for('index', class_key=key, section='students', _anchor='students'), code=303)
             except EntryError as exc:
                 error = str(exc)
         return render_template('class_entry.html', doc=doc, error=error, draft_message=session.pop('draft_message', None)), 400 if error else 200
@@ -209,7 +209,7 @@ def register_entry_routes(app, base_config):
             except EntryError as exc:
                 error = str(exc)
         return render_template('assessment_entry.html', doc=doc, item=item, aid=aid,
-                               form_version=form_version, error=error), 400 if error else 200
+                               form_version=form_version, error=error, curriculum_nodes=node_index(doc['profile'].get('curriculum', {}))), 400 if error else 200
 
     @bp.route('/classes/<key>/assessments/<aid>/scores', methods=['GET', 'POST'])
     def scores(key, aid):

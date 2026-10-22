@@ -9,6 +9,7 @@
     row.querySelector('.maximum').value = q.marks ?? '';
     row.querySelector('.question-text').value = q.text || '';
     row.querySelector('.curriculum').value = q.curriculum || '';
+    for (const input of row.querySelectorAll('.curriculum-nodes input')) input.checked = (q.curriculum_nodes || []).includes(input.value);
     for (const [category, tags] of Object.entries(categories)) {
       const group = document.createElement('details'), title = document.createElement('summary');
       title.textContent = category.replace(/([a-z])([A-Z])/g, '$1 $2'); group.append(title);
@@ -41,6 +42,7 @@
       const tags = {};
       for (const input of row.querySelectorAll('.tag-fields input:checked')) (tags[input.dataset.category] ||= []).push(input.value);
       return {id: row.dataset.id, number: row.querySelector('.question-number').value, marks: row.querySelector('.maximum').value,
+        curriculum_nodes: [...row.querySelectorAll('.curriculum-nodes input:checked')].map(i => i.value),
         text: row.querySelector('.question-text').value, curriculum: row.querySelector('.curriculum').value, tags};
     });
     document.querySelector('#payload').value = JSON.stringify({name: document.querySelector('#assessment-name').value,

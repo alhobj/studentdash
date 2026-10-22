@@ -64,6 +64,14 @@ source records, with a success message and refreshed list. Published assessments
 scores, classifications and backup copies are protected. Concurrent changes require
 reloading the confirmation. The introductory marketing panel has been removed.
 
+Question review uses expandable curriculum groups, with exact assessment/question
+labels inside. Explicit parent links provide context; unlinked questions appear
+under **Unclassified**. Shared links do not change overall totals. **Students**
+contains next-step previews and Add students. **Curriculum** shows the selected
+configuration; question references are edited under each assessment's **Classify →
+Curriculum parts**. The separate mapping form, curriculum activity browser and
+classroom practice download panel have been removed. Existing saved data remains.
+
 ## 2. Import the grading workbook
 
 Choose **Import results**, give your course a permanent ClassID such as
