@@ -97,4 +97,6 @@ def curriculum_groups(data, items):
                 groups[key] = dict(label=nodes[key]['label'] if key else 'Unclassified',
                                    path=' / '.join(path[:-1]), items=[])
             groups[key]['items'].append(item)
-    return sorted(groups.values(), key=lambda g: (g['label'] == 'Unclassified', g['path'], g['label']))
+    for group in groups.values():
+        group['has_graded'] = any(item.graded for item in group['items'])
+    return sorted(groups.values(), key=lambda g: (not g['has_graded'], g['label'] == 'Unclassified', g['path'], g['label']))

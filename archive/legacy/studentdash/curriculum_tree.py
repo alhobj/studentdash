@@ -3,6 +3,7 @@ from .curriculum import node_index
 
 def tree(curriculum, evidence=None):
     nodes = node_index(curriculum or {})
+    order_by_evidence = evidence is not None
     evidence = evidence or {}
     children = {}
     for key, node in nodes.items():
@@ -10,10 +11,12 @@ def tree(curriculum, evidence=None):
     roots = children.get(None, []) + children.get('', [])
     if len(roots) == 1 and children.get(roots[0]):
         roots = children[roots[0]]
+    def ordered(items):
+        return sorted(items, key=lambda item: not (item['evidence'] and item['evidence'].get('count', 0))) if order_by_evidence else items
     def build(key):
         return dict(id=key, label=nodes[key]['label'], code=nodes[key].get('code', ''),
-                    evidence=evidence.get(key), children=[build(k) for k in children.get(key, [])])
-    return [build(k) for k in roots]
+                    evidence=evidence.get(key), children=ordered([build(k) for k in children.get(key, [])]))
+    return ordered([build(k) for k in roots])
 
 
 def selection(curriculum):

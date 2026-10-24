@@ -124,6 +124,13 @@ maximums and each student's before/after total, then explicitly confirm. The old
 question and its recorded marks are archived locally and in backups. No rating is
 inferred from those marks. Existing snapshots change only after regeneration.
 
+Results lists place items with graded evidence first and show items without graded
+evidence at the bottom in a muted style. This applies to classification categories,
+tags, curriculum siblings and teacher question-review groups. Zero marks count as
+graded evidence; absent, exempt, missing and pending results do not. Curriculum
+hierarchies remain intact, and configuration/selection lists keep their course order.
+Regenerate student dashboards to update existing offline snapshots.
+
 ### Mathematics action verbs and grouped classification
 
 Mathematics AI SL now configures IB command-term labels under the existing

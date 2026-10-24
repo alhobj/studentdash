@@ -37,3 +37,6 @@ jobs:
       - name: Test course vocabulary and grouped classification
         working-directory: archive/legacy
         run: python -m unittest discover -s tests -p "test_math_classification.py" -v
+      - name: Test evidence-first result ordering
+        working-directory: archive/legacy
+        run: python -m unittest discover -s tests -p "test_report_ordering.py" -v
