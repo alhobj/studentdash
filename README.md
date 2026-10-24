@@ -129,6 +129,8 @@ evidence at the bottom in a muted style. This applies to classification categori
 tags, curriculum siblings and teacher question-review groups. Zero marks count as
 graded evidence; absent, exempt, missing and pending results do not. Curriculum
 hierarchies remain intact, and configuration/selection lists keep their course order.
+Expand arrows appear only on curriculum items with children or lists with actual
+entries; leaf items and empty classification lists are plain text.
 Regenerate student dashboards to update existing offline snapshots.
 
 ### Mathematics action verbs and grouped classification

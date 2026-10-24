@@ -59,7 +59,7 @@ class ReportOrderingTests(unittest.TestCase):
         self.assertEqual([n['id'] for n in tree(data.curriculum)],['empty-region','used-region'])
         self.assertEqual([n['id'] for n in selection(data.curriculum)['groups']],['empty-region','used-region'])
         html=template_environment().get_template('curriculum_tree.html').module.display(groups)
-        self.assertIn('class="curriculum-part no-graded-evidence"',html)
+        self.assertIn('class="curriculum-part curriculum-leaf no-graded-evidence"',html)
         self.assertIn('No graded evidence',html)
         self.assertIn('0/1',html)
 
@@ -74,3 +74,30 @@ class ReportOrderingTests(unittest.TestCase):
         self.assertEqual([g['label'] for g in groups],['Tested part','Untested part'])
         self.assertTrue(groups[0]['has_graded'])
         self.assertFalse(groups[1]['has_graded'])
+
+    def test_leaf_curriculum_items_are_not_disclosures(self):
+        data,sids=self.prepared()
+        nodes=tree(data.curriculum)
+        html=template_environment().get_template('curriculum_tree.html').module.display(nodes,False)
+        self.assertEqual(html.count('<details'),1)  # Only the region with children expands.
+        self.assertEqual(html.count('curriculum-leaf'),3)
+        self.assertIn('Untested region',html)
+        leaf=template_environment().get_template('curriculum_tree.html').module.display([nodes[0]],False)
+        self.assertNotIn('<details',leaf)
+        self.assertNotIn('<summary',leaf)
+
+    def test_empty_categories_and_unclassified_have_no_expand_controls(self):
+        doc=self.store.read(self.key)
+        doc['profile']={'categories':{'Empty category':[]}}
+        self.store.save(doc,doc['version'])
+        data=as_workbook(self.store.path(self.key))
+        html=render_student(data,doc['students'][0]['id'])
+        self.assertIn('Empty category · No configured values',html)
+        self.assertIn('Unclassified · No question evidence',html)
+        self.assertNotIn('<details',html)
+        from studentdash.config import Config
+        from studentdash.teacher import create_app
+        client=create_app(Config(self.root/'unused.xlsx',self.root/'output')).test_client()
+        editor=client.get(f'/classes/{self.key}/assessments/new').data.decode()
+        self.assertIn('Curriculum parts: none configured.',editor)
+        self.assertNotIn('<summary>Curriculum parts</summary>',editor)

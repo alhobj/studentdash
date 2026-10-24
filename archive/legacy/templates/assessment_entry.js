@@ -12,8 +12,9 @@
     for (const input of row.querySelectorAll('.curriculum-nodes input')) input.checked = (q.curriculum_nodes || []).includes(input.value);
     for (const container of row.querySelectorAll('.saved-container')) container.hidden = !container.querySelector('input').checked;
     for (const [category, tags] of Object.entries(categories)) {
-      const group = document.createElement('details'), title = document.createElement('summary');
+      const group = document.createElement(tags.length ? 'details' : 'div'), title = document.createElement(tags.length ? 'summary' : 'p');
       title.textContent = categoryOptions[category]?.label || (category === commandCategory ? 'Action verbs' : category.replace(/([a-z])([A-Z])/g, '$1 $2')); group.append(title);
+      if (!tags.length) title.textContent += ' · No configured values';
       for (const tag of tags) {
         const label = document.createElement('label'), input = document.createElement('input');
         input.type = 'checkbox'; input.dataset.category = category; input.value = tag;
