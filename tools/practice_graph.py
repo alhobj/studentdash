@@ -45,9 +45,25 @@ def build_graph(root, curriculum_file, label, hub):
     for n in nodes.values():
         if n['code'] in bycode:
             n['learning_node'] = bycode[n['code']]['id']
+    options_file=root/'graph-options.json'
+    options=json.loads(options_file.read_text(encoding='utf-8')) if options_file.exists() else {}
+    if options.get('prerequisite_tree'):
+        lookup={n.get('learning_node'):n['id'] for n in nodes.values() if n.get('learning_node')}
+        for row in curriculum['nodes']:
+            if row.get('prerequisites') == [] and not row.get('code') and row.get('parent'):
+                lookup[row['id']]=row['id']
+                nodes[row['id']]=dict(id=row['id'],code='Foundation',title=row['label'],kind='skill',parent=None,group='prior',href='prior-learning.html',guide=source['copy_url'])
+        for row in curriculum['nodes']:
+            for prior in row.get('prerequisites',[]):
+                if prior in lookup and row['id'] in lookup:
+                    edges.append(dict(source=lookup[prior],target=lookup[row['id']],kind='prerequisite'))
     data=dict(label=label,nodes=list(nodes.values()),edges=edges,guide=source['copy_url'],note=refs['note'])
     (root/'syllabus-graph.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    for name in ('syllabus-graph.js','syllabus-graph.css'):(root/name).write_bytes((ASSETS/name).read_bytes())
+    for name in ('syllabus-graph.js','syllabus-graph.css'):
+        asset=ASSETS/('mathtree-'+name if options.get('prerequisite_tree') else name)
+        (root/name).write_bytes(asset.read_bytes())
+    if options.get('prerequisite_tree'):
+        (root/'mathtree-layout.js').write_bytes((ASSETS/'mathtree-layout.js').read_bytes())
     payload=json.dumps(data,ensure_ascii=False).replace('<','\\u003c')
     html=('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
           f'<title>Syllabus graph · {escape(label)}</title><link rel="stylesheet" href="syllabus-graph.css"></head><body><main>'
@@ -67,8 +83,11 @@ def build_graph(root, curriculum_file, label, hub):
           +'</ul></details><footer><p>Works offline; linked guide pages require internet. Statement descriptions use their parent section’s summary; read the guide for exact wording. '
           'The mathematics graph uses the guide’s SL sub-topic numbering.</p>'
           f'<p><a href="{escape(source["copy_url"],quote=True)}">Source: {escape(source["title"])} · {escape(source["edition"])}</a></p></footer>'
-          f'<script type="application/json" id="graph-data">{payload}</script><script src="syllabus-graph.js"></script></main></body></html>')
+          f'<script type="application/json" id="graph-data">{payload}</script>'
+          + ('<script src="mathtree-layout.js"></script>' if options.get('prerequisite_tree') else '')
+          + '<script src="syllabus-graph.js"></script></main></body></html>')
     (root/'syllabus-graph.html').write_text(html,encoding='utf-8')
     page=root/hub;text=page.read_text(encoding='utf-8')
     if 'href="syllabus-graph.html"' not in text:text=text.replace('</header>','<p><a href="syllabus-graph.html">Explore the syllabus graph →</a></p></header>',1)
     page.write_text(text,encoding='utf-8')
+

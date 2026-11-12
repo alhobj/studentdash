@@ -533,6 +533,126 @@
       "group": "other",
       "href": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf#page=45",
       "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf#page=45"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-signed",
+      "code": "Foundation",
+      "title": "Signed numbers",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-operations",
+      "code": "Foundation",
+      "title": "Order of operations",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-fractions",
+      "code": "Foundation",
+      "title": "Fractions and decimals",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-percent",
+      "code": "Foundation",
+      "title": "Percentages",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-ratio",
+      "code": "Foundation",
+      "title": "Ratios and proportion",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-powers",
+      "code": "Foundation",
+      "title": "Powers and roots",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-substitution",
+      "code": "Foundation",
+      "title": "Substitution",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-equations",
+      "code": "Foundation",
+      "title": "Undoing operations",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-units",
+      "code": "Foundation",
+      "title": "Converting units",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-coordinates",
+      "code": "Foundation",
+      "title": "Coordinates and change",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-area",
+      "code": "Foundation",
+      "title": "Area and right triangles",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
+    },
+    {
+      "id": "math-ai-sl-2021:prior-calculator",
+      "code": "Foundation",
+      "title": "Calculator confidence",
+      "kind": "skill",
+      "parent": null,
+      "group": "prior",
+      "href": "prior-learning.html",
+      "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf"
     }
   ],
   "edges": [
@@ -919,6 +1039,206 @@
         71
       ],
       "qualifier": ""
+    },
+    {
+      "source": "math-ai-sl-2021:prior-powers",
+      "target": "1.1",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-powers",
+      "target": "1.2",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-powers",
+      "target": "1.3",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "1.4",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-powers",
+      "target": "1.5",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-powers",
+      "target": "1.6",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "1.4",
+      "target": "1.7",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-powers",
+      "target": "1.8",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-coordinates",
+      "target": "2.1",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-coordinates",
+      "target": "2.2",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-coordinates",
+      "target": "2.3",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-coordinates",
+      "target": "2.4",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "2.1",
+      "target": "2.5",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "2.5",
+      "target": "2.6",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-area",
+      "target": "3.1",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-area",
+      "target": "3.2",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-area",
+      "target": "3.3",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-area",
+      "target": "3.4",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "2.1",
+      "target": "3.5",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "3.5",
+      "target": "3.6",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.1",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.2",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.3",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.4",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.5",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "4.5",
+      "target": "4.6",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.7",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "4.7",
+      "target": "4.8",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.9",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-percent",
+      "target": "4.10",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "4.3",
+      "target": "4.11",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-substitution",
+      "target": "5.1",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-substitution",
+      "target": "5.2",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "5.1",
+      "target": "5.3",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "5.3",
+      "target": "5.4",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "2.1",
+      "target": "5.4",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "5.3",
+      "target": "5.5",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "5.3",
+      "target": "5.6",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "5.6",
+      "target": "5.7",
+      "kind": "prerequisite"
+    },
+    {
+      "source": "math-ai-sl-2021:prior-area",
+      "target": "5.8",
+      "kind": "prerequisite"
     }
   ],
   "guide": "https://dp.uwcea.org/docs/Mathematics%20-%20Applications%20and%20Interpretation%20Subject%20Guide.pdf",
