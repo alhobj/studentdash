@@ -31,8 +31,12 @@ Re-export to that same folder for updates; confidence stays separate.
 
 ## Develop and test
 
-`python scripts/check.py` runs the Python checks. Run `npm test --prefix tree` for
-the tree checks. `npm run build:all --prefix tree` rebuilds all tree views.
+Small changes need only the relevant feature tests. The default quick checks are
+`python scripts/check.py` (3 tests) and `npm test --prefix tree` (2 tests).
+GitHub pushes/PRs use these checks; documentation-only edits skip CI.
+For releases or broad refactors, run `python scripts/check.py --full` and
+`npm run test:full --prefix tree`, or choose **Full suite** when manually running
+GitHub Actions. `npm run build:all --prefix tree` rebuilds all tree views.
 Only source and a compressed practice bundle belong in Git; data, dependencies and
 builds are ignored. Practice resources unpack automatically on first use.
 

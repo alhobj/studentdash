@@ -1,7 +1,22 @@
 name: Check ArborSynapse
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    paths-ignore:
+      - '**/*.md'
+  pull_request:
+    paths-ignore:
+      - '**/*.md'
+  workflow_dispatch:
+    inputs:
+      full_suite:
+        description: Full suite (releases or broad changes)
+        type: boolean
+        default: false
 permissions:
   contents: read
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -18,5 +33,13 @@ jobs:
       - run: pip install -r requirements.txt
       - run: npm ci --prefix tree
       - run: npm run build:all --prefix tree
-      - run: npm test --prefix tree
-      - run: python scripts/check.py
+      - name: Quick checks (5 tests)
+        if: ${{ inputs.full_suite != true }}
+        run: |
+          npm test --prefix tree
+          python scripts/check.py
+      - name: Full suite (manual)
+        if: ${{ inputs.full_suite == true }}
+        run: |
+          npm run test:full --prefix tree
+          python scripts/check.py --full

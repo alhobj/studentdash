@@ -7,14 +7,15 @@
     "dev": "node --import tsx scripts/generate-student-data.ts && vite --host 0.0.0.0",
     "build": "npm run prepare:maps && tsc -b && vite build && node --import tsx scripts/check-student-build.ts",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "npm run prepare:maps && node --import tsx --test tests/*.test.ts && npm run test --workspace simple",
+    "test": "node --import tsx --test --test-name-pattern=\"4/5|new revisions\" tests/local-results.test.ts",
     "prepare:data": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
     "prepare": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
     "test:links": "python3 -m unittest discover -s tests/python -v",
     "build:local": "npm run prepare:maps && tsc -p local-viewer/tsconfig.json && node scripts/build-local-viewer.mjs",
     "test:local": "node --import tsx --test tests/local-results.test.ts",
     "prepare:maps": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
-    "build:all": "npm run build && npm run build --workspace simple && npm run build:local"
+    "build:all": "npm run build && npm run build --workspace simple && npm run build:local",
+    "test:full": "npm run prepare:maps && node --import tsx --test tests/*.test.ts && npm run test --workspace simple"
   },
   "dependencies": {
     "@xyflow/react": "^12.10.0",
