@@ -1,0 +1,16 @@
+.git
+**/node_modules
+**/.venv
+**/__pycache__
+**/dist
+**/local-package
+**/src/generated
+**/*.tsbuildinfo
+server/resources
+data
+output
+.cache
+**/*.sdclass
+**/*.sqlite3
+**/*.xlsx
+**/artifacts

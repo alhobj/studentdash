@@ -1,0 +1,1318 @@
+{
+  "schemaVersion": "1.0",
+  "status": "Editorial teaching dependency map; teacher review remains possible. Not official IB prerequisite rules.",
+  "entryAssumptions": "Basic numeracy, graph reading and common laboratory language are assumed. S1.1.1 is a descriptive entry point; detailed bond models are taught later.",
+  "sources": [
+    {
+      "title": "Existing guide transcription and source record",
+      "path": "../../src/data/map.json"
+    },
+    {
+      "title": "RSC infrared spectroscopy",
+      "url": "https://edu.rsc.org/resources/infrared-ir-spectroscopy/4010243.article"
+    },
+    {
+      "title": "RSC explanation of colour",
+      "url": "https://edu.rsc.org/resources/ultraviolet-visible-uv-vis-spectroscopy-explanation-of-colour/4010250.article"
+    }
+  ],
+  "nodes": [
+    {
+      "code": "S1.1.1",
+      "requires": [],
+      "reason": "Entry point: identify elements, compounds and mixtures descriptively before explaining their microscopic structure."
+    },
+    {
+      "code": "S1.1.2",
+      "requires": [
+        "S1.1.1"
+      ],
+      "reason": "States and changes of state refer to the substances and mixtures already identified."
+    },
+    {
+      "code": "S1.1.3",
+      "requires": [
+        "S1.1.2"
+      ],
+      "reason": "Interpret temperature through the moving-particle model of matter."
+    },
+    {
+      "code": "S1.2.1",
+      "requires": [
+        "S1.1.1"
+      ],
+      "reason": "Introduce internal atomic structure after identifying elements as types of atoms."
+    },
+    {
+      "code": "S1.2.2",
+      "requires": [
+        "S1.2.1"
+      ],
+      "reason": "Isotopes require proton and neutron counts and elemental identity."
+    },
+    {
+      "code": "S1.2.3",
+      "requires": [
+        "S1.2.2",
+        "S1.4.2"
+      ],
+      "reason": "Interpret isotope peaks and abundance-weighted relative atomic masses."
+    },
+    {
+      "code": "S1.3.1",
+      "requires": [
+        "S1.2.1"
+      ],
+      "reason": "Electronic emission needs electrons, nuclei and excitation/relaxation between energy states."
+    },
+    {
+      "code": "S1.3.2",
+      "requires": [
+        "S1.3.1"
+      ],
+      "reason": "Interpret the hydrogen line spectrum using the emission model."
+    },
+    {
+      "code": "S1.3.3",
+      "requires": [
+        "S1.2.1"
+      ],
+      "reason": "Electron shell capacity builds on the nuclear/electron model; spectral inference is a parallel route."
+    },
+    {
+      "code": "S1.3.4",
+      "requires": [
+        "S1.3.3"
+      ],
+      "reason": "Sublevels refine the shell/energy-level model."
+    },
+    {
+      "code": "S1.3.5",
+      "requires": [
+        "S1.3.4"
+      ],
+      "reason": "Orbital occupancy and spin refine subshell structure."
+    },
+    {
+      "code": "S1.3.6",
+      "requires": [
+        "S1.3.2",
+        "S2.1.1"
+      ],
+      "reason": "Relate spectral convergence to removal of an electron and formation of an ion."
+    },
+    {
+      "code": "S1.3.7",
+      "requires": [
+        "S1.3.5",
+        "S2.1.1"
+      ],
+      "reason": "Successive electron removal is interpreted using configurations, occupied shells and ion formation."
+    },
+    {
+      "code": "S1.4.1",
+      "requires": [
+        "S1.1.1"
+      ],
+      "reason": "Counting particles by amount requires identifying the chemical entities being counted."
+    },
+    {
+      "code": "S1.4.2",
+      "requires": [
+        "S1.2.2"
+      ],
+      "reason": "Relative atomic masses and the carbon-12 reference require isotope identity."
+    },
+    {
+      "code": "S1.4.3",
+      "requires": [
+        "S1.4.1",
+        "S1.4.2"
+      ],
+      "reason": "Connect amount of substance to relative atomic/formula masses and mass per mole."
+    },
+    {
+      "code": "S1.4.4",
+      "requires": [
+        "S1.4.3"
+      ],
+      "reason": "Determine simplest atom ratios and connect empirical and molecular formulas using molar masses."
+    },
+    {
+      "code": "S1.4.5",
+      "requires": [
+        "S1.4.1",
+        "S1.1.2"
+      ],
+      "reason": "Concentration relates amount of dissolved entities to solution volume."
+    },
+    {
+      "code": "S1.4.6",
+      "requires": [
+        "S1.4.1",
+        "S1.1.3"
+      ],
+      "reason": "Compare gas particle counts and volumes at controlled temperature and pressure."
+    },
+    {
+      "code": "S1.5.1",
+      "requires": [
+        "S1.1.3"
+      ],
+      "reason": "Ideal gases refine the moving-particle model and its temperature dependence."
+    },
+    {
+      "code": "S1.5.2",
+      "requires": [
+        "S1.5.1",
+        "S2.2.8"
+      ],
+      "reason": "Explain departures from ideality using finite particle volume and intermolecular attractions."
+    },
+    {
+      "code": "S1.5.3",
+      "requires": [
+        "S1.5.1",
+        "S1.4.6"
+      ],
+      "reason": "Molar gas volume connects the ideal model to particle counts and amounts."
+    },
+    {
+      "code": "S1.5.4",
+      "requires": [
+        "S1.5.3"
+      ],
+      "reason": "Use quantitative relationships between gas amount, temperature, pressure and volume."
+    },
+    {
+      "code": "S2.1.1",
+      "requires": [
+        "S1.3.3",
+        "S3.1.2"
+      ],
+      "reason": "Ion formation requires outer-shell electrons, electron counts and main-group valence patterns."
+    },
+    {
+      "code": "S2.1.2",
+      "requires": [
+        "S2.1.1"
+      ],
+      "reason": "Electrostatic attraction requires identifying oppositely charged ions."
+    },
+    {
+      "code": "S2.1.3",
+      "requires": [
+        "S2.1.2",
+        "S1.4.4"
+      ],
+      "reason": "Extend ionic attractions into lattices and express their ratios as empirical formulas."
+    },
+    {
+      "code": "S2.2.1",
+      "requires": [
+        "S3.1.2"
+      ],
+      "reason": "Shared electron pairs and octets build on valence shells and electron counts."
+    },
+    {
+      "code": "S2.2.2",
+      "requires": [
+        "S2.2.1"
+      ],
+      "reason": "Distinguish one, two and three shared bonding pairs."
+    },
+    {
+      "code": "S2.2.3",
+      "requires": [
+        "S2.2.1"
+      ],
+      "reason": "Coordinate bonds require the shared-electron-pair model and lone-pair donation."
+    },
+    {
+      "code": "S2.2.4",
+      "requires": [
+        "S2.2.2"
+      ],
+      "reason": "Draw bonding/lone-pair domains and distinguish bond multiplicity before predicting shapes."
+    },
+    {
+      "code": "S2.2.5",
+      "requires": [
+        "S2.2.1",
+        "S3.1.3"
+      ],
+      "reason": "Unequal electron sharing requires covalent bonding and periodic electronegativity trends."
+    },
+    {
+      "code": "S2.2.6",
+      "requires": [
+        "S2.2.4",
+        "S2.2.5"
+      ],
+      "reason": "Molecular polarity combines bond dipoles with three-dimensional geometry."
+    },
+    {
+      "code": "S2.2.7",
+      "requires": [
+        "S2.2.2"
+      ],
+      "reason": "Network structures extend covalent bonding beyond discrete molecules."
+    },
+    {
+      "code": "S2.2.8",
+      "requires": [
+        "S2.2.6"
+      ],
+      "reason": "Intermolecular attractions require particle size, electron distributions and molecular polarity."
+    },
+    {
+      "code": "S2.2.9",
+      "requires": [
+        "S2.2.8",
+        "S1.4.3"
+      ],
+      "reason": "Compare physical properties with attention to both interactions and comparable molar mass."
+    },
+    {
+      "code": "S2.2.10",
+      "requires": [
+        "S2.2.8",
+        "S1.1.1"
+      ],
+      "reason": "Separation of mixtures depends on competing attractions to mobile and stationary phases."
+    },
+    {
+      "code": "S2.2.11",
+      "requires": [
+        "S2.2.2"
+      ],
+      "reason": "Resonance requires alternative valid Lewis connectivities of electron pairs and multiple bonds."
+    },
+    {
+      "code": "S2.2.12",
+      "requires": [
+        "S2.2.11",
+        "S3.2.1"
+      ],
+      "reason": "Apply resonance to the ring structure and formula representations of benzene."
+    },
+    {
+      "code": "S2.2.13",
+      "requires": [
+        "S2.2.4"
+      ],
+      "reason": "Expanded-octet species extend electron counting and domain-based shape prediction."
+    },
+    {
+      "code": "S2.2.14",
+      "requires": [
+        "S2.2.11",
+        "S2.1.1"
+      ],
+      "reason": "Evaluate Lewis alternatives by assigning formal charges and conserving total ionic charge."
+    },
+    {
+      "code": "S2.2.15",
+      "requires": [
+        "S1.3.5",
+        "S2.2.2"
+      ],
+      "reason": "Sigma/pi bonding combines atomic orbital shapes with single and multiple covalent bonds."
+    },
+    {
+      "code": "S2.2.16",
+      "requires": [
+        "S2.2.15",
+        "S2.2.4"
+      ],
+      "reason": "Hybrid orbitals connect orbital overlap to spatial arrangements and sigma/pi bonding."
+    },
+    {
+      "code": "S2.3.1",
+      "requires": [
+        "S2.1.1"
+      ],
+      "reason": "Metallic bonding requires cations, electron loss and mobile delocalised electrons."
+    },
+    {
+      "code": "S2.3.2",
+      "requires": [
+        "S2.3.1",
+        "S3.1.3"
+      ],
+      "reason": "Metallic bond strength depends on ion charge and periodic variation in ion size."
+    },
+    {
+      "code": "S2.3.3",
+      "requires": [
+        "S2.3.1",
+        "S1.3.5"
+      ],
+      "reason": "Extend metallic delocalisation to d electrons with an orbital occupancy model."
+    },
+    {
+      "code": "S2.4.1",
+      "requires": [
+        "S2.1.2",
+        "S2.2.1",
+        "S2.3.1"
+      ],
+      "reason": "The continuum compares the ionic, covalent and metallic bonding models."
+    },
+    {
+      "code": "S2.4.2",
+      "requires": [
+        "S2.4.1",
+        "S2.2.5"
+      ],
+      "reason": "Locate substances in the bonding triangle using bonding character and electronegativity."
+    },
+    {
+      "code": "S2.4.3",
+      "requires": [
+        "S2.3.1",
+        "S1.1.1"
+      ],
+      "reason": "Explain alloy properties through metallic structure modified by mixing constituents."
+    },
+    {
+      "code": "S2.4.4",
+      "requires": [
+        "S3.2.1"
+      ],
+      "reason": "Monomers and polymer chains require molecular structural representations and covalent connectivity."
+    },
+    {
+      "code": "S2.4.5",
+      "requires": [
+        "S2.4.4",
+        "S2.2.2",
+        "S3.2.2"
+      ],
+      "reason": "Addition polymerisation joins alkene monomers by changing double-bond connectivity."
+    },
+    {
+      "code": "S2.4.6",
+      "requires": [
+        "S2.4.4",
+        "S3.2.2",
+        "R2.1.1"
+      ],
+      "reason": "Condensation polymers require reacting functional groups and accounting for the eliminated molecule."
+    },
+    {
+      "code": "S3.1.1",
+      "requires": [
+        "S1.2.1"
+      ],
+      "reason": "Periodic classification uses atomic number and elemental identity."
+    },
+    {
+      "code": "S3.1.2",
+      "requires": [
+        "S3.1.1",
+        "S1.3.3"
+      ],
+      "reason": "Connect periods/groups with occupied shells and valence electrons."
+    },
+    {
+      "code": "S3.1.3",
+      "requires": [
+        "S3.1.2"
+      ],
+      "reason": "Explain periodic trends using nuclear attraction, shielding and outer-shell structure."
+    },
+    {
+      "code": "S3.1.4",
+      "requires": [
+        "S3.1.3",
+        "S2.1.1"
+      ],
+      "reason": "Group reactivity trends connect periodic properties with electron loss and gain."
+    },
+    {
+      "code": "S3.1.5",
+      "requires": [
+        "S3.1.3",
+        "R3.1.7"
+      ],
+      "reason": "Metallic character and oxide acidity/basicity require periodic trends and neutralisation concepts."
+    },
+    {
+      "code": "S3.1.6",
+      "requires": [
+        "S2.1.1",
+        "S2.2.5"
+      ],
+      "reason": "Assign oxidation states using ionic charge and electronegativity-based electron assignment."
+    },
+    {
+      "code": "S3.1.7",
+      "requires": [
+        "S1.3.7",
+        "S3.1.3"
+      ],
+      "reason": "Explain exceptions to ionisation trends using subshell occupancy, spin and successive-removal reasoning."
+    },
+    {
+      "code": "S3.1.8",
+      "requires": [
+        "S1.3.5",
+        "S3.1.1",
+        "S2.1.1"
+      ],
+      "reason": "Transition-element properties require incomplete d subshells and the configurations of atoms/ions."
+    },
+    {
+      "code": "S3.1.9",
+      "requires": [
+        "S3.1.8",
+        "S1.3.7",
+        "S3.1.6"
+      ],
+      "reason": "Variable oxidation states connect transition-electron occupancy with ionisation energies and electron counting."
+    },
+    {
+      "code": "S3.1.10",
+      "requires": [
+        "S3.1.9",
+        "R3.4.8",
+        "S1.3.1"
+      ],
+      "reason": "Explain colour using metal-ion d occupancy, ligand coordination and absorption-driven electronic transitions."
+    },
+    {
+      "code": "S3.2.1",
+      "requires": [
+        "S2.2.2",
+        "S1.4.4"
+      ],
+      "reason": "Organic representations require molecular formulas, covalent connectivity and bond multiplicity."
+    },
+    {
+      "code": "S3.2.2",
+      "requires": [
+        "S3.2.1"
+      ],
+      "reason": "Recognise characteristic groups within structural and skeletal representations."
+    },
+    {
+      "code": "S3.2.3",
+      "requires": [
+        "S3.2.2"
+      ],
+      "reason": "Group compounds into homologous families using functional groups and repeating composition changes."
+    },
+    {
+      "code": "S3.2.4",
+      "requires": [
+        "S3.2.3",
+        "S2.2.9"
+      ],
+      "reason": "Homologous physical-property trends combine changing molecular size with intermolecular forces."
+    },
+    {
+      "code": "S3.2.5",
+      "requires": [
+        "S3.2.2",
+        "S3.2.3"
+      ],
+      "reason": "Systematic names express carbon skeletons, functional groups and homologous-family membership."
+    },
+    {
+      "code": "S3.2.6",
+      "requires": [
+        "S3.2.5"
+      ],
+      "reason": "Distinguish identical molecular formulas with different connectivity by drawing/naming structures."
+    },
+    {
+      "code": "S3.2.7",
+      "requires": [
+        "S3.2.6",
+        "S2.2.4",
+        "S2.2.15"
+      ],
+      "reason": "Distinguish connectivity from spatial isomerism using molecular geometry and restricted rotation about pi bonds."
+    },
+    {
+      "code": "S3.2.8",
+      "requires": [
+        "S1.2.3",
+        "S3.2.1"
+      ],
+      "reason": "Interpret organic molecular/fragment ions using mass spectra and molecular connectivity."
+    },
+    {
+      "code": "S3.2.9",
+      "requires": [
+        "S2.2.2",
+        "S2.2.5",
+        "S3.2.2"
+      ],
+      "reason": "Interpret bond vibrations and diagnostic functional-group absorptions; bond polarity underpins IR activity."
+    },
+    {
+      "code": "S3.2.10",
+      "requires": [
+        "S1.2.2",
+        "S3.2.2",
+        "S2.2.5"
+      ],
+      "reason": "Proton NMR requires nuclear/isotope identity, functional groups and chemical environments affected by electron shielding."
+    },
+    {
+      "code": "S3.2.11",
+      "requires": [
+        "S3.2.10"
+      ],
+      "reason": "Apply neighbouring-hydrogen reasoning to already identified NMR environments."
+    },
+    {
+      "code": "S3.2.12",
+      "requires": [
+        "S3.2.8",
+        "S3.2.9",
+        "S3.2.11"
+      ],
+      "reason": "Combine complementary MS, IR and NMR evidence rather than interpreting an unfamiliar technique first."
+    },
+    {
+      "code": "R1.1.1",
+      "requires": [
+        "S1.1.2"
+      ],
+      "reason": "Define energy transfer between a material system and its surroundings."
+    },
+    {
+      "code": "R1.1.2",
+      "requires": [
+        "R1.1.1",
+        "S1.1.3"
+      ],
+      "reason": "Relate the direction of energy transfer to temperature observations."
+    },
+    {
+      "code": "R1.1.3",
+      "requires": [
+        "R1.1.2"
+      ],
+      "reason": "Compare energy/stability of reactants and products using endothermic/exothermic change."
+    },
+    {
+      "code": "R1.1.4",
+      "requires": [
+        "R1.1.2",
+        "S1.4.1",
+        "R2.1.1"
+      ],
+      "reason": "Standard molar enthalpy changes require energy transfer, reaction equations and amount of substance."
+    },
+    {
+      "code": "R1.2.1",
+      "requires": [
+        "R1.1.3",
+        "S2.2.2"
+      ],
+      "reason": "Relate reaction energetics to the energy needed to break and form covalent bonds."
+    },
+    {
+      "code": "R1.2.2",
+      "requires": [
+        "R1.1.4"
+      ],
+      "reason": "Hess cycles combine appropriately scaled enthalpy changes under defined conditions."
+    },
+    {
+      "code": "R1.2.3",
+      "requires": [
+        "R1.1.4",
+        "R1.3.1"
+      ],
+      "reason": "Define molar formation/combustion data with balanced equations and combustion context."
+    },
+    {
+      "code": "R1.2.4",
+      "requires": [
+        "R1.2.2",
+        "R1.2.3"
+      ],
+      "reason": "Calculate cycles from Hess law plus standard formation/combustion data."
+    },
+    {
+      "code": "R1.2.5",
+      "requires": [
+        "R1.2.4",
+        "S2.1.3",
+        "S1.3.7",
+        "R1.2.1"
+      ],
+      "reason": "Born\u2013Haber cycles combine ionic lattice formation, ionisation and bond/atomisation energy steps."
+    },
+    {
+      "code": "R1.3.1",
+      "requires": [
+        "R2.1.1",
+        "R1.1.2"
+      ],
+      "reason": "Describe combustion with balanced equations and energy release."
+    },
+    {
+      "code": "R1.3.2",
+      "requires": [
+        "R1.3.1",
+        "S3.2.1"
+      ],
+      "reason": "Compare complete/incomplete combustion of carbon-based molecular fuels."
+    },
+    {
+      "code": "R1.3.3",
+      "requires": [
+        "R1.3.2"
+      ],
+      "reason": "Evaluate fossil fuels using composition, combustion products and incomplete combustion consequences."
+    },
+    {
+      "code": "R1.3.4",
+      "requires": [
+        "R1.3.1",
+        "S3.2.2"
+      ],
+      "reason": "Relate biologically produced molecular fuels to combustion and their functional groups."
+    },
+    {
+      "code": "R1.3.5",
+      "requires": [
+        "R3.2.6",
+        "R1.3.1"
+      ],
+      "reason": "Contrast fuel-cell redox energy conversion with direct combustion."
+    },
+    {
+      "code": "R1.4.1",
+      "requires": [
+        "S1.1.2",
+        "R1.1.1"
+      ],
+      "reason": "Dispersal of matter/energy requires particle states and a defined system."
+    },
+    {
+      "code": "R1.4.2",
+      "requires": [
+        "R1.4.1",
+        "R1.1.4",
+        "S1.1.3"
+      ],
+      "reason": "Combine entropy, enthalpy and absolute temperature in Gibbs energy."
+    },
+    {
+      "code": "R1.4.3",
+      "requires": [
+        "R1.4.2"
+      ],
+      "reason": "Apply the sign of Gibbs energy to spontaneity under fixed conditions."
+    },
+    {
+      "code": "R1.4.4",
+      "requires": [
+        "R1.4.3",
+        "R2.3.1"
+      ],
+      "reason": "Connect driving force to the approach to dynamic equilibrium."
+    },
+    {
+      "code": "R2.1.1",
+      "requires": [
+        "S1.1.1",
+        "S1.4.4"
+      ],
+      "reason": "Balanced reaction equations conserve atoms represented by chemical formulas."
+    },
+    {
+      "code": "R2.1.2",
+      "requires": [
+        "R2.1.1",
+        "S1.4.3",
+        "S1.4.5",
+        "S1.5.3"
+      ],
+      "reason": "Use coefficients with amount\u2013mass, concentration and gas-volume conversions."
+    },
+    {
+      "code": "R2.1.3",
+      "requires": [
+        "R2.1.2"
+      ],
+      "reason": "Compare available amounts with reaction mole ratios to identify limiting reactant and theoretical yield."
+    },
+    {
+      "code": "R2.1.4",
+      "requires": [
+        "R2.1.3"
+      ],
+      "reason": "Compare measured product with the limiting-reactant theoretical yield."
+    },
+    {
+      "code": "R2.1.5",
+      "requires": [
+        "R2.1.1",
+        "S1.4.3"
+      ],
+      "reason": "Atom economy requires balanced product allocation and formula/molar masses."
+    },
+    {
+      "code": "R2.2.1",
+      "requires": [
+        "S1.4.5",
+        "R2.1.1"
+      ],
+      "reason": "Measure changes in reactant/product concentration with time."
+    },
+    {
+      "code": "R2.2.2",
+      "requires": [
+        "S1.1.3",
+        "R2.1.1"
+      ],
+      "reason": "Reaction collisions require moving particles, energy distributions and reacting species."
+    },
+    {
+      "code": "R2.2.3",
+      "requires": [
+        "R2.2.1",
+        "R2.2.2",
+        "S1.5.1"
+      ],
+      "reason": "Explain measured rate changes through collision frequency, temperature, pressure and exposed particles."
+    },
+    {
+      "code": "R2.2.4",
+      "requires": [
+        "R2.2.2",
+        "R1.1.3"
+      ],
+      "reason": "Introduce a reaction energy barrier using collision energy and reaction-energy profiles."
+    },
+    {
+      "code": "R2.2.5",
+      "requires": [
+        "R2.2.4",
+        "R2.2.1"
+      ],
+      "reason": "Explain catalysis as an alternative lower-barrier pathway that changes rate."
+    },
+    {
+      "code": "R2.2.6",
+      "requires": [
+        "R2.2.1",
+        "R2.1.1"
+      ],
+      "reason": "Resolve an overall reaction into elementary steps and identify the rate-determining step."
+    },
+    {
+      "code": "R2.2.7",
+      "requires": [
+        "R2.2.6",
+        "R2.2.4"
+      ],
+      "reason": "Construct multistep energy profiles with individual activation barriers and transition states."
+    },
+    {
+      "code": "R2.2.8",
+      "requires": [
+        "R2.2.6"
+      ],
+      "reason": "Count particles in an elementary step rather than coefficients in an overall equation."
+    },
+    {
+      "code": "R2.2.9",
+      "requires": [
+        "R2.2.1",
+        "R2.2.6"
+      ],
+      "reason": "Relate measured concentration dependence to mechanisms without assuming overall stoichiometry gives rate law."
+    },
+    {
+      "code": "R2.2.10",
+      "requires": [
+        "R2.2.9"
+      ],
+      "reason": "Interpret individual exponents and their sum in an experimentally determined rate law."
+    },
+    {
+      "code": "R2.2.11",
+      "requires": [
+        "R2.2.10"
+      ],
+      "reason": "Calculate the constant and its units using the established rate equation and overall order."
+    },
+    {
+      "code": "R2.2.12",
+      "requires": [
+        "R2.2.11",
+        "R2.2.4",
+        "S1.1.3"
+      ],
+      "reason": "Relate temperature-dependent rate constants to activation energy on an absolute temperature scale."
+    },
+    {
+      "code": "R2.2.13",
+      "requires": [
+        "R2.2.12",
+        "R2.2.2"
+      ],
+      "reason": "Interpret the Arrhenius prefactor through collision frequency and orientation."
+    },
+    {
+      "code": "R2.3.1",
+      "requires": [
+        "R2.2.1"
+      ],
+      "reason": "Dynamic equilibrium compares forward and reverse reaction rates in a closed system."
+    },
+    {
+      "code": "R2.3.2",
+      "requires": [
+        "R2.3.1",
+        "R2.1.1",
+        "S1.4.5"
+      ],
+      "reason": "Build equilibrium expressions from stoichiometry and equilibrium concentrations."
+    },
+    {
+      "code": "R2.3.3",
+      "requires": [
+        "R2.3.2"
+      ],
+      "reason": "Interpret the magnitude of the equilibrium constant after constructing its expression."
+    },
+    {
+      "code": "R2.3.4",
+      "requires": [
+        "R2.3.1",
+        "R1.1.2",
+        "S1.5.4"
+      ],
+      "reason": "Predict responses to concentration, pressure and temperature changes using equilibrium and energetic context."
+    },
+    {
+      "code": "R2.3.5",
+      "requires": [
+        "R2.3.2"
+      ],
+      "reason": "Compare reaction quotient and K using the same expression at different mixture compositions."
+    },
+    {
+      "code": "R2.3.6",
+      "requires": [
+        "R2.3.2",
+        "R2.1.2"
+      ],
+      "reason": "Solve equilibrium composition using K, concentrations and reaction amount changes."
+    },
+    {
+      "code": "R2.3.7",
+      "requires": [
+        "R2.3.3",
+        "R1.4.4"
+      ],
+      "reason": "Relate equilibrium position/K to Gibbs energy and its equilibrium limit."
+    },
+    {
+      "code": "R3.1.1",
+      "requires": [
+        "S2.1.1",
+        "S2.2.3",
+        "R2.1.1"
+      ],
+      "reason": "Proton transfer requires charged species, lone-pair bond formation and reaction equations."
+    },
+    {
+      "code": "R3.1.2",
+      "requires": [
+        "R3.1.1"
+      ],
+      "reason": "Identify acid/base partners differing by one transferred proton."
+    },
+    {
+      "code": "R3.1.3",
+      "requires": [
+        "R3.1.2"
+      ],
+      "reason": "Recognise species able to donate or accept a proton in different conjugate-pair contexts."
+    },
+    {
+      "code": "R3.1.4",
+      "requires": [
+        "R3.1.1",
+        "S1.4.5"
+      ],
+      "reason": "Relate solution hydrogen-ion concentration to the logarithmic pH scale."
+    },
+    {
+      "code": "R3.1.5",
+      "requires": [
+        "R3.1.4",
+        "R2.3.2"
+      ],
+      "reason": "Treat water ionisation as an equilibrium linking hydrogen- and hydroxide-ion concentrations."
+    },
+    {
+      "code": "R3.1.6",
+      "requires": [
+        "R3.1.2",
+        "R2.3.1"
+      ],
+      "reason": "Acid/base strength depends on extent of ionisation, distinct from concentration."
+    },
+    {
+      "code": "R3.1.7",
+      "requires": [
+        "R3.1.1",
+        "R2.1.1"
+      ],
+      "reason": "Represent acid/base neutralisation as a proton-transfer reaction with conserved atoms and charge."
+    },
+    {
+      "code": "R3.1.8",
+      "requires": [
+        "R3.1.7",
+        "R3.1.4",
+        "R3.1.6",
+        "R2.1.2"
+      ],
+      "reason": "Construct strong acid/base titration curves using neutralisation stoichiometry and pH."
+    },
+    {
+      "code": "R3.1.9",
+      "requires": [
+        "R3.1.4",
+        "R3.1.5"
+      ],
+      "reason": "Extend logarithmic concentration notation to hydroxide and link pH/pOH through water ionisation."
+    },
+    {
+      "code": "R3.1.10",
+      "requires": [
+        "R3.1.6",
+        "R2.3.2",
+        "R3.1.4"
+      ],
+      "reason": "Quantify weak-acid/base ionisation equilibria using K and logarithmic measures."
+    },
+    {
+      "code": "R3.1.11",
+      "requires": [
+        "R3.1.10",
+        "R3.1.5"
+      ],
+      "reason": "Relate conjugate-pair equilibrium constants using the water ion product."
+    },
+    {
+      "code": "R3.1.12",
+      "requires": [
+        "R3.1.11",
+        "R3.1.2"
+      ],
+      "reason": "Predict salt-solution pH from conjugate-ion acid/base equilibria."
+    },
+    {
+      "code": "R3.1.13",
+      "requires": [
+        "R3.1.8",
+        "R3.1.10"
+      ],
+      "reason": "Extend titration curves to weak-acid/base equilibria and buffer regions."
+    },
+    {
+      "code": "R3.1.14",
+      "requires": [
+        "R3.1.10",
+        "R2.3.4"
+      ],
+      "reason": "Treat indicator colour change as a weak-acid conjugate-pair equilibrium shifted by pH."
+    },
+    {
+      "code": "R3.1.15",
+      "requires": [
+        "R3.1.14",
+        "R3.1.13"
+      ],
+      "reason": "Choose an indicator by matching its transition interval with the titration equivalence-region pH change."
+    },
+    {
+      "code": "R3.1.16",
+      "requires": [
+        "R3.1.2",
+        "R3.1.10",
+        "R2.3.4"
+      ],
+      "reason": "Explain buffering through a weak acid/base and its conjugate partner responding to added acid/base."
+    },
+    {
+      "code": "R3.1.17",
+      "requires": [
+        "R3.1.16",
+        "R3.1.11",
+        "R2.1.2"
+      ],
+      "reason": "Calculate buffer pH from equilibrium constants and conjugate-pair amount/concentration ratios."
+    },
+    {
+      "code": "R3.2.1",
+      "requires": [
+        "S3.1.6",
+        "R2.1.1"
+      ],
+      "reason": "Describe redox using electron transfer and oxidation-state changes in reactions."
+    },
+    {
+      "code": "R3.2.2",
+      "requires": [
+        "R3.2.1"
+      ],
+      "reason": "Balance separate oxidation/reduction steps conserving charge as well as atoms."
+    },
+    {
+      "code": "R3.2.3",
+      "requires": [
+        "R3.2.1",
+        "S3.1.4"
+      ],
+      "reason": "Compare relative oxidation/reduction tendencies using periodic and displacement-reaction patterns."
+    },
+    {
+      "code": "R3.2.4",
+      "requires": [
+        "R3.2.1",
+        "R3.1.1"
+      ],
+      "reason": "Explain metal\u2013acid hydrogen formation as redox involving hydrogen ions."
+    },
+    {
+      "code": "R3.2.5",
+      "requires": [
+        "R3.2.2"
+      ],
+      "reason": "Locate oxidation/reduction half-reactions at anode and cathode."
+    },
+    {
+      "code": "R3.2.6",
+      "requires": [
+        "R3.2.5",
+        "R1.1.2",
+        "S2.1.1"
+      ],
+      "reason": "Connect electrode half-reactions, ion/electron transport and conversion of chemical energy to electrical energy."
+    },
+    {
+      "code": "R3.2.7",
+      "requires": [
+        "R3.2.6"
+      ],
+      "reason": "Rechargeable cells reverse the redox processes established in a voltaic cell."
+    },
+    {
+      "code": "R3.2.8",
+      "requires": [
+        "R3.2.6"
+      ],
+      "reason": "Contrast externally driven electrolysis with spontaneous voltaic-cell operation."
+    },
+    {
+      "code": "R3.2.9",
+      "requires": [
+        "R3.2.1",
+        "S3.2.2"
+      ],
+      "reason": "Track oxidation changes of recognisable organic functional groups."
+    },
+    {
+      "code": "R3.2.10",
+      "requires": [
+        "R3.2.9"
+      ],
+      "reason": "Compare functional-group reduction with the corresponding organic oxidation transformations."
+    },
+    {
+      "code": "R3.2.11",
+      "requires": [
+        "R3.2.10",
+        "S2.2.2"
+      ],
+      "reason": "Hydrogen addition reduces unsaturation by changing multiple-bond connectivity."
+    },
+    {
+      "code": "R3.2.12",
+      "requires": [
+        "R3.2.6",
+        "R3.1.1"
+      ],
+      "reason": "Define a reference hydrogen electrode within an electrochemical-cell and hydrogen-ion context."
+    },
+    {
+      "code": "R3.2.13",
+      "requires": [
+        "R3.2.12",
+        "R3.2.2"
+      ],
+      "reason": "Combine reference electrode potentials with the direction of balanced half-reactions."
+    },
+    {
+      "code": "R3.2.14",
+      "requires": [
+        "R3.2.13",
+        "R1.4.3",
+        "S1.4.1"
+      ],
+      "reason": "Relate cell potential and transferred electron amount to Gibbs energy/spontaneity."
+    },
+    {
+      "code": "R3.2.15",
+      "requires": [
+        "R3.2.8",
+        "R3.2.13"
+      ],
+      "reason": "Compare competing aqueous electrode reactions using electrolysis and electrode-potential reasoning."
+    },
+    {
+      "code": "R3.2.16",
+      "requires": [
+        "R3.2.15"
+      ],
+      "reason": "Apply controlled aqueous metal-ion reduction to deposition at a cathode."
+    },
+    {
+      "code": "R3.3.1",
+      "requires": [
+        "S1.3.5",
+        "S2.2.1"
+      ],
+      "reason": "Identify unpaired electrons in molecular entities using orbital occupancy and covalent bonding."
+    },
+    {
+      "code": "R3.3.2",
+      "requires": [
+        "R3.3.1",
+        "S2.2.2",
+        "S1.3.1"
+      ],
+      "reason": "Explain equal splitting of a bonding pair and the role of photon/thermal energy in radical generation."
+    },
+    {
+      "code": "R3.3.3",
+      "requires": [
+        "R3.3.2",
+        "S3.2.2",
+        "R2.1.1"
+      ],
+      "reason": "Follow radical chain substitution in recognised alkane structures with balanced transformations."
+    },
+    {
+      "code": "R3.4.1",
+      "requires": [
+        "S2.2.3",
+        "S2.2.5"
+      ],
+      "reason": "Electron-pair donation requires lone pairs, coordinate bond formation and electron-rich sites."
+    },
+    {
+      "code": "R3.4.2",
+      "requires": [
+        "R3.4.1",
+        "R3.4.3",
+        "R3.4.4",
+        "S3.2.2"
+      ],
+      "reason": "Substitution combines nucleophile/electrophile roles, heterolytic bond cleavage and organic connectivity."
+    },
+    {
+      "code": "R3.4.3",
+      "requires": [
+        "S2.2.5",
+        "S2.1.1"
+      ],
+      "reason": "Unequal allocation of a covalent bonding pair produces ionic fragments."
+    },
+    {
+      "code": "R3.4.4",
+      "requires": [
+        "R3.4.1"
+      ],
+      "reason": "Contrast electron-pair acceptance with donation and identify complementary reaction partners."
+    },
+    {
+      "code": "R3.4.5",
+      "requires": [
+        "R3.4.4",
+        "S2.2.2",
+        "S3.2.2"
+      ],
+      "reason": "Recognise alkene multiple-bond electron density as a target for an electron-pair acceptor."
+    },
+    {
+      "code": "R3.4.6",
+      "requires": [
+        "S2.2.3",
+        "R3.4.4"
+      ],
+      "reason": "Generalise electron-pair donation/acceptance beyond proton transfer and organic reaction partners."
+    },
+    {
+      "code": "R3.4.7",
+      "requires": [
+        "R3.4.6"
+      ],
+      "reason": "Apply Lewis donor/acceptor roles to the formation of coordinate covalent bonds."
+    },
+    {
+      "code": "R3.4.8",
+      "requires": [
+        "R3.4.7",
+        "S3.1.8"
+      ],
+      "reason": "Ligand donation to transition-metal cations requires coordination bonding and transition-ion electronic structure."
+    },
+    {
+      "code": "R3.4.9",
+      "requires": [
+        "R3.4.2",
+        "R2.2.6"
+      ],
+      "reason": "Apply nucleophilic substitution to halogenoalkanes and distinguish possible reaction mechanisms."
+    },
+    {
+      "code": "R3.4.10",
+      "requires": [
+        "R3.4.9",
+        "R2.2.9"
+      ],
+      "reason": "Interpret leaving-group effects on measured substitution rates and mechanism."
+    },
+    {
+      "code": "R3.4.11",
+      "requires": [
+        "R3.4.5",
+        "S2.2.15",
+        "R3.4.3"
+      ],
+      "reason": "Develop alkene electrophilic addition mechanisms using pi bonding and heterolytic electron-pair movement."
+    },
+    {
+      "code": "R3.4.12",
+      "requires": [
+        "R3.4.11"
+      ],
+      "reason": "Compare alternative carbocation intermediates to predict addition pathways and products."
+    },
+    {
+      "code": "R3.4.13",
+      "requires": [
+        "S2.2.12",
+        "R3.4.4",
+        "S2.2.15"
+      ],
+      "reason": "Electrophilic substitution in benzene requires delocalised aromatic pi bonding and electrophile electron-pair acceptance."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "arborsynapse-tree",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --import tsx scripts/generate-student-data.ts && vite --host 0.0.0.0",
+    "build": "npm run prepare:maps && tsc -b && vite build && node --import tsx scripts/check-student-build.ts",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "npm run prepare:maps && node --import tsx --test tests/*.test.ts && npm run test --workspace simple",
+    "prepare:data": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
+    "prepare": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
+    "test:links": "python3 -m unittest discover -s tests/python -v",
+    "build:local": "npm run prepare:maps && tsc -p local-viewer/tsconfig.json && node scripts/build-local-viewer.mjs",
+    "test:local": "node --import tsx --test tests/local-results.test.ts",
+    "prepare:maps": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
+    "build:all": "npm run build && npm run build --workspace simple && npm run build:local"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.10.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.3.0"
+  },
+  "workspaces": [
+    "simple"
+  ]
+}

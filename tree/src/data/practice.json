@@ -1,0 +1,376 @@
+[
+  {
+    "id": "practice-elements-compounds-mixtures",
+    "nodeId": "ib-2025-structure-1.1.1",
+    "title": "Classify three gas samples",
+    "question": "Three sealed samples contain (A) only O₂ molecules, (B) only CO₂ molecules, and (C) O₂ and CO₂ molecules together without reacting. Classify each as an element, compound or mixture, and explain your reasoning. Assume each sample contains only the particles described.",
+    "hints": [
+      "Count the different elements in each kind of particle. A molecule can contain atoms of just one element.",
+      "Ask whether different elements are chemically bonded in a fixed ratio, or whether separate substances are simply present together."
+    ],
+    "workedExplanation": [
+      "A is an element: every atom is oxygen. O₂ molecules contain two atoms, but both are the same element.",
+      "B is a compound: carbon and oxygen atoms are chemically bonded in the fixed ratio 1:2 in CO₂.",
+      "C is a mixture: O₂ and CO₂ remain separate substances. Their relative amounts can vary; mixing them does not create a new fixed-ratio compound."
+    ],
+    "selfCheck": [
+      "Can I explain why O₂ is an element even though it consists of molecules?",
+      "Can I distinguish a fixed ratio within a compound from variable proportions in a mixture?"
+    ],
+    "transferQuestion": "Liquid water and ethanol are mixed without a chemical reaction. They form one uniform liquid phase. Is the result a compound or a mixture? Explain why its uniform appearance does not decide the answer.",
+    "transferExplanation": [
+      "It is a homogeneous mixture. Water and ethanol remain different substances, and their proportions can vary. A uniform appearance does not mean that a new chemical compound has formed."
+    ]
+  },
+  {
+    "id": "practice-nuclear-particle-counts",
+    "nodeId": "ib-2025-structure-1.2.1",
+    "title": "Count particles in an aluminium ion",
+    "question": "An aluminium ion is written ²⁷₁₃Al³⁺. State its numbers of protons, neutrons and electrons, and identify which particles are inside the nucleus. Explain how your electron count agrees with the ion charge.",
+    "hints": [
+      "The lower number is the proton number, Z. The upper number is the nucleon number, A: protons plus neutrons.",
+      "A 3+ ion has three fewer electrons than the neutral atom. Ion formation does not change its proton or neutron numbers."
+    ],
+    "workedExplanation": [
+      "The nucleus contains 13 protons and 27 − 13 = 14 neutrons.",
+      "A neutral aluminium atom has 13 electrons. The 3+ ion has lost 3, so it has 13 − 3 = 10 electrons outside the nucleus.",
+      "The 13 positive proton charges and 10 negative electron charges give a net charge of +3. Neutrons do not contribute to the charge."
+    ],
+    "selfCheck": [
+      "Did I subtract proton number from nucleon number to find neutrons?",
+      "Did I change only the electron count when accounting for the positive ion charge?"
+    ],
+    "transferQuestion": "A neutral magnesium atom is written ²⁴₁₂Mg. How many protons, neutrons and electrons does it contain?",
+    "transferExplanation": [
+      "It contains 12 protons, 24 − 12 = 12 neutrons, and 12 electrons. The proton and electron charges cancel because the atom is neutral."
+    ]
+  },
+  {
+    "id": "practice-isotopes-and-ions",
+    "nodeId": "ib-2025-structure-1.2.2",
+    "title": "Separate isotope identity from ion charge",
+    "question": "Compare neutral ³⁵₁₇Cl and neutral ³⁷₁₇Cl. Give the proton, neutron and electron counts for each. Explain why they are isotopes of the same element rather than different elements.",
+    "hints": [
+      "Element identity is determined by proton number. Both symbols have Z = 17.",
+      "For each isotope, neutrons = nucleon number − proton number. A neutral atom has equal numbers of protons and electrons."
+    ],
+    "workedExplanation": [
+      "Both atoms have 17 protons and 17 electrons, so they are neutral atoms of the same element, chlorine.",
+      "Chlorine-35 has 35 − 17 = 18 neutrons. Chlorine-37 has 37 − 17 = 20 neutrons.",
+      "They are isotopes because they have the same proton number but different neutron numbers. The difference of two neutrons changes the nucleon number, not the element."
+    ],
+    "selfCheck": [
+      "Can I identify what stays the same when the isotope changes?",
+      "Can I distinguish a neutron-number change from an electron-number change?"
+    ],
+    "transferQuestion": "The ³⁷Cl atom gains one electron to become ³⁷Cl⁻. Has it become a new isotope? State its new electron count and explain.",
+    "transferExplanation": [
+      "No. It now has 18 electrons, but the nucleus still contains 17 protons and 20 neutrons. Gaining an electron changes the charge, not the isotope identity."
+    ]
+  },
+  {
+    "id": "practice-relative-formula-mass",
+    "nodeId": "ib-2025-structure-1.4.2",
+    "title": "Read the brackets in a formula",
+    "question": "Calculate the relative formula mass, Mᵣ, of Ca(OH)₂ using Aᵣ(Ca) = 40.1, Aᵣ(O) = 16.0 and Aᵣ(H) = 1.0. Show how many of each atom the formula represents, and state whether Mᵣ has a unit.",
+    "hints": [
+      "The subscript 2 outside the brackets applies to both O and H: the formula represents one Ca, two O and two H atoms.",
+      "Add the supplied relative atomic masses for those atoms. A relative mass is a ratio, rather than a mass measured in grams."
+    ],
+    "workedExplanation": [
+      "The formula represents Ca₁O₂H₂: one calcium atom and two of each atom in the hydroxide group.",
+      "Mᵣ = 40.1 + 2 × (16.0 + 1.0) = 74.1.",
+      "Relative formula mass is dimensionless: Mᵣ = 74.1, with no unit. The molar mass of this substance would instead be expressed in g mol⁻¹; it is a different quantity."
+    ],
+    "selfCheck": [
+      "Did I apply the bracket multiplier to both oxygen and hydrogen?",
+      "Did I keep the relative mass dimensionless rather than attach g or g mol⁻¹?"
+    ],
+    "transferQuestion": "Using the same Aᵣ values for H and O, calculate Mᵣ for H₂O and state its unit, if any.",
+    "transferExplanation": [
+      "Mᵣ(H₂O) = 2 × 1.0 + 16.0 = 18.0. It is a relative mass, so it has no unit."
+    ]
+  },
+  {
+    "id": "practice-molar-mass-units",
+    "nodeId": "ib-2025-structure-1.4.3",
+    "title": "Use molar mass with its units",
+    "question": "Use Aᵣ(C) = 12.0 and Aᵣ(O) = 16.0 to find the molar mass of CO₂. Then calculate the mass of 0.250 mol of CO₂. Give units at each step.",
+    "hints": [
+      "One CO₂ molecule has one carbon atom and two oxygen atoms. The numerical value of its molar mass in g mol⁻¹ is 12.0 + 2 × 16.0.",
+      "Use mass = amount × molar mass, or m = nM. Check that mol × g mol⁻¹ gives grams."
+    ],
+    "workedExplanation": [
+      "M(CO₂) = 12.0 + 2 × 16.0 = 44.0 g mol⁻¹. Molar mass is mass per mole, not the mass of a single molecule.",
+      "m = nM = 0.250 mol × 44.0 g mol⁻¹ = 11.0 g.",
+      "The mole units cancel, leaving grams. Here M is 44.0 g mol⁻¹; the dimensionless relative molecular mass is a different quantity with the same numerical value."
+    ],
+    "selfCheck": [
+      "Did I include both oxygen atoms in the molar mass?",
+      "Can I explain why the final answer is in g rather than mol or g mol⁻¹?"
+    ],
+    "transferQuestion": "What amount of CO₂ is present in a 22.0 g sample, using M(CO₂) = 44.0 g mol⁻¹?",
+    "transferExplanation": [
+      "n = m/M = 22.0 g ÷ 44.0 g mol⁻¹ = 0.500 mol. Dividing mass by mass per mole leaves an amount in moles."
+    ]
+  },
+  {
+    "id": "practice-cations-and-anions",
+    "nodeId": "ib-2025-structure-2.1.1",
+    "title": "Explain the signs of ion charges",
+    "question": "A neutral magnesium atom has 12 electrons and a neutral oxygen atom has 8. In a simple ion-formation model, magnesium loses two electrons and oxygen gains two. Write the resulting ions, state their electron counts, and explain the charge signs without changing the nuclei.",
+    "hints": [
+      "Electrons carry negative charge. Losing them leaves an excess of positive charge; gaining them leaves an excess of negative charge.",
+      "Magnesium keeps 12 protons and oxygen keeps 8 protons. Compare those counts with the new electron counts."
+    ],
+    "workedExplanation": [
+      "Magnesium forms Mg²⁺, a cation, with 12 − 2 = 10 electrons. Its 12 positive proton charges exceed the 10 negative electron charges by two.",
+      "Oxygen forms O²⁻, an anion, with 8 + 2 = 10 electrons. Its 10 negative electron charges exceed the 8 positive proton charges by two.",
+      "Only electrons are lost or gained in this model. Neither nucleus changes, so the elements remain magnesium and oxygen."
+    ],
+    "selfCheck": [
+      "Did I connect electron loss to a positive charge and electron gain to a negative charge?",
+      "Did I keep proton numbers unchanged while counting the new electrons?"
+    ],
+    "transferQuestion": "A neutral sodium atom has 11 electrons. It loses one electron. Write the ion and give its electron count.",
+    "transferExplanation": [
+      "It forms Na⁺ with 10 electrons. The nucleus still contains 11 protons, giving one more positive charge than negative charge."
+    ]
+  },
+  {
+    "id": "practice-covalent-attraction",
+    "nodeId": "ib-2025-structure-2.2.1",
+    "title": "Explain what holds a covalent bond together",
+    "question": "Two hydrogen atoms form H₂ by sharing a pair of electrons. Explain the electrostatic attraction that holds the atoms together. Why would saying that the two electrons attract each other be incorrect? Does each hydrogen need an octet?",
+    "hints": [
+      "Identify the signs of the charges: nuclei are positive and electrons are negative.",
+      "The shared pair is attracted to both nuclei. The first electron shell can hold only two electrons, so hydrogen is an exception to an octet description."
+    ],
+    "workedExplanation": [
+      "The negatively charged shared electron pair is attracted to both positively charged hydrogen nuclei. This electron–nucleus attraction is the basis of the covalent bond.",
+      "The electrons repel each other; they do not provide an electron–electron attraction. Nuclei also repel each other. The stable bond distance reflects the balance of attractive and repulsive interactions.",
+      "Each hydrogen shares access to two electrons in its first shell. Hydrogen has a filled first shell with two electrons, not an octet; the octet rule is a tendency with exceptions."
+    ],
+    "selfCheck": [
+      "Can I name both the negative and positive charges involved in the bonding attraction?",
+      "Can I explain why a shared pair does not mean that two electrons attract each other?",
+      "Did I avoid applying an eight-electron shell requirement to hydrogen?"
+    ],
+    "transferQuestion": "In a simple Lewis representation, each chlorine atom in Cl₂ has three lone pairs and the atoms share one bonding pair. How many valence-shell electrons are counted around each chlorine, and which charges provide the bond attraction?",
+    "transferExplanation": [
+      "Each chlorine counts 6 electrons in its three lone pairs and 2 in the shared pair, giving 8 valence-shell electrons. The shared negative electron pair is attracted to both positive nuclei; the electrons do not attract each other."
+    ]
+  },
+  {
+    "id": "practice-molecular-polarity",
+    "nodeId": "ib-2025-structure-2.2.6",
+    "title": "Use shape as well as bond polarity",
+    "question": "CO₂ is linear, with two equal polar C=O bonds at 180°. H₂O is bent, with two equal polar O–H bonds at about 104.5°. Predict whether each molecule is polar and explain using the directions of the bond dipoles. Treat each molecule as an isolated molecule in this simple model.",
+    "hints": [
+      "A molecule can contain polar bonds without having a net molecular dipole. Consider the bond dipoles as vectors.",
+      "In linear CO₂ the equal dipoles point in opposite directions. In bent H₂O they are not opposite, so ask whether their vector sum is zero."
+    ],
+    "workedExplanation": [
+      "In CO₂ the two equal C=O bond dipoles point toward the oxygen atoms in opposite directions. Their vector sum is zero, so this linear molecule is non-polar in the model.",
+      "In H₂O the O–H bond dipoles both point toward oxygen, but the molecule is bent. The dipoles do not cancel, giving a net molecular dipole; water is polar.",
+      "Bond polarity alone is insufficient: the molecular geometry determines whether the individual bond dipoles cancel."
+    ],
+    "selfCheck": [
+      "Did I use both bond polarity and molecular shape?",
+      "Can I explain why polar bonds do not necessarily make a polar molecule?"
+    ],
+    "transferQuestion": "BF₃ is trigonal planar, with three identical polar B–F bonds arranged at 120° in one plane. Predict its molecular polarity in the same simple isolated-molecule model and justify the answer.",
+    "transferExplanation": [
+      "The three equal bond-dipole vectors point toward the fluorine atoms and cancel by symmetry. Ideal trigonal planar BF₃ is non-polar despite having polar bonds."
+    ]
+  },
+  {
+    "id": "practice-mole-and-entities",
+    "nodeId": "ib-2025-structure-1.4.1",
+    "title": "State which entities you are counting",
+    "question": "A sample contains 0.500 mol of CO₂. Calculate the number of CO₂ molecules and the number of oxygen atoms in the sample. Use Nₐ = 6.02 × 10²³ mol⁻¹, rounded here from the exact Avogadro constant. State the type of entity alongside each answer.",
+    "hints": [
+      "Use number of entities = amount × Avogadro constant, or N = nNₐ. The amount given refers to CO₂ molecules, not oxygen atoms.",
+      "Each CO₂ molecule contains two oxygen atoms. Multiply the molecule count by two to count oxygen atoms."
+    ],
+    "workedExplanation": [
+      "N(CO₂ molecules) = 0.500 mol × 6.02 × 10²³ mol⁻¹ = 3.01 × 10²³ CO₂ molecules. The mol units cancel, leaving a count of specified entities.",
+      "There are two oxygen atoms per CO₂ molecule, so the oxygen-atom count is 2 × 3.01 × 10²³ = 6.02 × 10²³ oxygen atoms.",
+      "The mole measures amount of substance, not mass. Naming the entity matters: this sample has 0.500 mol of CO₂ molecules but 1.00 mol of oxygen atoms."
+    ],
+    "selfCheck": [
+      "Did I label my counts as molecules or atoms rather than simply write particles?",
+      "Did I use two oxygen atoms per CO₂ molecule without changing the number of molecules?"
+    ],
+    "transferQuestion": "Using the same rounded Nₐ, how many NaCl formula units are represented by 0.100 mol of solid sodium chloride? Explain why formula units is a more appropriate label than NaCl molecules.",
+    "transferExplanation": [
+      "N = 0.100 mol × 6.02 × 10²³ mol⁻¹ = 6.02 × 10²² NaCl formula units. Solid sodium chloride is an extended ionic lattice, not a collection of discrete NaCl molecules; the formula unit specifies its simplest ion ratio."
+    ]
+  },
+  {
+    "id": "practice-empirical-molecular-formula",
+    "nodeId": "ib-2025-structure-1.4.4",
+    "title": "Turn an atom ratio into a molecular formula",
+    "question": "A molecular compound contains only carbon and hydrogen. A sample contains 4.80 g of carbon and 0.800 g of hydrogen, and the compound's independently measured molar mass is 56.0 g mol⁻¹. Use Aᵣ(C) = 12.0 and Aᵣ(H) = 1.00 to determine its empirical formula and molecular formula. Show why the mass ratio is not the atom ratio.",
+    "hints": [
+      "Convert each element's mass to an amount in moles. Equal amounts of atoms contain equal numbers of atoms, so the mole ratio gives the atom ratio.",
+      "Divide both amounts by the smaller amount for the simplest whole-number ratio. Then compare the molar mass with the mass of one mole of empirical-formula units."
+    ],
+    "workedExplanation": [
+      "n(C) = 4.80 g ÷ 12.0 g mol⁻¹ = 0.400 mol, and n(H) = 0.800 g ÷ 1.00 g mol⁻¹ = 0.800 mol. Carbon atoms are heavier than hydrogen atoms, so the mass ratio alone does not give their number ratio.",
+      "Divide both amounts by 0.400 mol: C:H = 1:2. The simplest whole-number atom ratio is therefore CH₂, the empirical formula.",
+      "One mole of CH₂ empirical-formula units has a mass of 12.0 + 2 × 1.00 = 14.0 g. The molecular molar mass is four times this value: 56.0 ÷ 14.0 = 4.",
+      "Multiply both empirical subscripts by four to obtain C₄H₈. The molecular formula specifies four carbon atoms and eight hydrogen atoms per molecule; CH₂ specifies only their simplest ratio."
+    ],
+    "selfCheck": [
+      "Did I compare amounts in moles rather than reduce the original mass ratio?",
+      "Did I multiply every empirical subscript by the same whole number and check the resulting molar mass?"
+    ],
+    "transferQuestion": "A different molecular compound has empirical formula CH₂ and molar mass 42.0 g mol⁻¹. Using the same relative atomic masses, find its molecular formula.",
+    "transferExplanation": [
+      "One mole of CH₂ empirical-formula units has a mass of 14.0 g. The multiplier is 42.0 ÷ 14.0 = 3, so the molecular formula is C₃H₆, with both subscripts multiplied by three."
+    ]
+  },
+  {
+    "id": "practice-ionic-electrostatic-attraction",
+    "nodeId": "ib-2025-structure-2.1.2",
+    "title": "Distinguish ion formation from the ionic bond",
+    "question": "A sodium chloride crystal contains Na⁺ and Cl⁻ ions. A student says, 'The ionic bond is the electron being transferred, and each Na⁺ attracts only the Cl⁻ that received its electron.' Correct both parts using electrostatic interactions. Also state the interaction between two Na⁺ ions.",
+    "hints": [
+      "Opposite charges attract and like charges repel. Identify the charges present after the ions have formed.",
+      "An ion's electrostatic attraction is not restricted to one partner by the history of an electron. Consider neighbouring ions throughout a three-dimensional crystal."
+    ],
+    "workedExplanation": [
+      "The ionic bond is the electrostatic attraction between oppositely charged ions: positive Na⁺ ions attract negative Cl⁻ ions. Electron transfer can explain ion formation, but the transfer event itself is not the bond.",
+      "Each Na⁺ can attract surrounding Cl⁻ ions in different directions; the attraction is not limited to a particular ion that received an electron. The crystal is an extended arrangement of ions rather than independent bonded pairs.",
+      "Two Na⁺ ions repel because they have like charges. Both attractions and repulsions matter in a stable lattice; it would be incorrect to say that all neighbouring charges attract."
+    ],
+    "selfCheck": [
+      "Did I describe an attraction between ions, rather than call electron transfer the bond?",
+      "Can I explain why opposite charges attract, like charges repel, and the attraction is not restricted to one named partner?"
+    ],
+    "transferQuestion": "Magnesium oxide contains Mg²⁺ and O²⁻ ions. Which pair attracts, Mg²⁺ with O²⁻ or Mg²⁺ with Mg²⁺? Does the definition of the ionic bond change because the charges have magnitude two?",
+    "transferExplanation": [
+      "Mg²⁺ and O²⁻ attract because their charges are opposite; two Mg²⁺ ions repel. The definition remains electrostatic attraction between oppositely charged ions. A charge of magnitude two does not make electron transfer itself the bond."
+    ]
+  },
+  {
+    "id": "practice-ionic-lattice-formula",
+    "nodeId": "ib-2025-structure-2.1.3",
+    "title": "Read an ionic formula as a lattice ratio",
+    "question": "Solid magnesium chloride contains Mg²⁺ and Cl⁻ ions in a three-dimensional repeating lattice. Find the simplest ion-number ratio that gives zero net charge and write the empirical formula. Explain why this formula should not be read as a collection of isolated molecules in the crystal.",
+    "hints": [
+      "One Mg²⁺ contributes +2. How many Cl⁻ ions, each contributing −1, are needed to balance that charge?",
+      "The subscripts describe the simplest ratio in the extended structure. They do not mark the boundary of a separate molecule."
+    ],
+    "workedExplanation": [
+      "One Mg²⁺ and two Cl⁻ give a total charge of +2 + 2 × (−1) = 0. The simplest Mg²⁺:Cl⁻ ion-number ratio is 1:2.",
+      "The empirical formula is MgCl₂. The subscript 2 records twice as many chloride ions as magnesium ions; it does not mean that magnesium has a charge of +1 or that chlorine atoms are paired as Cl₂ molecules.",
+      "The solid is a three-dimensional lattice extending through many ions, not isolated MgCl₂ molecules. A formula unit is a way of expressing the simplest composition ratio, rather than a discrete particle cut out of the crystal."
+    ],
+    "selfCheck": [
+      "Does my simplest ratio balance the total positive and negative charges?",
+      "Can I distinguish a formula unit in an extended ionic lattice from a separate molecule?"
+    ],
+    "transferQuestion": "An aluminium oxide lattice contains Al³⁺ and O²⁻ ions. Find the simplest neutral ion-number ratio and its empirical formula.",
+    "transferExplanation": [
+      "The smallest matching total charge is six: two Al³⁺ contribute +6 and three O²⁻ contribute −6. The simplest Al³⁺:O²⁻ ratio is 2:3, so the empirical formula is Al₂O₃, not a formula for isolated molecules in the solid."
+    ]
+  },
+  {
+    "id": "practice-vsepr-domains-and-shape",
+    "nodeId": "ib-2025-structure-2.2.4",
+    "title": "Separate electron domains from molecular shape",
+    "question": "In CH₄ the central carbon has four bonding pairs and no lone pairs. In NH₃ the central nitrogen has three bonding pairs and one lone pair. Count each single bond and each lone pair as one electron domain. Use VSEPR to predict the electron-domain arrangement and molecular shape of each. Use 109.5° as the ideal tetrahedral reference and explain qualitatively how the lone pair affects the H–N–H angle; no exact ammonia angle is required.",
+    "hints": [
+      "Four electron domains arrange approximately tetrahedrally to reduce repulsion. Count lone pairs as well as bonds when finding the domain arrangement.",
+      "The molecular shape describes the positions of atoms, not the lone pair. Lone-pair repulsion can compress the angles between bonding domains."
+    ],
+    "workedExplanation": [
+      "CH₄ has four electron domains, all bonding. Its electron-domain arrangement and molecular shape are both tetrahedral, with ideal H–C–H angles of 109.5°.",
+      "NH₃ also has four electron domains: three bonding and one lone pair. Its electron-domain arrangement is approximately tetrahedral, but the three hydrogen positions give a trigonal pyramidal molecular shape.",
+      "The lone pair occupies one domain and repels the bonding domains more strongly than they repel one another in this model. The H–N–H angle is therefore somewhat smaller than 109.5°. A domain arrangement is not automatically the molecular shape."
+    ],
+    "selfCheck": [
+      "Did I count the lone pair when finding the number of electron domains?",
+      "Did I name the shape using atom positions and distinguish it from the electron-domain arrangement?"
+    ],
+    "transferQuestion": "In H₂O the central oxygen has two bonding pairs and two lone pairs. Predict its electron-domain arrangement and molecular shape using the same model. Should two bonded atoms alone make it linear?",
+    "transferExplanation": [
+      "There are four electron domains, so the electron-domain arrangement is approximately tetrahedral. The two hydrogen positions give a bent molecular shape, not a linear one. The two lone pairs must be included in the domain count, even though they are not atom positions."
+    ]
+  },
+  {
+    "id": "practice-bond-polarity-electronegativity",
+    "nodeId": "ib-2025-structure-2.2.5",
+    "title": "Use electronegativity to locate partial charges",
+    "question": "Use the supplied electronegativities C = 2.6, O = 3.4 and F = 4.0. Compare the polarity of a C–O bond with a C–F bond in a simple shared-electron model. Calculate each electronegativity difference, identify the partial charges, and decide whether an F–F bond is polar. These are bond comparisons, not predictions of whole-molecule polarity.",
+    "hints": [
+      "Electronegativity describes an atom's attraction for shared electrons. The more electronegative atom in a polar bond is partially negative.",
+      "Subtract the smaller electronegativity from the larger. A larger difference indicates a more polar bond in this model; equal values give no bond dipole."
+    ],
+    "workedExplanation": [
+      "For C–O, the electronegativity difference is 3.4 − 2.6 = 0.8. Oxygen attracts the shared electrons more strongly, so the partial charges are Cδ⁺–Oδ⁻.",
+      "For C–F, the difference is 4.0 − 2.6 = 1.4. The partial charges are Cδ⁺–Fδ⁻. Its larger electronegativity difference makes C–F more polar than C–O in this model.",
+      "For F–F, the difference is 4.0 − 4.0 = 0.0. Equal atoms share the bonding electrons equally, so this bond is non-polar. The δ symbols describe partial charges in covalent bonds, not full ionic charges."
+    ],
+    "selfCheck": [
+      "Did I place δ⁻ on the more electronegative atom and δ⁺ on the other atom?",
+      "Did I compare electronegativity differences without treating partial charges as full ion charges or inferring an entire molecule's polarity?"
+    ],
+    "transferQuestion": "Given H = 2.2 and Cl = 3.2 on the same electronegativity scale, calculate the H–Cl bond's electronegativity difference and identify its partial charges.",
+    "transferExplanation": [
+      "The difference is 3.2 − 2.2 = 1.0. Chlorine attracts the shared electrons more strongly, giving Hδ⁺–Clδ⁻. These partial charges do not mean that the molecule consists of a free H⁺ ion and a free Cl⁻ ion."
+    ]
+  },
+  {
+    "id": "practice-intermolecular-force-types",
+    "nodeId": "ib-2025-structure-2.2.8",
+    "title": "Identify attractions between particles",
+    "question": "Consider separate pure samples of CH₄, HCl and NH₃. CH₄ is non-polar; HCl and NH₃ are polar. Only NH₃ has H directly bonded to N, O or F. Identify the intermolecular attractions in each sample in the usual introductory model. Then describe the additional attraction when a polar HCl molecule approaches an Ar atom with no permanent dipole. Distinguish these attractions from covalent bonds within molecules.",
+    "hints": [
+      "London (dispersion) forces occur between all these neutral particles. Polar molecules also have permanent dipoles, which can attract other permanent dipoles or induce a dipole in a neighbouring particle.",
+      "Hydrogen bonding requires H directly bonded to N, O or F interacting with a suitable lone pair on a neighbouring particle. Simply containing hydrogen is insufficient."
+    ],
+    "workedExplanation": [
+      "All three pure samples have London (dispersion) forces arising from temporary fluctuations in electron distributions. For non-polar CH₄, these are the only intermolecular attractions in this model.",
+      "Pure HCl also has dipole–dipole attractions between its permanent molecular dipoles. It does not have hydrogen bonding in this model because its H is bonded to Cl rather than N, O or F.",
+      "Pure NH₃ has London forces, dipole–dipole attractions and hydrogen bonding. An N–H hydrogen on one molecule can interact with the nitrogen lone pair on another molecule.",
+      "An approaching HCl molecule can distort the Ar electron cloud and induce a dipole. Attraction between the permanent HCl dipole and the induced Ar dipole is dipole-induced dipole attraction; London forces also operate between these particles.",
+      "These attractions act between particles. They are distinct from the covalent C–H, H–Cl and N–H bonds within the molecules."
+    ],
+    "selfCheck": [
+      "Did I include London forces even for polar and hydrogen-bonding molecules?",
+      "Did I check what atom H is bonded to, rather than assume every hydrogen-containing molecule forms hydrogen bonds?",
+      "Can I distinguish a permanent dipole from a dipole induced in a neighbouring particle?"
+    ],
+    "transferQuestion": "Pure CH₃F consists of polar molecules, but all three H atoms are bonded to carbon. Do the molecules form hydrogen bonds with one another in this model? State the intermolecular attractions that still occur.",
+    "transferExplanation": [
+      "Pure CH₃F does not form hydrogen bonds with itself in this model: it has no H directly bonded to N, O or F. It still has London forces and dipole–dipole attractions. Having a fluorine atom somewhere in the formula is insufficient for self hydrogen bonding."
+    ]
+  },
+  {
+    "id": "practice-comparable-intermolecular-forces",
+    "nodeId": "ib-2025-structure-2.2.9",
+    "title": "Compare intermolecular forces under stated conditions",
+    "question": "Compare C₂H₆ (molar mass 30 g mol⁻¹, non-polar), CH₃F (34 g mol⁻¹, polar, with every H bonded to C), and CH₃OH (32 g mol⁻¹, polar, with an O–H group). Their molar masses are comparable. At the same external pressure, use the introductory intermolecular-force model to predict the order of boiling temperatures from lowest to highest. Explain why boiling does not require breaking the covalent O–H bond.",
+    "hints": [
+      "All three have London forces. Identify which sample also has permanent dipole–dipole attractions and which can form hydrogen bonds between its own molecules.",
+      "For comparable molar masses, stronger intermolecular attractions generally require more energy to separate molecules. Keep that condition in your comparison rather than turn the force ranking into a universal rule."
+    ],
+    "workedExplanation": [
+      "C₂H₆ has London forces only in this model. CH₃F also has dipole–dipole attractions, but its C–H bonds do not provide hydrogen-bond donors. CH₃OH can form hydrogen bonds through its O–H group and the oxygen lone pairs; it also has London and dipole–dipole attractions.",
+      "With these comparable molar masses, the expected order is C₂H₆ < CH₃F < CH₃OH for boiling temperature at the same external pressure. The general relative-force comparison is London < dipole–dipole < hydrogen bonding under this condition.",
+      "Boiling separates molecules against intermolecular attractions. The molecules retain their covalent bonds; it does not require breaking the O–H covalent bond within methanol.",
+      "This is a conditional trend, not a universal ranking of every substance. Electron-cloud size, polarizability and molecular shape can change London attractions; the force label alone is insufficient when comparing very different molecules."
+    ],
+    "selfCheck": [
+      "Did I state that the molar masses are comparable and the external pressure is the same?",
+      "Did I compare attractions between molecules, include London forces for all samples, and keep covalent bonds distinct from those attractions?"
+    ],
+    "transferQuestion": "A student claims, 'Every hydrogen-bonding substance must boil above every non-polar substance.' Does this example justify that claim? Identify the missing condition without guessing an unknown boiling temperature.",
+    "transferExplanation": [
+      "No. The general ranking used here assumes comparable molar masses. Larger, more polarizable non-polar molecules can have strong London attractions, and molecular shape also matters. You cannot infer a universal boiling-temperature order from the name of one force alone."
+    ]
+  }
+]

@@ -1,351 +1,41 @@
-# Studentdash — local assessment results and persistent classifications
+# ArborSynapse
 
-Import lightweight assessment metadata from ChatGPT, enter or paste results, and
-generate private student dashboards. An existing Excel-results-only workflow is
-also preserved.
-The application uses local SQLite and makes no external API calls. Normal use
-works offline after the initial Python dependencies have been installed.
+Assessments, classifications, student dashboards and learning trees in one folder.
+Chemistry is the included tree; the assessment system also supports other subjects.
 
-## 1. Start the assessment workspace on Windows
+## Start locally
 
-Install Python **3.10 or newer**, update the `work` branch, keep your existing
-`data` folder, and double-click **`start-assessment-import.bat`**. This is the
-recommended startup path for ChatGPT assessment imports. Stop any other
-Studentdash server first. Open **http://127.0.0.1:5000/classes** and select a class.
-The launcher retains the original `data/entered_classes` location and respects an
-existing `STUDENTDASH_WORKBOOK` override. No private data migration is required.
+Install Python 3.10+ and Node.js 22.12+ (or 24 LTS), then open **Start.cmd**.
+On Linux/macOS run `sh Start.sh`. First start installs dependencies and builds the
+three tree views. Later starts reuse the build until its source changes.
+Open **http://127.0.0.1:5000/classes**. Keep the launcher window open.
 
-1. Choose **Import assessment** and **Copy prompt**.
-2. Paste the prompt in ChatGPT and attach the test paper there.
-3. Paste the complete JSON response into Studentdash and click **Preview assessment**.
-4. Check/edit the compact question/marks/tags/curriculum/scope table and total marks.
-5. Click **Import assessment** once, then enter or paste scores from Excel separately.
+The navigation includes classes, results, the full/simple learning trees and the
+Excel-only workspace. Use your existing prompt → metadata JSON → paste scores
+workflow. Student exports include saved classifications and optional node rings.
+Confidence remains local to each student's browser.
 
-No full question text, source document, mark scheme, answer, page reference,
-confidence rating or per-question review checkbox is required. Missing tags and
-curriculum links are allowed. Marks must be positive. The optional short question
-name is only a label. Scope options come from the class profile; blank means unknown.
+## Keep your existing data
 
-Repeated imports preserve assessment and matching question IDs. Blank classification
-fields preserve existing values. Explicit updates can select an existing assessment;
-replacements require confirmation, and changes that would discard recorded scores
-or make a saved score exceed its maximum are blocked. Historical saved assessments,
-source documents and backups are retained without destructive migration.
+Stop the old app, back it up, then **copy** its `data` directory into this folder.
+Keep your original until you have checked the class list and results. Do not copy
+Python/npm dependencies or generated builds. Existing `.sdclass` IDs/formats and
+local confidence keys are retained. Custom `STUDENTDASH_*` paths still work.
 
-Unfinished metadata previews can be reopened from the class page. The response is
-retained on validation errors. Back up class data using **Packages & workspace
-backup** in this workspace. See [metadata import details](archive/legacy/docs/ASSESSMENT_IMPORT.md).
+## Export for a student
 
-The existing Excel-results-only workspace remains available via `start.bat` and
-its original private SQLite directory. The following sections document that
-separate, preserved workflow; it is not required for metadata assessment import.
+Open a class → **Export student folder**. The bundled viewer path is filled
+in. Saved tags and section classifications follow automatically. Choose one student
+and their own empty/local OneDrive folder, then export. They open **Start Studentdash.cmd**.
+Re-export to that same folder for updates; confidence stays separate.
 
-### Teacher navigation, question levels and drafts
+## Develop and test
 
-The shared teacher bar is **Studentdash | Classes | Assessments | Students |
-Curriculum | Settings**. The active section is highlighted, and the class link at
-the right returns to the selected class overview. Navigation keeps the selected
-class. On narrow screens the compact bar scrolls horizontally. Student exports
-and student simulations do not receive teacher navigation.
+`python scripts/check.py` runs the Python checks. Run `npm test --prefix tree` for
+the tree checks. `npm run build:all --prefix tree` rebuilds all tree views.
+Only source and a compressed practice bundle belong in Git; data, dependencies and
+builds are ignored. Practice resources unpack automatically on first use.
 
-**Settings** contains backup/restore and the selected class's level configuration.
-For a single-level class, metadata import hides the per-question selector and uses
-the configured class level automatically. For a mixed class, **Question level**
-shows configured choices (SL, HL and Both for Chemistry), with a short explanation.
-The compatible JSON key remains `scope`; `BOTH` remains the stored value for Both.
-Existing course snapshots can obtain additive level defaults from their matching
-configured curriculum. Class names are never used to infer levels. Selecting class
-levels changes import defaults, not saved assessments or score/eligibility rules.
-
-Delete unwanted imports using **Delete draft** on the class's draft lists or the
-metadata/document review page. The confirmation names the draft and class; Cancel
-keeps it. Confirmation deletes only an unpublished draft and its owned temporary
-source records, with a success message and refreshed list. Published assessments,
-scores, classifications and backup copies are protected. Concurrent changes require
-reloading the confirmation. The introductory marketing panel has been removed.
-
-Tests and exit tickets use the same import and score workflow. Select **Assessment**
-or **Exit ticket**, click **Update prompt**, then copy the prompt. The compatible
-v2 JSON adds optional `assessment_type` (`assessment` or `exit_ticket`). Older
-JSON remains valid; existing types survive updates that omit the field. Filters
-on assessment lists, teacher overview and offline snapshots select types without
-changing saved totals or the default calculations.
-
-**Classes → selected class** contains the roster and Add students. **Students**
-contains individual results, next-step previews and feedback. Class planning and
-the separate interactive exit-ticket workflow are retired in the supported class
-workspace. Their historical data remains stored and included in backups.
-
-Class snapshots have one history row per assessment, expandable **Skills and action
-verbs**, hierarchical **Curriculum performance**, published teacher feedback and
-suggested revision. They omit progress bars, question-evidence listings, revision
-attempts and practice activities/completion. Draft feedback can still be previewed
-and published; regenerate snapshots after changes. Old class assessments use the
-same results-focused layout without migration. Existing historical snapshot files
-are not overwritten until regeneration.
-
-The **Curriculum** page displays a compact expandable tree. Question references
-remain editable under assessment **Classify → Curriculum parts**. Trees use explicit
-parents; a single container root is omitted from performance. The mathematics
-curriculum shows its five regions plus Prior learning. Shared descendant links
-count each question once per ancestor. Unclassified and ungraded evidence remain
-visible. Settings and private data locations are unchanged.
-
-### Separate self-reported confidence
-
-On the score-entry page, record optional confidence beside each student's marks:
-**1 = very low confidence, 5 = very high confidence**. Blank is **Not recorded**;
-clear the confidence cell to remove a saved rating. Save scores to persist both. Excel column order is question scores followed by
-confidence; the calculated Total / state column is not part of the paste. Rectangles
-can start at any editable cell, including confidence, and span several students.
-Score-only pastes preserve ratings outside the pasted block. A blank confidence cell
-inside the rectangle, including a trailing blank Excel column, explicitly clears it.
-Invalid entries remain available for correction; malformed/out-of-bounds rectangles
-change no cells. Ordinary score
-pastes and imports that omit confidence retain saved ratings. Confidence appears
-next to the assessment in teacher overviews and offline student history, but never
-changes marks, grades, classification/curriculum percentages or evidence counts.
-Regenerate snapshots after editing confidence.
-
-See [the four-mark exit-ticket JSON example](archive/legacy/examples/exit-ticket-confidence.json).
-Replace its class ID and date using your generated prompt; add configured tags and
-curriculum IDs as appropriate.
-
-The compatible v2 assessment JSON accepts optional
-`"confidence": {"enabled": true, "min": 1, "max": 5}`. This configures the separate
-rating, not a scored question; student ratings never belong in definition JSON.
-For exit tickets, the ChatGPT prompt defaults scored questions to 1 mark each,
-with explicit printed marks or a teacher's override taking precedence. Confidence
-reflections are excluded from `questions`. Older JSON remains supported.
-
-If confidence was previously imported as a scored question, open **Edit assessment →
-Correct a previously scored confidence item**. Select the question, review changed
-maximums and each student's before/after total, then explicitly confirm. The old
-question and its recorded marks are archived locally and in backups. No rating is
-inferred from those marks. Existing snapshots change only after regeneration.
-
-Results lists place items with graded evidence first and show items without graded
-evidence at the bottom in a muted style. This applies to classification categories,
-tags, curriculum siblings and teacher question-review groups. Zero marks count as
-graded evidence; absent, exempt, missing and pending results do not. Curriculum
-hierarchies remain intact, and configuration/selection lists keep their course order.
-Expand arrows appear only on curriculum items with children or lists with actual
-entries; leaf items and empty classification lists are plain text.
-Regenerate student dashboards to update existing offline snapshots.
-
-### Mathematics action verbs and grouped classification
-
-Mathematics AI SL now configures IB command-term labels under the existing
-`CommandTerm` tag category, displayed as **Action verbs**. The previous mathematics
-configuration had no categories, which produced empty prompt vocabulary and no
-verb controls. Exact matching saved course identities receive additive vocabulary
-when read: no database write or curriculum snapshot replacement occurs. Existing
-custom categories, values and selection rules are retained. Normal later saves
-can persist the expanded vocabulary. No historical question is classified from text.
-
-In **Edit assessment → Classify**, choose action verbs and expand **Curriculum
-parts** into Prior learning and the five configured mathematics regions. Select
-across groups without Ctrl/Command. Selected tags and references remain visible in
-the collapsed Classify summary; the count is tags plus curriculum references.
-Broad part references remain selectable. The course root is offered only when
-already saved, as an existing broad reference; uncheck it deliberately to clear.
-The legacy/free-text label is retained but does not create stable curriculum links.
-
-The same groups appear in import preview. Copy a fresh ChatGPT prompt to include
-the vocabulary, category labels and selection rules. Previously empty `tags` JSON
-still works. Add verbs manually or import reviewed classifications, then regenerate
-student dashboards to update **Skills and action verbs**. Scores and confidence
-remain separate. Vocabulary labels reference the IB Mathematics: applications and
-interpretation guide (first assessment 2021), glossary of command terms; this is
-configuration, not automatic skill inference or an official assessment judgement.
-
-## 2. Import the grading workbook
-
-Choose **Import results**, give your course a permanent ClassID such as
-`Chemistry_HL_2026`, and upload the original `.xlsx`. Use that same ClassID on
-subsequent imports even if the workbook filename changes. Preview the students,
-assessments, scores, warnings and identity mappings, then confirm.
-
-The adapter supports the supplied `Chemistry 23-25 HL.xlsx` structure:
-
-- `Overview`: names in A2 onward, with `Name` in A1. No scores are read from this
-  administrative overview. Optional `StudentID` and `Level` columns are supported.
-- `Assessment blueprint`: a template, **never an assessment**.
-- Copy that template and name each assessment sheet `DD.MM.YYYY` (ISO
-  `YYYY-MM-DD` also works). Row 1 contains question labels, row 2 maximum marks,
-  and rows 3 onward contain students and marks. Question columns run from B up to
-  the `Marks` total column. Labels such as `*1a` are kept exactly, with no inferred
-  syllabus or level meaning.
-- The adapter ignores `Marks`, absence, percentages, suggested/official grades
-  and statistics columns as question data. It skips the `Sum` and `Task` footer
-  rows and reports unknown non-date sheets as ignored.
-- `Grade boundaries`: numeric grades and minimum percentages. The `FRAV` row is
-  an absence label, not a grade. Suggested grades are recomputed from complete
-  question evidence, using inclusive thresholds; official teacher grades are not
-  silently substituted.
-
-**The supplied example currently contains 33 roster entries, seven grade boundaries
-and no dated assessment sheets.** Its blueprint has no scores. Importing it must
-not invent assessments, results or classifications. No structural change to the
-original workbook is required: continue copying the blueprint as usual.
-
-Blank marks stay **pending**; numeric zero stays a **graded zero**. `A`, `X` or
-`FRAV` means absent, `E` exempt, `M` missing and `P` pending; full English status
-names also work. An `x` in the `x for absence` column marks all that row's questions
-absent and warns if it overrides recorded marks. Ungraded statuses do not contribute
-to category performance. Incomplete assessments have no suggested overall grade.
-
-Original Excel files are **never modified**. Direct name links such as
-`=Overview!A2` are resolved read-only. Other score formulas require saved cached
-values: recalculate/save in Excel before importing. Excel errors and missing score
-formula caches block import; cache freshness cannot be established automatically.
-Administrative totals/grades need not be recalculated by Python. Complete cached
-totals that disagree with question marks produce a warning for teacher review.
-
-Student mappings use an explicit source StudentID if present, otherwise the exact
-normalized name, never the row position. Without source IDs, renamed students must
-be mapped to their existing internal ID in the preview. Unmatched students require
-confirmation as new. Duplicate/ambiguous names are rejected; use distinguishing
-names in this case. No IDs or classifications are guessed from names or filenames.
-
-## 3. Obtain and import classifications
-
-After importing results, open **Import classifications**. Download either the
-blank template or a template populated with your existing question identities and
-classifications. Download the short ChatGPT prompt too. Give ChatGPT the **question
-paper**, template and vocabulary; do not send student names, results or the grading
-workbook. ChatGPT is used separately; Studentdash has no API integration.
-
-The `.xlsx` contains `Classifications`, `Vocabulary`, `SyllabusNodes` and
-`Instructions` sheets. UTF-8 comma-delimited CSV is supported for the
-Classifications table with the same headers:
-
-```text
-ClassID,AssessmentID,QuestionID,Level,SyllabusCode,Topic,Subtopic,CommandTerm,Skill,CognitiveDemand,Context,Representation,QuantitativeSkill,ExperimentalSkill
-```
-
-Use ISO assessment dates, preserve question labels exactly, and separate multiple
-tags with semicolons. Categories/allowed tags come from the class's captured
-`profiles/*.json` profile. The included Chemistry profile permits SL, HL or BOTH;
-other subjects can configure entirely different categories and level rules without
-core Python changes. Level is optional. Eligibility filtering applies only when
-both student level and question scope are explicitly known from profile metadata.
-No level is inferred from `*` labels or filenames.
-
-SyllabusCode accepts explicit configured node IDs or external codes. Existing
-hierarchy nodes come from the selected `curricula/*.json`. For finer syllabus
-statements, add rows to `SyllabusNodes` with `NodeID`, `ParentID`, `Label`, `Code`.
-Parents must exist; cycles, duplicates and redefinition of existing nodes are
-rejected. **No hierarchy is inferred by splitting codes.** CSV can reference
-existing nodes but cannot add nodes. Topic/Subtopic are optional teacher-supplied
-labels, kept separate from the controlled tag vocabulary.
-
-Upload and preview the file. Unknown classes, assessments, questions and tags,
-duplicates and conflicts are reported. Blank fields preserve existing values;
-unknown new fields remain unknown. Use `[clear]` to explicitly clear a field.
-Existing teacher-confirmed classifications require explicit replacement consent.
-To correct them, download the populated template, edit it, upload, review and
-confirm. Before/after changes are recorded in the private import history.
-
-## 4. Generate student HTML dashboards
-
-**Student overview** shows results, classification coverage and per-student previews.
-**Generate dashboards** regenerates every active student's file under:
-
-```text
-data/generated/<ClassID>/student1001.html
-data/generated/<ClassID>/student1002.html
-```
-
-Each file includes only its learner's assessment history, question evidence and
-classification analyses. Styling is inline. There are no external scripts, fonts,
-APIs, workbook files or databases; each HTML works offline without Flask/Python.
-Marks and percentages use graded question evidence only. Multi-tag questions count
-once per tag and once per explicit syllabus ancestor. Category percentages overlap
-and must not be added. Strength/low-performance labels require at least two graded
-questions; insufficient evidence, missing results and no classification are distinct.
-
-Saved files are marked stale after imports. The ZIP download always renders current
-data. **The all-student ZIP is for the teacher**: distribute each HTML individually
-to the correct student. It contains no source workbook or teacher database.
-
-## 5. Back up or move to another computer
-
-All classes, stable student mappings, assessment metadata, result snapshots,
-classifications, retired classifications, teacher corrections and import history
-are stored in **`data/private/studentdash.sqlite3`**. Scores remain authoritative in
-your original Excel workbook; the database contains its last confirmed import.
-
-Use **Backup & history → Create and download database backup**. This uses SQLite's
-consistent backup API and verifies integrity. A copy also stays under
-`data/private/backups/`; retain a secure copy on another device. Backups contain
-private data for **all classes**, not just the currently selected class.
-
-On the new computer clone Studentdash, install its dependencies, and keep the server
-stopped. Restore to a **new** location:
-
-```bat
-.venv\Scripts\python.exe -m app.restore "D:\Backups\studentdash.sqlite3" data\restored\studentdash.sqlite3
-set "STUDENTDASH_PRIVATE=C:\path\to\studentdash\data\restored"
-start.bat
-```
-
-Restore validates the database version/integrity and never overwrites existing
-data. Keep the backup and previous directory until you verify the restored classes.
-The session key is regenerated on another machine; it is not needed to recover
-classifications. Use `STUDENTDASH_GENERATED` to choose another generated-file root.
-Keep private and generated directories separate. Both default directories, Excel,
-SQLite, ZIP, CSV and mapping files under `data/` are excluded from Git. GitHub does
-not back up your private classifications.
-
-## 6. Add the next test
-
-Copy the blueprint, name it with the new test date, enter scores, and upload the
-updated workbook using the same ClassID. Studentdash recognizes existing students,
-assessments and question labels. All previous classifications remain stored and
-the new assessment is flagged as needing classification. Upload only the new
-classification file and regenerate dashboards. Previous files are not needed.
-
-If an existing question's label or maximum changes, review and confirm the structure
-change. Affected classifications are **retired into history**, never silently
-reattached. Reclassify the changed questions explicitly. Removed sheets are retained
-privately with their classifications, but excluded from current dashboards after
-confirmation. Preview revisions prevent stale tabs from overwriting newer imports.
-
-## Development and archive
-
-For the class-based metadata import, run from `archive/legacy`:
-
-```sh
-../../.venv/bin/python -m unittest discover -s tests -p 'test_*assessment*.py' -v
-```
-
-This covers the metadata paste/preview/import and historical assessment-import
-compatibility. The tests below cover the preserved Excel-results-only workspace.
-
-```sh
-.venv/bin/python -m unittest discover -s tests -v
-```
-
-Tests generate only fictional workbooks and temporary databases. They cover
-reimports, the three-assessment workflow, classification corrections, IDs, statuses,
-formula caches, hierarchical/multi-tag analytics, privacy, persistence, backup,
-restore, standalone exports and the teacher HTTP workflow.
-
-An optional real-browser test additionally exercises uploads, confirmations, ZIP
-download and an offline-rendered student document. Install `requirements-dev.txt`
-and set `STUDENTDASH_BROWSER_EXECUTABLE` to your Chromium/Chrome executable (or use
-system `chromium`). The browser check is skipped if these optional tools are absent;
-all core workflow tests still run.
-
-The previous application is preserved intact under **`archive/legacy/`**, including
-its original source, tests, documentation, workbook support, quizzes, games,
-question banks, exit tickets and student submission simulations. It is not imported
-by the active app. Shared profile/curriculum data remain available at the root;
-the archive retains its own snapshot for compatibility. See [archive notes](archive/README.md)
-for running the old workflow separately. Public hosting and student submissions
-are outside the active application.
-
-## Use the saved class with Chemistree
-
-The class page now includes **Export Studentdash + Chemistree**. It reads the existing metadata import and saved question scores; no replacement Excel schema is required. Follow [the local class test](docs/CHEMISTREE_CLASS_TEST.md).
+For automatic Atlas testing after the new repository exists, follow
+[the short Atlas setup](docs/ATLAS.md). Keep the testing sandbox fictional.
+For moving this branch into the new repository, see [the move steps](docs/MOVE.md).

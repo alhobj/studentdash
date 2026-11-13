@@ -1,0 +1,13 @@
+import {build} from 'vite';
+import {readFile,mkdir,copyFile,readdir,writeFile} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+const root=resolve(import.meta.dirname,'..'),output=join(root,'local-package');
+await build({configFile:false,root:join(root,'local-viewer'),base:'./',resolve:{dedupe:['react','react-dom','@xyflow/react']},build:{outDir:join(output,'app'),emptyOutDir:true}});
+await mkdir(output,{recursive:true});
+for(const name of ['serve.py','Start.ps1','Start.cmd'])await copyFile(join(root,'local-runtime',name),join(output,name));
+const assets=(await readdir(join(output,'app/assets'))).filter(n=>/\.(js|css)$/.test(n)).map(n=>'assets/'+n);
+await writeFile(join(output,'assets-manifest.json'),JSON.stringify(assets,null,2));
+const map=JSON.parse(await readFile(join(root,'simple/src/data/map.json'),'utf8'));
+await writeFile(join(output,'curriculum.json'),JSON.stringify({mapId:'chemistree',mapVersion:'2.0',nodes:map.nodes.map(n=>({id:n.id,code:n.code,title:n.title}))},null,2));
+await copyFile(join(root,'docs/LOCAL_STUDENT_GUIDE.md'),join(output,'LOCAL_STUDENT_GUIDE.md'));
+console.log('Built local-package. No student results or confidence are bundled. Use Studentdash export_local_tree.py to create an individual package.');

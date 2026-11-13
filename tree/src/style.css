@@ -1,0 +1,130 @@
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#203c34;background:#f6f7f2;font-synthesis:none;font-size:14px}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,select{cursor:pointer}button,a,input,select,textarea{outline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #bf8139}button{border:1px solid #d6ded5;background:#fff;padding:9px 13px;border-radius:7px;color:#294b3f}button:hover{background:#edf3e9;border-color:#759f87}button[aria-pressed=true]{background:#224d3d;color:white}a{color:#28654d}select{border:1px solid #d4ddd2;border-radius:6px;background:white;color:#294b3f;padding:9px}header{height:83px;display:flex;align-items:center;justify-content:space-between;padding:0 38px;border-bottom:1px solid #dce3d8;background:#fff}.brand{font-size:26px;font-weight:750;letter-spacing:-1px;text-decoration:none;color:#173e32;display:flex;align-items:center;gap:10px}.brand-mark{background:#254f3d;color:#d0e5b7;width:38px;height:38px;text-align:center;font-size:32px;line-height:35px;border-radius:11px}.beta{font-size:9px;letter-spacing:1.5px;border:1px solid #d7dfd0;padding:5px 7px;border-radius:4px;color:#6b7b66;margin-left:5px}.header-right{display:flex;gap:15px;align-items:center}.header-right>span{font-size:10px;letter-spacing:1.6px;color:#6e7d70}main{max-width:1700px;margin:auto;padding:32px 38px}.eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:700;color:#6b7e62}h1{font-family:Georgia,serif;font-size:44px;font-weight:500;letter-spacing:-1.4px;margin:11px 0}p{line-height:1.65}.notice{background:#edf1e5;border:1px solid #dbe3ce;border-radius:8px;padding:13px 16px;font-size:12px;margin-bottom:23px;color:#54634c}.notice b{font-weight:600}.notice>span{float:right;color:#7c866e;font-size:10px;margin-top:2px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:22px;align-items:start}.explorer{min-width:0;border:1px solid #dae2d6;border-radius:12px;background:white;overflow:hidden}.toolbar{display:flex;gap:7px;padding:16px;border-bottom:1px solid #e4e9df;flex-wrap:wrap}.search{display:flex;align-items:center;gap:9px;flex:1;min-width:180px;background:#f5f7f1;border:1px solid #dce3d6;border-radius:7px;padding:0 11px}.search span{font-size:24px}.search input{width:100%;padding:11px 0;border:0;background:transparent;color:#264a3b;font-size:12px}.map-options{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:11px;background:#fcfdf9;flex-wrap:wrap}.map-options select,.map-options button{font-size:11px;padding:7px}.map-options>span{margin-left:auto;color:#879180}.canvas{height:690px;position:relative;background:#f3f6ef}.react-flow__node-skill{width:260px}.skill-card{background:#fff;width:260px;min-height:112px;padding:15px;text-align:left;border:1px solid #d3ddce;border-left:3px solid #a9bf9b;border-radius:9px;box-shadow:0 3px 6px #2e4d3210;display:flex;flex-direction:column;gap:10px;white-space:normal}.skill-card.active{border:2px solid #2e6850;background:#fafff6;box-shadow:0 0 0 5px #40895715}.skill-card strong{font-size:15px;line-height:1.35;color:#254235}.node-meta{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#7b8d73;display:flex;justify-content:space-between}.node-meta b{font-size:8px;color:#687e5d;background:#eef3e7;border-radius:3px;padding:2px 4px;letter-spacing:0}.node-status{font-size:10px;color:#71876c}.self-dot{font-size:10px;color:#37714c}.react-flow__handle{background:#8da87f!important;border:2px solid white!important;width:8px!important;height:8px!important}.map-caption{position:absolute;bottom:17px;right:15px;font-size:10px;background:#fffC;padding:8px;border-radius:4px;color:#76876c}.legend{padding:15px 16px;display:flex;gap:18px;flex-wrap:wrap;font-size:10px;color:#6f7f6c;border-top:1px solid #dde5d6}.details{background:#fff;border:1px solid #d7e1d2;border-radius:12px;overflow:hidden;max-height:1000px;overflow-y:auto;scrollbar-width:thin;scroll-margin-top:20px}.detail-heading{padding:25px 25px 20px;background:#eaf0e1;position:relative}.detail-heading .eyebrow{font-size:9px}.detail-heading h2{font-family:Georgia,serif;font-weight:500;font-size:28px;line-height:1.15;margin:25px 0 11px;max-width:260px}.detail-heading p{font-size:12px;color:#66785b;margin:0}.detail-body{padding:9px 25px 27px;font-size:12px}.detail-body h3{font-size:12px;margin:24px 0 10px;font-weight:750}.detail-body h3>span{float:right;color:#819474}.detail-body p{color:#64735e}.misconception{background:#faf6ec;border-left:2px solid #c7a05c;padding:11px 13px;margin-top:14px}.misconception p{margin:4px 0 0}.misconception b{font-size:10px;color:#9b7943;text-transform:uppercase;letter-spacing:1px}details{margin-top:14px}summary{cursor:pointer;color:#52714b;font-size:11px;line-height:1.5}.muted{font-size:11px;color:#829077!important}.link-node{width:100%;text-align:left;display:flex;justify-content:space-between;margin:7px 0;font-size:11px;padding:10px 12px;background:#f8faf4;border-color:#e0e7d9}.link-node span{color:#91a27e}.text-button{border:0;background:none;font-size:10px;padding:5px 0;text-decoration:underline}.practice{background:#f0f4e8;padding:15px;border-radius:6px;line-height:1.7;color:#3f6040}.prompt{width:100%;height:160px;border:1px solid #dde5d6;border-radius:6px;padding:12px;font-size:10px;line-height:1.6;background:#fbfcf9;color:#5a7050;resize:vertical}.primary{background:#254e3b;color:white;width:100%;font-size:11px;margin-top:7px;border:0}.primary:hover{background:#346f50;color:white}.syllabus{background:#f8faf4;padding:9px;margin:6px 0;border-radius:5px;font-size:10px;font-weight:600}.syllabus small{display:block;font-weight:400}.curriculum{padding:20px 0}.curriculum>div{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}.curriculum p{font-size:12px}.bottom{border-top:1px solid #d9e0d2;padding:24px 38px;font-size:10px;letter-spacing:1.5px;color:#6d8064;display:flex;gap:25px}.bottom span{letter-spacing:0}.bottom span:last-child{margin-left:auto}.list-view{height:690px;overflow:auto;padding:18px}.list-view h3{font-size:13px;color:#708360}.list-view button{display:flex;justify-content:space-between;width:100%;gap:15px;text-align:left;margin-bottom:6px;padding:13px;font-size:12px}.list-view small{font-size:10px}.list-view .chosen{border-color:#31694f;background:#edf4e6}.message{padding:13px;background:#fff7dd;border:1px solid #ddc786;margin-bottom:17px;overflow-wrap:anywhere;font-size:12px}.message button{float:right;padding:0 7px}.empty{padding:15px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(min-width:1500px){.workspace{grid-template-columns:minmax(0,1fr) 410px}.canvas,.list-view{height:760px}}@media(max-width:1050px){header{padding:16px 22px;height:auto;gap:15px;flex-wrap:wrap}.header-right>span{display:none}main{padding:24px 22px}.workspace{grid-template-columns:minmax(0,1fr) 330px;gap:14px}.notice>span{float:none;display:block;margin-top:7px}.detail-body,.detail-heading{padding-left:18px;padding-right:18px}}@media(max-width:760px){header{padding:17px 18px}.brand{font-size:24px}.beta{font-size:8px}.header-right{width:100%;gap:8px}.header-right select{flex:1;font-size:12px}.header-right button{font-size:12px}main{padding:23px 14px}.workspace{display:flex;flex-direction:column}.explorer,.details{width:100%}.canvas{height:470px}.list-view{height:470px}.details{max-height:none}.detail-heading h2{max-width:none;margin-right:50px}.detail-body{padding:5px 20px 25px}.map-options{gap:6px}.toolbar{padding:12px}.search{flex-basis:100%}.legend{gap:11px}.curriculum>div{display:block}.bottom{padding:20px 15px;gap:10px;flex-wrap:wrap}.list-view button{display:block}.list-view small{display:block;margin-top:5px}.prompt{font-size:12px}.notice{font-size:11px}}
+.mobile-detail{display:none}@media(max-width:760px){.mobile-detail{display:block;font-size:11px;width:100%;padding:6px 0}}
+/* Official-statement explorer: fixed card geometry matches layout.ts routing. */
+main{padding-top:18px}.notice{margin-bottom:16px;padding:10px 14px}.canvas,.list-view{height:max(560px,calc(100vh - 275px))}.react-flow__node-skill{width:264px;height:172px}.skill-card{width:264px;height:172px;min-height:0;padding:15px;gap:9px;overflow:hidden;justify-content:flex-start}.skill-card strong{font-size:16px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.skill-card[aria-pressed=true]{color:#294b3f}.skill-card .node-meta{letter-spacing:0;font-size:10px;align-items:center;gap:6px;flex-shrink:0}.node-meta b{font-size:9px;white-space:nowrap}.skill-card .node-status{margin-top:auto}.skill-card .self-dot{font-size:10px;min-height:14px}.react-flow__node.branch-heading{background:#e8efdf;border:1px solid #d5dfc9;border-left:4px solid #739064;border-radius:12px;padding:10px 14px;text-align:left;display:flex;align-items:center;font-size:14px;font-weight:650;color:#365b50;line-height:1.25;overflow:hidden;box-shadow:none}.official-statement{margin-top:18px;border-top:1px solid #cedbc4;padding-top:14px}.official-statement h3{font-size:10px;text-transform:uppercase;letter-spacing:1px;margin:0 0 9px;color:#5e7354}.official-statement>b{font-size:13px;color:#254b38}.official-statement p{color:#294633;font-size:13px;white-space:pre-line;margin-top:9px;overflow-wrap:anywhere}.detail-heading h2{margin:12px 0;max-width:none;font-size:27px}.detail-heading .source-note{margin-top:14px;font-size:10px;color:#617557}.detail-heading .selection-note{margin-top:12px;background:#fff8e6;padding:9px;font-size:11px}.map-summary{display:flex;flex-wrap:wrap;gap:8px 20px;padding:12px 18px;border-top:1px solid #e1e7db;background:#fafbf7;font-size:11px;color:#59714d}.legend{gap:9px 18px}.legend span:last-child{width:100%;color:#7a8772}.details{max-height:calc(100vh - 120px);min-height:500px}.header-right select{max-width:260px}.list-view b{font-size:10px;color:#75886a}.list-view button{align-items:center;line-height:1.6}.list-view button>span{min-width:0}.list-view small{flex-shrink:0;max-width:150px}.map-options select{max-width:100%}.bottom{padding-top:16px;padding-bottom:16px}.detail-body sub,.detail-body sup,.official-statement sub,.official-statement sup{line-height:0}
+@media(max-width:1050px){.workspace{grid-template-columns:minmax(0,1fr) 330px}.canvas,.list-view{height:max(560px,calc(100vh - 310px))}.map-options>span{margin-left:0}.header-right{gap:9px}.branch-heading{font-size:13px}}
+@media(max-width:760px){main{padding:14px 12px}.canvas,.list-view{height:520px}.details{max-height:none;min-height:0}.notice>span{display:block;float:none}.notice{line-height:1.6}.header-right select{min-width:0;max-width:none}.map-options select{max-width:100%}.list-view small{max-width:none}.detail-heading h2{margin-right:0}.map-summary{gap:6px 16px;font-size:10px}.map-caption{font-size:9px;right:8px;bottom:12px}.search{min-width:0}.bottom span:last-child{margin-left:0}}
+.react-flow__node.branch-heading{padding:6px 12px;font-size:13px}
+/* Student release: local confidence and manual transfer, with no demo controls. */
+.progress-tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}.progress-tools button{font-size:12px}.progress-tools .clear-progress{margin-left:auto;color:#86512e}.header-right label{font-size:12px;display:flex;align-items:center;gap:9px}.storage-warning{background:#fff1d9;color:#6d4929;border:1px solid #d5aa66;border-radius:8px;padding:12px 15px;margin-bottom:16px;font-size:12px;line-height:1.6}.self-assessment{border:1px solid #d4dfca;background:#f6f9f1;padding:14px;border-radius:8px;margin:18px 0 8px}.self-assessment h3{margin:0 0 8px}.self-assessment p{font-size:11px;margin:0 0 12px}.self-assessment label{display:block;font-size:11px;margin-bottom:8px}.self-assessment select{display:block;width:100%;font-size:12px}.self-assessment button{font-size:11px;margin-top:10px}.skill-card .node-status{margin-top:auto;color:#596c50}.skill-card .self-dot{color:#425e35;font-size:11px}.skill-card.self-confident{border-left-color:#428152}.skill-card.self-needs-practice{border-left-color:#b88b3d}.notice{line-height:1.65}.skip-link{position:absolute;top:-90px;left:15px;z-index:1000;background:#fff;padding:12px;border:2px solid #254e3b}.skip-link:focus{top:10px}dialog{width:min(640px,calc(100vw - 28px));max-height:calc(100dvh - 40px);border:1px solid #a7b99d;border-radius:12px;padding:24px;color:#203c34;background:#fff;box-shadow:0 16px 70px #203c3440;overflow:auto}dialog::backdrop{background:#18362ac0}.dialog-heading{display:flex;align-items:center;gap:14px;justify-content:space-between}.dialog-heading h2{font-family:Georgia,serif;font-weight:500;margin:0;font-size:27px}.dialog-heading button{font-size:18px;padding:4px 10px}dialog p{font-size:13px;line-height:1.6}.file-label{display:block;font-size:13px;font-weight:650;margin-top:20px}.file-label input{display:block;margin:10px 0;max-width:100%;font-weight:400}.import-preview{border-top:1px solid #dce4d6;margin-top:20px;padding-top:6px}.import-preview h3{font-size:15px}.import-preview fieldset{border:1px solid #d4dfca;border-radius:7px;margin:14px 0;padding:12px}.import-preview legend{font-size:12px;padding:0 5px;font-weight:650}.import-preview label{display:flex;align-items:flex-start;gap:9px;font-size:12px;padding:8px 0}.import-preview input{flex-shrink:0;margin-top:2px}.conflict-list{max-height:230px;overflow:auto}.conflict-list small{display:block;color:#63765b;font-size:11px;margin-top:5px}.import-error,.import-warning{background:#fff4df;border-left:3px solid #b78b44;padding:12px}.cancel-import{margin-top:14px}.details:focus{outline-offset:3px}.details{scroll-margin-top:16px}
+@media(max-width:760px){.progress-tools{gap:7px}.progress-tools button{flex:1;font-size:11px;padding:10px 8px;min-height:38px}.progress-tools .clear-progress{flex-basis:100%;margin-left:0}.header-right{width:auto;margin-left:auto}.header-right label{font-size:11px}.header-right select{flex:0}.brand{font-size:23px}.notice{font-size:11px}.self-assessment{padding:14px}dialog{padding:18px}.dialog-heading h2{font-size:24px}.conflict-list{max-height:190px}}
+/* Guided exercises are editorial content; reveal state never affects saved confidence. */
+.guided-filter{display:flex;align-items:center;gap:5px;font-size:11px;color:#405c37;cursor:pointer}.guided-filter input{margin:0;accent-color:#31644b;width:15px;height:15px}.guided-practice{border:1px solid #cddcc2;border-radius:9px;background:#f7faf2;padding:16px;margin:22px 0}.guided-practice .practice-kicker{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:#667b58}.guided-practice h3{font-size:16px;margin:9px 0 12px}.guided-practice h4{font-size:12px;line-height:1.5;margin:14px 0 8px}.guided-practice .practice-question{font-size:13px;color:#2e4b36;white-space:pre-line}.guided-practice button{font-size:11px;line-height:1.5}.guided-practice button:disabled{cursor:default;color:#6d7e61;background:#edf2e8;border-color:#d7e1ce}.guided-practice summary{padding:7px 0;font-size:12px;font-weight:600}.guided-practice li{margin:9px 0;line-height:1.7;white-space:pre-line}.guided-practice ol,.guided-practice ul{padding-left:21px;font-size:12px}.practice-hints{border-left:2px solid #b5c79d;padding-left:9px;margin-top:12px}.practice-hints:empty{display:none}.practice-solution{border-top:1px solid #d6e0cd;padding-top:4px}.practice-transfer{border-top:1px solid #d6e0cd;margin-top:18px;padding-top:3px}.guided-practice .reflect-button{width:100%;margin-top:7px;background:#e8f0df;border-color:#bfd0ad}.guided-practice .muted{font-size:11px;line-height:1.65}
+@media(max-width:760px){.guided-filter{min-height:32px}.guided-practice{padding:15px}.guided-practice button,.guided-practice summary{min-height:38px}.guided-practice .practice-question{font-size:14px}}
+@media(max-width:760px){.header-right select{flex:0 0 auto;min-width:64px;padding:8px 10px}.header-right label{white-space:nowrap}}
+
+/* Student controls: readable secondary text, visible focus and generous targets.
+   Keep map-card and branch-label dimensions aligned with layout.ts. */
+button,select,.search,.prompt{border-color:#75866d}
+button,select,input[type=file]::file-selector-button{min-height:44px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,
+textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid #205f49;
+  outline-offset:3px;
+}
+.skill-card:focus-visible{outline-offset:-6px}
+.skip-link:focus-visible{outline-offset:3px}
+summary{min-height:44px;padding:12px 0}
+.header-right>span,.beta,.eyebrow{color:#52654a}
+.notice,.notice>span{color:#4b6042}
+.map-options>span,.map-caption,.legend,.legend span:last-child,
+.bottom,.list-view h3,.list-view b{color:#52654a}
+.node-meta,.node-meta b{color:#52654a}
+.skill-card{border-color:#75866d}
+.skill-card .node-status{color:#52654a}
+.list-view .chosen{color:#203c34;border-color:#205f49;box-shadow:inset 4px 0 #205f49}
+.detail-heading p,.detail-heading .source-note,.official-statement h3,
+.detail-body p,.detail-body h3>span{color:#52654a}
+.muted{color:#52654a!important}
+.link-node span,.guided-practice .practice-kicker,.conflict-list small{color:#52654a}
+.misconception b{color:#78582c}
+.guided-practice button:disabled{color:#52654a}
+.text-button{min-height:44px;padding:10px 0}
+.dialog-heading button,.message button{min-width:44px;min-height:44px}
+.guided-filter{min-height:44px}
+.guided-filter input,.import-preview input{accent-color:#205f49}
+.guided-practice summary{min-height:44px;padding:12px 0}
+.import-preview label{min-height:44px;align-items:flex-start}
+.mobile-detail{min-height:44px;padding:12px 0}
+.detail-body p>a{display:inline-block;min-height:44px;padding:12px 0}
+.react-flow__controls-button{width:44px!important;height:44px!important}
+.react-flow__controls-button svg{width:18px;height:18px;max-width:18px;max-height:18px}
+.react-flow__controls-button:focus-visible{outline-offset:-4px}
+input[type=file]::file-selector-button{
+  border:1px solid #75866d;border-radius:6px;background:#fff;color:#294b3f;
+  padding:9px 12px;margin-right:10px;font:inherit;cursor:pointer;
+}
+.search input::placeholder{color:#52654a;opacity:1}
+@media(max-width:760px){
+  .progress-tools button,.guided-practice button,.map-options button,
+  .map-options select,.header-right select{min-height:44px}
+  .header-right{flex-wrap:wrap}
+  .list-view button{overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+
+
+/* Full-width explorer: reserve screen height for the graph, not surrounding panels. */
+header{height:62px;padding:8px 16px}
+main{max-width:none;padding:8px 12px;margin:0}
+.progress-tools{margin:0 0 8px;gap:6px}
+.workspace{grid-template-columns:minmax(0,1fr) clamp(300px,25vw,380px);gap:12px}
+.explorer{border:0;border-radius:0;background:transparent}
+.toolbar{padding:6px 0;background:transparent}
+.map-options{padding:6px 0;background:transparent}
+.canvas,.list-view{height:calc(100dvh - 248px);min-height:440px}
+.details{max-height:calc(100dvh - 126px);min-height:0}
+.legend{padding:8px 0;font-size:10px}
+.skill-card.connected{border-color:#377b5e;box-shadow:0 0 0 2px #377b5e22}
+.skill-card.active{border:2px solid #205f49;box-shadow:0 0 0 5px #377b5e30}
+@media(max-width:1050px) and (min-width:761px){.workspace{grid-template-columns:minmax(0,1fr) 300px}.canvas,.list-view{height:calc(100dvh - 300px)}}
+@media(max-width:760px){
+ header{height:auto;padding:10px 12px;gap:8px}
+ main{padding:6px}.workspace{display:flex;gap:12px}
+ .toolbar,.map-options{gap:6px}.toolbar{padding-top:0}
+ .canvas,.list-view{height:68dvh;min-height:400px}
+ .details{max-height:none}.legend{padding:8px 4px}
+ .progress-tools .clear-progress{flex-basis:auto}.progress-tools button{flex:1 1 auto}
+}
+
+/* Compact laptop cards: geometry matches src/layout.ts (224 x 112). */
+.react-flow__node-skill{width:224px;height:112px}
+.skill-card,.skill-card.active{width:224px;height:112px;min-height:0;padding:8px 9px;gap:3px;border-width:1px;border-left-width:3px;border-right-width:1px;justify-content:flex-start}
+.skill-card .node-meta{font-size:9px;line-height:12px;min-height:14px;gap:6px}
+.skill-card .node-meta b{font-size:9px;padding:1px 3px}
+.skill-card strong{font-size:15px;line-height:18px;font-weight:650;margin:0;overflow-wrap:normal;text-wrap:pretty;-webkit-line-clamp:2}
+.skill-card .node-status{margin:1px 0 0;min-height:0;font-size:10px;line-height:12px}
+.skill-card .self-dot{min-height:0;font-size:10px;line-height:12px}
+.skill-card.marked strong{color:#fff}
+.skill-card .section-tag{font-size:8px;padding:2px 4px;right:8px;bottom:7px}
+.skill-card.simple-card strong{font-size:15px;line-height:18px;-webkit-line-clamp:3}
+/* Simple mode keeps the same mounted map, coordinates, marks and selection. */
+.simple-mode>header,.simple-mode .progress-tools,.simple-mode .details,
+.simple-mode .legend,.simple-mode .curriculum,.simple-mode>.bottom,
+.simple-mode .search,.simple-mode .view-toggle,.simple-mode .guided-filter,
+.simple-mode .map-options>select,.simple-mode .map-options>span,
+.simple-mode .mobile-detail{display:none}
+.simple-mode>main{padding:6px}
+.simple-mode .workspace{display:block}
+.simple-mode .toolbar{justify-content:flex-end;border:0}
+.simple-mode .map-options{justify-content:flex-end}
+.simple-mode .canvas{height:calc(100dvh - 120px);min-height:400px}
+.workspace,.details{overflow-anchor:none}
+
+/* A complete frame in every state; chapter colour is an inset accent, not a missing border. */
+.canvas .skill-card,.canvas .skill-card.active{
+ border-width:1px;border-left-width:3px;border-right-width:1px;
+ padding:8px 15px 8px 9px;box-shadow:0 2px 5px #254e3010;
+}
+.canvas .skill-card.connected{border-color:#377b5e;box-shadow:0 2px 5px #254e3010}
+.canvas .skill-card.active{border-color:#205f49;outline:2px solid #205f49;outline-offset:0;box-shadow:0 2px 5px #254e3010}
+.canvas .skill-card.section-highlight{border-right:1px solid var(--section-color)}
+.canvas .skill-card.section-highlight::after{
+ content:"";position:absolute;right:0;top:0;bottom:0;width:6px;
+ background:var(--section-color);border-radius:0 7px 7px 0;pointer-events:none;
+}
+.canvas .skill-card:focus-visible{outline:2px solid #205f49;outline-offset:0}
+.canvas .react-flow__pane{cursor:grab}
+.canvas .react-flow__pane.dragging{cursor:grabbing}

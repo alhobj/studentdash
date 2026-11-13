@@ -1,0 +1,35 @@
+{% extends 'entry_base.html' %}
+{% block body %}
+<h1>{{ doc.name }} · ArborSynapse</h1>
+<p>Use your saved assessments and scores. Export one private folder per student. Re-export to that same folder after updating scores; the student’s browser confidence stays separate.</p>
+{% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
+<form method="post">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<input type="hidden" name="version" value="{{ doc.version }}">
+<section class="card"><h2>1. Load the viewer</h2>
+<p>The bundled viewer is built automatically when ArborSynapse starts. The default folder is ready to use.</p>
+<label>Viewer folder<input name="viewer" value="{{ viewer }}" required style="width:100%" placeholder="ArborSynapse\tree\local-package"></label>
+<button name="action" value="load">Load viewer / saved assignments</button></section>
+{% if registry %}
+<section class="card"><h2>2. Saved classifications</h2>
+<p>All saved tags, question scope and curriculum links travel with the export automatically. No reclassification is needed. Section links stay at their saved level.</p>
+<div class="scroll"><table><thead><tr><th>Assessment</th><th>Question</th><th>Possible marks</th><th>Saved classifications · included automatically</th><th>Individual node ring (optional)</th></tr></thead><tbody>
+{% for row in rows %}<tr><td>{{ row.assessment.name }}</td><td>{{ row.question.number }}</td><td>{{ row.question.marks }}</td><td>
+{% for category, tags in row.question.tags.items() %}{% if tags %}<div><strong>{{ category_labels.get(category, category) }}:</strong> {{ tags|join(' · ') }}</div>{% endif %}{% endfor %}
+{% for node in row.curriculum %}<div>{{ node.code }}{% if node.code %} · {% endif %}{{ node.label }}</div>{% endfor %}
+{% if row.question.get('scope') %}<div>Scope: {{ row.question.scope }}</div>{% endif %}
+</td><td><select name="node-{{ row.question.id }}" aria-label="{{ row.assessment.name }} question {{ row.question.number }} node"><option value="">Keep saved classifications only</option>{% for node in registry.nodes %}<option value="{{ node.id }}" {% if node.id == row.selected %}selected{% endif %}>{{ node.code }} · {{ node.title }}</option>{% endfor %}</select></td></tr>{% endfor %}
+</tbody></table></div>
+<details><summary>Optional: add evidence to an individual Chemistree node</summary><p>A section classification does not identify one specific statement within it. Choose a node only when the question directly assesses it. Leaving the default keeps all saved classifications in the student report and exported data.</p></details>
+<button name="action" value="save">Save optional node assignments</button></section>
+<section class="card"><h2>3. Export one student</h2>
+<label>Student<select name="student_id" id="tree-student"><option value="">Choose a student</option>{% for student in doc.students %}<option value="{{ student.id }}" data-destination="{{ settings.get('destinations', {}).get(student.id, '') }}" {% if student.id == student_id %}selected{% endif %}>{{ student.name }}</option>{% endfor %}</select></label>
+<label>Student folder (full path)<input id="tree-destination" name="destination" value="{{ destination }}" style="width:100%" placeholder="C:\Users\Teacher\OneDrive\Student1001"></label>
+<p>For a first export choose a new empty folder. Share only this student’s folder. Choose “Always keep on this device” in OneDrive on the student computer.</p>
+<p>{{ rows|selectattr('selected')|list|length }}/{{ rows|length }} question parts additionally assigned to individual node rings. All question classifications are included, whether or not an individual node is assigned.</p>
+<button name="action" value="export">Export student folder with classifications</button>
+<p>The folder includes Studentdash results with per-question classifications, classifications.json, Chemistree, and Start Studentdash.cmd. The student opens that launcher and keeps its window open. Confidence is stored in the same browser on their computer; use Export confidence for a backup.</p></section>
+{% endif %}</form>
+<p><a href="{{ url_for('entry.class_page', key=doc.id) }}">Back to class</a></p>
+{% endblock %}
+{% block scripts %}<script>const student=document.querySelector('#tree-student'),destination=document.querySelector('#tree-destination');student?.addEventListener('change',()=>{destination.value=student.selectedOptions[0].dataset.destination||''});</script>{% endblock %}
