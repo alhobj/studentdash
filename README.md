@@ -294,3 +294,12 @@ backup. Restore validates checksums and databases and creates a new recovered co
 
 See [the portable-practice guide](docs/PORTABLE_PRACTICE.md) for coverage, browser
 storage limits, the files-only sharing workflow and backup/restore instructions.
+
+## Local Chemistree results viewer
+
+[OneDrive method B](docs/LOCAL_TREE.md) exports a single learner's directly mapped results
+into an individually restricted synced folder. `export_local_tree.py` reads the private
+workbook or class; `--watch` refreshes the individual file after saves. Build Chemistree's
+separate local viewer first. Confidence remains in a separate local browser store.
+The guide includes a fictional demo with a 4/5-to-3/5 update to check the student launcher.
+This is a local pilot; actual Windows/browser/OneDrive acceptance remains outstanding.
