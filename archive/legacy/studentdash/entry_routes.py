@@ -21,6 +21,8 @@ def register_entry_routes(app, base_config):
     store = ClassStore(base_config.workbook.parent / 'entered_classes')
     register_navigation(app, store)
     register_import_routes(app, store)
+    from .tree_export import register_tree_export
+    register_tree_export(app, store, base_config)
 
     def active_config():
         key = request.values.get('class_key', session.get('entered_class'))

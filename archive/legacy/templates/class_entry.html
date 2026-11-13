@@ -1,5 +1,6 @@
 {% extends 'entry_base.html' %}
 {% block body %}<h1>{{ doc.name }}</h1>
+<p><a class="button-link" href="{{ url_for('tree_export.page', key=doc.id) }}">Export Studentdash + Chemistree</a></p>
 {% if teacher_section == 'classes' or error %}{% include 'student_roster.html' %}{% endif %}
 {% if draft_message %}<p class="notice" role="status">{{ draft_message }}</p>{% endif %}
 <section class="card"><h2>New assessment</h2><div class="actions"><a class="button-link" href="{{ url_for('assessment_import.upload', key=doc.id) }}">Import assessment</a><a href="{{ url_for('entry.edit', key=doc.id) }}">Create manually</a></div><p>Copy a prompt into ChatGPT with your test, paste its metadata response here, and import from an editable preview. Then enter or paste scores separately.</p></section>

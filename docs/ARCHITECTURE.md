@@ -107,3 +107,18 @@ Editor and import preview reuse a selection-tree macro based on explicit parents
 Saved container roots have a separate preserved-reference control rather than an
 ordinary new-selection checkbox. Selection summaries/counts do not alter stored
 links. The legacy free-text label never creates hierarchy or links.
+
+### Local curriculum viewer connector
+
+The supported metadata/class workspace exposes `tree_export` on the class page.
+It adapts `as_workbook` through the generic single-learner `local_tree` exporter,
+then renders the existing results snapshot for that learner. Node assignments and
+per-learner destinations are optional `local_tree` document metadata, saved with
+optimistic versions; source classifications and scores remain unchanged. Only
+exact reviewed node IDs can be suggested. Broad/multiple links are excluded until
+the teacher explicitly selects one directly assessed node. Saved assignments are
+invalidated when question text, scope or curriculum links/review change. Result
+updates retain each destination's package UUID/revision and do not access browser
+confidence. The combined launcher opens the inline Studentdash snapshot and the
+existing fixed-origin loopback Chemistree viewer. The root Excel-only app remains
+separate. No automatic database migration or full-branch merge is required.

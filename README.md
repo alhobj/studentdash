@@ -345,3 +345,7 @@ by the active app. Shared profile/curriculum data remain available at the root;
 the archive retains its own snapshot for compatibility. See [archive notes](archive/README.md)
 for running the old workflow separately. Public hosting and student submissions
 are outside the active application.
+
+## Use the saved class with Chemistree
+
+The class page now includes **Export Studentdash + Chemistree**. It reads the existing metadata import and saved question scores; no replacement Excel schema is required. Follow [the local class test](docs/CHEMISTREE_CLASS_TEST.md).
