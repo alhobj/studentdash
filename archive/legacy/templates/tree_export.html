@@ -11,18 +11,24 @@
 <label>Viewer folder<input name="viewer" value="{{ viewer }}" required style="width:100%" placeholder="C:\Projects\chemistree\local-package"></label>
 <button name="action" value="load">Load viewer / saved assignments</button></section>
 {% if registry %}
-<section class="card"><h2>2. Review direct evidence</h2>
-<p>Each scored question part can contribute to one node. Exact reviewed links are suggested when available. Broad or multiple links need your choice. Leave a part excluded if its marks cannot be assigned to one objective. Existing classifications stay intact.</p>
-<div class="scroll"><table><thead><tr><th>Assessment</th><th>Question</th><th>Possible marks</th><th>Directly assessed node</th></tr></thead><tbody>
-{% for row in rows %}<tr><td>{{ row.assessment.name }}</td><td>{{ row.question.number }}</td><td>{{ row.question.marks }}</td><td><select name="node-{{ row.question.id }}" aria-label="{{ row.assessment.name }} question {{ row.question.number }} node"><option value="">Excluded / needs review</option>{% for node in registry.nodes %}<option value="{{ node.id }}" {% if node.id == row.selected %}selected{% endif %}>{{ node.code }} · {{ node.title }}</option>{% endfor %}</select>{% if row.links %}<small>Saved curriculum links: {{ row.links|join(', ') }}</small>{% endif %}</td></tr>{% endfor %}
-</tbody></table></div><button name="action" value="save">Save node assignments</button></section>
+<section class="card"><h2>2. Saved classifications</h2>
+<p>All saved tags, question scope and curriculum links travel with the export automatically. No reclassification is needed. Section links stay at their saved level.</p>
+<div class="scroll"><table><thead><tr><th>Assessment</th><th>Question</th><th>Possible marks</th><th>Saved classifications · included automatically</th><th>Individual node ring (optional)</th></tr></thead><tbody>
+{% for row in rows %}<tr><td>{{ row.assessment.name }}</td><td>{{ row.question.number }}</td><td>{{ row.question.marks }}</td><td>
+{% for category, tags in row.question.tags.items() %}{% if tags %}<div><strong>{{ category_labels.get(category, category) }}:</strong> {{ tags|join(' · ') }}</div>{% endif %}{% endfor %}
+{% for node in row.curriculum %}<div>{{ node.code }}{% if node.code %} · {% endif %}{{ node.label }}</div>{% endfor %}
+{% if row.question.get('scope') %}<div>Scope: {{ row.question.scope }}</div>{% endif %}
+</td><td><select name="node-{{ row.question.id }}" aria-label="{{ row.assessment.name }} question {{ row.question.number }} node"><option value="">Keep saved classifications only</option>{% for node in registry.nodes %}<option value="{{ node.id }}" {% if node.id == row.selected %}selected{% endif %}>{{ node.code }} · {{ node.title }}</option>{% endfor %}</select></td></tr>{% endfor %}
+</tbody></table></div>
+<details><summary>Optional: add evidence to an individual Chemistree node</summary><p>A section classification does not identify one specific statement within it. Choose a node only when the question directly assesses it. Leaving the default keeps all saved classifications in the student report and exported data.</p></details>
+<button name="action" value="save">Save optional node assignments</button></section>
 <section class="card"><h2>3. Export one student</h2>
 <label>Student<select name="student_id" id="tree-student"><option value="">Choose a student</option>{% for student in doc.students %}<option value="{{ student.id }}" data-destination="{{ settings.get('destinations', {}).get(student.id, '') }}" {% if student.id == student_id %}selected{% endif %}>{{ student.name }}</option>{% endfor %}</select></label>
 <label>Student folder (full path)<input id="tree-destination" name="destination" value="{{ destination }}" style="width:100%" placeholder="C:\Users\Teacher\OneDrive\Student1001"></label>
 <p>For a first export choose a new empty folder. Share only this student’s folder. Choose “Always keep on this device” in OneDrive on the student computer.</p>
-<p>{{ rows|selectattr('selected')|list|length }}/{{ rows|length }} question parts currently assigned. Excluded parts still appear in Studentdash but do not create node rings.</p>
-<button name="action" value="export">Save assignments and export student folder</button>
-<p>The folder includes Studentdash results, Chemistree, and Start Studentdash.cmd. The student opens that launcher and keeps its window open. Confidence is stored in the same browser on their computer; use Export confidence for a backup.</p></section>
+<p>{{ rows|selectattr('selected')|list|length }}/{{ rows|length }} question parts additionally assigned to individual node rings. All question classifications are included, whether or not an individual node is assigned.</p>
+<button name="action" value="export">Export student folder with classifications</button>
+<p>The folder includes Studentdash results with per-question classifications, classifications.json, Chemistree, and Start Studentdash.cmd. The student opens that launcher and keeps its window open. Confidence is stored in the same browser on their computer; use Export confidence for a backup.</p></section>
 {% endif %}</form>
 <p><a href="{{ url_for('entry.class_page', key=doc.id) }}">Back to class</a></p>
 {% endblock %}

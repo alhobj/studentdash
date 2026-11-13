@@ -122,3 +122,13 @@ updates retain each destination's package UUID/revision and do not access browse
 confidence. The combined launcher opens the inline Studentdash snapshot and the
 existing fixed-origin loopback Chemistree viewer. The root Excel-only app remains
 separate. No automatic database migration or full-branch merge is required.
+
+
+The combined export also projects saved question classifications via
+`classification_export`, independently of optional direct-node mappings. All tags,
+scope and captured curriculum links/review metadata accompany learner-scoped question
+results in `classifications.json` and an escaped per-question snapshot table.
+Section links keep their original IDs and level; no hierarchy is guessed and no
+broad result is duplicated across leaf rings. Non-participating assessments and
+other learners are excluded. Classification-only exports retain package identity;
+`results.json` remains compatible with the existing strict viewer schema.

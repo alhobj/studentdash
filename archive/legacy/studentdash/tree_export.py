@@ -12,6 +12,7 @@ from .local_tree import export_package, read_json
 from .render import render_student
 from .config import Config
 from .workspace import Workspace
+from .classification_export import learner_classifications, curriculum_labels, category_labels
 
 
 def question_signature(question):
@@ -36,7 +37,7 @@ def choices(doc, registry):
             if selected not in ids:
                 selected = ''
             rows.append(dict(question=question, assessment=assessment, selected=selected,
-                             links=links))
+                             links=links, curriculum=curriculum_labels(doc, links)))
     return rows
 
 
@@ -96,16 +97,19 @@ def register_tree_export(app, store, base_config):
                     data = as_workbook(store.path(key))
                     config = Config(store.path(key), base_config.output / ('class-' + key))
                     state = Workspace(config.workspace).export_state()
-                    html = render_student(data, student_id, False, state)
+                    classifications = learner_classifications(doc, data, student_id)
+                    html = render_student(data, student_id, False, state, classification_export=classifications)
                     html = html.replace('<main>', '<main><p><a href="http://127.0.0.1:8765/">Open Chemistree</a> · Keep the Start window open while using the tree.</p>', 1)
                     # Save configuration with the same version check as score entry before exporting.
                     settings['destinations'][student_id] = str(target)
                     doc['local_tree'] = settings
                     store.save(doc, int(request.form.get('version', '0')))
                     result = export_package(data, student_id, {q: n for q, n in mapping.items() if n}, viewer, target)
+                    classifications['packageId'] = read_json(target / 'package.json')['packageId']
+                    atomic_text(target / 'classifications.json', json.dumps(classifications, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
                     atomic_text(target / 'studentdash.html', html)
                     atomic_text(target / 'Start Studentdash.cmd', '@echo off\r\nstart "" "%~dp0studentdash.html"\r\ncall "%~dp0Start.cmd"\r\n')
-                    message = f'Exported one student: {result["questions"]} graded question parts, results revision {result["revision"]}. Open Start Studentdash.cmd in the student folder.'
+                    message = f'Exported one student: {len(classifications["questions"])} question parts with their saved classifications; {result["questions"]} graded parts also assigned to individual node rings. Open Start Studentdash.cmd in the student folder.'
                 else:
                     doc['local_tree'] = settings
                     store.save(doc, int(request.form.get('version', '0')))
@@ -117,7 +121,7 @@ def register_tree_export(app, store, base_config):
             error = str(exc)
             doc = store.read(key)
         return render_template('tree_export.html', doc=doc, viewer=viewer, registry=registry,
-                               rows=rows, settings=settings, destination=destination,
+                               rows=rows, settings=settings, destination=destination, category_labels=category_labels(doc),
                                student_id=student_id, message=message, error=error), 400 if error else 200
 
     app.register_blueprint(bp)

@@ -50,6 +50,73 @@ class TreeExportTests(unittest.TestCase):
         form.update(updates)
         return self.client.post(self.url, data=form)
 
+    def test_saved_classifications_export_without_reassigning_section_links(self):
+        doc = self.store.read(self.key)
+        doc['profile']['curriculum'] = dict(schema=1, id='fixture', version='1', label='Fictional curriculum', nodes=[
+            dict(id='fixture:root', parent=None, label='Course'),
+            dict(id='fixture:section', parent='fixture:root', code='Topic A', label='Broad section')])
+        doc['profile']['categories']['Custom'] = ['Recall', '<script>example</script>']
+        doc['profile'].setdefault('category_options', {})['Custom'] = dict(label='Thinking')
+        question = doc['assessments'][0]['questions'][0]
+        question.update(tags={'Custom': ['Recall', '<script>example</script>']}, scope='HL',
+                        curriculum_nodes=['fixture:section'], curriculum_review={'status': 'reviewed', 'source': 'teacher'})
+        self.store.save(doc, doc['version'])
+        options = {'node-' + q['id']: '' for q in self.a['questions']}
+        response = self.post(**options)
+        self.assertEqual(response.status_code, 200, response.text)
+        payload = json.loads((self.destination / 'classifications.json').read_text())
+        row = payload['questions'][0]
+        self.assertEqual(row['tags'], question['tags'])
+        self.assertEqual(row['curriculumNodes'], ['fixture:section'])
+        self.assertEqual(row['curriculumLabels'][0]['code'], 'Topic A')
+        self.assertEqual(row['scope'], 'HL')
+        self.assertEqual((row['score'], row['maxScore']), (1, 2))
+        self.assertEqual(payload['categoryLabels']['Custom'], 'Thinking')
+        self.assertNotIn(self.other, json.dumps(payload))
+        self.assertNotIn('BETA_PRIVATE', json.dumps(payload))
+        self.assertEqual(payload['packageId'], json.loads((self.destination / 'package.json').read_text())['packageId'])
+        self.assertEqual(json.loads((self.destination / 'results.json').read_text())['evidence'], [])
+        html = (self.destination / 'studentdash.html').read_text()
+        self.assertIn('Question classifications', html)
+        self.assertIn('Broad section', html)
+        self.assertIn('Thinking:', html)
+        self.assertIn('&lt;script&gt;example&lt;/script&gt;', html)
+        self.assertNotIn('<script>example</script>', html)
+        page = self.client.post(self.url, data=dict(csrf_token=self.csrf, viewer=str(self.viewer), action='load'))
+        self.assertIn('Keep saved classifications only', page.text)
+        self.assertIn('Broad section', page.text)
+        self.assertNotIn('Excluded / needs review', page.text)
+        # Classification-only changes update the projection, without changing result identity.
+        package = json.loads((self.destination / 'package.json').read_text())
+        doc = self.store.read(self.key)
+        doc['assessments'][0]['questions'][0]['tags']['Custom'] = ['Recall']
+        self.store.save(doc, doc['version'])
+        self.assertEqual(self.post(**options).status_code, 200)
+        updated = json.loads((self.destination / 'classifications.json').read_text())
+        self.assertEqual(updated['questions'][0]['tags']['Custom'], ['Recall'])
+        self.assertEqual(json.loads((self.destination / 'package.json').read_text()), package)
+        self.assertEqual(self.store.read(self.key)['assessments'][0]['questions'][0]['curriculum_nodes'], ['fixture:section'])
+
+    def test_classifications_keep_absence_separate_and_omit_non_participants(self):
+        from copy import deepcopy
+        doc = self.store.read(self.key)
+        private = deepcopy(doc['assessments'][0])
+        private.update(id='other-only', name='OTHER_LEARNER_ONLY', participants=[self.other])
+        private['questions'] = [dict(private['questions'][0], id='other-question')]
+        doc['assessments'].append(private)
+        self.store.save(doc, doc['version'])
+        self.assertEqual(self.post().status_code, 200)
+        data = (self.destination / 'classifications.json').read_text()
+        self.assertNotIn('OTHER_LEARNER_ONLY', data)
+        destination = self.root / 'beta'
+        self.assertEqual(self.post(student_id=self.other, destination=str(destination)).status_code, 200)
+        payload = json.loads((destination / 'classifications.json').read_text())
+        rows = [r for r in payload['questions'] if r['assessmentId'] == self.a['id']]
+        self.assertEqual(rows[0]['score'], 0)
+        self.assertEqual(rows[0]['status'], 'graded')
+        self.assertIsNone(rows[1]['score'])
+        self.assertEqual(rows[1]['status'], 'absent')
+
     def test_saved_metadata_scores_export_and_update_keep_package_identity(self):
         self.assertEqual(self.client.get(self.url).status_code, 200)
         response = self.post()

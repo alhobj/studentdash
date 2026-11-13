@@ -1,0 +1,9 @@
+<section id="question-classifications"><h2>Question classifications</h2>
+<p>Saved classifications accompany each question’s results, including section links and questions without an individual Chemistree node assignment.</p>
+<div class="scroll"><table><thead><tr><th>Assessment / question</th><th>Result</th><th>Scope</th><th>Saved classifications</th></tr></thead><tbody>
+{% for row in classification_export.questions %}<tr><td>{{ row.assessmentTitle }} · {{ row.questionNumber }}</td><td>{% if row.status == 'graded' %}{{ '%g'|format(row.score) }} / {{ '%g'|format(row.maxScore) }}{% else %}{{ row.status }} · {{ '%g'|format(row.maxScore) }} possible{% endif %}</td><td>{{ row.scope or '—' }}</td><td>
+{% for category, tags in row.tags.items() %}{% if tags %}<div><strong>{{ classification_export.categoryLabels.get(category, category) }}:</strong> {{ tags|join(' · ') }}</div>{% endif %}{% endfor %}
+{% for node in row.curriculumLabels %}<div>{{ node.code }}{% if node.code %} · {% endif %}{{ node.label }}</div>{% endfor %}
+{% if not row.curriculumNodes and not row.tags.values()|select|list %}No saved classifications{% endif %}
+</td></tr>{% else %}<tr><td colspan="4">No participating questions.</td></tr>{% endfor %}
+</tbody></table></div></section>

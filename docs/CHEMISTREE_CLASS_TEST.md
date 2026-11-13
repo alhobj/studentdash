@@ -12,11 +12,12 @@ Keep your current `data` directory; the connector uses the classes you already s
    `npm ci`, then `npm run build:local`. This creates `local-package`.
 4. Back in the class, click **Export Studentdash + Chemistree**. Paste the full
    path to Chemistree's `local-package` and click **Load viewer / saved assignments**.
-5. Review the directly assessed node for each question part. Exact reviewed links
-   are reused when their stable IDs match. Existing broad section classifications
-   cannot identify a single statement; choose one explicitly, or exclude that part.
-   Assignments are saved in your private class, not in another mapping JSON file.
-   One scored part contributes once, never its full marks to several nodes.
+5. Saved question classifications, scope and curriculum links are included
+   automatically, at their existing level. You do not need to classify questions
+   again. The export page shows these tags and readable section names.
+   Individual Chemistree node assignments are optional: use one only for a question
+   directly assessing that statement. Leaving “Keep saved classifications only”
+   includes the question and all its classifications in the report and data.
 6. Choose one student and a new empty local folder. Click **Save assignments and
    export student folder**. Share only that individual folder through OneDrive.
    The master workbook, class database and other students are excluded.
@@ -43,3 +44,10 @@ before distributing folders; the script never bypasses execution policy.
 Node assignments and export settings use the normal class version checks and
 backups. This connector does not migrate saved classes, replace classifications,
 or change the separate assessment-level confidence ratings.
+
+The student folder includes `classifications.json`, bound to the same package ID,
+with only that learner's participating questions, saved tags/scope/curriculum links,
+and earned/possible marks or non-graded status. `studentdash.html` shows these in a
+Question classifications table, alongside existing category and curriculum results.
+A broad section link remains section evidence: it is never copied into every
+individual node's result ring. Re-export refreshes classifications as well as scores.
