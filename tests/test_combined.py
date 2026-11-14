@@ -26,12 +26,13 @@ class CombinedTests(unittest.TestCase):
         self.assertIn('Excel workspace', excel.text)
         self.assertTrue((self.data / 'private/studentdash.sqlite3').is_file())
         self.assertEqual(client.get('/health').json['app'], 'ArborSynapse')
+        self.assertEqual(client.get('/api/teacher-tree/classes').json['classes'], [])
         self.assertEqual(client.get('/classes', headers={'Host':'foreign.invalid'}).status_code, 400)
         self.assertEqual(client.get('/excel/', headers={'Host':'foreign.invalid'}).status_code, 400)
 
     def test_only_built_tree_files_are_served(self):
         client = create_app(self.data).test_client()
-        for prefix, folder in [('/tree/', ROOT/'tree/dist'), ('/simple/', ROOT/'tree/simple/dist')]:
+        for prefix, folder in [('/tree/', ROOT/'tree/teacher-viewer/dist'), ('/curriculum/', ROOT/'tree/dist'), ('/simple/', ROOT/'tree/simple/dist')]:
             expected = 200 if (folder/'index.html').is_file() else 503
             with client.get(prefix) as response:
                 self.assertEqual(response.status_code, expected)
@@ -100,6 +101,9 @@ class CombinedTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200, response.text)
         results = json.loads((target/'results.json').read_text())
         self.assertEqual((results['evidence'][0]['score'], results['evidence'][0]['maxScore']), (4,5))
+        teacher = client.get(f'/api/teacher-tree/classes/{doc["id"]}/students/{sid}/results')
+        self.assertEqual(teacher.status_code, 200)
+        self.assertEqual(teacher.json['evidence'], results['evidence'])
         classifications = json.loads((target/'classifications.json').read_text())
         self.assertEqual(classifications['questions'][0]['tags']['CommandTerm'], ['State'])
         self.assertIn('Question classifications', (target/'studentdash.html').read_text())

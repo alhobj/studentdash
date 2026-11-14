@@ -7,7 +7,7 @@
 @media(max-width:600px){.teacher-navigation a{padding:.55rem .6rem}.teacher-navigation .current-class{max-width:10rem}}
 </style>
 <nav class="teacher-navigation" aria-label="Teacher navigation">
-<a href="/classes"><strong>ArborSynapse</strong></a><a href="/tree/">Learning tree</a><a href="/simple/">Simple tree</a><a href="/excel/">Excel workspace</a>
+<a href="/classes"><strong>ArborSynapse</strong></a><a href="/tree/">Teacher tree</a><a href="/curriculum/">Student tree</a><a href="/simple/">Simple tree</a><a href="/excel/">Excel workspace</a>
 {% if config.get('ARBOR_DEMO') %}<strong>Fictional sandbox</strong>{% endif %}
 {% for section, label, href in teacher_nav %}<a href="{{ href }}" {% if teacher_section == section %}aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}
 {% if nav_class %}<a class="current-class" href="{{ url_for('entry.class_page', key=nav_class.id) }}" title="Return to class overview: {{ nav_class.name }}">{{ nav_class.name }}</a>{% endif %}

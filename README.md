@@ -7,8 +7,13 @@ Chemistry is the included tree; the assessment system also supports other subjec
 
 Install Python 3.10+ and Node.js 22.12+ (or 24 LTS), then open **Start.cmd**.
 On Linux/macOS run `sh Start.sh`. First start installs dependencies and builds the
-three tree views. Later starts reuse the build until its source changes.
+bundled tree views. Later starts reuse the build until its source changes.
 Open **http://127.0.0.1:5000/classes**. Keep the launcher window open.
+
+Open **Teacher tree** for the teacher view. **Student data: Off / On** enables
+class/student selection and read-only result rings; click a ring for tests and
+question marks. Data starts off and is not saved in the browser. Broad section
+classifications do not become individual-node evidence.
 
 The navigation includes classes, results, the full/simple learning trees and the
 Excel-only workspace. Use your existing prompt → metadata JSON → paste scores

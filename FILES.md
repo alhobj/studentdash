@@ -1,6 +1,6 @@
 # ArborSynapse file inventory
 
-**304 retained repository files; 211 additional practice files inside the bundle.**
+**313 retained repository files; 211 additional practice files inside the bundle.**
 
 Every retained repository file is listed once below. “Optional” tools/tests support maintenance or compatibility and do not run routinely. The normal checks remain five tests. Practice builder source files are retained so bundled student resources can be updated.
 
@@ -203,6 +203,8 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | `teacher_navigation.py` | Shared navigation with selected-class context. |
 | `tree_export.py` | Export saved class results/classifications with the bundled local tree viewer. |
 | `workspace.py` | Persistent teacher feedback and versioned local workspace state. |
+| `teacher_tree.py` | Read-only teacher class/roster/results API; one learner at a time and only directly assigned graded evidence. |
+
 
 ### server/templates
 
@@ -374,6 +376,8 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | File | Purpose |
 | --- | --- |
 | `test_combined.py` | Optional regression coverage: combined. |
+| `test_teacher_tree.py` | Focused checks for learner isolation, direct evidence and read-only teacher APIs. |
+
 
 ### tree
 
@@ -428,6 +432,8 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | `generate-student-data.ts` | Derive compact public runtime data from reviewed sources. |
 | `performance-smoke.cjs` | Optional manual lazy-loading and runtime performance browser checks. |
 | `practice-smoke.cjs` | Optional manual guided-practice browser checks. |
+| `build-teacher-viewer.mjs` | Build the teacher UI separately from public/student exports. |
+
 
 ### tree/simple
 
@@ -513,12 +519,25 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | `student-data.test.ts` | Optional regression coverage: student data. |
 | `temporary-marks.test.ts` | Optional regression coverage: temporary marks. |
 | `unlocked.test.ts` | Optional regression coverage: unlocked. |
+| `teacher-results.test.ts` | Focused teacher-response identity, status and mark validation checks. |
+
 
 ### tree/tests/python
 
 | File | Purpose |
 | --- | --- |
 | `test_chemistree_links.py` | Optional regression coverage: chemistree links. |
+
+### tree/teacher-viewer
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Teacher-only browser entry; prevents the student entry from mounting twice. |
+| `main.tsx` | Off-by-default data toggle, class/student selection, result rings and native evidence dialog. |
+| `model.ts` | Reject mismatched learner/class responses and invalid or duplicate evidence. |
+| `style.css` | Fixed-size controls and ring overlays that preserve tree geometry. |
+| `tsconfig.json` | Type-check the separate teacher entry and its shared UI. |
+
 
 ## Bundled practice files
 

@@ -14,8 +14,9 @@
     "build:local": "npm run prepare:maps && tsc -p local-viewer/tsconfig.json && node scripts/build-local-viewer.mjs",
     "test:local": "node --import tsx --test tests/local-results.test.ts",
     "prepare:maps": "node --import tsx scripts/generate-student-data.ts && npm run sync:data --workspace simple",
-    "build:all": "npm run build && npm run build --workspace simple && npm run build:local",
-    "test:full": "npm run prepare:maps && node --import tsx --test tests/*.test.ts && npm run test --workspace simple"
+    "build:all": "npm run build && npm run build --workspace simple && npm run build:local && npm run build:teacher",
+    "test:full": "npm run prepare:maps && node --import tsx --test tests/*.test.ts && npm run test --workspace simple",
+    "build:teacher": "npm run prepare:maps && tsc -p teacher-viewer/tsconfig.json && node scripts/build-teacher-viewer.mjs"
   },
   "dependencies": {
     "@xyflow/react": "^12.10.0",

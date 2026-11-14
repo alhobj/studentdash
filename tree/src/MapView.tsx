@@ -10,16 +10,16 @@ import {reducePrerequisiteEdges,visibleDependencyEdges} from '../simple/src/depe
 const dependencyEdges=reducePrerequisiteEdges(map.edges);
 const maxDepth=maximumDepth(dependencyEdges);
 
-type MapProps = {simple?: boolean; highlight: HighlightSettings; sort: SortMode; visible: Skill[]; selected: string; connections: string; progress: Progress; onSelect: (id: string) => void; fitRequest: number};
+type MapProps = {nodeExtras?:Record<string,React.ReactNode>; simple?: boolean; highlight: HighlightSettings; sort: SortMode; visible: Skill[]; selected: string; connections: string; progress: Progress; onSelect: (id: string) => void; fitRequest: number};
 export function Card({data}: any) {
   return <><Handle type="target" position={Position.Top}/><button aria-label={`${data.official.code} · ${data.title}${data.simple ? '' : ` · Self-assessment: ${data.status}`}`} aria-pressed={data.active} title="Double-click or press M to mark or unmark temporarily" onMouseDown={e => {if(e.button===0)e.preventDefault();}} onDoubleClick={e => {e.stopPropagation(); data.toggleMark();}} onKeyDown={e => {if(e.key.toLowerCase()==='m'){e.preventDefault();e.stopPropagation();data.toggleMark();}}}
     style={{...traceStyle(data.strength),...sectionStyle(data.group)} as React.CSSProperties} aria-description={[data.traceLabel,availabilityLabel(data.availability)].filter(Boolean).join(' ')||undefined} className={`skill-card nodrag ${data.simple ? 'simple-card' : ''} ${data.availability ? `availability-${data.availability}` : ''} ${data.marked ? 'marked' : ''} ${data.traced ? 'traced' : ''} ${data.section ? 'section-highlight' : ''} ${data.connected ? 'connected' : ''} ${data.active ? 'active' : ''} self-${data.self || 'not-reviewed'}`} onClick={e => {e.stopPropagation(); data.open();}}>
     <span className="node-meta"><span>{data.official.code}</span><b>{data.level === 'HL' ? 'HL addition' : 'SL / HL'}</b></span><strong>{data.title}</strong>{!data.simple&&<><span className="node-status">{data.marked ? '✓ Marked · Self-assessment' : 'Self-assessment'}</span><span className="self-dot">{data.status}</span></>}{data.section&&<span className="section-tag">{SECTION_NAMES[data.group]}</span>}
-  </button><Handle type="source" position={Position.Bottom}/></>;
+  </button>{data.extra&&<div className="node-extra nodrag nopan" role="group" aria-label={`${data.official.code} results`}>{data.extra}</div>}<Handle type="source" position={Position.Bottom}/></>;
 }
 function RoutedEdge({id, data, style, markerEnd}: any) {return <g><title>{data.description}</title><BaseEdge id={id} path={data.path} style={style} markerEnd={markerEnd}/></g>;}
 const nodeTypes = {skill: Card}, edgeTypes = {routed: RoutedEdge};
-function MapCanvas({simple=false, highlight, sort, visible, selected, connections, progress, onSelect, fitRequest}: MapProps) {
+function MapCanvas({nodeExtras,simple=false, highlight, sort, visible, selected, connections, progress, onSelect, fitRequest}: MapProps) {
   const [marked,setMarked]=useState<Set<string>>(()=>new Set());
   const toggleMark=(id:string)=>setMarked(previous=>{const next=new Set(previous);next.has(id)?next.delete(id):next.add(id);return next;});
   const flow = useReactFlow();
@@ -33,7 +33,7 @@ function MapCanvas({simple=false, highlight, sort, visible, selected, connection
   const traced=trace(selected,dependencyEdges,highlight.before,highlight.after,visibleEdges);
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nodes = visible.map(node => ({id: node.id, type: 'skill', position: layout.positions[node.id], sourcePosition: Position.Bottom, targetPosition: Position.Top,
-    data: {...node, simple, availability:highlight.showUnlocked?availability.get(node.id):undefined, marked: marked.has(node.id), toggleMark: () => toggleMark(node.id), status: STATUS_LABELS[progress[node.id] || 'not-reviewed'], self: progress[node.id], active: node.id === selected, connected: traced.strength.has(node.id), traced: traced.strength.has(node.id), strength: traced.strength.get(node.id), traceLabel: traced.labels.get(node.id), section: highlight.sections.has(node.group), open: () => onSelect(node.id)},
+    data: {...node, extra:nodeExtras?.[node.id], simple, availability:highlight.showUnlocked?availability.get(node.id):undefined, marked: marked.has(node.id), toggleMark: () => toggleMark(node.id), status: STATUS_LABELS[progress[node.id] || 'not-reviewed'], self: progress[node.id], active: node.id === selected, connected: traced.strength.has(node.id), traced: traced.strength.has(node.id), strength: traced.strength.get(node.id), traceLabel: traced.labels.get(node.id), section: highlight.sections.has(node.group), open: () => onSelect(node.id)},
     style: {width: CARD_WIDTH, height: CARD_HEIGHT}, focusable: false, ariaLabel: `${node.official.code}: ${node.title}`}));
   const labels = layout.labels.filter(label => visible.some(node => node.group === label.group)).map(label => ({id: label.id, position: {x: label.x, y: label.y}, data: {label: label.text}, draggable: false, selectable: false, focusable: false, className: 'branch-heading', style: {width: label.width, height: label.height}}));
   const edges = visibleEdges.filter(edge => (!simple || edge.type === 'prerequisite') && visibleIds.has(edge.source) && visibleIds.has(edge.target) && (connections === 'all' || (connections === 'selected' && (traced.edgeStrength.has(edge.id) || (edge.type !== 'prerequisite' && (edge.source === selected || edge.target === selected))))))

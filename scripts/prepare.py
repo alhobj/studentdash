@@ -27,7 +27,7 @@ def prepare():
         raise SystemExit('Install Node.js 22.12+ or 24 LTS, reopen the terminal and run Start.cmd again.')
     marker = ROOT / '.cache/tree-build'
     expected = fingerprint()
-    outputs = ['dist/index.html', 'simple/dist/index.html', 'local-package/curriculum.json']
+    outputs = ['teacher-viewer/dist/index.html', 'dist/index.html', 'simple/dist/index.html', 'local-package/curriculum.json']
     if marker.is_file() and marker.read_text() == expected and all((TREE / p).is_file() for p in outputs):
         return
     lock = hashlib.sha256((TREE / 'package-lock.json').read_bytes()).hexdigest()

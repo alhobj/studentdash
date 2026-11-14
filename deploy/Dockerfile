@@ -15,6 +15,7 @@ COPY scripts/ scripts/
 COPY server/ server/
 COPY excel/ excel/
 COPY --from=tree /build/tree/dist tree/dist
+COPY --from=tree /build/tree/teacher-viewer/dist tree/teacher-viewer/dist
 COPY --from=tree /build/tree/simple/dist tree/simple/dist
 COPY --from=tree /build/tree/local-package tree/local-package
 RUN python -c "import sys; sys.path.insert(0,'server'); import studentdash.config"

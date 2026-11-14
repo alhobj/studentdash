@@ -18,6 +18,8 @@ def create_app(data_directory=None):
     config = Config(Path(os.environ.get('STUDENTDASH_WORKBOOK', private / 'classroom.xlsx')),
                     Path(os.environ.get('STUDENTDASH_OUTPUT', ROOT / 'output')))
     app = class_app(config)
+    from studentdash.teacher_tree import register_teacher_tree
+    register_teacher_tree(app, config, ROOT / 'tree/local-package/curriculum.json')
     app.config['ARBOR_ROOT'] = ROOT
     app.config['ARBOR_DEMO'] = os.environ.get('ARBOR_DEMO') == '1'
 
@@ -34,10 +36,18 @@ def create_app(data_directory=None):
 
     @app.get('/tree/')
     def tree():
-        return asset('tree/dist', 'index.html')
+        return asset('tree/teacher-viewer/dist', 'index.html')
 
     @app.get('/tree/<path:filename>')
     def tree_asset(filename):
+        return asset('tree/teacher-viewer/dist', filename)
+
+    @app.get('/curriculum/')
+    def student_tree():
+        return asset('tree/dist', 'index.html')
+
+    @app.get('/curriculum/<path:filename>')
+    def student_tree_asset(filename):
         return asset('tree/dist', filename)
 
     @app.get('/simple/')

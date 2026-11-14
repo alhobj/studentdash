@@ -28,7 +28,7 @@ class FeatureBoundary extends React.Component<{children: React.ReactNode; onList
   render() {return this.state.failed ? <div role="status" className="empty"><p>This feature could not load. Your self-assessment is unchanged. Reload to try again.</p>{this.props.onList && <button onClick={this.props.onList}>Use list instead</button>}</div> : this.props.children;}
 }
 
-function App() {
+export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.ReactNode;nodeExtras?:Record<string,React.ReactNode>;audienceLabel?:string}={}) {
   const highlight = useHighlightSettings();
   const [simpleMode,setSimpleMode]=useState(false);
   const [initialLink] = useState(() => readNodeLink(window.location.hash));
@@ -94,10 +94,11 @@ function App() {
   const hiddenSelection = !visibleIds.has(selected);
   return <div className={simpleMode?'app simple-mode':'app'}>
     <a className="skip-link" href="#main">Skip to curriculum</a>
-    <header><a className="brand" href="#main"><span className="brand-mark" aria-hidden="true">✳</span>ArborSynapse<span className="beta">STUDENT</span></a>
+    <header><a className="brand" href="#main"><span className="brand-mark" aria-hidden="true">✳</span>ArborSynapse<span className="beta">{audienceLabel}</span></a>
       <div className="header-right"><span>IB DP CHEMISTRY · 2025</span><Help onStart={() => {setQ(''); setLevel('all'); setArea('all'); setGuidedOnly(true); setView('list'); requestAnimationFrame(() => document.getElementById('guided-filter')?.focus());}}/><label>Practice level <select aria-label="Practice level" value={practiceLevel} onChange={e => setPracticeLevel(e.target.value as 'SL' | 'HL')}><option value="SL">SL</option><option value="HL">HL</option></select></label></div>
     </header>
     <main id="main" tabIndex={-1}><h1 className="sr-only">IB Chemistry curriculum</h1>
+      {tools}
       <ProgressTools progress={progress} onCommit={next => {commit(next); setMessage('Self-assessment imported. No automatic synchronisation is enabled.');}} onClear={clear} onMessage={setMessage}/>
       {storageMessage && <div className="storage-warning" role="alert">{storageMessage}</div>}
       {message && <div className="message" role="status">{message}<button onClick={() => setMessage('')} aria-label="Dismiss message">×</button></div>}
@@ -114,7 +115,7 @@ function App() {
           <label className="guided-filter"><input id="guided-filter" type="checkbox" checked={guidedOnly} onChange={e => setGuidedOnly(e.target.checked)}/> Guided exercises ({practiceCount})</label>
           <span aria-live="polite">{visible.length} statements</span><a className="mobile-detail" href="#node-details">Open selected details ↓</a>
         </div>
-        {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={simpleMode?'all':links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
+        {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView nodeExtras={nodeExtras} simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={simpleMode?'all':links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
           <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <button key={s.id} data-node-id={s.id} onClick={() => openNode(s.id)} className={selected === s.id ? 'chosen' : ''} aria-pressed={selected === s.id}>
             <span><b>{s.official.code}</b><br/>{s.title}</span><small>{s.level === 'HL' ? 'HL addition' : 'SL / HL'} · Self: {STATUS_LABELS[progress[s.id] || 'not-reviewed']}</small>
           </button>)}</section>)}</div>}
@@ -144,7 +145,7 @@ function App() {
         </div>
       </aside></section>
       <details className="curriculum"><summary>Official framework & source scope</summary><div>{map.syllabus.map(s => <p key={s.id}><b>{s.id}</b> — {s.title}</p>)}</div><p>All numbered Structure and Reactivity statements from the supplied first-assessment-2025 guide. Consult the guide for full applications, skills, practical work and assessment requirements.</p></details>
-    </main><div className="bottom">CHEMISTREE <span>Student release · official statement map 2.0</span><span>Local self-assessment · no automatic sync</span></div>
+    </main><div className="bottom">CHEMISTREE <span>{audienceLabel==='TEACHER'?'Teacher view · official statement map 2.0':'Student release · official statement map 2.0'}</span><span>Local self-assessment · no automatic sync</span></div>
   </div>;
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+if(!document.getElementById('root')?.hasAttribute('data-teacher'))createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
