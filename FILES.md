@@ -546,7 +546,7 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | `ControlPanel.tsx` | Shared accessible left panel and native sections that start collapsed. |
 | `control-panel.css` | Fixed-width, scrollable panels that keep the map stable while menus open. |
 | `TimeControls.tsx` | Collapsed time slider, previous/next assessment dates and All results reset. |
-| `timeline.ts` | Cumulative date filtering with explicit undated-record handling; no confidence/history writes. |
+| `timeline.ts` | Cumulative date filtering and assessed-node reveal, with explicit undated-record handling; no confidence/history writes. |
 
 
 ## Bundled practice files

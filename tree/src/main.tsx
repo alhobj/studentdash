@@ -30,7 +30,7 @@ class FeatureBoundary extends React.Component<{children: React.ReactNode; onList
   render() {return this.state.failed ? <div role="status" className="empty"><p>This feature could not load. Your self-assessment is unchanged. Reload to try again.</p>{this.props.onList && <button onClick={this.props.onList}>Use list instead</button>}</div> : this.props.children;}
 }
 
-export function App({tools,extraPanels,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.ReactNode;extraPanels?:React.ReactNode;nodeExtras?:Record<string,React.ReactNode>;audienceLabel?:string}={}) {
+export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='STUDENT'}:{tools?:React.ReactNode;extraPanels?:React.ReactNode;nodeExtras?:Record<string,React.ReactNode>;nodeVisibility?:ReadonlySet<string>|null;audienceLabel?:string}={}) {
   const highlight = useHighlightSettings();
   const [simpleMode,setSimpleMode]=useState(false);
   const [initialLink] = useState(() => readNodeLink(window.location.hash));
@@ -85,14 +85,15 @@ export function App({tools,extraPanels,nodeExtras,audienceLabel='STUDENT'}:{tool
   const hasExercise = practiceNodeIds.has(selected);
   const directPrerequisites=dependencyEdges.filter(e=>e.type==='prerequisite'&&e.target===n.id).map(e=>e.source);
   const visible = useMemo(() => map.nodes.filter(n =>
-    (level !== 'SL' || n.level === 'shared') && (level !== 'HL-only' || n.level === 'HL') &&
+    (!nodeVisibility || nodeVisibility.has(n.id)) && (level !== 'SL' || n.level === 'shared') && (level !== 'HL-only' || n.level === 'HL') &&
     (area === 'all' || n.group === Number(area)) && (!guidedOnly || practiceNodeIds.has(n.id)) &&
-    (`${n.official.code} ${n.official.statement} ${n.title} ${n.explanation}`.toLowerCase().includes(q.toLowerCase()))), [q, level, area, guidedOnly,simpleMode]);
+    (`${n.official.code} ${n.official.statement} ${n.title} ${n.explanation}`.toLowerCase().includes(q.toLowerCase()))), [q, level, area, guidedOnly,simpleMode,nodeVisibility]);
   const visibleIds = new Set(visible.map(n => n.id));
 
 
   function nodeLinks(ids: string[]) {
-    return ids.length ? ids.map(id => {const target = map.nodes.find(x => x.id === id)!; return <button className="link-node" key={id} onClick={() => openNode(id)}><span>{target.official.code}<br/>{target.title}</span><span aria-hidden="true">→</span></button>;}) : <p className="muted">No specific prior statements suggested.</p>;
+    if(nodeVisibility)ids=ids.filter(id=>nodeVisibility.has(id));
+    return ids.length ? ids.map(id => {const target = map.nodes.find(x => x.id === id)!; return <button className="link-node" key={id} onClick={() => openNode(id)}><span>{target.official.code}<br/>{target.title}</span><span aria-hidden="true">→</span></button>;}) : <p className="muted">{nodeVisibility?'No linked topics revealed at this date.':'No specific prior statements suggested.'}</p>;
   }
   const hiddenSelection = !visibleIds.has(selected);
   return <div className={simpleMode?'app simple-mode':'app'}>
@@ -125,7 +126,7 @@ export function App({tools,extraPanels,nodeExtras,audienceLabel='STUDENT'}:{tool
          <Help onStart={()=>{setQ('');setLevel('all');setArea('all');setSimpleMode(false);setGuidedOnly(true);setView('list');requestAnimationFrame(()=>document.getElementById('guided-filter')?.focus());}}/>
         </ControlSection>
         <ControlSection title="Self-assessment & backup"><ProgressTools progress={progress} onCommit={next=>{commit(next);setMessage('Self-assessment imported. No automatic synchronisation is enabled.');}} onClear={clear} onMessage={setMessage}/></ControlSection>
-        <ControlSection title="Selected node" hidden={simpleMode}>
+        <ControlSection title="Selected node" hidden={simpleMode||Boolean(nodeVisibility&&!nodeVisibility.has(selected))}>
       <aside id="node-details" aria-label="Node details" className="details" tabIndex={-1}>
         <div className="detail-heading"><span className="eyebrow">{n.level === 'HL' ? 'ADDITIONAL HIGHER LEVEL' : 'SL / HL SHARED'}</span><h2>{n.title}</h2><span className="sr-only" role="status">Selected {n.official.code}: {n.title}</span>
           <div className="official-statement"><h3>Official guide statement</h3><b>{n.official.code}</b><p><OfficialText parts={n.official.statementParts} statement={n.official.statement}/></p></div>
@@ -156,10 +157,10 @@ export function App({tools,extraPanels,nodeExtras,audienceLabel='STUDENT'}:{tool
        </ControlPanel>
        <section className="workspace" aria-label="Chemistry learning explorer"><div className="explorer">
         {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView zoomRequest={zoomRequest} nodeExtras={nodeExtras} simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
-          <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <button key={s.id} data-node-id={s.id} onClick={() => openNode(s.id)} className={selected === s.id ? 'chosen' : ''} aria-pressed={selected === s.id}>
+          <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g} hidden={!visible.some(s=>s.group===i)}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <button key={s.id} data-node-id={s.id} onClick={() => openNode(s.id)} className={selected === s.id ? 'chosen' : ''} aria-pressed={selected === s.id}>
             <span><b>{s.official.code}</b><br/>{s.title}</span><small>{s.level === 'HL' ? 'HL addition' : 'SL / HL'} · Self: {STATUS_LABELS[progress[s.id] || 'not-reviewed']}</small>
           </button>)}</section>)}</div>}
-        {!visible.length && <p role="status" className="empty">No matching statements. Try another search or filter.</p>}
+        {!visible.length && <p role="status" className="empty">{nodeVisibility&&nodeVisibility.size===0?'No assessed nodes by this date. Move the time slider forward.':'No matching statements. Try another search or filter.'}</p>}
         <footer className="legend"><span>Drag to explore · scroll to zoom · Tab to navigate</span><span>Solid → Suggested prerequisite</span><span>Gold ⇢ Suggested sequence</span><span>Purple ┄ Related idea</span></footer>
 
        </div></section>

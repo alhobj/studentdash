@@ -16,7 +16,8 @@ chapter highlights, arrows, layout, student data, practice or backups.
 Open **Teacher tree** for the teacher view. **Student data: Off / On** enables
 class/student selection and read-only result rings; click a ring for tests and
 question marks. The **Time** section steps through assessment dates and accumulates
-results up to that date; **All results** returns to the full view. Exported student
+results up to that date. **Start timeline** hides all nodes; they appear on their
+first dated assessment, with positions unchanged. **All results** restores the full tree. Exported student
 viewers have the same timeline. Re-export old student folders and reopen the viewer
 once to receive dates and the new controls. This uses current saved marks by
 assessment date, including later corrections; it does not rewind confidence or

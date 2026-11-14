@@ -16,3 +16,7 @@
 @media(max-width:760px){.tree-shell{grid-template-columns:min(43vw,190px) minmax(0,1fr);gap:6px}.tree-control-panel{padding:6px;scrollbar-gutter:auto}.tree-control-panel .control-section>summary{font-size:12px;padding:10px 6px}.tree-control-panel .control-section-body{padding:7px}.app>main{padding:7px}.app>header{flex-wrap:nowrap;min-height:60px;height:60px;padding:8px 12px}.app .header-right{width:auto}.app .header-right>span{display:none}.app .brand{font-size:21px}.app .tree-shell{height:calc(100dvh - 92px)}.tree-shell>.workspace{display:block}.tree-shell .legend{font-size:9px}.local-tree-shell{margin:6px}.simple-tree-shell{height:100dvh;gap:0}}
 .tree-control-panel .section-buttons button{border-left:5px solid var(--section-color,#69826b)}.tree-control-panel .section-buttons button[aria-pressed=true]{background:var(--section-color,#e3eee6);color:#fff}.tree-control-panel dialog button{width:auto}.tree-control-panel .progress-tools{display:flex!important}.local-tree-shell .tree-control-panel .file-button{display:block;width:100%;font-size:12px}
 .tree-control-panel button,.tree-control-panel select,.tree-control-panel .control-section>summary{min-height:44px}
+
+.tree-shell .list-view section[hidden]{display:none!important}
+
+.tree-shell .explorer{position:relative}.tree-shell .explorer>.empty,.local-tree-shell .tree-stage>.empty{position:absolute;top:10px;left:12px;right:12px;z-index:2;pointer-events:none;background:#ffffffe6;border-radius:6px;padding:12px}

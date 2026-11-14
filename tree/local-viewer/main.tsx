@@ -12,7 +12,7 @@ import './style.css';
 import {ControlPanel,ControlSection} from '../shared/ControlPanel';
 import '../shared/control-panel.css';
 import {TimeControls} from '../shared/TimeControls';
-import {throughDate,timeLabel} from '../shared/timeline';
+import {throughDate,timeLabel,revealedNodes} from '../shared/timeline';
 const known=new Set(data.nodes.map(n=>n.id));
 const graph=data.edges.filter(e=>e.type==='prerequisite'),dependencyEdges=reducePrerequisiteEdges(graph),maxDepth=maximumDepth(dependencyEdges);
 async function localText(path:string,limit:number){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);try{const response=await fetch(path,{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('The local file is unavailable. Check that OneDrive has downloaded it.');if(Number(response.headers.get('content-length'))>limit)throw Error('Local file is too large.');const reader=response.body!.getReader();let size=0,text='',decoder=new TextDecoder();while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>limit){await reader.cancel();throw Error('Local file is too large.');}text+=decoder.decode(value,{stream:true});}return text+decoder.decode();}finally{clearTimeout(timer);}}
@@ -50,7 +50,8 @@ function App(){
  function setConfidence(id:string,value:string){const next={...confidence};if(value==='not-reviewed')delete next[id];else next[id]=value as Confidence[string];commit(next);}
  function toggleMark(id:string){setMarked(old=>{const next=new Set(old);next.has(id)?next.delete(id):next.add(id);return next;});}
  function download(){const url=URL.createObjectURL(new Blob([confidenceFile(confidence,packageId)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='confidence-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- const visible=data.nodes.filter(n=>(level==='all'||(level==='SL'?n.level==='shared':n.level==='HL'))&&`${n.code} ${n.title}`.toLowerCase().includes(q.toLowerCase()));
+ const nodeVisibility=revealedNodes(results?.evidence||[],cutoff,results?.assessments);
+ const visible=data.nodes.filter(n=>(!nodeVisibility||nodeVisibility.has(n.id))&&(level==='all'||(level==='SL'?n.level==='shared':n.level==='HL'))&&`${n.code} ${n.title}`.toLowerCase().includes(q.toLowerCase()));
  return <><header><strong>ArborSynapse <span>Student results</span></strong></header>
  <div className="sync-status" role="status">{status} · checks local file every 15 seconds</div>{error&&<p className="warning" role="alert">{error}</p>}{storageError&&<p className="warning" role="alert">{storageError}</p>}
  {!packageId?<p className="empty">Use Start on Windows or the local launcher. The package must contain package.json and results.json.</p>:<>
@@ -68,6 +69,7 @@ function App(){
  <section className="tree-stage">
  {view==='results'?<section className="result-page"><h1>My assessed questions</h1><p>{timeLabel(cutoff)}</p><p>Directly mapped questions only. These totals may differ from full test totals.</p><Evidence available={results!==null} rows={[...filteredRows]}/></section>:<div className="workspace">
  {view==='tree'?<ReactFlowProvider><Tree {...{visible,selected,setSelected,sections,before,after,bottom,confidence,setConfidence,results:shownResults,marked,toggleMark,arrowMode,request}} openEvidence={setModal}/></ReactFlowProvider>:<div className="node-list">{visible.map(n=><section key={n.id}><h2>{n.code} · {n.title}</h2><Ring available={results!==null} {...totals(shownResults?.evidence.filter(r=>r.nodeId===n.id)||[])} onOpen={()=>setModal(n.id)}/><label>Confidence<select value={confidence[n.id]||'not-reviewed'} onChange={e=>setConfidence(n.id,e.target.value)}>{Object.entries(CONFIDENCE_LABELS).map(([v,t])=><option key={v} value={v}>{t}</option>)}</select></label><label><input type="checkbox" checked={marked.has(n.id)} onChange={()=>toggleMark(n.id)}/> Mark</label></section>)}</div>}</div>}
+ {!visible.length&&view!=='results'&&<p className="empty" role="status">{nodeVisibility&&nodeVisibility.size===0?'No assessed nodes by this date. Move the time slider forward.':'No matching nodes.'}</p>}
  </section></div>
  <footer>Confidence is your own reflection, stored in this browser on this device. Updating results does not change it. Export a backup before clearing browser data or changing devices.</footer></>}
  <dialog ref={dialog} onClose={()=>setModal(null)} aria-labelledby="evidence-title"><form method="dialog"><button autoFocus aria-label="Close results">Close</button></form><h2 id="evidence-title">{data.nodes.find(n=>n.id===modal)?.code} · Results</h2><p>{timeLabel(cutoff)}</p><Evidence available={results!==null} rows={shownResults?.evidence.filter(r=>r.nodeId===modal)||[]}/></dialog>

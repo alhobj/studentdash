@@ -9,6 +9,12 @@ export function throughDate<T extends DatedEvidence>(rows:readonly T[],cutoff:st
  const dates=new Map(assessments.map(a=>[a.id,a.date]));
  return rows.filter(row=>{const date=row.assessmentDate||dates.get(row.assessmentId||'');return Boolean(cutoff&&date&&date<=cutoff);});
 }
+/** null means unrestricted; an empty set means the timeline has revealed no nodes. */
+export function revealedNodes<T extends DatedEvidence&{nodeId:string}>(rows:readonly T[],cutoff:string|null,assessments:readonly AssessmentMoment[]=[]):ReadonlySet<string>|null{
+ if(cutoff===null)return null;
+ return new Set(throughDate(rows,cutoff,assessments).map(row=>row.nodeId));
+}
+
 export function undatedCount(rows:readonly DatedEvidence[],assessments:readonly AssessmentMoment[]=[]){
  const dated=new Set(assessments.map(a=>a.id));
  return rows.filter(r=>!r.assessmentDate&&!dated.has(r.assessmentId||'')).length;

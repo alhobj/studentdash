@@ -8,6 +8,7 @@ from teacher updates; use **Export confidence** for a backup. Use the same brows
 and keep the same package folder. Only one viewer can run on port 8765 at a time.
 
 Open **Time** in the left panel to show results through an assessment date.
-Use **All results** to reset. Confidence stays current. The timeline uses the
+Use **Start timeline** to begin with no nodes, then move forward to reveal topics
+on their first dated assessment. **All results** restores the full tree. Confidence stays current. The timeline uses the
 current saved marks for each assessment date, including later corrections.
 If dates are unavailable, ask your teacher to re-export the folder and reopen it.

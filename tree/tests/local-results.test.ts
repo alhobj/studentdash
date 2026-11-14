@@ -58,3 +58,20 @@ test('assessment dates must be real and consistent without rejecting old undated
  assert.throws(()=>parse({...source,evidence:[{...source.evidence[0],assessmentDate:'2026-02-30'}]}));
  assert.throws(()=>parse({...source,evidence:[{...source.evidence[0],assessmentDate:'2026-10-01'}],assessments:[{id:'A01',title:'First',date:'2026-09-01'}]}));
 });
+
+test('timeline reveals only assessed nodes cumulatively without adding unassessed prerequisites',async()=>{
+ const {revealedNodes}=await import('../shared/timeline');
+ const rows=[{nodeId:'later',assessmentId:'B',assessmentDate:'2026-10-01',score:0},
+  {nodeId:'early',assessmentId:'A',assessmentDate:'2026-09-01',score:4},
+  {nodeId:'early',assessmentId:'B',assessmentDate:'2026-10-01',score:2},
+  {nodeId:'undated',assessmentId:'old',score:3}];
+ const before=JSON.stringify(rows);
+ assert.deepEqual([...revealedNodes(rows,'')!],[]);
+ assert.deepEqual([...revealedNodes(rows,'2026-08-31')!],[]);
+ assert.deepEqual([...revealedNodes(rows,'2026-09-01')!],['early']);
+ assert.deepEqual([...revealedNodes(rows,'2026-10-01')!].sort(),['early','later']);
+ assert.equal(revealedNodes(rows,'2026-10-01')!.has('unassessed-prerequisite'),false);
+ assert.equal(revealedNodes(rows,null),null,'All results restores unrestricted curriculum visibility');
+ assert.deepEqual([...revealedNodes(rows,'2026-08-01',[{id:'old',title:'Dated by catalog',date:'2026-07-01'}])!],['undated']);
+ assert.equal(JSON.stringify(rows),before);
+});
