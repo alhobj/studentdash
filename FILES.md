@@ -1,6 +1,6 @@
 # ArborSynapse file inventory
 
-**323 retained repository files; 211 additional practice files inside the bundle.**
+**324 retained repository files; 211 additional practice files inside the bundle.**
 
 Every retained repository file is listed once below. “Optional” tools/tests support maintenance or compatibility and do not run routinely. The normal checks remain five tests. Practice builder source files are retained so bundled student resources can be updated.
 
@@ -794,3 +794,5 @@ These are stored inside `server/assets/practice.zip`, then restored to `server/r
 
 | `tree/src/SkillsPanel.tsx` | Searchable skills and existing guidance links in the tree sidebar. |
 | `tree/src/data/skills.json` | Existing 103 chemistry skill labels and reviewed section links projected from the practice bundle. |
+
+| `tree/src/data/branches.json` | Complete editorial chemistry branch assignments for all 165 syllabus nodes. |

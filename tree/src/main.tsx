@@ -1,3 +1,4 @@
+import branches from './data/branches.json';
 import {SkillsPanel} from './SkillsPanel';
 import {SECTION_NAMES,sectionStyle,nodeAvailability,availabilityLabel} from '../simple/src/highlighting';
 import React, {useState, useEffect, useMemo, lazy, Suspense} from 'react';
@@ -44,6 +45,9 @@ export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='
   const [q, setQ] = useState('');
   const [level, setLevel] = useState('all');
   const [area, setArea] = useState('all');
+  const [branch,setBranch]=useState('all');
+  const branchNodes=branches.nodes as Record<string,string[]>;
+  const branchNames=[...new Set(Object.values(branchNodes).flat())].sort();
   const [guidedOnly, setGuidedOnly] = useState(false);
   const [practiceLevel, setPracticeLevel] = useState<'SL' | 'HL'>('SL');
   const [view, setView] = useState('map');
@@ -91,8 +95,8 @@ export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='
   const directPrerequisites=dependencyEdges.filter(e=>e.type==='prerequisite'&&e.target===n.id).map(e=>e.source);
   const visible = useMemo(() => map.nodes.filter(n =>
     (!nodeVisibility || nodeVisibility.has(n.id)) && (level !== 'SL' || n.level === 'shared') && (level !== 'HL-only' || n.level === 'HL') &&
-    (area === 'all' || n.group === Number(area)) && (!guidedOnly || practiceNodeIds.has(n.id)) &&
-    (`${n.official.code} ${n.official.statement} ${n.title} ${n.explanation}`.toLowerCase().includes(q.toLowerCase()))), [q, level, area, guidedOnly,simpleMode,nodeVisibility]);
+    (branch==='all'||branchNodes[n.id]?.includes(branch)) && (area === 'all' || n.group === Number(area)) && (!guidedOnly || practiceNodeIds.has(n.id)) &&
+    (`${n.official.code} ${n.official.statement} ${n.title} ${n.explanation}`.toLowerCase().includes(q.toLowerCase()))), [q, level, area, branch, guidedOnly,simpleMode,nodeVisibility]);
   const visibleIds = new Set(visible.map(n => n.id));
 
 
@@ -125,6 +129,7 @@ export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='
          <button aria-label="Zoom out" onClick={()=>{setView('map');setZoomRequest(p=>({sequence:p.sequence+1,direction:'out'}));}}>Zoom out −</button>
         </ControlSection>
         {tools&&<ControlSection title="Student data">{tools}</ControlSection>}{extraPanels}
+        <ControlSection title="Chemistry branch"><label>Branch<select value={branch} onChange={e=>setBranch(e.target.value)}><option value="all">All chemistry branches</option>{branchNames.map(name=><option key={name} value={name}>{name} ({map.nodes.filter(n=>branchNodes[n.id]?.includes(name)).length})</option>)}</select></label><p>Filter map or list by familiar chemistry topics. A node can belong to several branches. These categories are separate from the official Structure and Reactivity sections.</p></ControlSection>
         <SkillsPanel/>
         <ControlSection title="Practice & help">
          <label>Practice level<select aria-label="Practice level" value={practiceLevel} onChange={e=>setPracticeLevel(e.target.value as 'SL'|'HL')}><option value="SL">SL</option><option value="HL">HL</option></select></label>
@@ -152,7 +157,7 @@ export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='
           {!hasExercise && <><h3>Independent practice · editorial</h3><div className="practice">{n.practice}</div><p className="muted">A guided exercise is not available for this statement yet. The guided-exercises filter finds the first {practiceCount} exercises; other statements remain open.</p></>}
           <h3>Practise with an AI tutor</h3><p className="muted">Copy these instructions to an AI service only if you choose. They use statement content and practice level, without your self-assessment. Nothing is sent automatically.</p>
           <textarea aria-label="AI instruction" className="prompt" readOnly value={prompt(n, practiceLevel)}/><button className="primary" onClick={async () => {try {await navigator.clipboard.writeText(prompt(n, practiceLevel)); setCopied(true);} catch {setMessage('Copy unavailable. Select the instruction text and copy manually.');}}}>{copied ? '✓ Copied' : 'Copy AI instruction ↗'}</button>
-          <p><a href={`${location.pathname}${nodeFragment(n.id)}`} onClick={e => {e.preventDefault(); openNode(n.id);}}>Link to this statement</a></p><h3>Syllabus context</h3>{n.syllabusRefs.map(ref => <p key={ref} className="syllabus">{ref}<small>{map.syllabus.find(s => s.id === ref)?.title}</small></p>)}
+          <p><a href={`${location.pathname}${nodeFragment(n.id)}`} onClick={e => {e.preventDefault(); openNode(n.id);}}>Link to this statement</a></p><h3>Chemistry branch</h3><p>{branchNodes[n.id]?.join(" · ")}</p><h3>Syllabus context</h3>{n.syllabusRefs.map(ref => <p key={ref} className="syllabus">{ref}<small>{map.syllabus.find(s => s.id === ref)?.title}</small></p>)}
         </div>
       </aside>
         </ControlSection>

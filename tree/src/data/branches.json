@@ -1,0 +1,566 @@
+{
+  "description": "Editorial topic categories, not official IB sections or prerequisite relationships. Nodes may belong to multiple branches.",
+  "nodes": {
+    "ib-2025-structure-1.1.1": [
+      "States of matter"
+    ],
+    "ib-2025-structure-1.1.2": [
+      "States of matter"
+    ],
+    "ib-2025-structure-1.1.3": [
+      "States of matter",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-structure-1.2.1": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.2.2": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.2.3": [
+      "Atomic structure",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-1.3.1": [
+      "Atomic structure",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-1.3.2": [
+      "Atomic structure",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-1.3.3": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.3.4": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.3.5": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.3.6": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.3.7": [
+      "Atomic structure"
+    ],
+    "ib-2025-structure-1.4.1": [
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.4.2": [
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.4.3": [
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.4.4": [
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.4.5": [
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.4.6": [
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.5.1": [
+      "Gases"
+    ],
+    "ib-2025-structure-1.5.2": [
+      "Gases"
+    ],
+    "ib-2025-structure-1.5.3": [
+      "Gases",
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-1.5.4": [
+      "Gases",
+      "Stoichiometry"
+    ],
+    "ib-2025-structure-2.1.1": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.1.2": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.1.3": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.1": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.2": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.3": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.4": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.5": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.6": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.7": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.8": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.9": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.10": [
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-2.2.11": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.12": [
+      "Bonding and structure",
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-2.2.13": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.14": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.15": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.2.16": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.3.1": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.3.2": [
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.3.3": [
+      "Bonding and structure",
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-2.4.1": [
+      "Materials chemistry",
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.4.2": [
+      "Materials chemistry",
+      "Bonding and structure"
+    ],
+    "ib-2025-structure-2.4.3": [
+      "Materials chemistry"
+    ],
+    "ib-2025-structure-2.4.4": [
+      "Materials chemistry",
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-2.4.5": [
+      "Materials chemistry",
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-2.4.6": [
+      "Materials chemistry",
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.1.1": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.2": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.3": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.4": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.5": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.6": [
+      "Periodicity and inorganic chemistry",
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-structure-3.1.7": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.8": [
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-structure-3.1.9": [
+      "Periodicity and inorganic chemistry",
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-structure-3.1.10": [
+      "Periodicity and inorganic chemistry",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-3.2.1": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.2": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.3": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.4": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.5": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.6": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.7": [
+      "Organic chemistry"
+    ],
+    "ib-2025-structure-3.2.8": [
+      "Organic chemistry",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-3.2.9": [
+      "Organic chemistry",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-3.2.10": [
+      "Organic chemistry",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-3.2.11": [
+      "Organic chemistry",
+      "Analytical chemistry"
+    ],
+    "ib-2025-structure-3.2.12": [
+      "Organic chemistry",
+      "Analytical chemistry"
+    ],
+    "ib-2025-reactivity-1.1.1": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.1.2": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.1.3": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.1.4": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.2.1": [
+      "Energetics and thermodynamics",
+      "Bonding and structure"
+    ],
+    "ib-2025-reactivity-1.2.2": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.2.3": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.2.4": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.2.5": [
+      "Energetics and thermodynamics",
+      "Bonding and structure"
+    ],
+    "ib-2025-reactivity-1.3.1": [
+      "Fuels and environmental chemistry",
+      "Energetics and thermodynamics",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-1.3.2": [
+      "Fuels and environmental chemistry",
+      "Energetics and thermodynamics",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-1.3.3": [
+      "Fuels and environmental chemistry",
+      "Energetics and thermodynamics",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-1.3.4": [
+      "Fuels and environmental chemistry",
+      "Energetics and thermodynamics",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-1.3.5": [
+      "Fuels and environmental chemistry",
+      "Energetics and thermodynamics",
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-1.4.1": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.4.2": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.4.3": [
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-1.4.4": [
+      "Energetics and thermodynamics",
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.1.1": [
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-2.1.2": [
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-2.1.3": [
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-2.1.4": [
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-2.1.5": [
+      "Stoichiometry",
+      "Fuels and environmental chemistry"
+    ],
+    "ib-2025-reactivity-2.2.1": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.2": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.3": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.4": [
+      "Kinetics",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-2.2.5": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.6": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.7": [
+      "Kinetics",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-2.2.8": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.9": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.10": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.11": [
+      "Kinetics"
+    ],
+    "ib-2025-reactivity-2.2.12": [
+      "Kinetics",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-2.2.13": [
+      "Kinetics",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-2.3.1": [
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.3.2": [
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.3.3": [
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.3.4": [
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.3.5": [
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.3.6": [
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-2.3.7": [
+      "Equilibrium",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-3.1.1": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.2": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.3": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.4": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.5": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.6": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.7": [
+      "Acids and bases",
+      "Analytical chemistry",
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-3.1.8": [
+      "Acids and bases",
+      "Analytical chemistry",
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-3.1.9": [
+      "Acids and bases"
+    ],
+    "ib-2025-reactivity-3.1.10": [
+      "Acids and bases",
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-3.1.11": [
+      "Acids and bases",
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-3.1.12": [
+      "Acids and bases",
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-3.1.13": [
+      "Acids and bases",
+      "Equilibrium",
+      "Analytical chemistry",
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-3.1.14": [
+      "Acids and bases",
+      "Equilibrium",
+      "Analytical chemistry"
+    ],
+    "ib-2025-reactivity-3.1.15": [
+      "Acids and bases",
+      "Equilibrium",
+      "Analytical chemistry",
+      "Stoichiometry"
+    ],
+    "ib-2025-reactivity-3.1.16": [
+      "Acids and bases",
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-3.1.17": [
+      "Acids and bases",
+      "Equilibrium"
+    ],
+    "ib-2025-reactivity-3.2.1": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.2": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.3": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.4": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.5": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.6": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.7": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.8": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.9": [
+      "Redox and electrochemistry",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.2.10": [
+      "Redox and electrochemistry",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.2.11": [
+      "Redox and electrochemistry",
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.2.12": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.13": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.14": [
+      "Redox and electrochemistry",
+      "Energetics and thermodynamics"
+    ],
+    "ib-2025-reactivity-3.2.15": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.2.16": [
+      "Redox and electrochemistry"
+    ],
+    "ib-2025-reactivity-3.3.1": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.3.2": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.3.3": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.1": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.2": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.3": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.4": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.5": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.6": [
+      "Acids and bases",
+      "Bonding and structure"
+    ],
+    "ib-2025-reactivity-3.4.7": [
+      "Acids and bases",
+      "Bonding and structure",
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.8": [
+      "Acids and bases",
+      "Bonding and structure",
+      "Periodicity and inorganic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.9": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.10": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.11": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.12": [
+      "Organic chemistry"
+    ],
+    "ib-2025-reactivity-3.4.13": [
+      "Organic chemistry"
+    ]
+  }
+}
