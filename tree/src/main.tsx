@@ -1,3 +1,4 @@
+import {SECTION_NAMES,sectionStyle,nodeAvailability,availabilityLabel} from '../simple/src/highlighting';
 import React, {useState, useEffect, useMemo, lazy, Suspense} from 'react';
 import {createRoot} from 'react-dom/client';
 import '@xyflow/react/dist/style.css';
@@ -32,6 +33,9 @@ class FeatureBoundary extends React.Component<{children: React.ReactNode; onList
 
 export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='STUDENT'}:{tools?:React.ReactNode;extraPanels?:React.ReactNode;nodeExtras?:Record<string,React.ReactNode>;nodeVisibility?:ReadonlySet<string>|null;audienceLabel?:string}={}) {
   const highlight = useHighlightSettings();
+  const [marked,setMarked]=useState<Set<string>>(()=>new Set());
+  const toggleMark=(id:string)=>setMarked(previous=>{const next=new Set(previous);next.has(id)?next.delete(id):next.add(id);return next;});
+  const availability=useMemo(()=>nodeAvailability(map.nodes,map.edges,marked),[marked]);
   const [simpleMode,setSimpleMode]=useState(false);
   const [initialLink] = useState(() => readNodeLink(window.location.hash));
   const [initialProgress] = useState(() => loadProgress(browserStorage()));
@@ -156,12 +160,14 @@ export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='
         <span className="tree-panel-count" aria-live="polite">{visible.length} statements</span>
        </ControlPanel>
        <section className="workspace" aria-label="Chemistry learning explorer"><div className="explorer">
-        {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView zoomRequest={zoomRequest} nodeExtras={nodeExtras} simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
-          <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g} hidden={!visible.some(s=>s.group===i)}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <button key={s.id} data-node-id={s.id} onClick={() => openNode(s.id)} className={selected === s.id ? 'chosen' : ''} aria-pressed={selected === s.id}>
-            <span><b>{s.official.code}</b><br/>{s.title}</span><small>{s.level === 'HL' ? 'HL addition' : 'SL / HL'} · Self: {STATUS_LABELS[progress[s.id] || 'not-reviewed']}</small>
-          </button>)}</section>)}</div>}
+        {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView marked={marked} toggleMark={toggleMark} zoomRequest={zoomRequest} nodeExtras={nodeExtras} simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
+          <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g} hidden={!visible.some(s=>s.group===i)}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <div key={s.id} className="list-node" data-node-id={s.id}>
+            <button onClick={() => openNode(s.id)} onDoubleClick={()=>toggleMark(s.id)} onKeyDown={e=>{if(e.key.toLowerCase()==='m'){e.preventDefault();toggleMark(s.id);}}} title="Double-click or press M to mark or unmark temporarily" style={sectionStyle(s.group) as React.CSSProperties} className={`skill-card list-node-card ${selected===s.id?'chosen active':''} ${marked.has(s.id)?'marked':''} ${highlight.sections.has(s.group)?'section-highlight':''} ${highlight.showUnlocked?`availability-${availability.get(s.id)}`:''}`} aria-pressed={selected===s.id} aria-description={highlight.showUnlocked?availabilityLabel(availability.get(s.id)):undefined}>
+            <span className="node-meta"><span>{s.official.code}</span><b>{s.level === 'HL' ? 'HL addition' : 'SL / HL'}</b></span><strong>{s.title}</strong><span className="node-status">{marked.has(s.id)?'✓ Marked · Self-assessment':'Self-assessment'}</span><span className="self-dot">{STATUS_LABELS[progress[s.id] || 'not-reviewed']}</span>{highlight.sections.has(s.group)&&<span className="section-tag">{SECTION_NAMES[s.group]}</span>}
+            </button>{nodeExtras?.[s.id]&&<div className="list-node-extra" role="group" aria-label={`${s.official.code} results`}>{nodeExtras[s.id]}</div>}
+          </div>)}</section>)}</div>}
         {!visible.length && <p role="status" className="empty">{nodeVisibility&&nodeVisibility.size===0?'No assessed nodes by this date. Move the time slider forward.':'No matching statements. Try another search or filter.'}</p>}
-        <footer className="legend"><span>Drag to explore · scroll to zoom · Tab to navigate</span><span>Solid → Suggested prerequisite</span><span>Gold ⇢ Suggested sequence</span><span>Purple ┄ Related idea</span></footer>
+        <footer className="legend">{simpleMode||view==='map'?<><span>Drag to explore · scroll to zoom · Tab to navigate</span><span>Solid → Suggested prerequisite</span><span>Gold ⇢ Suggested sequence</span><span>Purple ┄ Related idea</span></>:<span>Click to select · Double-click or press M to mark · Click results for evidence</span>}</footer>
 
        </div></section>
       </div>

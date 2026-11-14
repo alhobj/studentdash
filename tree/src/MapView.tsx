@@ -9,7 +9,7 @@ import {trace,traceStyle,SECTION_NAMES,sectionStyle,nodeAvailability,availabilit
 import {reducePrerequisiteEdges,visibleDependencyEdges} from '../simple/src/dependencies';
 const dependencyEdges=reducePrerequisiteEdges(map.edges);
 
-type MapProps = {zoomRequest?:{sequence:number;direction:"in"|"out"};nodeExtras?:Record<string,React.ReactNode>; simple?: boolean; highlight: HighlightSettings; sort: SortMode; visible: Skill[]; selected: string; connections: string; progress: Progress; onSelect: (id: string) => void; fitRequest: number};
+type MapProps = {marked: Set<string>; toggleMark:(id:string)=>void;zoomRequest?:{sequence:number;direction:"in"|"out"};nodeExtras?:Record<string,React.ReactNode>; simple?: boolean; highlight: HighlightSettings; sort: SortMode; visible: Skill[]; selected: string; connections: string; progress: Progress; onSelect: (id: string) => void; fitRequest: number};
 export function Card({data}: any) {
   return <><Handle type="target" position={Position.Top}/><button aria-label={`${data.official.code} · ${data.title}${data.simple ? '' : ` · Self-assessment: ${data.status}`}`} aria-pressed={data.active} title="Double-click or press M to mark or unmark temporarily" onMouseDown={e => {if(e.button===0)e.preventDefault();}} onDoubleClick={e => {e.stopPropagation(); data.toggleMark();}} onKeyDown={e => {if(e.key.toLowerCase()==='m'){e.preventDefault();e.stopPropagation();data.toggleMark();}}}
     style={{...traceStyle(data.strength),...sectionStyle(data.group)} as React.CSSProperties} aria-description={[data.traceLabel,availabilityLabel(data.availability)].filter(Boolean).join(' ')||undefined} className={`skill-card nodrag ${data.simple ? 'simple-card' : ''} ${data.availability ? `availability-${data.availability}` : ''} ${data.marked ? 'marked' : ''} ${data.traced ? 'traced' : ''} ${data.section ? 'section-highlight' : ''} ${data.connected ? 'connected' : ''} ${data.active ? 'active' : ''} self-${data.self || 'not-reviewed'}`} onClick={e => {e.stopPropagation(); data.open();}}>
@@ -18,9 +18,7 @@ export function Card({data}: any) {
 }
 function RoutedEdge({id, data, style, markerEnd}: any) {return <g><title>{data.description}</title><BaseEdge id={id} path={data.path} style={style} markerEnd={markerEnd}/></g>;}
 const nodeTypes = {skill: Card}, edgeTypes = {routed: RoutedEdge};
-function MapCanvas({zoomRequest,nodeExtras,simple=false, highlight, sort, visible, selected, connections, progress, onSelect, fitRequest}: MapProps) {
-  const [marked,setMarked]=useState<Set<string>>(()=>new Set());
-  const toggleMark=(id:string)=>setMarked(previous=>{const next=new Set(previous);next.has(id)?next.delete(id):next.add(id);return next;});
+function MapCanvas({marked,toggleMark,zoomRequest,nodeExtras,simple=false, highlight, sort, visible, selected, connections, progress, onSelect, fitRequest}: MapProps) {
   const flow = useReactFlow();
   const {layout, routes} = useMemo(() => {
     const layout = buildLayout(map.nodes, map.edges, sort);

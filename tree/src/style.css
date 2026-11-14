@@ -128,3 +128,12 @@ main{max-width:none;padding:8px 12px;margin:0}
 .canvas .skill-card:focus-visible{outline:2px solid #205f49;outline-offset:0}
 .canvas .react-flow__pane{cursor:grab}
 .canvas .react-flow__pane.dragging{cursor:grabbing}
+/* List rows retain card information and keep evidence buttons outside the selector. */
+.list-view .list-node{position:relative;margin:8px 0}
+.list-view .list-node-card{width:100%;height:auto;min-height:115px;display:flex;flex-direction:column;align-items:stretch;gap:4px;text-align:left;padding:12px 150px 12px 14px;margin:0}
+.list-view .list-node-card .node-meta{display:flex;justify-content:space-between;gap:12px}
+.list-view .list-node-card strong{font-size:15px}
+.list-view .list-node-card .section-tag{position:static;align-self:flex-start}
+.list-view .list-node-extra{position:absolute;right:12px;top:50%;transform:translateY(-50%);max-width:130px}
+.list-view .list-node-extra button{margin:0;width:auto}
+@media(max-width:600px){.list-view .list-node-card{padding-right:14px}.list-view .list-node-extra{position:static;transform:none;max-width:none;padding:8px 14px}.list-view .list-node-extra button{width:auto}}
