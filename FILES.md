@@ -1,6 +1,6 @@
 # ArborSynapse file inventory
 
-**317 retained repository files; 211 additional practice files inside the bundle.**
+**321 retained repository files; 211 additional practice files inside the bundle.**
 
 Every retained repository file is listed once below. “Optional” tools/tests support maintenance or compatibility and do not run routinely. The normal checks remain five tests. Practice builder source files are retained so bundled student resources can be updated.
 
@@ -782,3 +782,12 @@ These are stored inside `server/assets/practice.zip`, then restored to `server/r
 ## Local files outside Git
 
 `data/` and `output/` contain private teacher data/exports; keep them locally. `.venv/`, `node_modules/`, generated maps, built viewers, unpacked practice resources and caches are recreated automatically and are excluded from the repository. They are not extra source documents.
+
+### Exam questions mode
+
+| File | Purpose |
+| --- | --- |
+| `tree/teacher-viewer/ExamMode.tsx` | Teacher exam mode, local import, filters and clickable question evidence. |
+| `tree/teacher-viewer/exams.ts` | Validated paper metadata and mark allocations; prevents double counting. |
+| `tree/tests/exams.test.ts` | Focused import and mark-allocation checks. |
+| `docs/EXAMS.md` | Short exam import format and operating guide. |
