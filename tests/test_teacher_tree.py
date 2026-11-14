@@ -39,6 +39,8 @@ class TeacherTreeTests(unittest.TestCase):
         response = self.client.get(self.url+f'/students/{self.sid}/results')
         self.assertEqual(response.status_code,200)
         self.assertEqual(response.headers['Cache-Control'],'no-store')
+        self.assertEqual([a['date'] for a in response.json['assessments']], ['2026-01-01'])
+        self.assertEqual({r['assessmentDate'] for r in response.json['evidence']}, {'2026-01-01'})
         evidence = response.json['evidence']
         self.assertEqual((sum(r['score'] for r in evidence),sum(r['maxScore'] for r in evidence)),(4,5))
         self.assertEqual({r['questionNumber'] for r in evidence},{'1','2b'})

@@ -18,6 +18,8 @@ class LocalTreeTest(unittest.TestCase):
     def export(self,**kw):return export_package(kw.get('data',self.data),kw.get('student','001'),kw.get('mapping',{'Q':'node-a'}),self.viewer,self.dest)
     def test_single_learner_and_independent_updates(self):
         self.export();first=read_json(self.dest/'results.json');config=read_json(self.dest/'package.json')
+        self.assertEqual(first['evidence'][0]['assessmentDate'],'2026-01-01')
+        self.assertEqual(first['assessments'][0]['date'],'2026-01-01')
         self.assertEqual(len(first['evidence']),1);self.assertEqual(first['evidence'][0]['score'],4)
         text=(self.dest/'results.json').read_text()
         for private in ['Fictional Alice','Fictional Bob','bob@example.invalid','Secret text','confidence']:self.assertNotIn(private,text)
@@ -26,6 +28,11 @@ class LocalTreeTest(unittest.TestCase):
         self.data.question_results[0]=QuestionResult('A','Q','001',3,'graded')
         self.assertEqual(self.export()['revision'],2);self.assertEqual(read_json(self.dest/'package.json'),config)
         self.assertEqual((self.dest/'confidence-backup.json').read_text(),'student backup')
+        from dataclasses import replace
+        self.data.assessments['A']=replace(self.data.assessments['A'], date=date(2026,2,1))
+        self.assertEqual(self.export()['revision'],3)
+        self.assertEqual(read_json(self.dest/'package.json'),config)
+        self.assertEqual(read_json(self.dest/'results.json')['assessments'][0]['date'],'2026-02-01')
         with self.assertRaisesRegex(ValueError,'another learner'):self.export(student='002')
     def test_exclusions_zero_and_mapping(self):
         for status in ['absent','exempt','pending','missing']:

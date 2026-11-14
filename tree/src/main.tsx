@@ -30,7 +30,7 @@ class FeatureBoundary extends React.Component<{children: React.ReactNode; onList
   render() {return this.state.failed ? <div role="status" className="empty"><p>This feature could not load. Your self-assessment is unchanged. Reload to try again.</p>{this.props.onList && <button onClick={this.props.onList}>Use list instead</button>}</div> : this.props.children;}
 }
 
-export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.ReactNode;nodeExtras?:Record<string,React.ReactNode>;audienceLabel?:string}={}) {
+export function App({tools,extraPanels,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.ReactNode;extraPanels?:React.ReactNode;nodeExtras?:Record<string,React.ReactNode>;audienceLabel?:string}={}) {
   const highlight = useHighlightSettings();
   const [simpleMode,setSimpleMode]=useState(false);
   const [initialLink] = useState(() => readNodeLink(window.location.hash));
@@ -118,7 +118,7 @@ export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.Rea
          <button aria-label="Zoom in" onClick={()=>{setView('map');setZoomRequest(p=>({sequence:p.sequence+1,direction:'in'}));}}>Zoom in +</button>
          <button aria-label="Zoom out" onClick={()=>{setView('map');setZoomRequest(p=>({sequence:p.sequence+1,direction:'out'}));}}>Zoom out −</button>
         </ControlSection>
-        {tools&&<ControlSection title="Student data">{tools}</ControlSection>}
+        {tools&&<ControlSection title="Student data">{tools}</ControlSection>}{extraPanels}
         <ControlSection title="Practice & help">
          <label>Practice level<select aria-label="Practice level" value={practiceLevel} onChange={e=>setPracticeLevel(e.target.value as 'SL'|'HL')}><option value="SL">SL</option><option value="HL">HL</option></select></label>
          <label className="guided-filter"><input id="guided-filter" type="checkbox" checked={guidedOnly} onChange={e=>setGuidedOnly(e.target.checked)}/> Guided exercises ({practiceCount})</label>

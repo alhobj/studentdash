@@ -1,6 +1,6 @@
 # ArborSynapse file inventory
 
-**315 retained repository files; 211 additional practice files inside the bundle.**
+**317 retained repository files; 211 additional practice files inside the bundle.**
 
 Every retained repository file is listed once below. “Optional” tools/tests support maintenance or compatibility and do not run routinely. The normal checks remain five tests. Practice builder source files are retained so bundled student resources can be updated.
 
@@ -545,6 +545,9 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | --- | --- |
 | `ControlPanel.tsx` | Shared accessible left panel and native sections that start collapsed. |
 | `control-panel.css` | Fixed-width, scrollable panels that keep the map stable while menus open. |
+| `TimeControls.tsx` | Collapsed time slider, previous/next assessment dates and All results reset. |
+| `timeline.ts` | Cumulative date filtering with explicit undated-record handling; no confidence/history writes. |
+
 
 ## Bundled practice files
 

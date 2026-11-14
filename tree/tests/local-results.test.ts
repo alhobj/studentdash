@@ -34,3 +34,27 @@ test('new revisions update results without changing separately saved confidence'
  assert.notEqual(confidenceKey(packageId),confidenceKey('another-package'));
  assert.throws(()=>parseConfidence(saved,known,'another-package'));
 });
+
+test('assessment timeline accumulates marks by date and keeps undated legacy evidence separate',async()=>{
+ const {assessmentDates,throughDate,undatedCount}=await import('../shared/timeline');
+ const records=[{...source.evidence[0],assessmentDate:'2026-09-01'},
+  {...source.evidence[0],assessmentId:'B',questionId:'Q2',score:1,maxScore:3,assessmentDate:'2026-10-01'},
+  {...source.evidence[0],assessmentId:'C',questionId:'Q3',score:0,maxScore:2,assessmentDate:'2026-09-01'},
+  {...source.evidence[0],assessmentId:'legacy',questionId:'Q4',score:2,maxScore:2}];
+ const catalog=[{id:'A01',title:'First',date:'2026-09-01'},{id:'B',title:'Second',date:'2026-10-01'},{id:'C',title:'Same day',date:'2026-09-01'},{id:'pending',title:'No graded evidence',date:'2026-11-01'}];
+ const file=parse({...source,evidence:records,assessments:catalog}),before=JSON.stringify(file),saved=confidenceFile({'node-a':'confident'},packageId);
+ assert.deepEqual(assessmentDates(file.evidence,file.assessments),['2026-09-01','2026-10-01','2026-11-01']);
+ assert.equal(throughDate(file.evidence,'',file.assessments).length,0);
+ assert.deepEqual(totals([...throughDate(file.evidence,'2026-09-01',file.assessments)]),{score:4,maximum:7});
+ assert.deepEqual(totals([...throughDate(file.evidence,'2026-10-01',file.assessments)]),{score:5,maximum:10});
+ assert.deepEqual(totals([...throughDate(file.evidence,null,file.assessments)]),{score:7,maximum:12});
+ assert.equal(undatedCount(file.evidence,file.assessments),1);
+ assert.equal(JSON.stringify(file),before);
+ assert.deepEqual(parseConfidence(saved,known,packageId),{'node-a':'confident'});
+ const legacy=parse(source);assert.equal(assessmentDates(legacy.evidence).length,0);assert.equal(throughDate(legacy.evidence,'2026-12-01').length,0);
+});
+test('assessment dates must be real and consistent without rejecting old undated snapshots',()=>{
+ assert.doesNotThrow(()=>parse(source));
+ assert.throws(()=>parse({...source,evidence:[{...source.evidence[0],assessmentDate:'2026-02-30'}]}));
+ assert.throws(()=>parse({...source,evidence:[{...source.evidence[0],assessmentDate:'2026-10-01'}],assessments:[{id:'A01',title:'First',date:'2026-09-01'}]}));
+});

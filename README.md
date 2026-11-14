@@ -15,7 +15,12 @@ chapter highlights, arrows, layout, student data, practice or backups.
 
 Open **Teacher tree** for the teacher view. **Student data: Off / On** enables
 class/student selection and read-only result rings; click a ring for tests and
-question marks. Data starts off and is not saved in the browser. Broad section
+question marks. The **Time** section steps through assessment dates and accumulates
+results up to that date; **All results** returns to the full view. Exported student
+viewers have the same timeline. Re-export old student folders and reopen the viewer
+once to receive dates and the new controls. This uses current saved marks by
+assessment date, including later corrections; it does not rewind confidence or
+reconstruct historical score edits. Data starts off and is not saved in the browser. Broad section
 classifications do not become individual-node evidence.
 
 The navigation includes classes, results, the full/simple learning trees and the

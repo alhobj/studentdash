@@ -4,15 +4,17 @@ export const MAX_RING_SLICES=500;
 export const CONFIDENCE_LABELS={'not-reviewed':'Not reviewed','needs-practice':'Needs practice',developing:'Developing',confident:'Confident'} as const;
 export type Confidence=Record<string,Exclude<keyof typeof CONFIDENCE_LABELS,'not-reviewed'>>;
 const short=z.string().min(1).max(200);
-const row=z.object({assessmentId:short,assessmentTitle:short,questionId:short,questionNumber:short,nodeId:short,score:z.number().finite().nonnegative().max(1000000),maxScore:z.number().finite().positive().max(1000000),status:z.literal('graded')}).strict().refine(r=>r.score<=r.maxScore,'Marks exceed the available marks');
-const schema=z.object({schemaVersion:z.literal('1.0'),mapId:z.literal('chemistree'),mapVersion:z.literal('2.0'),packageId:z.uuid(),revision:z.number().int().positive(),generatedAt:z.iso.datetime(),evidence:z.array(row).max(10000)}).strict();
+const row=z.object({assessmentId:short,assessmentTitle:short,questionId:short,questionNumber:short,nodeId:short,score:z.number().finite().nonnegative().max(1000000),maxScore:z.number().finite().positive().max(1000000),status:z.literal('graded'),assessmentDate:z.iso.date().optional()}).strict().refine(r=>r.score<=r.maxScore,'Marks exceed the available marks');
+const schema=z.object({schemaVersion:z.literal('1.0'),mapId:z.literal('chemistree'),mapVersion:z.literal('2.0'),packageId:z.uuid(),revision:z.number().int().positive(),generatedAt:z.iso.datetime(),evidence:z.array(row).max(10000),assessments:z.array(z.object({id:short,title:short,date:z.iso.date()}).strict()).max(10000).optional()}).strict();
 export type Results=z.infer<typeof schema>;
 export function parseResults(text:string,known:ReadonlySet<string>,packageId:string):Results{
  if(new TextEncoder().encode(text).length>MAX_RESULTS_BYTES)throw Error('Results file exceeds 2 MB.');
  const result=schema.parse(JSON.parse(text));
  if(result.packageId!==packageId)throw Error('This results file belongs to a different student package.');
+ const catalog=new Map<string,string>();
+ for(const a of result.assessments||[]){if(catalog.has(a.id))throw Error('Duplicate assessment date record.');catalog.set(a.id,a.date);}
  const seen=new Set<string>();
- for(const r of result.evidence){if(!known.has(r.nodeId))throw Error('Unknown curriculum node. Update the application before loading these results.');const key=JSON.stringify([r.assessmentId,r.questionId]);if(seen.has(key))throw Error('A question is counted more than once.');seen.add(key);}
+ for(const r of result.evidence){if(r.assessmentDate&&catalog.has(r.assessmentId)&&catalog.get(r.assessmentId)!==r.assessmentDate)throw Error('Inconsistent assessment date.');if(!known.has(r.nodeId))throw Error('Unknown curriculum node. Update the application before loading these results.');const key=JSON.stringify([r.assessmentId,r.questionId]);if(seen.has(key))throw Error('A question is counted more than once.');seen.add(key);}
  return result;
 }
 export function acceptResults(current:Results|null,incoming:Results):Results{

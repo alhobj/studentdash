@@ -2,7 +2,7 @@
 
 No topic inference, ancestor rollups, confidence writes, or network operations.
 """
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 import json
 import math
@@ -30,6 +30,26 @@ def atomic_json(path, value):
         temp.unlink(missing_ok=True)
 
 
+def assessment_date(assessment):
+    value = assessment.date
+    if isinstance(value, datetime):
+        value = value.date()
+    if not isinstance(value, date):
+        raise ValueError('Assessments require a valid date for the timeline.')
+    return value.isoformat()
+
+
+def assessment_catalog(data, student_id):
+    ids = {r.assessment_id for r in data.question_results if r.student_id == student_id}
+    ids.update(aid for aid, sid in data.memberships if sid == student_id)
+    for aid in ids:
+        a = data.assessments[aid]
+        if any(not isinstance(v, str) or not 1 <= len(v) <= 200 for v in (a.id, a.name)):
+            raise ValueError('Assessment timeline labels must be nonempty strings of at most 200 characters.')
+    return sorted([dict(id=a.id, title=a.name, date=assessment_date(a))
+                   for aid, a in data.assessments.items() if aid in ids], key=lambda a: (a['date'], a['id']))
+
+
 def evidence(data, student_id, mapping, registry):
     if student_id not in data.students:
         raise ValueError('Choose an existing student ID.')
@@ -54,7 +74,7 @@ def evidence(data, student_id, mapping, registry):
         fields = dict(assessmentId=assessment.id, assessmentTitle=assessment.name, questionId=question.id, questionNumber=question.number, nodeId=mapping[question.id])
         if any(not isinstance(v, str) or not 1 <= len(v) <= 200 for v in fields.values()):
             raise ValueError('Export labels and IDs must be nonempty strings of at most 200 characters.')
-        rows.append(dict(**fields, score=score, maxScore=maximum, status='graded'))
+        rows.append(dict(**fields, score=score, maxScore=maximum, status='graded', assessmentDate=assessment_date(assessment)))
     if len(rows) > 10000:
         raise ValueError('Too many question records for one local package.')
     return sorted(rows, key=lambda row: (row['assessmentId'], row['questionId']))
@@ -70,6 +90,7 @@ def export_package(data, student_id, mapping, viewer, destination):
         if not isinstance(registry.get(field), str) or not registry[field]:
             raise ValueError('Invalid curriculum registry.')
     rows = evidence(data, student_id, mapping, registry)
+    assessments = assessment_catalog(data, student_id)
     assets = read_json(viewer / 'assets-manifest.json')
     files = ['app/index.html', 'assets-manifest.json', 'Start.cmd', 'Start.ps1', 'serve.py', 'LOCAL_STUDENT_GUIDE.md']
     for asset in assets:
@@ -98,8 +119,8 @@ def export_package(data, student_id, mapping, viewer, destination):
     previous = read_json(results_path) if results_path.exists() else None
     if previous and (previous.get('packageId') != config['packageId'] or not isinstance(previous.get('revision'), int)):
         raise ValueError('Existing results do not match this package. Export cancelled.')
-    changed = previous is None or previous.get('evidence') != rows
-    payload = dict(schemaVersion='1.0', mapId=registry['mapId'], mapVersion=registry['mapVersion'], packageId=config['packageId'], revision=(previous['revision'] + 1 if previous else 1), generatedAt=datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'), evidence=rows)
+    changed = previous is None or previous.get('evidence') != rows or previous.get('assessments') != assessments
+    payload = dict(schemaVersion='1.0', mapId=registry['mapId'], mapVersion=registry['mapVersion'], packageId=config['packageId'], revision=(previous['revision'] + 1 if previous else 1), generatedAt=datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'), evidence=rows, assessments=assessments)
     if len(json.dumps(payload, ensure_ascii=False).encode('utf-8')) > 2 * 1024 * 1024:
         raise ValueError('Results exceed the 2 MB viewer limit.')
     # Versioned assets first, HTML last. A running browser can retain its old assets.

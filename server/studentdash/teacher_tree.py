@@ -2,7 +2,7 @@
 from pathlib import Path
 from flask import Blueprint, abort, session
 from .entry import ClassStore, as_workbook
-from .local_tree import read_json, evidence
+from .local_tree import read_json, evidence, assessment_catalog
 from .tree_export import choices
 
 
@@ -39,6 +39,6 @@ def register_teacher_tree(app, config, registry_path):
         data = as_workbook(store.path(key))
         rows = evidence(data, sid, mapping, registry)
         graded = sum(r.student_id == sid and r.status == 'graded' for r in data.question_results)
-        return dict(classId=key, studentId=sid, evidence=rows, unassignedGradedParts=graded-len(rows))
+        return dict(classId=key, studentId=sid, evidence=rows, assessments=assessment_catalog(data, sid), unassignedGradedParts=graded-len(rows))
 
     app.register_blueprint(bp)
