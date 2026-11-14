@@ -1,16 +1,15 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {ReactFlow, Background, Controls, Handle, Position, ReactFlowProvider, useReactFlow, MarkerType, BaseEdge} from '@xyflow/react';
+import {ReactFlow, Background, Handle, Position, ReactFlowProvider, useReactFlow, MarkerType, BaseEdge} from '@xyflow/react';
 import {map, type Skill} from './curriculum';
 import {STATUS_LABELS, type Progress} from './progress';
 import {buildLayout, routeEdges, CARD_WIDTH, CARD_HEIGHT, type SortMode} from './layout';
 
-import {HighlightControls,type HighlightSettings} from '../simple/src/HighlightControls';
-import {trace,traceStyle,maximumDepth,SECTION_NAMES,sectionStyle,nodeAvailability,availabilityLabel} from '../simple/src/highlighting';
+import {type HighlightSettings} from '../simple/src/HighlightControls';
+import {trace,traceStyle,SECTION_NAMES,sectionStyle,nodeAvailability,availabilityLabel} from '../simple/src/highlighting';
 import {reducePrerequisiteEdges,visibleDependencyEdges} from '../simple/src/dependencies';
 const dependencyEdges=reducePrerequisiteEdges(map.edges);
-const maxDepth=maximumDepth(dependencyEdges);
 
-type MapProps = {nodeExtras?:Record<string,React.ReactNode>; simple?: boolean; highlight: HighlightSettings; sort: SortMode; visible: Skill[]; selected: string; connections: string; progress: Progress; onSelect: (id: string) => void; fitRequest: number};
+type MapProps = {zoomRequest?:{sequence:number;direction:"in"|"out"};nodeExtras?:Record<string,React.ReactNode>; simple?: boolean; highlight: HighlightSettings; sort: SortMode; visible: Skill[]; selected: string; connections: string; progress: Progress; onSelect: (id: string) => void; fitRequest: number};
 export function Card({data}: any) {
   return <><Handle type="target" position={Position.Top}/><button aria-label={`${data.official.code} · ${data.title}${data.simple ? '' : ` · Self-assessment: ${data.status}`}`} aria-pressed={data.active} title="Double-click or press M to mark or unmark temporarily" onMouseDown={e => {if(e.button===0)e.preventDefault();}} onDoubleClick={e => {e.stopPropagation(); data.toggleMark();}} onKeyDown={e => {if(e.key.toLowerCase()==='m'){e.preventDefault();e.stopPropagation();data.toggleMark();}}}
     style={{...traceStyle(data.strength),...sectionStyle(data.group)} as React.CSSProperties} aria-description={[data.traceLabel,availabilityLabel(data.availability)].filter(Boolean).join(' ')||undefined} className={`skill-card nodrag ${data.simple ? 'simple-card' : ''} ${data.availability ? `availability-${data.availability}` : ''} ${data.marked ? 'marked' : ''} ${data.traced ? 'traced' : ''} ${data.section ? 'section-highlight' : ''} ${data.connected ? 'connected' : ''} ${data.active ? 'active' : ''} self-${data.self || 'not-reviewed'}`} onClick={e => {e.stopPropagation(); data.open();}}>
@@ -19,7 +18,7 @@ export function Card({data}: any) {
 }
 function RoutedEdge({id, data, style, markerEnd}: any) {return <g><title>{data.description}</title><BaseEdge id={id} path={data.path} style={style} markerEnd={markerEnd}/></g>;}
 const nodeTypes = {skill: Card}, edgeTypes = {routed: RoutedEdge};
-function MapCanvas({nodeExtras,simple=false, highlight, sort, visible, selected, connections, progress, onSelect, fitRequest}: MapProps) {
+function MapCanvas({zoomRequest,nodeExtras,simple=false, highlight, sort, visible, selected, connections, progress, onSelect, fitRequest}: MapProps) {
   const [marked,setMarked]=useState<Set<string>>(()=>new Set());
   const toggleMark=(id:string)=>setMarked(previous=>{const next=new Set(previous);next.has(id)?next.delete(id):next.add(id);return next;});
   const flow = useReactFlow();
@@ -47,9 +46,10 @@ function MapCanvas({nodeExtras,simple=false, highlight, sort, visible, selected,
     const timer=setTimeout(()=>flow.fitView({nodes:visible.map(node=>({id:node.id})),padding:.2,maxZoom:1,duration:reducedMotion?0:250}),120);
     return ()=>clearTimeout(timer);
   },[fitRequest]);
-  return <div className="canvas" aria-label="Chemistry skill map"><HighlightControls settings={highlight} max={maxDepth}/><ReactFlow nodes={[...nodes, ...labels]} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes} minZoom={.01} maxZoom={1.5} zoomOnDoubleClick={false} autoPanOnNodeFocus={false} defaultViewport={initialViewport}
+  useEffect(()=>{if(zoomRequest?.sequence){if(zoomRequest.direction==='in')flow.zoomIn({duration:0});else flow.zoomOut({duration:0});}},[zoomRequest?.sequence]);
+  return <div className="canvas" aria-label="Chemistry skill map"><ReactFlow nodes={[...nodes, ...labels]} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes} minZoom={.01} maxZoom={1.5} zoomOnDoubleClick={false} autoPanOnNodeFocus={false} defaultViewport={initialViewport}
     panOnDrag={[0,1]} paneClickDistance={5} selectionOnDrag={false} selectionKeyCode={null} elementsSelectable={false} nodesDraggable={false} nodesConnectable={false} edgesFocusable={false} onNodeClick={(_, node) => {if (map.nodes.some(candidate => candidate.id === node.id)) onSelect(node.id);}}>
-    <Background color="#cbd8cd" gap={24}/><Controls showInteractive={false}/>
+    <Background color="#cbd8cd" gap={24}/>
   </ReactFlow></div>;
 }
 export default function MapView(props: MapProps) {return <ReactFlowProvider><MapCanvas {...props}/></ReactFlowProvider>;}

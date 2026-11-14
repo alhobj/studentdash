@@ -2,6 +2,11 @@
 const {chromium} = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+async function revealControls(page) {
+  await page.locator('.tree-control-panel').waitFor();
+  // Functional checks open menus explicitly; the application itself starts collapsed.
+  await page.locator('.tree-control-panel > .control-section').evaluateAll(items => items.forEach(item => {item.open = true;}));
+}
 const root = process.env.SMOKE_URL || 'http://127.0.0.1:4173';
 const KEY = 'chemistree-self-assessment-v1';
 (async () => {
@@ -11,7 +16,7 @@ const KEY = 'chemistree-self-assessment-v1';
     const requested = [], errors = [];
     page.on('request', request => {if (request.url().startsWith('http')) requested.push(new URL(request.url()));});
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(root + '#node=ib-2025-structure-3.2.12');
+    await page.goto(root + '#node=ib-2025-structure-3.2.12'); await revealControls(page);
     await page.locator('.skill-card').first().waitFor();
     assert.ok(requested.some(url => /MapView-.*\.js$/.test(url.pathname)));
     assert.ok(!requested.some(url => /PracticeSection-.*\.js$/.test(url.pathname)), 'Uncurated statements do not download practice content');
@@ -28,7 +33,7 @@ const KEY = 'chemistree-self-assessment-v1';
 
     const failed = await browser.newPage(); failed.setDefaultTimeout(8000);
     await failed.route('**/MapView-*.js', route => route.abort());
-    await failed.goto(root);
+    await failed.goto(root); await revealControls(failed);
     await failed.getByRole('button', {name:'Use list instead', exact:true}).click();
     assert.equal(await failed.locator('.list-view button').count(), 165);
     const self = failed.getByLabel('How do you feel about this statement?', {exact:true});

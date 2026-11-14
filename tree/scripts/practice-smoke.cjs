@@ -2,6 +2,11 @@
 const {chromium} = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+async function revealControls(page) {
+  await page.locator('.tree-control-panel').waitFor();
+  // Functional checks open menus explicitly; the application itself starts collapsed.
+  await page.locator('.tree-control-panel > .control-section').evaluateAll(items => items.forEach(item => {item.open = true;}));
+}
 const root = process.env.SMOKE_URL || 'http://127.0.0.1:4173';
 const practiceCount = require('../src/data/practice.json').length;
 const KEY = 'chemistree-self-assessment-v1';
@@ -16,7 +21,7 @@ const uncurated = 'ib-2025-structure-3.2.12';
   context.on('page', p => {p.setDefaultTimeout(8000); p.on('pageerror', e => errors.push(e.message));});
   try {
     const page = await context.newPage();
-    await page.goto(`${root}#node=${polarity}`);
+    await page.goto(`${root}#node=${polarity}`); await revealControls(page);
     await page.getByRole('heading', {name: 'Guided practice', exact: true}).waitFor();
     const read = () => page.evaluate(key => localStorage.getItem(key), KEY);
     const reflection = page.getByLabel('How do you feel about this statement?', {exact: true});
@@ -76,7 +81,7 @@ const uncurated = 'ib-2025-structure-3.2.12';
     fs.mkdirSync('artifacts', {recursive: true});
     await page.locator('.guided-practice').evaluate(el => {const panel = document.getElementById('node-details'); panel.scrollTop += el.getBoundingClientRect().top - panel.getBoundingClientRect().top - 16;});
     await page.screenshot({path: 'artifacts/guided-practice-desktop.png', fullPage: true});
-    await page.reload(); await page.getByRole('heading', {name: 'Guided practice', exact: true}).waitFor();
+    await page.reload(); await revealControls(page); await page.getByRole('heading', {name: 'Guided practice', exact: true}).waitFor();
     assert.equal(await page.locator('.practice-hints li').count(), 0);
     assert.equal(await page.locator('.practice-solution').getAttribute('open'), null);
     assert.equal(await read(), saved);

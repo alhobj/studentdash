@@ -8,8 +8,10 @@ import {ProgressTools} from './ProgressTools';
 import {practiceNodeIds, practiceCount} from './practice';
 import {Help} from './Help';
 import './style.css';
+import {ControlPanel,ControlSection} from '../shared/ControlPanel';
+import '../shared/control-panel.css';
 import '../simple/src/highlights.css';
-import {useHighlightSettings} from '../simple/src/HighlightControls';
+import {HighlightControls,useHighlightSettings} from '../simple/src/HighlightControls';
 import {maximumDepth} from '../simple/src/highlighting';
 import {reducePrerequisiteEdges} from '../simple/src/dependencies';
 const dependencyEdges=reducePrerequisiteEdges(map.edges);
@@ -48,6 +50,7 @@ export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.Rea
   const [message, setMessage] = useState(initialLink.error || '');
   const [copied, setCopied] = useState(false);
   const [fitRequest, setFitRequest] = useState(0);
+  const [zoomRequest,setZoomRequest]=useState<{sequence:number;direction:"in"|"out"}>({sequence:0,direction:"in"});
 
   function commit(next: Progress) {
     setProgress(next);
@@ -83,8 +86,8 @@ export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.Rea
   const directPrerequisites=dependencyEdges.filter(e=>e.type==='prerequisite'&&e.target===n.id).map(e=>e.source);
   const visible = useMemo(() => map.nodes.filter(n =>
     (level !== 'SL' || n.level === 'shared') && (level !== 'HL-only' || n.level === 'HL') &&
-    (simpleMode || area === 'all' || n.group === Number(area)) && (simpleMode || !guidedOnly || practiceNodeIds.has(n.id)) &&
-    (simpleMode || `${n.official.code} ${n.official.statement} ${n.title} ${n.explanation}`.toLowerCase().includes(q.toLowerCase()))), [q, level, area, guidedOnly,simpleMode]);
+    (area === 'all' || n.group === Number(area)) && (!guidedOnly || practiceNodeIds.has(n.id)) &&
+    (`${n.official.code} ${n.official.statement} ${n.title} ${n.explanation}`.toLowerCase().includes(q.toLowerCase()))), [q, level, area, guidedOnly,simpleMode]);
   const visibleIds = new Set(visible.map(n => n.id));
 
 
@@ -95,34 +98,35 @@ export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.Rea
   return <div className={simpleMode?'app simple-mode':'app'}>
     <a className="skip-link" href="#main">Skip to curriculum</a>
     <header><a className="brand" href="#main"><span className="brand-mark" aria-hidden="true">✳</span>ArborSynapse<span className="beta">{audienceLabel}</span></a>
-      <div className="header-right"><span>IB DP CHEMISTRY · 2025</span><Help onStart={() => {setQ(''); setLevel('all'); setArea('all'); setGuidedOnly(true); setView('list'); requestAnimationFrame(() => document.getElementById('guided-filter')?.focus());}}/><label>Practice level <select aria-label="Practice level" value={practiceLevel} onChange={e => setPracticeLevel(e.target.value as 'SL' | 'HL')}><option value="SL">SL</option><option value="HL">HL</option></select></label></div>
+      <div className="header-right"><span>IB DP CHEMISTRY · 2025</span></div>
     </header>
     <main id="main" tabIndex={-1}><h1 className="sr-only">IB Chemistry curriculum</h1>
-      {tools}
-      <ProgressTools progress={progress} onCommit={next => {commit(next); setMessage('Self-assessment imported. No automatic synchronisation is enabled.');}} onClear={clear} onMessage={setMessage}/>
       {storageMessage && <div className="storage-warning" role="alert">{storageMessage}</div>}
       {message && <div className="message" role="status">{message}<button onClick={() => setMessage('')} aria-label="Dismiss message">×</button></div>}
-      <section className="workspace" aria-label="Chemistry learning explorer"><div className="explorer">
-        <div className="toolbar"><label className="search"><span aria-hidden="true">⌕</span><input placeholder="Search statement codes or ideas…" aria-label="Search nodes" value={q} onChange={e => setQ(e.target.value)}/></label>
-          <select aria-label="Level filter" value={level} onChange={e => setLevel(e.target.value)}><option value="SL">SL</option><option value="all">SL + HL</option><option value="HL-only">HL additions</option></select>
-          <button className="mode-toggle" aria-pressed={simpleMode} onClick={()=>setSimpleMode(value=>!value)}>Simple mode</button>
-          <button className="view-toggle" aria-pressed={view === 'map'} onClick={() => setView('map')}>Map</button><button className="view-toggle" aria-pressed={view === 'list'} onClick={() => setView('list')}>List</button>
-        </div>
-        <div className="map-options"><select aria-label="Subject area" value={area} onChange={e => setArea(e.target.value)}><option value="all">All subject areas</option>{map.groups.map((g, i) => <option value={i} key={g}>{g}</option>)}</select>
-          <select aria-label="Connections" value={links} onChange={e => setLinks(e.target.value)}><option value="selected">Selected connections</option><option value="all">All connections</option><option value="none">Hide connections</option></select>
-          <button aria-pressed={sort === 'bottom'} onClick={() => setSort(value => value === 'top' ? 'bottom' : 'top')}>{sort === 'top' ? 'Bottom sort' : 'Top sort'}</button>
-          <button onClick={() => {setView('map'); setFitRequest(value => value + 1);}}>⛶ Fit map</button>
-          <label className="guided-filter"><input id="guided-filter" type="checkbox" checked={guidedOnly} onChange={e => setGuidedOnly(e.target.checked)}/> Guided exercises ({practiceCount})</label>
-          <span aria-live="polite">{visible.length} statements</span><a className="mobile-detail" href="#node-details">Open selected details ↓</a>
-        </div>
-        {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView nodeExtras={nodeExtras} simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={simpleMode?'all':links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
-          <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <button key={s.id} data-node-id={s.id} onClick={() => openNode(s.id)} className={selected === s.id ? 'chosen' : ''} aria-pressed={selected === s.id}>
-            <span><b>{s.official.code}</b><br/>{s.title}</span><small>{s.level === 'HL' ? 'HL addition' : 'SL / HL'} · Self: {STATUS_LABELS[progress[s.id] || 'not-reviewed']}</small>
-          </button>)}</section>)}</div>}
-        {!visible.length && <p role="status" className="empty">No matching statements. Try another search or filter.</p>}
-        <footer className="legend"><span>Drag to explore · scroll to zoom · Tab to navigate</span><span>Solid → Suggested prerequisite</span><span>Gold ⇢ Suggested sequence</span><span>Purple ┄ Related idea</span></footer>
-      </div>
-      <aside hidden={simpleMode} id="node-details" aria-label="Node details" className="details" tabIndex={-1}>
+      <div className="tree-shell">
+       <ControlPanel>
+        <ControlSection title="Find topics">
+         <label>Search<input placeholder="Search statement codes or ideas…" aria-label="Search nodes" value={q} onChange={e=>setQ(e.target.value)}/></label>
+         <label>Curriculum level<select aria-label="Level filter" value={level} onChange={e=>setLevel(e.target.value)}><option value="SL">SL</option><option value="all">SL + HL</option><option value="HL-only">HL additions</option></select></label>
+        </ControlSection>
+        <HighlightControls settings={highlight} max={maximumDepth(dependencyEdges)} sectionOptions={<label>Subject area<select aria-label="Subject area" value={area} onChange={e=>setArea(e.target.value)}><option value="all">All subject areas</option>{map.groups.map((g,i)=><option value={i} key={g}>{g}</option>)}</select></label>} connectionOptions={<label>Show arrows<select aria-label="Connections" value={links} onChange={e=>setLinks(e.target.value)}><option value="selected">Selected connections</option><option value="all">All connections</option><option value="none">Hide connections</option></select></label>}/>
+        <ControlSection title="Layout & view">
+         <button className="mode-toggle" aria-pressed={simpleMode} onClick={()=>{setSimpleMode(value=>!value);setView('map');}}>Simple mode</button>
+         <button className="view-toggle" aria-pressed={view==='map'} onClick={()=>setView('map')}>Map</button><button className="view-toggle" aria-pressed={view==='list'} onClick={()=>{setSimpleMode(false);setView('list');}}>List</button>
+         <button aria-pressed={sort==='bottom'} onClick={()=>setSort(value=>value==='top'?'bottom':'top')}>{sort==='top'?'Bottom sort':'Top sort'}</button>
+         <button onClick={()=>{setView('map');setFitRequest(value=>value+1);}}>⛶ Fit map</button>
+         <button aria-label="Zoom in" onClick={()=>{setView('map');setZoomRequest(p=>({sequence:p.sequence+1,direction:'in'}));}}>Zoom in +</button>
+         <button aria-label="Zoom out" onClick={()=>{setView('map');setZoomRequest(p=>({sequence:p.sequence+1,direction:'out'}));}}>Zoom out −</button>
+        </ControlSection>
+        {tools&&<ControlSection title="Student data">{tools}</ControlSection>}
+        <ControlSection title="Practice & help">
+         <label>Practice level<select aria-label="Practice level" value={practiceLevel} onChange={e=>setPracticeLevel(e.target.value as 'SL'|'HL')}><option value="SL">SL</option><option value="HL">HL</option></select></label>
+         <label className="guided-filter"><input id="guided-filter" type="checkbox" checked={guidedOnly} onChange={e=>setGuidedOnly(e.target.checked)}/> Guided exercises ({practiceCount})</label>
+         <Help onStart={()=>{setQ('');setLevel('all');setArea('all');setSimpleMode(false);setGuidedOnly(true);setView('list');requestAnimationFrame(()=>document.getElementById('guided-filter')?.focus());}}/>
+        </ControlSection>
+        <ControlSection title="Self-assessment & backup"><ProgressTools progress={progress} onCommit={next=>{commit(next);setMessage('Self-assessment imported. No automatic synchronisation is enabled.');}} onClear={clear} onMessage={setMessage}/></ControlSection>
+        <ControlSection title="Selected node" hidden={simpleMode}>
+      <aside id="node-details" aria-label="Node details" className="details" tabIndex={-1}>
         <div className="detail-heading"><span className="eyebrow">{n.level === 'HL' ? 'ADDITIONAL HIGHER LEVEL' : 'SL / HL SHARED'}</span><h2>{n.title}</h2><span className="sr-only" role="status">Selected {n.official.code}: {n.title}</span>
           <div className="official-statement"><h3>Official guide statement</h3><b>{n.official.code}</b><p><OfficialText parts={n.official.statementParts} statement={n.official.statement}/></p></div>
           <p className="source-note">Chemistry guide · February 2023 · first assessment 2025<br/>Guide p. {n.official.printedPages.join(', ')} · PDF p. {n.official.pdfPages.join(', ')}</p>
@@ -143,8 +147,23 @@ export function App({tools,nodeExtras,audienceLabel='STUDENT'}:{tools?:React.Rea
           <textarea aria-label="AI instruction" className="prompt" readOnly value={prompt(n, practiceLevel)}/><button className="primary" onClick={async () => {try {await navigator.clipboard.writeText(prompt(n, practiceLevel)); setCopied(true);} catch {setMessage('Copy unavailable. Select the instruction text and copy manually.');}}}>{copied ? '✓ Copied' : 'Copy AI instruction ↗'}</button>
           <p><a href={`${location.pathname}${nodeFragment(n.id)}`} onClick={e => {e.preventDefault(); openNode(n.id);}}>Link to this statement</a></p><h3>Syllabus context</h3>{n.syllabusRefs.map(ref => <p key={ref} className="syllabus">{ref}<small>{map.syllabus.find(s => s.id === ref)?.title}</small></p>)}
         </div>
-      </aside></section>
-      <details className="curriculum"><summary>Official framework & source scope</summary><div>{map.syllabus.map(s => <p key={s.id}><b>{s.id}</b> — {s.title}</p>)}</div><p>All numbered Structure and Reactivity statements from the supplied first-assessment-2025 guide. Consult the guide for full applications, skills, practical work and assessment requirements.</p></details>
+      </aside>
+        </ControlSection>
+        <ControlSection title="Guide & source">
+<div>{map.syllabus.map(s => <p key={s.id}><b>{s.id}</b> — {s.title}</p>)}</div><p>All numbered Structure and Reactivity statements from the supplied first-assessment-2025 guide. Consult the guide for full applications, skills, practical work and assessment requirements.</p>
+        </ControlSection>
+        <span className="tree-panel-count" aria-live="polite">{visible.length} statements</span>
+       </ControlPanel>
+       <section className="workspace" aria-label="Chemistry learning explorer"><div className="explorer">
+        {simpleMode || view === 'map' ? <FeatureBoundary key="map" onList={() => setView('list')}><Suspense fallback={<div className="canvas" role="status"><p className="empty">Loading map… You can use List while it loads.</p></div>}><MapView zoomRequest={zoomRequest} nodeExtras={nodeExtras} simple={simpleMode} highlight={highlight} sort={sort} visible={visible} selected={selected} connections={links} progress={progress} onSelect={openNode} fitRequest={fitRequest}/></Suspense></FeatureBoundary> :
+          <div className="list-view" role="region" aria-label="Curriculum statement list">{map.groups.map((g, i) => <section key={g}><h3>{g}</h3>{visible.filter(x => x.group === i).map(s => <button key={s.id} data-node-id={s.id} onClick={() => openNode(s.id)} className={selected === s.id ? 'chosen' : ''} aria-pressed={selected === s.id}>
+            <span><b>{s.official.code}</b><br/>{s.title}</span><small>{s.level === 'HL' ? 'HL addition' : 'SL / HL'} · Self: {STATUS_LABELS[progress[s.id] || 'not-reviewed']}</small>
+          </button>)}</section>)}</div>}
+        {!visible.length && <p role="status" className="empty">No matching statements. Try another search or filter.</p>}
+        <footer className="legend"><span>Drag to explore · scroll to zoom · Tab to navigate</span><span>Solid → Suggested prerequisite</span><span>Gold ⇢ Suggested sequence</span><span>Purple ┄ Related idea</span></footer>
+
+       </div></section>
+      </div>
     </main><div className="bottom">CHEMISTREE <span>{audienceLabel==='TEACHER'?'Teacher view · official statement map 2.0':'Student release · official statement map 2.0'}</span><span>Local self-assessment · no automatic sync</span></div>
   </div>;
 }

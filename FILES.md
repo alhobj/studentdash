@@ -1,6 +1,6 @@
 # ArborSynapse file inventory
 
-**313 retained repository files; 211 additional practice files inside the bundle.**
+**315 retained repository files; 211 additional practice files inside the bundle.**
 
 Every retained repository file is listed once below. “Optional” tools/tests support maintenance or compatibility and do not run routinely. The normal checks remain five tests. Practice builder source files are retained so bundled student resources can be updated.
 
@@ -455,7 +455,7 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 
 | File | Purpose |
 | --- | --- |
-| `HighlightControls.tsx` | Connection/chapter highlighting controls. |
+| `HighlightControls.tsx` | Collapsed chapter, arrow-depth and availability sections in the left panel. |
 | `dependencies.ts` | Dependency reachability, redundancy cleanup and unlocked-node rules. |
 | `highlighting.ts` | Connection levels and chapter color calculations. |
 | `highlights.css` | Highlighted/marked/locked card and edge styling. |
@@ -538,6 +538,13 @@ Every retained repository file is listed once below. “Optional” tools/tests 
 | `style.css` | Fixed-size controls and ring overlays that preserve tree geometry. |
 | `tsconfig.json` | Type-check the separate teacher entry and its shared UI. |
 
+
+### tree/shared
+
+| File | Purpose |
+| --- | --- |
+| `ControlPanel.tsx` | Shared accessible left panel and native sections that start collapsed. |
+| `control-panel.css` | Fixed-width, scrollable panels that keep the map stable while menus open. |
 
 ## Bundled practice files
 

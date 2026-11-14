@@ -10,6 +10,9 @@ On Linux/macOS run `sh Start.sh`. First start installs dependencies and builds t
 bundled tree views. Later starts reuse the build until its source changes.
 Open **http://127.0.0.1:5000/classes**. Keep the launcher window open.
 
+Tree options live in a left panel. Its sections start closed: open a heading for
+chapter highlights, arrows, layout, student data, practice or backups.
+
 Open **Teacher tree** for the teacher view. **Student data: Off / On** enables
 class/student selection and read-only result rings; click a ring for tests and
 question marks. Data starts off and is not saved in the browser. Broad section

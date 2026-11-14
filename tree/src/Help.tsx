@@ -6,7 +6,7 @@ function HelpDialog({onClose, onStart}: {onClose: () => void; onStart: () => voi
   return <dialog ref={dialog} aria-labelledby="help-title" onCancel={e => {e.preventDefault(); onClose();}}>
     <div className="dialog-heading"><h2 id="help-title">Using Chemistree</h2><button onClick={onClose} aria-label="Close help">×</button></div>
     <p>Explore a statement, try some practice, then reflect on your confidence. Every statement stays open.</p>
-    <h3>Find your way</h3>
+    <h3>Find your way</h3><p>Open a section in the left panel to see its controls. Structure &amp; Reactivity highlights chapters; Arrows &amp; connections controls arrows and dependency depth. Layout &amp; view contains zoom, sorting and map/list options. Selected node contains the statement and practice.</p>
     <ul><li>Search by a statement code or an idea. Choose <b>SL</b> for shared content, <b>SL + HL</b> for everything, or <b>HL additions</b> for the extra HL statements.</li>
       <li>Use Map to pan and zoom through the trees. Fit map shows the current results. List gives you the same statements as keyboard-operable buttons.</li>
       <li>Selected connections are teaching suggestions. Read direct foundations, expand the prerequisite chain, or follow later connections in the details.</li></ul>

@@ -4,6 +4,11 @@ const {chromium} = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const map = require('../src/data/map.json');
+async function revealControls(page) {
+  await page.locator('.tree-control-panel').waitFor();
+  // Functional checks open menus explicitly; the application itself starts collapsed.
+  await page.locator('.tree-control-panel > .control-section').evaluateAll(items => items.forEach(item => {item.open = true;}));
+}
 const root = process.env.SMOKE_URL || 'http://127.0.0.1:4173';
 const baseOrigin = new URL(root).origin;
 const KEY = 'chemistree-self-assessment-v1';
@@ -24,7 +29,7 @@ function track(context) {
   context.on('page', page => {page.setDefaultTimeout(8000); page.on('pageerror', error => errors.push(error.message));});
 }
 async function ready(page, fragment = '') {
-  await page.goto(root + fragment);
+  await page.goto(root + fragment); await revealControls(page);
   await page.locator('.skill-card').first().waitFor();
   await page.waitForTimeout(400);
 }
@@ -102,7 +107,7 @@ async function assertGeometry(page) {
 
     await selfControl(page).selectOption('needs-practice');
     assert.deepEqual(await entries(page), {[A]: 'needs-practice'});
-    await page.reload(); await page.locator('.skill-card').first().waitFor();
+    await page.reload(); await revealControls(page); await page.locator('.skill-card').first().waitFor();
     assert.equal(await selfControl(page).inputValue(), 'needs-practice');
     await page.getByRole('button', {name: 'Reset this node', exact: true}).click();
     assert.deepEqual(await entries(page), {});
@@ -190,7 +195,7 @@ async function assertGeometry(page) {
     assert.equal(await page.locator('.official-statement > b').innerText(), 'Structure 1.2.1');
     await selfControl(page).selectOption('developing');
     const linkProgress = await rawProgress(page);
-    await page.reload(); await page.locator('.skill-card.active').waitFor();
+    await page.reload(); await revealControls(page); await page.locator('.skill-card.active').waitFor();
     assert.equal(await page.locator('.official-statement > b').innerText(), 'Structure 1.2.1');
     assert.equal(await rawProgress(page), linkProgress);
     await page.getByRole('button', {name: 'List', exact: true}).click();
@@ -218,7 +223,7 @@ async function assertGeometry(page) {
     await page.evaluate(() => {location.hash = 'node=does-not-exist';});
     await page.getByRole('status').filter({hasText: 'curriculum node was not found'}).waitFor();
     assert.equal(await rawProgress(page), linkProgress);
-    await page.reload(); await page.locator('.skill-card').first().waitFor();
+    await page.reload(); await revealControls(page); await page.locator('.skill-card').first().waitFor();
     await page.getByRole('status').filter({hasText: 'curriculum node was not found'}).waitFor();
     await page.evaluate(id => {location.hash = `node=${id}&score=should-not-be-accepted`;}, A);
     await page.getByRole('status').filter({hasText: 'curriculum link is invalid'}).waitFor();

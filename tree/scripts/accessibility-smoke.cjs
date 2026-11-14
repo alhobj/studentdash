@@ -4,6 +4,11 @@
 const {chromium} = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+async function revealControls(page) {
+  await page.locator('.tree-control-panel').waitFor();
+  // Functional checks open menus explicitly; the application itself starts collapsed.
+  await page.locator('.tree-control-panel > .control-section').evaluateAll(items => items.forEach(item => {item.open = true;}));
+}
 const root = process.env.SMOKE_URL || 'http://127.0.0.1:4173';
 const origin = new URL(root).origin;
 const requests = new Set();
@@ -105,7 +110,7 @@ async function modalKeyboard(page, buttonName, dialogName) {
     const page = await context.newPage();
     page.setDefaultTimeout(10000);
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto(root);
+    await page.goto(root); await revealControls(page);
     await page.getByRole('button', {name: 'List', exact: true}).waitFor();
     await page.keyboard.press('Tab');
     assert.equal(await page.locator('.skip-link').evaluate(el => el === document.activeElement), true);
@@ -174,7 +179,7 @@ async function modalKeyboard(page, buttonName, dialogName) {
     assert.equal(await page.locator('.official-statement>b').textContent(), 'Structure 1.1.1');
     results.keyboard.push('Selected map card has a visible keyboard focus ring and opens with Enter');
     await contrast(page, ['.skill-card strong', '.skill-card .node-meta>span', '.skill-card .node-meta>b', '.skill-card .node-status', '.skill-card .self-dot']);
-    const targets = await page.locator('.progress-tools button,.toolbar button,.toolbar select,.map-options button,.map-options select,.react-flow__controls-button,.header-right button,.header-right select').evaluateAll(elements => elements.map(el => {
+    const targets = await page.locator('.tree-control-panel button,.tree-control-panel select,.tree-control-panel summary').evaluateAll(elements => elements.filter(el => el.getClientRects().length).map(el => {
       const box = el.getBoundingClientRect();
       return {label: el.getAttribute('aria-label') || el.textContent.trim(), width: box.width, height: box.height};
     }));

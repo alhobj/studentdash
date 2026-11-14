@@ -50,6 +50,10 @@ test('controls expose six independent section buttons and labelled native slider
  function Controls(){const settings=useHighlightSettings();assert.equal(settings.showUnlocked,false);return React.createElement(HighlightControls,{settings,max:14});}
  const html=renderToStaticMarkup(React.createElement(Controls));
  for(const name of SECTION_NAMES)assert.ok(html.includes(name));
+ assert.equal((html.match(/<details/g)||[]).length,3);
+ assert.ok(!/<details[^>]*\sopen(?:[= >])/.test(html),'All settings sections start closed');
+ assert.ok(html.includes('Structure &amp; Reactivity'));
+ assert.ok(html.includes('Arrows &amp; connections'));
  assert.ok(html.includes('Unlocked nodes'));assert.ok(html.includes('class="unlock-toggle"'));
  assert.equal((html.match(/aria-pressed="false"/g)||[]).length,7);
  assert.ok(html.includes('See 0 levels before'));assert.ok(html.includes('See 1 levels after'));
