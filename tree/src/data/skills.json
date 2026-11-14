@@ -1,0 +1,1232 @@
+{
+  "skills": [
+    {
+      "id": "safety",
+      "label": "Safety, ethics and environmental care",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "mass",
+      "label": "Measure mass",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "volume",
+      "label": "Measure volume",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "time",
+      "label": "Measure elapsed time",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "temperature",
+      "label": "Measure temperature",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "length",
+      "label": "Measure length",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "ph",
+      "label": "Measure pH",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "current",
+      "label": "Measure electric current",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        34
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "voltage",
+      "label": "Measure potential difference",
+      "group": "Tool 1 · Safe measurement",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "standard",
+      "label": "Prepare a standard solution",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "dilution",
+      "label": "Carry out a dilution",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "constant-mass",
+      "label": "Dry to constant mass",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "distillation",
+      "label": "Distillation and reflux",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "chromatography",
+      "label": "Paper and thin-layer chromatography",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "separation",
+      "label": "Separate mixtures",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "calorimetry",
+      "label": "Calorimetry",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "titration",
+      "label": "Acid–base and redox titration",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1",
+        "R3.1",
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "cells",
+      "label": "Electrochemical cells",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "colorimetry",
+      "label": "Colorimetry and spectrophotometry",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "molecular-models",
+      "label": "Physical and digital molecular models",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "recrystallization",
+      "label": "Recrystallization",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "melting",
+      "label": "Melting-point determination",
+      "group": "Tool 1 · Laboratory techniques",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.1",
+        "S3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sensors",
+      "label": "Collect data with sensors",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "databases",
+      "label": "Select and extract database evidence",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "simulation",
+      "label": "Generate simulation data",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "spreadsheet",
+      "label": "Process data in spreadsheets",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "digital-graphs",
+      "label": "Graph with technology",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "computer-model",
+      "label": "Computer modelling",
+      "group": "Tool 2 · Technology",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "arithmetic",
+      "label": "Arithmetic and algebra",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "number-operations",
+      "label": "Fractions, ratios, percentages and powers",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "logarithms",
+      "label": "Logarithmic calculations",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "exponentials",
+      "label": "Exponential calculations · AHL",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "rates",
+      "label": "Rates from tables",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "mean-range",
+      "label": "Mean and range",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "scientific-notation",
+      "label": "Scientific notation",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "estimate",
+      "label": "Approximation and estimation",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "negligible",
+      "label": "Justify neglecting small effects",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "order",
+      "label": "Orders of magnitude",
+      "group": "Tool 3 · Mathematical processing",
+      "source_pages": [
+        35
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "proportionality",
+      "label": "Proportionality and correlation",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "percentage-change",
+      "label": "Percentage change and difference",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "error",
+      "label": "Percentage error and uncertainty",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "variables-type",
+      "label": "Continuous and discrete variables",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "units",
+      "label": "SI units and prefixes",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "symbols",
+      "label": "Scientific symbols and booklet notation",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "precision",
+      "label": "Significant figures and decimal places",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "raw-uncertainty",
+      "label": "Raw and processed uncertainty",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "uncertainty-range",
+      "label": "Record uncertainty intervals",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "propagation",
+      "label": "Propagate uncertainties",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "uncertainty-forms",
+      "label": "Absolute, relative and percentage uncertainty",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "r-squared",
+      "label": "Coefficient of determination",
+      "group": "Tool 3 · Quantities and uncertainty",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sketch",
+      "label": "Sketch qualitative graphs",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "charts",
+      "label": "Choose tables and graph types",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "plot",
+      "label": "Plot linear and nonlinear relationships",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "best-fit",
+      "label": "Lines and curves of best fit",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "graph-features",
+      "label": "Gradients, intercepts, extrema and area",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "error-bars",
+      "label": "Uncertainty bars",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "interpolation",
+      "label": "Interpolation and extrapolation",
+      "group": "Tool 3 · Graphs",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "initiative",
+      "label": "Independent ideas and initiative",
+      "group": "Inquiry 1 · Exploring",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sources",
+      "label": "Consult and select relevant sources",
+      "group": "Inquiry 1 · Exploring",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "research-question",
+      "label": "Research questions and hypotheses",
+      "group": "Inquiry 1 · Exploring",
+      "source_pages": [
+        36
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "prediction",
+      "label": "Explain scientific predictions",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "creative-design",
+      "label": "Creative investigation design",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "investigation-types",
+      "label": "Laboratory, database, simulation and modelling approaches",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "variable-selection",
+      "label": "Choose and justify variables",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "sampling-design",
+      "label": "Range and number of measurements",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "method",
+      "label": "Valid reproducible methodology",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "pilot",
+      "label": "Pilot and refine methods",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "calibration",
+      "label": "Calibrate apparatus",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "environment",
+      "label": "Control environmental conditions",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R3.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "insulation",
+      "label": "Limit unwanted heat transfer",
+      "group": "Inquiry 1 · Design and control",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "qualitative",
+      "label": "Record qualitative observations",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "quantitative",
+      "label": "Collect sufficient quantitative data",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "collection-issues",
+      "label": "Address data-collection problems",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "processing",
+      "label": "Accurate data processing",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "interpretation",
+      "label": "Interpret qualitative and quantitative evidence",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "diagrams",
+      "label": "Interpret diagrams and charts",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "patterns",
+      "label": "Explain patterns and relationships",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "outliers",
+      "label": "Justify outlier decisions",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "quality",
+      "label": "Accuracy, precision, reliability and validity",
+      "group": "Inquiry 2 · Collect and interpret",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "conclusion",
+      "label": "Justify conclusions from data",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "scientific-context",
+      "label": "Compare with accepted context",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "question-conclusion",
+      "label": "Answer the research question",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "uncertain-conclusions",
+      "label": "Uncertainty in conclusions",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "hypothesis-evaluation",
+      "label": "Evaluate hypotheses",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "errors",
+      "label": "Random and systematic error",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "limitations",
+      "label": "Limitations and assumptions",
+      "group": "Inquiry 3 · Conclusions and evaluation",
+      "source_pages": [
+        37
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "improvements",
+      "label": "Realistic methodological improvements",
+      "group": "Inquiry 3 · Improvements",
+      "source_pages": [
+        38
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "models",
+      "label": "Scientific models and limits",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        13
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence and falsifiability",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        13
+      ],
+      "sections": [
+        "R3.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "research-integrity",
+      "label": "Research integrity and collaboration",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        14
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "planning",
+      "label": "Plan and reflect on learning",
+      "group": "Scientific thinking and learning",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "theories",
+      "label": "Hypotheses, theories and laws",
+      "group": "Scientific thinking · Explanations",
+      "source_pages": [
+        13
+      ],
+      "sections": [
+        "S1.5"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "peer-review",
+      "label": "Peer review and shared science",
+      "group": "Scientific thinking · Society",
+      "source_pages": [
+        14
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "global-impact",
+      "label": "Global and ethical impacts of science",
+      "group": "Scientific thinking · Society",
+      "source_pages": [
+        14
+      ],
+      "sections": [
+        "R1.3"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "atl-thinking",
+      "label": "Thinking and transfer",
+      "group": "Approaches to learning · Thinking",
+      "source_pages": [
+        21
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "atl-communication",
+      "label": "Communication and audience",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "atl-social",
+      "label": "Social skills and teamwork",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "atl-research",
+      "label": "Research, citation and validation",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "atl-self-management",
+      "label": "Self-management and feedback",
+      "group": "Approaches to learning · Communication and collaboration",
+      "source_pages": [
+        22
+      ],
+      "sections": [],
+      "across_course": true
+    },
+    {
+      "id": "knowledge",
+      "label": "Scientific knowledge and terminology",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "S1.1"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "apply-knowledge",
+      "label": "Apply scientific concepts and methods",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "S1.4"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "evaluate-science",
+      "label": "Analyse, evaluate and synthesize evidence",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "R2.2"
+      ],
+      "across_course": false
+    },
+    {
+      "id": "ethical-investigation",
+      "label": "Conduct an ethical scientific investigation",
+      "group": "Assessment skills",
+      "source_pages": [
+        28
+      ],
+      "sections": [
+        "R1.1"
+      ],
+      "across_course": false
+    }
+  ]
+}

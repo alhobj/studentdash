@@ -1,6 +1,6 @@
 # ArborSynapse file inventory
 
-**321 retained repository files; 211 additional practice files inside the bundle.**
+**323 retained repository files; 211 additional practice files inside the bundle.**
 
 Every retained repository file is listed once below. “Optional” tools/tests support maintenance or compatibility and do not run routinely. The normal checks remain five tests. Practice builder source files are retained so bundled student resources can be updated.
 
@@ -791,3 +791,6 @@ These are stored inside `server/assets/practice.zip`, then restored to `server/r
 | `tree/teacher-viewer/exams.ts` | Validated paper metadata and mark allocations; prevents double counting. |
 | `tree/tests/exams.test.ts` | Focused import and mark-allocation checks. |
 | `docs/EXAMS.md` | Short exam import format and operating guide. |
+
+| `tree/src/SkillsPanel.tsx` | Searchable skills and existing guidance links in the tree sidebar. |
+| `tree/src/data/skills.json` | Existing 103 chemistry skill labels and reviewed section links projected from the practice bundle. |

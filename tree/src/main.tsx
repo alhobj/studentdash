@@ -1,3 +1,4 @@
+import {SkillsPanel} from './SkillsPanel';
 import {SECTION_NAMES,sectionStyle,nodeAvailability,availabilityLabel} from '../simple/src/highlighting';
 import React, {useState, useEffect, useMemo, lazy, Suspense} from 'react';
 import {createRoot} from 'react-dom/client';
@@ -124,6 +125,7 @@ export function App({tools,extraPanels,nodeExtras,nodeVisibility,audienceLabel='
          <button aria-label="Zoom out" onClick={()=>{setView('map');setZoomRequest(p=>({sequence:p.sequence+1,direction:'out'}));}}>Zoom out −</button>
         </ControlSection>
         {tools&&<ControlSection title="Student data">{tools}</ControlSection>}{extraPanels}
+        <SkillsPanel/>
         <ControlSection title="Practice & help">
          <label>Practice level<select aria-label="Practice level" value={practiceLevel} onChange={e=>setPracticeLevel(e.target.value as 'SL'|'HL')}><option value="SL">SL</option><option value="HL">HL</option></select></label>
          <label className="guided-filter"><input id="guided-filter" type="checkbox" checked={guidedOnly} onChange={e=>setGuidedOnly(e.target.checked)}/> Guided exercises ({practiceCount})</label>
