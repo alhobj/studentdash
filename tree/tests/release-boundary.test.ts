@@ -44,8 +44,8 @@ test('student entry module graph cannot reach assessment models, rules or learne
   assert.ok(!seen.has(resolve('src/data/map.json')), 'Reviewed source is kept outside the compact runtime graph');
   const publicFiles = filesUnder('public');
   assert.equal(publicFiles.filter(file => /student-|fixtures|examples|assessment/i.test(file)).length, 0);
-  assert.ok(existsSync('tests/support/assessment/model.ts'));
-  assert.ok(existsSync('tests/fixtures/prototype/student-1001.json'));
+  assert.ok(!existsSync('tests/support/assessment/model.ts'), 'Retired assessment prototype stays removed');
+  assert.ok(!existsSync('tests/fixtures/prototype/student-1001.json'), 'Retired demo fixtures stay removed');
 });
 
 test('production artifact checker rejects fixture files and private-result import code', () => {

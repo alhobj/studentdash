@@ -6,7 +6,7 @@ node_modules/
 dist/
 local-package/
 local-pilot/
-src/generated/
+tree/src/generated/
 tree/simple/src/data/map.json
 server/resources/
 /data/

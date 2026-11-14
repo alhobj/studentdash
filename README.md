@@ -43,3 +43,5 @@ builds are ignored. Practice resources unpack automatically on first use.
 For automatic Atlas testing after the new repository exists, follow
 [the short Atlas setup](docs/ATLAS.md). Keep the testing sandbox fictional.
 For moving this branch into the new repository, see [the move steps](docs/MOVE.md).
+
+[File inventory](FILES.md) lists every retained source file, bundled practice asset and removal from the cleanup.
