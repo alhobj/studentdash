@@ -30,7 +30,8 @@ def render_student(data, sid, include_examples=True, state=None, **context):
             view = build_dashboard(selected, sid, False, workspace_state=state)
             reports.append(dict(kind=kind, student=view, report=evidence(selected, sid)))
         return template_environment().get_template('metadata_student.html').render(
-            student=student, reports=reports, assessment_types=TYPES, **context)
+            student=student, reports=reports, assessment_types=TYPES,
+            course_label=(data.curriculum or {}).get("label"), **context)
     context.setdefault('resource_base', '/practice/')
     context['learning_context'] = learner_context(data, sid, state, context.pop('completed_tickets', []))
     student = build_dashboard(data, sid, include_examples, workspace_state=state)

@@ -7,6 +7,7 @@ from uuid import uuid4
 
 from flask import Blueprint, render_template, request, send_file, session
 
+from .config import Config
 from .excel import read_workbook
 from .entry import ClassStore, read_document
 from .portability import PackageError, backup_workspace, practice_package, restore_workspace, student_package
@@ -47,6 +48,21 @@ def register_portability_routes(app, active_config, base_config):
         students = read_workbook(config.workbook).students.values() if config.workbook.exists() else []
         return render_template('transfer.html', students=students, restored=restored, restored_key=restored_key, error=error,
                                source_exists=config.workbook.exists(), source_label=source_label), 400 if error else 200
+
+    @bp.post('/classes/<key>/student-package')
+    def class_student_package(key):
+        store = ClassStore(base_config.workbook.parent / 'entered_classes')
+        try:
+            doc = store.read(key)
+            sid = request.form.get('student', '')
+            config = Config(store.path(key), base_config.output / ('class-' + key))
+            content = student_package(config, sid)
+        except (ValueError, OSError) as exc:
+            return render_template('entry_error.html', error=str(exc)), 400
+        course = (doc['profile'].get('curriculum') or {}).get('id') or 'course'
+        filename = secure_filename(f'{course}-{doc["name"]}-{sid}.zip')
+        return send_file(BytesIO(content), as_attachment=True, download_name=filename,
+                         mimetype='application/zip')
 
     @bp.post('/transfer/download/<kind>')
     def download(kind):

@@ -1,6 +1,17 @@
 {% extends 'entry_base.html' %}
 {% block body %}<h1>{{ doc.name }}</h1>
-<p><a class="button-link" href="{{ url_for('tree_export.page', key=doc.id) }}">Export student folder</a></p>
+{% if (doc.profile.curriculum or {}).get('id') == 'chemistry-2025' %}
+<p><a class="button-link" href="{{ url_for('tree_export.page', key=doc.id) }}">Export Chemistree student folder</a></p>
+{% endif %}
+<form method="post" action="{{ url_for('portability.class_student_package', key=doc.id) }}">
+  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+  <label for="class-package-student">Student report for {{ doc.name }}</label>
+  <select id="class-package-student" name="student" required>
+    <option value="">Choose a student</option>
+    {% for student in doc.students %}<option value="{{ student.id }}">{{ student.name }}</option>{% endfor %}
+  </select>
+  <button>Download private report ZIP</button>
+</form>
 {% if teacher_section == 'classes' or error %}{% include 'student_roster.html' %}{% endif %}
 {% if draft_message %}<p class="notice" role="status">{{ draft_message }}</p>{% endif %}
 <section class="card"><h2>New assessment</h2><div class="actions"><a class="button-link" href="{{ url_for('assessment_import.upload', key=doc.id) }}">Import assessment</a><a href="{{ url_for('entry.edit', key=doc.id) }}">Create manually</a></div><p>Copy a prompt into ChatGPT with your test, paste its metadata response here, and import from an editable preview. Then enter or paste scores separately.</p></section>

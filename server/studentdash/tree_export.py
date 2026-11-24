@@ -61,6 +61,9 @@ def register_tree_export(app, store, base_config):
     def page(key):
         session.setdefault('csrf_token', secrets.token_urlsafe(32))
         doc = store.read(key)
+        curriculum_id = (doc['profile'].get('curriculum') or {}).get('id')
+        if curriculum_id and curriculum_id != 'chemistry-2025':
+            return render_template('entry_error.html', error='Chemistree export is available for Chemistry classes. Download the private report ZIP from your class page.'), 400
         session['entered_class'] = key
         settings = doc.get('local_tree', {})
         bundled = Path(__file__).resolve().parents[2] / 'tree' / 'local-package'
